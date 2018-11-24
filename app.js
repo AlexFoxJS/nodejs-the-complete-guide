@@ -1,7 +1,9 @@
 const http = require("http");
+const fs = require("fs");
+
 
 const server = http.createServer((req, res) => {
-	console.log('[NODE Server ] - url:', req.url);
+	console.log('[NODE Server] url -', req.url);
 
 	if (req.url === '/home') {
 		res.write(`
@@ -17,6 +19,14 @@ const server = http.createServer((req, res) => {
 				</body>
 			</html>
 		`);
+
+		return res.end();
+	}
+
+	if (req.url === '/message' && req.method === 'POST') {
+		fs.writeFileSync('message.txt', 'DUMMY');
+		res.statusCode = 302;
+		res.setHeader('Location', '/');
 		return res.end();
 	}
 
@@ -32,6 +42,7 @@ const server = http.createServer((req, res) => {
 		</html>
 	`);
 	res.end();
+
 });
 
 server.listen(3000);
