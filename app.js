@@ -3,7 +3,10 @@ const fs = require("fs");
 
 
 const server = http.createServer((req, res) => {
-	console.log('[NODE Server] url -', req.url);
+	const url = req.url;
+	const method = req.method;
+
+	console.log('[NODE Server] url -', url);
 
 	if (req.url === '/home') {
 		res.write(`
@@ -23,10 +26,24 @@ const server = http.createServer((req, res) => {
 		return res.end();
 	}
 
-	if (req.url === '/message' && req.method === 'POST') {
-		fs.writeFileSync('message.txt', 'DUMMY');
+	if (url === '/message' && method === 'POST') {
+		const body = [];
+
+		req.on('data', chunk => {
+			console.log('[NODE Server] chunk -', chunk);
+			body.push(chunk);
+		});
+
+		req.on('end', () => {
+			const parsedBody = Buffer.concat(body).toString();
+			const message = parsedBody.split('=')[1];
+
+			fs.writeFileSync('message.txt', message);
+		});
+
 		res.statusCode = 302;
 		res.setHeader('Location', '/');
+
 		return res.end();
 	}
 
