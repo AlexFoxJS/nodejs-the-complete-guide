@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/AlexFoxJS/nodejs-the-complete-guide/issues"
   },
-  "homepage": "https://github.com/AlexFoxJS/nodejs-the-complete-guide#readme"
+  "homepage": "https://github.com/AlexFoxJS/nodejs-the-complete-guide#readme",
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
 }
