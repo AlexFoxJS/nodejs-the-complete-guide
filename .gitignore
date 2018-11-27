@@ -62,3 +62,6 @@ typings/
 
 # WebStorm
 .idea
+
+# npm
+package-lock.json
