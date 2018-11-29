@@ -1,0 +1,64 @@
+1
+00:00:02,320 --> 00:00:09,550
+Now you could spend hours working on this application to add all the functionalities we need to add
+
+2
+00:00:09,550 --> 00:00:18,500
+products to a cart or to also interact with users with orders and we can do all of that with these sequinned
+
+3
+00:00:18,520 --> 00:00:18,990
+queries.
+
+4
+00:00:18,990 --> 00:00:20,570
+We're already writing here.
+
+5
+00:00:20,590 --> 00:00:26,700
+The problem is degrees will get more and more complex to more complex our application logic becomes.
+
+6
+00:00:26,860 --> 00:00:32,650
+And at some point we'll have to connect tables because one thing we're not using right now are relations
+
+7
+00:00:32,800 --> 00:00:34,590
+because we only got one table.
+
+8
+00:00:34,960 --> 00:00:41,170
+Now we can do all that just with the sequel package and if you're a sequel or a sequel master in general
+
+9
+00:00:41,470 --> 00:00:45,250
+you could definitely do that for the rest of us.
+
+10
+00:00:45,280 --> 00:00:51,850
+There is a way easier approach to that which allows us to not write all these queries we don't have
+
+11
+00:00:51,850 --> 00:00:59,010
+to write any sequel code but instead only work with native javascript objects that give us certain functionalities
+
+12
+00:00:59,020 --> 00:01:03,930
+we need for connecting to them deleting them adding them and so on will you.
+
+13
+00:01:03,950 --> 00:01:09,750
+And now for third party package we can add to this application that makes our life a bunch easier.
+
+14
+00:01:09,760 --> 00:01:15,340
+I just wanted to show you how you generally can add sequel and write your own queries as the next step
+
+15
+00:01:15,390 --> 00:01:17,290
+will not write our own queries.
+
+16
+00:01:17,340 --> 00:01:22,570
+Instead we'll find an easier approach in the next module with sequel's.
+

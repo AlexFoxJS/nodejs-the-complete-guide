@@ -1,0 +1,224 @@
+1
+00:00:02,260 --> 00:00:09,590
+The sides objects another crucial data structure in notorious or in Javascript in general are a race
+
+2
+00:00:09,920 --> 00:00:15,560
+like hobbies an array is defined with square brackets and in the array.
+
+3
+00:00:15,590 --> 00:00:18,510
+You can have any data you could normally use to.
+
+4
+00:00:18,560 --> 00:00:22,570
+You can use strings in there like sports and cooking.
+
+5
+00:00:22,790 --> 00:00:27,140
+You can have numbers in there and you don't have to use one the same type in the array.
+
+6
+00:00:27,140 --> 00:00:29,450
+Here we are mixing text and numbers.
+
+7
+00:00:29,480 --> 00:00:32,530
+You could have arrays with just text just numbers and so on.
+
+8
+00:00:32,530 --> 00:00:39,800
+Q Of course you can use boolean values and you can even store objects in there or ever arrays.
+
+9
+00:00:39,800 --> 00:00:41,570
+That is all possible.
+
+10
+00:00:41,570 --> 00:00:43,690
+Now here I'll have an array of text though.
+
+11
+00:00:44,090 --> 00:00:52,300
+And you can use for loops to go Fruitbat with this index for example with the four off loop where we
+
+12
+00:00:52,300 --> 00:00:56,250
+store each element for each iteration in that hobby variable.
+
+13
+00:00:56,350 --> 00:01:02,260
+And now if we do that we would execute Cancellara two times because we have two elements and we're looping
+
+14
+00:01:02,260 --> 00:01:07,030
+through all of them and then outputting the current value we're currently looking at because this will
+
+15
+00:01:07,030 --> 00:01:13,040
+change for every iteration going through it from left to right will output that for every two creation.
+
+16
+00:01:13,030 --> 00:01:20,330
+So now if I run this we see sports and cooking printed in two lines because it is executes two times.
+
+17
+00:01:20,680 --> 00:01:22,600
+So these are arrays.
+
+18
+00:01:22,630 --> 00:01:29,080
+Before all loop is interesting and it's also interesting that in javascript we got a lot of built in
+
+19
+00:01:29,080 --> 00:01:31,030
+methods we can use on the erase.
+
+20
+00:01:31,270 --> 00:01:32,900
+So on hobby's on that array.
+
+21
+00:01:32,950 --> 00:01:40,780
+If I add a dot my ID suggests a lot of methods I can use on arrays and Javascript and all these methods
+
+22
+00:01:40,780 --> 00:01:47,790
+help me go through the elements in the array manipulate them get a subset of that array whatever I need.
+
+23
+00:01:48,140 --> 00:01:55,840
+Often you'll see map for example which allows you to transform an array or transform the values and
+
+24
+00:01:55,840 --> 00:01:58,520
+map will actually return a new array.
+
+25
+00:01:58,600 --> 00:02:02,450
+So it will not added the old one but give you a new one.
+
+26
+00:02:02,450 --> 00:02:07,010
+And we can print dead new one here actually.
+
+27
+00:02:07,360 --> 00:02:10,290
+And just to show that the old one was not edited.
+
+28
+00:02:10,300 --> 00:02:12,240
+We can print that right below.
+
+29
+00:02:12,520 --> 00:02:19,930
+And now map always takes a function where you define how to add at that array or how to edit the elements
+
+30
+00:02:19,930 --> 00:02:20,920
+of the array.
+
+31
+00:02:21,040 --> 00:02:28,570
+That function will be executed on every element in the array one after another and you return the updated
+
+32
+00:02:28,630 --> 00:02:30,160
+version of the element.
+
+33
+00:02:30,160 --> 00:02:32,290
+So here we would get our hobby.
+
+34
+00:02:32,350 --> 00:02:37,430
+You can name this however you want and here I'm using an arrow function with one argument only.
+
+35
+00:02:37,450 --> 00:02:43,740
+Hence no parentheses and any Here I'll return D added to the word.
+
+36
+00:02:43,900 --> 00:02:51,020
+For example here I could take my old hobby string and simply add hobby.
+
+37
+00:02:51,150 --> 00:02:52,630
+White whitespace in front of that.
+
+38
+00:02:52,740 --> 00:02:57,840
+So I'm simply constructing a new string which keeps the old hobby name but adds hobby and white space
+
+39
+00:02:57,840 --> 00:02:58,790
+in front of it.
+
+40
+00:02:59,160 --> 00:03:04,890
+And yes since we only got one statement in that arrow function with the return statement we can get
+
+41
+00:03:04,890 --> 00:03:06,420
+rid of the curly braces.
+
+42
+00:03:06,450 --> 00:03:09,560
+Get rid of her turn and just return like this.
+
+43
+00:03:09,570 --> 00:03:11,590
+This would be the equivalent.
+
+44
+00:03:11,850 --> 00:03:19,470
+And now has it cleared us and I run plage Yes I see the old array was not added it.
+
+45
+00:03:19,530 --> 00:03:21,140
+That is my second output here.
+
+46
+00:03:21,180 --> 00:03:24,980
+It's coming from this console lock where I console locked the original array.
+
+47
+00:03:25,350 --> 00:03:32,880
+But the result of my map here is a new array where I have my edited items with hubby added in front
+
+48
+00:03:32,880 --> 00:03:34,160
+of every item.
+
+49
+00:03:34,350 --> 00:03:37,910
+And this is something you'll see me do quite a bit in this course.
+
+50
+00:03:38,040 --> 00:03:39,900
+Used that map method.
+
+51
+00:03:40,110 --> 00:03:43,600
+And as I mentioned it's only one of the many methods provided here.
+
+52
+00:03:43,740 --> 00:03:49,030
+Always check out the docs on M.D and to learn more about all these methods.
+
+53
+00:03:49,050 --> 00:03:56,730
+Link can be found attached to this video and make sure that you understand how to work or that when
+
+54
+00:03:56,730 --> 00:04:02,700
+we use one of them in this course you can quickly look it up in case it's not clear what exactly that
+
+55
+00:04:02,700 --> 00:04:07,250
+does though of course I will do my best to explain it when we use it.
+
+56
+00:04:07,470 --> 00:04:14,340
+But these are arrays very important data structures and some very important methods you can use on arrays.
+

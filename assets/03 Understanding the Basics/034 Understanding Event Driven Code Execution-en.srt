@@ -1,0 +1,268 @@
+1
+00:00:02,310 --> 00:00:05,270
+We already achieved a lot in this section.
+
+2
+00:00:05,520 --> 00:00:12,760
+And I noted all this code looks kind of intimidating and no worries it will become much easier but I
+
+3
+00:00:12,810 --> 00:00:18,840
+find it super important to learn it the hard way first so that you'll never forget what's happening
+
+4
+00:00:18,840 --> 00:00:20,650
+behind the scenes.
+
+5
+00:00:20,790 --> 00:00:27,930
+Now one crucial thing which I note that people often struggle with is that the order of execution of
+
+6
+00:00:27,930 --> 00:00:32,440
+your code here is not necessarily the order in which you write it.
+
+7
+00:00:32,460 --> 00:00:41,490
+For example this year will actually execute after this code so it will even execute after we already
+
+8
+00:00:41,490 --> 00:00:43,250
+sent the response.
+
+9
+00:00:43,260 --> 00:00:50,190
+This has two important implications for one sending the response does not mean that our event listeners
+
+10
+00:00:50,190 --> 00:00:51,220
+here are dead.
+
+11
+00:00:51,360 --> 00:00:55,000
+They will still execute even if the response is already gone.
+
+12
+00:00:55,200 --> 00:01:00,860
+But it also means that if we do something in the event listener that should influence the response this
+
+13
+00:01:00,960 --> 00:01:02,620
+is the wrong way of setting it up.
+
+14
+00:01:02,640 --> 00:01:06,200
+We should then also move the response code into the event listener.
+
+15
+00:01:06,210 --> 00:01:08,190
+If we had such a dependency.
+
+16
+00:01:08,550 --> 00:01:16,740
+But it also means that it's super important to understand that if request on or code like HTP create
+
+17
+00:01:16,750 --> 00:01:17,370
+server.
+
+18
+00:01:17,490 --> 00:01:25,980
+So basically always when you have code where you pass a function as an argument to a function that in
+
+19
+00:01:25,980 --> 00:01:31,950
+such cases no chase won't immediately run that function.
+
+20
+00:01:31,950 --> 00:01:39,570
+Instead what it does when it first encounters this line is that it will simply add a new eventless internally.
+
+21
+00:01:39,690 --> 00:01:42,160
+It manages all these listeners internally.
+
+22
+00:01:42,420 --> 00:01:48,420
+In this case for the end event on the request which will be triggered automatically once no chase is
+
+23
+00:01:48,420 --> 00:01:50,230
+done parsing the request.
+
+24
+00:01:50,250 --> 00:01:52,750
+So this is something no chase does for you.
+
+25
+00:01:53,530 --> 00:01:56,450
+And it will then call that function for you.
+
+26
+00:01:56,500 --> 00:02:03,880
+Once it is done so in the end you can think of this like no chase having some internal registry of events
+
+27
+00:02:04,120 --> 00:02:10,090
+and listeners to these events and a function like this is such a listener and when sort of something
+
+28
+00:02:10,090 --> 00:02:17,110
+happens so when no chance is done parsing your request it will go through dead registry and see.
+
+29
+00:02:17,260 --> 00:02:20,900
+I'm done with the request so I should now send D and events.
+
+30
+00:02:20,910 --> 00:02:28,030
+Let's see which listeners I have for debt and will then find dysfunction and any other functions you
+
+31
+00:02:28,030 --> 00:02:35,380
+might have registered for that and will now call them but it will not posti average code execution and
+
+32
+00:02:35,380 --> 00:02:37,890
+that is so important to understand.
+
+33
+00:02:37,900 --> 00:02:45,480
+So for example here now since I moved return response and into this function the flow is like this.
+
+34
+00:02:45,550 --> 00:02:50,520
+It will now reached as if statement and if these conditions are met it will go inside of it.
+
+35
+00:02:51,350 --> 00:02:56,880
+It will then register these two handlers and not immediately execute these two functions.
+
+36
+00:02:56,930 --> 00:03:03,260
+Instead the functions are just registered internally in its event emitter registry and then it will
+
+37
+00:03:03,260 --> 00:03:10,710
+jump straight the way to the next line and therefore right now if I would restart my server and save
+
+38
+00:03:10,710 --> 00:03:12,370
+to code and restart my server.
+
+39
+00:03:12,390 --> 00:03:19,730
+Your you will see that if I enter something here I actually get redirected to this page or not even
+
+40
+00:03:19,750 --> 00:03:21,110
+redirect it as you can see.
+
+41
+00:03:21,210 --> 00:03:29,040
+There is no 300 status code instead of just Lote's this page because it executes these lines because
+
+42
+00:03:29,070 --> 00:03:32,710
+as of now mentioned multiple times it will not execute this right away.
+
+43
+00:03:32,850 --> 00:03:38,030
+And this return statement will therefore not quit this overarching function here.
+
+44
+00:03:38,400 --> 00:03:43,540
+Instead it just registers this callback and immediately moves onto the next lines.
+
+45
+00:03:43,680 --> 00:03:47,720
+And it would eventually execute this line but that is already too late.
+
+46
+00:03:47,820 --> 00:03:53,460
+Which is also why we get the cannot set hetero's error here because it already moved along and executed
+
+47
+00:03:53,490 --> 00:03:59,730
+this code when all of a sudden the parsing of the request finished and it executed this code and tried
+
+48
+00:03:59,730 --> 00:04:04,840
+to again send a response which obviously is too late because it already did here.
+
+49
+00:04:05,010 --> 00:04:13,320
+Now I know that it is hard to wrap your head around but it is a crucial concept that you can register
+
+50
+00:04:13,320 --> 00:04:19,970
+code functions which run some time in the future but not necessarily right now.
+
+51
+00:04:20,130 --> 00:04:27,950
+And therefore the next line of code does code here can run or will run before this code simply because
+
+52
+00:04:27,960 --> 00:04:32,420
+it is just a callback to be called sometime in the future.
+
+53
+00:04:32,550 --> 00:04:39,540
+And this set up is important because otherwise node would have to pause until it's done pause until
+
+54
+00:04:39,540 --> 00:04:40,790
+it wrote the file.
+
+55
+00:04:40,980 --> 00:04:48,000
+And if it does that it will simply slow our server down and it's not able to handle incoming requests
+
+56
+00:04:48,210 --> 00:04:51,440
+or do anything of that kind until it's done.
+
+57
+00:04:51,480 --> 00:04:53,400
+And that's not what we want.
+
+58
+00:04:53,400 --> 00:04:56,550
+We don't want to block our code execution.
+
+59
+00:04:56,550 --> 00:05:02,820
+We always want to be in that wait for new events loop the event loop and then only execute code once
+
+60
+00:05:02,830 --> 00:05:07,990
+it's to be executed and never blocked that event loop for too long of a time.
+
+61
+00:05:08,070 --> 00:05:10,240
+And this is why we have this set up.
+
+62
+00:05:10,380 --> 00:05:17,400
+And this has one implication for design and for this line application for design is that we reach it
+
+63
+00:05:17,400 --> 00:05:18,250
+too early.
+
+64
+00:05:18,270 --> 00:05:22,020
+So to a white this we should actually return here.
+
+65
+00:05:22,860 --> 00:05:26,350
+We simply return request on so that this gets executed.
+
+66
+00:05:26,400 --> 00:05:28,310
+But the line thereafter doesn't.
+
+67
+00:05:28,650 --> 00:05:33,240
+And the important application about this line will be discussed in the next lecture.
+

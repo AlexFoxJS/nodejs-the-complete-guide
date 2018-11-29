@@ -1,0 +1,192 @@
+1
+00:00:02,120 --> 00:00:08,340
+Now back in our project let's add express chase and you could also simply create a new project.
+
+2
+00:00:08,360 --> 00:00:10,300
+Make sure to install Node 1 though.
+
+3
+00:00:10,340 --> 00:00:15,800
+I will keep using that but I will get rid of the route's chase fall because it will basically create
+
+4
+00:00:15,800 --> 00:00:18,070
+a brand new application you could say.
+
+5
+00:00:18,230 --> 00:00:23,560
+So therefore of course in the last Fall I have to get rid of that imports and that of course means I'm
+
+6
+00:00:23,570 --> 00:00:26,980
+now missing my route handler or my request handler here.
+
+7
+00:00:27,050 --> 00:00:29,120
+But it will work on this later.
+
+8
+00:00:29,120 --> 00:00:33,530
+So let's now install express Yes by running NPM install dash dash.
+
+9
+00:00:34,160 --> 00:00:40,950
+Now why not dash dash save death but dash dash save because this will be a production dependency.
+
+10
+00:00:40,970 --> 00:00:44,420
+We don't just use that as a tool during development.
+
+11
+00:00:44,420 --> 00:00:50,570
+It will be an integral part of the application we ship and therefore it definitely also has to be installed
+
+12
+00:00:50,780 --> 00:00:55,690
+on any server or any computer where we run our application once we deploy it.
+
+13
+00:00:55,700 --> 00:00:58,680
+It is a major piece of our application.
+
+14
+00:00:58,820 --> 00:01:04,580
+So let's install it as a production dependency with this command and the name of the package just is
+
+15
+00:01:04,670 --> 00:01:12,550
+EXPRESS So an install dash dash save Express will install express chase into our project.
+
+16
+00:01:12,690 --> 00:01:18,960
+Now once it is installed you see an entry was added to the dependencies in our packaged adjacent fall
+
+17
+00:01:18,960 --> 00:01:25,110
+here and now we can start using it and to use it I'll go to my app yes fall.
+
+18
+00:01:25,350 --> 00:01:29,110
+And here I will import express.
+
+19
+00:01:29,130 --> 00:01:34,880
+You can name that constant however you want of course but the packet just called Express now.
+
+20
+00:01:35,010 --> 00:01:39,300
+You can also of course group that together with the core module imports.
+
+21
+00:01:39,300 --> 00:01:45,870
+I like to separate my node specific modules and the third party package Yes and also my own imports
+
+22
+00:01:45,870 --> 00:01:50,340
+if I have them with empty lines so that you can clearly see what's what.
+
+23
+00:01:50,340 --> 00:01:52,100
+But this is not required.
+
+24
+00:01:52,140 --> 00:01:53,840
+So now Express's implored that.
+
+25
+00:01:54,260 --> 00:01:57,530
+And now let's all get rid of that console lock statement here.
+
+26
+00:01:57,630 --> 00:02:05,490
+You can create an express application and store it in a constant named app though that name of course
+
+27
+00:02:05,490 --> 00:02:09,570
+is always up to you by running express as a function.
+
+28
+00:02:09,690 --> 00:02:14,560
+So put in other words the express package seems to export a function in the end.
+
+29
+00:02:14,640 --> 00:02:20,280
+And actually you can see this if you hold command or control in Windows and you click on the Express
+
+30
+00:02:20,280 --> 00:02:27,810
+year your take into the source code and there you can actually see that in the end at the bottom of
+
+31
+00:02:27,810 --> 00:02:28,780
+the file.
+
+32
+00:02:28,920 --> 00:02:33,940
+It exports E and don't worry about that syntax here.
+
+33
+00:02:33,940 --> 00:02:40,330
+This is not javascript fall it's a definition types could fall but still it exports E which has this
+
+34
+00:02:40,330 --> 00:02:43,530
+function and so it exports a function here.
+
+35
+00:02:43,870 --> 00:02:46,410
+And therefore we execute it as a function.
+
+36
+00:02:46,480 --> 00:02:51,160
+And this will initialize a new object you could say where expressed Yes.
+
+37
+00:02:51,190 --> 00:02:56,470
+The framework will store and manage a lot of things for us behind the scenes.
+
+38
+00:02:56,590 --> 00:03:01,040
+So a lot of logic is in this app constant here.
+
+39
+00:03:01,210 --> 00:03:10,000
+Now the app here actually also happens to be a valid request handler so you can pass app here to create
+
+40
+00:03:10,000 --> 00:03:11,270
+server.
+
+41
+00:03:11,290 --> 00:03:18,850
+And if you do that and you run NPM start you will actually have a running server which of course will
+
+42
+00:03:18,850 --> 00:03:24,040
+not handle any requests though because we haven't defined any logic that should happen for incoming
+
+43
+00:03:24,040 --> 00:03:24,920
+requests.
+
+44
+00:03:24,940 --> 00:03:28,230
+App will basically not do anything at this point.
+
+45
+00:03:28,690 --> 00:03:30,250
+Well almost.
+
+46
+00:03:30,250 --> 00:03:30,700
+It does.
+
+47
+00:03:30,700 --> 00:03:39,200
+One thing for you and that is it sets up a certain way of handling incoming requests that defines or
+
+48
+00:03:39,220 --> 00:03:44,890
+that is a key characteristic of express chase and we'll have a look at that in the next lecture.
+

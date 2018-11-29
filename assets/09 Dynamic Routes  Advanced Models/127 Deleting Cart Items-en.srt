@@ -1,0 +1,260 @@
+1
+00:00:02,340 --> 00:00:08,330
+Let's make sure we can also delete items in the cart and vidis in CART.
+
+2
+00:00:08,490 --> 00:00:12,020
+Yes I will change my list item a bit in there.
+
+3
+00:00:12,050 --> 00:00:14,040
+I'll add a diff First of all.
+
+4
+00:00:14,220 --> 00:00:22,370
+Or maybe let's add a paragraph to be semantically more correct which will output to text for discard
+
+5
+00:00:22,370 --> 00:00:25,290
+items so things like the name and the quantity.
+
+6
+00:00:25,670 --> 00:00:28,190
+And then I will also add a little button there.
+
+7
+00:00:30,940 --> 00:00:36,060
+Wrapped in a form the form should go to card.
+
+8
+00:00:36,060 --> 00:00:43,740
+Delete item maybe the method will be a POST method and in the form I will of course have my button with
+
+9
+00:00:43,740 --> 00:00:53,120
+a class of button with a type of submit which says delete if we now reload the card here.
+
+10
+00:00:53,620 --> 00:00:58,660
+We see delete does the button we can certainly work on the styling but for now I just want to make sure
+
+11
+00:00:58,660 --> 00:00:59,820
+that it works.
+
+12
+00:00:59,820 --> 00:01:01,310
+Now it is the a delete button.
+
+13
+00:01:01,360 --> 00:01:05,740
+And if I click that it well should delete this item of course.
+
+14
+00:01:05,740 --> 00:01:07,460
+So card delete item is a route.
+
+15
+00:01:07,480 --> 00:01:11,920
+We now need to add and then let's go to route's here and shop.
+
+16
+00:01:11,940 --> 00:01:14,500
+J.S. because of course this is a costumer action.
+
+17
+00:01:14,500 --> 00:01:18,450
+Our customers will manage to cart and they're below the cart.
+
+18
+00:01:18,460 --> 00:01:21,800
+I'll add a router post Meffert cards.
+
+19
+00:01:21,810 --> 00:01:23,420
+Delete item.
+
+20
+00:01:23,420 --> 00:01:26,810
+Now we need a fitting action in the controller.
+
+21
+00:01:26,810 --> 00:01:32,420
+So in a shop controller here and there I got kept get cart and post card.
+
+22
+00:01:32,490 --> 00:01:41,720
+Now I will also have exports post card delete product maybe you could of course use any name you want
+
+23
+00:01:42,690 --> 00:01:48,350
+and then here will have to remove that product from the cards but only from the card not the product
+
+24
+00:01:48,350 --> 00:01:49,360
+itself.
+
+25
+00:01:49,850 --> 00:01:57,230
+Well to do that let's first of all extract the product ID from the request body product ID and therefore
+
+26
+00:01:57,230 --> 00:02:00,650
+we need to make sure that we pass it there too.
+
+27
+00:02:00,860 --> 00:02:13,760
+So in our form let's again add does a hidden input with a value of our P product data dot ID and then
+
+28
+00:02:13,760 --> 00:02:19,210
+a name of product IDs so that we can extract that by that name on our backend.
+
+29
+00:02:21,080 --> 00:02:27,630
+And with that added with this hidden input added here let's now go back into the controller and with
+
+30
+00:02:27,630 --> 00:02:35,430
+that Id Let's use a cart and then there we can delete a product right now that delete product function
+
+31
+00:02:35,430 --> 00:02:38,330
+takes the idea of the product and we do have debt.
+
+32
+00:02:38,550 --> 00:02:43,540
+But it all takes to price and therefore we should get that product information first.
+
+33
+00:02:43,740 --> 00:02:52,080
+Let's also call product find by here and get that product for does ID and add a call back with the retrieved
+
+34
+00:02:52,380 --> 00:02:58,550
+product simply so that we can get the price before we well issued the deletes request.
+
+35
+00:02:58,950 --> 00:03:05,630
+So in there in this callback I will call delete product and now I can pass in product price too.
+
+36
+00:03:05,790 --> 00:03:09,830
+And of course we could have also used a hidden input to pass the price to the back end.
+
+37
+00:03:09,870 --> 00:03:11,770
+But I think this is a cleaner approach.
+
+38
+00:03:11,850 --> 00:03:18,610
+If we only pass the ID Fruita request and then we do all the data retrieval on the back end in our node
+
+39
+00:03:18,630 --> 00:03:19,920
+expressed code.
+
+40
+00:03:20,370 --> 00:03:22,650
+So now we get to delete product.
+
+41
+00:03:22,650 --> 00:03:31,220
+And with that we can also send a redirect request back to cart and in theory this should be all we need.
+
+42
+00:03:31,260 --> 00:03:35,280
+Now of course the missing thing is that we connect our card lead.
+
+43
+00:03:35,300 --> 00:03:42,450
+I wrote to the newly created shop controller action the post cards delete product action and with that
+
+44
+00:03:42,450 --> 00:03:50,070
+added in the shop G-S file in the rabbits folder we can reload our cart page here.
+
+45
+00:03:50,280 --> 00:03:53,850
+Click delete and we see our products.
+
+46
+00:03:53,940 --> 00:03:56,640
+By the way you can ignore these errors on the right.
+
+47
+00:03:56,680 --> 00:03:59,350
+These are related to my local network here.
+
+48
+00:03:59,580 --> 00:04:01,670
+So now I got no products on the cards.
+
+49
+00:04:01,830 --> 00:04:08,240
+And if we have a look at our card Jason it's indeed empty product Jason still has the products though.
+
+50
+00:04:08,680 --> 00:04:14,500
+And if I quickly add another product with no real image like this.
+
+51
+00:04:14,610 --> 00:04:19,650
+So today if more than one and I add both to my card
+
+52
+00:04:22,950 --> 00:04:27,310
+and I delete just a bookkeeper only that is removed all is in cards.
+
+53
+00:04:27,330 --> 00:04:30,930
+Jason so this seems to work just fine.
+
+54
+00:04:30,930 --> 00:04:32,520
+Let's also delete this one now.
+
+55
+00:04:33,740 --> 00:04:40,160
+Seems to work good and with that we improved our app a lot and you hopefully get a bit of a feeling
+
+56
+00:04:40,160 --> 00:04:46,880
+for how you can pass data around and how you can work with your models now correctly you would say that
+
+57
+00:04:46,880 --> 00:04:47,240
+of course.
+
+58
+00:04:47,240 --> 00:04:53,100
+Our current approach or Namath's is a bit Suppe optimal because working with the file and so on.
+
+59
+00:04:53,150 --> 00:04:54,320
+It's not that great.
+
+60
+00:04:54,380 --> 00:05:01,070
+We can also improve some things in the controllers because for example as a set we should redirect if
+
+61
+00:05:01,070 --> 00:05:05,360
+we know that the deletions exceed it and not right after this line.
+
+62
+00:05:05,360 --> 00:05:10,040
+Because since we Axxess a file in there theoretically we should use a callback here too.
+
+63
+00:05:10,250 --> 00:05:17,270
+But these are all things I will do once we finally also added the database something we will do in the
+
+64
+00:05:17,270 --> 00:05:18,880
+next module now.
+
+65
+00:05:18,890 --> 00:05:22,770
+So time to move on to this exciting big block of the course.
+

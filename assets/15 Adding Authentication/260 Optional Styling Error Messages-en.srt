@@ -1,0 +1,172 @@
+1
+00:00:02,200 --> 00:00:06,120
+I'm outputting that error message I just want to style it a little bit now.
+
+2
+00:00:06,150 --> 00:00:13,790
+And for Dad I'll give it a C is this class and it's simply named add user message and then maybe user
+
+3
+00:00:14,580 --> 00:00:18,910
+message dash dash air or using some BGM styling here.
+
+4
+00:00:18,930 --> 00:00:25,250
+That's a SEUS as styling convention or a convention of naming your classes doesn't matter too much.
+
+5
+00:00:25,250 --> 00:00:26,790
+You can name just where we want the end.
+
+6
+00:00:26,790 --> 00:00:32,430
+I edit these two classes one to have a general message look and then one for errors because maybe we
+
+7
+00:00:32,430 --> 00:00:35,850
+all want to be able to output success messages later.
+
+8
+00:00:35,850 --> 00:00:42,770
+So with that let me quickly add this to some see as false and you can skip this lecture if you want.
+
+9
+00:00:42,780 --> 00:00:47,400
+In the next lecture you'll find the finished code attached which you can use in the main C of S all
+
+10
+00:00:47,460 --> 00:00:51,320
+quickly at this let's say at the bottom of this fall.
+
+11
+00:00:51,360 --> 00:00:56,280
+It's up to you right before the media queery maybe I have my user message.
+
+12
+00:00:56,290 --> 00:00:59,060
+So this is as class I just added here.
+
+13
+00:01:00,040 --> 00:01:09,400
+And let's say such a user message should use a margin auto to be centered get a width of 90 percent
+
+14
+00:01:09,430 --> 00:01:10,600
+by default.
+
+15
+00:01:10,590 --> 00:01:14,720
+I'll also set up some styling in case I'm on a bigger screen.
+
+16
+00:01:14,970 --> 00:01:25,400
+Their user message will have all width of let's say 30 REM and then here I'll give it a border of one
+
+17
+00:01:25,400 --> 00:01:32,540
+pixel Sallet and let's use maybe some some bluish color here maybe not that blue.
+
+18
+00:01:33,870 --> 00:01:42,540
+Well basically which ever blue color you want maybe does one and a background color.
+
+19
+00:01:42,600 --> 00:01:49,580
+Also use a blue here also a different blue so some light bluish color here.
+
+20
+00:01:49,590 --> 00:01:55,290
+So General Info message should have maybe some neutral colors so some blue like this.
+
+21
+00:01:55,430 --> 00:01:57,000
+And let's see how that looks like.
+
+22
+00:01:58,280 --> 00:02:03,470
+With it at it let me try entering invalid email again.
+
+23
+00:02:03,470 --> 00:02:04,210
+Looks like that.
+
+24
+00:02:04,250 --> 00:02:06,280
+Nah not too pretty.
+
+25
+00:02:06,290 --> 00:02:09,150
+That should be much lighter.
+
+26
+00:02:09,350 --> 00:02:13,420
+I also want to have some padding in here.
+
+27
+00:02:13,420 --> 00:02:20,120
+Maybe one ram and let's give it some rounded corners as well.
+
+28
+00:02:20,130 --> 00:02:24,860
+Now with dad if we enter the invalid email that looks much better.
+
+29
+00:02:25,200 --> 00:02:30,780
+Ok so now this is my general info message list maybe also to send her a text if we want to.
+
+30
+00:02:30,780 --> 00:02:38,490
+And now let's give it is air or we're basically with dash dash air or at sea class I added to this specific
+
+31
+00:02:38,490 --> 00:02:46,620
+box in my log in screen and there I will change the border color to be red and the background should
+
+32
+00:02:46,620 --> 00:02:47,870
+be a light red.
+
+33
+00:02:48,000 --> 00:02:52,970
+So let's start with red and then tear Turnus in for a light red.
+
+34
+00:02:53,340 --> 00:03:02,460
+And now if we try this again now it looks like this OK so this could be the error message we're outputting
+
+35
+00:03:02,460 --> 00:03:02,850
+here.
+
+36
+00:03:02,850 --> 00:03:08,310
+You could also turn the text red if you want so you could also say text color should be red here maybe
+
+37
+00:03:08,850 --> 00:03:12,560
+and reduce to padding maybe 2.5 that could look a bit better.
+
+38
+00:03:14,570 --> 00:03:16,160
+So invalid email or password.
+
+39
+00:03:16,160 --> 00:03:17,150
+That looks good.
+
+40
+00:03:17,150 --> 00:03:19,580
+Now I always have that stick around.
+
+41
+00:03:19,580 --> 00:03:22,420
+Now reason for Dad is if I go back.
+
+42
+00:03:22,700 --> 00:03:29,240
+Error message seems to be set to something even if we're not having a message in there and that is something
+
+43
+00:03:29,240 --> 00:03:30,620
+I'll check in the next lecture.
+

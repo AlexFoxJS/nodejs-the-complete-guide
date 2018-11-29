@@ -1,0 +1,456 @@
+1
+00:00:02,210 --> 00:00:03,940
+So we want to use no.
+
+2
+00:00:04,100 --> 00:00:09,180
+And the first important step is that we install it and for that you have to visit.
+
+3
+00:00:09,260 --> 00:00:10,260
+No yes.
+
+4
+00:00:10,340 --> 00:00:13,820
+Dot Orrick there you'll find an installer.
+
+5
+00:00:13,850 --> 00:00:20,180
+In my case here it picked the rifle for my operating system Mac OS but you will also find a Word for
+
+6
+00:00:20,180 --> 00:00:20,740
+Windows.
+
+7
+00:00:20,810 --> 00:00:27,260
+If you're wisit doing this page on Windows or you manually choose a different word and you can of course
+
+8
+00:00:27,410 --> 00:00:30,520
+follow along no matter which operating system you're using.
+
+9
+00:00:30,620 --> 00:00:36,710
+The code you write and two steps you need to take to install no Cheras are exactly the same.
+
+10
+00:00:36,710 --> 00:00:43,850
+You simply download the latest word in here and you then simply save it anywhere and run the installer.
+
+11
+00:00:43,850 --> 00:00:49,310
+This gives you now simply follow through all the steps which are mentioned in the installer except the
+
+12
+00:00:49,310 --> 00:00:50,900
+license agreement and so on.
+
+13
+00:00:50,900 --> 00:00:52,850
+So simply click through that.
+
+14
+00:00:52,850 --> 00:00:54,760
+Install it on your machine.
+
+15
+00:00:55,770 --> 00:00:59,870
+And once it is completed you already got everything you will need to ride.
+
+16
+00:00:59,880 --> 00:01:00,290
+No.
+
+17
+00:01:00,330 --> 00:01:01,010
+Yes code.
+
+18
+00:01:01,140 --> 00:01:03,340
+So this is super fast it's done here.
+
+19
+00:01:03,390 --> 00:01:04,730
+You can close this now.
+
+20
+00:01:05,930 --> 00:01:08,400
+And now how do we use no chance.
+
+21
+00:01:08,400 --> 00:01:15,390
+Well the easiest way of using it is to open up your local terminal or on windows power shell or the
+
+22
+00:01:15,390 --> 00:01:24,680
+command prompt in its terminal as a first step simply run node Dasch the like this.
+
+23
+00:01:24,700 --> 00:01:28,390
+This should show you the worship of no chance you installed.
+
+24
+00:01:28,520 --> 00:01:36,600
+Now with that being executed you can now use note just like death to enter a special input mode.
+
+25
+00:01:36,680 --> 00:01:42,710
+The so called REPL will come back to that where you can execute code and have it parsed by node on the
+
+26
+00:01:42,710 --> 00:01:43,330
+fly.
+
+27
+00:01:43,520 --> 00:01:47,400
+You can use this as a calculator simply type 2 plus two to see the result.
+
+28
+00:01:47,570 --> 00:01:50,510
+Or you can write whole javascript programs there.
+
+29
+00:01:50,510 --> 00:01:51,790
+Now I won't do that.
+
+30
+00:01:51,800 --> 00:01:53,710
+So you can Quintard with control.
+
+31
+00:01:54,560 --> 00:01:59,810
+And instead let's write a real script which we can execute with no choice so that we can all see what
+
+32
+00:01:59,810 --> 00:02:08,060
+we can do with it for that create a new folder anywhere on your computer and open that folder in your
+
+33
+00:02:08,060 --> 00:02:10,730
+favorite ID or a code editor.
+
+34
+00:02:10,730 --> 00:02:13,480
+Now here I am using Visual Studio code.
+
+35
+00:02:13,640 --> 00:02:17,660
+You can find that on code that Visual Studio dot com.
+
+36
+00:02:17,660 --> 00:02:20,630
+This is a great idea which I strongly recommend using.
+
+37
+00:02:20,660 --> 00:02:21,640
+It's FREE.
+
+38
+00:02:21,650 --> 00:02:25,670
+It is really belled for you such with javascript code.
+
+39
+00:02:25,730 --> 00:02:29,590
+It will work great and you can simply download it from this page.
+
+40
+00:02:29,660 --> 00:02:32,840
+As I said for free simply walk from the installer.
+
+41
+00:02:32,900 --> 00:02:35,410
+It's all the way Lebel for Windows and so on.
+
+42
+00:02:35,480 --> 00:02:37,480
+Walk for the installer it gives you.
+
+43
+00:02:37,610 --> 00:02:39,060
+And then once it's installed.
+
+44
+00:02:39,140 --> 00:02:45,110
+Simply start it and opened that new folder you create it somewhere on your computer.
+
+45
+00:02:45,110 --> 00:02:49,970
+This will be your project folder for this very first quake app or script.
+
+46
+00:02:49,970 --> 00:02:53,720
+We're going to right now your Visual Studio code might look a bit different.
+
+47
+00:02:53,720 --> 00:02:57,950
+I'm in fullscreen mode which is why you don't see any menu items here at the top.
+
+48
+00:02:58,220 --> 00:03:01,860
+And I also got two important things installed here.
+
+49
+00:03:01,910 --> 00:03:08,660
+The first one is the theme and you can hit command shift P or control shift P on Windows to go to that
+
+50
+00:03:08,660 --> 00:03:16,520
+quick command interface here and there if you type theme then you can go to the preferences color and
+
+51
+00:03:16,520 --> 00:03:20,240
+choose which theme you want to use and I'm using the dark plus Feme here.
+
+52
+00:03:20,270 --> 00:03:23,470
+So if you want to get the exact same coloring you can choose that.
+
+53
+00:03:23,930 --> 00:03:25,950
+And I also installed an extension.
+
+54
+00:03:26,120 --> 00:03:34,550
+You can view the extension menu by going to view extensions or if you have on the left a menu you can
+
+55
+00:03:34,550 --> 00:03:40,240
+also click on the X Chens extensions tap there but you extensions will do or the shortcut you see there.
+
+56
+00:03:40,670 --> 00:03:47,850
+And there I installed the material I theme this theme here I already got that installed.
+
+57
+00:03:47,910 --> 00:03:50,400
+And this gives me some special fall Aikins and so on.
+
+58
+00:03:50,430 --> 00:03:51,180
+You don't need that.
+
+59
+00:03:51,210 --> 00:03:56,030
+You just can use it if you want to the exact same layout and thereafter you can go back to the view
+
+60
+00:03:56,310 --> 00:03:58,250
+Explorer here.
+
+61
+00:03:58,320 --> 00:04:03,330
+Now this is then my set up I get a good ignore file here since I'll use GET FOR WORD management.
+
+62
+00:04:03,330 --> 00:04:04,290
+You don't need that.
+
+63
+00:04:04,410 --> 00:04:09,660
+And with that let's simply create a new file here with control and command and or by clicking that I
+
+64
+00:04:09,660 --> 00:04:13,010
+can here and then simply give it any name you want like.
+
+65
+00:04:13,080 --> 00:04:20,790
+First app dot J.S. dot JSC is of course important because we're creating a javascript app here now in
+
+66
+00:04:20,790 --> 00:04:21,060
+there.
+
+67
+00:04:21,060 --> 00:04:22,450
+We can run any code.
+
+68
+00:04:22,500 --> 00:04:25,320
+No Chase is capable of executing.
+
+69
+00:04:25,560 --> 00:04:29,700
+And for this I will write a simple script.
+
+70
+00:04:29,910 --> 00:04:31,850
+I will simply write console law.
+
+71
+00:04:31,980 --> 00:04:34,770
+Hello from node genius.
+
+72
+00:04:34,770 --> 00:04:39,690
+Now you could write this in the browser to the browser would be capable of running this and it would
+
+73
+00:04:39,690 --> 00:04:43,640
+lock does indeed javascript console in your browser dev tools.
+
+74
+00:04:43,650 --> 00:04:46,840
+Now you can also execute does with no Acharyas though for this.
+
+75
+00:04:46,890 --> 00:04:53,550
+Go back to your terminal or command prompt and make sure you navigate into that new folder you created
+
+76
+00:04:53,760 --> 00:04:56,770
+with the help of CD and so on.
+
+77
+00:04:56,850 --> 00:05:01,190
+You can alternatively also go back to your code and there under the.
+
+78
+00:05:01,210 --> 00:05:07,800
+You can open that terminal and it will give you your default system terminal already navigated into
+
+79
+00:05:07,800 --> 00:05:08,540
+that folder.
+
+80
+00:05:08,580 --> 00:05:10,400
+So that's a bit more convenient.
+
+81
+00:05:10,560 --> 00:05:11,700
+And then here you can run.
+
+82
+00:05:11,700 --> 00:05:12,320
+Note.
+
+83
+00:05:12,550 --> 00:05:13,650
+And now.
+
+84
+00:05:13,680 --> 00:05:15,340
+First dash app dot.
+
+85
+00:05:15,360 --> 00:05:18,670
+J.S. so that filename if you now would enter.
+
+86
+00:05:18,690 --> 00:05:25,200
+You should see Hello from though jazzier because this executes your code and this already shows you
+
+87
+00:05:25,200 --> 00:05:28,310
+that node is javascript on your computer.
+
+88
+00:05:28,350 --> 00:05:32,820
+This is not using a browser it's just using the internal engine.
+
+89
+00:05:32,820 --> 00:05:40,050
+The extended internal javascript engine used by the browser to execute your code locally totally outside
+
+90
+00:05:40,070 --> 00:05:41,280
+of the browser.
+
+91
+00:05:41,520 --> 00:05:45,230
+And of course we can all do more than just logging something.
+
+92
+00:05:45,270 --> 00:05:49,080
+Let's for example write this text to a file.
+
+93
+00:05:49,290 --> 00:05:53,830
+For this we can import something from the no chase environment.
+
+94
+00:05:53,910 --> 00:05:58,000
+I mentioned that it would add new features to javascript right.
+
+95
+00:05:58,050 --> 00:06:03,300
+You have to import them and I'll come back to the detail import syntax and which features accessed a
+
+96
+00:06:03,300 --> 00:06:04,490
+little bit later.
+
+97
+00:06:04,530 --> 00:06:10,350
+For now just follow along to this first quick demo and create a new constant.
+
+98
+00:06:10,380 --> 00:06:16,860
+Also give you a brief refresher about concepts and Javascript in this course and then type require.
+
+99
+00:06:16,860 --> 00:06:25,800
+F s f s stands for file system and disinfects simply imports some file system functionalities into Does
+
+100
+00:06:25,860 --> 00:06:34,490
+javascript file so that we can use these functionality Stehr we can now use F as right file sync here
+
+101
+00:06:35,160 --> 00:06:42,420
+to create a new file and this takes a couple of arguments and the first argument is the puff where you
+
+102
+00:06:42,420 --> 00:06:45,990
+want to store that file and that also includes the file name.
+
+103
+00:06:45,990 --> 00:06:49,080
+Now I want to created in that same folder so I will simply name it.
+
+104
+00:06:49,080 --> 00:06:51,410
+Hello dot text for example.
+
+105
+00:06:51,660 --> 00:06:57,540
+And the second argument is the data we want to put in there and there we'll just put Hello from node.
+
+106
+00:06:57,610 --> 00:07:05,780
+J.S. with this if we now save this and we re execute this with node first apt J s.
+
+107
+00:07:05,960 --> 00:07:11,670
+You should have a hello txt file here and this gives you the text written in there.
+
+108
+00:07:11,840 --> 00:07:14,900
+And this is something you couldn't do in the browser because it's there.
+
+109
+00:07:14,930 --> 00:07:20,630
+You can't access your local file system and obviously it's features like this which you need to dentals
+
+110
+00:07:20,640 --> 00:07:23,540
+also create a server which we don't have at this point.
+
+111
+00:07:23,540 --> 00:07:28,940
+By the way this is not a web site obviously is just some utility script and this is something we can
+
+112
+00:07:28,940 --> 00:07:30,510
+do with no chips.
+
+113
+00:07:30,560 --> 00:07:36,520
+Well does a first quick demo will learn all the cool features and how this works and what exactly does
+
+114
+00:07:36,520 --> 00:07:38,680
+send Texas for over the course of course.
+

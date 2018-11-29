@@ -1,0 +1,308 @@
+1
+00:00:02,440 --> 00:00:09,490
+So let's make sure we can surf that image and in a future also accept image uploads now for serving
+
+2
+00:00:09,490 --> 00:00:10,190
+that image.
+
+3
+00:00:10,330 --> 00:00:16,320
+We have to make sure we serve the images folder statically at least is the approach I want to use.
+
+4
+00:00:16,320 --> 00:00:23,020
+You learned all about that in my file uploads and downloads module and the general logic there still
+
+5
+00:00:23,020 --> 00:00:23,640
+applies.
+
+6
+00:00:23,680 --> 00:00:26,920
+So check that out to learn more about that in Aperture.
+
+7
+00:00:26,940 --> 00:00:36,340
+Yes I want to set up static serving of my images folder for that up there after I registered my body
+
+8
+00:00:36,340 --> 00:00:47,450
+parser all use another middleware and I will do that for any request that goes to slash images here.
+
+9
+00:00:47,780 --> 00:00:54,290
+I'll use a middleware built in to express the static middleware which I use by calling the static function
+
+10
+00:00:54,950 --> 00:01:00,310
+and now want to serve my images folder for that.
+
+11
+00:01:00,400 --> 00:01:08,620
+Let's import the POF package to core POF package node POLITES And then here we can use lbf joined to
+
+12
+00:01:08,620 --> 00:01:15,580
+construct an absolute POV to that image as folder by using the special name variable which is available
+
+13
+00:01:15,580 --> 00:01:16,990
+globally in note.
+
+14
+00:01:17,030 --> 00:01:23,740
+Yes and gives us access to the directory path to that file to the aperture Yes file.
+
+15
+00:01:23,980 --> 00:01:29,900
+And in that same location asked is actually as file we find the images folder.
+
+16
+00:01:30,070 --> 00:01:37,520
+So we can pass images as a second argument and POF join will construct an absolute path to this image
+
+17
+00:01:37,690 --> 00:01:44,970
+folder and that is the folder will serve statically for requests going to slash images.
+
+18
+00:01:44,970 --> 00:01:50,260
+With that we should be able to use our image in the Front-End code or to see it.
+
+19
+00:01:50,470 --> 00:01:56,470
+We saved at server side code to view the image on the front end however will need to be able to click
+
+20
+00:01:56,600 --> 00:02:02,560
+view here because the image will only be included on the detail page and that however will not work
+
+21
+00:02:02,800 --> 00:02:07,540
+because we need a route to serve a single post which we don't have yet.
+
+22
+00:02:07,540 --> 00:02:09,490
+So we'll have to postpone this.
+
+23
+00:02:09,520 --> 00:02:12,370
+It will actually be what I work on next.
+
+24
+00:02:12,370 --> 00:02:19,570
+But before we do that I want to set up proper error handling in the feed controller right now when I
+
+25
+00:02:19,570 --> 00:02:21,090
+catch an error here.
+
+26
+00:02:21,310 --> 00:02:29,210
+I logged it and there when I validate the input I return an error response manually.
+
+27
+00:02:29,440 --> 00:02:35,890
+You can do that and you could also return your own error response down there but you'll learn that you
+
+28
+00:02:35,890 --> 00:02:39,830
+can set up a general error handling function in express checks.
+
+29
+00:02:39,880 --> 00:02:42,690
+And I want to use that function.
+
+30
+00:02:42,710 --> 00:02:45,750
+Now how do I use it though.
+
+31
+00:02:45,790 --> 00:02:51,210
+Let's maybe start with validation instead of for turning a function manually here.
+
+32
+00:02:51,280 --> 00:02:53,830
+I will create a new error object
+
+33
+00:02:56,350 --> 00:03:04,950
+with new error and the message I set up here is the message I'll pass to my error object.
+
+34
+00:03:04,950 --> 00:03:09,940
+I'll then also add my own custom property which you can name however you want and I'll name it.
+
+35
+00:03:09,940 --> 00:03:21,890
+Status code and set this to 4:22 Now I will throw that error and I can remove that return statement.
+
+36
+00:03:21,940 --> 00:03:24,790
+Now what does throwing an error do here.
+
+37
+00:03:24,790 --> 00:03:30,190
+It will automatically since I'm not doing this in an asynchronous code snippet or anything like that
+
+38
+00:03:30,580 --> 00:03:34,710
+it will automatically exit the function execution here.
+
+39
+00:03:34,900 --> 00:03:41,530
+And instead try to reach the next error handling function or error handling middleware provided in the
+
+40
+00:03:41,770 --> 00:03:44,320
+Express application.
+
+41
+00:03:44,380 --> 00:03:49,780
+We also got another possible error and that is in here if something goes wrong with storing the post
+
+42
+00:03:50,440 --> 00:03:52,350
+there I don't want to lock the error.
+
+43
+00:03:52,420 --> 00:03:58,320
+Instead here I will check if my error has a status code field which it will not have.
+
+44
+00:03:58,390 --> 00:04:04,060
+But theoretically if I had more complex code where a fro my own arrows there might be some error that
+
+45
+00:04:04,060 --> 00:04:04,690
+has it.
+
+46
+00:04:04,900 --> 00:04:10,790
+So I'd check if that exists and if it does not exist hence the exclamation mark here.
+
+47
+00:04:10,840 --> 00:04:17,550
+If it does not exist I will add it and I will set my status code to 500 then because it's some service
+
+48
+00:04:17,550 --> 00:04:19,280
+side error.
+
+49
+00:04:19,300 --> 00:04:22,600
+Now you learned that since I'm inside of a promised change.
+
+50
+00:04:22,600 --> 00:04:28,080
+So instead of the async code snippet throwing an error will not do the trick.
+
+51
+00:04:28,090 --> 00:04:31,090
+This will not reach the next error handling middleware.
+
+52
+00:04:31,090 --> 00:04:35,380
+Instead you have to use the next function here and past the error or to it.
+
+53
+00:04:35,380 --> 00:04:40,510
+And this will now go and reach the next error handling express middleware.
+
+54
+00:04:40,510 --> 00:04:45,850
+Now the last step is that we registered at middleware and we do so in app J.S..
+
+55
+00:04:45,850 --> 00:04:54,520
+There let's go all the way to the bottom off all my routes here and let's use a new middleware which
+
+56
+00:04:54,520 --> 00:05:01,600
+has this error handling definition of getting an error or as the first argument and then request response
+
+57
+00:05:01,910 --> 00:05:08,840
+and next this will be executed whenever an error is frozen or for Warda with next.
+
+58
+00:05:08,850 --> 00:05:14,400
+And here I want to log it so that we as a developer can see what's wrong and an easier way.
+
+59
+00:05:14,880 --> 00:05:18,000
+And then I'll extract my status code here.
+
+60
+00:05:19,670 --> 00:05:27,770
+From error status codes from that error object I'll extract my message from error message.
+
+61
+00:05:27,780 --> 00:05:32,870
+This property exists by default and it holds the message you passed to the constructor off the error
+
+62
+00:05:32,910 --> 00:05:33,900
+object.
+
+63
+00:05:34,380 --> 00:05:40,400
+And now I can return an error or a response with the status code off the status.
+
+64
+00:05:40,410 --> 00:05:46,320
+I extract it and we can set this to a default value or 500 with disinfects by the way.
+
+65
+00:05:46,320 --> 00:05:52,560
+So in case this should be undefined it will now take 500.
+
+66
+00:05:52,620 --> 00:06:01,500
+So we return this status code and we use chase and data of course where I have a message of the message
+
+67
+00:06:01,530 --> 00:06:02,830
+I extract that.
+
+68
+00:06:03,090 --> 00:06:09,210
+And now I have this general error handling functionality which should work which I can quickly validate
+
+69
+00:06:09,510 --> 00:06:16,530
+by going to my feed routes and changing that validation logic again to 7 for the time as a minimal length.
+
+70
+00:06:16,590 --> 00:06:20,710
+And now let's try to enter a title that is not long enough.
+
+71
+00:06:23,580 --> 00:06:27,180
+And let's see if we now still see an error.
+
+72
+00:06:27,630 --> 00:06:32,020
+We do we still get that are being thrown with the right status code.
+
+73
+00:06:32,100 --> 00:06:38,460
+So this works even though I'm now using my custom error handling function which is a bit of a more elegant
+
+74
+00:06:38,460 --> 00:06:41,140
+way of handling errors now.
+
+75
+00:06:41,330 --> 00:06:42,270
+So it is working.
+
+76
+00:06:42,270 --> 00:06:49,350
+Let's now move on to creating the route for getting a single post so that we can finally also see if
+
+77
+00:06:49,350 --> 00:06:50,550
+we can see our image.
+

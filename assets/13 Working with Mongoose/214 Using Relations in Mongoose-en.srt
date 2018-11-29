@@ -1,0 +1,180 @@
+1
+00:00:02,100 --> 00:00:07,050
+With the user model set up let's make sure we can use it together with the product model.
+
+2
+00:00:07,050 --> 00:00:10,000
+Now obviously every product should be assigned to a user.
+
+3
+00:00:10,110 --> 00:00:13,890
+So first of all we need to change our product schema a little bit.
+
+4
+00:00:13,980 --> 00:00:20,850
+A product should also have a user ID field let's say just as we had it before in the last module.
+
+5
+00:00:20,850 --> 00:00:25,630
+Now a user ID field is of type and Now which type estus.
+
+6
+00:00:25,830 --> 00:00:34,860
+Well it won't be a reference to a user so this will actually be of type schema types object ID.
+
+7
+00:00:35,040 --> 00:00:41,880
+And now we Kensit something special here we can add a special ref configuration and ref takes a string
+
+8
+00:00:41,970 --> 00:00:49,010
+where we tell mongooses Hey which average mongoose model is actually related to the data in that field.
+
+9
+00:00:49,080 --> 00:00:55,380
+We know that we will store a user ID here but just because the type is object id This is not obvious.
+
+10
+00:00:55,380 --> 00:00:59,010
+This could be any object ID of any object.
+
+11
+00:00:59,010 --> 00:01:06,580
+So I will add user here and you use the name off your model to which you want to collect this.
+
+12
+00:01:06,600 --> 00:01:11,080
+So since our model here is named user I will name it user here.
+
+13
+00:01:11,130 --> 00:01:14,190
+So I referred to my user model here.
+
+14
+00:01:14,640 --> 00:01:21,720
+And with that I got a roll lation set up does also means that in my user model where I do store and
+
+15
+00:01:21,720 --> 00:01:29,640
+a product ID I can also add a reference here and refer to product because I know that for every user
+
+16
+00:01:29,730 --> 00:01:37,830
+in the cart items I will store products where I refer to some ID and that Id happens to refer to a product
+
+17
+00:01:37,830 --> 00:01:41,540
+stored or defined through the product model.
+
+18
+00:01:41,760 --> 00:01:44,510
+So now we got relation's set up with ref.
+
+19
+00:01:44,580 --> 00:01:50,390
+Of course you only need this when using references when using embedded documents as we do with the cart.
+
+20
+00:01:50,400 --> 00:01:56,490
+You don't need to do anything because while you use an embattled document this already has kind of an
+
+21
+00:01:56,490 --> 00:02:01,280
+implicit relation that is managed inside of one document.
+
+22
+00:02:01,330 --> 00:02:03,640
+So now with the reference a set up.
+
+23
+00:02:03,640 --> 00:02:10,990
+Let me also add a required to true here and now I adjusted my schemes now with this schema adjusted
+
+24
+00:02:11,000 --> 00:02:17,140
+be of course need to adjust our code like in the admin control or when we create a new product when
+
+25
+00:02:17,140 --> 00:02:22,560
+creating a new product we also want to make sure we store the user id and that is super simple.
+
+26
+00:02:22,810 --> 00:02:30,770
+We just add user ID here to the fields we pass in the object to the product constructor and now remember
+
+27
+00:02:30,770 --> 00:02:39,640
+that we did save the user in our request so it can just do request user underscore Id like this and
+
+28
+00:02:39,640 --> 00:02:45,490
+this should give me access to the user id and assign it here now conveniently in mongooses.
+
+29
+00:02:45,490 --> 00:02:48,280
+You can even just store the entire user object.
+
+30
+00:02:48,280 --> 00:02:53,350
+So this is really the entire user Optik not just the ID and Mungo's will just pick the ID from that
+
+31
+00:02:53,350 --> 00:02:54,080
+object.
+
+32
+00:02:54,100 --> 00:02:56,440
+So thats a narrow convenience you got there.
+
+33
+00:02:56,440 --> 00:02:57,820
+Let me save my code.
+
+34
+00:02:58,000 --> 00:03:04,160
+Let's go back and lets add a new product a nice book.
+
+35
+00:03:04,290 --> 00:03:07,370
+Lets use that image your L we used before.
+
+36
+00:03:07,500 --> 00:03:09,200
+Lets give it some prize.
+
+37
+00:03:09,270 --> 00:03:15,820
+You should not miss that and click add product now you zip.
+
+38
+00:03:15,830 --> 00:03:17,330
+That looks good it was added.
+
+39
+00:03:17,510 --> 00:03:21,880
+And now let's have a look at compas and see if the user ID was added to.
+
+40
+00:03:22,120 --> 00:03:29,360
+So if I refreshed there indeed we see the user id here and just the ID not the entire user just the
+
+41
+00:03:29,360 --> 00:03:31,740
+ID as we wanted.
+
+42
+00:03:31,760 --> 00:03:33,220
+So this is pretty awesome.
+
+43
+00:03:33,230 --> 00:03:37,450
+This is how we can manage relations through mongoose.
+
+44
+00:03:37,460 --> 00:03:39,650
+Now let me show you something cool.
+
+45
+00:03:39,680 --> 00:03:41,660
+When it comes to fetching these relations.
+

@@ -1,0 +1,124 @@
+1
+00:00:02,460 --> 00:00:09,140
+We have our code for downloading a file and this file is now only available if we are locked in.
+
+2
+00:00:09,190 --> 00:00:15,400
+Now we can improve the way we return this however we can pass some extra information to the browser
+
+3
+00:00:15,610 --> 00:00:22,150
+so that it uses a different file name and also with the right extension for this we'll set some headers
+
+4
+00:00:23,610 --> 00:00:25,460
+so we can use set header for it.
+
+5
+00:00:25,560 --> 00:00:31,500
+And first of all we can set the content type to application slash PTF because that is what it is here
+
+6
+00:00:31,840 --> 00:00:33,660
+where it's like this.
+
+7
+00:00:33,660 --> 00:00:34,910
+Let's see what this does.
+
+8
+00:00:35,010 --> 00:00:40,480
+If I save it like that and I now click this button now I open it in the browser.
+
+9
+00:00:40,500 --> 00:00:42,450
+So this already changes to behavior.
+
+10
+00:00:42,450 --> 00:00:47,450
+It already gives the browser some information which allows the browser to handle isn't a better way.
+
+11
+00:00:47,510 --> 00:00:51,110
+And for most browsers simply open them in line.
+
+12
+00:00:51,120 --> 00:00:56,620
+So in the browser so that's great but we can't pass more information.
+
+13
+00:00:56,640 --> 00:01:05,080
+We can also set a number header and that is the contents Dasch disposition.
+
+14
+00:01:05,120 --> 00:01:11,800
+This allows us to define how this content should be served to the client.
+
+15
+00:01:11,910 --> 00:01:18,620
+We can set this to inline to still tell the browser to open it in line for example if I'd change it
+
+16
+00:01:18,620 --> 00:01:28,220
+like this nothing changes but we can also for example add a file name here so we can add semi-colon
+
+17
+00:01:28,340 --> 00:01:36,020
+and then file name and set this equal to in double quotation marks to follow them you want to serve.
+
+18
+00:01:36,020 --> 00:01:38,930
+So in my case it would be in wife's name right.
+
+19
+00:01:38,930 --> 00:01:47,470
+So we can also said follow them equal to double quotation marks plus in wife's name plus closing double
+
+20
+00:01:47,590 --> 00:01:56,580
+quotation mark contained between single quotation marks final saved is and I click this button.
+
+21
+00:01:56,670 --> 00:02:02,130
+Now we don't see a difference with the name when opening it in line because it's open and liberals are
+
+22
+00:02:02,140 --> 00:02:02,730
+anyways.
+
+23
+00:02:02,940 --> 00:02:06,720
+But we can change in line to attachment for example.
+
+24
+00:02:06,900 --> 00:02:11,720
+Now if Dad adjusted if the key going in was the download menu opens again.
+
+25
+00:02:11,760 --> 00:02:15,510
+And now here we have the proper file name with the proper extension.
+
+26
+00:02:15,720 --> 00:02:19,790
+And this is how you can control how the browser should handle the incoming data.
+
+27
+00:02:19,920 --> 00:02:23,950
+Should it automatically open it should it instead let you download it.
+
+28
+00:02:23,950 --> 00:02:25,220
+So I'll switch this back to inline.
+
+29
+00:02:25,230 --> 00:02:26,620
+But keep the following here.
+
+30
+00:02:26,820 --> 00:02:32,580
+And now I have a set up where only offene could add users can request this in ways we can still improve
+
+31
+00:02:32,600 --> 00:02:32,850
+that.
+

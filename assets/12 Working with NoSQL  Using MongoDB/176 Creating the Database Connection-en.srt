@@ -1,0 +1,164 @@
+1
+00:00:02,030 --> 00:00:10,080
+Be connected to Mongo D.B and this is nice but it also means that we can't do anything else right now.
+
+2
+00:00:10,180 --> 00:00:12,240
+The rest of the app is not working anymore.
+
+3
+00:00:12,310 --> 00:00:14,060
+And of course it should work.
+
+4
+00:00:14,080 --> 00:00:21,370
+So let's get there step by step and let's start by resetting the admin routes.
+
+5
+00:00:21,370 --> 00:00:26,820
+So let's ask this middleware again and for this I also need to import admen routes again.
+
+6
+00:00:27,130 --> 00:00:34,480
+And if we now have a look into our admen controller here we do of course use the product model and the
+
+7
+00:00:34,480 --> 00:00:35,880
+product model.
+
+8
+00:00:35,920 --> 00:00:42,580
+We have a look into that does rely on sequel lies of course because we define the product model with
+
+9
+00:00:42,580 --> 00:00:45,140
+the help of equalize.
+
+10
+00:00:45,190 --> 00:00:48,670
+Now that is all something which we won't do anymore.
+
+11
+00:00:48,670 --> 00:00:51,170
+Instead we now want to use Mongo DVH.
+
+12
+00:00:51,490 --> 00:00:59,860
+So to get there I will remove these two imports up there and instead And here I want to create a new
+
+13
+00:00:59,860 --> 00:01:02,740
+class again because I'll create my own model again.
+
+14
+00:01:02,830 --> 00:01:08,980
+And this is something we did before already in the pure My siecle module saw create a product class
+
+15
+00:01:08,980 --> 00:01:10,770
+here like this.
+
+16
+00:01:10,930 --> 00:01:16,940
+And of course I will also export this submodule exports will still be my class here.
+
+17
+00:01:17,290 --> 00:01:25,690
+Now in that class I'll have a constructor and in that constructor here I want to store the title price
+
+18
+00:01:25,750 --> 00:01:29,170
+image Eurail and description of the product when it gets created.
+
+19
+00:01:29,410 --> 00:01:38,560
+So here I will simply get the title the price description and image you are l and that in the constructor
+
+20
+00:01:38,560 --> 00:01:47,440
+I'll say this title equals title this prize equals prize this description equals description well and
+
+21
+00:01:47,440 --> 00:01:47,830
+so on.
+
+22
+00:01:47,830 --> 00:01:48,830
+You know the game.
+
+23
+00:01:48,910 --> 00:01:52,820
+So your image your L equals image your l.
+
+24
+00:01:53,050 --> 00:01:59,290
+Now we can create a new product in javascript and you will object which follows this forum.
+
+25
+00:01:59,350 --> 00:02:04,350
+And now to save it in the database I will also add a Save method here.
+
+26
+00:02:04,420 --> 00:02:11,230
+So a function which can be executed on this class and then here I now want to connect to Mongar D.B
+
+27
+00:02:11,410 --> 00:02:13,810
+and save my product.
+
+28
+00:02:13,810 --> 00:02:16,870
+Now to do that to be able to connect.
+
+29
+00:02:17,090 --> 00:02:20,600
+I'll need to import Mongo D-B or Mongar connect.
+
+30
+00:02:20,620 --> 00:02:27,840
+So import Mongo connect from my utility folder and then from the database file.
+
+31
+00:02:28,200 --> 00:02:31,260
+So I will simply import that method.
+
+32
+00:02:31,260 --> 00:02:37,860
+The function I created here where you pass a callback to where we do connect to more would he be inside.
+
+33
+00:02:37,980 --> 00:02:43,830
+And then we basically execute the call bag and return the connect to the client so that we can interact
+
+34
+00:02:43,830 --> 00:02:44,850
+with it.
+
+35
+00:02:44,850 --> 00:02:51,620
+However if we do this we would have to connect to Muang would be for every operation we do.
+
+36
+00:02:51,750 --> 00:02:53,960
+And we would not even disconnect or after.
+
+37
+00:02:53,970 --> 00:03:00,150
+So this is not really a good way of connecting to Hmong would he be since we will want to connect and
+
+38
+00:03:00,150 --> 00:03:02,780
+interact with it from different places now wrap.
+
+39
+00:03:02,910 --> 00:03:09,600
+So it would be better if we could manage one connection in our database and then simply return access
+
+40
+00:03:09,600 --> 00:03:15,960
+to the client which we set up once from there or to a different place in our app that need access and
+
+41
+00:03:15,960 --> 00:03:23,040
+to do that all Kune my set up here a bit let's unit together in the next lecture.
+

@@ -1,0 +1,108 @@
+1
+00:00:02,140 --> 00:00:08,110
+So that's it for this module I'll actually dive into some other indication related things in the next
+
+2
+00:00:08,290 --> 00:00:14,470
+modules for example we'll add password resetting but these are the basic things you need to know about
+
+3
+00:00:14,500 --> 00:00:21,070
+all indication you learned what authentication means that it means that not every visitor of your page
+
+4
+00:00:21,070 --> 00:00:27,580
+can view and do everything that all indication has to happen on the server side to ensure that users
+
+5
+00:00:27,610 --> 00:00:34,180
+don't trick you into thinking they are authenticated and that you Daffer use sessions to stored the
+
+6
+00:00:34,180 --> 00:00:40,630
+authentication status and that you can't protect routes by checking that session controlled log in status
+
+7
+00:00:40,810 --> 00:00:46,750
+right before the request reaches your control or action or the code in general that is executed in a
+
+8
+00:00:46,750 --> 00:00:47,580
+route.
+
+9
+00:00:48,100 --> 00:00:54,310
+Now of indication obviously all the is strongly tied to security and providing a good user experience
+
+10
+00:00:54,900 --> 00:01:01,840
+and they offer passwords should absolutely be stored in a hashed form if you store them in plain text.
+
+11
+00:01:01,840 --> 00:01:07,700
+If your database gets compromised the attackers have full access to your user accounts.
+
+12
+00:01:07,720 --> 00:01:15,040
+Additionally see SRF attacks cross-eyed request forgery attacks are a real issue because your session
+
+13
+00:01:15,040 --> 00:01:21,880
+can be stolen there so to say and therefore you should implement SRF protection as shown in this module
+
+14
+00:01:22,060 --> 00:01:26,110
+in any production ready app you're planning to ship.
+
+15
+00:01:26,110 --> 00:01:32,350
+Now for a better user experience you can look into flashing data or messages as we did in this module
+
+16
+00:01:32,650 --> 00:01:34,300
+into your session store.
+
+17
+00:01:34,300 --> 00:01:40,380
+Flashing means that this data will be removed from the session automatically by a package we use once
+
+18
+00:01:40,390 --> 00:01:48,280
+we used the data and we can use that data to persist data across redirects because redirects technically
+
+19
+00:01:48,580 --> 00:01:54,420
+triggered two different requests or we have the old request redirect and then a new request starts.
+
+20
+00:01:54,440 --> 00:01:59,450
+If you want to share data cross request as you learned we need to use a session.
+
+21
+00:01:59,920 --> 00:02:02,910
+So these are the general often occasionally the things you need.
+
+22
+00:02:02,980 --> 00:02:08,010
+And with this knowledge you already get very very far.
+
+23
+00:02:08,010 --> 00:02:14,500
+Now in the next module we'll have a look at how we can send mails from inside our Dode application because
+
+24
+00:02:14,500 --> 00:02:20,670
+we'll need that feature to enhance our application a little bit regarding the authentication so that
+
+25
+00:02:20,680 --> 00:02:24,880
+we can also add a password resetting mechanism.
+
+26
+00:02:25,000 --> 00:02:28,060
+We'll do this in the module there after the next module.
+
+27
+00:02:28,060 --> 00:02:30,190
+Let's first of all have a look at how we send mails.
+

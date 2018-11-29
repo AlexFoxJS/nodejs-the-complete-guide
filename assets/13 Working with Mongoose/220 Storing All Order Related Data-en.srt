@@ -1,0 +1,96 @@
+1
+00:00:02,130 --> 00:00:04,340
+Now let's see what was causing that issue.
+
+2
+00:00:04,420 --> 00:00:09,070
+And for that let's console Lauck user card.
+
+3
+00:00:09,110 --> 00:00:11,000
+I'd have to see what's in there.
+
+4
+00:00:11,150 --> 00:00:21,230
+When we place an order typically order now no trees to con. We see product ID indeed does hold a full
+
+5
+00:00:21,230 --> 00:00:25,440
+object and not just the ID which is what gets stored though.
+
+6
+00:00:25,600 --> 00:00:32,330
+If I refresh my orders now I got two but both orders actually just have the product ID and they're not
+
+7
+00:00:32,330 --> 00:00:33,500
+the full product.
+
+8
+00:00:33,590 --> 00:00:40,810
+I want to have the full product data of the now one thing we can do is here when I store the product
+
+9
+00:00:40,810 --> 00:00:48,040
+ID I can wrap that in curly braces to create new jobs could object use to spread operator and used it
+
+10
+00:00:48,040 --> 00:00:51,210
+not directly on the product but on a special field.
+
+11
+00:00:51,210 --> 00:00:57,550
+Mongooses gives me underscore doc I can access this year because product ID actually will be an optic
+
+12
+00:00:57,550 --> 00:01:02,560
+with a lot of meta data attached to it even though we can't directly see that when cons are logging
+
+13
+00:01:02,560 --> 00:01:03,040
+it.
+
+14
+00:01:03,280 --> 00:01:07,720
+But with Dot Doc we get really access to just the data that's in there.
+
+15
+00:01:07,930 --> 00:01:11,270
+And then we have to spread operator inside of a new object.
+
+16
+00:01:11,320 --> 00:01:17,800
+We pull out all the data in that document we retrieved and stored in a new object which we save as a
+
+17
+00:01:17,800 --> 00:01:18,910
+product.
+
+18
+00:01:18,910 --> 00:01:23,290
+And with that if we save that and we go back to the cart and click order.
+
+19
+00:01:23,290 --> 00:01:25,320
+Now I get no error.
+
+20
+00:01:25,500 --> 00:01:35,020
+And if I go back to my Kompas interface I and I have a look at this new order there I see Indeed I got
+
+21
+00:01:35,050 --> 00:01:37,490
+all the product detail data in there too.
+
+22
+00:01:37,810 --> 00:01:39,220
+So this is now working.
+
+23
+00:01:39,340 --> 00:01:45,130
+And this now allows me to store all the data I want to store with every order.
+
+24
+00:01:45,130 --> 00:01:49,300
+Now with that being stored Of course the missing part is that we all clear the cart.
+

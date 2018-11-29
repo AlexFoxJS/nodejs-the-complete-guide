@@ -1,0 +1,244 @@
+1
+00:00:02,150 --> 00:00:07,850
+As I mentioned in the last lecture we could protect our rabbits like this but this is not really a scalable
+
+2
+00:00:07,850 --> 00:00:13,790
+way we would have to add it to every route which should be protected to every controller action.
+
+3
+00:00:13,790 --> 00:00:20,130
+So instead I went to create my own middleware which I can add on every route that should be protected.
+
+4
+00:00:20,510 --> 00:00:26,430
+And for this first of all create a brand new folder in my project here.
+
+5
+00:00:26,480 --> 00:00:31,640
+So in the root of the project I'll add a middleware folder named as however you want that doesn't have
+
+6
+00:00:31,640 --> 00:00:34,470
+to be named middleware in there.
+
+7
+00:00:34,640 --> 00:00:42,650
+Aleta is off japes fall and you can all the named file however you want and I will simply export a function
+
+8
+00:00:42,650 --> 00:00:43,030
+here.
+
+9
+00:00:43,040 --> 00:00:47,940
+A typical middleware function where you get request response and next.
+
+10
+00:00:47,960 --> 00:00:50,270
+And then you execute some code.
+
+11
+00:00:50,540 --> 00:00:53,100
+So I want to export such a function here.
+
+12
+00:00:53,210 --> 00:00:56,660
+Now in that function I'll simply implement the code.
+
+13
+00:00:56,690 --> 00:00:58,540
+I showed you in the last lecture.
+
+14
+00:00:58,640 --> 00:01:03,430
+So I'd check if we are not locked in.
+
+15
+00:01:03,580 --> 00:01:14,540
+And if that is the case then I will return wrests redirect log in like that arbor wise I'll call next
+
+16
+00:01:15,290 --> 00:01:20,750
+because otherwise I'm Once you allow the request to continue to whichever route to request one to go
+
+17
+00:01:20,750 --> 00:01:21,650
+to.
+
+18
+00:01:21,680 --> 00:01:25,960
+Now this is the same logic as before but it's wrapped in a middleware.
+
+19
+00:01:26,270 --> 00:01:32,690
+Now we can go to the route's folder and there you can actually add as many handlers for any route you
+
+20
+00:01:32,690 --> 00:01:33,220
+want.
+
+21
+00:01:33,320 --> 00:01:37,030
+And the request will be funneled through them from left to right.
+
+22
+00:01:37,040 --> 00:01:47,000
+This means that in here I can now import my is off middleware by requiring it from my middleware folder
+
+23
+00:01:47,210 --> 00:01:48,500
+is off like this.
+
+24
+00:01:48,830 --> 00:01:52,750
+And it's off can now simply be added as an argument to get.
+
+25
+00:01:52,760 --> 00:01:57,070
+And you can add as many arguments as you want as many handlers as you want them for.
+
+26
+00:01:57,290 --> 00:02:00,770
+And as I mentioned they will be parsed from left to right.
+
+27
+00:02:00,800 --> 00:02:04,140
+The request will travel through them from left to right.
+
+28
+00:02:04,280 --> 00:02:11,150
+So the request which reaches it product goes into that is all middleware first and that is off Mitla
+
+29
+00:02:11,150 --> 00:02:14,900
+where we might be redirecting and we don't call next.
+
+30
+00:02:14,900 --> 00:02:19,040
+Hence the request would never continue to that controller action.
+
+31
+00:02:19,160 --> 00:02:23,490
+But if we make it positive check here in the middle where we do call next.
+
+32
+00:02:23,510 --> 00:02:29,690
+So the next middleware in line will be called and the next middleware in line would be our get product
+
+33
+00:02:29,690 --> 00:02:31,620
+controller action here.
+
+34
+00:02:31,670 --> 00:02:34,290
+And this means that we can now add.
+
+35
+00:02:34,370 --> 00:02:41,560
+This is all middleware to all the routes here because these routes actually all require all indication
+
+36
+00:02:42,800 --> 00:02:43,830
+and in the shop.
+
+37
+00:02:43,850 --> 00:02:44,260
+Yes.
+
+38
+00:02:44,270 --> 00:02:46,940
+There also are some routes that should be protected.
+
+39
+00:02:47,040 --> 00:02:53,610
+So all import is off here too by requiring it from the middleware folder like this.
+
+40
+00:02:53,870 --> 00:03:00,130
+And then there are two I want to protect get cards because we need to be authenticated to have a card.
+
+41
+00:03:00,410 --> 00:03:07,910
+I will protect post-cart I will protect deleting a card item posting an order and viewing the orders.
+
+42
+00:03:08,060 --> 00:03:13,040
+So all that is protected with the help of is off.
+
+43
+00:03:13,050 --> 00:03:18,270
+So now this means that if you are not locked in you actually can't access these routes.
+
+44
+00:03:18,300 --> 00:03:20,100
+I am not locked in here.
+
+45
+00:03:20,550 --> 00:03:23,640
+Now let me show this to you and let me log out.
+
+46
+00:03:23,840 --> 00:03:31,910
+And now I'll try to access admin at product and you'll see I end up on the log in page and the same
+
+47
+00:03:31,910 --> 00:03:40,250
+if I try to access cart I end up on the log in page I can visit products and the details and so on but
+
+48
+00:03:40,250 --> 00:03:42,380
+I can't with the rest.
+
+49
+00:03:42,380 --> 00:03:49,310
+So now we have Raut protection in place and we don't just hide the menu items here but we really check
+
+50
+00:03:49,850 --> 00:03:57,260
+the indication status with the help of the session on the service side and there the user has no way
+
+51
+00:03:57,350 --> 00:03:58,600
+of manipulating it.
+
+52
+00:03:58,610 --> 00:04:04,780
+So now we ensure that some routes some methods are only available locked in users.
+
+53
+00:04:04,910 --> 00:04:16,980
+And indeed if I do log in again I can of course add a new book here for example with that same image.
+
+54
+00:04:16,980 --> 00:04:21,030
+We reused a couple of times but it's still new.
+
+55
+00:04:21,420 --> 00:04:23,520
+So let's add this this works.
+
+56
+00:04:23,520 --> 00:04:25,420
+So all of that can be done.
+
+57
+00:04:25,440 --> 00:04:27,410
+All of that is supported here.
+
+58
+00:04:27,420 --> 00:04:29,490
+You see we can added a product.
+
+59
+00:04:29,580 --> 00:04:31,710
+We can also delete a product if we want to.
+
+60
+00:04:31,710 --> 00:04:32,510
+This all works.
+
+61
+00:04:32,610 --> 00:04:35,880
+But we protected against an indicated access.
+

@@ -1,0 +1,156 @@
+1
+00:00:02,320 --> 00:00:07,220
+To implement authentication we first of all need a fitting route.
+
+2
+00:00:07,270 --> 00:00:15,930
+So in the off J.S. route Routier I will add a new route post route where I will lock the user in so
+
+3
+00:00:15,930 --> 00:00:18,550
+there will be slash log in.
+
+4
+00:00:18,550 --> 00:00:24,370
+We could add validation here but I don't really care about this because I will check to email password
+
+5
+00:00:24,370 --> 00:00:30,420
+pair anyways so we can all directly go forward to our controller action.
+
+6
+00:00:30,440 --> 00:00:37,410
+So let's implement Dad let's work on the controller action now for Dad in the off file in the controllers
+
+7
+00:00:37,540 --> 00:00:38,290
+folder.
+
+8
+00:00:38,440 --> 00:00:46,970
+I'll add a new action which I'll name log in which of course is a function with request response next.
+
+9
+00:00:47,030 --> 00:00:57,370
+And then some logic and then hear ask before all retrieve my e-mail WIPs from request body e-mail all
+
+10
+00:00:57,380 --> 00:01:07,160
+retrieve the password from requests bawdy password and I now first of all want to find out whether that
+
+11
+00:01:07,190 --> 00:01:12,410
+e-mail address exists because if it does not then we already know that you can't log in.
+
+12
+00:01:12,410 --> 00:01:19,790
+So I'll use my user model and find one to find one user where the e-mail equals the extracted e-mail
+
+13
+00:01:19,790 --> 00:01:20,620
+I got here.
+
+14
+00:01:22,540 --> 00:01:29,240
+We can succeed or we can fail with debt if we fail we'll use that same handler we used for.
+
+15
+00:01:29,260 --> 00:01:35,110
+So we'll throw an error because we're failing of course means that we simply had some network error
+
+16
+00:01:35,110 --> 00:01:37,490
+or some error with the database.
+
+17
+00:01:37,750 --> 00:01:43,180
+If we make it into the then block we had a user object but that does not mean that we found a user it
+
+18
+00:01:43,180 --> 00:01:45,660
+could be undefined if no user was found.
+
+19
+00:01:45,670 --> 00:01:50,540
+We basically always end up in the then block if no error is Frode.
+
+20
+00:01:50,560 --> 00:01:59,770
+So here I'll check if user is not the find and if it is not the find all create a new error object where
+
+21
+00:01:59,770 --> 00:02:08,850
+I add or where I add a message all of a user with this e-mail could not be found anything you want.
+
+22
+00:02:09,000 --> 00:02:10,100
+We're all set.
+
+23
+00:02:11,190 --> 00:02:17,850
+Status code off and now you could choose different codes you could go for 4 or 4 because no user was
+
+24
+00:02:17,850 --> 00:02:24,800
+found or for a one for not affiliated and then all Frode at error.
+
+25
+00:02:24,900 --> 00:02:29,080
+If we make it past this check we know that we have that e-mail address.
+
+26
+00:02:29,100 --> 00:02:37,890
+Now we need to validate the password for us all quickly create a new variable loaded user and store
+
+27
+00:02:38,700 --> 00:02:46,720
+my user in that variable so that I can use it in other functions later to not use Be trip again and
+
+28
+00:02:46,720 --> 00:02:55,540
+they're all use to compare method to compare the password the user entered with the password I got stored.
+
+29
+00:02:55,540 --> 00:03:01,660
+So with that hashed password so user Your password is password and looking for all returned is because
+
+30
+00:03:01,690 --> 00:03:05,830
+this will give me a promise and hence I can add a number of them block here.
+
+31
+00:03:08,710 --> 00:03:10,240
+Here I get back.
+
+32
+00:03:10,240 --> 00:03:13,510
+True or false depending on whether it is equal or not.
+
+33
+00:03:13,510 --> 00:03:18,760
+And if it is not equal of course then the user did enter a wrong password.
+
+34
+00:03:18,760 --> 00:03:25,460
+So here all create number error or wrong password maybe
+
+35
+00:03:28,500 --> 00:03:31,400
+and I'll add status code.
+
+36
+00:03:31,580 --> 00:03:35,050
+All four hundred and one again and fro dead error.
+
+37
+00:03:36,620 --> 00:03:41,960
+But if we make it positive check then we know the password is equal to the password the user entered.
+
+38
+00:03:41,960 --> 00:03:47,980
+So the user entered a correct password and now we need to generate such a Jasen web token.
+
+39
+00:03:47,990 --> 00:03:48,920
+Let's do that next.
+

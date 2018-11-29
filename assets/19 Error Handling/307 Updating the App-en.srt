@@ -1,0 +1,164 @@
+1
+00:00:02,300 --> 00:00:04,310
+We had a closer look at error handling.
+
+2
+00:00:04,310 --> 00:00:10,970
+Now let me remove that code here where I create the duplicate ID so that it works again.
+
+3
+00:00:10,970 --> 00:00:15,890
+I hope you've got an idea of how error handling can work and how we can use that central error handling
+
+4
+00:00:15,890 --> 00:00:21,500
+function or our own logic which we have in place all the time where we check for the existence of a
+
+5
+00:00:21,500 --> 00:00:24,320
+product and redirect Oberweis and so on.
+
+6
+00:00:24,320 --> 00:00:30,290
+So we get a bunch of code already in our application where we do handle a certain situations which we
+
+7
+00:00:30,290 --> 00:00:31,760
+want to avoid of course.
+
+8
+00:00:32,030 --> 00:00:35,770
+And you can always be more creative and handle them in a better way.
+
+9
+00:00:35,780 --> 00:00:37,790
+For example here and get added product.
+
+10
+00:00:37,820 --> 00:00:41,150
+If I don't find a product I redirect to the starting page.
+
+11
+00:00:41,150 --> 00:00:46,880
+Now you can of course enhance this and you could redirect back to the admin products page and flash
+
+12
+00:00:46,880 --> 00:00:52,580
+a message onto that page which had an output in the Ejay as template to give the user more information
+
+13
+00:00:52,580 --> 00:00:53,720
+on what went wrong.
+
+14
+00:00:53,900 --> 00:01:00,410
+I'm not doing this here to not spend a lot of time on working on the UI only but these are all things
+
+15
+00:01:00,410 --> 00:01:07,340
+you can do what I want you to take away here is that you a half measures or that you have tools for
+
+16
+00:01:07,340 --> 00:01:08,420
+handling errors.
+
+17
+00:01:08,570 --> 00:01:14,900
+And one of the most important tool is to at least handle all these catch blocks correctly.
+
+18
+00:01:15,110 --> 00:01:20,080
+And therefore I will do that and replace it with my catch block where I Frode that error or where I
+
+19
+00:01:20,130 --> 00:01:26,780
+forward does error here because this allows me to at least centrally handle them with a 500 page if
+
+20
+00:01:26,780 --> 00:01:28,070
+I do nothing else.
+
+21
+00:01:28,100 --> 00:01:29,800
+Does this better than nothing.
+
+22
+00:01:29,810 --> 00:01:34,790
+So all you said on all my catch blocks here all in all.
+
+23
+00:01:34,800 --> 00:01:38,210
+J.S. there for one here.
+
+24
+00:01:38,220 --> 00:01:46,630
+But for this one I'll also add this catch block to same for this one basically for all to catch blocks
+
+25
+00:01:46,640 --> 00:01:48,840
+spread just lock something to the console.
+
+26
+00:01:48,970 --> 00:01:58,680
+There i once you forewards to the 500 page here as well and you can call that anywhere of course not
+
+27
+00:01:58,680 --> 00:01:59,960
+just in the next block.
+
+28
+00:02:00,080 --> 00:02:06,090
+When ever you create an error object and you next to it and you are white and the code being executed
+
+29
+00:02:06,120 --> 00:02:11,220
+after just by returning next with the error whenever you do that you end up with your express error
+
+30
+00:02:11,220 --> 00:02:12,510
+handling function.
+
+31
+00:02:12,510 --> 00:02:16,230
+And just because it's really important does it just one way of handling this.
+
+32
+00:02:16,260 --> 00:02:19,170
+You also have all the other checks and so on which we add.
+
+33
+00:02:19,170 --> 00:02:25,850
+So this is just my last resort here that I always do at least that if everything else fails.
+
+34
+00:02:26,040 --> 00:02:32,310
+And now we should have an application which is a little more hardened or at least shows some message
+
+35
+00:02:32,310 --> 00:02:36,030
+to the user when something fails instead of just doing well.
+
+36
+00:02:36,060 --> 00:02:43,460
+Nothing basically as we did before because you won on one situations where the app just crashes and
+
+37
+00:02:43,460 --> 00:02:49,820
+you don't even tell the user it's better to have some code in place that at least returns an error page.
+
+38
+00:02:50,150 --> 00:02:56,300
+And now with all these changes here you should be able to still click around and use that application
+
+39
+00:02:56,570 --> 00:02:57,810
+as you did before.
+
+40
+00:02:59,460 --> 00:03:02,070
+Can also delete for example that all works.
+
+41
+00:03:02,070 --> 00:03:07,530
+But now we got proper error handling in place for scenarios where something does go wrong.
+

@@ -1,0 +1,280 @@
+1
+00:00:02,160 --> 00:00:08,100
+So now we're importing something which allows to get access to the database connection.
+
+2
+00:00:08,100 --> 00:00:13,380
+We set up initially when starting our server which now is a concept that we can reuse.
+
+3
+00:00:13,440 --> 00:00:22,110
+So in a safe method of the product model I can now get access to my database by calling get D-B remember
+
+4
+00:00:22,220 --> 00:00:26,800
+get deadbeat does simply return that database instance we connect to.
+
+5
+00:00:26,990 --> 00:00:32,190
+So now we have a connection which allows us to interact with the database and then here in Long would
+
+6
+00:00:32,280 --> 00:00:39,630
+be you can call collection to tell to be into which collection you want to or something or with which
+
+7
+00:00:39,630 --> 00:00:41,960
+collection you want to work.
+
+8
+00:00:42,060 --> 00:00:46,680
+Because remember what would it be you have databases collections and documents.
+
+9
+00:00:46,680 --> 00:00:48,590
+We have a database connection.
+
+10
+00:00:48,690 --> 00:00:51,500
+So the next level is a collection.
+
+11
+00:00:51,570 --> 00:00:56,940
+So here we can connect to any collection and just as with the database if it doesn't exist yet it will
+
+12
+00:00:56,940 --> 00:00:59,530
+be created the first time in their data.
+
+13
+00:00:59,730 --> 00:01:04,120
+So you're all connect to a product's collection.
+
+14
+00:01:04,530 --> 00:01:12,010
+Now on that collection we can execute a couple of Monga DBI commands or operations.
+
+15
+00:01:12,120 --> 00:01:15,610
+Now a full list can be found in the official box.
+
+16
+00:01:15,630 --> 00:01:21,030
+And of course you'll learn all about them and all the details in my full long would be Course which
+
+17
+00:01:21,030 --> 00:01:24,740
+I mentioned in your official docs you can click on Mangu to be server.
+
+18
+00:01:24,900 --> 00:01:31,410
+And here for example click on Monga to be crowd operations to learn how to Izard find that is what Korea's
+
+19
+00:01:31,710 --> 00:01:37,620
+updates and deletes documents and you'll see all the examples here and all the commands and how to configure
+
+20
+00:01:37,620 --> 00:01:38,670
+them and so on.
+
+21
+00:01:38,670 --> 00:01:41,090
+So this is a great place for you to dive deeper.
+
+22
+00:01:41,100 --> 00:01:42,840
+Besides the record I mentioned.
+
+23
+00:01:42,930 --> 00:01:47,730
+But of course Here's a short introduction too if you want to insert data.
+
+24
+00:01:47,730 --> 00:01:52,300
+You can do this with insert one or if it's multiple documents at once.
+
+25
+00:01:52,410 --> 00:01:58,650
+Many injured many then takes an array of javascript object you want to insert insert one which I'll
+
+26
+00:01:58,650 --> 00:02:03,890
+do here because I want to hazard one product only takes the object you want to insert.
+
+27
+00:02:03,930 --> 00:02:05,990
+Now what do you mean with object.
+
+28
+00:02:06,060 --> 00:02:13,280
+Well you would simply pass an object where you have lakes for example the name a book prize.
+
+29
+00:02:13,450 --> 00:02:15,360
+Wells 99 and so on.
+
+30
+00:02:15,360 --> 00:02:20,760
+So this is something which would be valid code that would insert such a document into the database.
+
+31
+00:02:20,760 --> 00:02:26,100
+By the way does this not Jason does this javascript object but it will be converted by Muang would you
+
+32
+00:02:26,100 --> 00:02:27,090
+be.
+
+33
+00:02:27,150 --> 00:02:31,630
+However here in our case essentially it's the product which you want to insert right.
+
+34
+00:02:31,680 --> 00:02:35,390
+So we could just say this and see how that works.
+
+35
+00:02:35,460 --> 00:02:41,010
+If we try to insert this into our database now it is all we need to do right now.
+
+36
+00:02:41,010 --> 00:02:43,690
+Insert one then returns us a promise.
+
+37
+00:02:43,860 --> 00:02:52,500
+So we have then then catch and we can log any error we found or we can have a look at the result we
+
+38
+00:02:52,500 --> 00:03:00,390
+get back so we can look Kohn's a lot the result with that out of the way let me remove the sexualize
+
+39
+00:03:00,990 --> 00:03:04,150
+model and export our CLOs with the Save method.
+
+40
+00:03:04,440 --> 00:03:07,480
+And now with debt we fixed the model fall.
+
+41
+00:03:07,530 --> 00:03:12,810
+Let's now go to the aberant chase fall and here obviously we got a couple of methods or a couple of
+
+42
+00:03:12,810 --> 00:03:19,670
+functions which still use parts of the model that won't work anymore like this one here request user
+
+43
+00:03:19,680 --> 00:03:22,230
+create product for adding a new product.
+
+44
+00:03:22,230 --> 00:03:23,600
+This will not work anymore.
+
+45
+00:03:23,610 --> 00:03:27,770
+For now we'll have to create a product without storing something about the user.
+
+46
+00:03:27,850 --> 00:03:30,390
+We'll reintroduce this later again.
+
+47
+00:03:30,780 --> 00:03:34,730
+So for now we can override this year though.
+
+48
+00:03:34,890 --> 00:03:42,480
+And I also want to comment out my methods because these will not work anymore.
+
+49
+00:03:42,540 --> 00:03:43,810
+So let's Calment them out.
+
+50
+00:03:43,850 --> 00:03:49,530
+Will comment them back in later once it works and they offer in the admin Rollin's here routes.
+
+51
+00:03:49,610 --> 00:03:54,860
+Edmond Yes there I also want to disable all routes that will not work anymore.
+
+52
+00:03:55,020 --> 00:03:56,560
+So essentially that's all.
+
+53
+00:03:56,580 --> 00:03:58,230
+But this post route.
+
+54
+00:03:58,380 --> 00:04:00,540
+So you're for getting all products.
+
+55
+00:04:00,660 --> 00:04:05,700
+This will not work any more and all these routes down there will not work anymore.
+
+56
+00:04:05,820 --> 00:04:08,410
+But these two routes should still work.
+
+57
+00:04:09,220 --> 00:04:10,650
+For ad product.
+
+58
+00:04:10,930 --> 00:04:20,260
+So now with that I need to fix one more thing in the last Fall here I need to import Daut Mongo connect
+
+59
+00:04:20,260 --> 00:04:22,900
+here from my database utility file.
+
+60
+00:04:23,310 --> 00:04:29,290
+And with that now we're not only connected but we should all be able to insert a new product already
+
+61
+00:04:30,270 --> 00:04:38,090
+so let's try this out wizard localhost free 0 0 0 0 and slash at product and this won't load because
+
+62
+00:04:38,090 --> 00:04:44,510
+an app chance when I commented out the code here and app you is well I should at least call next hour
+
+63
+00:04:44,520 --> 00:04:47,820
+why is every incoming request will die here.
+
+64
+00:04:47,820 --> 00:04:54,480
+So with that changed now if you reload we are back to our admin at product page.
+
+65
+00:04:54,480 --> 00:05:00,690
+Now let's simply check this and see if it works by adding a product.
+
+66
+00:05:00,690 --> 00:05:06,300
+Now I get an error here regarding 3:08 product and that of course makes sense because in the Edmon chase
+
+67
+00:05:06,300 --> 00:05:08,510
+file I didn't change any code.
+
+68
+00:05:08,610 --> 00:05:10,000
+So let's work on that code.
+
+69
+00:05:10,050 --> 00:05:10,440
+Next.
+
+70
+00:05:10,440 --> 00:05:12,450
+Let's make sure that we can add a product.
+

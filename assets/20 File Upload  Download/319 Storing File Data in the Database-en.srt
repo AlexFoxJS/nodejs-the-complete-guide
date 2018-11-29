@@ -1,0 +1,424 @@
+1
+00:00:02,740 --> 00:00:09,000
+So I'll just quickly clean up all my products here because they're all stored in an incorrect way due
+
+2
+00:00:09,080 --> 00:00:12,590
+to well how it worked with the files in the past.
+
+3
+00:00:12,590 --> 00:00:20,920
+Let me remove all these products and now let me go back and here in my application and post at products
+
+4
+00:00:21,010 --> 00:00:25,670
+in my admen controller there I now want to handle that follow correctly.
+
+5
+00:00:25,670 --> 00:00:32,990
+So first of all image year will be an object of this format with information about the file and where
+
+6
+00:00:32,990 --> 00:00:33,950
+it was stored.
+
+7
+00:00:33,950 --> 00:00:39,880
+So where the physical file can be found and now it wants to save that.
+
+8
+00:00:39,950 --> 00:00:45,600
+First of all I would check if image is set because if it's undefined then that means that Mulder declined
+
+9
+00:00:45,600 --> 00:00:46,860
+to incoming fall.
+
+10
+00:00:46,910 --> 00:00:57,230
+So if this is not said if it is undefined Well then I want to return a response with statis 422 because
+
+11
+00:00:57,230 --> 00:01:01,130
+I then have an invalid input so I want to return that response.
+
+12
+00:01:02,070 --> 00:01:04,650
+At product editing fault has errors.
+
+13
+00:01:04,700 --> 00:01:05,270
+True.
+
+14
+00:01:06,160 --> 00:01:12,460
+Where I pass in my old data not the file or only title price and description and the error message is
+
+15
+00:01:12,970 --> 00:01:16,220
+attached file is not an image let's say.
+
+16
+00:01:16,370 --> 00:01:18,930
+And validation arrows can be an empty array.
+
+17
+00:01:18,940 --> 00:01:23,090
+I won't mark anything as read with this change in place.
+
+18
+00:01:23,170 --> 00:01:24,600
+We can already validate this.
+
+19
+00:01:24,640 --> 00:01:31,590
+If I now try to upload an image I succeed.
+
+20
+00:01:31,590 --> 00:01:40,910
+So I don't get my same form again if she was a PBF though then I get attached falls and all that image.
+
+21
+00:01:40,990 --> 00:01:45,370
+So this is we're rigging and that's now all the work on the case that we do have an image and we want
+
+22
+00:01:45,370 --> 00:01:46,500
+to store it.
+
+23
+00:01:46,540 --> 00:01:50,420
+Now the file already gets stored on our file system.
+
+24
+00:01:50,590 --> 00:01:51,950
+And this is how you should store it.
+
+25
+00:01:51,970 --> 00:01:57,600
+You should not store data like this in the database files should not be stored in a database.
+
+26
+00:01:57,600 --> 00:01:58,610
+They are too big.
+
+27
+00:01:58,660 --> 00:02:04,900
+It's too inefficient to store them in a database and carry them from their store files on a file system
+
+28
+00:02:05,050 --> 00:02:06,260
+as we are doing it here.
+
+29
+00:02:06,430 --> 00:02:08,910
+But of course you need to store something in a database.
+
+30
+00:02:08,980 --> 00:02:11,130
+You need to store the path to the file.
+
+31
+00:02:11,140 --> 00:02:11,870
+Right.
+
+32
+00:02:12,230 --> 00:02:18,130
+And data is something you can construct here with the information given to you and the file object and
+
+33
+00:02:18,130 --> 00:02:22,920
+you can then simply pass that data to the database.
+
+34
+00:02:22,930 --> 00:02:30,550
+So if we made it after our entire validation year I know did I have a valid file and valid input data
+
+35
+00:02:30,820 --> 00:02:31,930
+and then all create my image.
+
+36
+00:02:31,930 --> 00:02:35,450
+You are again and in that image you are l.
+
+37
+00:02:35,470 --> 00:02:39,950
+I will use my image data which is that file object we get from Mulder.
+
+38
+00:02:40,240 --> 00:02:42,920
+And there we have information like the file path.
+
+39
+00:02:43,030 --> 00:02:49,050
+And it's this path that is interesting to me of course because it is the a file on my operating system.
+
+40
+00:02:49,150 --> 00:02:53,770
+It is Spaf idea for one to use later on when fetching that image.
+
+41
+00:02:55,340 --> 00:02:59,890
+So does pop is what I'll store here in the image you are l and therefore I can store image.
+
+42
+00:02:59,900 --> 00:03:01,740
+You are all in the database again.
+
+43
+00:03:02,090 --> 00:03:10,310
+So if we now save all of that and I do select a valid image here and I hit add product this now works
+
+44
+00:03:10,310 --> 00:03:10,900
+again.
+
+45
+00:03:10,940 --> 00:03:15,220
+Display it does not work will work on this in a second but saving does work.
+
+46
+00:03:15,470 --> 00:03:21,650
+If I have a look into my database for the products you see does is the part that was stored.
+
+47
+00:03:21,740 --> 00:03:22,920
+Now this is looking good.
+
+48
+00:03:23,150 --> 00:03:29,200
+But of course here if we inspect this we see D-Mich. is not really rendered because it can't find this.
+
+49
+00:03:29,270 --> 00:03:36,230
+It fails to fetch images and then well this name and the Network tab we indeed find a 404 error when
+
+50
+00:03:36,230 --> 00:03:38,520
+the browser sends the request for this image.
+
+51
+00:03:38,810 --> 00:03:40,940
+So now we are able to store data.
+
+52
+00:03:40,970 --> 00:03:45,540
+Let's also learn how we can surf data well almost before we serve it.
+
+53
+00:03:45,560 --> 00:03:50,480
+Let's work on editing this because this is a number parred which won't work correctly right now.
+
+54
+00:03:50,660 --> 00:03:56,450
+Right now when we load the ad page what we do is we load the page and we sent back the data we need
+
+55
+00:03:56,540 --> 00:03:58,290
+for displaying it of course.
+
+56
+00:03:58,310 --> 00:04:05,600
+So that means we rendered the added product page with product data that includes our image u r l which
+
+57
+00:04:05,600 --> 00:04:12,740
+is of course fine but ultimately here we don't see the Eurail and we don't want to change d you r l
+
+58
+00:04:12,800 --> 00:04:14,540
+when editing the product instead.
+
+59
+00:04:14,540 --> 00:04:16,530
+Here we have a new file picker.
+
+60
+00:04:16,590 --> 00:04:20,090
+Now you can of course configure this to work in any way you want.
+
+61
+00:04:20,210 --> 00:04:26,870
+But here I want to have a behavior where if we choose no file here we simply keep the old one and we
+
+62
+00:04:26,870 --> 00:04:29,000
+only overwrite it with a new file.
+
+63
+00:04:29,030 --> 00:04:36,100
+If I do choose and you want here so to do that I'll go to post edit product which is where we do handle
+
+64
+00:04:36,110 --> 00:04:37,080
+incoming data.
+
+65
+00:04:37,220 --> 00:04:45,410
+And of course here we again can retrieve request file and stored at an image constant Just as I'm doing
+
+66
+00:04:45,410 --> 00:04:51,380
+it here and when we add the product there I'm also retrieving this file extract that by Mulder.
+
+67
+00:04:51,380 --> 00:04:57,080
+Mulder will do the same for post edit product so I can extract that there to store it in image.
+
+68
+00:04:57,170 --> 00:05:03,030
+And now this image is the thing I need to check if it is on the find.
+
+69
+00:05:03,140 --> 00:05:05,560
+Then I know no file was saved.
+
+70
+00:05:05,750 --> 00:05:11,360
+And in this case this means I want to keep the old file by the way the same will be true if I upload
+
+71
+00:05:11,360 --> 00:05:12,020
+a PDA.
+
+72
+00:05:12,080 --> 00:05:13,490
+I will simply keep the old image.
+
+73
+00:05:13,490 --> 00:05:14,570
+In that case.
+
+74
+00:05:15,080 --> 00:05:18,710
+So we don't need to throw an error or return an error message.
+
+75
+00:05:18,740 --> 00:05:20,630
+Though you could of course do that if you want.
+
+76
+00:05:20,780 --> 00:05:23,360
+If you always want to force a new image.
+
+77
+00:05:23,360 --> 00:05:26,370
+But here what I'll do is instead all.
+
+78
+00:05:26,450 --> 00:05:33,170
+First of all added my validation page which I return and I'll not return D-Mich. you are all here.
+
+79
+00:05:33,170 --> 00:05:33,840
+We don't need that.
+
+80
+00:05:33,860 --> 00:05:39,770
+Just as in poll post ad product there we also don't need to return it because there is no in which you
+
+81
+00:05:39,770 --> 00:05:39,990
+are.
+
+82
+00:05:40,010 --> 00:05:42,640
+We render in our edit page any more.
+
+83
+00:05:42,650 --> 00:05:48,860
+But if we make it past our revalidation year when we store the product or when we update the product
+
+84
+00:05:48,920 --> 00:05:53,130
+I should say this image your L does not exist anymore.
+
+85
+00:05:53,150 --> 00:05:57,410
+Instead here I want to see if I really need to set that.
+
+86
+00:05:57,590 --> 00:06:03,770
+So I'll check if a match is there if it's not undefined in which case I'll set product image.
+
+87
+00:06:03,770 --> 00:06:12,080
+You are able to image path so the same logic as I do have it in post at product there.
+
+88
+00:06:12,110 --> 00:06:19,800
+I also said image you are all too much lbf but in post edit product I do it conditionally and if the
+
+89
+00:06:19,800 --> 00:06:25,700
+image is undefined so if no new image was passed I simply don't set it on the object which had an update
+
+90
+00:06:26,270 --> 00:06:27,710
+and since I updated.
+
+91
+00:06:27,920 --> 00:06:33,830
+And if I don't set this I will simply will not update this field and I can't prove this to you.
+
+92
+00:06:34,010 --> 00:06:42,140
+If I can update this product here now I get an invalid value because I forgot to adjust my validation
+
+93
+00:06:42,200 --> 00:06:44,930
+loop in the route's folder for editing the product.
+
+94
+00:06:44,930 --> 00:06:49,850
+I'm still checking for image you are EL-TIBI you are l but this field does not exist anymore so we should
+
+95
+00:06:49,850 --> 00:06:55,540
+remove that from the edit product route validation logic and now the submit is again.
+
+96
+00:06:55,700 --> 00:06:57,350
+It just works.
+
+97
+00:06:57,590 --> 00:07:05,190
+If I now choose a different image doh and before a select does let me quickly show if I update my database
+
+98
+00:07:05,190 --> 00:07:09,280
+here you'll see that image your l did not change.
+
+99
+00:07:09,440 --> 00:07:14,720
+If I select both to now which is the same image but a different file name and technically a different
+
+100
+00:07:14,720 --> 00:07:17,700
+file therefore I update this.
+
+101
+00:07:17,970 --> 00:07:22,480
+And now if we go to that database and we refresh we see it set boat 2.
+
+102
+00:07:22,620 --> 00:07:25,110
+So now we got that editing option in place too.
+
+103
+00:07:25,260 --> 00:07:30,300
+And now we do handle the file uploads in the way we need to handle them.
+
+104
+00:07:30,420 --> 00:07:33,620
+But of course handling file uploads is only one thing.
+
+105
+00:07:33,720 --> 00:07:35,570
+We also want to be able to see that image.
+
+106
+00:07:35,610 --> 00:07:39,750
+So to download it kind of and that is what I focus on in the next ELECTRESS.
+

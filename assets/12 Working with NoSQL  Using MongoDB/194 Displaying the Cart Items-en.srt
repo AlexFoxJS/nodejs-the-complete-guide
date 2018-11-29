@@ -1,0 +1,472 @@
+1
+00:00:02,180 --> 00:00:05,170
+Now well we're able to at product sort of card.
+
+2
+00:00:05,180 --> 00:00:11,720
+Now with this code let's make sure we can also display them when fetching them when going to the cartes
+
+3
+00:00:11,720 --> 00:00:17,060
+page here to this page because right now we don't support this page because we still have that route
+
+4
+00:00:17,060 --> 00:00:22,580
+commented out and we've got no logic to fetch all card items anyways so time to go into the control
+
+5
+00:00:22,580 --> 00:00:27,480
+us folder into the shop chess file where we do have the gas card route.
+
+6
+00:00:27,500 --> 00:00:32,160
+Now this request user gets card thing will not work anymore.
+
+7
+00:00:32,450 --> 00:00:33,930
+So let's make it work.
+
+8
+00:00:34,040 --> 00:00:38,040
+Let's go back to the user model and in there we have added two cart.
+
+9
+00:00:38,210 --> 00:00:42,150
+Let's now also call or add a get cart method.
+
+10
+00:00:42,350 --> 00:00:44,600
+You could name it however you want of course.
+
+11
+00:00:44,600 --> 00:00:48,840
+The idea here is that we do indeed returned the card items.
+
+12
+00:00:48,950 --> 00:00:54,490
+So did the controller we have the card items there and we can start outputting them in the end what
+
+13
+00:00:54,510 --> 00:00:57,100
+we need as you can tell us just the products right.
+
+14
+00:00:57,110 --> 00:01:01,840
+So we want to have a list of the products with the respective quantities.
+
+15
+00:01:01,890 --> 00:01:06,520
+Now get card exists on the user who already has this card property.
+
+16
+00:01:06,540 --> 00:01:09,100
+This system would be way of thinking about relations.
+
+17
+00:01:09,120 --> 00:01:14,760
+We don't need to reach out to a card collection because there is no such collection instead.
+
+18
+00:01:14,760 --> 00:01:18,380
+Here we can simply return this card and that's it.
+
+19
+00:01:18,380 --> 00:01:20,410
+This gives us access to the user card.
+
+20
+00:01:20,450 --> 00:01:25,490
+Obviously we could have directly access to card property on the user if we wanted to you could add more
+
+21
+00:01:25,490 --> 00:01:27,980
+logic to transform it or anything like that.
+
+22
+00:01:28,250 --> 00:01:34,700
+But in the shop chase controller I can now already call get cart and have the cart.
+
+23
+00:01:34,860 --> 00:01:37,270
+For now on that card.
+
+24
+00:01:37,290 --> 00:01:44,610
+I can't call get products though but I don't need to because the products are all already included in
+
+25
+00:01:44,610 --> 00:01:47,460
+the cart or at least their references.
+
+26
+00:01:47,490 --> 00:01:47,750
+Right.
+
+27
+00:01:47,760 --> 00:01:52,850
+Because what I'm storing in the user model with at cart is the ID of every product.
+
+28
+00:01:52,860 --> 00:01:59,100
+This is what we store now and that is exactly something we can change and get cart instead of just turning
+
+29
+00:01:59,110 --> 00:01:59,910
+this cart.
+
+30
+00:01:59,940 --> 00:02:06,060
+It would be interesting to return a fully populated cart so cart with all the product details which
+
+31
+00:02:06,060 --> 00:02:08,790
+we also require and to do this.
+
+32
+00:02:08,790 --> 00:02:12,060
+We of course have to reach out to the database again.
+
+33
+00:02:12,060 --> 00:02:19,650
+So let's get access to our database client And let's return to assault of a database operation where
+
+34
+00:02:19,650 --> 00:02:25,740
+I do reach out to the products collection now because I have all the user data I have all the card data
+
+35
+00:02:25,830 --> 00:02:29,650
+now I need to fill it with some live from the products database.
+
+36
+00:02:29,970 --> 00:02:36,460
+And there I want to find all products that are in my cart.
+
+37
+00:02:36,620 --> 00:02:37,930
+Now how can I do that.
+
+38
+00:02:38,730 --> 00:02:44,730
+Well for this we can use a special Greason text mong would be supports in find I can tell I can say
+
+39
+00:02:44,790 --> 00:02:48,630
+I want to find all products where underscore IDs equal to.
+
+40
+00:02:48,840 --> 00:02:53,510
+And now I don't pass an idea here because I'm not looking for a single ID.
+
+41
+00:02:53,580 --> 00:02:59,010
+Instead I pass an object because this allows me to use some special Mangieri be Currey operators of
+
+42
+00:02:59,010 --> 00:03:04,350
+which there are many covered in detail and my mom would be coarse or in the official box of course but
+
+43
+00:03:04,370 --> 00:03:11,340
+we are looking for the dollar sign in operator and this operator takes an array of IDs and therefore
+
+44
+00:03:11,400 --> 00:03:17,520
+every ID which is India array will be accepted and will get back a cursor which holds references to
+
+45
+00:03:17,610 --> 00:03:21,770
+all products with one of the Ids mentioned in desir.
+
+46
+00:03:21,810 --> 00:03:24,610
+So all we need to do is construct such an array.
+
+47
+00:03:24,830 --> 00:03:29,830
+So product IDs can be constructed by using this card items.
+
+48
+00:03:29,940 --> 00:03:35,210
+And remember this is an array of objects that look like this.
+
+49
+00:03:35,220 --> 00:03:38,320
+So objects that have a product that dnt the quantity.
+
+50
+00:03:38,440 --> 00:03:41,160
+Now we're only interested in the product idea here.
+
+51
+00:03:42,050 --> 00:03:44,090
+So I'll simply map this.
+
+52
+00:03:44,090 --> 00:03:52,830
+Does a default javascript function all map this to transform every item in there and I simply want to
+
+53
+00:03:52,830 --> 00:03:55,040
+return the product ID.
+
+54
+00:03:55,140 --> 00:04:02,160
+So what I'm doing is mapping an array of items where every item is a javascript object into an array
+
+55
+00:04:02,280 --> 00:04:09,280
+of just strings of just the product IDs and this isn't stored in this new product IDs constant does
+
+56
+00:04:09,280 --> 00:04:09,790
+it.
+
+57
+00:04:09,800 --> 00:04:16,320
+Then my array which I want to use here to tell long would it be give me all elements where the ID is
+
+58
+00:04:16,320 --> 00:04:19,080
+one of the Ids mentioned in this array here.
+
+59
+00:04:19,410 --> 00:04:22,690
+So this gives me a cursor with all the matching products.
+
+60
+00:04:22,800 --> 00:04:29,200
+Not again use to array to quickly get that converted to a javascript array and then I'll add a then
+
+61
+00:04:29,220 --> 00:04:30,050
+method.
+
+62
+00:04:30,330 --> 00:04:36,150
+So in this method I'll have all my product data for the products that were in my cart.
+
+63
+00:04:36,150 --> 00:04:43,020
+Now of course we want to add the quantity back to every product because that is something that is important
+
+64
+00:04:43,020 --> 00:04:43,700
+to us.
+
+65
+00:04:44,450 --> 00:04:47,540
+Now how can we get that information back into there.
+
+66
+00:04:47,840 --> 00:04:48,530
+Well in this.
+
+67
+00:04:48,530 --> 00:04:56,820
+Then block all again return a mapped origin of my data so mapped worship of my products array where
+
+68
+00:04:56,880 --> 00:04:59,070
+every product will be converted.
+
+69
+00:04:59,160 --> 00:05:05,400
+A little bit of return a new object for every product which is fine because every product is an object
+
+70
+00:05:05,850 --> 00:05:08,170
+and I'll distribute all the existing properties.
+
+71
+00:05:08,220 --> 00:05:14,310
+So I want to keep all the data I retrieved but then I'll add a new quantity property and that quantity
+
+72
+00:05:14,310 --> 00:05:17,710
+property of course needs to be populated with data.
+
+73
+00:05:17,850 --> 00:05:21,110
+I know where I have on that product.
+
+74
+00:05:21,540 --> 00:05:27,840
+Now we of course have the products stored in the card of this user.
+
+75
+00:05:28,020 --> 00:05:36,710
+So what I can do is I can use dys cart and make sure you use aero functions here to ensure this instead
+
+76
+00:05:36,710 --> 00:05:40,960
+of this function still refers to the overall class with normal functions.
+
+77
+00:05:40,970 --> 00:05:51,830
+It would not so use this card in here X as my items and simply find the item with that ID at hand here.
+
+78
+00:05:51,890 --> 00:06:05,750
+So here I'll have my card item again and Abal return true if that item has a product ID to string that
+
+79
+00:06:05,750 --> 00:06:13,080
+is equal to the product underscore ID to string off the product with just fetch from the database.
+
+80
+00:06:13,190 --> 00:06:18,960
+So this can look confusing but in the end I have an array of products here fresh from the database.
+
+81
+00:06:19,100 --> 00:06:25,280
+Then I want to transform this which I'm doing with map map takes a function that executes on every element
+
+82
+00:06:25,280 --> 00:06:29,560
+and products which describes how to transform this element here.
+
+83
+00:06:29,570 --> 00:06:35,660
+I'm basically returning the new value which is an object where I still have all the old product properties
+
+84
+00:06:36,020 --> 00:06:41,990
+but I add a new quantity property and to get to the right quantity for a given product I reach out to
+
+85
+00:06:41,990 --> 00:06:42,560
+my card.
+
+86
+00:06:42,560 --> 00:06:44,660
+Items which exist on that user.
+
+87
+00:06:44,960 --> 00:06:53,000
+And I again use a built in javascript method find to look at all elements in card items with this function
+
+88
+00:06:53,000 --> 00:07:00,920
+here and then identify the one product where the product ID I'm storing in my card items matches the
+
+89
+00:07:00,920 --> 00:07:04,020
+ID of the product I have fetched from the database.
+
+90
+00:07:04,070 --> 00:07:09,620
+And since with map I'm going through all these products this will all very for every run.
+
+91
+00:07:09,620 --> 00:07:12,040
+Now the last thing is this whole thing here.
+
+92
+00:07:12,080 --> 00:07:13,320
+The whole Find method.
+
+93
+00:07:13,460 --> 00:07:18,280
+In the end just gives me the product object.
+
+94
+00:07:18,500 --> 00:07:20,710
+I want to get the quantitive though.
+
+95
+00:07:21,620 --> 00:07:27,100
+So now from the card items I have I extract a quantity for the given product.
+
+96
+00:07:27,290 --> 00:07:36,260
+And now with death code get cart shot return products which are enriched with all the data that is stored
+
+97
+00:07:36,260 --> 00:07:40,640
+in a product's collection because users in the card will only store the reference.
+
+98
+00:07:40,790 --> 00:07:45,080
+And this is what we need to do in long would be if we don't have a connection between two collections
+
+99
+00:07:45,080 --> 00:07:49,070
+with a reference we need to merge them manually as we are doing it here.
+
+100
+00:07:49,220 --> 00:07:55,370
+And with that merging being done manually here we can now use that data.
+
+101
+00:07:55,570 --> 00:08:00,350
+So get a card should now return a card with all the information we need.
+
+102
+00:08:00,380 --> 00:08:07,990
+So on the user we can call get card and then we know we get back some products here so we can delete
+
+103
+00:08:08,180 --> 00:08:09,320
+that here.
+
+104
+00:08:10,160 --> 00:08:17,120
+As well as does and then render our view with the products we fetched.
+
+105
+00:08:17,230 --> 00:08:19,980
+Now on that the you sell the shop card.
+
+106
+00:08:19,990 --> 00:08:25,840
+The issue here we just need to make sure we output our products correctly because we cycle through them
+
+107
+00:08:26,440 --> 00:08:28,240
+but now due to the way how we merge.
+
+108
+00:08:28,270 --> 00:08:35,260
+Every product will itself already have the quantity here and whenever we use that ID we should have
+
+109
+00:08:35,470 --> 00:08:38,860
+underscore ID as you learned.
+
+110
+00:08:38,870 --> 00:08:45,110
+Let's see if that works by going to our routes folder and there to shop last fall and let's add that
+
+111
+00:08:45,110 --> 00:08:46,510
+get Carter route again.
+
+112
+00:08:47,480 --> 00:08:53,220
+So I'll reload his cart page here and this is looking pretty good.
+
+113
+00:08:53,450 --> 00:08:55,920
+Now let me add a new product.
+
+114
+00:08:55,960 --> 00:09:06,730
+Third with some image and some description now does exists not in the cart though unless I add it to
+
+115
+00:09:06,730 --> 00:09:07,650
+the cart.
+
+116
+00:09:07,690 --> 00:09:11,680
+Once I do that and I go to the cart we see it there too.
+
+117
+00:09:11,710 --> 00:09:16,350
+Now the one thing that is still working is that if I do add a card item we're stuck.
+
+118
+00:09:16,360 --> 00:09:17,950
+Let's fix this in the next lecture.
+

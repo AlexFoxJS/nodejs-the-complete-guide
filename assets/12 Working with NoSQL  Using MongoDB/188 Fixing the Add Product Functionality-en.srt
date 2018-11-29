@@ -1,0 +1,68 @@
+1
+00:00:02,690 --> 00:00:11,100
+The leading works but when I try to at product and I'll just enter some dummy data here that fails and
+
+2
+00:00:11,130 --> 00:00:20,000
+it seems to fail because I would imagine that in safe here we somehow make it into this if block so
+
+3
+00:00:20,000 --> 00:00:25,430
+that underscore ideas to a problem and that makes sense because I actually do initialize underscore
+
+4
+00:00:25,430 --> 00:00:29,510
+ID here at the beginning by creating a new Mongo D-B object.
+
+5
+00:00:29,630 --> 00:00:35,480
+So even if we pass no ID and this therefore is undefined this will create an object and store in an
+
+6
+00:00:35,480 --> 00:00:36,460
+underscore ID.
+
+7
+00:00:36,590 --> 00:00:39,870
+So underscore id down there will always be defined.
+
+8
+00:00:39,920 --> 00:00:46,990
+And if its just such an empty are automatically generated object id object should be the issue here.
+
+9
+00:00:47,030 --> 00:00:49,710
+So how can I overcome this.
+
+10
+00:00:49,720 --> 00:00:56,660
+Well for example for turn every expression we can check if ID exists basically.
+
+11
+00:00:56,660 --> 00:01:03,110
+So if this returns true and if statement and if its the case then I want to create my object id object.
+
+12
+00:01:03,230 --> 00:01:08,060
+Otherwise all store now and now will be treated as false down there.
+
+13
+00:01:08,060 --> 00:01:13,520
+So if this tiny change in place with this turn their expression added in a product model we should be
+
+14
+00:01:13,520 --> 00:01:17,660
+able to add a product real quick with some dummy values.
+
+15
+00:01:18,260 --> 00:01:19,560
+And now its created.
+
+16
+00:01:19,580 --> 00:01:20,820
+So now does this working.
+
+17
+00:01:20,870 --> 00:01:26,310
+And it was just the fact that we were always creating an object that you object which we shouldn't.
+

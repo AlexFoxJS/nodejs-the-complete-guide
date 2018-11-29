@@ -1,0 +1,92 @@
+1
+00:00:02,340 --> 00:00:04,790
+So that's it for this module.
+
+2
+00:00:04,860 --> 00:00:11,610
+Again we learned a lot and practice a lot you'll learn about dynamic routing and that you can pass dynamic
+
+3
+00:00:11,610 --> 00:00:17,880
+path segments by adding a colon to the Express route or path the named after the colon is then the name
+
+4
+00:00:17,880 --> 00:00:21,810
+by which you can extract the data on request parens as a side note.
+
+5
+00:00:21,840 --> 00:00:24,880
+You can have more than one dynamic segment per route.
+
+6
+00:00:24,890 --> 00:00:26,830
+It is absolutely possible.
+
+7
+00:00:27,300 --> 00:00:30,350
+You can also work with optional equerry parameters.
+
+8
+00:00:30,420 --> 00:00:36,300
+These are the parameters you append with a questionmark at the end of your u r l and you can have multiple
+
+9
+00:00:36,300 --> 00:00:42,570
+ones separate with an ampersand and you can extract these values with request query and then the name
+
+10
+00:00:42,570 --> 00:00:44,050
+of your Param.
+
+11
+00:00:44,430 --> 00:00:50,920
+Now you don't need to register or name these parameters in your route registry.
+
+12
+00:00:50,970 --> 00:00:52,570
+You totally don't add them there.
+
+13
+00:00:52,590 --> 00:00:57,840
+You can just start extracting them but since they're optional You should also have a check in place
+
+14
+00:00:57,840 --> 00:01:00,360
+to see if that parameter was passed.
+
+15
+00:01:00,420 --> 00:01:07,530
+In case you are depending on it we all continued working on models and we added a cart model which only
+
+16
+00:01:07,530 --> 00:01:13,590
+holds static Moffats because we don't we create a card that often instead we just want to work with
+
+17
+00:01:13,590 --> 00:01:18,780
+the data storage behind it all the sodded you can interact between models.
+
+18
+00:01:18,810 --> 00:01:22,160
+For example delete a card item if a product is deleted.
+
+19
+00:01:22,350 --> 00:01:28,260
+But as I also mentioned towards the end of this module it's not that good if we only work with files
+
+20
+00:01:28,260 --> 00:01:32,670
+for data storage because accessing them is a bit slow to be honest.
+
+21
+00:01:32,820 --> 00:01:35,430
+And in general there are better options.
+
+22
+00:01:35,460 --> 00:01:37,860
+Most importantly of course databases.
+
+23
+00:01:37,950 --> 00:01:44,010
+So let's move on to how we can work with databases in a node express app in the next module.
+

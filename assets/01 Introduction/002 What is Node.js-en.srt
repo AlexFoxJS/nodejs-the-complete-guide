@@ -1,0 +1,240 @@
+1
+00:00:02,300 --> 00:00:06,100
+So let's dive into the most important question what is what.
+
+2
+00:00:06,110 --> 00:00:10,600
+J.S. No James is a javascript runtime.
+
+3
+00:00:10,610 --> 00:00:12,230
+And now what does this mean.
+
+4
+00:00:12,500 --> 00:00:20,960
+You know javascript it's programming language you typically use in the browser to manipulate your dom
+
+5
+00:00:21,110 --> 00:00:24,620
+to manipulate the page which was loaded in the browser.
+
+6
+00:00:24,650 --> 00:00:31,520
+For example to open a pop up a modal or add any kinds of effects because Javascript is a language that
+
+7
+00:00:31,520 --> 00:00:37,370
+runs in the browser that allows you to interact with the page after it was loaded and if there is a
+
+8
+00:00:37,370 --> 00:00:42,620
+crucial part when it comes to building interactive user interfaces in the browser.
+
+9
+00:00:42,620 --> 00:00:48,410
+So whatever your users see however javascript is not limited to that.
+
+10
+00:00:48,620 --> 00:00:56,930
+No chess is a different word of javascript you could say it is basically built on Javascript it adds
+
+11
+00:00:56,930 --> 00:01:02,300
+some features to it is not capable of doing some things you can do with javascript in the browser.
+
+12
+00:01:02,450 --> 00:01:06,490
+So it basically takes javascript and puts it into a different environment.
+
+13
+00:01:06,560 --> 00:01:10,280
+It allows you to run javascript code on the server.
+
+14
+00:01:10,280 --> 00:01:14,770
+You could say in theory not just on the server but on any machine.
+
+15
+00:01:14,960 --> 00:01:21,860
+So it basically allows you to run javascript not just in the browser but anywhere else like a normal
+
+16
+00:01:21,890 --> 00:01:28,460
+programming language like normal programs on your computer or some computer in the Internet effectively
+
+17
+00:01:28,460 --> 00:01:34,760
+making it a great choice for building web applications that run on servers which are just computers
+
+18
+00:01:34,850 --> 00:01:36,850
+running somewhere in the Internet.
+
+19
+00:01:37,010 --> 00:01:44,600
+So in detail this means that we can use no chance to run javascript outside of the browser.
+
+20
+00:01:44,660 --> 00:01:46,340
+That is the core takeaway.
+
+21
+00:01:46,340 --> 00:01:47,660
+Now how does this work.
+
+22
+00:01:47,670 --> 00:01:57,500
+Technically Well no yes uses We ate and we ate simply the name of the javascript engine built by Google
+
+23
+00:01:57,800 --> 00:02:00,880
+dead runs javascript in the browser.
+
+24
+00:02:00,920 --> 00:02:06,860
+So back to the browser we now are we simply to name the creator SKAIFE engine.
+
+25
+00:02:06,920 --> 00:02:09,010
+And what does an engine mean.
+
+26
+00:02:09,170 --> 00:02:15,650
+Well it simply means that engine takes javascript code the code running in your browser then or in notes
+
+27
+00:02:15,650 --> 00:02:17,380
+case which builds up on it.
+
+28
+00:02:17,420 --> 00:02:23,790
+Also do you know just javascript code it takes that javascript code and compiles it to machine code.
+
+29
+00:02:23,930 --> 00:02:28,590
+And this is what your browser does to what it does in your browser.
+
+30
+00:02:28,610 --> 00:02:35,390
+It does take your javascript code and compile to machine code because dad is to code that runs ultimately
+
+31
+00:02:35,660 --> 00:02:36,670
+on your computer.
+
+32
+00:02:36,740 --> 00:02:39,170
+And that can be handled efficiently.
+
+33
+00:02:39,510 --> 00:02:45,920
+Now this is done by the eight the eight itself is written in C++ but that doesn't really matter too
+
+34
+00:02:45,920 --> 00:02:46,670
+much for you.
+
+35
+00:02:46,700 --> 00:02:50,440
+You don't need to write any C++ code to use javascript or no.
+
+36
+00:02:50,510 --> 00:02:52,190
+Yes but no.
+
+37
+00:02:52,250 --> 00:03:00,110
+Yes basically takes that reate codebase which is written in C++ and adds certain features like for example
+
+38
+00:03:00,110 --> 00:03:05,450
+working with your local file system opening files reading files deleting files.
+
+39
+00:03:05,570 --> 00:03:08,750
+These are all things which are not possible in the browser.
+
+40
+00:03:08,780 --> 00:03:14,050
+You can't access your local filesystem in the browser for security reasons so it does not support it.
+
+41
+00:03:14,270 --> 00:03:18,590
+No chase adds these features to the eight's engine you could say.
+
+42
+00:03:18,710 --> 00:03:20,730
+So as you can suddenly do that now.
+
+43
+00:03:20,750 --> 00:03:25,210
+No Chase does not run in the browser so these restrictions still apply.
+
+44
+00:03:25,220 --> 00:03:27,120
+They are YOU use vanilla.
+
+45
+00:03:27,140 --> 00:03:30,940
+We ate so we ate only without the know as extensions.
+
+46
+00:03:31,190 --> 00:03:37,820
+But if you don't install no chips you can use it to basically use that extended V-A to work.
+
+47
+00:03:37,970 --> 00:03:45,560
+To run javascript scripts on your computer which then subtly can access these new features because they
+
+48
+00:03:45,560 --> 00:03:51,620
+don't run in the browser but are directly executed through that no chance runtime you could say.
+
+49
+00:03:51,680 --> 00:03:58,340
+So does this how that works to Gavron what no chaced does it allows you to run javascript on your computer
+
+50
+00:03:58,550 --> 00:04:05,300
+and it adds useful functionalities to the javascript engine so that you can do more useful stuff there
+
+51
+00:04:05,380 --> 00:04:08,660
+than you can do with browser side javascript.
+
+52
+00:04:08,660 --> 00:04:10,750
+Now one important note may be out on this point.
+
+53
+00:04:10,760 --> 00:04:16,520
+Also is that of course some features are also taken away in the browser you use javascript to interact
+
+54
+00:04:16,520 --> 00:04:18,240
+with the document object model.
+
+55
+00:04:18,260 --> 00:04:21,060
+So if t h t m l elements on your page.
+
+56
+00:04:21,170 --> 00:04:27,260
+If you just execute a javascript file directly you of course have no attached page and they for these
+
+57
+00:04:27,260 --> 00:04:30,770
+features are missing but this is a lot of theory.
+
+58
+00:04:30,830 --> 00:04:37,550
+Why don't we just have a look at this and see how we can install and use notice and what it actually
+
+59
+00:04:37,550 --> 00:04:38,450
+does for us.
+
+60
+00:04:38,450 --> 00:04:40,100
+Let's do that in the next lecture.
+

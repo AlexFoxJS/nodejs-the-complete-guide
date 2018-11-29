@@ -1,0 +1,52 @@
+1
+00:00:02,350 --> 00:00:06,610
+In the last module we continued working on our application.
+
+2
+00:00:06,770 --> 00:00:11,960
+But now we need to the ability to pass some dynamic data through our routes.
+
+3
+00:00:11,990 --> 00:00:17,870
+We want to be able to encode some information in our u r l so that we can for example pass a product
+
+4
+00:00:17,870 --> 00:00:25,980
+ID as part of a u r l in this module you will learn how you can do that how you can actually submit
+
+5
+00:00:26,010 --> 00:00:27,110
+your sense data.
+
+6
+00:00:27,130 --> 00:00:33,980
+Rudy you are l and when you would not do that and put it into their request body instead and will also
+
+7
+00:00:33,980 --> 00:00:40,670
+continue working on our models to be precise you will learn about how to pass route parents route parameters
+
+8
+00:00:41,210 --> 00:00:43,050
+and how to use Clery parameters.
+
+9
+00:00:43,130 --> 00:00:46,380
+Both important things that the Express router supports.
+
+10
+00:00:46,610 --> 00:00:53,060
+But besides that will not just pass that information in this module will also use it to enhance our
+
+11
+00:00:53,060 --> 00:00:53,760
+models.
+
+12
+00:00:53,780 --> 00:00:59,030
+And with that I mean will add more functionalities we'll even add a new model.
+
+13
+00:00:59,030 --> 00:01:04,670
+So if that lets start and lets learn how we can pass data and how we can use that data then.
+

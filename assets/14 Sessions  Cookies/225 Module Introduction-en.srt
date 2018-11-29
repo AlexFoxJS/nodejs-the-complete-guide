@@ -1,0 +1,36 @@
+1
+00:00:02,230 --> 00:00:09,070
+Enough about databases for now but let's stick to storing data and let me dive into some mechanisms
+
+2
+00:00:09,070 --> 00:00:13,270
+off storing data in memory or even on the client side.
+
+3
+00:00:13,270 --> 00:00:18,730
+So in the browser and for that in this module we'll have a look at the sessions and cookies.
+
+4
+00:00:18,880 --> 00:00:24,820
+Two important constructs or technologies in Web development in general which you can of course also
+
+5
+00:00:24,820 --> 00:00:30,140
+use a note japes now and this module will have a look at what exactly cookies are.
+
+6
+00:00:30,160 --> 00:00:36,400
+And of course what exactly sessions are and then how you can use both and how you typically use them
+
+7
+00:00:36,430 --> 00:00:37,360
+together.
+
+8
+00:00:37,360 --> 00:00:42,430
+So let's dive in and let's understand what these things are and how we can add them to our project and
+
+9
+00:00:42,490 --> 00:00:43,690
+why we would add them.
+

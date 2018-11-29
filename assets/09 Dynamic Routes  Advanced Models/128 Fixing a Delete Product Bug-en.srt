@@ -1,0 +1,84 @@
+1
+00:00:02,340 --> 00:00:05,720
+Now I'm generally pretty happy with the state of this application.
+
+2
+00:00:05,770 --> 00:00:08,570
+But there is a minor issue in it.
+
+3
+00:00:09,040 --> 00:00:14,000
+If we have no products in a card or at least not the product which we're trying to delete let's say
+
+4
+00:00:14,000 --> 00:00:15,320
+to one on the right here.
+
+5
+00:00:15,400 --> 00:00:16,930
+We actually get an error.
+
+6
+00:00:17,230 --> 00:00:23,200
+And we do get an error because we try to access the quantity of a product which we just don't have.
+
+7
+00:00:23,500 --> 00:00:29,550
+And the reason for data is dead we simply use in our products just follow the all folder.
+
+8
+00:00:29,650 --> 00:00:32,400
+We used a cart model to delete the product from there.
+
+9
+00:00:32,410 --> 00:00:33,270
+Right.
+
+10
+00:00:33,280 --> 00:00:38,200
+The problem just is obviously not every product is in the cart.
+
+11
+00:00:38,230 --> 00:00:45,880
+So in the car here where we have to leave product we first of all need to check if a given product is
+
+12
+00:00:45,880 --> 00:00:47,310
+part of the cart.
+
+13
+00:00:47,470 --> 00:00:54,520
+So here when I parse the overall cart here when I find the product in the card I should check if we
+
+14
+00:00:54,520 --> 00:00:58,480
+really have that product because if we don't have it.
+
+15
+00:00:58,480 --> 00:01:01,090
+So if I add an exclamation mark in front of this.
+
+16
+00:01:01,270 --> 00:01:07,860
+So if this check here is true that means we don't have a product then I simply need to return here.
+
+17
+00:01:07,870 --> 00:01:09,430
+I don't want to continue.
+
+18
+00:01:09,430 --> 00:01:16,330
+I don't want to try to edited because it's not part of the cart so therefore now if I reload my app
+
+19
+00:01:16,600 --> 00:01:24,400
+and I quickly add a new product to your website with a price and a description like this and I'd then
+
+20
+00:01:24,400 --> 00:01:27,760
+click on admen products and delete this.
+
+21
+00:01:27,760 --> 00:01:28,840
+Now this works.
+

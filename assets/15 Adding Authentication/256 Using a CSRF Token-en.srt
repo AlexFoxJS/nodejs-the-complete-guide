@@ -1,0 +1,336 @@
+1
+00:00:02,140 --> 00:00:08,810
+So as RF protection is an important thing and to support data or to add it to the app.
+
+2
+00:00:08,830 --> 00:00:15,430
+I'll quit my server and I'll install another package with an install dash Esch save the name of the
+
+3
+00:00:15,430 --> 00:00:16,010
+package.
+
+4
+00:00:16,060 --> 00:00:23,480
+See sirf does a package for node Express which allows us to generate a so-called C as our token.
+
+5
+00:00:23,800 --> 00:00:27,100
+Basically a token string value.
+
+6
+00:00:27,100 --> 00:00:35,320
+We can embed into our forms so into our pages for every request that does something on the backend that
+
+7
+00:00:35,320 --> 00:00:37,630
+changes the user's state.
+
+8
+00:00:37,630 --> 00:00:44,080
+So anything like ordering something anything that does something sensitive which we want to protect
+
+9
+00:00:44,080 --> 00:00:48,910
+against we can include such a token in our views then and on the server.
+
+10
+00:00:48,920 --> 00:00:54,520
+This package will check if the incoming request does have dead valid token.
+
+11
+00:00:54,520 --> 00:00:56,160
+Now how does this protect us.
+
+12
+00:00:56,310 --> 00:01:02,140
+While the fake sites might send a request to your backend and they could theoretically use your session
+
+13
+00:01:02,140 --> 00:01:08,350
+they are for but the requests will be missing the token and descant guess the token because it's a random
+
+14
+00:01:08,350 --> 00:01:14,860
+hashed value and only one value is valid of course and the package here which runs on the server determines
+
+15
+00:01:14,860 --> 00:01:21,040
+whether a token is valid so they can't guess it and they also can steal it because a new token is generated
+
+16
+00:01:21,190 --> 00:01:23,660
+for every page you render.
+
+17
+00:01:23,680 --> 00:01:29,180
+So with the package installed Let's rerun NPM start and let's use that Sezer package.
+
+18
+00:01:29,230 --> 00:01:33,050
+And how do we use it to enable CSR protection.
+
+19
+00:01:33,100 --> 00:01:35,650
+We go to our actually last fall and then there.
+
+20
+00:01:35,650 --> 00:01:43,680
+First of all at the top let's import this package name the constancy SRF and all require to see serve
+
+21
+00:01:43,680 --> 00:01:44,210
+package.
+
+22
+00:01:44,290 --> 00:01:46,710
+Please note the package is named see sirf.
+
+23
+00:01:46,940 --> 00:01:48,730
+The attack pattern is C S or F.
+
+24
+00:01:48,730 --> 00:01:50,170
+That is why I named the constant like this.
+
+25
+00:01:50,200 --> 00:01:52,930
+You can name it however you want of course.
+
+26
+00:01:52,930 --> 00:01:56,250
+Now we can create a new constant where we initialized this.
+
+27
+00:01:56,250 --> 00:02:01,670
+You could say down there maybe where we initialized some or all things to all initialize Mirer Cirrus
+
+28
+00:02:01,830 --> 00:02:07,360
+Caesar or any protection by executing C is r f as a function.
+
+29
+00:02:07,360 --> 00:02:13,690
+Now you can pass an object here where you can configure some things for example that you want to store
+
+30
+00:02:13,960 --> 00:02:19,230
+the secrets that is used for assigning your tokens so for hashing them that you want to store them in
+
+31
+00:02:19,230 --> 00:02:21,710
+a cookie instead of the session which is the default.
+
+32
+00:02:21,730 --> 00:02:24,480
+But I want to use the session default.
+
+33
+00:02:24,670 --> 00:02:29,360
+And we also don't need to set any of the values you can dive into the official docs of that package
+
+34
+00:02:29,480 --> 00:02:36,850
+to learn more but the default settings should work fine so if that we get this seeis RF protection middleware
+
+35
+00:02:36,850 --> 00:02:40,840
+here we now just have to use that as a middleware.
+
+36
+00:02:40,900 --> 00:02:43,570
+So here ofter we initialized the session.
+
+37
+00:02:43,570 --> 00:02:48,850
+That's important because see as are if the package will use that sessional author we initialized the
+
+38
+00:02:48,850 --> 00:02:51,990
+session all at c is Areff protection.
+
+39
+00:02:52,000 --> 00:02:57,910
+So basically the constant which holds my created middleware here.
+
+40
+00:02:58,040 --> 00:03:04,370
+So now with that SEUS RF protection is generally enabled but we still need to add something to our viewers
+
+41
+00:03:04,370 --> 00:03:05,790
+to really use it.
+
+42
+00:03:05,960 --> 00:03:14,000
+Right now if I saved this and I go back to my app and I reload this page this works if I go to orders
+
+43
+00:03:14,180 --> 00:03:15,830
+this works the log out.
+
+44
+00:03:15,830 --> 00:03:23,780
+This fails the invalid see SRF token here and this is already showing us how we are what we have to
+
+45
+00:03:23,780 --> 00:03:25,180
+do in general.
+
+46
+00:03:25,190 --> 00:03:34,160
+It failed here because dead log out action here actually was a post request.
+
+47
+00:03:34,350 --> 00:03:41,900
+And for any non get requests because you change data why a post requests typically for any such requests.
+
+48
+00:03:41,910 --> 00:03:50,600
+This package will look for the existence of a C S R F token in your views in the request basically and
+
+49
+00:03:50,610 --> 00:03:55,450
+the request body now to make sure that such a token is there.
+
+50
+00:03:55,770 --> 00:04:01,190
+We first of all need to ensure we have it a way lable in our views to do that.
+
+51
+00:04:01,200 --> 00:04:04,620
+We have to pass data into our view.
+
+52
+00:04:04,850 --> 00:04:09,340
+So let's say I'm on the starting page slash nothing.
+
+53
+00:04:09,590 --> 00:04:14,920
+So in the controller actions that is my get index action does one.
+
+54
+00:04:15,030 --> 00:04:20,540
+Now here we would have to pass a new piece of information into the render method you could name it as
+
+55
+00:04:20,570 --> 00:04:24,410
+our token that name is up to you and you get it from request.
+
+56
+00:04:24,410 --> 00:04:28,470
+And then there there will be a series or a token method.
+
+57
+00:04:28,490 --> 00:04:34,190
+This method is provided by DC SRF middleware which we added by this package.
+
+58
+00:04:34,190 --> 00:04:39,920
+So now this will generate such a token and will store it in CSR a token which we Denne can use in our
+
+59
+00:04:39,920 --> 00:04:46,760
+view and there we could use it for example in the navigation where I have my log button form in there
+
+60
+00:04:46,760 --> 00:04:49,180
+we would have to add input which is hidden.
+
+61
+00:04:49,190 --> 00:04:55,700
+So it had no real input is rendered but word of value now is a value we output with the help of Ejay
+
+62
+00:04:55,700 --> 00:05:04,370
+us and that value here will be oleracea or f token and the name here is just a field and storing that
+
+63
+00:05:04,400 --> 00:05:06,490
+token when rendering that view.
+
+64
+00:05:06,590 --> 00:05:15,510
+This you'll see is or have token with that if I reload this page let's inspect the log out button here
+
+65
+00:05:15,570 --> 00:05:16,690
+in the developer tools
+
+66
+00:05:19,920 --> 00:05:26,150
+and let's make sure that in the navigation each S fall we don't just add it to the mobile logger but
+
+67
+00:05:26,310 --> 00:05:28,640
+all in the menu here.
+
+68
+00:05:28,650 --> 00:05:35,010
+So with that changed let me reload this and now inspecting the log out button you will see that there
+
+69
+00:05:35,610 --> 00:05:42,450
+we also have that input with the value of this token and this year is D.C.'s R.F. token which was generated
+
+70
+00:05:42,450 --> 00:05:43,570
+by the package.
+
+71
+00:05:43,740 --> 00:05:48,340
+If I now click on log out I still get an error here though.
+
+72
+00:05:48,960 --> 00:05:55,750
+The reason for that is that my package C S or f does not know that this hidden input contains my token.
+
+73
+00:05:55,770 --> 00:05:58,410
+It's just a hidden input without any name.
+
+74
+00:05:58,410 --> 00:06:04,500
+So what we have to do is we also have to give this a name and here important the name has to be underscore
+
+75
+00:06:04,590 --> 00:06:10,600
+Seer's or F because the package which we added will look for this name.
+
+76
+00:06:10,680 --> 00:06:16,370
+So for input with that name and the same of course should be done here in the mobile logon button.
+
+77
+00:06:16,770 --> 00:06:21,510
+Now if that if we reload this view for click log out.
+
+78
+00:06:21,510 --> 00:06:25,870
+Now it works because now the package is able to extract that see Aref token.
+
+79
+00:06:26,010 --> 00:06:31,530
+It also finds out that the token is valid and therefore it allows us to proceed.
+
+80
+00:06:31,680 --> 00:06:36,570
+So now it's not just a session that matters but all of the existence of this token.
+
+81
+00:06:36,750 --> 00:06:43,140
+Now we can add this to all our render functions because we need it in all our routes but that would
+
+82
+00:06:43,140 --> 00:06:44,450
+be a bit cumbersome.
+
+83
+00:06:44,450 --> 00:06:52,230
+So let me show you an easier way of getting data like this or also is authenticated into every page
+
+84
+00:06:52,230 --> 00:06:54,270
+we render and not just some.
+

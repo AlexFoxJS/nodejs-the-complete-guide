@@ -1,0 +1,64 @@
+1
+00:00:02,190 --> 00:00:03,440
+Editing fails here.
+
+2
+00:00:03,570 --> 00:00:06,520
+And do you have an idea why it fails.
+
+3
+00:00:07,020 --> 00:00:08,930
+It fails because of my check here.
+
+4
+00:00:08,940 --> 00:00:12,160
+I compared the product user ID to request user ID.
+
+5
+00:00:12,180 --> 00:00:18,390
+Now we have a type problem again I should convert both to a string because I'm all checking for Typee
+
+6
+00:00:18,390 --> 00:00:19,250
+quality.
+
+7
+00:00:19,590 --> 00:00:27,770
+So with this change both converge to a string and not does strange object id thing with this emplace.
+
+8
+00:00:27,810 --> 00:00:31,440
+Now if I log in or if I'm locked in with the right account.
+
+9
+00:00:31,660 --> 00:00:36,660
+Now I can update this and I can also delete this.
+
+10
+00:00:36,750 --> 00:00:40,330
+So this now all works with the right account.
+
+11
+00:00:40,330 --> 00:00:42,370
+So with the account who created it.
+
+12
+00:00:45,600 --> 00:00:51,210
+But it will not work if I log in with the wrong account because of a log in there.
+
+13
+00:00:51,240 --> 00:00:53,990
+So this is now their account which did not create it.
+
+14
+00:00:54,210 --> 00:00:56,060
+I can view it on the normal pages.
+
+15
+00:00:56,160 --> 00:01:00,980
+I can add it to my card if I want to but under Edit products I do not see it.
+
+16
+00:01:01,020 --> 00:01:04,120
+And even if I would see it I could not interact with it.
+

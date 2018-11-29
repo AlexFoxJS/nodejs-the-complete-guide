@@ -1,0 +1,40 @@
+1
+00:00:02,110 --> 00:00:08,580
+In this course you obviously learn a lot about Noad and how to write code code and build web servers
+
+2
+00:00:08,610 --> 00:00:13,450
+or web applications with Knode because there really is its main thing.
+
+3
+00:00:13,820 --> 00:00:22,770
+But note NPM the package manager we get for free when installing no chase can also be used as a build
+
+4
+00:00:22,800 --> 00:00:23,460
+tool.
+
+5
+00:00:23,460 --> 00:00:31,650
+So as a tool that runs utility scripts on your computer and can help you with building any mostly javascript
+
+6
+00:00:31,680 --> 00:00:38,820
+driven project and that does not have to be a web application or a service wide web application if it
+
+7
+00:00:38,820 --> 00:00:41,970
+is one it could be a front and web application too.
+
+8
+00:00:41,970 --> 00:00:49,080
+Like do you react as we had in this course the front end for the arrest and the Graph API and in this
+
+9
+00:00:49,080 --> 00:00:56,010
+module will briefly dive into that and I'll explain why that is to case what exactly NPM is and how
+
+10
+00:00:56,010 --> 00:00:59,260
+we can use it and how we can use node as a built tool.
+

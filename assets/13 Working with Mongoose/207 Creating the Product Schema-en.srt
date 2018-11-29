@@ -1,0 +1,328 @@
+1
+00:00:02,140 --> 00:00:08,690
+Get so time to fix our code and make it work again and for that first of all I also connected to my
+
+2
+00:00:08,690 --> 00:00:15,470
+mom to be server with campest again and I want to clear everything so that we can start from scratch
+
+3
+00:00:15,470 --> 00:00:21,000
+essentially and therefore I will go to my shop database and simply delete that entire database.
+
+4
+00:00:21,110 --> 00:00:28,760
+It will again be created on the fly or when required when we start inserting data.
+
+5
+00:00:28,790 --> 00:00:34,790
+Now I've got a problem I connected with the wrong user where I'm not allowed to delete a database because
+
+6
+00:00:34,820 --> 00:00:38,610
+I connected with a user who has only read or write access.
+
+7
+00:00:38,810 --> 00:00:41,870
+So I'll just delete the collections here of course.
+
+8
+00:00:41,870 --> 00:00:47,360
+The alternative would be to simply connect with a user where I am allowed to manage the overall database
+
+9
+00:00:48,020 --> 00:00:49,330
+but this will do for now.
+
+10
+00:00:49,370 --> 00:00:54,610
+With that I also implicitly got rid of the shop database and now we can start working from scratch again.
+
+11
+00:00:54,680 --> 00:00:59,200
+And let's start working with it by making sure that we can create products.
+
+12
+00:00:59,210 --> 00:01:07,100
+And for now products dead will simply use very simple data without taking the user into account for
+
+13
+00:01:07,100 --> 00:01:10,880
+now and where we can simply add them for the admin controller.
+
+14
+00:01:10,880 --> 00:01:12,800
+So I'll go to my product model.
+
+15
+00:01:12,840 --> 00:01:17,740
+The model of file and there will eventually remove all the commented out code.
+
+16
+00:01:17,810 --> 00:01:20,060
+I'll leave it here for reference for now.
+
+17
+00:01:20,390 --> 00:01:24,080
+And first of all in here we need to import mongoose.
+
+18
+00:01:24,170 --> 00:01:26,500
+So I will require mongoose here.
+
+19
+00:01:26,530 --> 00:01:29,000
+Mangu is like this.
+
+20
+00:01:29,000 --> 00:01:33,700
+Now with as important all great and you constant and I'll name it schema with a capital S..
+
+21
+00:01:33,770 --> 00:01:40,910
+The name is up to you but I will use something from the mongoose object or that I will use the schema
+
+22
+00:01:41,000 --> 00:01:42,690
+constructor here.
+
+23
+00:01:42,710 --> 00:01:45,240
+This constructor allows me to create new schema.
+
+24
+00:01:45,260 --> 00:01:49,220
+Here I will create a new schema a new product schema.
+
+25
+00:01:49,220 --> 00:01:51,420
+You can also name does how ever you want.
+
+26
+00:01:51,420 --> 00:01:57,830
+I create a new schema by instantiating a schema object by calling new schema using that constructor
+
+27
+00:01:57,830 --> 00:01:58,760
+here.
+
+28
+00:01:58,810 --> 00:02:03,260
+Now this is just how language works and attitude is constructor here.
+
+29
+00:02:03,260 --> 00:02:09,680
+I pass a javascript object and in that object you now define how your product should look like.
+
+30
+00:02:09,680 --> 00:02:14,000
+So you now to find a data schema of a product in our case here.
+
+31
+00:02:14,120 --> 00:02:17,840
+So this is how you set up such a blueprint in that object.
+
+32
+00:02:17,840 --> 00:02:21,060
+You define a schema with a simple key value pairs.
+
+33
+00:02:21,080 --> 00:02:25,360
+So for example our product will have a title.
+
+34
+00:02:25,370 --> 00:02:30,200
+Now you don't just have find which keys you have but all of which type these keys will have.
+
+35
+00:02:30,210 --> 00:02:32,150
+That's important to type.
+
+36
+00:02:32,170 --> 00:02:38,240
+I did find your would be string string as a default javascript object hence we can use that here and
+
+37
+00:02:38,240 --> 00:02:39,000
+this is what say.
+
+38
+00:02:39,060 --> 00:02:45,650
+OK so here I create a schema for an object which I will eventually be able to work with which must have
+
+39
+00:02:45,650 --> 00:02:48,410
+where which will have a title that is of type string.
+
+40
+00:02:48,500 --> 00:02:51,530
+Now important in among would be module.
+
+41
+00:02:51,530 --> 00:03:00,000
+I mention that Mongul DBI is schema less so why do we now start to create schemas Well the idea simply
+
+42
+00:03:00,000 --> 00:03:07,710
+is that whilst we have the flexibility of not being restricted to a specific schema we often will have
+
+43
+00:03:07,710 --> 00:03:13,410
+a certain structure in the data we work with and therefore a mongoose wants to give you the advantage
+
+44
+00:03:13,440 --> 00:03:15,440
+of focusing on just your day.
+
+45
+00:03:15,470 --> 00:03:21,840
+But for that it needs to know how your data looks like and therefore we define such a schema for the
+
+46
+00:03:21,870 --> 00:03:28,260
+structure our data will have but important we can still deviate from this by assigning a title like
+
+47
+00:03:28,260 --> 00:03:28,840
+this.
+
+48
+00:03:28,890 --> 00:03:34,440
+We could even work with a product and create a new one and save it to the database without setting a
+
+49
+00:03:34,440 --> 00:03:41,910
+title because we still have the flexibility of not enforcing this though what we can do is we can pass
+
+50
+00:03:42,030 --> 00:03:48,990
+an object instead of just type here as a value and then set a type property which could be set to string
+
+51
+00:03:49,380 --> 00:03:52,190
+and then set the required To true.
+
+52
+00:03:52,380 --> 00:03:56,990
+This is basically a more complex way of configuring the value for this key.
+
+53
+00:03:57,030 --> 00:04:02,430
+And here we would say well the type of this is a string as before but it's also required.
+
+54
+00:04:02,430 --> 00:04:06,230
+And now we indeed give up some of the flexibility we had before.
+
+55
+00:04:06,360 --> 00:04:12,350
+And we force all objects to have a title but in the end in our application every product needs to have
+
+56
+00:04:12,350 --> 00:04:15,940
+a title and deed because we will run into errors otherwise.
+
+57
+00:04:16,200 --> 00:04:18,740
+For example when outputting products in our views.
+
+58
+00:04:18,930 --> 00:04:24,950
+So having some kind of schema makes sense even though we have the flexibility to deviate from that and
+
+59
+00:04:24,960 --> 00:04:30,810
+it really just depends on your application wherever you need all that flexibility or whenever you want
+
+60
+00:04:30,810 --> 00:04:36,330
+to have some structure and you want to have some tool mongooses that takes some structure and then helps
+
+61
+00:04:36,330 --> 00:04:38,220
+you work with that data.
+
+62
+00:04:38,220 --> 00:04:42,720
+So that was a lot of talking about schemas but it is important that you understand why we now all of
+
+63
+00:04:42,720 --> 00:04:44,610
+a sudden start working with them.
+
+64
+00:04:44,640 --> 00:04:51,210
+It's just a deliberate decision to give up some flexibility but gain other advantages.
+
+65
+00:04:51,210 --> 00:04:53,580
+Now of course a product doesn't just have a title.
+
+66
+00:04:53,670 --> 00:04:59,460
+We also need to have a price and there we can set the type 2 number for example.
+
+67
+00:04:59,550 --> 00:05:03,790
+And then this would all be required.
+
+68
+00:05:04,080 --> 00:05:06,800
+And we also want to have a description image you are l.
+
+69
+00:05:06,900 --> 00:05:09,160
+So we'll add a description here.
+
+70
+00:05:09,300 --> 00:05:11,230
+This will be of type string.
+
+71
+00:05:11,250 --> 00:05:13,310
+And let's say this is also required.
+
+72
+00:05:13,320 --> 00:05:18,270
+Now of course you can always deviate from my set up here but I want to require it at all and will have
+
+73
+00:05:18,270 --> 00:05:24,720
+an image you are l and in that image you l will be of type string because it's just a u r l and this
+
+74
+00:05:24,720 --> 00:05:27,000
+will also be required.
+
+75
+00:05:27,120 --> 00:05:29,350
+So that would be my product schema.
+
+76
+00:05:29,370 --> 00:05:34,550
+This is basically a description of how a product should look like in my application.
+
+77
+00:05:34,620 --> 00:05:40,830
+Please note that I don't add underscore ID here because this will still be added automatically as an
+
+78
+00:05:40,830 --> 00:05:41,700
+object ID.
+
+79
+00:05:41,730 --> 00:05:44,020
+So we don't need to define that here.
+
+80
+00:05:44,280 --> 00:05:47,920
+The user ID is something we'll add later.
+
+81
+00:05:47,940 --> 00:05:55,650
+So now we got that product schema to find in the next step we will create a model based on the schema
+
+82
+00:05:55,800 --> 00:05:59,010
+and then create an object based on the model and work with that.
+

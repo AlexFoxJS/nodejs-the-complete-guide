@@ -1,0 +1,164 @@
+1
+00:00:02,220 --> 00:00:05,910
+To implement a session we'll need another third party package.
+
+2
+00:00:05,910 --> 00:00:11,490
+We'll need another package which helps us with managing sessions for that we'll install it with NPM
+
+3
+00:00:11,490 --> 00:00:19,200
+install dash dash safe and the package is named express dash session package which is actually part
+
+4
+00:00:19,200 --> 00:00:24,980
+of the official express J.S. suit but not baked into express itself.
+
+5
+00:00:25,110 --> 00:00:30,420
+But now we already got it installed and now we're ready to use it to use it.
+
+6
+00:00:30,450 --> 00:00:35,130
+We'll go to our Actually as fault because we want to initialize that session early on.
+
+7
+00:00:35,130 --> 00:00:38,460
+We want to initialize that session when we.
+
+8
+00:00:39,180 --> 00:00:45,060
+Well when we start up our server we want to initialize the session middleware at least and the session
+
+9
+00:00:45,060 --> 00:00:48,470
+will then be used for every incoming request.
+
+10
+00:00:48,510 --> 00:00:50,690
+So here we create a new constant.
+
+11
+00:00:50,700 --> 00:00:56,370
+So we basically import something here which all named session the name is up to you and I will require
+
+12
+00:00:56,610 --> 00:00:58,610
+express session.
+
+13
+00:00:58,610 --> 00:00:59,940
+That is what I'll require here.
+
+14
+00:00:59,940 --> 00:01:00,800
+So that is the package.
+
+15
+00:01:00,810 --> 00:01:02,930
+We just installed.
+
+16
+00:01:02,920 --> 00:01:10,400
+Now with that installed we can set it up here along with the upper middle where let's say there we register
+
+17
+00:01:10,410 --> 00:01:18,870
+a number of middleware with app use and queue up use we pass session and we execute this as a function
+
+18
+00:01:18,870 --> 00:01:20,240
+into the function.
+
+19
+00:01:20,310 --> 00:01:24,780
+We pass a javascript object where we configure the session setup.
+
+20
+00:01:24,780 --> 00:01:26,810
+For example we need to set a secret.
+
+21
+00:01:26,810 --> 00:01:32,980
+This will be used for signing the hash which secretly stores our ID in the cookie.
+
+22
+00:01:33,210 --> 00:01:34,050
+So you're all set.
+
+23
+00:01:34,050 --> 00:01:36,390
+A secret that you can enter any text here.
+
+24
+00:01:36,420 --> 00:01:38,610
+It should typically be a long string.
+
+25
+00:01:38,790 --> 00:01:40,500
+I'll name it my secret.
+
+26
+00:01:40,530 --> 00:01:44,850
+But again in production this should be a long string value.
+
+27
+00:01:46,420 --> 00:01:51,550
+Then you should add the real safe option and set this to false.
+
+28
+00:01:51,550 --> 00:01:58,870
+This means that the session will not be saved on every request that is done so on every response that
+
+29
+00:01:58,870 --> 00:01:59,340
+is sent.
+
+30
+00:01:59,410 --> 00:02:01,690
+But only if something changed in the session.
+
+31
+00:02:01,690 --> 00:02:05,250
+This will obviously improve performance and so on.
+
+32
+00:02:05,520 --> 00:02:11,530
+Also there is safe uninitialized value which you should set to false because this will also basically
+
+33
+00:02:11,920 --> 00:02:17,170
+ensure that no session gets saved for a request where it doesn't need to be saved because nothing was
+
+34
+00:02:17,230 --> 00:02:18,700
+changed about it.
+
+35
+00:02:19,120 --> 00:02:20,340
+And that is it.
+
+36
+00:02:20,350 --> 00:02:22,160
+These are the core things you need to set.
+
+37
+00:02:22,210 --> 00:02:28,210
+You could for example all configured the session cookie you could give it a max age by setting a date
+
+38
+00:02:28,530 --> 00:02:30,100
+or at the expire Eski.
+
+39
+00:02:30,190 --> 00:02:35,450
+So you can configure that cookie but you can also go with the default settings and with that session
+
+40
+00:02:35,600 --> 00:02:39,160
+where it is initialized and we're now ready to use the session.
+
+41
+00:02:39,160 --> 00:02:41,590
+Now let's start using it in the next lecture.
+

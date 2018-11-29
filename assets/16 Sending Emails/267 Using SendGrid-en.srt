@@ -1,0 +1,68 @@
+1
+00:00:02,230 --> 00:00:03,980
+So in this course I will use send.
+
+2
+00:00:04,000 --> 00:00:10,540
+Garrett you'll find it on sent Gritz dot com and I'll use it because they have a free entry here which
+
+3
+00:00:10,540 --> 00:00:13,840
+stays free as long as you send less than 100 e-mails a day.
+
+4
+00:00:13,840 --> 00:00:22,000
+Now there are many alternatives MailChimp AWOS s.c.s and you can google for node mailing and your favorite
+
+5
+00:00:22,630 --> 00:00:25,590
+mailing service to find tutorials on how to implement it.
+
+6
+00:00:25,600 --> 00:00:28,440
+Now I will use this one because we can use it for free.
+
+7
+00:00:28,780 --> 00:00:33,760
+So let's click try for free and then we simply have to create an account there.
+
+8
+00:00:33,790 --> 00:00:39,820
+Now once you did sign up you can quit that page here and go back to your note project and they will
+
+9
+00:00:39,820 --> 00:00:46,560
+now install a package I'll install a package with NPM installed dash dash save which is called node
+
+10
+00:00:46,680 --> 00:00:50,350
+Meyler and to interact with sent grid.
+
+11
+00:00:50,550 --> 00:00:57,320
+I'll also install another package in the same go node mailer Dasch send Garrett Desch transport.
+
+12
+00:00:57,390 --> 00:01:02,280
+That is a package that will help us with integrating Sanskrit and conveniently use stats together with
+
+13
+00:01:02,280 --> 00:01:09,380
+node Meilleur node Meilleur is a package debt as the names gests makes sending emails from inside no
+
+14
+00:01:09,390 --> 00:01:14,060
+chase a breeze with it all at it.
+
+15
+00:01:14,150 --> 00:01:19,190
+We can move on to the next lecture and now start using node mailer to send messages.
+
+16
+00:01:19,190 --> 00:01:20,600
+So let me start and start again.
+
+17
+00:01:20,630 --> 00:01:22,190
+Let's continue in the next lecture.
+

@@ -1,0 +1,100 @@
+1
+00:00:02,090 --> 00:00:08,710
+So what is mongoose Mungo's is a OTM an object document mapping a library.
+
+2
+00:00:08,810 --> 00:00:15,580
+And that's really similar to equalize which was N O R M object relational mapping library.
+
+3
+00:00:15,680 --> 00:00:20,320
+And the difference of course Justice that would be is not a relational database.
+
+4
+00:00:20,450 --> 00:00:22,310
+It's a document database.
+
+5
+00:00:22,310 --> 00:00:26,130
+It thinks in documents and hence we have a odium here.
+
+6
+00:00:26,480 --> 00:00:31,840
+So the idea is the same though we have some data some entity and our application.
+
+7
+00:00:31,850 --> 00:00:38,570
+Let's say a user and we want to save that to a collection we want to map our javascript object to a
+
+8
+00:00:38,570 --> 00:00:41,940
+document in a collection that could look something like this.
+
+9
+00:00:42,020 --> 00:00:45,200
+And of course you can write a query for that on our own.
+
+10
+00:00:45,200 --> 00:00:52,130
+That is exactly what we did in the last module but it would be a bit easier if we could just focus on
+
+11
+00:00:52,160 --> 00:00:57,590
+our objects and our data and see how it should look like and then work with it and there's not even
+
+12
+00:00:57,590 --> 00:00:59,450
+the final syntax you see here.
+
+13
+00:00:59,450 --> 00:01:05,500
+We can use mongoose a bit differently than you see it here but even that would be a bit more concise.
+
+14
+00:01:05,570 --> 00:01:07,040
+So just a sequel.
+
+15
+00:01:07,250 --> 00:01:13,010
+Mongoose tries to allow us to define models with which we then work and where all the queries are done
+
+16
+00:01:13,010 --> 00:01:18,180
+behind the scenes which of course does not mean that we can't influence and that we can't change some
+
+17
+00:01:18,180 --> 00:01:19,160
+things.
+
+18
+00:01:19,340 --> 00:01:25,400
+The core concepts are that we work with schema and models where we define how our data should look like.
+
+19
+00:01:25,580 --> 00:01:29,450
+And then we have so-called instances where we instantiate our models.
+
+20
+00:01:29,480 --> 00:01:34,800
+So where we create real javascript objects we can work with that are based on our blueprints.
+
+21
+00:01:35,270 --> 00:01:43,130
+And once we get that set up we can run queries and there we again use our objects we use our models
+
+22
+00:01:43,370 --> 00:01:45,430
+and we can then query the database.
+
+23
+00:01:45,470 --> 00:01:52,000
+But Fru mongooses with various helpers we get some syntactical sugar and so on.
+
+24
+00:01:52,010 --> 00:01:57,680
+So that's the idea behind Bangu is really similar to what C-Class did for a sequel.
+
+25
+00:01:57,800 --> 00:02:02,800
+And therefore with that let's say Ivan let's add it to our project and let's see how we can use it there.
+

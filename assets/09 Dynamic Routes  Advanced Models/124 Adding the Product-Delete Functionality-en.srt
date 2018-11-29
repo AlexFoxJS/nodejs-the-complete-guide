@@ -1,0 +1,308 @@
+1
+00:00:02,250 --> 00:00:04,430
+Now the application is taking shape.
+
+2
+00:00:04,440 --> 00:00:08,800
+Now there are two things I want to add and this module still before we're done.
+
+3
+00:00:08,880 --> 00:00:14,670
+The first one is I want to make sure Dad we can also delete products and I want to make sure that we
+
+4
+00:00:14,670 --> 00:00:20,780
+all can see our card items on the card due and also remove them from the cart.
+
+5
+00:00:20,790 --> 00:00:26,300
+Let's work on deleting products here first and definitely feel free to try this on your own.
+
+6
+00:00:26,310 --> 00:00:34,920
+You'll have to add a new method somewhere and basically make sure that you can not just save products
+
+7
+00:00:34,920 --> 00:00:36,970
+in the product Baudot but also delete them.
+
+8
+00:00:37,080 --> 00:00:42,090
+But of course will dentals do together after a short pause that you can use to pause the video and go
+
+9
+00:00:42,090 --> 00:00:43,270
+ahead on your own.
+
+10
+00:00:45,460 --> 00:00:46,530
+Where are you successful.
+
+11
+00:00:46,690 --> 00:00:49,660
+Well let's see how I would solve this.
+
+12
+00:00:49,660 --> 00:00:52,290
+We want to be able to delete our products right.
+
+13
+00:00:52,540 --> 00:00:58,960
+And if we go to the products each as file this view in the admin folder we already have that delete
+
+14
+00:00:58,960 --> 00:01:04,420
+button which is wrapped in a form on purpose to send a post request to delete product.
+
+15
+00:01:04,420 --> 00:01:05,730
+So we need to handle that route.
+
+16
+00:01:05,770 --> 00:01:07,750
+That was a good starting point.
+
+17
+00:01:07,810 --> 00:01:16,930
+So in the Edman just follow the routes folder we need a new route for this post route for delete product.
+
+18
+00:01:16,930 --> 00:01:24,580
+Now since it's a post request we also don't need to enclose or encode any information in our in our
+
+19
+00:01:24,580 --> 00:01:25,940
+path and you are.
+
+20
+00:01:26,110 --> 00:01:29,180
+We can put it as part of our request body instead.
+
+21
+00:01:29,390 --> 00:01:36,880
+So back into view here I will add a hidden input again as we did it before in post requests where I
+
+22
+00:01:36,880 --> 00:01:46,930
+set the value to product ID using each A-S templating syntax and the name to product ID so that we can
+
+23
+00:01:46,930 --> 00:01:50,630
+extract that information by the name.
+
+24
+00:01:50,720 --> 00:01:52,220
+So that's the first step.
+
+25
+00:01:52,220 --> 00:01:54,160
+Now we do have that route.
+
+26
+00:01:54,260 --> 00:01:57,500
+Obviously we also need to work on the controller now.
+
+27
+00:01:57,930 --> 00:02:04,040
+So let's go to the controller the admin controller and let's add an action for deleting a product exports
+
+28
+00:02:04,850 --> 00:02:07,310
+post delete product
+
+29
+00:02:09,920 --> 00:02:13,660
+there I get my normal arguments and dysfunction.
+
+30
+00:02:13,790 --> 00:02:16,170
+And now the question is what do I want to do in there.
+
+31
+00:02:16,430 --> 00:02:21,930
+Well obviously I can extract the product ID from the request body by accessing product.
+
+32
+00:02:22,040 --> 00:02:25,630
+That is why we just added it to our E.J. as template.
+
+33
+00:02:25,910 --> 00:02:31,790
+And now we can also go back to the route's fall and simply connect this route to our admen controller
+
+34
+00:02:31,820 --> 00:02:34,480
+or post delete product action.
+
+35
+00:02:34,550 --> 00:02:38,610
+But the real magic now happens in our model in the product model.
+
+36
+00:02:38,900 --> 00:02:40,420
+We have to save method.
+
+37
+00:02:40,430 --> 00:02:45,520
+Now I want to delete a product so let's add a delete method in there.
+
+38
+00:02:45,800 --> 00:02:52,460
+And what I plan on doing here is I actually want to turn this into a static method and maybe named as
+
+39
+00:02:52,460 --> 00:02:59,880
+delete by id pass in an ID and then have all the logic for deleting a product in here to do this.
+
+40
+00:02:59,900 --> 00:03:06,620
+First of all need to find out which product to remove or update my array of products so that I can then
+
+41
+00:03:06,620 --> 00:03:08,740
+write it back to my file.
+
+42
+00:03:08,810 --> 00:03:14,980
+So just as in fine by ID I will call it get products from file to get all the products in here.
+
+43
+00:03:14,990 --> 00:03:16,940
+I didn't have the product xray.
+
+44
+00:03:17,060 --> 00:03:20,670
+There I now need to find the index on the product I want to delete.
+
+45
+00:03:20,900 --> 00:03:28,160
+So I will use products and then the find method to go through all my products and find the product with
+
+46
+00:03:28,160 --> 00:03:28,980
+the ID.
+
+47
+00:03:29,090 --> 00:03:36,090
+I'm trying to delete this as a mechanism we that before it should be find index do.
+
+48
+00:03:36,100 --> 00:03:41,920
+Now this means I can update my products array such that this element is removed and actually there is
+
+49
+00:03:41,920 --> 00:03:43,430
+even a short cut we can use.
+
+50
+00:03:43,630 --> 00:03:51,010
+I can create a new constant updated products take my existing products and not use find index but used
+
+51
+00:03:51,010 --> 00:03:53,790
+to filter a method instead filter.
+
+52
+00:03:53,860 --> 00:04:01,570
+Also takes an anonymous function and will return me all elements as part of a new array that do match
+
+53
+00:04:01,750 --> 00:04:02,770
+the criteria.
+
+54
+00:04:02,800 --> 00:04:04,280
+My function returns.
+
+55
+00:04:04,300 --> 00:04:05,500
+So does returns true.
+
+56
+00:04:05,560 --> 00:04:07,140
+Development is kept.
+
+57
+00:04:07,150 --> 00:04:13,150
+Now I want to keep all elements where the ID of the element is not equal to the IDM trying to delete
+
+58
+00:04:13,510 --> 00:04:16,870
+because all elements where d id is not equal should be kept.
+
+59
+00:04:16,870 --> 00:04:20,890
+The round should be part of the new array which will be the array Icesave.
+
+60
+00:04:20,890 --> 00:04:23,000
+Back to my file.
+
+61
+00:04:23,060 --> 00:04:28,140
+This means that in this function I actually want to return the opposite here.
+
+62
+00:04:28,340 --> 00:04:31,470
+So only if the ID is not equal to the idea I'm looking for.
+
+63
+00:04:31,610 --> 00:04:35,710
+I want to keep the item so Dizzle then return true if the IDs are not equal.
+
+64
+00:04:35,720 --> 00:04:39,280
+They offered the item was kept and only for that single product I'm looking for.
+
+65
+00:04:39,290 --> 00:04:40,270
+This will be false.
+
+66
+00:04:40,340 --> 00:04:48,430
+So the item is not kept in the new array and that simply means that I can now go ahead and save my updated
+
+67
+00:04:48,430 --> 00:04:54,400
+products which are all products except for the one I want to delete back into the file so I will use
+
+68
+00:04:54,400 --> 00:05:04,240
+the file system to write a file on this path and simply add my updated products in Jason format that
+
+69
+00:05:04,240 --> 00:05:10,690
+again I can use my Or add my called a function to see if this froze any error.
+
+70
+00:05:10,970 --> 00:05:13,500
+Now if it does not throw an error.
+
+71
+00:05:13,510 --> 00:05:19,960
+So if everything went fine then I also want to remove that product from the cart of course because I
+
+72
+00:05:19,960 --> 00:05:21,400
+can't have it in a cart.
+
+73
+00:05:21,550 --> 00:05:23,510
+If the product doesn't exist anymore.
+
+74
+00:05:23,560 --> 00:05:24,500
+Right.
+
+75
+00:05:24,910 --> 00:05:31,360
+So as a next step will also work on the card and make sure we can delete items from there of functionality
+
+76
+00:05:31,360 --> 00:05:31,780
+we need.
+
+77
+00:05:31,780 --> 00:05:32,300
+Anyways.
+

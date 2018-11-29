@@ -1,0 +1,116 @@
+1
+00:00:02,230 --> 00:00:07,630
+That's it for this module we had a look at the different types of errors and how to handle them.
+
+2
+00:00:07,690 --> 00:00:10,220
+You can differentiate between a couple of different errors.
+
+3
+00:00:10,240 --> 00:00:15,310
+There are technically errors where you get this error object and where is someplace and your application
+
+4
+00:00:15,310 --> 00:00:22,090
+froze and error with the fro keyword and you can do that on your own or some package or express or note
+
+5
+00:00:22,090 --> 00:00:23,710
+itself does this.
+
+6
+00:00:23,710 --> 00:00:29,670
+And you can handle these errors with try catch or with then and catch in a promise for example.
+
+7
+00:00:29,920 --> 00:00:35,900
+And there are expect that errors and these are errors which are not technically arrows.
+
+8
+00:00:35,920 --> 00:00:39,320
+There is no error being frozen at least not necessarily.
+
+9
+00:00:39,430 --> 00:00:45,970
+But there you could be dealing with invalid user input an invalid email or some file access that should
+
+10
+00:00:45,970 --> 00:00:50,620
+work most of the time but might fail occasionally depending on how you treat debt.
+
+11
+00:00:50,650 --> 00:00:56,500
+If you throw an error or not you might still need try catch or then catch your as well but you could
+
+12
+00:00:56,500 --> 00:01:00,670
+also just use a check to see past that e-mail address exists in the database.
+
+13
+00:01:00,760 --> 00:01:06,430
+So normally if checked could do there and if you want to Frot an error or if you were once you forward
+
+14
+00:01:06,580 --> 00:01:12,010
+an error in then or a catch you'll learn that you can use that Global Express error handling middleware
+
+15
+00:01:12,130 --> 00:01:16,170
+of which you can have multiple which are an executed step by step.
+
+16
+00:01:16,180 --> 00:01:22,630
+You can use that and express will automatically call it whenever you next an error or you fro an error
+
+17
+00:01:22,720 --> 00:01:24,600
+in synchronous code.
+
+18
+00:01:24,640 --> 00:01:30,190
+We also had a brief look at status codes and it is a good practice or it is definitely something you
+
+19
+00:01:30,190 --> 00:01:35,860
+should consider that you set the right status codes on your responses so that you don't always return
+
+20
+00:01:35,860 --> 00:01:40,310
+200 codes but that you instead let the browser know about certain issues.
+
+21
+00:01:40,540 --> 00:01:47,470
+And that will become more important later in the rest API section of course when the browser gains more
+
+22
+00:01:47,470 --> 00:01:51,560
+power when more UI logic is executed in the browser.
+
+23
+00:01:51,880 --> 00:01:53,570
+And you've got different types of status codes.
+
+24
+00:01:53,590 --> 00:01:57,490
+You can have success costes a 2 x Cote's redirects.
+
+25
+00:01:57,490 --> 00:01:59,780
+Client side arrows and suicide arrows.
+
+26
+00:01:59,950 --> 00:02:07,900
+And you should look at all these codes and see which code is best set for your scenario your use case.
+
+27
+00:02:08,140 --> 00:02:08,710
+Important.
+
+28
+00:02:08,710 --> 00:02:14,290
+As I mentioned when you set a status code this does not mean that the app crashed or that the response
+
+29
+00:02:14,290 --> 00:02:19,090
+is incomplete it's simply an extra piece of information you passed to the browser.
+

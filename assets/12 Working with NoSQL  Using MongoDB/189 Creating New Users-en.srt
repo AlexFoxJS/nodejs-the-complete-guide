@@ -1,0 +1,380 @@
+1
+00:00:01,990 --> 00:00:09,820
+We get the basic crud operations with Mongomery be covered how you can find update and delete elements
+
+2
+00:00:09,820 --> 00:00:10,910
+with Mangu would you be.
+
+3
+00:00:10,990 --> 00:00:13,720
+And you also learn how to connect to Mom would you be.
+
+4
+00:00:13,720 --> 00:00:20,260
+Now let me show you how you can now work with relations and for that let's work with some users again.
+
+5
+00:00:20,560 --> 00:00:24,840
+Now with sequel eyes we didn't have an authentication flow.
+
+6
+00:00:24,910 --> 00:00:26,820
+And we will not have one here either.
+
+7
+00:00:27,010 --> 00:00:30,760
+But now I want to create new users at the beginning here.
+
+8
+00:00:30,970 --> 00:00:37,570
+And for that I'll first of all work on my user model of course I'll keep it real simple but of course
+
+9
+00:00:37,660 --> 00:00:40,940
+all again a normal javascript class again.
+
+10
+00:00:40,940 --> 00:00:48,040
+So let me create a new class user and add a constructor and in that constructor I'll get a user name
+
+11
+00:00:48,700 --> 00:00:49,770
+and an email.
+
+12
+00:00:49,810 --> 00:00:58,630
+Let's say and then Alceste store is in a Name property and in a email property and you could add more.
+
+13
+00:00:58,660 --> 00:01:05,330
+You could work with this however you want all done at a save method to be able to save that user to
+
+14
+00:01:05,330 --> 00:01:06,300
+the database.
+
+15
+00:01:06,370 --> 00:01:15,040
+And of course also add a static method for finding a user by ID.
+
+16
+00:01:15,870 --> 00:01:18,960
+And here will get the user ID as an argument.
+
+17
+00:01:18,960 --> 00:01:20,820
+Now here's your challenge.
+
+18
+00:01:20,820 --> 00:01:21,920
+Try this on your own.
+
+19
+00:01:21,930 --> 00:01:25,050
+Pause the video here and try implementing this on your own.
+
+20
+00:01:25,080 --> 00:01:32,010
+Try using long would be and that central long would be connection we have to save a user with the help
+
+21
+00:01:32,010 --> 00:01:34,830
+of the Save method and to find it by ID.
+
+22
+00:01:34,950 --> 00:01:35,530
+Good luck.
+
+23
+00:01:35,590 --> 00:01:40,140
+After a short break which gives you the chance to pause to video we'll solve this together.
+
+24
+00:01:43,140 --> 00:01:44,520
+Where are you successful.
+
+25
+00:01:44,820 --> 00:01:52,030
+Well let's start by first of all we're doing our Mongo database client.
+
+26
+00:01:52,290 --> 00:01:58,930
+So named this D-B again and I'll import it by requiring our database file in the utile folder.
+
+27
+00:01:59,010 --> 00:02:05,740
+And they're all use where all access gets to be named this get to be up here too.
+
+28
+00:02:06,180 --> 00:02:08,370
+Now let's start with the Save method.
+
+29
+00:02:08,490 --> 00:02:15,690
+And there are trade in you constant D-B and I'll call get D-B to store my database client in that constant.
+
+30
+00:02:15,720 --> 00:02:22,220
+Now on that client on just constant here we can reach out to collection and obviously this will now
+
+31
+00:02:22,220 --> 00:02:28,820
+not be the product collection but we could name it users collection if we wanted to.
+
+32
+00:02:28,840 --> 00:02:36,010
+Now in this collection I want to insert one new element here and that new element will be this.
+
+33
+00:02:36,010 --> 00:02:38,380
+So this javascript object we're in.
+
+34
+00:02:38,380 --> 00:02:45,310
+So an object with a name and an email property does is what I want to store as a user for now.
+
+35
+00:02:45,310 --> 00:02:52,430
+Now with that we can again use it then and catch if we want to or we just returned it and let whoever
+
+36
+00:02:52,580 --> 00:02:54,680
+Costus listen to that.
+
+37
+00:02:54,740 --> 00:02:59,330
+If there is a need for it now we can also work on fine by a deal already.
+
+38
+00:02:59,660 --> 00:03:04,430
+And there I again will get access to my database client.
+
+39
+00:03:04,820 --> 00:03:09,060
+And then I will return D-B collection users.
+
+40
+00:03:09,120 --> 00:03:13,630
+And here I now want to use find again to find a specific user.
+
+41
+00:03:13,820 --> 00:03:18,950
+We can narrow the user down by comparing the underscore ID and now the important thing here is of course
+
+42
+00:03:19,160 --> 00:03:24,600
+that you need to convert user ID which I expect to be a string here to an object ID.
+
+43
+00:03:24,860 --> 00:03:31,550
+So let me import long would be by requiring Mongo D-B like this.
+
+44
+00:03:31,550 --> 00:03:36,800
+And now here I'll follow a slightly different approach which I also already showed before l try to object
+
+45
+00:03:36,840 --> 00:03:42,450
+a constant and simply store access to it by accessing it up here.
+
+46
+00:03:42,560 --> 00:03:45,760
+But I'm not calling it I'm not creating an object.
+
+47
+00:03:45,880 --> 00:03:51,190
+I'm just storing the reference to the object class in my object id constant.
+
+48
+00:03:51,530 --> 00:03:55,160
+And then on there I can just write new object ID.
+
+49
+00:03:55,250 --> 00:03:58,530
+Thanks to my constant up there and past user ID to it.
+
+50
+00:03:58,790 --> 00:04:04,190
+And it should find me all fitting users and I therefore get back a cursor.
+
+51
+00:04:04,520 --> 00:04:07,230
+And now I can call next to get the first.
+
+52
+00:04:07,310 --> 00:04:15,160
+And as we know only element that matters to us an armored turning this here as a side note you could
+
+53
+00:04:15,160 --> 00:04:19,100
+all use find one if you are sure that you only find one element.
+
+54
+00:04:19,270 --> 00:04:23,470
+And this will now not give your cursor but immediately returned that one element.
+
+55
+00:04:23,470 --> 00:04:26,880
+So then this would be an alternative and it will use that here.
+
+56
+00:04:26,950 --> 00:04:29,260
+But of course this is something I haven't shown you before.
+
+57
+00:04:29,260 --> 00:04:32,500
+So if you used find and next that's perfectly fine.
+
+58
+00:04:32,800 --> 00:04:34,440
+So you're all use find one.
+
+59
+00:04:34,570 --> 00:04:41,740
+And now I got two methods in place that should allow me to create new users and then find a dead user.
+
+60
+00:04:41,740 --> 00:04:46,860
+Now with that user model added let me go back to the app js file.
+
+61
+00:04:47,230 --> 00:04:50,270
+And then there I will import my model.
+
+62
+00:04:50,380 --> 00:05:00,870
+So you're all import user by requiring user from slash models slash user like debt with user imported.
+
+63
+00:05:01,060 --> 00:05:07,690
+First of all we had some code here which I want a common pegan where I want to find a user with this
+
+64
+00:05:07,690 --> 00:05:11,230
+idea here and then store it in the request.
+
+65
+00:05:11,410 --> 00:05:12,970
+So I will still use that here.
+
+66
+00:05:12,970 --> 00:05:16,340
+However all changed the idea a second.
+
+67
+00:05:16,370 --> 00:05:18,570
+First of all when connecting.
+
+68
+00:05:18,680 --> 00:05:25,460
+I also want to add some code to see if a user with a certain ID exists and for that I will actually
+
+69
+00:05:25,460 --> 00:05:31,540
+create a user here in campiness so I'll connect to just shop database and I'll try it and you collect
+
+70
+00:05:31,610 --> 00:05:33,000
+your users.
+
+71
+00:05:33,050 --> 00:05:37,520
+And of course this collection name here should be the collection name you chose in your code.
+
+72
+00:05:37,940 --> 00:05:43,190
+I'll trade in your collection and then go into debt collection.
+
+73
+00:05:43,280 --> 00:05:49,180
+And now if you have a look at your user model here I'm storing a name and an email for a new user.
+
+74
+00:05:49,310 --> 00:05:54,090
+So if you want to create one behind the scenes and comp as we can insert a new document here.
+
+75
+00:05:54,290 --> 00:05:59,660
+And here is the automatically generated ID and I can enter a name and you can use any name you want
+
+76
+00:05:59,660 --> 00:06:00,230
+here.
+
+77
+00:06:00,500 --> 00:06:04,980
+And of course an email and insert debt document.
+
+78
+00:06:05,150 --> 00:06:09,900
+And now it's this I.D. This part here between the quotation marks that matters to me.
+
+79
+00:06:09,920 --> 00:06:12,490
+I'll take that and I'll use an app G-S.
+
+80
+00:06:12,530 --> 00:06:16,720
+So here I could now create the user if it didn't exist.
+
+81
+00:06:16,750 --> 00:06:20,560
+But of course I now know it exists because I created it behind the scenes.
+
+82
+00:06:20,560 --> 00:06:25,010
+Later we'll add a real authentication flow where users can sign up by themselves.
+
+83
+00:06:25,020 --> 00:06:25,680
+No worry.
+
+84
+00:06:25,900 --> 00:06:27,160
+But here in my middleware.
+
+85
+00:06:27,190 --> 00:06:33,120
+Where to find a user by ID I can search for that ID and I convert dead in the user model.
+
+86
+00:06:33,160 --> 00:06:36,420
+Remember that is why you can use a string here.
+
+87
+00:06:36,430 --> 00:06:36,650
+OK.
+
+88
+00:06:36,670 --> 00:06:38,320
+So now I have that and place again.
+
+89
+00:06:38,380 --> 00:06:39,920
+I get access to my user.
+
+90
+00:06:40,150 --> 00:06:46,780
+And now we're at least prepared to set up a connection between our product and our user which we can
+
+91
+00:06:46,780 --> 00:06:48,400
+use later.
+
+92
+00:06:48,400 --> 00:06:50,250
+Let me save that.
+
+93
+00:06:50,430 --> 00:06:51,390
+That should work.
+
+94
+00:06:51,540 --> 00:06:52,570
+And the next lecture.
+
+95
+00:06:52,620 --> 00:06:57,570
+Let's use that user object and store a reference to that user in our database.
+

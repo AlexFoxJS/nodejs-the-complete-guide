@@ -1,0 +1,320 @@
+1
+00:00:02,410 --> 00:00:08,730
+Now it's finally time to work on that re-act application we have as a front into YOUR which you also
+
+2
+00:00:08,740 --> 00:00:14,590
+find attached to this lecture again in case you skipped the modules so re-act application will not work
+
+3
+00:00:14,590 --> 00:00:20,400
+on the code here too much because it is no re-act course and now I'm interested in signing users up.
+
+4
+00:00:20,410 --> 00:00:26,140
+There's a standard the aperture last fall there and there and the sign up handler here we send the request
+
+5
+00:00:26,140 --> 00:00:27,960
+for creating a new user.
+
+6
+00:00:28,120 --> 00:00:31,750
+But this is of course a request from the rest API world.
+
+7
+00:00:32,200 --> 00:00:38,270
+You learned that from now on there are only as Slash graph Cuil for all our API requests.
+
+8
+00:00:38,530 --> 00:00:42,290
+And then here does has to be a post request.
+
+9
+00:00:42,390 --> 00:00:50,240
+The type is still application Chaisson and this needs to be set but the body will now be in the Rathcoole
+
+10
+00:00:50,240 --> 00:01:01,060
+query language and vidis all create a new constant which all named Q L graph Q L query.
+
+11
+00:01:01,130 --> 00:01:06,020
+The name is up to you though and this will be a javascript object where you need to have a query key
+
+12
+00:01:06,410 --> 00:01:10,180
+that is required even for mutations.
+
+13
+00:01:10,180 --> 00:01:17,150
+Their value here then is a string which you create with double tactics tactics so that you can write
+
+14
+00:01:17,180 --> 00:01:20,830
+multi-line string single quotation marks will not do it.
+
+15
+00:01:21,230 --> 00:01:29,150
+And here you add mutation to define that you you're running a mutation now curly braces and now the
+
+16
+00:01:29,150 --> 00:01:30,700
+name of the mutation.
+
+17
+00:01:30,800 --> 00:01:34,740
+The name of the mutation you want to execute is create user.
+
+18
+00:01:35,210 --> 00:01:38,650
+Essentially you could just copy this query here.
+
+19
+00:01:38,660 --> 00:01:45,720
+Now this is what you could copy and what you could move into your query here.
+
+20
+00:01:47,450 --> 00:01:52,950
+Now of course we need to replace these values with the values we fetch from the user input though and
+
+21
+00:01:53,020 --> 00:01:58,300
+we can do that by using dollar sign curly braces in this back.
+
+22
+00:01:58,610 --> 00:02:04,820
+Take enclosed string because it is a template literal and this allows us to inject values.
+
+23
+00:02:04,820 --> 00:02:09,810
+Now just make sure you keep the double quotation marks around and check that values.
+
+24
+00:02:09,830 --> 00:02:16,250
+Otherwise this will fail because this query language here needs to enclose strings in double quotation
+
+25
+00:02:16,250 --> 00:02:17,670
+marks.
+
+26
+00:02:17,690 --> 00:02:24,920
+Now the email can be retrieved just as we retrieve it down there so we can copy that code up there.
+
+27
+00:02:25,130 --> 00:02:30,220
+And the same of course also for the name and the password for it name.
+
+28
+00:02:30,320 --> 00:02:36,650
+We all check the value of Thaller assigned curly braces and we used that syntax from below.
+
+29
+00:02:37,010 --> 00:02:39,100
+And the same for the password.
+
+30
+00:02:39,140 --> 00:02:44,430
+Let's copy that and replace this with D inject that password code.
+
+31
+00:02:48,020 --> 00:02:50,890
+Now here I am retrieving ID and email.
+
+32
+00:02:51,020 --> 00:02:53,110
+It's up to you we don't need any of the data.
+
+33
+00:02:53,180 --> 00:02:59,520
+I'll leave it like this and now does the object I want to string you fine.
+
+34
+00:02:59,600 --> 00:03:02,870
+So my graphical query object.
+
+35
+00:03:02,990 --> 00:03:07,010
+No I don't need to check the status code here because there will not be a set.
+
+36
+00:03:07,070 --> 00:03:09,640
+It's either 200 or 500.
+
+37
+00:03:09,670 --> 00:03:18,430
+I'll cut it here and I'll remove that and end the response data then block here where I have the Parus
+
+38
+00:03:18,430 --> 00:03:21,460
+to request a response body there.
+
+39
+00:03:21,680 --> 00:03:31,980
+I can now check if response data has errors and there on the first error I could check for the Status
+
+40
+00:03:31,980 --> 00:03:33,380
+field.
+
+41
+00:03:33,430 --> 00:03:38,170
+So here I will check if response data has errors.
+
+42
+00:03:38,590 --> 00:03:44,500
+That's the case I'll check if response state errors and they are the first element has a status field
+
+43
+00:03:44,740 --> 00:03:45,730
+just as I explained.
+
+44
+00:03:45,730 --> 00:03:53,510
+Accessing this field and if that is equal to 422 and then I can feel my validation failed error.
+
+45
+00:03:53,650 --> 00:03:59,530
+Maybe we have other kinds of errors so I'll check a number of thing here in case we don't Frode at first
+
+46
+00:03:59,530 --> 00:04:00,050
+error.
+
+47
+00:04:00,190 --> 00:04:03,020
+I'll check just for the existence of errors.
+
+48
+00:04:03,280 --> 00:04:07,120
+And there I would fro a number in error where it just.
+
+49
+00:04:07,130 --> 00:04:11,040
+User creation failed like this.
+
+50
+00:04:12,940 --> 00:04:17,070
+Now offer DS error or checks I'm printing my response data here.
+
+51
+00:04:17,260 --> 00:04:20,920
+And actually we should have all we need to sign users up now.
+
+52
+00:04:21,100 --> 00:04:25,120
+So let's run our server with an p.m. start.
+
+53
+00:04:25,120 --> 00:04:27,650
+It runs on localhost free 0 0 0 0 0 0.
+
+54
+00:04:27,670 --> 00:04:31,810
+And let's open that here and there.
+
+55
+00:04:31,920 --> 00:04:36,800
+Let's navigate to the sign up page and create a new user.
+
+56
+00:04:36,800 --> 00:04:39,400
+Now this is a email address which is already taken.
+
+57
+00:04:39,710 --> 00:04:43,430
+And actually therefore I should fail doing that.
+
+58
+00:04:43,430 --> 00:04:46,080
+Let me click sign up and indeed I get an error.
+
+59
+00:04:46,130 --> 00:04:53,480
+But this is a different error and you might expect an error here where my method is not allowed and
+
+60
+00:04:53,480 --> 00:04:56,870
+this can be a tricky thing to fix if you're brand new to craft.
+
+61
+00:04:56,920 --> 00:05:01,740
+Well the reason for this error is we get this error.
+
+62
+00:05:01,760 --> 00:05:09,750
+Actually as a response to our options request here not to our post request.
+
+63
+00:05:09,790 --> 00:05:16,060
+Now you might remember that I explained that the browser sends an options request before it sends the
+
+64
+00:05:16,060 --> 00:05:19,800
+post patch put delete or so on request.
+
+65
+00:05:19,810 --> 00:05:28,530
+The problem is expressed graphed you l automatically declines anything which is not a post or get request.
+
+66
+00:05:28,630 --> 00:05:31,990
+So the options request is denied.
+
+67
+00:05:31,990 --> 00:05:39,850
+The solution is to go to that middleware where I set up my course headers and there I check if my request
+
+68
+00:05:39,910 --> 00:05:49,210
+method is equal to options and if it is all options request then here I'll return rest's send status
+
+69
+00:05:49,210 --> 00:05:49,880
+200.
+
+70
+00:05:50,080 --> 00:05:53,940
+So I'll simply send an empty response with a status code of 200.
+
+71
+00:05:54,160 --> 00:06:00,990
+I return so that this code is not executed and therefore options requests never make it to digraph cool
+
+72
+00:06:01,030 --> 00:06:04,070
+end point but still get a valid response.
+
+73
+00:06:05,110 --> 00:06:11,620
+And with data fine I'll go back to my Front-End I clear my error and sign up again.
+
+74
+00:06:11,620 --> 00:06:17,890
+Now the user creation fails but now it simply fails because if you look into our data we see that the
+
+75
+00:06:17,890 --> 00:06:21,230
+user exists already and that is what we expect.
+
+76
+00:06:21,600 --> 00:06:27,530
+And now if we take a valid email address which is not taken yet it actually succeeds.
+
+77
+00:06:27,710 --> 00:06:34,070
+And here is the response I get back from graphed you l My data that is provided automatically for the
+
+78
+00:06:34,070 --> 00:06:35,500
+create user query.
+
+79
+00:06:35,690 --> 00:06:42,830
+To date fields I requested and this is how we connect the front end to our back and by simply sending
+
+80
+00:06:42,830 --> 00:06:46,640
+a post request with a valid graphical query expression.
+

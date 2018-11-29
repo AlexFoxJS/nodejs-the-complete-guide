@@ -1,0 +1,380 @@
+1
+00:00:02,420 --> 00:00:08,120
+Let's make sure we can create new posts so that this new post button does not only open the mobile but
+
+2
+00:00:08,120 --> 00:00:10,270
+we can actually add a new post.
+
+3
+00:00:10,280 --> 00:00:17,920
+For now with our D-Mich. upload so let me go back to my rest AAPI.
+
+4
+00:00:17,960 --> 00:00:23,440
+And there we already have a Create post route of course so we can continue working on that.
+
+5
+00:00:23,450 --> 00:00:25,760
+We expect the title and the content there.
+
+6
+00:00:25,850 --> 00:00:31,520
+And for now this is the only data which I will really need to worry about because well as I've just
+
+7
+00:00:31,520 --> 00:00:33,170
+said we'll not worry about the image.
+
+8
+00:00:33,170 --> 00:00:39,290
+For now you can pick an image here but ultimately even though it's previewed here it will not be uploaded
+
+9
+00:00:40,010 --> 00:00:41,270
+but it does not matter.
+
+10
+00:00:41,270 --> 00:00:45,000
+We can implement this in a way that at least to Thailand content is uploaded.
+
+11
+00:00:45,020 --> 00:00:52,520
+For this we already got our route in place a post route 2 feet post and there we then extract our title
+
+12
+00:00:52,670 --> 00:00:54,760
+and content and we.
+
+13
+00:00:54,830 --> 00:00:58,970
+Well for now basically echo back that message.
+
+14
+00:00:59,270 --> 00:01:00,460
+Let's try that.
+
+15
+00:01:00,590 --> 00:01:04,940
+Let's go to our front application so to react code and in there.
+
+16
+00:01:05,030 --> 00:01:06,830
+Let's simply go to the
+
+17
+00:01:09,450 --> 00:01:14,520
+feet js file and dare you should find a finish.
+
+18
+00:01:14,570 --> 00:01:16,510
+Add a handler function.
+
+19
+00:01:16,750 --> 00:01:20,710
+Is the function which is responsible for handling the case that we clicked on.
+
+20
+00:01:20,840 --> 00:01:26,510
+Except here once we entered a ballot title and content.
+
+21
+00:01:26,750 --> 00:01:34,220
+By the way here I also got validation emplace front end validation which is not the matter of course
+
+22
+00:01:34,250 --> 00:01:36,640
+because it's not related to note at all.
+
+23
+00:01:36,640 --> 00:01:42,110
+It's just a user experience thing that we use browser side javascript to validate the input right away.
+
+24
+00:01:42,110 --> 00:01:44,930
+You can learn more about that in my re-act course if you want.
+
+25
+00:01:44,930 --> 00:01:50,300
+Still worth noting that we have some validation place here not validation on the server though.
+
+26
+00:01:50,310 --> 00:01:58,540
+So for now except I want to reach my slash feed slash post route for dad.
+
+27
+00:01:58,580 --> 00:02:01,710
+Here we have to edit disks you are l.
+
+28
+00:02:01,730 --> 00:02:04,300
+This you are all here will actually be required later.
+
+29
+00:02:04,340 --> 00:02:08,300
+When we start editing posts for now we want to create a new one.
+
+30
+00:02:08,330 --> 00:02:09,620
+So here you are.
+
+31
+00:02:09,620 --> 00:02:18,740
+L will be HTP localhost 88 is our back and you are l slash feed slash post.
+
+32
+00:02:18,820 --> 00:02:21,150
+This is the route we set up on the backend.
+
+33
+00:02:21,650 --> 00:02:27,290
+Here we send a fetch request to Dad you are l and we need to configure that request because it will
+
+34
+00:02:27,290 --> 00:02:29,130
+be a post request.
+
+35
+00:02:29,360 --> 00:02:34,380
+So the method here can be post.
+
+36
+00:02:34,480 --> 00:02:37,250
+But actually all right does in a more flexible way to.
+
+37
+00:02:37,270 --> 00:02:40,380
+Because when we later edit this will use a different method.
+
+38
+00:02:40,570 --> 00:02:46,480
+So here I will create a new variable method which is set to post which you then later could override
+
+39
+00:02:46,510 --> 00:02:47,440
+in here.
+
+40
+00:02:47,440 --> 00:02:53,500
+So here are not hard code posts down there but instead use my method variable.
+
+41
+00:02:53,590 --> 00:03:01,090
+I will also need to add a body to data which I want to set and that has to be adjacent data so I will
+
+42
+00:03:01,090 --> 00:03:05,770
+use Jason string ify fly it to convert a javascript object Jason.
+
+43
+00:03:05,920 --> 00:03:10,650
+And then I pass a javascript object here and does javascript object.
+
+44
+00:03:10,750 --> 00:03:18,070
+In the end should hold the code which I want to well send to my back and in object.
+
+45
+00:03:18,130 --> 00:03:26,890
+For now I simply want to set my title and that can be extracted from post data an argument.
+
+46
+00:03:26,960 --> 00:03:30,970
+I received this function so post data will hold the data the user entered.
+
+47
+00:03:31,160 --> 00:03:38,750
+Post date title and then here all the content to post data content.
+
+48
+00:03:38,750 --> 00:03:41,750
+So this is again what we add and the re-act application.
+
+49
+00:03:41,750 --> 00:03:48,570
+Last but not least to send his request in a way that the Saranda stands that we need to add some heteros
+
+50
+00:03:48,580 --> 00:03:51,210
+here where we set the right content type.
+
+51
+00:03:51,440 --> 00:04:00,020
+So you're all set content type 2 application Jason to inform the server that I do indeed send some adjacent
+
+52
+00:04:00,020 --> 00:04:00,770
+data.
+
+53
+00:04:01,130 --> 00:04:06,610
+So with that I'm targeting the rights you are l and then sending Jason data and I'm sending a Tideland
+
+54
+00:04:06,640 --> 00:04:07,530
+content.
+
+55
+00:04:07,560 --> 00:04:09,950
+This should be everything I need on the server.
+
+56
+00:04:10,280 --> 00:04:16,670
+So let's save this and it should reload automatically as long as you keep NPM start running here and
+
+57
+00:04:16,670 --> 00:04:24,970
+there for well it reloaded the appere and let's create a new post the title has to be at least five
+
+58
+00:04:24,970 --> 00:04:33,340
+characters long such so has the content she was a file otherwise you're not allowed to submit this.
+
+59
+00:04:33,360 --> 00:04:36,280
+Even though the Folles not getting uploaded right now.
+
+60
+00:04:36,520 --> 00:04:44,290
+Except now you will run into an error here which is related to the front end missing some crucial data
+
+61
+00:04:44,290 --> 00:04:46,630
+it needs to update everything correctly.
+
+62
+00:04:46,900 --> 00:04:57,380
+However let's go back one step and let's actually console log rest data here we're still in that finish
+
+63
+00:04:57,410 --> 00:05:02,840
+edit handler just in the then block off her fetching and save again.
+
+64
+00:05:03,260 --> 00:05:09,830
+The app will reload and you can enter something into that new post mode again.
+
+65
+00:05:10,670 --> 00:05:14,310
+Testing again and hit accept again and you'll get that same error.
+
+66
+00:05:14,420 --> 00:05:21,870
+But before that error you'll see a log which actually proves that on the rest API everything works correctly.
+
+67
+00:05:22,070 --> 00:05:27,890
+You get back that post created successfully message and the post with the data you entered.
+
+68
+00:05:27,890 --> 00:05:33,800
+The error is simply stemming from the fact that on the server we're not doing everything we expect to
+
+69
+00:05:33,800 --> 00:05:40,920
+do because we're not creating or we're not attaching a user We're not creating a date and so on.
+
+70
+00:05:40,940 --> 00:05:46,670
+These are all things we can fix though by going back to our controller on the server and there when
+
+71
+00:05:46,670 --> 00:05:50,480
+we create a new post or when we echo back that post.
+
+72
+00:05:50,480 --> 00:05:54,140
+First of all it should have an underscore Id not a ID.
+
+73
+00:05:54,170 --> 00:06:00,750
+It should also have a creator field which is again a javascript object with a name of your choice.
+
+74
+00:06:00,800 --> 00:06:04,220
+And later this will not be dummy data anymore but real data.
+
+75
+00:06:04,220 --> 00:06:13,810
+So we add this creator and we should add a created field and that created at field is simply a new date.
+
+76
+00:06:13,970 --> 00:06:19,940
+And now with that being echoed back if we saved that service code and we reload the front and application
+
+77
+00:06:22,410 --> 00:06:29,870
+we can test this one more time click accept and now we dont get an error.
+
+78
+00:06:29,870 --> 00:06:32,680
+Instead we see our post there.
+
+79
+00:06:32,750 --> 00:06:39,600
+So now we indeed do create our data on the server or at least we fail to do so.
+
+80
+00:06:39,800 --> 00:06:45,560
+And when we return that back to the client where we can now render it no editing will not work though
+
+81
+00:06:45,560 --> 00:06:50,540
+we can select it for editing at least at least the leading will alternate work and viewing will never
+
+82
+00:06:50,840 --> 00:06:54,410
+but we got our basic flow set up.
+
+83
+00:06:54,590 --> 00:06:58,860
+Now since we're creating a new post here what is missing on the server though.
+
+84
+00:06:58,910 --> 00:07:02,360
+At least two things are missing and what is missing.
+
+85
+00:07:02,660 --> 00:07:05,700
+Well validation server side validation.
+
+86
+00:07:05,780 --> 00:07:12,380
+We only got client side validation but that can always be tricked because users can see your browser
+
+87
+00:07:12,380 --> 00:07:13,550
+side javascript code.
+
+88
+00:07:13,580 --> 00:07:15,110
+They could disable it.
+
+89
+00:07:15,110 --> 00:07:17,240
+They could basically find ways around that.
+
+90
+00:07:17,240 --> 00:07:19,130
+So it's not a safe mechanism.
+
+91
+00:07:19,130 --> 00:07:21,540
+It's only meant to improve user experience.
+
+92
+00:07:21,770 --> 00:07:23,940
+So we need to validate on the server.
+
+93
+00:07:24,140 --> 00:07:30,800
+And of course we want to store the data in a real database so we should add Mongolia or sequel's solution
+
+94
+00:07:30,800 --> 00:07:31,300
+again.
+
+95
+00:07:31,490 --> 00:07:33,950
+And that is what we'll do over the next lectures.
+

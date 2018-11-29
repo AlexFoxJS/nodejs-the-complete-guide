@@ -1,0 +1,456 @@
+1
+00:00:02,130 --> 00:00:07,830
+I'm back in the project and I actually changed D.H. team code and the styles a little bit you'll find
+
+2
+00:00:07,860 --> 00:00:10,510
+all CSSA faults and HTML files attached.
+
+3
+00:00:10,530 --> 00:00:17,460
+And just make sure to move D.H. html files into the folder and DCs as falls into the C folder in the
+
+4
+00:00:17,460 --> 00:00:18,470
+public folder.
+
+5
+00:00:18,480 --> 00:00:19,420
+I did this too.
+
+6
+00:00:19,440 --> 00:00:24,870
+Well change to styling a little bit and also add a little bit of additional markup which we'll use in
+
+7
+00:00:24,870 --> 00:00:29,160
+this module but no worries I will walk you through all of that markup.
+
+8
+00:00:29,190 --> 00:00:33,180
+And regarding the styling it's just a little bit nicer to look at right now.
+
+9
+00:00:33,180 --> 00:00:39,150
+And I also added some styling which we'll need in this module so that I can of course wizard the page
+
+10
+00:00:39,810 --> 00:00:41,310
+on localhost 3000.
+
+11
+00:00:41,310 --> 00:00:43,410
+And this is how it looks like right now.
+
+12
+00:00:43,580 --> 00:00:47,850
+A little bit nicer number before in my opinion but of course you can always style this to your needs.
+
+13
+00:00:47,850 --> 00:00:49,960
+But let's now focus on the data.
+
+14
+00:00:50,220 --> 00:00:53,200
+And right now we don't really work with data in our app.
+
+15
+00:00:53,250 --> 00:00:53,630
+Right.
+
+16
+00:00:53,640 --> 00:01:02,670
+And admen J.S. For example we do get Stets data for a product here in a host route but we just lock
+
+17
+00:01:02,670 --> 00:01:03,840
+data to the console.
+
+18
+00:01:03,840 --> 00:01:05,100
+We're not storing it.
+
+19
+00:01:05,190 --> 00:01:11,100
+We're not working with it and working with it is kind of hard right now because we have no database
+
+20
+00:01:11,130 --> 00:01:13,240
+where we could store it permanently.
+
+21
+00:01:13,290 --> 00:01:20,210
+But one thing we can of course do is we can store it in javascript variables and see how that works
+
+22
+00:01:20,220 --> 00:01:27,150
+and if these are then shared across incoming requests from different users and that of course will hold
+
+23
+00:01:27,150 --> 00:01:32,790
+some important learnings because you often well don't want to share such data.
+
+24
+00:01:32,820 --> 00:01:38,340
+So let's see how that works before we then later in the course move towards a more permanent database
+
+25
+00:01:38,340 --> 00:01:39,280
+driven solution.
+
+26
+00:01:39,450 --> 00:01:45,720
+So let's say the incoming product title which we output here should be stored in a more permanent place.
+
+27
+00:01:45,750 --> 00:01:51,480
+And in general I actually want to also add some fields to the fore and then later so that we can add
+
+28
+00:01:51,480 --> 00:01:55,920
+more for a product than just the title but step by step.
+
+29
+00:01:55,950 --> 00:01:58,910
+So let's start storing data title which we get here.
+
+30
+00:01:59,070 --> 00:02:00,700
+And just to bring that back to memory.
+
+31
+00:02:00,710 --> 00:02:02,500
+Right now we got this field here.
+
+32
+00:02:02,700 --> 00:02:08,530
+And if I submit this well then I get this object with the key title and the value to user entered.
+
+33
+00:02:08,910 --> 00:02:10,680
+So how can we store this.
+
+34
+00:02:10,860 --> 00:02:16,620
+Well we could at a variable where we store it id and the first thing we could try is we could add a
+
+35
+00:02:16,620 --> 00:02:25,530
+variable here in admin Geass let's say we create a new Constans here which all name products which is
+
+36
+00:02:25,530 --> 00:02:31,380
+an array and keep in mind even though it's constant the array can receive new elements because the array
+
+37
+00:02:31,380 --> 00:02:32,930
+itself is still the same object.
+
+38
+00:02:32,970 --> 00:02:39,060
+We just add or remove elements to it but that doesn't affect the overall holding gray object.
+
+39
+00:02:39,060 --> 00:02:44,490
+So I got my products here and I actually want to export my products.
+
+40
+00:02:44,670 --> 00:02:50,670
+So what else do down there is I will use a different scent ex-parte exports.
+
+41
+00:02:52,230 --> 00:03:00,360
+My routes and export to router here and exports products and export my products constant does has one
+
+42
+00:03:00,360 --> 00:03:04,020
+important implication since I changed the way I export my routes.
+
+43
+00:03:04,020 --> 00:03:11,750
+I have to go to the aperture last fall and with that in the fall where I import my Edmond Routier Well
+
+44
+00:03:11,830 --> 00:03:19,140
+I actually does ISDE admin data and dare I want to access the route's object because there will be such
+
+45
+00:03:19,140 --> 00:03:21,850
+a route's object because I'm creating it here.
+
+46
+00:03:22,050 --> 00:03:27,360
+So Edmon data refers to all the exports you could say and there we now have routes and products and
+
+47
+00:03:27,360 --> 00:03:34,670
+therefore when I do import my routes I have to import them like this of course Edmund data is then also
+
+48
+00:03:34,700 --> 00:03:36,260
+something I have to change up here.
+
+49
+00:03:36,310 --> 00:03:37,410
+Indeed.
+
+50
+00:03:37,900 --> 00:03:43,640
+So now I got this adjusted and now I got my products export the two products is an empty array.
+
+51
+00:03:43,770 --> 00:03:51,220
+Now in here in router post let's take the products and push a new element into disarray and you object
+
+52
+00:03:51,220 --> 00:03:52,000
+let's say.
+
+53
+00:03:52,090 --> 00:03:57,700
+And that object will have a title which isted Hyla I'm getting some requests body and keep in mind that
+
+54
+00:03:57,720 --> 00:03:59,940
+all is is an object with a title property.
+
+55
+00:03:59,980 --> 00:04:03,210
+So I will extract the title with the dot notation.
+
+56
+00:04:03,310 --> 00:04:08,350
+I could of course just pushed the overall request body since that will be an object of the exact same
+
+57
+00:04:08,350 --> 00:04:09,020
+structure.
+
+58
+00:04:09,100 --> 00:04:14,680
+But later I want to add more fields here and therefore I will create a new object here also to make
+
+59
+00:04:14,680 --> 00:04:18,280
+it a bit clearer to see what's happening here.
+
+60
+00:04:18,280 --> 00:04:26,050
+So now we're adding two products now in Shopko Yes where we output all our products or where we want
+
+61
+00:04:26,050 --> 00:04:31,200
+to do that at some point we do need to get access to the products and various.
+
+62
+00:04:31,450 --> 00:04:39,730
+Let's add an import up your let's import admen data by requiring admin.
+
+63
+00:04:39,750 --> 00:04:43,050
+So does Edmund J S fall where we do export its routes.
+
+64
+00:04:43,050 --> 00:04:45,290
+Something we're not interested in in this file.
+
+65
+00:04:45,330 --> 00:04:47,520
+But also this products array.
+
+66
+00:04:47,610 --> 00:04:55,270
+So now here let's console lock admen data products that should be the array.
+
+67
+00:04:55,270 --> 00:04:56,520
+Now save everything.
+
+68
+00:04:56,520 --> 00:04:58,620
+And now let's simply see what we get.
+
+69
+00:04:58,890 --> 00:05:04,940
+If I reload this page the shop page I get an empty array which makes sense because it initially does
+
+70
+00:05:04,960 --> 00:05:05,790
+is an empty array.
+
+71
+00:05:05,820 --> 00:05:06,790
+We export it.
+
+72
+00:05:06,810 --> 00:05:08,090
+That makes sense.
+
+73
+00:05:08,100 --> 00:05:14,460
+So let's go to add product now and let's add a book here and it click add product.
+
+74
+00:05:14,460 --> 00:05:18,270
+We're back to the shop page and we see something interesting.
+
+75
+00:05:18,270 --> 00:05:24,120
+We see the tray with the book inside of it and that console lock statement whereas it is actually coming
+
+76
+00:05:24,120 --> 00:05:27,150
+from well that is coming from the shop.
+
+77
+00:05:27,190 --> 00:05:34,000
+Yes fall here can also make this clear by adding shop JSE year and logging the products to log two things
+
+78
+00:05:34,000 --> 00:05:37,360
+to make it clearer what is responsible for the output.
+
+79
+00:05:37,360 --> 00:05:39,690
+So shop choice is logging the MTA array.
+
+80
+00:05:39,880 --> 00:05:43,680
+And now let's try outputting that book here.
+
+81
+00:05:45,130 --> 00:05:48,050
+And now we got shop chairs with the tray with the book in it.
+
+82
+00:05:48,090 --> 00:05:50,050
+Now this is interesting to see.
+
+83
+00:05:50,070 --> 00:05:54,790
+So we can export something some object or array a reference type therefore.
+
+84
+00:05:54,930 --> 00:05:59,770
+And if we change to it in the file it also gives us the update here.
+
+85
+00:05:59,770 --> 00:06:00,900
+So this is interesting.
+
+86
+00:06:00,910 --> 00:06:06,610
+This is one way of sharing data and to be honest we'll later use different ways because this has one
+
+87
+00:06:06,610 --> 00:06:08,520
+disadvantage here.
+
+88
+00:06:08,560 --> 00:06:12,040
+If I reload shop we still got that in there.
+
+89
+00:06:12,040 --> 00:06:14,910
+Now let me open up a totally different browser.
+
+90
+00:06:15,750 --> 00:06:19,600
+I'm in Firefox here and also has a local host 3000.
+
+91
+00:06:20,130 --> 00:06:24,100
+So it is a totally different browser and does this kind of like a brand new user.
+
+92
+00:06:24,120 --> 00:06:27,810
+It doesn't share any cookies with the browser nothing of that kind.
+
+93
+00:06:27,810 --> 00:06:30,770
+It used the same IP address but that doesn't matter.
+
+94
+00:06:30,780 --> 00:06:37,250
+It's a brand new request as if it were made from a different machine and you will see I still locked
+
+95
+00:06:37,250 --> 00:06:37,940
+this.
+
+96
+00:06:37,950 --> 00:06:45,630
+So this is actually data which is inherent to our node server as it is running and therefore it's shared
+
+97
+00:06:45,630 --> 00:06:47,670
+across all users.
+
+98
+00:06:47,680 --> 00:06:56,340
+Sometimes this is what you may want but very very rarely to be honest actually you will probably never
+
+99
+00:06:56,340 --> 00:06:57,220
+implement this.
+
+100
+00:06:57,300 --> 00:07:03,930
+You always want to fetch data for a specific request and if that happens to be the same data you show
+
+101
+00:07:03,930 --> 00:07:06,130
+for all users that send this request.
+
+102
+00:07:06,200 --> 00:07:12,990
+This is fine but sharing does state cross requests across users is typically something you don't want
+
+103
+00:07:12,980 --> 00:07:19,020
+to do because if you now added this with user a user B will see the updated word.
+
+104
+00:07:19,140 --> 00:07:21,170
+Even though you might want to showed it.
+
+105
+00:07:21,240 --> 00:07:24,920
+Maybe it's added that normally wouldn't have been saved to the database yet.
+
+106
+00:07:25,020 --> 00:07:27,340
+So you don't want to show that to the average users yet.
+
+107
+00:07:27,360 --> 00:07:29,240
+Maybe it's some personal data.
+
+108
+00:07:29,340 --> 00:07:35,030
+So does a pattern we can use for now here and that's fine for practicing what we want to practice here.
+
+109
+00:07:35,190 --> 00:07:42,180
+But later we'll learn about a technique to share data in memory here in the node app across different
+
+110
+00:07:42,180 --> 00:07:48,960
+requests but only for one and the same user and not across users because now we have shared data across
+
+111
+00:07:48,960 --> 00:07:51,240
+requests and across users.
+
+112
+00:07:51,240 --> 00:07:54,590
+And we will later of course also learn how to use a database.
+
+113
+00:07:54,690 --> 00:07:56,830
+But for now let's stick to this approach.
+
+114
+00:07:56,970 --> 00:08:03,150
+Let's use that for some dummy data sharing and let's see how we can get this data into our you know.
+

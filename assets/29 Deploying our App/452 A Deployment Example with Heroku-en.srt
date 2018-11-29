@@ -1,0 +1,512 @@
+1
+00:00:02,310 --> 00:00:08,100
+Knouted we created our account here and we learned that we'll use get the next steps on Hiroko to use
+
+2
+00:00:08,120 --> 00:00:14,950
+its sealife its command line interface and that of course now is Heroku specific on our hosting providers.
+
+3
+00:00:15,000 --> 00:00:23,160
+You might simply be able to drag and drop your code let's say as a sip file into some part of the dashboard
+
+4
+00:00:23,160 --> 00:00:26,090
+user interface of your hosting provider to deploy it.
+
+5
+00:00:26,280 --> 00:00:30,380
+Hiroko just doesn't use such a drag and drop alternative instead.
+
+6
+00:00:30,400 --> 00:00:36,670
+Hiroko uses that command line interface which allows you to run your code or to deploy your code.
+
+7
+00:00:36,800 --> 00:00:39,110
+The command line by typing on commands.
+
+8
+00:00:39,210 --> 00:00:42,100
+So let's download Heroku Seelye here.
+
+9
+00:00:42,600 --> 00:00:48,450
+Make sure to follow the instructions on the page that opens in case you're facing any problems here
+
+10
+00:00:48,450 --> 00:00:51,100
+you also get informed that you require get.
+
+11
+00:00:51,120 --> 00:00:54,760
+So definitely make sure to check that out as well if you have problems.
+
+12
+00:00:54,870 --> 00:01:02,250
+Now I'll go with my Mac OS version air and then I will quickly walk through the installer dir and install
+
+13
+00:01:02,370 --> 00:01:05,150
+Hiroko on my system.
+
+14
+00:01:05,170 --> 00:01:10,450
+Once you did install it the next step is to run this command and you run this in your normal terminal
+
+15
+00:01:10,480 --> 00:01:11,870
+or command prompt.
+
+16
+00:01:11,860 --> 00:01:16,120
+I'm here in my code and my node project but you can run it from anywhere.
+
+17
+00:01:16,300 --> 00:01:19,610
+And there I will type Hiroko log in.
+
+18
+00:01:19,630 --> 00:01:23,580
+This should not work and you can now log in with your account data.
+
+19
+00:01:24,100 --> 00:01:31,690
+So if the same data you used to log in on the Web site no one who did log in the next step is to turn
+
+20
+00:01:31,690 --> 00:01:32,900
+your codebase.
+
+21
+00:01:32,950 --> 00:01:39,820
+So your project you have been working on in a good repository so that you can add Roko as a remote good
+
+22
+00:01:39,820 --> 00:01:42,010
+repository and apply to it.
+
+23
+00:01:42,130 --> 00:01:44,930
+You can do that with these commands here now.
+
+24
+00:01:45,010 --> 00:01:51,990
+I already have a good repository here so I will omit did get init command and I will just use Hiroko
+
+25
+00:01:52,000 --> 00:01:58,840
+get to remote Dasa a and then the name of my project and this will essentially added as a remote project
+
+26
+00:01:59,020 --> 00:02:06,190
+and also set my remote project you are l as a remote repository on the local codebase.
+
+27
+00:02:06,220 --> 00:02:12,800
+Because this then allows me to run these commands to create a new commit a new so-called snapshot which
+
+28
+00:02:12,820 --> 00:02:17,580
+you need and then this push command to push my code to Hiroko.
+
+29
+00:02:17,950 --> 00:02:21,120
+Now I set Hiroko as a remote branch.
+
+30
+00:02:21,130 --> 00:02:27,870
+Next in your package dodgiest and follow of your project you want to add a new entry the engines entry
+
+31
+00:02:28,390 --> 00:02:33,520
+anywhere maybe above the scripts and there add note and now set the work.
+
+32
+00:02:33,550 --> 00:02:35,390
+No chance you are using.
+
+33
+00:02:35,440 --> 00:02:41,660
+You can detect that by running node dash in your project folder or anywhere on your computer actually.
+
+34
+00:02:41,840 --> 00:02:44,410
+You see for me it's 10.0 9.0.
+
+35
+00:02:44,410 --> 00:02:50,890
+You might be using a different word than simply enter it here and this will now use that word even when
+
+36
+00:02:50,890 --> 00:02:53,860
+it installs staed on that remote server.
+
+37
+00:02:53,860 --> 00:02:56,640
+We are going to deploy it to you now.
+
+38
+00:02:56,650 --> 00:03:02,560
+Additionally in Access for Hiroko you may want to make sure you are using compression because Hiroko
+
+39
+00:03:02,830 --> 00:03:08,110
+does not offer you to set up compression on the fly over hosting providers do that.
+
+40
+00:03:08,170 --> 00:03:10,910
+This one does not do it so do it on your own.
+
+41
+00:03:10,930 --> 00:03:18,190
+Also make sure that you are not trying to read in our certificate and private key for SSL so common
+
+42
+00:03:18,220 --> 00:03:22,990
+that out because these files will not be deployed because will not use SSL.
+
+43
+00:03:22,990 --> 00:03:30,520
+Here you should not be spinning up your own HTP vs server because we will do that through Rocha's managed
+
+44
+00:03:30,520 --> 00:03:38,340
+server or you would do it for you Rocha's managed server so spinup a normal HTP server instead.
+
+45
+00:03:38,350 --> 00:03:39,740
+Now with that changed.
+
+46
+00:03:39,740 --> 00:03:44,290
+Make sure that you also add a new file and that is Hiroko specific.
+
+47
+00:03:44,310 --> 00:03:50,810
+The proc file without a file extension and there you simply add WEP colon node.
+
+48
+00:03:50,990 --> 00:03:58,910
+Yes and this will instruct you Roko to execute your capture last fall when it tries to run your application.
+
+49
+00:03:58,950 --> 00:04:03,540
+Now for different hosting providers this might differ of course and there you simply have to check their
+
+50
+00:04:03,540 --> 00:04:09,570
+documentation to find out how you'll let them know which script or which command they should execute
+
+51
+00:04:09,570 --> 00:04:12,590
+to run your app with all that set up.
+
+52
+00:04:12,630 --> 00:04:14,260
+Make sure you add a dot.
+
+53
+00:04:14,340 --> 00:04:18,770
+Good ignore file because this will tail get which folders.
+
+54
+00:04:18,780 --> 00:04:26,400
+It should not actually include in its snapshots and Dir the node modules folder is important all your
+
+55
+00:04:26,400 --> 00:04:30,370
+third party packages are stored there and we won't deploy that.
+
+56
+00:04:30,390 --> 00:04:35,470
+The cost dead will just increase the size of data we have to transmit over the wire.
+
+57
+00:04:35,490 --> 00:04:42,180
+Instead this will automatically be recreated on the Roco because he Roco and that is the case for all
+
+58
+00:04:42,180 --> 00:04:48,620
+hosting providers pretty much do install your dependencies on the server after you deploy your code.
+
+59
+00:04:48,750 --> 00:04:51,620
+Because keep in mind that any package don't Jason.
+
+60
+00:04:51,630 --> 00:04:57,420
+We of course have a list of all the third party packages we're using and the words we need.
+
+61
+00:04:57,420 --> 00:05:03,310
+So this will be taken by the hosting provider and it will install all these packages on the server.
+
+62
+00:05:03,650 --> 00:05:09,450
+And that is why we always use to install dash dash save because that added such entries to the package
+
+63
+00:05:09,570 --> 00:05:10,390
+chase and fall.
+
+64
+00:05:10,410 --> 00:05:18,450
+Which now can be used during the Limond with all that it create and use snapshot by typing get at DOT
+
+65
+00:05:18,720 --> 00:05:24,960
+and then get commit Dasch M and there any message you want between double quotation marks and I will
+
+66
+00:05:24,960 --> 00:05:29,600
+simply type prepared for deployment.
+
+67
+00:05:29,670 --> 00:05:31,640
+Close that and hit enter.
+
+68
+00:05:31,890 --> 00:05:40,210
+And now you simply run get push Hiroko monster and you hit enter and this will now upload all your code
+
+69
+00:05:40,240 --> 00:05:45,260
+to Hiroko and they're also as you see install all your dependencies.
+
+70
+00:05:45,310 --> 00:05:50,830
+That is what it's doing now and it should automatically detect that it's a node application because
+
+71
+00:05:50,830 --> 00:05:52,760
+you have a package don't chase and fall.
+
+72
+00:05:52,900 --> 00:05:57,660
+So you should not be getting any arrows here and it will now step by step.
+
+73
+00:05:57,700 --> 00:06:02,340
+Spin up your server and install the dependencies and so on.
+
+74
+00:06:02,350 --> 00:06:08,080
+Now with that you can go back to your dashboard and click on over there and you should see that succeeded
+
+75
+00:06:08,090 --> 00:06:10,700
+build and you can now click on open app.
+
+76
+00:06:10,770 --> 00:06:16,630
+This will open your app in a new tab and most likely this will not really succeed.
+
+77
+00:06:17,020 --> 00:06:23,500
+And the reason for that is that we deployed our application but now if you type Hiroko
+
+78
+00:06:25,790 --> 00:06:31,940
+Lawks in your terminal you will see what went wrong.
+
+79
+00:06:33,380 --> 00:06:41,860
+And to be precise and the error message you will see that it failed to connect to the database and that
+
+80
+00:06:41,860 --> 00:06:47,290
+makes sense because all our node environment variables which we rely on for example to connect to the
+
+81
+00:06:47,290 --> 00:06:53,590
+database are now not set anymore because in the proc file we instruct jarocho to just execute the app
+
+82
+00:06:53,590 --> 00:06:54,670
+Chia's fall.
+
+83
+00:06:54,670 --> 00:06:59,830
+And this will not pass the environment variables only one environment variable is passed by default
+
+84
+00:06:59,830 --> 00:07:01,920
+by Hiroko and that is actually node.
+
+85
+00:07:01,930 --> 00:07:04,060
+And this will be set to production.
+
+86
+00:07:04,060 --> 00:07:09,250
+That is something they do for you but all the environment variables are not set.
+
+87
+00:07:09,250 --> 00:07:16,420
+Now we have to do it on our own by simply grabbing these names and going back toward dashboard and there
+
+88
+00:07:16,630 --> 00:07:17,510
+on the dashboard.
+
+89
+00:07:17,530 --> 00:07:23,710
+You want to go to settings for your app and then go to Conficker VARs and there you can now add your
+
+90
+00:07:23,710 --> 00:07:30,670
+own config wars which are essentially the environment variables that are passed into your application.
+
+91
+00:07:30,670 --> 00:07:35,430
+You simply add them here step by step as key value pairs.
+
+92
+00:07:35,530 --> 00:07:41,980
+So all that data we previously passed in as part of our restart script we now pass that here as environment
+
+93
+00:07:41,980 --> 00:07:47,950
+variables Mongar user Mongul password all is of course the default database.
+
+94
+00:07:47,950 --> 00:07:49,510
+Let's add it here.
+
+95
+00:07:49,510 --> 00:07:57,230
+That was shop and also describe key where you should use your production Ready's stripe key of course
+
+96
+00:07:57,280 --> 00:08:04,210
+as you learned not the testing key necessarily knowledgably Ed does that too.
+
+97
+00:08:04,320 --> 00:08:09,540
+And now we have all these environment variables edits your lives alone won't do the trick.
+
+98
+00:08:09,560 --> 00:08:15,390
+Well we also need to change something on our mongered be set up in our case here because we are using
+
+99
+00:08:15,390 --> 00:08:19,110
+that hosted Hmong would be Atlus solution if you remember.
+
+100
+00:08:19,230 --> 00:08:26,740
+And then of course now depends on the database you are using and there you have to remember that under
+
+101
+00:08:26,740 --> 00:08:31,440
+security you have to white list IPs which are allowed to connect.
+
+102
+00:08:31,470 --> 00:08:36,170
+Now you need two wide list IP off your running application.
+
+103
+00:08:36,520 --> 00:08:43,180
+And the thing about Roco and its basic version here is that we don't have a static IP assigned to our
+
+104
+00:08:43,270 --> 00:08:44,260
+project.
+
+105
+00:08:44,260 --> 00:08:46,130
+Instead it's a dynamic range.
+
+106
+00:08:46,240 --> 00:08:52,540
+Now attached you find some resources that help you for example assign a static IP if you have such a
+
+107
+00:08:52,540 --> 00:08:53,290
+range.
+
+108
+00:08:53,380 --> 00:08:56,360
+We only can do one thing on an IP address.
+
+109
+00:08:56,440 --> 00:08:58,180
+We can allow X from anywhere.
+
+110
+00:08:58,180 --> 00:09:04,960
+Keep in mind we are still secure by username and password but still for a better set up I would recommend
+
+111
+00:09:04,960 --> 00:09:08,390
+that you also ensure that you sign a static IP.
+
+112
+00:09:08,470 --> 00:09:14,560
+As I mentioned you'll find some helpful resources on that attached to this lecture or the pending on
+
+113
+00:09:14,560 --> 00:09:15,940
+your hosting provider.
+
+114
+00:09:16,030 --> 00:09:20,290
+You might be using a hosting provider that gives you a single ID anyways.
+
+115
+00:09:21,990 --> 00:09:27,150
+Running long would be on the same server as your web project is not really an alternative because a
+
+116
+00:09:27,150 --> 00:09:34,070
+database server is all not very trivial to set up especially if it should be able to scale and so on.
+
+117
+00:09:34,080 --> 00:09:40,560
+Now if that changed go back to your overview dashboard of your app and restart your server there by
+
+118
+00:09:40,560 --> 00:09:44,920
+going to more restart all diagnose a Diokno is essentially dead.
+
+119
+00:09:44,970 --> 00:09:52,880
+We're chill's server and they're after Let's try reloading our application here and now there you should
+
+120
+00:09:52,880 --> 00:09:54,530
+see a running app.
+
+121
+00:09:54,920 --> 00:09:59,110
+You should of course also be able to log in and all that fun stuff.
+
+122
+00:09:59,150 --> 00:10:03,630
+So essentially you should be able to interact with it just as you were able to do with that locally.
+
+123
+00:10:03,650 --> 00:10:05,370
+But now it's running remotely.
+
+124
+00:10:05,450 --> 00:10:09,360
+And as you can see it's automatically served y h to the p s.
+
+125
+00:10:09,380 --> 00:10:14,320
+Now on jarocho in case you want to stick to that hosting provider you can also change things.
+
+126
+00:10:14,420 --> 00:10:19,430
+You can use your own domain your own SSL certificate and all that fun stuff.
+
+127
+00:10:19,520 --> 00:10:20,870
+But this is it for now.
+
+128
+00:10:20,870 --> 00:10:23,660
+This is the essential setup I want to show you here.
+

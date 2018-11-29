@@ -1,0 +1,388 @@
+1
+00:00:02,450 --> 00:00:05,110
+So it's time to add a new route in the feet.
+
+2
+00:00:05,120 --> 00:00:08,890
+J.S. file in the routes folder there.
+
+3
+00:00:08,930 --> 00:00:13,880
+I will add a new Getaround and that will be around for a single post.
+
+4
+00:00:14,120 --> 00:00:22,780
+So the route is get slash post and then we need that dynamic parameter slash post ID for example because
+
+5
+00:00:22,930 --> 00:00:25,130
+we'll encode the ID of the post.
+
+6
+00:00:25,130 --> 00:00:27,870
+We want to fetch any you are.
+
+7
+00:00:28,460 --> 00:00:30,840
+So this is my payoff.
+
+8
+00:00:30,860 --> 00:00:33,210
+Now we need a fitting controller action.
+
+9
+00:00:33,410 --> 00:00:44,360
+So lets go to the feed controller and then there are export by GET POST controller action with request
+
+10
+00:00:44,360 --> 00:00:45,200
+response.
+
+11
+00:00:45,200 --> 00:00:45,730
+Next
+
+12
+00:00:48,740 --> 00:00:54,580
+And here first of all let's extract the post ID from the incoming request parents.
+
+13
+00:00:54,580 --> 00:01:05,880
+So there I can get my post ID host ID here this property Im trying to access has to match exactly the
+
+14
+00:01:05,880 --> 00:01:13,960
+name address sign and my route so post that year after to call it Sonam extracting bits I'm extracting
+
+15
+00:01:13,960 --> 00:01:15,160
+that post ID here.
+
+16
+00:01:15,160 --> 00:01:18,940
+Now we have to find a post with that ID in the database.
+
+17
+00:01:18,940 --> 00:01:27,360
+So let's use our post model and use to find by id method to find a post with this post ID.
+
+18
+00:01:27,600 --> 00:01:35,800
+We don't have a van block or a catch block depending on whoever does Fales we're not in the catch block.
+
+19
+00:01:36,010 --> 00:01:39,930
+I'll use that same logic as I used for creating a post.
+
+20
+00:01:40,210 --> 00:01:43,330
+I check if we have an error say this code.
+
+21
+00:01:43,330 --> 00:01:46,350
+If not I added and otherwise I just.
+
+22
+00:01:46,350 --> 00:01:47,590
+Next my error.
+
+23
+00:01:47,620 --> 00:01:51,910
+And yes you could be factored into a single function which you don't always use.
+
+24
+00:01:52,270 --> 00:01:56,660
+So here I have this error handling code in the then block here.
+
+25
+00:01:56,890 --> 00:02:04,540
+I will get by post and first of all I'll check if this is undefined so if this is not a true ish value
+
+26
+00:02:05,110 --> 00:02:12,220
+if it is I know that no post was found and then I'll actually Frot an error so I'll create a new error
+
+27
+00:02:12,280 --> 00:02:16,260
+object code not find.
+
+28
+00:02:16,270 --> 00:02:25,060
+Post all set the status quo to 404 because that is not found error.
+
+29
+00:02:25,060 --> 00:02:27,190
+And now I'll throw the error.
+
+30
+00:02:27,250 --> 00:02:32,530
+This can be confusing because I'm inside of then and you've learned that you should use next in there.
+
+31
+00:02:32,770 --> 00:02:38,120
+But if you throw an error or inside of a then block the next catch block will be reached.
+
+32
+00:02:38,170 --> 00:02:41,860
+And that error will be passed as an error to the catch block.
+
+33
+00:02:41,920 --> 00:02:47,800
+So all I'd do with throwing is I end up in dysfunction and dare I do indeed.
+
+34
+00:02:47,800 --> 00:02:49,150
+Next the error.
+
+35
+00:02:49,210 --> 00:02:51,130
+So I just always use that function.
+
+36
+00:02:51,130 --> 00:02:52,700
+That's all I'm doing.
+
+37
+00:02:52,900 --> 00:02:56,510
+I still throw an error if I can't find the post.
+
+38
+00:02:56,530 --> 00:03:04,240
+If I do find it I will return a response with a status code of 200 which shows that it was a success
+
+39
+00:03:04,840 --> 00:03:09,170
+where I do return some Jason data with some message.
+
+40
+00:03:09,280 --> 00:03:15,730
+You don't have to set the message by the way this is purely optional of course where I say post fetched.
+
+41
+00:03:15,730 --> 00:03:21,000
+And of course my post like this some returning the post I'm fetching here.
+
+42
+00:03:22,070 --> 00:03:24,920
+As a propertied post in that object.
+
+43
+00:03:25,400 --> 00:03:28,990
+So now we have that controller action in place.
+
+44
+00:03:29,000 --> 00:03:33,550
+Now as they go back to my route's I can assign that controller to dead Routier.
+
+45
+00:03:33,800 --> 00:03:42,920
+So feed controller get hosed is the action I want to use and this will not work however because in my
+
+46
+00:03:42,920 --> 00:03:51,770
+front end I fetched the wrong post so fetch some dummy data because in my feed controller get posts
+
+47
+00:03:52,040 --> 00:03:53,380
+I'm not using the database.
+
+48
+00:03:53,480 --> 00:03:55,930
+I'm instead just returning dummy data.
+
+49
+00:03:56,030 --> 00:04:01,550
+Now since we are using a database now since we have added a database we should of course fetch data
+
+50
+00:04:01,580 --> 00:04:03,470
+from there as well.
+
+51
+00:04:03,530 --> 00:04:16,700
+So for that let me use Post find to find all posts and then I have an error or a success case if I have
+
+52
+00:04:16,700 --> 00:04:22,490
+an error I'll use that same logic I used down there to add a status code if it does not exist and then
+
+53
+00:04:22,610 --> 00:04:24,050
+next the error.
+
+54
+00:04:24,530 --> 00:04:36,280
+If I succeed I get some posts here however and now I want to return these hosts so I will send a response
+
+55
+00:04:36,280 --> 00:04:43,670
+with a status code of 200 where I sends adjacent data and that Jason and data will be an object where
+
+56
+00:04:43,670 --> 00:04:49,970
+again I will add a message which you don't have to fetched posts successfully.
+
+57
+00:04:50,090 --> 00:04:57,470
+And most importantly I'll add my posts of course and the posts I add here are to posts I fetched with
+
+58
+00:04:57,740 --> 00:04:58,580
+posts find.
+
+59
+00:04:58,700 --> 00:04:59,750
+So these posts
+
+60
+00:05:02,570 --> 00:05:08,380
+now we can get rid of that response down there with our dummy response re format this.
+
+61
+00:05:08,450 --> 00:05:13,990
+And now we have dislodging in place to fetch the actual posts we have in the database.
+
+62
+00:05:14,080 --> 00:05:15,660
+We now saved it.
+
+63
+00:05:15,660 --> 00:05:21,610
+We go back to the front end and reload it should load that post.
+
+64
+00:05:21,640 --> 00:05:23,240
+Does that work.
+
+65
+00:05:23,320 --> 00:05:28,780
+Now of course we will not want to be able to click on view and see that single post for which we already
+
+66
+00:05:28,780 --> 00:05:30,340
+added the route.
+
+67
+00:05:30,340 --> 00:05:32,490
+We just need to adjust our front end code.
+
+68
+00:05:32,530 --> 00:05:39,400
+So do you react to code to load that single post and you do that in the source pages feed a single post
+
+69
+00:05:39,400 --> 00:05:43,720
+folder in a single post js file in there.
+
+70
+00:05:43,810 --> 00:05:49,930
+You have component that MT which executes when the page loads essentially where we extract the post
+
+71
+00:05:49,930 --> 00:05:57,880
+ID from the u r l in the front end and now we just need to target the right u r l here which is of course
+
+72
+00:05:57,910 --> 00:06:00,580
+HTP localhost.
+
+73
+00:06:01,420 --> 00:06:02,740
+Slash.
+
+74
+00:06:02,830 --> 00:06:07,940
+Slash post slash and then that post ID.
+
+75
+00:06:07,980 --> 00:06:11,470
+With that we have a get request that should get us our post.
+
+76
+00:06:11,510 --> 00:06:17,670
+If you now save that and you click on view you should load your post here.
+
+77
+00:06:17,700 --> 00:06:20,060
+However the image is not displayed.
+
+78
+00:06:20,070 --> 00:06:24,810
+The reason for that is that we're looking for the wrong you are out or that we're not using the image
+
+79
+00:06:24,810 --> 00:06:26,690
+at all to be precise.
+
+80
+00:06:27,000 --> 00:06:31,800
+In the front end in the same component that Mount function you just worked in.
+
+81
+00:06:31,860 --> 00:06:40,110
+In this set state block here you should add an image key and it has to be named image because that is
+
+82
+00:06:40,110 --> 00:06:44,840
+a key I'm looking for in that fronted application in the average code which I prepared.
+
+83
+00:06:45,300 --> 00:06:55,440
+And there you one am also defined at your end of your server so localhost ADHD slash and then use wrests
+
+84
+00:06:55,620 --> 00:06:57,240
+data.
+
+85
+00:06:57,410 --> 00:06:58,290
+Post.
+
+86
+00:06:58,290 --> 00:07:08,670
+Accessing the response data there depost property which we do use to store our post in an get post we
+
+87
+00:07:08,670 --> 00:07:12,400
+have that post property here which holds our post.
+
+88
+00:07:12,660 --> 00:07:17,760
+So this is what I am accessing now into Front-End and their image.
+
+89
+00:07:17,820 --> 00:07:21,100
+Your out that is to Keenum how it is stored in the database.
+
+90
+00:07:21,150 --> 00:07:27,540
+Add a comma there after and saved it and now this page should automatically reload and you should see
+
+91
+00:07:27,540 --> 00:07:29,240
+that duck of course.
+
+92
+00:07:29,310 --> 00:07:30,500
+We didn't upload that.
+
+93
+00:07:30,630 --> 00:07:33,600
+I prepared it but at least you see it.
+
+94
+00:07:33,600 --> 00:07:37,300
+Now you can go back to the feed and see your posts here.
+
+95
+00:07:37,560 --> 00:07:40,580
+Will get that error message later too right away.
+
+96
+00:07:40,590 --> 00:07:43,500
+So with that we got this in place.
+
+97
+00:07:43,530 --> 00:07:46,020
+Let's now work on image upload next.
+

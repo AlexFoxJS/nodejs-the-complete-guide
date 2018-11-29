@@ -1,0 +1,140 @@
+1
+00:00:02,250 --> 00:00:09,510
+So let's analyze it is re-act application to find out which rest API endpoints we want to pro-white.
+
+2
+00:00:09,530 --> 00:00:11,510
+No you don't need to know re-act for that.
+
+3
+00:00:11,520 --> 00:00:12,840
+No worries.
+
+4
+00:00:12,840 --> 00:00:20,880
+The app G-S fall is essentially our entry file where our re-act application starts or where it basically
+
+5
+00:00:20,880 --> 00:00:23,320
+starts rendering the first screens.
+
+6
+00:00:23,550 --> 00:00:27,470
+And there we all have some logic on which we'll have to work on later.
+
+7
+00:00:27,480 --> 00:00:34,010
+For example for logging users and will later have to insert a real u r l here that allows us to do that.
+
+8
+00:00:34,320 --> 00:00:37,130
+And the same for signing up and so on.
+
+9
+00:00:37,210 --> 00:00:44,280
+Now in the pages folder you'll find a feed folder and there to feed J as file is what's responsible
+
+10
+00:00:44,280 --> 00:00:47,980
+for this page with the new post button and so on.
+
+11
+00:00:47,990 --> 00:00:50,530
+There we all have a couple of routes.
+
+12
+00:00:50,580 --> 00:00:54,850
+For example here where we fetched a state of the currently locked in user.
+
+13
+00:00:55,110 --> 00:01:01,140
+But then also additional routes for loading existing posts here where I want to reach some of you or
+
+14
+00:01:01,140 --> 00:01:08,910
+else that serves up some posts but also later down hooks or methods where we can add it to user status
+
+15
+00:01:09,180 --> 00:01:16,470
+where we can also add new posts or added existing posts will do this and to finish added hndler and
+
+16
+00:01:16,470 --> 00:01:20,210
+where we can delete posts something we'll do in the delete post handler.
+
+17
+00:01:20,280 --> 00:01:26,070
+There you always see I have a couple of fetch methods set up but the u r l is always missing and that
+
+18
+00:01:26,070 --> 00:01:28,370
+is something we'll have to do of course.
+
+19
+00:01:28,440 --> 00:01:36,270
+We'll have to add our own you are l and make sure that this works or that we have to respect the endpoints
+
+20
+00:01:36,270 --> 00:01:39,760
+for that on the single post screen here.
+
+21
+00:01:39,950 --> 00:01:44,450
+We load a single post if we click on it and there indeed.
+
+22
+00:01:44,570 --> 00:01:49,220
+We also want to reach out to the backend and fetch data for that single post.
+
+23
+00:01:51,600 --> 00:01:55,060
+So in short which end points will be need.
+
+24
+00:01:55,080 --> 00:02:02,190
+And now I switched back to my rest API which we started building in the last Chloris module.
+
+25
+00:02:02,200 --> 00:02:05,390
+You all of find this snapshot attached to this video.
+
+26
+00:02:05,740 --> 00:02:11,410
+There I already got a route for getting all posts and for creating a new post.
+
+27
+00:02:11,560 --> 00:02:12,590
+That is great.
+
+28
+00:02:12,670 --> 00:02:22,720
+We will also need routes for getting a single post for editing a single post for deleting a single post
+
+29
+00:02:23,200 --> 00:02:31,360
+and will also need routes for logging a user in signing users up so creating new users for viewing the
+
+30
+00:02:31,360 --> 00:02:36,310
+status of a user and for editing the status of a user.
+
+31
+00:02:36,310 --> 00:02:38,980
+These are the routes we will need.
+
+32
+00:02:39,220 --> 00:02:45,010
+And with that let's start working on that and let's implement them step by step.
+
+33
+00:02:45,010 --> 00:02:51,140
+We already got a route to get posts and to create a new post which does not sound like the worst start.
+
+34
+00:02:51,280 --> 00:02:57,820
+Let's maybe continue with DS so that we can start implementing the appropriate code in our re-act application
+
+35
+00:02:57,910 --> 00:03:00,460
+to get posts and to create posts.
+

@@ -1,0 +1,400 @@
+1
+00:00:02,120 --> 00:00:07,670
+So here I got a very simple sign up form which is a pretty typical sign up for that though you have
+
+2
+00:00:07,670 --> 00:00:08,660
+to enter an email.
+
+3
+00:00:08,690 --> 00:00:12,680
+You have to enter a password confirm the password and click sign up.
+
+4
+00:00:12,680 --> 00:00:19,970
+Now in that sign up view I changed my button label and there I also want to point at the sign up route
+
+5
+00:00:20,080 --> 00:00:27,560
+in the action slash sign up send a POST request to reach that sign up that post sign up Raud here which
+
+6
+00:00:27,650 --> 00:00:31,650
+ultimately triggers to post sign up action.
+
+7
+00:00:31,720 --> 00:00:37,910
+Now in this action we want to store a new user in the database.
+
+8
+00:00:37,910 --> 00:00:40,590
+Now which steps does this include.
+
+9
+00:00:41,060 --> 00:00:45,330
+Well obviously we want to extract the information from the incoming request.
+
+10
+00:00:45,380 --> 00:00:53,440
+We want to read the email from the request body email field and make sure you check your view.
+
+11
+00:00:53,510 --> 00:00:59,380
+How these inputs are named because you retrieve the values on request body by these names.
+
+12
+00:00:59,420 --> 00:01:06,750
+So email password and confirm password in my case so request body email should work here.
+
+13
+00:01:06,800 --> 00:01:13,290
+I will have request bought a password to retrieve the password and then I will also retrieve my confirm
+
+14
+00:01:13,290 --> 00:01:16,920
+password here from confirm password.
+
+15
+00:01:16,920 --> 00:01:20,040
+So these are the free values that should reach this route.
+
+16
+00:01:20,500 --> 00:01:25,410
+Now typically what you would do first is we would validate the user input.
+
+17
+00:01:25,410 --> 00:01:32,130
+So for example we would check is this a valid email address and do password and confirm password match.
+
+18
+00:01:32,130 --> 00:01:34,010
+And we will do this in this course too.
+
+19
+00:01:34,080 --> 00:01:39,390
+But actually I will have a complete module where I dive into how to validate user input because you
+
+20
+00:01:39,390 --> 00:01:43,980
+can of course do a lot of cool things when it comes to that and therefore I dedicate a whole module
+
+21
+00:01:43,980 --> 00:01:44,580
+to that.
+
+22
+00:01:44,580 --> 00:01:50,130
+For now we'll ignore this and that means for now you of course don't have to enter a valid email and
+
+23
+00:01:50,130 --> 00:01:51,900
+you don't have to enter a valid password.
+
+24
+00:01:51,930 --> 00:01:53,320
+You don't have to confirm it either.
+
+25
+00:01:53,340 --> 00:01:59,450
+But of course you should do all that to have a realistic testing environment will add validation later.
+
+26
+00:01:59,550 --> 00:02:06,540
+We still need the values here at least the first two because the next step is that we treat a new user
+
+27
+00:02:07,140 --> 00:02:11,700
+or actually there is one step we want to do before we created you user.
+
+28
+00:02:11,700 --> 00:02:18,400
+Do you know which step that could be well we want to find out if a user with that e-mail already exists
+
+29
+00:02:18,640 --> 00:02:23,640
+because there should not be any duplicate e-mails in our database for dead.
+
+30
+00:02:23,830 --> 00:02:27,840
+We actually can do two things when using Mongo DBI.
+
+31
+00:02:28,000 --> 00:02:36,850
+You could create an index in the Mongo database on your email field and give that index unique property.
+
+32
+00:02:36,850 --> 00:02:40,710
+Now this is something you can do if you know how long to be works.
+
+33
+00:02:40,720 --> 00:02:45,270
+If you get a little bit more experience with it which you can get with my mom would you be Course there.
+
+34
+00:02:45,280 --> 00:02:50,400
+I do show this scenario for example but this is only one option of achieving this.
+
+35
+00:02:50,700 --> 00:02:55,070
+An alternative is that you simply try to find a user with that e-mail.
+
+36
+00:02:55,090 --> 00:02:59,960
+So for that we'll use our user model which is of course a mongoose user model.
+
+37
+00:03:00,190 --> 00:03:07,060
+And there we can find a user can find one user because we already know we don't want to create a user
+
+38
+00:03:07,060 --> 00:03:07,730
+with that e-mail.
+
+39
+00:03:07,750 --> 00:03:14,270
+If we find only one user who already has that e-mail and we find one user bypassing a filter with these
+
+40
+00:03:14,290 --> 00:03:18,890
+curly braces and we'll look for the email field in our collection.
+
+41
+00:03:18,910 --> 00:03:24,670
+So in the documents in our collection and see if we find a user where the email field holds a value
+
+42
+00:03:24,910 --> 00:03:27,430
+equal to the email we're extracting here.
+
+43
+00:03:27,430 --> 00:03:30,210
+So right sort of the colon is the email we're extracting.
+
+44
+00:03:30,210 --> 00:03:33,470
+Left side is the field we're looking for in the database.
+
+45
+00:03:34,830 --> 00:03:40,610
+Now here we get back where we can call then to find out if this worked.
+
+46
+00:03:40,740 --> 00:03:50,610
+We also might get an error which I'll simply log here then and then I will get my user object so my
+
+47
+00:03:50,760 --> 00:03:54,360
+user document you could say you can name as however you want.
+
+48
+00:03:54,360 --> 00:03:58,080
+Now we know that if user dock exists.
+
+49
+00:03:58,140 --> 00:04:02,220
+So if this is not undefined then we do have a user.
+
+50
+00:04:02,280 --> 00:04:07,780
+And if we do have a user then I certainly don't want to create a new one with the same e-mail.
+
+51
+00:04:07,830 --> 00:04:16,680
+So if this exists I will actually return a response and it will redirect back to slash sign up to inform
+
+52
+00:04:17,130 --> 00:04:22,950
+the user that this did not work right now not much informing is going on as you can tell we just redirect
+
+53
+00:04:22,950 --> 00:04:25,170
+without showing an error message.
+
+54
+00:04:25,170 --> 00:04:29,700
+This is also something which I'll show you how to better solve this.
+
+55
+00:04:29,730 --> 00:04:31,680
+How to show error messages to the user.
+
+56
+00:04:31,680 --> 00:04:36,370
+For now we'll just redirect back to the sign up page and will not create a new user.
+
+57
+00:04:36,870 --> 00:04:42,570
+If we make it past disk check we know that no user with that e-mail exists yet and therefore we can
+
+58
+00:04:42,570 --> 00:04:44,060
+create a new one.
+
+59
+00:04:44,370 --> 00:04:51,690
+So what we can do here Dennis we can create a new user object with new user and because there are new
+
+60
+00:04:51,690 --> 00:04:54,790
+user and there we store email.
+
+61
+00:04:54,950 --> 00:05:01,410
+The e-mail we're retrieving here and will store the password like this for now.
+
+62
+00:05:01,410 --> 00:05:08,070
+One important thing in the user model there right now I have a name and an e-mail and no password.
+
+63
+00:05:08,070 --> 00:05:10,280
+So I will change to use Ramal.
+
+64
+00:05:10,290 --> 00:05:11,700
+I don't really want to store a name.
+
+65
+00:05:11,700 --> 00:05:13,620
+You could do that but I'll do it here.
+
+66
+00:05:13,770 --> 00:05:20,220
+But instead I will store a password for the user which will be of type string and which will absolutely
+
+67
+00:05:20,220 --> 00:05:23,520
+be required like dis.
+
+68
+00:05:23,580 --> 00:05:26,780
+So my user model changed slightly here.
+
+69
+00:05:26,940 --> 00:05:33,450
+Now with that change in the user model if we go back to our post Sign-Up action I can create a user
+
+70
+00:05:33,450 --> 00:05:34,440
+like this.
+
+71
+00:05:34,440 --> 00:05:40,470
+We can also add a cart here the card by default will be an object where items is equal to an empty array
+
+72
+00:05:40,470 --> 00:05:41,380
+like this.
+
+73
+00:05:41,520 --> 00:05:46,810
+And this is now a valid new user which we can save database by calling Save As you learned.
+
+74
+00:05:46,930 --> 00:05:52,410
+And then I can return this so that we can change a number of then block here which will be called once
+
+75
+00:05:52,440 --> 00:05:54,230
+this safe action completed.
+
+76
+00:05:54,240 --> 00:05:56,160
+So it does function here will be executed.
+
+77
+00:05:56,190 --> 00:06:02,880
+One saving is done and here we can then redirect to let's say the starting page because here we then
+
+78
+00:06:02,880 --> 00:06:05,840
+know the user did sign up or to be precise.
+
+79
+00:06:05,880 --> 00:06:09,990
+Let's redirect to the log in page because after signing up you need to log in.
+
+80
+00:06:10,140 --> 00:06:16,080
+So this should now be an authentication flow that does check for the existence of a user and then create
+
+81
+00:06:16,140 --> 00:06:17,820
+a new user.
+
+82
+00:06:17,820 --> 00:06:24,870
+I'll quickly also go to my actually last fall and at the very bottom here where I always create a new
+
+83
+00:06:24,870 --> 00:06:30,780
+user if we don't have one yet I will get rid of that code because now we have a real user creation flow
+
+84
+00:06:30,840 --> 00:06:33,360
+so we don't need that dummy user anymore.
+
+85
+00:06:33,960 --> 00:06:41,120
+And I will also head over to Compaq's which I'll start to connect to my Mongo database again and interconnect
+
+86
+00:06:41,120 --> 00:06:45,610
+the database server if we have a look at the shop database in users.
+
+87
+00:06:45,810 --> 00:06:48,880
+We obviously have one user the dummy user we used before.
+
+88
+00:06:49,080 --> 00:06:50,950
+Now let's delete that user now.
+
+89
+00:06:50,960 --> 00:06:52,700
+We don't need it anymore.
+
+90
+00:06:52,920 --> 00:07:00,090
+And with all these changes in all these files saved let's reload the sign up page and now let's try
+
+91
+00:07:00,090 --> 00:07:03,680
+creating a new user with a dummy e-mail dummy password.
+
+92
+00:07:03,690 --> 00:07:07,420
+You don't really need to enter a confirmed password because we're not checking does anyways.
+
+93
+00:07:07,530 --> 00:07:09,110
+And click sign up.
+
+94
+00:07:09,150 --> 00:07:13,450
+Now it is looking good because I'm on the logon page so I was redirected.
+
+95
+00:07:13,830 --> 00:07:16,320
+I also have no server error.
+
+96
+00:07:16,560 --> 00:07:24,020
+If I now reload my users collection in Mongo DBI in contests I also see this is a user with the credentials.
+
+97
+00:07:24,060 --> 00:07:24,940
+I add it.
+
+98
+00:07:25,080 --> 00:07:29,900
+So we did add a new user but we have a huge problem with that user.
+
+99
+00:07:29,970 --> 00:07:31,050
+Can you identify it.
+
+100
+00:07:31,200 --> 00:07:32,630
+We'll fix it in the next lecture.
+

@@ -1,0 +1,504 @@
+1
+00:00:02,310 --> 00:00:09,450
+Time to work on the last two pieces the orders and again feel free to post a video and try implementing
+
+2
+00:00:09,450 --> 00:00:10,230
+this on your own.
+
+3
+00:00:10,260 --> 00:00:16,290
+It's always a great practice even if you can't get the full result or full equivalence to my solution
+
+4
+00:00:16,320 --> 00:00:21,480
+or if you get stuck at one point you can still then go back and watch just solution together with me.
+
+5
+00:00:21,480 --> 00:00:25,740
+But you will still have a lot of practice by trying parts of that on your own.
+
+6
+00:00:25,980 --> 00:00:32,060
+So here's your chance to post a video and we'll do it together after.
+
+7
+00:00:32,100 --> 00:00:39,120
+So let's dive into that together and let's work on our orders now creating orders and getting orders.
+
+8
+00:00:39,120 --> 00:00:40,500
+That is what you want to do.
+
+9
+00:00:40,660 --> 00:00:44,280
+And let's first of all look into our controller forget the shop controller.
+
+10
+00:00:44,280 --> 00:00:45,050
+There we have.
+
+11
+00:00:45,040 --> 00:00:46,240
+Post order.
+
+12
+00:00:46,260 --> 00:00:47,530
+Now what are we doing there.
+
+13
+00:00:47,760 --> 00:00:53,790
+Well here first of all we got an unused variable which we can get rid of there we call add order on
+
+14
+00:00:53,790 --> 00:00:56,220
+the user and that's essentially it.
+
+15
+00:00:56,220 --> 00:01:03,540
+So let's look into the user model and let's see what ad order did an order simply took our card.
+
+16
+00:01:03,570 --> 00:01:10,320
+So the products are cards to be precise and created an order object which contains the product data
+
+17
+00:01:10,620 --> 00:01:12,710
+but also some data about the user.
+
+18
+00:01:12,900 --> 00:01:18,390
+And then we insert this into our order collection.
+
+19
+00:01:18,430 --> 00:01:23,210
+Now since we work with the collection there will need a new model that's for sure.
+
+20
+00:01:23,710 --> 00:01:30,700
+And then as a result we just cleared the cart so we get multiple steps we need to do here.
+
+21
+00:01:30,940 --> 00:01:37,360
+First I'll add an ORDER japes fall in the models folder because I don't need an order model to store
+
+22
+00:01:37,360 --> 00:01:39,960
+data in orders collection.
+
+23
+00:01:40,000 --> 00:01:45,390
+First of all let's import is here by requiring mongoose like that.
+
+24
+00:01:46,590 --> 00:01:51,950
+Let's create the schema constant where we access mongooses schema like this.
+
+25
+00:01:51,990 --> 00:01:56,950
+And let's then the fine or order schema and how that should look like.
+
+26
+00:01:57,030 --> 00:02:01,010
+And of course here you can also go with the schema that works for you.
+
+27
+00:02:01,020 --> 00:02:02,360
+Or that you want to use.
+
+28
+00:02:02,490 --> 00:02:09,600
+Now I will try to recreate the schema we used before where the order had the items and the user data.
+
+29
+00:02:09,660 --> 00:02:19,000
+And that was Ed and the items were our products which in the past was all the product data and the quantity.
+
+30
+00:02:19,120 --> 00:02:26,720
+So here in my schema I will have my products let's say I name that items in the past year old payment
+
+31
+00:02:26,750 --> 00:02:35,270
+products products will be an array of documents and every document will let's say have the product data
+
+32
+00:02:36,110 --> 00:02:48,230
+which will be of type Object because this will be full of documents you could say that is required.
+
+33
+00:02:48,680 --> 00:02:53,130
+And besides the product data I'll have to quantity for that product.
+
+34
+00:02:54,380 --> 00:02:58,220
+Could also named us just product here by the way if you wanted to.
+
+35
+00:02:58,220 --> 00:03:07,870
+So here to quantity that will be a type number and this should also be required because if this is how
+
+36
+00:03:07,920 --> 00:03:09,550
+my products will look like.
+
+37
+00:03:09,700 --> 00:03:13,580
+Now all that will have a user and there I want to have a name.
+
+38
+00:03:13,600 --> 00:03:22,040
+Let's say we're the type is a string and as is required and what what else did we store about the user
+
+39
+00:03:22,040 --> 00:03:23,200
+in the past.
+
+40
+00:03:23,570 --> 00:03:35,840
+Well just the IDs so also have my user ID here which is a type schema types object id and which is also
+
+41
+00:03:36,020 --> 00:03:36,940
+required.
+
+42
+00:03:37,250 --> 00:03:44,880
+And does will also refer to the user model now type object by the way is a bit of a shortcut.
+
+43
+00:03:44,930 --> 00:03:48,860
+Of course we could find a full nested product with all the properties there.
+
+44
+00:03:48,860 --> 00:03:50,090
+Feel free to do that.
+
+45
+00:03:50,120 --> 00:03:52,970
+I'll just say well this is any object.
+
+46
+00:03:53,450 --> 00:03:55,500
+So this is my order schema.
+
+47
+00:03:55,690 --> 00:04:03,320
+Now export a model based on that schema with Mongoose model name that order and hence the collection
+
+48
+00:04:03,320 --> 00:04:04,850
+will be named orders.
+
+49
+00:04:04,940 --> 00:04:07,140
+And then I got my order schema there.
+
+50
+00:04:07,520 --> 00:04:07,820
+OK.
+
+51
+00:04:07,870 --> 00:04:13,540
+Now I got my order model and that is new we didn't used that before in the last module we could have
+
+52
+00:04:13,640 --> 00:04:16,860
+but now we will we implemented it differently there.
+
+53
+00:04:16,870 --> 00:04:23,600
+Now we use a model based package again for interacting with the data we have to be more strict about
+
+54
+00:04:23,600 --> 00:04:24,050
+that.
+
+55
+00:04:24,110 --> 00:04:30,110
+And that is a good thing generally and therefore we have an order model again now with the order model
+
+56
+00:04:30,200 --> 00:04:30,620
+at it.
+
+57
+00:04:30,620 --> 00:04:34,670
+The question is how do we interact between the order model and the user.
+
+58
+00:04:34,670 --> 00:04:42,690
+Now we had an order and the possed and add order essentially just wrapped user data products created
+
+59
+00:04:42,680 --> 00:04:44,270
+in order and stored it.
+
+60
+00:04:44,300 --> 00:04:49,440
+Now I still want to do that but I'll do it in a controller now in post order.
+
+61
+00:04:49,520 --> 00:04:59,360
+I will work a bit differently I will first of all import my order model at the top from models order
+
+62
+00:04:59,420 --> 00:05:00,160
+like this.
+
+63
+00:05:00,170 --> 00:05:01,670
+So does import was added.
+
+64
+00:05:02,760 --> 00:05:13,500
+And then down there in post order I will create a new order object by using that order model a constructor.
+
+65
+00:05:13,520 --> 00:05:18,890
+Now that order object needs to be initialized and needs to be initialized in the way we defined it here.
+
+66
+00:05:18,890 --> 00:05:23,480
+So it needs to get products and it needs to get some user data.
+
+67
+00:05:23,500 --> 00:05:25,390
+Now the user data is a bit simpler.
+
+68
+00:05:25,390 --> 00:05:27,220
+We got our request user.
+
+69
+00:05:27,370 --> 00:05:33,640
+So here we have the name which is request user name because remember request user is a full user object
+
+70
+00:05:33,640 --> 00:05:34,720
+fetched from the database.
+
+71
+00:05:34,750 --> 00:05:41,310
+So there will be a name property and we also want to store the ID of that user in the order.
+
+72
+00:05:41,410 --> 00:05:45,610
+We also have like d user ID.
+
+73
+00:05:45,700 --> 00:05:47,560
+So we shipped stored that as well.
+
+74
+00:05:47,560 --> 00:05:53,940
+So we'll add user ID here and that will simply be what we can't just use the entire request user object.
+
+75
+00:05:53,950 --> 00:05:57,840
+And as I mentioned mongooses will pick the IP from there.
+
+76
+00:05:57,840 --> 00:05:58,040
+OK.
+
+77
+00:05:58,050 --> 00:05:59,620
+And this is the easier part.
+
+78
+00:05:59,620 --> 00:06:04,310
+Now we also need to add the products for this user's cart.
+
+79
+00:06:04,350 --> 00:06:11,100
+However it's not that difficult because we already implemented something similar for getting the cart.
+
+80
+00:06:11,130 --> 00:06:16,260
+We use this approach for fetching all the products that are in the user's cart.
+
+81
+00:06:16,260 --> 00:06:22,860
+So in the end we can't just copy this year all the way up to the part where I extract the products and
+
+82
+00:06:22,860 --> 00:06:26,070
+reuse that in post order at the beginning here.
+
+83
+00:06:28,160 --> 00:06:32,550
+Just make sure to close that then function your.
+
+84
+00:06:32,620 --> 00:06:35,740
+And here we now got the products that are in the user's cart.
+
+85
+00:06:35,920 --> 00:06:39,880
+Now important is just products is not entirely correct.
+
+86
+00:06:39,880 --> 00:06:46,180
+You should remember that here we have an array of elements were we have the quantity and then the real
+
+87
+00:06:46,180 --> 00:06:49,870
+product data wasp's nest and in a product ID field.
+
+88
+00:06:49,870 --> 00:06:51,740
+But we can work with that of course.
+
+89
+00:06:51,880 --> 00:07:01,480
+We can now create our order in side off days then block Adhir we can now add products which should be
+
+90
+00:07:01,660 --> 00:07:06,170
+an array of products and that should be an array of products which is a bit transformed.
+
+91
+00:07:06,220 --> 00:07:13,120
+So not the structural products we get back here but after some transformations to be precise products
+
+92
+00:07:13,120 --> 00:07:19,130
+for us to have a product field with the product data and a quantity field that is almost what we have.
+
+93
+00:07:19,240 --> 00:07:25,630
+But we have the product data in a product ID field here not in a product field but that is easy to fix.
+
+94
+00:07:25,870 --> 00:07:28,610
+I will simply not just extract items like this.
+
+95
+00:07:28,720 --> 00:07:37,870
+I will also map the items so that I stored the changed items in my products array and a map item should
+
+96
+00:07:37,870 --> 00:07:44,530
+still have its quantity so we'll keep that the eyes simply refers to the item since this function goes
+
+97
+00:07:44,530 --> 00:07:50,920
+for all items in that array symbol half the quantity and then we'll have a product field and the product
+
+98
+00:07:50,920 --> 00:07:57,760
+field should have all the product data set will store everything that I had an AI product ID before
+
+99
+00:07:58,030 --> 00:08:00,310
+because that was the old structure we had in there.
+
+100
+00:08:00,430 --> 00:08:03,060
+Now we have this structure.
+
+101
+00:08:03,060 --> 00:08:09,430
+We have an array of products which just have a quantity and then the product detail data which is exactly
+
+102
+00:08:09,430 --> 00:08:12,240
+the structure we expect to get in that order model.
+
+103
+00:08:13,130 --> 00:08:17,280
+And now we can simply store these products in the order.
+
+104
+00:08:17,630 --> 00:08:20,230
+And with that we got everything we need.
+
+105
+00:08:20,280 --> 00:08:28,700
+Almost now we just need to call save on that order so order save now saves that order to the database
+
+106
+00:08:30,410 --> 00:08:33,790
+and then we can chain then on that.
+
+107
+00:08:33,830 --> 00:08:38,440
+Once we return orders save so that we can all to redirect and so on.
+
+108
+00:08:38,480 --> 00:08:45,650
+Let's see if that works by going to our shop routes again and commenting to create or to route back
+
+109
+00:08:45,650 --> 00:08:49,280
+in and back in our project.
+
+110
+00:08:49,280 --> 00:08:54,860
+Let me first of all add a second product so that we get something to play around with and see that this
+
+111
+00:08:54,860 --> 00:08:59,030
+does not get added to just a dummy product obviously.
+
+112
+00:08:59,160 --> 00:09:01,410
+So now in our card we got no products.
+
+113
+00:09:01,430 --> 00:09:08,310
+Let's add a nice book to our ecarte.
+
+114
+00:09:08,480 --> 00:09:11,310
+Maybe all the from the details page.
+
+115
+00:09:11,430 --> 00:09:13,950
+And let's not add our product and let's look.
+
+116
+00:09:13,980 --> 00:09:14,890
+Order now.
+
+117
+00:09:14,900 --> 00:09:17,150
+Now we don't find the page you want to redirect to.
+
+118
+00:09:17,240 --> 00:09:21,800
+That's fine and the card also was not cleared because we haven't added that logic yet.
+
+119
+00:09:22,100 --> 00:09:27,510
+But let's have a look into Compaq's And let's see if we refreshed the entire set up.
+
+120
+00:09:27,590 --> 00:09:33,730
+We got the orders collection and then there I got an order with some user data that looks pretty good
+
+121
+00:09:33,740 --> 00:09:35,630
+let's quickly confirm the user ID.
+
+122
+00:09:35,630 --> 00:09:37,920
+It ends with 8 8 8.
+
+123
+00:09:37,940 --> 00:09:42,180
+That looks good and let's have a look at the product there too.
+
+124
+00:09:42,380 --> 00:09:46,000
+And there I got a quantity of two and I got my product ID.
+
+125
+00:09:46,220 --> 00:09:52,340
+Well the product idea is that what I wanted though I wanted all the product data right.
+
+126
+00:09:52,340 --> 00:09:54,260
+Let's fix that in the next lecture.
+

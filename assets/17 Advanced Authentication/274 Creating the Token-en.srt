@@ -1,0 +1,64 @@
+1
+00:00:02,110 --> 00:00:07,060
+So let's give this a try this reset back and it's for did we first of all need to make sure that our
+
+2
+00:00:07,060 --> 00:00:10,400
+newly added control or actions can be reached.
+
+3
+00:00:10,540 --> 00:00:13,480
+So we added get reset route.
+
+4
+00:00:13,510 --> 00:00:20,860
+Now we also need to add post reset route so that this reset password button actually works.
+
+5
+00:00:20,870 --> 00:00:25,800
+So let's add this route and execute post reset that action we worked on.
+
+6
+00:00:27,260 --> 00:00:35,520
+And with that the reset password page let's first of all try out an incorrect or Al e-mail one which
+
+7
+00:00:35,520 --> 00:00:40,030
+does not exist in the database and we get this message which is great.
+
+8
+00:00:40,050 --> 00:00:47,460
+Now I use a real email which you used for signing up and clicked reset password or you should be redirected
+
+9
+00:00:47,460 --> 00:00:48,310
+back.
+
+10
+00:00:48,660 --> 00:00:54,400
+And if you check your emails there you should have a password reset email with a link.
+
+11
+00:00:54,780 --> 00:01:01,200
+If you click that link you should end up on a page not found error but you will see that were on reset
+
+12
+00:01:01,230 --> 00:01:06,880
+and then some token and that token can also be seen in your user collection here.
+
+13
+00:01:06,900 --> 00:01:10,950
+This is the password reset token which restored.
+
+14
+00:01:10,960 --> 00:01:18,490
+So now we just need to add some logic to add does route extract that token valid date wherever we have
+
+15
+00:01:18,490 --> 00:01:23,970
+a user for the token and then offer a form that allows the user to set a new password.
+
+16
+00:01:24,100 --> 00:01:25,450
+Let's work on that next.
+

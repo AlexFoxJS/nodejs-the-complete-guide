@@ -1,0 +1,80 @@
+1
+00:00:02,170 --> 00:00:09,240
+Now one important note about Update video what I did there is I actually passed an object id in admen
+
+2
+00:00:09,240 --> 00:00:12,340
+chase controller to my product constructor.
+
+3
+00:00:12,340 --> 00:00:19,720
+Now actually I could also just pass product that has a string and therefore remove my object registration
+
+4
+00:00:19,720 --> 00:00:23,140
+up there and the Hmong would he be import all of that is happening in the controller.
+
+5
+00:00:23,140 --> 00:00:29,610
+Now if I do that and I try editing this and changed apprized to 16.
+
+6
+00:00:30,010 --> 00:00:32,660
+You see now it fails.
+
+7
+00:00:32,680 --> 00:00:40,060
+Now if we go to the product model and we have a look at the safe method to dare I am actually looking
+
+8
+00:00:40,060 --> 00:00:47,500
+forward to right write object but I'll have a problem with updating it because there I'll try to set
+
+9
+00:00:47,500 --> 00:00:54,590
+my object ID to a different object to a string because here I'm just referring to this which will hold
+
+10
+00:00:54,590 --> 00:00:56,690
+the unmodified object.
+
+11
+00:00:57,040 --> 00:01:03,820
+So what I should do is I should automatically convert the object id the ID here which is a string to
+
+12
+00:01:03,820 --> 00:01:07,500
+an object that the object in the constructor.
+
+13
+00:01:07,600 --> 00:01:13,030
+So now they can remove it down there because I underscore ID will now always be an object id field no
+
+14
+00:01:13,030 --> 00:01:17,370
+matter if I'm using it in a filter or if I'm using it for updating.
+
+15
+00:01:17,380 --> 00:01:23,520
+So now if that if I added this again and I changed the price to 18 now it works again.
+
+16
+00:01:23,560 --> 00:01:30,240
+Because now I'm not trying an invalid update by trying to change the ID to some invalid value.
+
+17
+00:01:30,340 --> 00:01:32,800
+So this is just an important note I wanted to add.
+
+18
+00:01:32,800 --> 00:01:36,310
+You don't have to count words the ID in the controller file.
+
+19
+00:01:36,310 --> 00:01:42,010
+You can leave that untouched but you can do a general conversion in the product choice model of file
+
+20
+00:01:42,100 --> 00:01:44,610
+which is the better approach of doing that.
+

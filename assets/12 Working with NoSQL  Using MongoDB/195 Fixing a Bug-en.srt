@@ -1,0 +1,64 @@
+1
+00:00:02,080 --> 00:00:07,560
+So everything works but when clicking add to cart it won't be nice if we don't get stuck here.
+
+2
+00:00:07,630 --> 00:00:09,520
+So something seems to be wrong.
+
+3
+00:00:09,760 --> 00:00:11,440
+If we look at post-cart.
+
+4
+00:00:11,830 --> 00:00:15,030
+Well the thing is we never send a response here.
+
+5
+00:00:15,430 --> 00:00:19,970
+We do add our product to a card but that's it.
+
+6
+00:00:19,970 --> 00:00:26,820
+Now in the old code we redirect redirected to slash cart and that is what we should do here too.
+
+7
+00:00:26,830 --> 00:00:29,920
+So instead of returning those were salt which doesn't matter.
+
+8
+00:00:29,920 --> 00:00:31,140
+No one's interested here.
+
+9
+00:00:31,210 --> 00:00:34,320
+I just want to call wrests redirect here.
+
+10
+00:00:34,420 --> 00:00:36,910
+We're not here but here.
+
+11
+00:00:36,910 --> 00:00:40,950
+And then I guess we can return to us to see the result of that operation here if you wanted to.
+
+12
+00:00:41,020 --> 00:00:45,910
+But the important part is that we redirect at some point with that.
+
+13
+00:00:46,060 --> 00:00:51,200
+If Lake add to cart here and redirect it to the current page.
+
+14
+00:00:51,200 --> 00:00:52,070
+Awesome.
+
+15
+00:00:52,070 --> 00:00:55,040
+Now let's make sure we can the lead card items.
+
+16
+00:00:55,040 --> 00:01:00,280
+As always feel free to try this on your own in the next lecture and thereafter we'll do this together.
+

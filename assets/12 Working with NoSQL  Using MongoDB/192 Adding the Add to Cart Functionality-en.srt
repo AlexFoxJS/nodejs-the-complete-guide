@@ -1,0 +1,288 @@
+1
+00:00:02,470 --> 00:00:08,300
+So we're making progress on the Add to Cart functionality at least a very basic first version of it.
+
+2
+00:00:08,620 --> 00:00:14,740
+Let's now go to app just to wire it up when finding a user I'm storing it in the request like this and
+
+3
+00:00:14,830 --> 00:00:17,210
+does actually should be.
+
+4
+00:00:17,410 --> 00:00:18,950
+All right.
+
+5
+00:00:18,970 --> 00:00:24,490
+However it's important to understand that the user as I'm storing it here will just be an object with
+
+6
+00:00:24,490 --> 00:00:25,370
+the properties.
+
+7
+00:00:25,390 --> 00:00:31,150
+So the data we have in the database all the methods of our user model will not be in there because the
+
+8
+00:00:31,150 --> 00:00:35,590
+user I'm getting here is data I'm getting out of the database and the methods aren't stored there.
+
+9
+00:00:35,590 --> 00:00:37,370
+They couldn't be stored there.
+
+10
+00:00:37,420 --> 00:00:45,940
+So to have a real user object with which we can interact I should actually create a new user here.
+
+11
+00:00:47,060 --> 00:00:58,170
+And then simply pass user name which is my user name how it's a stored user email user or a cart and
+
+12
+00:00:58,170 --> 00:00:59,990
+user underscore ID.
+
+13
+00:01:00,000 --> 00:01:05,970
+So I should create such a user object and store that in the request because now this enables me to really
+
+14
+00:01:06,090 --> 00:01:07,270
+work with.
+
+15
+00:01:07,440 --> 00:01:13,740
+Well all the user data or with the whole user model and this now allows me to also call all these methods
+
+16
+00:01:13,740 --> 00:01:16,020
+like at Ducard on it.
+
+17
+00:01:16,020 --> 00:01:23,140
+So if this change to app J.S. we can go to the shop just fall in the Control List folder and then there.
+
+18
+00:01:23,280 --> 00:01:30,720
+I want to work on the post cart method for now which allows me to add an element to Descartes.
+
+19
+00:01:31,230 --> 00:01:33,630
+I do get my product that year which is nice.
+
+20
+00:01:33,780 --> 00:01:39,810
+And then we have all the logic here for fetching what's inside the card and for updating us.
+
+21
+00:01:40,050 --> 00:01:44,720
+I will actually comment this out because for now we don't need that.
+
+22
+00:01:44,730 --> 00:01:49,250
+So instead what I want to do is here I want to fetch a product I want to add here.
+
+23
+00:01:49,470 --> 00:01:57,370
+So I will use my product constructor my product model and it will use find my ID to find a product by
+
+24
+00:01:57,480 --> 00:02:05,680
+product IDM extract and here I'll just add the then block here and here I should have the product that
+
+25
+00:02:05,680 --> 00:02:07,920
+I want to add to the cart.
+
+26
+00:02:08,230 --> 00:02:15,460
+Therefore in here I will now use request user which now is our full user model and call Add to Cart
+
+27
+00:02:15,880 --> 00:02:22,690
+and past that product they fetched as an argument because in the user model add to cart does expect
+
+28
+00:02:22,690 --> 00:02:27,450
+a product and then returned the result of update 1 which will be a promise.
+
+29
+00:02:27,550 --> 00:02:33,890
+So back in the shop chest controller if I returned that promise instead of then here I can simply change
+
+30
+00:02:33,980 --> 00:02:34,750
+a number of them.
+
+31
+00:02:34,760 --> 00:02:39,330
+Block where I get the result of in this case my update operation.
+
+32
+00:02:39,400 --> 00:02:43,110
+So just can so lock that resolved.
+
+33
+00:02:43,150 --> 00:02:51,090
+Now with that let me go to the shop J.S. routes and let me add that cart post-road I get.
+
+34
+00:02:51,370 --> 00:02:59,230
+Let's now go back to products and let's give does add to cart but not try and get an error here.
+
+35
+00:03:00,330 --> 00:03:08,260
+The problem here should be that if we have a look at our debut at our product list last fall that for
+
+36
+00:03:08,260 --> 00:03:15,910
+add to cart we have to add add to cart E.J. ass snippets that include where I pass my product to but
+
+37
+00:03:15,910 --> 00:03:20,940
+an add to cart AJ s I still access product thought id is set of underscore ID.
+
+38
+00:03:21,160 --> 00:03:27,910
+So I need to change this in order to pass on the ID correctly and Ive reloaded that product's page and
+
+39
+00:03:27,910 --> 00:03:30,200
+I click Add to Cart.
+
+40
+00:03:30,240 --> 00:03:38,880
+Now we get stuck here but actually we were successful in a way we did actually modify something as our
+
+41
+00:03:38,880 --> 00:03:44,130
+resolve tells us here and if we quickly go to comp as and have a look at our users you see there is
+
+42
+00:03:44,190 --> 00:03:52,050
+an embedded document a card document with items with an object which holds product data.
+
+43
+00:03:52,050 --> 00:03:57,570
+Now that user ID here is a bit redundant because were already are in that user we could strip that out
+
+44
+00:03:57,570 --> 00:04:01,270
+and only store what you want but all that doesn't matter too much.
+
+45
+00:04:01,410 --> 00:04:07,830
+The important thing for us here simply is that we now store a whole product which we do also store in
+
+46
+00:04:07,830 --> 00:04:12,590
+a separate collection as part of an embedded document in our user.
+
+47
+00:04:12,630 --> 00:04:14,910
+So we clearly have duplicate data here.
+
+48
+00:04:14,970 --> 00:04:20,310
+We have the same product here as an embedded document and we have it in products.
+
+49
+00:04:20,340 --> 00:04:24,840
+So does this maybe something which we should change because if we change to product right now if we
+
+50
+00:04:24,840 --> 00:04:30,170
+change a title or price this will not be reflected in the cart and the cart.
+
+51
+00:04:30,180 --> 00:04:36,680
+We should have correct data because if the price changes we can show the wrong price in our car.
+
+52
+00:04:36,720 --> 00:04:37,480
+Right.
+
+53
+00:04:37,530 --> 00:04:45,840
+So actually will need to tweak this a little bit more in our user model where I store product in Add
+
+54
+00:04:45,840 --> 00:04:48,990
+to Cart well.
+
+55
+00:04:49,260 --> 00:04:53,580
+I actually dont want to store all product data in this object.
+
+56
+00:04:53,580 --> 00:04:54,920
+And then the quantity.
+
+57
+00:04:55,230 --> 00:05:06,670
+I just want to store the product ID by creating a new object id here and passing product ID as an underscore
+
+58
+00:05:06,670 --> 00:05:09,090
+ID as an argument and the quantity.
+
+59
+00:05:09,100 --> 00:05:13,590
+So not only to reference and to quantity and not the rest of the data.
+
+60
+00:05:13,790 --> 00:05:19,320
+For now safeness and I click Add two cards again.
+
+61
+00:05:19,330 --> 00:05:20,360
+It gets stuck again.
+
+62
+00:05:20,380 --> 00:05:22,340
+Doesnt matter too much right now.
+
+63
+00:05:22,390 --> 00:05:24,970
+If I now update my users
+
+64
+00:05:28,010 --> 00:05:34,200
+I get an error here that should be Product ID product underscore IDF regatta duty.
+
+65
+00:05:34,460 --> 00:05:44,810
+So now again if I update this and I click Add to Cart again and I reload my users document here are
+
+66
+00:05:44,810 --> 00:05:46,160
+my collection.
+
+67
+00:05:46,160 --> 00:05:51,190
+Now you see I'm only storing the reference and the quantity and this is exactly the information I want.
+
+68
+00:05:51,200 --> 00:05:56,840
+If I now want to display information about the product I have to fetch that manually because I only
+
+69
+00:05:56,840 --> 00:06:01,170
+have the ID that on the read is all I need for fetching information.
+
+70
+00:06:01,190 --> 00:06:02,380
+So that is what it is.
+
+71
+00:06:02,390 --> 00:06:07,310
+But on the other hand if I now do change my product I don't have to change it in the products collection
+
+72
+00:06:07,460 --> 00:06:12,820
+and my users because that would be a lot of work for data that might change quite a lot.
+

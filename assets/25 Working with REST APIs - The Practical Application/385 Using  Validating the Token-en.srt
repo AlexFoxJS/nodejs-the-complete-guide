@@ -1,0 +1,480 @@
+1
+00:00:02,410 --> 00:00:06,460
+Knouted we're generating a token and we're passing it to declined.
+
+2
+00:00:06,550 --> 00:00:12,190
+We need to make sure that the client can pass back to token to the back and to the rest API.
+
+3
+00:00:12,400 --> 00:00:20,770
+And we didn't check for the existence and B validity of the token before we allowed a request to continue.
+
+4
+00:00:20,770 --> 00:00:25,980
+So for example on our feed routes on all these routes none of these routes should be public.
+
+5
+00:00:26,080 --> 00:00:33,010
+So if no token is attached to the incoming request we should simply block access here and this is what
+
+6
+00:00:33,010 --> 00:00:36,330
+I'll work on now for that I'll add new middleware.
+
+7
+00:00:36,440 --> 00:00:39,800
+I'll create a new middleware folder for this.
+
+8
+00:00:39,820 --> 00:00:45,110
+You could place it anywhere though and I'll name it is offcut.
+
+9
+00:00:45,190 --> 00:00:48,730
+That is the name of my file in there.
+
+10
+00:00:48,940 --> 00:00:55,510
+I will import my Jason weap token package because we'll need that package to validate incoming tokens
+
+11
+00:00:56,470 --> 00:01:03,280
+then I'll export one function in that file that will be a normal middleware function request response
+
+12
+00:01:03,400 --> 00:01:06,810
+next so that I can use it as a bit lower.
+
+13
+00:01:07,360 --> 00:01:11,940
+And now first of all I need to extract the token from an incoming request.
+
+14
+00:01:11,950 --> 00:01:15,880
+Now currently we are not attaching the token to any requests.
+
+15
+00:01:15,880 --> 00:01:20,040
+How could we attach it if we go back to our front end let's say in feet.
+
+16
+00:01:20,070 --> 00:01:23,680
+J.S. for loading posts we want to attach to tokin.
+
+17
+00:01:23,740 --> 00:01:25,190
+How could we do that.
+
+18
+00:01:25,210 --> 00:01:32,730
+There are a couple of options you could add a query parameter something like Token equals and then enter
+
+19
+00:01:32,740 --> 00:01:37,990
+your token value there and then append query parameters that would be a valid option.
+
+20
+00:01:37,990 --> 00:01:40,220
+Nothing wrong with that.
+
+21
+00:01:40,450 --> 00:01:46,660
+You could include it in the request body but that is not ideal because for example get requests have
+
+22
+00:01:46,660 --> 00:01:47,350
+no body.
+
+23
+00:01:47,380 --> 00:01:49,220
+So that is not a solution.
+
+24
+00:01:49,360 --> 00:01:58,940
+You should use unless you never have often indicated get requests a great solution is however that you
+
+25
+00:01:58,940 --> 00:02:00,860
+use a header.
+
+26
+00:02:00,860 --> 00:02:01,780
+It keeps your.
+
+27
+00:02:01,780 --> 00:02:03,400
+You are beautiful.
+
+28
+00:02:03,530 --> 00:02:07,260
+Of course it might not be the most important argument but still it keeps your.
+
+29
+00:02:07,280 --> 00:02:12,180
+You are as beautiful and a hatter makes a lot of sense for meta information like.
+
+30
+00:02:12,200 --> 00:02:14,000
+Well the token which it isn't yet.
+
+31
+00:02:14,430 --> 00:02:19,520
+So let's add a second argument in the load posts function in the feet.
+
+32
+00:02:19,630 --> 00:02:21,330
+Yes file in the front end.
+
+33
+00:02:21,430 --> 00:02:24,260
+A second argument there to the fetch method.
+
+34
+00:02:24,470 --> 00:02:30,050
+And here I will add some headers to this request now I will not add the content type because I'm not
+
+35
+00:02:30,050 --> 00:02:36,250
+sending any data here but I will add the authorization header.
+
+36
+00:02:36,260 --> 00:02:41,570
+Theoretically you can add any header you want but this isn't an official header header you officially
+
+37
+00:02:41,570 --> 00:02:45,650
+use for passing authentication information to the backend.
+
+38
+00:02:45,680 --> 00:02:52,310
+And please remember that on the back and in the capture file where we added our course headers.
+
+39
+00:02:52,310 --> 00:02:53,530
+I did and able.
+
+40
+00:02:53,540 --> 00:02:58,680
+The authorization header you need to have that enabled for this to work.
+
+41
+00:02:58,680 --> 00:03:04,430
+So I'm setting my offer I sation ahead are there and I'm setting it to a value which is not just a token
+
+42
+00:03:04,640 --> 00:03:12,430
+but actually barer whitespace and then this Rops token allows you to get the token and you react at
+
+43
+00:03:12,950 --> 00:03:14,440
+why barer.
+
+44
+00:03:14,660 --> 00:03:21,500
+Well this is just a convention to kind of identify the type of token you have and a barer token is simply
+
+45
+00:03:21,740 --> 00:03:25,730
+an authentication token you typically use bearer for Jason.
+
+46
+00:03:25,730 --> 00:03:26,780
+Web tokens.
+
+47
+00:03:26,780 --> 00:03:27,710
+It's not a must.
+
+48
+00:03:27,710 --> 00:03:34,170
+You could actually work without that but it's a common convention and day afer I want to keep that convention.
+
+49
+00:03:34,400 --> 00:03:40,000
+So this is how I could add my token to that gueth posts request on the front end.
+
+50
+00:03:40,160 --> 00:03:46,410
+Now on the back end to extract it it is all middle where I will create a new variable.
+
+51
+00:03:46,460 --> 00:03:51,010
+Or a constant token and then access my request to get method.
+
+52
+00:03:51,080 --> 00:03:54,870
+I can get some Hetter value.
+
+53
+00:03:54,950 --> 00:04:03,560
+The header is do you all for my sation header of course and there I will get this barer whitespace token.
+
+54
+00:04:03,560 --> 00:04:09,620
+Now I'm only interested in the token of course so I will split on the whitespace which comes after barer
+
+55
+00:04:09,770 --> 00:04:12,540
+and I'll get a second value with just a token then.
+
+56
+00:04:12,860 --> 00:04:14,570
+So this is the token.
+
+57
+00:04:14,580 --> 00:04:22,490
+Now I will try to decode it so will actually use a try catch block because it could fail and I will
+
+58
+00:04:22,490 --> 00:04:33,860
+create a new variable here decoded token and decoded token will then be JWT and there we have the verify
+
+59
+00:04:33,860 --> 00:04:34,460
+method.
+
+60
+00:04:34,460 --> 00:04:39,150
+This will both decode and verify or token UAS.
+
+61
+00:04:39,170 --> 00:04:44,050
+You also have a de-code token but this will only decode it and not check if it's valid.
+
+62
+00:04:44,150 --> 00:04:51,170
+So definitely use varify here and then you pass that token which you extracted from the header and then
+
+63
+00:04:51,290 --> 00:04:56,730
+that secret and that has to be the same secret you used for assigning the token of course.
+
+64
+00:04:56,900 --> 00:05:01,340
+So the same secret you used in your off controller this one.
+
+65
+00:05:01,340 --> 00:05:03,790
+Otherwise you'll not get a matching result.
+
+66
+00:05:03,920 --> 00:05:08,940
+So this is a secret which we will use for validating the token.
+
+67
+00:05:08,970 --> 00:05:10,310
+Now this could fail.
+
+68
+00:05:10,470 --> 00:05:12,230
+So here I'll have a catch block.
+
+69
+00:05:13,650 --> 00:05:21,420
+And there I want to add a status code to my error of 500 and then I will throw the error here.
+
+70
+00:05:22,590 --> 00:05:31,820
+Since I'm in the middle where now the expressed error handler would take over overwise we know that
+
+71
+00:05:31,820 --> 00:05:38,060
+decoding worked and null check if it is undefined which would be the case if it didn't fail technically
+
+72
+00:05:38,330 --> 00:05:41,780
+but it wasn't able to verify the token.
+
+73
+00:05:41,780 --> 00:05:51,450
+In this case all create a new error not authenticate it.
+
+74
+00:05:53,050 --> 00:05:58,730
+Add a status code All four hundred and one and throw this error.
+
+75
+00:05:59,060 --> 00:06:06,440
+If we make it past this check we know that we have a valid token however and that we were able to decode
+
+76
+00:06:06,440 --> 00:06:07,020
+it.
+
+77
+00:06:07,040 --> 00:06:12,860
+So now I'll just extract some information from the token the user id and I will store it in the request
+
+78
+00:06:12,980 --> 00:06:18,500
+so that I can use it in other places where this request will go like in my routes and they are all just
+
+79
+00:06:18,500 --> 00:06:23,530
+X's to decode a token which now simply well is basically the part on the right.
+
+80
+00:06:23,530 --> 00:06:26,580
+Here we can now access that data since we decoded it.
+
+81
+00:06:26,930 --> 00:06:32,210
+So there I can now access my user ID field which I stored in the token.
+
+82
+00:06:32,240 --> 00:06:34,310
+This will be useful for later.
+
+83
+00:06:34,340 --> 00:06:40,390
+All Freising access to for example deleting posts because now I know to user ID stored in the token
+
+84
+00:06:40,610 --> 00:06:42,800
+and that should match the user id of the post.
+
+85
+00:06:42,800 --> 00:06:48,250
+We tried to delete later and then I can forward this request so will ever have an error.
+
+86
+00:06:48,350 --> 00:06:52,760
+If we have no token attached or everything will be fine.
+
+87
+00:06:52,760 --> 00:07:01,540
+Now we can add that middleware to our routes and I will add it to my get posts route so here get posts
+
+88
+00:07:01,540 --> 00:07:03,450
+should use that milah where they are free.
+
+89
+00:07:03,460 --> 00:07:11,150
+First of all need to import it by requiring it from the middleware folder is off.
+
+90
+00:07:11,380 --> 00:07:16,190
+And I will add it like this year.
+
+91
+00:07:16,250 --> 00:07:20,090
+Now I only can get posts if I do add a token.
+
+92
+00:07:20,090 --> 00:07:26,780
+First of all let me show you how does Fales if I remove this header.
+
+93
+00:07:27,080 --> 00:07:32,990
+So this extra configuration on my get posts request and the front end if I remove that and I reload
+
+94
+00:07:32,990 --> 00:07:38,390
+the page I get fails to fetch posts and into console log all to see that your
+
+95
+00:07:41,380 --> 00:07:44,200
+Because it fails to read split of undefined.
+
+96
+00:07:44,320 --> 00:07:49,510
+We get a technical error because in my middleware it can't get anything from that header because the
+
+97
+00:07:49,510 --> 00:07:51,260
+header is not defined.
+
+98
+00:07:51,310 --> 00:07:56,700
+Therefore we could add extra check here and first of all get the header off.
+
+99
+00:07:56,740 --> 00:08:04,900
+Header would then be request get all Frye's sation.
+
+100
+00:08:05,080 --> 00:08:08,740
+And if this is undefined.
+
+101
+00:08:08,850 --> 00:08:13,150
+So if he can find the header then I will already create an error here.
+
+102
+00:08:14,990 --> 00:08:21,120
+Not authenticated because we don't even append to tokens so we certainly are not authenticated.
+
+103
+00:08:21,500 --> 00:08:26,370
+I can set my status code of four hundred and one which is better than 500.
+
+104
+00:08:26,390 --> 00:08:30,420
+And I can Frode an error and then down there.
+
+105
+00:08:30,770 --> 00:08:32,740
+We know that we do have all headers.
+
+106
+00:08:32,740 --> 00:08:36,430
+Now we can split it so that's the improved way of handling get.
+
+107
+00:08:36,440 --> 00:08:39,380
+Now if we reload on the front then we still get that error.
+
+108
+00:08:39,380 --> 00:08:43,550
+But technically we now have a four hundred and one error which is better.
+
+109
+00:08:43,580 --> 00:08:50,810
+Now I can add that code back where I add a token but let's try adding some rubbish here which is not
+
+110
+00:08:50,810 --> 00:08:52,540
+a valid token.
+
+111
+00:08:52,550 --> 00:09:01,210
+Now if the reloads it still fails and fails because now the the Chaisson web token package has a problem
+
+112
+00:09:01,210 --> 00:09:03,840
+with the format of our token.
+
+113
+00:09:04,060 --> 00:09:12,910
+So now let me revert to an ad develop token and now as does reloads now our posts load because now we
+
+114
+00:09:12,970 --> 00:09:14,690
+are validating this.
+
+115
+00:09:14,800 --> 00:09:16,870
+We have a valid token indeed.
+
+116
+00:09:17,210 --> 00:09:25,210
+So this is now how we can validate on the server side how we can check whether the token is valid and
+
+117
+00:09:25,270 --> 00:09:26,690
+then grant access.
+
+118
+00:09:26,800 --> 00:09:32,440
+And now we just have to do that for all our routes before we Denne also make sure that all users who
+
+119
+00:09:32,440 --> 00:09:36,430
+created something can delete it because right now of course.
+
+120
+00:09:36,670 --> 00:09:40,650
+Well I can delete everything as you can see.
+

@@ -1,0 +1,240 @@
+1
+00:00:02,130 --> 00:00:09,410
+So let's work on our shop pages now and let's make sure we can use our data there for this.
+
+2
+00:00:09,420 --> 00:00:15,790
+Let me go to my product model again and here the sides be able to save data.
+
+3
+00:00:15,810 --> 00:00:21,300
+Of course all they want to be able to get my products so I'll add a static method again and I'll name
+
+4
+00:00:21,300 --> 00:00:24,050
+that fetch all.
+
+5
+00:00:24,060 --> 00:00:32,370
+Now here I want to interact with MY MOM WOULD IT BE database to fetch all products for this I will again
+
+6
+00:00:32,370 --> 00:00:39,370
+return and then use D-B collection to tell me where to be to which collection to connect to and are
+
+7
+00:00:39,390 --> 00:00:40,000
+a collection.
+
+8
+00:00:40,020 --> 00:00:42,340
+I want to connect to is products of course.
+
+9
+00:00:42,750 --> 00:00:48,730
+And then their moment to be has a method for finding data which is called Find.
+
+10
+00:00:49,200 --> 00:00:53,350
+Now find could be configured to also use a filter.
+
+11
+00:00:53,370 --> 00:00:59,550
+For example we could find all products that have a type of a book and there are more elaborate filters
+
+12
+00:00:59,760 --> 00:01:02,440
+than just the quality filters available too.
+
+13
+00:01:02,610 --> 00:01:06,810
+Again something I cover in great detail in MY MOM WOULD BE course if you want to learn more about that
+
+14
+00:01:07,340 --> 00:01:07,850
+here.
+
+15
+00:01:07,890 --> 00:01:11,090
+Of course want to find all products for now.
+
+16
+00:01:11,340 --> 00:01:17,070
+So want to find all products which you can do by just calling find like this note important thing about
+
+17
+00:01:17,070 --> 00:01:21,620
+find is find does not immediately return a promise though.
+
+18
+00:01:21,630 --> 00:01:24,420
+Instead it returns a so-called cursor.
+
+19
+00:01:24,430 --> 00:01:27,310
+A cursor is an object provided by Hmong would it be.
+
+20
+00:01:27,450 --> 00:01:34,170
+Which allows us to go through our elements our documents step by step because theoretically and a collection
+
+21
+00:01:34,440 --> 00:01:39,960
+find could of course return millions of documents and you don't want to transfer them over to wire all
+
+22
+00:01:39,960 --> 00:01:40,960
+at once.
+
+23
+00:01:41,010 --> 00:01:45,790
+So instead find gives you a handle which you can use to tell the only to be OK.
+
+24
+00:01:45,840 --> 00:01:50,620
+Give me the next document OK give me the next document and so on.
+
+25
+00:01:50,640 --> 00:01:57,990
+That being said there is a two array method you can execute to tell me long would it be to get all documents
+
+26
+00:01:58,080 --> 00:02:00,080
+and turn them into a javascript array.
+
+27
+00:02:00,270 --> 00:02:06,120
+But you should only use that if you know that we're talking about let's say a couple of dozens maybe
+
+28
+00:02:06,120 --> 00:02:07,970
+one hundred documents.
+
+29
+00:02:08,260 --> 00:02:13,710
+Otherwise it's better to implement page nation which is something we will implement at a later point
+
+30
+00:02:13,710 --> 00:02:15,200
+of time in this course.
+
+31
+00:02:15,210 --> 00:02:19,390
+So for now let's use two aere and then does returns a promise.
+
+32
+00:02:19,470 --> 00:02:25,330
+And here we can again catch any errors we might be getting.
+
+33
+00:02:25,380 --> 00:02:34,130
+But most importantly here we should have our products we can log our products here and then also let's
+
+34
+00:02:34,280 --> 00:02:38,830
+return our products in here and let's see if that works the way we want.
+
+35
+00:02:39,200 --> 00:02:42,350
+So now we have a fecche all method that hopefully works.
+
+36
+00:02:42,350 --> 00:02:48,770
+One important thing is I of course need to get access to my database by calling get D-B in fecche all
+
+37
+00:02:48,830 --> 00:02:50,870
+just as they do it and save.
+
+38
+00:02:50,960 --> 00:02:57,210
+And now let's head over to our shop controller and there we have the get products function.
+
+39
+00:02:57,380 --> 00:03:01,340
+Now this is the function I want to work on now.
+
+40
+00:03:01,550 --> 00:03:07,610
+And instead of find all let's now use fetchmail because that is how I named the method there I should
+
+41
+00:03:07,610 --> 00:03:12,140
+get my products and hopefully get them in a format that works.
+
+42
+00:03:12,140 --> 00:03:13,330
+Let's see.
+
+43
+00:03:13,970 --> 00:03:20,770
+Let me also go to my shop route's now and here get index and get products.
+
+44
+00:03:20,780 --> 00:03:21,800
+Be Fine.
+
+45
+00:03:21,830 --> 00:03:28,130
+Let me comment out all other routes for the moment because we can't work with them right now because
+
+46
+00:03:28,640 --> 00:03:35,090
+we have no code that would support them by the way in the shop controller you also want to make sure
+
+47
+00:03:35,300 --> 00:03:39,620
+that get index works but also using fetchmail in there.
+
+48
+00:03:39,620 --> 00:03:43,950
+So just as we did it and get products we want to do the same and get index.
+
+49
+00:03:43,990 --> 00:03:44,620
+OK.
+
+50
+00:03:44,720 --> 00:03:46,750
+So now I got some code in place.
+
+51
+00:03:47,030 --> 00:03:54,800
+Let me go back to J.S. finally and comment in that Schopper import and not just comment it in of course
+
+52
+00:03:54,830 --> 00:04:01,340
+but also uncomment this middleware down there and now we hopefully have a set up where we can actually
+
+53
+00:04:01,370 --> 00:04:05,740
+reload our route route.
+
+54
+00:04:05,750 --> 00:04:08,110
+Let's say these are just local host 3000.
+
+55
+00:04:08,210 --> 00:04:09,520
+And here we go.
+
+56
+00:04:09,530 --> 00:04:12,060
+Here is our product just like that.
+
+57
+00:04:12,200 --> 00:04:16,290
+And of course it works automatically because it didn't change any property names.
+
+58
+00:04:16,400 --> 00:04:22,120
+If you suddenly store to Thailand a field named name you would have to adjust your view and so on.
+
+59
+00:04:22,550 --> 00:04:30,380
+Well there is something where I want to adjust my view and deaths related to how we work with the IDs
+
+60
+00:04:30,560 --> 00:04:32,480
+but we'll see it in the next lecture.
+

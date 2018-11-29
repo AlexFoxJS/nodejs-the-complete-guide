@@ -1,0 +1,272 @@
+1
+00:00:02,210 --> 00:00:07,550
+So now we know what arrest a few generally is or which problem it solves.
+
+2
+00:00:07,550 --> 00:00:10,290
+Let me give you a big picture of how it works.
+
+3
+00:00:10,310 --> 00:00:16,280
+We have a client and the server declined as a mobile app where our single page application on the server
+
+4
+00:00:16,340 --> 00:00:18,220
+we built our API.
+
+5
+00:00:18,410 --> 00:00:21,880
+So here we build an API for these apps we might be building.
+
+6
+00:00:21,950 --> 00:00:27,160
+And one advantage by the way is that we can use one in the same API for multiple clients.
+
+7
+00:00:27,260 --> 00:00:32,310
+So we might be building a web app and a mobile app not that uncommon these days.
+
+8
+00:00:32,360 --> 00:00:39,110
+Most companies have mobile apps and web apps but we can use one at the same API because both apps mobile
+
+9
+00:00:39,170 --> 00:00:41,820
+and web app use the same data of course.
+
+10
+00:00:41,900 --> 00:00:47,390
+They might present it differently and that is what I was talking about about the user interface being
+
+11
+00:00:47,390 --> 00:00:49,520
+handled by the front end by the client.
+
+12
+00:00:49,520 --> 00:00:53,180
+They might present it differently but they work with the same data.
+
+13
+00:00:53,480 --> 00:00:59,600
+So that is our API we might be building or we have any kind of app including our traditional web app
+
+14
+00:00:59,780 --> 00:01:06,750
+which just needs a service API or we might be building our own service API maybe to also sell our service.
+
+15
+00:01:06,800 --> 00:01:12,950
+Maybe were building a stock API where any application which we might not even know is able to Corbie
+
+16
+00:01:12,950 --> 00:01:13,900
+data from.
+
+17
+00:01:13,950 --> 00:01:18,230
+And we just sell access to that API and that is our business model.
+
+18
+00:01:18,230 --> 00:01:24,260
+So in all these cases we obviously exchange something and does something we exchange is data.
+
+19
+00:01:24,260 --> 00:01:30,500
+As I mentioned before only the data not the user interface and that of course leads us to one important
+
+20
+00:01:30,500 --> 00:01:34,290
+question in which format do we exchange that data.
+
+21
+00:01:34,430 --> 00:01:41,080
+We learned about HVM LDS far but there are different kinds of data we could attach to a request and
+
+22
+00:01:41,080 --> 00:01:49,130
+a response we can send plain text for example we could send some L or we could send Jason and there
+
+23
+00:01:49,130 --> 00:01:50,210
+are other formats too.
+
+24
+00:01:50,210 --> 00:01:56,600
+But these are some well-known formats H-2 himself cores look something like this so we can send H.T.
+
+25
+00:01:56,660 --> 00:02:03,950
+email code and this is what we did thus far in the course when we rendered Ejay as to what we essentially
+
+26
+00:02:03,950 --> 00:02:10,580
+did is we sent team l code to the browser because the view was rendered on the server and the result
+
+27
+00:02:10,580 --> 00:02:16,640
+of that rendering process simply was-I age female page simply was aged hemol code.
+
+28
+00:02:16,730 --> 00:02:24,520
+So this is how we could send data H-G mail code contains both the data and the structure of course the
+
+29
+00:02:24,590 --> 00:02:31,370
+H team l elements see us as Styles who might be adding that all adds structure and the sign and what
+
+30
+00:02:31,370 --> 00:02:34,210
+is between BHM elements is our data.
+
+31
+00:02:34,400 --> 00:02:37,020
+So therefore does all it contains our user interface.
+
+32
+00:02:37,070 --> 00:02:40,270
+It defines how our user interface should look like.
+
+33
+00:02:40,310 --> 00:02:47,850
+Now the problem is of course that if we just want the data we got all the overhead h team l content.
+
+34
+00:02:47,850 --> 00:02:55,700
+Its unnecessarily difficult to parse because even though DHT male elements are of course kind of defined
+
+35
+00:02:55,730 --> 00:03:04,460
+and regulated how we use them and how we well structure our document is not really enforced onto us
+
+36
+00:03:04,730 --> 00:03:07,330
+so its unnecessarily difficult to parse.
+
+37
+00:03:07,370 --> 00:03:12,070
+If we just need the data we can of course send plain text.
+
+38
+00:03:12,320 --> 00:03:16,130
+The thing here is this is only data of course there is no structure.
+
+39
+00:03:16,130 --> 00:03:20,660
+There is no design element at it and therefore we make no UI.
+
+40
+00:03:20,870 --> 00:03:25,160
+And that as user interface of course we make no UI assumptions.
+
+41
+00:03:25,160 --> 00:03:31,430
+Still if you want to transfer data like this its unnecessarily difficult to parse because text is easier
+
+42
+00:03:31,430 --> 00:03:35,110
+to understand for humans but for computers it isn't.
+
+43
+00:03:35,120 --> 00:03:41,280
+There is no clear pattern in the text and therefore it is not really a great way of exchanging data.
+
+44
+00:03:41,500 --> 00:03:49,470
+SML looks a lot like h tim L and actually h tim L is a special kind of Exham all you could say the differences
+
+45
+00:03:49,670 --> 00:03:52,470
+Exham allows you to use any tax.
+
+46
+00:03:52,610 --> 00:03:55,330
+And of course allows you to transfer data.
+
+47
+00:03:55,610 --> 00:04:01,620
+And it's also not making any UI assumptions because its not possible by the browser.
+
+48
+00:04:01,730 --> 00:04:04,770
+The Exham elements are totally made up by you.
+
+49
+00:04:04,820 --> 00:04:09,560
+The good thing is it's easier to read by machines then plain text.
+
+50
+00:04:09,560 --> 00:04:16,940
+You can also of course define clear structure there but you will need a special SML parser because traversing
+
+51
+00:04:16,940 --> 00:04:24,410
+Frue and SML node tree is kind of challenging not impossible to solve but you need a special parser
+
+52
+00:04:24,650 --> 00:04:28,530
+and all these elements of course add some overhead to the data you transfer.
+
+53
+00:04:28,640 --> 00:04:33,060
+So there's a lot of extra text that is only required to read your data.
+
+54
+00:04:33,140 --> 00:04:35,390
+That is not really your core data though.
+
+55
+00:04:36,240 --> 00:04:42,800
+The last data format and you might already guess that that will be our winner is Jason looks like this.
+
+56
+00:04:42,850 --> 00:04:46,650
+And we already used that in the course when I had a look at asynchronous requests.
+
+57
+00:04:46,690 --> 00:04:51,260
+Couple of Martial's ago and now this also is just data.
+
+58
+00:04:51,280 --> 00:04:55,180
+It makes no UIA assumptions and it's also machine readable.
+
+59
+00:04:55,180 --> 00:04:58,700
+The good thing is it's a bit more concise than XM.
+
+60
+00:04:59,050 --> 00:05:05,800
+And it can easily be converted to javascript and that is of course a huge plus when working with no
+
+61
+00:05:05,800 --> 00:05:06,880
+trace on the server.
+
+62
+00:05:06,910 --> 00:05:12,880
+But also with well javascript in the browser which happens to be our only programming language we can
+
+63
+00:05:12,880 --> 00:05:13,910
+use there.
+
+64
+00:05:14,050 --> 00:05:20,340
+So therefore this is our winter data for met Jason is our winter data format.
+
+65
+00:05:20,410 --> 00:05:26,880
+If we just want to transfer data and see the most common format in any API you are communicating with
+
+66
+00:05:26,890 --> 00:05:32,630
+these days all the formats are not asked great for transmitting data.
+
+67
+00:05:32,710 --> 00:05:35,360
+Jason is there for business is what we will use.
+
+68
+00:05:35,440 --> 00:05:39,330
+But its important for you to understand why we use it and I hope this became clear.
+

@@ -1,0 +1,152 @@
+1
+00:00:02,180 --> 00:00:03,640
+So we had to look at cookies.
+
+2
+00:00:03,740 --> 00:00:05,240
+What is a session.
+
+3
+00:00:05,570 --> 00:00:11,360
+Well we have the same set up as before user using the front end our use interacting with our server
+
+4
+00:00:11,420 --> 00:00:16,160
+where we have our node application code we send the request and we do log in.
+
+5
+00:00:16,160 --> 00:00:20,330
+And again let's assume we do is send a valid credential stare.
+
+6
+00:00:20,330 --> 00:00:25,350
+We're not validating them in this module because I want to focus on sessions and cookies.
+
+7
+00:00:25,400 --> 00:00:32,150
+So now instead of storing the information that the user is authenticated in the front and which was
+
+8
+00:00:32,150 --> 00:00:37,970
+a bad place as we learned we'll stored in the back end with a so-called session and A session and you
+
+9
+00:00:38,000 --> 00:00:40,400
+construct which we haven't used before.
+
+10
+00:00:40,490 --> 00:00:44,900
+With that I'm not meaning that we stored it in the request because we already saw that this will not
+
+11
+00:00:44,900 --> 00:00:45,530
+work.
+
+12
+00:00:45,590 --> 00:00:52,250
+And I also don't mean that we store it in some variable in our express app because Dad would be shared
+
+13
+00:00:52,250 --> 00:00:55,280
+across all users and all requests.
+
+14
+00:00:55,280 --> 00:01:00,440
+We only want to share the information across all requests of the same user and that's really important
+
+15
+00:01:00,830 --> 00:01:04,900
+the same user sort of Abra users can see your data.
+
+16
+00:01:05,120 --> 00:01:12,390
+Assume your role can't tell the server that they are offended Kheta only you are authenticated.
+
+17
+00:01:12,520 --> 00:01:15,020
+Now for that we need to store it on the server.
+
+18
+00:01:15,110 --> 00:01:21,260
+We'll start by storing it in memory which is then pretty similar to storing in that variable.
+
+19
+00:01:21,320 --> 00:01:26,480
+But eventually we'll move to a different session storage that database and we need one important piece
+
+20
+00:01:26,480 --> 00:01:34,880
+of information a client needs to tell the server to which session he belongs because the session will
+
+21
+00:01:34,880 --> 00:01:39,650
+in the end just be an entry stored in memory or stored in a database.
+
+22
+00:01:39,650 --> 00:01:45,680
+Now we're not matching this by IP address or anything like that because that is a bit hard to maintain
+
+23
+00:01:45,720 --> 00:01:48,440
+and can be faked and all that fun stuff.
+
+24
+00:01:48,440 --> 00:01:49,770
+So we're not doing that.
+
+25
+00:01:50,060 --> 00:01:55,000
+Instead we'll use a cookie where we will store the ID of the session.
+
+26
+00:01:55,250 --> 00:02:02,150
+Now obviously you can still change that and assume a different ID if you want to but that will not work
+
+27
+00:02:02,150 --> 00:02:09,440
+like this because actually the value we store will not be d d id but the hashed ID hashed with a certain
+
+28
+00:02:09,470 --> 00:02:15,890
+algorithm where only the server can confirm that it has not been fiddled with so that you didn't play
+
+29
+00:02:15,890 --> 00:02:19,030
+around with it and tried to create a different one.
+
+30
+00:02:19,160 --> 00:02:24,710
+So this will be a secure way because you basically stored the ID in an encrypted way where only the
+
+31
+00:02:24,710 --> 00:02:31,610
+server is able to confirm that the stored cookie value relates to a certain ID in the database.
+
+32
+00:02:31,790 --> 00:02:35,290
+And therefore we got a safe value stored in the cookie which you can't.
+
+33
+00:02:35,320 --> 00:02:38,700
+You can change it but you will not assume a different session.
+
+34
+00:02:38,720 --> 00:02:45,680
+A session can be matched and that session can then contain the confidential data which you can't change
+
+35
+00:02:45,860 --> 00:02:47,340
+from inside the browser.
+
+36
+00:02:47,360 --> 00:02:48,650
+That is the idea here.
+
+37
+00:02:48,770 --> 00:02:54,390
+So sessions are stored on the server side cookies client side sessions service side.
+
+38
+00:02:54,590 --> 00:02:56,480
+Now let me show you how to implement a session.
+

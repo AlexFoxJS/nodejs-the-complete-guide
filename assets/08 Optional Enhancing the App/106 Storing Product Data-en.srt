@@ -1,0 +1,260 @@
+1
+00:00:02,230 --> 00:00:09,010
+Time for more logic and with which logic do we want to start we could add more logic to product for
+
+2
+00:00:09,010 --> 00:00:15,850
+example so that we finally can not just add a title but actually also an image a prize and a description
+
+3
+00:00:15,890 --> 00:00:16,830
+texture.
+
+4
+00:00:17,290 --> 00:00:22,430
+So to do that first of all I'll work on my model here in this model.
+
+5
+00:00:22,450 --> 00:00:29,290
+I want to make sure that we don't just work with the title here but that I actually initialize a new
+
+6
+00:00:29,290 --> 00:00:34,750
+product with my title and I will now rename it here as an argument.
+
+7
+00:00:34,780 --> 00:00:39,550
+You probably got the point that these two names don't have to be equal but it's easier to understand
+
+8
+00:00:39,550 --> 00:00:43,750
+the constructor if we give it a title that makes sense or a name that makes sense.
+
+9
+00:00:43,750 --> 00:00:49,110
+So I got my timelier now a product will also have an image you are.
+
+10
+00:00:49,180 --> 00:00:51,580
+Later in the course we'll also add image upload.
+
+11
+00:00:51,580 --> 00:00:53,050
+For now let's take a finished.
+
+12
+00:00:53,080 --> 00:00:55,250
+You are of some image on the web.
+
+13
+00:00:55,720 --> 00:00:58,470
+It also needs a description and a price.
+
+14
+00:00:58,960 --> 00:01:02,610
+And that year I will simply store all that data in properties.
+
+15
+00:01:02,730 --> 00:01:05,060
+Image you are l will be stored.
+
+16
+00:01:05,060 --> 00:01:12,690
+The description will be stored and the price will be stored.
+
+17
+00:01:12,780 --> 00:01:15,270
+Not description price like this.
+
+18
+00:01:15,270 --> 00:01:18,930
+With all that future products we add to our file.
+
+19
+00:01:18,930 --> 00:01:24,420
+We'll have all that data in them and data we fetch or products we fetch will have to.
+
+20
+00:01:24,570 --> 00:01:30,600
+Now we just need to work on our ad product view and make sure we've got more inputs to fetch and additional
+
+21
+00:01:30,600 --> 00:01:31,460
+data.
+
+22
+00:01:31,650 --> 00:01:38,630
+And for this let's simply copied that form control and add an additional 1 were fetching the title.
+
+23
+00:01:38,680 --> 00:01:46,150
+Now as we just worked on the model we'll also need an image you are el and all simply fetch this as
+
+24
+00:01:46,180 --> 00:01:50,360
+some text input for it out again will add an image upload later in the course.
+
+25
+00:01:50,380 --> 00:01:52,520
+So here I will get my image.
+
+26
+00:01:52,720 --> 00:01:58,680
+You are all name that field image you are l and optionally also assign an ID.
+
+27
+00:01:58,680 --> 00:02:01,990
+Your FOR BEST accessibility.
+
+28
+00:02:02,050 --> 00:02:10,930
+Now I'll copy that again and here I will not add input but instead here I want to fetch the description.
+
+29
+00:02:11,040 --> 00:02:14,520
+Or let's actually fetch the price first so it stays in input actually.
+
+30
+00:02:14,660 --> 00:02:16,600
+And here I want to have a price.
+
+31
+00:02:16,600 --> 00:02:25,260
+Notice can be of type number and I will give this year an idea of price and also a name of price.
+
+32
+00:02:25,450 --> 00:02:30,000
+And now I will add one more form control and that should be my description.
+
+33
+00:02:30,160 --> 00:02:35,740
+So here this is for my description for the element with the description ID.
+
+34
+00:02:35,920 --> 00:02:39,660
+It gets the label description and now this is not an input.
+
+35
+00:02:39,700 --> 00:02:48,730
+Instead it is a text area and data text area has a name or description and an ID or description and
+
+36
+00:02:48,790 --> 00:03:00,390
+it also has let's say 5 Rozier if we add all that and we go to add product does the form we see doesn't
+
+37
+00:03:00,390 --> 00:03:03,400
+look too bad but the description field doesn't look good.
+
+38
+00:03:03,570 --> 00:03:09,640
+Well that is a styling thing and we can quickly fix that in the public folder by going to forums.
+
+39
+00:03:09,740 --> 00:03:10,410
+Us.
+
+40
+00:03:10,650 --> 00:03:13,830
+I want to give it the same styling as a normal input has.
+
+41
+00:03:14,040 --> 00:03:20,640
+So here where I have form control input that's add form control text area with a white space in between
+
+42
+00:03:20,980 --> 00:03:26,690
+and that's all the ads that rule or that selector for this rule here.
+
+43
+00:03:26,820 --> 00:03:33,570
+And also down there for this rule I will add text area and then the focus pseudos elector.
+
+44
+00:03:33,720 --> 00:03:37,920
+And with that if we now reload this looks much better.
+
+45
+00:03:37,950 --> 00:03:41,050
+So now we got all these fields here which we need to add a product.
+
+46
+00:03:41,220 --> 00:03:47,700
+And these are automatically added to the request which is sent to the backend because we are using regular
+
+47
+00:03:47,750 --> 00:03:51,520
+h m l inputs in a form and we assigned names.
+
+48
+00:03:51,540 --> 00:03:57,230
+So now we can extract all that data up by the names we assign to our input fields here.
+
+49
+00:03:57,510 --> 00:04:05,280
+And with that let's actually go back to our controller to the admin controller where we have post ad
+
+50
+00:04:05,280 --> 00:04:08,550
+product and then we create a new product.
+
+51
+00:04:08,550 --> 00:04:10,230
+I do extract a title here.
+
+52
+00:04:10,350 --> 00:04:13,590
+Now let's do this in a more structured way to make it easier to read.
+
+53
+00:04:13,680 --> 00:04:20,430
+I do extract my title here and store it in a constant tidal constant because I never overwrite the value
+
+54
+00:04:20,490 --> 00:04:22,030
+in this function.
+
+55
+00:04:22,050 --> 00:04:25,230
+I will then also add my image you are l which I extract from request.
+
+56
+00:04:25,230 --> 00:04:27,390
+Body image you are l.
+
+57
+00:04:27,420 --> 00:04:34,190
+Now make sure to type this in exactly the same way using the same casing as you assigned to name your
+
+58
+00:04:35,510 --> 00:04:39,360
+and the same is true for the price and that description.
+
+59
+00:04:39,530 --> 00:04:44,580
+So here also at a price field and extract the prize.
+
+60
+00:04:44,630 --> 00:04:48,840
+And of course also extract my description.
+
+61
+00:04:49,250 --> 00:04:53,320
+And now with that data extracted here we can pass the title.
+
+62
+00:04:53,510 --> 00:04:59,720
+We can pass the image your L we can pass the description which to order you to find in the constructor
+
+63
+00:05:00,140 --> 00:05:03,230
+and we can pass the price.
+
+64
+00:05:03,230 --> 00:05:06,370
+And now we create a product with all that data.
+
+65
+00:05:07,220 --> 00:05:13,460
+Now if that next that let's also extract that data and show it when we show all products.
+

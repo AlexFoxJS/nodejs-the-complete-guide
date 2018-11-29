@@ -1,0 +1,416 @@
+1
+00:00:02,280 --> 00:00:06,650
+With controllers and news editors it's time to care about the model.
+
+2
+00:00:06,660 --> 00:00:08,830
+The problem with our model is that we.
+
+3
+00:00:09,120 --> 00:00:10,770
+Well we have a very simple one.
+
+4
+00:00:10,980 --> 00:00:18,930
+We manage our products array here and a product is simply created on the fly as an object that looks
+
+5
+00:00:18,930 --> 00:00:20,090
+like this.
+
+6
+00:00:20,130 --> 00:00:23,040
+Now in the end that product represents our data.
+
+7
+00:00:23,040 --> 00:00:27,310
+We have products in our app later we'll all have our things like a user.
+
+8
+00:00:27,360 --> 00:00:29,960
+But for now it's just a product still.
+
+9
+00:00:30,000 --> 00:00:35,310
+We can find a model for debt and for this is let's create a new folder in our root project and name
+
+10
+00:00:35,310 --> 00:00:36,830
+it models.
+
+11
+00:00:36,930 --> 00:00:40,980
+Now all these names are exchangeable of course but this makes the separation really clear.
+
+12
+00:00:40,980 --> 00:00:46,360
+We get controllers we get the news we get models and that makes up the NBC pattern.
+
+13
+00:00:46,500 --> 00:00:48,880
+Now they're all at a new fall product.
+
+14
+00:00:48,920 --> 00:00:50,390
+J.S..
+
+15
+00:00:50,630 --> 00:00:55,910
+Now please note it's not products here because I want to represent a single entity because in the end
+
+16
+00:00:55,970 --> 00:00:58,630
+our core data is a product.
+
+17
+00:00:58,640 --> 00:01:04,280
+Sure we all have lists of products with which we work but the core thing that makes up the app is how
+
+18
+00:01:04,280 --> 00:01:11,090
+a product looks like which fields it has doesn't have an image a title that is our core data a list
+
+19
+00:01:11,090 --> 00:01:17,420
+of products is boring it's just will more of that type a single product is what defines our app in the
+
+20
+00:01:17,420 --> 00:01:20,490
+end or part of what defines the app.
+
+21
+00:01:20,490 --> 00:01:27,860
+Now how does this mall look like this is totally up to you in the end you kind of find us in which ever
+
+22
+00:01:27,860 --> 00:01:29,450
+way you want.
+
+23
+00:01:29,720 --> 00:01:34,710
+You can for example simply export a constructor function here.
+
+24
+00:01:35,000 --> 00:01:43,770
+So a function which a name product and you call that to create new objects based on that using our ears
+
+25
+00:01:43,780 --> 00:01:45,450
+5 constructor function.
+
+26
+00:01:45,820 --> 00:01:52,990
+But if you're using NexGen javascript as I'm doing it here you can instead create a class you can create
+
+27
+00:01:53,020 --> 00:01:55,670
+a class named product that looks like this.
+
+28
+00:01:55,750 --> 00:01:57,600
+And does this now Ole's export it.
+
+29
+00:01:57,670 --> 00:02:00,450
+And in case you're not sure what a class is.
+
+30
+00:02:00,490 --> 00:02:03,340
+Check that javascript refresher at the beginning of the course.
+
+31
+00:02:03,430 --> 00:02:05,110
+I do explain it there too.
+
+32
+00:02:06,190 --> 00:02:11,870
+Now here in this class I wanted to find the shape of a product and for this I'll first of all treat
+
+33
+00:02:11,870 --> 00:02:13,690
+the constructor function.
+
+34
+00:02:13,690 --> 00:02:19,970
+So here I want to receive a title for the product which will then create from inside my controller.
+
+35
+00:02:19,990 --> 00:02:26,800
+So here I get my title and you can name this title of course and it will then create a property in this
+
+36
+00:02:26,800 --> 00:02:27,470
+class.
+
+37
+00:02:27,610 --> 00:02:34,060
+So basically like a variable in the class you could say you do does this keyword and then does tieless
+
+38
+00:02:34,090 --> 00:02:36,740
+equal to the title I'm receiving as an argument here.
+
+39
+00:02:36,880 --> 00:02:41,710
+And these names don't have to match and to avoid confusion Canal's named as t here.
+
+40
+00:02:42,100 --> 00:02:44,440
+So I'm creating a property in this class.
+
+41
+00:02:44,440 --> 00:02:50,200
+This allows me to then create an object based on this class where I can pass the title to the constructor
+
+42
+00:02:50,230 --> 00:02:51,890
+which we call with new.
+
+43
+00:02:52,330 --> 00:02:55,330
+And then this will get stored in the created object.
+
+44
+00:02:55,450 --> 00:03:01,450
+But obviously I don't just want to be able to create objects with a title I can Dudas with the current
+
+45
+00:03:01,480 --> 00:03:03,420
+curly brace Sendak's too.
+
+46
+00:03:03,790 --> 00:03:13,180
+Instead here I want to be able to create my or to store my product to an array of products and fetch
+
+47
+00:03:13,180 --> 00:03:13,580
+it.
+
+48
+00:03:13,840 --> 00:03:21,010
+And for this I will reintroduce my products array here and we will change that later when we use a real
+
+49
+00:03:21,010 --> 00:03:21,850
+database.
+
+50
+00:03:22,030 --> 00:03:28,490
+But for now let's go with this approach and I will add a safe method to my class here by calling Savir
+
+51
+00:03:28,510 --> 00:03:32,370
+by typing save adding parentheses and then curly braces.
+
+52
+00:03:32,470 --> 00:03:36,790
+So it's like a function just without the function keyword.
+
+53
+00:03:36,850 --> 00:03:40,700
+So this is now a method available in this class and in the Save method.
+
+54
+00:03:40,810 --> 00:03:48,520
+I want to store my product in this array and I can do this by reaching out to products and then calling
+
+55
+00:03:48,530 --> 00:03:55,210
+portiere just as we did it before in the controller and assembly simply push this because this will
+
+56
+00:03:55,210 --> 00:04:02,670
+refer to the object created based on the class and that is exactly the object I want to store in desir.
+
+57
+00:04:02,700 --> 00:04:07,390
+Now obviously I also want to be able to retrieve all products from that array.
+
+58
+00:04:07,470 --> 00:04:16,440
+And I also want to do that for my product model however whereas save makes sense to be called on a concrete
+
+59
+00:04:16,500 --> 00:04:23,670
+instantiated object based on product I also want to have a fetch all method which is like a utility
+
+60
+00:04:23,670 --> 00:04:29,130
+function you could say this is not called on a single instance of the product because it should fetch
+
+61
+00:04:29,160 --> 00:04:35,460
+all products and I don't want to create a new object with the new keyword with some dummy title just
+
+62
+00:04:35,460 --> 00:04:42,150
+to fetch all existing products and therefore I will add the static keyword which javascript offers which
+
+63
+00:04:42,150 --> 00:04:49,160
+makes sure that I can call this method directly on the class itself and not on an instantiated object.
+
+64
+00:04:49,500 --> 00:04:55,110
+And then in here I will return this Boob's products like that.
+
+65
+00:04:56,330 --> 00:04:57,820
+Now does the model finished.
+
+66
+00:04:57,830 --> 00:05:00,500
+Now lets move to the products control file.
+
+67
+00:05:00,960 --> 00:05:08,500
+There I will first of all get rid of products here at the top and also of products push down there because
+
+68
+00:05:08,500 --> 00:05:10,050
+now I want to use my BODIL.
+
+69
+00:05:10,280 --> 00:05:12,090
+I also don't need that anymore.
+
+70
+00:05:12,990 --> 00:05:17,010
+So they got no products aere related logic left in this fall.
+
+71
+00:05:17,130 --> 00:05:23,090
+Instead I will now import my class by adding a new content product and you can names however you want
+
+72
+00:05:23,130 --> 00:05:28,500
+but the convention is to use a capital starting character for Clausius and in the end we do just import
+
+73
+00:05:28,590 --> 00:05:29,280
+diskless.
+
+74
+00:05:29,340 --> 00:05:33,100
+So I will add the capital of character and does control a file too.
+
+75
+00:05:33,150 --> 00:05:41,430
+And they do import a class by requiring this from the models folder from that product Chia's file with
+
+76
+00:05:41,440 --> 00:05:43,650
+an added imposed add product.
+
+77
+00:05:43,650 --> 00:05:49,710
+I will now create a new object based on this class blueprint and that is what classes are in the end.
+
+78
+00:05:49,800 --> 00:05:58,290
+They are blueprints so we'll create a new product a local content with new product and there I will
+
+79
+00:05:58,290 --> 00:06:06,460
+pass request body title and that simply takes the title I have here as a name on my input which is submitted.
+
+80
+00:06:08,680 --> 00:06:12,250
+With this we create a new product based on our CLOs.
+
+81
+00:06:12,250 --> 00:06:14,810
+Now there's one additional thing that needs to be done though.
+
+82
+00:06:14,890 --> 00:06:18,550
+I want to save debt and I can do that by calling product.
+
+83
+00:06:18,670 --> 00:06:28,100
+Save this we'll use that save method we find and it will therefore for now pushed it onto desir.
+
+84
+00:06:28,120 --> 00:06:36,100
+Now with that in get product to Osmo to fetch all products sultry the new local content products and
+
+85
+00:06:36,100 --> 00:06:40,510
+now it will use that static method because it don't want to create a new product where I would have
+
+86
+00:06:40,510 --> 00:06:44,650
+to set up some dummy title because I don't create a product here.
+
+87
+00:06:44,710 --> 00:06:48,230
+Instead I just want to use product and call fetch.
+
+88
+00:06:48,270 --> 00:06:55,000
+All this should give me all the products and now I have my products here and if I save this it should
+
+89
+00:06:55,000 --> 00:06:59,100
+now work if I go back and reload this page.
+
+90
+00:06:59,110 --> 00:07:00,160
+I get cannot read.
+
+91
+00:07:00,160 --> 00:07:02,210
+Property length.
+
+92
+00:07:02,350 --> 00:07:07,010
+That makes sense because fetch all returns this product which is incorrect.
+
+93
+00:07:07,040 --> 00:07:13,760
+It should just return products because we are returning dis array not some local property of this class.
+
+94
+00:07:13,760 --> 00:07:16,620
+There is no product's property.
+
+95
+00:07:16,660 --> 00:07:20,950
+So after fixing this and removing this down there now is very low.
+
+96
+00:07:20,950 --> 00:07:24,950
+This does works and if I now try adding a first book.
+
+97
+00:07:25,120 --> 00:07:32,330
+This again works now using a model and was does might look more complicated right now.
+
+98
+00:07:32,590 --> 00:07:35,480
+And it certainly is because we're just using our dummy storage here.
+
+99
+00:07:35,590 --> 00:07:41,260
+Does this great once you really got more complex models with more fields with more methods and where
+
+100
+00:07:41,260 --> 00:07:43,350
+you don't store them in some random array.
+
+101
+00:07:43,480 --> 00:07:49,420
+But where you got the whole database connection logic and so on to you then put that all into your model
+
+102
+00:07:49,540 --> 00:07:55,360
+and you don't have to care about it in your controller and it actually simulate this by moving away
+
+103
+00:07:55,360 --> 00:08:01,390
+from our erase storage here and move towards a file storage at least before we then later in the course
+
+104
+00:08:01,420 --> 00:08:02,800
+also use a real database.
+

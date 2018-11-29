@@ -1,0 +1,300 @@
+1
+00:00:02,970 --> 00:00:08,390
+Knouted we learned how to save files and how to return them in different ways statically.
+
+2
+00:00:08,520 --> 00:00:15,210
+As one big fall or as a streamed response let me show you a little bonus so to say where we can create
+
+3
+00:00:15,210 --> 00:00:18,230
+a PTF on the fly on the server.
+
+4
+00:00:18,330 --> 00:00:21,700
+Instead of serving that hard coded PTF you're.
+
+5
+00:00:21,930 --> 00:00:24,270
+Let me created on the fly instead.
+
+6
+00:00:24,540 --> 00:00:31,270
+So I will delete my NYC year and instead when we get the invoice for an order I don't want to serve
+
+7
+00:00:31,270 --> 00:00:38,450
+a file that already exists but I want to generate deadfall based on the real order data for that.
+
+8
+00:00:38,460 --> 00:00:43,570
+First of all will check if we have that order and if the user is allowed to access it.
+
+9
+00:00:43,770 --> 00:00:45,690
+But of course this will now change.
+
+10
+00:00:45,690 --> 00:00:49,070
+Well actually the name will be the same and I will store it in the same way.
+
+11
+00:00:49,140 --> 00:00:51,380
+But I now can't read the file.
+
+12
+00:00:51,420 --> 00:00:52,700
+I need to create it.
+
+13
+00:00:52,860 --> 00:00:55,010
+And how can we create a PTF.
+
+14
+00:00:55,440 --> 00:01:02,670
+Well there are third party packages which we can use which make it a lot easier and PTF kit is a very
+
+15
+00:01:02,820 --> 00:01:07,840
+prominent or popular package for creating PD apps on a node j s server.
+
+16
+00:01:07,890 --> 00:01:13,500
+I strongly recommend checking out their documentation to learn more about all its menu options because
+
+17
+00:01:13,500 --> 00:01:19,590
+it's super powerful it can do a lot of stuff so definitely worth having a look at this and we will use
+
+18
+00:01:19,590 --> 00:01:23,970
+it to create the very simple PTF in this course.
+
+19
+00:01:24,240 --> 00:01:29,700
+Now for documentation it's important to know that this documentation uses coffee script which is like
+
+20
+00:01:29,850 --> 00:01:31,430
+a superset to javascript.
+
+21
+00:01:31,450 --> 00:01:33,210
+It's not supported by node.
+
+22
+00:01:33,450 --> 00:01:36,560
+It's just a tooling for writing your code.
+
+23
+00:01:36,570 --> 00:01:42,330
+It's compiled back to a normal javascript and therefore this documentation can be a bit hard to read.
+
+24
+00:01:42,390 --> 00:01:49,340
+In the end you could say something like this new document here we would have curly braces after it.
+
+25
+00:01:49,720 --> 00:01:54,870
+The choir would be using curly braces so some stuff here looks a bit different but I will show you how
+
+26
+00:01:54,870 --> 00:02:01,590
+to use it in this module in this lecture actually let's start by installing it so I will simply run
+
+27
+00:02:01,770 --> 00:02:04,620
+and install dash dash save PTF kit.
+
+28
+00:02:04,740 --> 00:02:06,310
+That's the name of the package.
+
+29
+00:02:06,440 --> 00:02:12,750
+You'll find these instructions on the official page NPM install PBF kit and then we can start using
+
+30
+00:02:12,750 --> 00:02:12,960
+it.
+
+31
+00:02:12,960 --> 00:02:16,950
+Once it's installed let me start that server again.
+
+32
+00:02:19,260 --> 00:02:21,440
+And up there in my shop.
+
+33
+00:02:21,530 --> 00:02:27,670
+Control or file all import PTF kit by requiring PTF kit.
+
+34
+00:02:27,900 --> 00:02:35,040
+So this package we just installed actually pedia of kit expose's PTF document constructor.
+
+35
+00:02:35,080 --> 00:02:36,610
+So let's maybe name it like this.
+
+36
+00:02:36,710 --> 00:02:38,440
+So PTF document.
+
+37
+00:02:38,480 --> 00:02:43,870
+The name is up to you but this is closer to what this package really exposes.
+
+38
+00:02:43,880 --> 00:02:46,000
+Now I want to create a new PTF document.
+
+39
+00:02:46,040 --> 00:02:50,230
+When we get in Weisse at this point here.
+
+40
+00:02:50,420 --> 00:02:58,230
+So let's create a new PDA with Doc whatever you want to name it by calling new PTF document and that's
+
+41
+00:02:58,230 --> 00:02:58,700
+what I meant.
+
+42
+00:02:58,740 --> 00:03:03,190
+You need to add normal parentheses as you always did for all constructors.
+
+43
+00:03:03,600 --> 00:03:05,790
+So now we have an UPDF document.
+
+44
+00:03:08,420 --> 00:03:14,090
+Does actually also turns out to be a readable stream.
+
+45
+00:03:14,140 --> 00:03:17,970
+Therefore what we can do here is we can use the PDAF document.
+
+46
+00:03:17,990 --> 00:03:19,490
+We can do two things.
+
+47
+00:03:19,570 --> 00:03:25,760
+First of all we pipe does output into ridable followed stream.
+
+48
+00:03:25,780 --> 00:03:31,690
+So create write stream as a function we can call on the file system package and two that we pass a path
+
+49
+00:03:31,770 --> 00:03:34,230
+where we want to write it to the invoice Poth.
+
+50
+00:03:34,240 --> 00:03:41,230
+In my case and this ensures that PTF we generate here all gets stored on the server and not just serve
+
+51
+00:03:41,230 --> 00:03:42,250
+to the client.
+
+52
+00:03:42,460 --> 00:03:49,940
+So we create debt and of course all of them want to return it to the client.
+
+53
+00:03:49,990 --> 00:03:54,230
+So all also piped the output into my response just as before.
+
+54
+00:03:54,250 --> 00:04:00,430
+The responses are ridable read stream PTF talk is a readable one so we can do that.
+
+55
+00:04:00,550 --> 00:04:06,400
+Now we have this set up and now whatever we add to the document will be forwarded into this file which
+
+56
+00:04:06,400 --> 00:04:10,550
+gets generated on the fly and into our response.
+
+57
+00:04:10,560 --> 00:04:17,130
+Now let's start simple and let's now use pedia of Doc and that's called the text method which exists.
+
+58
+00:04:17,190 --> 00:04:22,060
+This allows us to add a single line of text into the PDAF document.
+
+59
+00:04:22,090 --> 00:04:25,970
+So here let's add hello world maybe.
+
+60
+00:04:26,230 --> 00:04:31,900
+And then you have to call PTF Dawk to tell node when you're done writing to that stream because you
+
+61
+00:04:31,900 --> 00:04:33,650
+have to be done at some point right.
+
+62
+00:04:33,670 --> 00:04:36,160
+So here you simply call and.
+
+63
+00:04:36,400 --> 00:04:43,390
+And when you call and DS ridable streams for creating a file and for sending a response will be closed.
+
+64
+00:04:43,390 --> 00:04:48,490
+So to say or we'll know that you are done writing and therefore to follow the saved them to a response
+
+65
+00:04:48,490 --> 00:04:50,170
+will be sent.
+
+66
+00:04:50,290 --> 00:04:56,210
+And now with that saved just make sure you all change your set up down there at the bottom.
+
+67
+00:04:56,230 --> 00:05:02,820
+I will keep the headers but I will not pipe and you file because we now will pipe the file up there
+
+68
+00:05:02,830 --> 00:05:03,800
+when we create it.
+
+69
+00:05:03,880 --> 00:05:07,180
+And I just need to make sure that I set my response hetero's accordingly.
+
+70
+00:05:07,540 --> 00:05:13,390
+Now with that if you save debt and you click on that in Weisse link you should get a PTF with hello
+
+71
+00:05:13,390 --> 00:05:17,260
+world in there and this PTF also can be found here.
+
+72
+00:05:18,100 --> 00:05:22,730
+It might look a bit strange here but you can open it with a normal PDA reader and it sure looked like
+
+73
+00:05:22,730 --> 00:05:23,550
+a PDA.
+
+74
+00:05:23,840 --> 00:05:26,440
+So this is how you can create a PDA on the fly.
+
+75
+00:05:26,550 --> 00:05:29,630
+Now the next lecture Let's actually populated with some order data.
+

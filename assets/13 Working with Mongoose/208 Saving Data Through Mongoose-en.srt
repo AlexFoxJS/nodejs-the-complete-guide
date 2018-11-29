@@ -1,0 +1,344 @@
+1
+00:00:02,080 --> 00:00:04,510
+So we got a data definition defined.
+
+2
+00:00:04,570 --> 00:00:05,950
+We got a loop.
+
+3
+00:00:06,070 --> 00:00:13,920
+We got a schema for our product mongoose now also works with so-called models and the model is also
+
+4
+00:00:13,940 --> 00:00:15,200
+what we export here.
+
+5
+00:00:15,220 --> 00:00:17,520
+So I can always say module exports.
+
+6
+00:00:17,620 --> 00:00:22,060
+And now what I want to export is mongooses model.
+
+7
+00:00:22,060 --> 00:00:28,750
+No model is a function I call in a model basically is important for mongoose behind the scenes to connect
+
+8
+00:00:28,900 --> 00:00:32,770
+a schema a blueprint with a name basically.
+
+9
+00:00:32,920 --> 00:00:38,290
+So here you give that model a name and that name here would be product typically you name it here like
+
+10
+00:00:38,290 --> 00:00:43,660
+this with a capital starting character and then simply just well the name of the entity does reflect
+
+11
+00:00:43,720 --> 00:00:46,510
+in your project or in your application.
+
+12
+00:00:46,510 --> 00:00:51,910
+The second argument then is to schemas on Mike has that product schema we find and this model is what
+
+13
+00:00:51,910 --> 00:00:57,280
+I export because this model is what will work with in our code.
+
+14
+00:00:57,280 --> 00:01:05,470
+So with that model defined here we can now move over to the admin controller where we have post at product
+
+15
+00:01:05,500 --> 00:01:10,630
+what we do is save a new product and there indeed one to treat a new product.
+
+16
+00:01:10,630 --> 00:01:14,000
+And then I want to be able to save that now.
+
+17
+00:01:14,090 --> 00:01:18,390
+For that we can basically keep the code we have here.
+
+18
+00:01:18,640 --> 00:01:25,720
+We still import product from our models folder from the product file because I do export a model here
+
+19
+00:01:26,020 --> 00:01:33,510
+and we can basically use that just in the way I used to hear one adjustment is required though to the
+
+20
+00:01:33,510 --> 00:01:34,970
+product constructor.
+
+21
+00:01:35,040 --> 00:01:38,220
+We don't pass multiple arguments like this.
+
+22
+00:01:38,220 --> 00:01:45,030
+Instead we've had one argument only and that one argument is a javascript object where we map the different
+
+23
+00:01:45,030 --> 00:01:47,240
+values we find in our schema.
+
+24
+00:01:47,250 --> 00:01:53,710
+So here I would map the title to the title and you basically now have to go through all the fields you
+
+25
+00:01:53,710 --> 00:01:55,030
+defined in the schema.
+
+26
+00:01:55,030 --> 00:01:58,690
+Order does not matter though since it's a javascript object.
+
+27
+00:01:58,690 --> 00:02:07,900
+So you then map let's say Prize to as you map description to description and you map the image you are
+
+28
+00:02:07,900 --> 00:02:14,500
+able to image you are l and just in case you're wondering the part on the right side of the colon.
+
+29
+00:02:14,520 --> 00:02:21,970
+So tidal apprized description image or L refers to the data you receive in your controller action and
+
+30
+00:02:21,970 --> 00:02:27,170
+the part on the left side of the colon refers to the Keys you defined in your schema.
+
+31
+00:02:27,190 --> 00:02:34,760
+So to these things and now is this this creates a new product based on our model and they are for a
+
+32
+00:02:34,760 --> 00:02:41,300
+product managed by mongooses you could say and indeed such a product happens to have such a model happens
+
+33
+00:02:41,300 --> 00:02:44,740
+to have a safe method now provided by mongooses.
+
+34
+00:02:44,810 --> 00:02:45,900
+That's really important.
+
+35
+00:02:45,920 --> 00:02:49,100
+This is not defined by us and the product model.
+
+36
+00:02:49,160 --> 00:02:53,080
+We define those same method we did before but this is commented out.
+
+37
+00:02:53,210 --> 00:02:58,860
+So we're not defining a Save method this Save method here is coming from mongooses.
+
+38
+00:02:59,240 --> 00:03:01,510
+And then we can indeed call then on that.
+
+39
+00:03:01,610 --> 00:03:06,040
+Technically we don't get a promise but mongooses still gives us a method.
+
+40
+00:03:06,140 --> 00:03:14,680
+It also still gives us a catch method we can call and therefore this code should actually continue to
+
+41
+00:03:14,680 --> 00:03:15,630
+work.
+
+42
+00:03:15,640 --> 00:03:17,340
+Let's see if that is the case.
+
+43
+00:03:17,380 --> 00:03:25,630
+And let's head over to our application and click on Add product now I do get an error from actually
+
+44
+00:03:25,630 --> 00:03:29,400
+yes because they're I of course still use my user model.
+
+45
+00:03:29,440 --> 00:03:34,570
+Let me comment that out and let me comment it out here let me comment out that entire middleware for
+
+46
+00:03:34,570 --> 00:03:38,320
+now we have no user and other wise all requests will break for now.
+
+47
+00:03:38,350 --> 00:03:45,160
+Let's remove all that user related stuff and the asphalt does middle or end user model port and with
+
+48
+00:03:45,160 --> 00:03:48,930
+that removed Let's try reloading that at product page.
+
+49
+00:03:49,130 --> 00:03:51,820
+And obviously we need to import the route again.
+
+50
+00:03:51,830 --> 00:03:55,300
+So we should do that not only to get out but also the post route.
+
+51
+00:03:55,310 --> 00:04:02,880
+So make sure you read at both admin and product routes as opposed to wrong one does one is required.
+
+52
+00:04:04,640 --> 00:04:12,070
+So make sure you have to get the post product route EDID again because we manipulated DS to admin control
+
+53
+00:04:12,070 --> 00:04:14,110
+or actions and now with debt.
+
+54
+00:04:14,150 --> 00:04:17,280
+Finally if I click on Add product this works.
+
+55
+00:04:17,700 --> 00:04:24,570
+And now let's test this let's test test product with some fries some image.
+
+56
+00:04:24,860 --> 00:04:26,780
+Does does work.
+
+57
+00:04:26,780 --> 00:04:28,280
+Click Add product.
+
+58
+00:04:28,280 --> 00:04:33,960
+We get a page not found because we can't load any other pages that is OK in the code.
+
+59
+00:04:34,010 --> 00:04:35,190
+Ican see an error.
+
+60
+00:04:35,210 --> 00:04:37,660
+But I've got to create a product which looks good.
+
+61
+00:04:38,020 --> 00:04:40,100
+And in Kompas let's refresh.
+
+62
+00:04:40,100 --> 00:04:44,630
+By clicking that I can pop left and I connected to the wrong you are l.
+
+63
+00:04:44,630 --> 00:04:45,840
+I'll fix that.
+
+64
+00:04:45,920 --> 00:04:49,280
+Therefore I'm connected to the test database instead of the shop database.
+
+65
+00:04:49,280 --> 00:04:50,860
+But theoretically it worked.
+
+66
+00:04:50,870 --> 00:04:56,360
+Theoretically we get a product collection with the product at it now whereas the product collection
+
+67
+00:04:56,360 --> 00:05:01,040
+coming from you might be wondering by the way because we never defined that name well.
+
+68
+00:05:01,070 --> 00:05:08,210
+Mongoose takes your model name so product turns to all lowercase and takes the plural form off that
+
+69
+00:05:08,360 --> 00:05:10,520
+and that will then be used as a collection name.
+
+70
+00:05:10,520 --> 00:05:17,420
+So this is why our product here has a great impact because it was used for naming this collection.
+
+71
+00:05:17,510 --> 00:05:19,350
+And here we see the data we entered.
+
+72
+00:05:19,460 --> 00:05:20,260
+So it is working.
+
+73
+00:05:20,270 --> 00:05:21,290
+That's all great.
+
+74
+00:05:21,320 --> 00:05:28,440
+I will still drop this collection of your and quickly fix my connection settings in Aperture.
+
+75
+00:05:28,440 --> 00:05:31,260
+Yes at the bottom of the file here.
+
+76
+00:05:31,310 --> 00:05:33,380
+I do connect to the tested Abbas.
+
+77
+00:05:33,410 --> 00:05:34,810
+I don't want to do that.
+
+78
+00:05:34,970 --> 00:05:37,510
+All connect to the shop database instead.
+
+79
+00:05:37,550 --> 00:05:40,960
+Just as we did it before and with this tiny change.
+
+80
+00:05:41,090 --> 00:05:47,180
+If I now go back to my application and I try adding this again a book.
+
+81
+00:05:47,270 --> 00:05:50,030
+Now let's use that book you are used before
+
+82
+00:05:52,630 --> 00:05:55,360
+must read and click add product.
+
+83
+00:05:55,360 --> 00:06:01,210
+Now this still works in the same way it did before but now with a refresh here my data is safeness shop
+
+84
+00:06:01,290 --> 00:06:03,560
+database and they're in a product collection.
+
+85
+00:06:03,790 --> 00:06:05,380
+So this is looking really good.
+
+86
+00:06:05,380 --> 00:06:08,170
+We're now able to save data through mongoose.
+

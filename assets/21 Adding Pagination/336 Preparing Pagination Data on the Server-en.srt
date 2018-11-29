@@ -1,0 +1,168 @@
+1
+00:00:02,440 --> 00:00:08,900
+We are able to skip and limit the amount of items we fetch and we can't control that with Kuri parameters.
+
+2
+00:00:09,100 --> 00:00:13,840
+But my buttons are hard coded right now and that is not ideal of course.
+
+3
+00:00:13,840 --> 00:00:20,610
+Instead it robber one to you maybe highlight the page I'm currently on and then show the next page number
+
+4
+00:00:20,690 --> 00:00:24,180
+or previous page number Florida's.
+
+5
+00:00:24,210 --> 00:00:26,340
+I need to fetch more information.
+
+6
+00:00:27,130 --> 00:00:34,060
+I will find by products and call count here and I can also add then and catch.
+
+7
+00:00:34,360 --> 00:00:39,080
+The important thing is I don't need catch because I'll concatenate my promised change later.
+
+8
+00:00:39,190 --> 00:00:43,920
+The important thing here is discipline now not to read all the products but simply just a number.
+
+9
+00:00:44,080 --> 00:00:50,770
+So a number of products is what I get back into a van block function year and in that function I don't
+
+10
+00:00:50,830 --> 00:00:59,450
+want to kick off my request where I really do fetch all the data so will return product find in here.
+
+11
+00:01:01,040 --> 00:01:04,860
+With Skip and limit change after it that's important.
+
+12
+00:01:05,060 --> 00:01:06,560
+And then I'll add.
+
+13
+00:01:06,620 --> 00:01:08,050
+Then block to continue.
+
+14
+00:01:08,050 --> 00:01:13,520
+So first of all find to count then I have this number of products here and then I kick off my normal
+
+15
+00:01:13,520 --> 00:01:19,900
+find method where I don't really fetch the items and I skip and limit them here.
+
+16
+00:01:19,900 --> 00:01:33,390
+I'll add a variable total items and all set total items equal to name products in here.
+
+17
+00:01:33,600 --> 00:01:40,440
+So now I will have the total number of products stored in that variable here and what I render the index
+
+18
+00:01:40,440 --> 00:01:41,250
+page.
+
+19
+00:01:41,330 --> 00:01:49,790
+Then I want to return that information as well so not just the products but also total products and
+
+20
+00:01:49,820 --> 00:01:57,190
+that will be total items so that will be a number in the end and also once you pass the information
+
+21
+00:01:57,310 --> 00:02:03,850
+wherever there is a next page so maybe Ahaz next page which only will be the case if the total number
+
+22
+00:02:03,910 --> 00:02:07,690
+of items is greater than the page we are on.
+
+23
+00:02:07,690 --> 00:02:09,260
+Times the items per page.
+
+24
+00:02:09,370 --> 00:02:10,960
+So we have a next page.
+
+25
+00:02:11,140 --> 00:02:19,360
+If items per page Times page is smaller than total items because if we have 10 total items and we are
+
+26
+00:02:19,360 --> 00:02:26,950
+on page 4 then we have 2 times for 8 items which we are seeing or which we saw.
+
+27
+00:02:27,050 --> 00:02:31,190
+We have 10 left so there will be a next page simultaneously.
+
+28
+00:02:31,210 --> 00:02:37,690
+I can add has a previous page here where I can simply return the information whether the current page
+
+29
+00:02:37,690 --> 00:02:39,490
+is greater than 1.
+
+30
+00:02:40,030 --> 00:02:45,520
+If that is true then there is this page because there will be page one that is false because we are
+
+31
+00:02:45,520 --> 00:02:46,550
+on page one already.
+
+32
+00:02:46,570 --> 00:02:50,220
+Well then there is no previous page because we can't go lower than one.
+
+33
+00:02:50,730 --> 00:02:57,170
+I can also return some extra information like the next page and that will be Page Plus one of course
+
+34
+00:02:57,500 --> 00:03:05,390
+if we are on page 1 the next page would be page 2 and previous page would be page minus one.
+
+35
+00:03:05,400 --> 00:03:17,140
+Obviously we can also add last page to have a way of displaying the highest page number that is Marth
+
+36
+00:03:18,650 --> 00:03:19,880
+seal.
+
+37
+00:03:20,270 --> 00:03:24,270
+Total items divided by items per page.
+
+38
+00:03:24,320 --> 00:03:31,670
+So if we have let's say 11 total items and we have items per page or to then the result would be 5 dot
+
+39
+00:03:32,040 --> 00:03:37,910
+5 and then Moff seal would return us 6 which would be the correct value because we would need 6 pages
+
+40
+00:03:37,910 --> 00:03:39,920
+to display all 11 items.
+
+41
+00:03:39,920 --> 00:03:47,060
+If we show 2 items per page so not passing all that information to my products page to my index page
+
+42
+00:03:47,060 --> 00:03:49,970
+here to be precise and there I now want to use it.
+

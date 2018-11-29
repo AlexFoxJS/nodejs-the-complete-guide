@@ -1,0 +1,176 @@
+1
+00:00:02,110 --> 00:00:04,590
+That was a lot of content on graph QOL.
+
+2
+00:00:04,650 --> 00:00:09,420
+And as I mentioned you could fill an entire course just on graph 2l.
+
+3
+00:00:09,610 --> 00:00:15,730
+And indeed there are courses on it do you official docs on graph Cuil dot org are a great place to dive
+
+4
+00:00:15,730 --> 00:00:17,830
+deeper because they're really good.
+
+5
+00:00:17,830 --> 00:00:23,170
+And there you can learn more about all the features graphical offers including its more advanced features
+
+6
+00:00:23,800 --> 00:00:25,570
+in this introductory module.
+
+7
+00:00:25,570 --> 00:00:31,270
+I hopefully gave you a good overview over the graphical core concepts and how you built a graphical
+
+8
+00:00:31,300 --> 00:00:32,790
+API with Node.
+
+9
+00:00:32,860 --> 00:00:40,540
+And in this case with the express chase framework you'll learn that graphical allows you or is a technique
+
+10
+00:00:40,570 --> 00:00:47,380
+to build a stateless client independent API just as we did with the rest API but that it offers a higher
+
+11
+00:00:47,380 --> 00:00:54,810
+flexibility than the rest API eyes typically do because you expose a custom very language to your client.
+
+12
+00:00:54,970 --> 00:01:00,550
+A gradual API is made up of queries which you would compare to your get requests and rest.
+
+13
+00:01:00,550 --> 00:01:08,560
+API is mutations dad would be your post port patch and delete requests in rest of your eyes and possibly
+
+14
+00:01:08,560 --> 00:01:09,810
+all subscriptions.
+
+15
+00:01:09,820 --> 00:01:12,040
+Something I didn't cover in this module.
+
+16
+00:01:12,090 --> 00:01:16,950
+You use these constructs to exchange data and to manage data.
+
+17
+00:01:17,170 --> 00:01:23,470
+And the important and characteristic thing about graft UL API eyes is dead.
+
+18
+00:01:23,470 --> 00:01:30,520
+They only expose one end point to the client and that is post requests to slash graphics.
+
+19
+00:01:30,530 --> 00:01:35,320
+Well typically it has to be a post request though that is something you can't avoid.
+
+20
+00:01:35,590 --> 00:01:42,130
+And all requests are directed there and then in the request body off that post request you use digraph
+
+21
+00:01:42,180 --> 00:01:46,190
+you all Kuri language to describe the query you want to execute.
+
+22
+00:01:46,270 --> 00:01:52,740
+Or the mutation you want to execute does server parses that incoming query expression and then calls
+
+23
+00:01:52,750 --> 00:01:58,050
+the appropriate resolvers to execute the logic you wrote and returned the appropriate data.
+
+24
+00:01:58,120 --> 00:02:05,120
+Or do the appropriate manipulation graph Q L and that is all important is of course not limited to react.
+
+25
+00:02:05,120 --> 00:02:07,000
+You asked for on today applications.
+
+26
+00:02:07,000 --> 00:02:13,150
+You can use it with any front end application needed a mobile app a single page app with any framework
+
+27
+00:02:13,270 --> 00:02:14,650
+or what ever you have.
+
+28
+00:02:14,650 --> 00:02:16,900
+It's not limited to react.
+
+29
+00:02:17,170 --> 00:02:24,070
+Now when we compare it to rest then we have to understand that recipes are not strictly worse.
+
+30
+00:02:24,130 --> 00:02:28,130
+They might still be the perfect solution for your next project.
+
+31
+00:02:28,150 --> 00:02:34,200
+They are especially great for static data requirements so you don't need that additional flexibility.
+
+32
+00:02:34,270 --> 00:02:41,890
+And then you have a very clearly structured and explicit way of defining your endpoints and defining
+
+33
+00:02:42,130 --> 00:02:43,420
+the possibilities.
+
+34
+00:02:43,450 --> 00:02:50,620
+Your API offers so for file uploads or scenarios where you simply don't need that flexibility because
+
+35
+00:02:50,620 --> 00:02:53,000
+you always get the same kind of data.
+
+36
+00:02:53,080 --> 00:02:59,260
+There rest your eyes might still be the perfect solution and now there is graft you might be better
+
+37
+00:02:59,320 --> 00:03:05,750
+because you get a higher flexibility due to dead x post for very long which your client can use.
+
+38
+00:03:05,890 --> 00:03:12,790
+And I also want to highlight that bouffe rest and Rathcoole API eyes can be implemented with any framework
+
+39
+00:03:12,910 --> 00:03:16,920
+and actually even with any server side language you are not limited to.
+
+40
+00:03:16,930 --> 00:03:18,730
+No genius at all.
+
+41
+00:03:18,730 --> 00:03:19,710
+No genius.
+
+42
+00:03:19,810 --> 00:03:24,370
+You are of course not limited to express and that is really important.
+
+43
+00:03:24,370 --> 00:03:30,040
+The core concepts you learned here and a lot of the logic you applied will actually be the same no matter
+
+44
+00:03:30,040 --> 00:03:34,010
+which framework you use or no matter which server side language you use.
+

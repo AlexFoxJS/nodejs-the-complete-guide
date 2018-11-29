@@ -1,0 +1,252 @@
+1
+00:00:02,320 --> 00:00:06,470
+Now and we briefly walked through NPM and what we use it for.
+
+2
+00:00:06,640 --> 00:00:09,630
+Let's bring something back into our memory note.
+
+3
+00:00:09,640 --> 00:00:16,090
+J.S. indice course was primarily used to spin up a web server and write code that runs on the server
+
+4
+00:00:16,090 --> 00:00:23,280
+side and that is indeed the main thing you do with no TS When you write your own notorious apps.
+
+5
+00:00:23,410 --> 00:00:29,320
+But we have to remember that theoretically you can run any javascript code with no genius and specifically
+
+6
+00:00:29,320 --> 00:00:32,360
+you can also interact with your local file system.
+
+7
+00:00:32,380 --> 00:00:34,580
+You can read and write files after all.
+
+8
+00:00:34,870 --> 00:00:39,220
+And that opens up a new door a new opportunity.
+
+9
+00:00:39,220 --> 00:00:46,900
+We could use no chance to execute utility's scripts that for example parse certain files manipulate
+
+10
+00:00:46,900 --> 00:00:53,460
+the content and output the manipulated content back into the original file or into a new file.
+
+11
+00:00:53,560 --> 00:00:59,800
+And that is the idea behind so-called built tools and that is something notorious awls as capable of
+
+12
+00:00:59,800 --> 00:01:01,090
+being used for.
+
+13
+00:01:01,660 --> 00:01:08,680
+And it's important pointing out here that when we talk about built tooling and build workflows we mostly
+
+14
+00:01:08,680 --> 00:01:16,900
+talk about front end web development like for example with our re-act application here this re-act application
+
+15
+00:01:16,900 --> 00:01:24,430
+is not a node JSA app but still we use a package adjacent fall and we use NPM to install packages.
+
+16
+00:01:24,430 --> 00:01:31,240
+These packages are all holding code that runs in the browser though and in the end the code we write
+
+17
+00:01:31,240 --> 00:01:34,400
+here in the source folder will also end up in the browser.
+
+18
+00:01:34,420 --> 00:01:40,780
+But let me point out that the way we write it here would not run in browsers at least not in all browsers.
+
+19
+00:01:41,020 --> 00:01:47,920
+For example we are splitting our javascript code here across multiple files and we're using it as module
+
+20
+00:01:48,070 --> 00:01:51,760
+import syntax for merging these files together.
+
+21
+00:01:51,760 --> 00:01:58,990
+Now this does not natively work in all browsers only in very modern browsers and therefore it does is
+
+22
+00:01:58,990 --> 00:02:02,140
+indeed not the code that will end up in the browser.
+
+23
+00:02:02,140 --> 00:02:03,810
+Does this code we work with.
+
+24
+00:02:03,880 --> 00:02:11,440
+But we use a built tool build workflow which is stardate during development with NPM start and for production
+
+25
+00:02:11,440 --> 00:02:18,280
+with NPM run build this build workflow we'll take our code and kind of merge it together and transform
+
+26
+00:02:18,280 --> 00:02:21,770
+it into code that runs in older browsers too.
+
+27
+00:02:21,940 --> 00:02:30,130
+And that is also minute fight and optimized because that's all important we use build tools to optimize
+
+28
+00:02:30,130 --> 00:02:30,970
+our code.
+
+29
+00:02:31,000 --> 00:02:33,230
+We might write code that looks like this.
+
+30
+00:02:33,250 --> 00:02:35,920
+That is indeed how our code looks like into react.
+
+31
+00:02:36,010 --> 00:02:37,000
+I just showed you.
+
+32
+00:02:37,300 --> 00:02:40,330
+But as I mentioned this does not run in all browsers.
+
+33
+00:02:40,330 --> 00:02:43,910
+And even if it would it would be very large in the browser.
+
+34
+00:02:43,930 --> 00:02:47,560
+Since all the code has to be downloaded by your users before it runs.
+
+35
+00:02:47,680 --> 00:02:52,140
+And that's different on the server there decode sits on the server and that's it in the browser.
+
+36
+00:02:52,150 --> 00:02:57,730
+The code has to be downloaded and therefore you want to keep it as small as possible so that your app
+
+37
+00:02:57,760 --> 00:03:01,810
+and your javascript code in the browser starts as quickly as possible.
+
+38
+00:03:02,080 --> 00:03:07,630
+Therefore we want to end up with optimized code and the idea here is that we also have code that is
+
+39
+00:03:07,630 --> 00:03:14,550
+not only too big but dad is using next gen features like here to spread operator or aero functions and
+
+40
+00:03:14,550 --> 00:03:18,370
+we want to work this to code that runs an older browsers too.
+
+41
+00:03:18,370 --> 00:03:24,310
+And that is like an example optimized code which is shorter we use less characters and therefore the
+
+42
+00:03:24,310 --> 00:03:29,280
+code is shorter and it also does not use next generation javascript features.
+
+43
+00:03:29,480 --> 00:03:35,140
+And that is the idea and as I mentioned it's primarily important for Front-End development because they're
+
+44
+00:03:35,230 --> 00:03:37,960
+not all browsers support the next features.
+
+45
+00:03:37,960 --> 00:03:41,770
+And we want to keep our code as small as possible.
+
+46
+00:03:41,830 --> 00:03:45,680
+That does not really matter that much on the server side.
+
+47
+00:03:45,700 --> 00:03:47,050
+So that is the idea.
+
+48
+00:03:47,080 --> 00:03:49,650
+That is what we can use node in and plan for.
+
+49
+00:03:49,780 --> 00:03:55,560
+Because if we go back to our re-act project we want to convert dat code into our optimized work.
+
+50
+00:03:55,890 --> 00:04:02,770
+And if you run NPM run built in your project here you actually start such a production of workflow which
+
+51
+00:04:02,770 --> 00:04:06,050
+means now it's creating an optimized production bundle.
+
+52
+00:04:06,250 --> 00:04:12,360
+And this is all done by NPM which started the script and by node.
+
+53
+00:04:12,760 --> 00:04:19,000
+And here it completed and now indeed if we look into this build fuller this now holds our app code.
+
+54
+00:04:19,030 --> 00:04:20,740
+So the code we wrote and source.
+
+55
+00:04:20,800 --> 00:04:27,670
+But in an optimized way they are in the static folder we have javascript code and if we look into that
+
+56
+00:04:28,070 --> 00:04:30,030
+this in the end is our code.
+
+57
+00:04:30,070 --> 00:04:36,540
+Just many fight a lot and therefore it's pretty hard to read but it's our code and this code is not
+
+58
+00:04:36,540 --> 00:04:43,330
+just very condensed and only contains current gen javascript logic so logic that runs in all the browsers
+
+59
+00:04:43,330 --> 00:04:46,570
+to do is of course not the code we would like to write.
+
+60
+00:04:46,570 --> 00:04:53,050
+It's very hard to dig through that but it is to code want to output and we use NPM and node to transform
+
+61
+00:04:53,050 --> 00:04:53,640
+our code.
+
+62
+00:04:53,650 --> 00:04:55,650
+That's the idea behind built tooling.
+
+63
+00:04:55,900 --> 00:04:59,740
+And now let's have a closer look at how NPM and node can help us with that.
+

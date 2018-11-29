@@ -1,0 +1,248 @@
+1
+00:00:02,170 --> 00:00:09,940
+You probably do notice that we do repeat a base structure in all our files here and that of course is
+
+2
+00:00:09,940 --> 00:00:12,450
+a bit annoying that we manually have to do that.
+
+3
+00:00:12,460 --> 00:00:19,510
+For example this base set up and all of the import of main C S S as well as the header is part of every
+
+4
+00:00:19,570 --> 00:00:27,460
+single page and therefore it's a bit cumbersome if we manually have to repeat this set up where to import
+
+5
+00:00:27,550 --> 00:00:28,500
+all the time.
+
+6
+00:00:28,510 --> 00:00:31,180
+So what can we do regarding that.
+
+7
+00:00:31,330 --> 00:00:38,560
+We can create a so-called layout for it is all true then you subfolder in views which are name layouts.
+
+8
+00:00:38,570 --> 00:00:42,080
+In case you might have multiple ones and I'll add a main layout.
+
+9
+00:00:42,170 --> 00:00:43,670
+Poch file.
+
+10
+00:00:43,670 --> 00:00:50,420
+Now I'll take my ADD where my shop Poch fall or maybe 4 or 4 which is the most minimal one and copy
+
+11
+00:00:50,420 --> 00:00:53,810
+that file content into main layout.
+
+12
+00:00:53,810 --> 00:00:59,810
+Now of course we get some elements here which are dynamic now which depend on the page and want to use.
+
+13
+00:00:59,810 --> 00:01:04,210
+And the question is how can we reuse this skeleton anyways.
+
+14
+00:01:04,280 --> 00:01:11,930
+Well we can extend this layout from inside our Obert POC views and we can actually to find some placeholders
+
+15
+00:01:11,960 --> 00:01:16,620
+some hooks in this layout where you can then enter their content.
+
+16
+00:01:16,640 --> 00:01:21,330
+For example here in the links we get a base layout which looks like this.
+
+17
+00:01:21,500 --> 00:01:24,670
+But in over the use that should extend this layout.
+
+18
+00:01:24,740 --> 00:01:28,820
+They Majdi was disallowed and add more leagues in this place.
+
+19
+00:01:29,120 --> 00:01:35,090
+We can find such a hook by adding the block keyword which POC understands and then defining any name
+
+20
+00:01:35,090 --> 00:01:37,730
+of our choice styles for example.
+
+21
+00:01:37,850 --> 00:01:42,780
+Now we will be able to add more styles from inside our files here.
+
+22
+00:01:42,860 --> 00:01:46,070
+And I will show you how to add this in a second.
+
+23
+00:01:46,130 --> 00:01:49,230
+I also want to remove that active link here.
+
+24
+00:01:49,490 --> 00:01:56,630
+By the way also for potful because I have no assumption about what's active and it will show you how
+
+25
+00:01:56,630 --> 00:01:59,290
+to then magically set this in a second too.
+
+26
+00:01:59,630 --> 00:02:02,900
+Now the content below the header also is dynamic.
+
+27
+00:02:03,200 --> 00:02:05,470
+And here I again will reserve a block.
+
+28
+00:02:05,510 --> 00:02:09,460
+So a hook which will name content and the name again is up to you.
+
+29
+00:02:09,800 --> 00:02:15,650
+So now we get this basically out with two hooks we can dynamically enter content into from inside our
+
+30
+00:02:15,820 --> 00:02:17,580
+profiles.
+
+31
+00:02:17,600 --> 00:02:22,300
+Now lets start with the 4 0 4 PAC page here there.
+
+32
+00:02:22,720 --> 00:02:30,960
+I will just copy that content that matters to me and remove the entire rest and we can now extend DeLay
+
+33
+00:02:30,960 --> 00:02:38,140
+out by adding d extends keyword which understands and now we just to point at the layout for that.
+
+34
+00:02:38,190 --> 00:02:42,730
+We have the layouts folder and we want to use the main layout file in there.
+
+35
+00:02:43,630 --> 00:02:45,480
+We have to add here too.
+
+36
+00:02:45,560 --> 00:02:48,590
+So now we're telling Pakhtun we want to extend this.
+
+37
+00:02:48,940 --> 00:02:55,450
+And now we just have to tell it what to render in that content and maybe also in that stylus hook we
+
+38
+00:02:55,450 --> 00:03:01,510
+defined for a stouts I don't need any special setting here but for the content block I want to enter
+
+39
+00:03:01,510 --> 00:03:08,890
+my own custom content and I do this by again typing block content but now I extend a layout this will
+
+40
+00:03:08,890 --> 00:03:15,030
+not define a hook but actually allow me to add content in that layout and then indented here.
+
+41
+00:03:15,130 --> 00:03:20,320
+I define what should be injected into the content block in the layout.
+
+42
+00:03:20,320 --> 00:03:28,600
+So in this place with that if I saved it and I enter some random lbf which doesn't exist I still get
+
+43
+00:03:28,600 --> 00:03:36,480
+page not found but now behind the scenes this actually uses my layout and we can of course do the same
+
+44
+00:03:37,500 --> 00:03:46,170
+on the pages like ad product there let's also for now keep the content so that we can copy and paste
+
+45
+00:03:46,470 --> 00:03:49,260
+content over into our new layout.
+
+46
+00:03:49,260 --> 00:03:52,810
+So we extend main layout pointing at the layout file.
+
+47
+00:03:53,040 --> 00:04:02,160
+And here I will add something to the content but also into my Stout's block and we do that by simply
+
+48
+00:04:02,190 --> 00:04:10,170
+typing block Stultz here and then indent did we add what we want to add and these are these two lines
+
+49
+00:04:10,200 --> 00:04:14,980
+because these are the two style imports which are not part of the default layout.
+
+50
+00:04:15,150 --> 00:04:22,560
+So let's add them here in the styles block and then we have to either block the content block this one
+
+51
+00:04:23,130 --> 00:04:25,990
+where I want to enter my own content.
+
+52
+00:04:26,020 --> 00:04:33,400
+So for that I will copy the entire part in the main section or the entire main section actually like
+
+53
+00:04:33,400 --> 00:04:40,880
+this carrot and move it over and replace this age one tackier and make sure the intonation is correct.
+
+54
+00:04:40,960 --> 00:04:49,120
+And now we can remove the entire rest here and we should now have a file that does extend our layout
+
+55
+00:04:50,560 --> 00:04:57,220
+and therefore still looks the way it looked before but now it uses is way more concise approach which
+
+56
+00:04:57,220 --> 00:05:02,510
+also ensures that if we ever change something to the layout we don't have to change it at all the files
+
+57
+00:05:02,650 --> 00:05:08,430
+but only in that main layout file and the our files since they extended will automatically get it.
+
+58
+00:05:08,440 --> 00:05:13,780
+So let's say if this let's go to add product and this looks good styling is good.
+
+59
+00:05:13,780 --> 00:05:21,390
+So all these styles are imported as you can see and it looks like before almost We got this act of KLOS
+
+60
+00:05:21,400 --> 00:05:25,030
+missing we don't see that D at product link as the act of one.
+
+61
+00:05:25,180 --> 00:05:29,490
+And that makes sense because in the main layout we make no assumption what is active.
+
+62
+00:05:29,500 --> 00:05:32,710
+So the question is how can we dynamically set this.
+

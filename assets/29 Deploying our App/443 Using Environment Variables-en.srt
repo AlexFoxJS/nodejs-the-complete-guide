@@ -1,0 +1,544 @@
+1
+00:00:02,250 --> 00:00:07,480
+Know author debt theory let's go back to our project and this is our shop.
+
+2
+00:00:07,500 --> 00:00:11,180
+So does this not the rest API does not grant you an API.
+
+3
+00:00:11,300 --> 00:00:13,670
+This is a shop as we built it.
+
+4
+00:00:13,890 --> 00:00:19,780
+And you can find this snapshot of it attached to this lecture now in there.
+
+5
+00:00:19,830 --> 00:00:25,440
+Let's first of all explored that environment variables thing I was talking about and we can start the
+
+6
+00:00:25,520 --> 00:00:30,030
+capture file what would we control in an environment variable.
+
+7
+00:00:30,090 --> 00:00:36,870
+And what is an environment variable Now environment variables are a concept supported by no chase where
+
+8
+00:00:36,870 --> 00:00:44,780
+we can pass certain configurations certain values into our node application from outside.
+
+9
+00:00:44,880 --> 00:00:48,430
+So we don't hard code certain values into our node code.
+
+10
+00:00:48,480 --> 00:00:54,390
+Instead the values will be injected when our node service starts and that allows us to use different
+
+11
+00:00:54,390 --> 00:01:01,050
+values in development and production and also to conveniently change devalues in production without
+
+12
+00:01:01,050 --> 00:01:03,580
+having to redeploy our entire code.
+
+13
+00:01:03,960 --> 00:01:10,470
+And a great example can already be seen here that connection string here this connection string allows
+
+14
+00:01:10,470 --> 00:01:13,710
+us to connect to our mongoose cluster.
+
+15
+00:01:13,920 --> 00:01:16,460
+And obviously we have some hard coded values here.
+
+16
+00:01:16,620 --> 00:01:19,300
+The username and the password for this user.
+
+17
+00:01:19,470 --> 00:01:23,870
+And then also the default database if we want to change anything there.
+
+18
+00:01:23,970 --> 00:01:27,540
+Well then we have to change it in the code and redeploy it.
+
+19
+00:01:27,540 --> 00:01:34,720
+Additionally if we ever share this code with someone like I do with you you know these credentials now.
+
+20
+00:01:34,740 --> 00:01:39,990
+They won't matter much to you because I changed my password after I quit recording this course but of
+
+21
+00:01:39,990 --> 00:01:45,990
+course in a real application you can't change your passwords every time you shared the code with some
+
+22
+00:01:45,990 --> 00:01:53,170
+coworker or anything like that and therefore you want to use node environment variables here.
+
+23
+00:01:53,220 --> 00:01:59,250
+Another place where we would want to use one is at the bottom of this file here where we set the port
+
+24
+00:01:59,400 --> 00:02:04,280
+where it should start in development we use freezer.
+
+25
+00:02:04,500 --> 00:02:12,210
+And we can basically use any number that is above the thousand hour range but in production we want
+
+26
+00:02:12,210 --> 00:02:20,960
+to let our server or our hosting provider set this port because that isn't the end thing.
+
+27
+00:02:21,170 --> 00:02:29,640
+A service that does open our app to the Web and that does configure all the network settings.
+
+28
+00:02:29,640 --> 00:02:34,320
+So there we don't control the port number but the hosting provider does.
+
+29
+00:02:34,350 --> 00:02:40,140
+And now for example for something we want to control an environment variable can be found in the shop
+
+30
+00:02:40,140 --> 00:02:42,390
+controller there at the top.
+
+31
+00:02:42,390 --> 00:02:44,100
+I have this stripe key.
+
+32
+00:02:44,250 --> 00:02:50,520
+Not only is this the development key which we have to exchange for the production key but it's also
+
+33
+00:02:50,520 --> 00:02:57,590
+not a good idea to hardcoded in here for the same reasons as it was with our mongoose data.
+
+34
+00:02:57,630 --> 00:03:02,170
+So let's use some environment variables and using them is straight forward.
+
+35
+00:03:02,170 --> 00:03:09,330
+Now first of all alternatives is connection you are l into a template literal by replacing the single
+
+36
+00:03:09,330 --> 00:03:11,570
+quotation marks with back ticks.
+
+37
+00:03:11,580 --> 00:03:18,810
+Now it's still a normal string but now we can inject values by using dollar sign curly braces.
+
+38
+00:03:18,900 --> 00:03:26,220
+And now here we can x' environments very close on the process object is an object not defined by us
+
+39
+00:03:26,400 --> 00:03:29,290
+but this is globally available in the node app.
+
+40
+00:03:29,340 --> 00:03:32,970
+It's part of the node core runtime.
+
+41
+00:03:32,990 --> 00:03:40,550
+Now on this proses object we have the very helpful nth property and that is now an object with all the
+
+42
+00:03:40,550 --> 00:03:41,830
+environment variables.
+
+43
+00:03:41,840 --> 00:03:47,870
+This node process knows there are a bunch of defaulted wireman very little but we can also set our own
+
+44
+00:03:47,870 --> 00:03:48,460
+ones.
+
+45
+00:03:48,540 --> 00:03:56,950
+And here let's say I want to use the Mongo user environment variable and I'll replace this text with
+
+46
+00:03:56,950 --> 00:03:57,980
+it.
+
+47
+00:03:58,000 --> 00:04:00,660
+Now I also want to replace the password.
+
+48
+00:04:00,790 --> 00:04:04,000
+So here I'll use Mongo password
+
+49
+00:04:06,910 --> 00:04:11,680
+and I'll remove the password here and it will show you how to set these environment variables in a second.
+
+50
+00:04:11,680 --> 00:04:19,210
+Of course the database here we can replace that with Mongo default database.
+
+51
+00:04:19,270 --> 00:04:24,400
+Alternatively you could of course make that whole connection string and environment variable depending
+
+52
+00:04:24,400 --> 00:04:29,260
+on whether that string changes regularly or just the values side of it.
+
+53
+00:04:29,440 --> 00:04:40,010
+Regarding the port are also go down and here instead of setting 3000 also Prozess and port or if that
+
+54
+00:04:40,010 --> 00:04:42,330
+should be undefined free 0 0 0 0.
+
+55
+00:04:42,410 --> 00:04:48,990
+Now most hosting providers or all those providers that managed it for us will automatically inject the
+
+56
+00:04:48,980 --> 00:04:50,380
+port environment variable.
+
+57
+00:04:50,480 --> 00:04:56,020
+So most of the time we can rely on that being set and for local development we'll still fall back to
+
+58
+00:04:56,020 --> 00:05:01,140
+3000 because there will not be set now for stripe.
+
+59
+00:05:01,230 --> 00:05:05,630
+If I move to the shop controller I also want to use an environment variable here.
+
+60
+00:05:06,590 --> 00:05:13,740
+And I will use process and stripe key here.
+
+61
+00:05:16,690 --> 00:05:21,940
+With that I replaced a couple of things with environment variables where it makes sense.
+
+62
+00:05:21,970 --> 00:05:27,790
+Now if you scroll through all the code you might find aberrations where you would say OK I want to set
+
+63
+00:05:27,790 --> 00:05:28,890
+that from outside.
+
+64
+00:05:28,900 --> 00:05:34,640
+I don't want to hard code that but these things which are now exchanged are definitely important ones.
+
+65
+00:05:34,960 --> 00:05:40,270
+Now we do try to read these environment variables in our node code.
+
+66
+00:05:40,270 --> 00:05:51,740
+How can we now pass them into node while we do that when we run our node application with no one we
+
+67
+00:05:51,750 --> 00:05:54,250
+can provide a configuration file.
+
+68
+00:05:54,660 --> 00:06:02,500
+You can simply add on Node Manoj Jason fall in your project root folder and there provide a Jason document
+
+69
+00:06:02,910 --> 00:06:06,970
+opening and closing curly braces in there at the end.
+
+70
+00:06:08,500 --> 00:06:09,400
+Object.
+
+71
+00:06:09,820 --> 00:06:16,950
+And there you can now set your environment variables like Mongo user their de-value should be Maximillian
+
+72
+00:06:19,190 --> 00:06:21,840
+Mongo password.
+
+73
+00:06:21,890 --> 00:06:26,780
+So all these variables I tried to read in my code and that should be the password.
+
+74
+00:06:26,780 --> 00:06:30,450
+You just well removed from your app.
+
+75
+00:06:30,550 --> 00:06:31,190
+Yes file
+
+76
+00:06:34,730 --> 00:06:39,210
+and also Mongo database in there.
+
+77
+00:06:39,220 --> 00:06:43,050
+I will now use shop like this.
+
+78
+00:06:43,130 --> 00:06:48,380
+So now I edit the environment variables for my Mongo D-B connection string here and that should be named
+
+79
+00:06:48,440 --> 00:06:53,480
+Mongul default database ICSA Let's rename it here to.
+
+80
+00:06:53,620 --> 00:06:57,260
+And besides DS Mongo things here we could set the port.
+
+81
+00:06:57,280 --> 00:07:02,130
+But there we have a default value after D2 pipe symbols.
+
+82
+00:07:02,140 --> 00:07:04,690
+We all fall back to 3000.
+
+83
+00:07:04,960 --> 00:07:12,310
+Now for Strype we also want to inject something and there we should sign into our dashboard and in that
+
+84
+00:07:12,370 --> 00:07:15,590
+dashboard go to developers API keys.
+
+85
+00:07:15,820 --> 00:07:26,200
+Now here for the server you will need dead secret key and you want to move that into your node one package.
+
+86
+00:07:26,310 --> 00:07:34,410
+So there I named the environment variable Strype key and that is how I should name it here to so bad
+
+87
+00:07:34,410 --> 00:07:35,660
+would be the value.
+
+88
+00:07:36,180 --> 00:07:42,340
+And now that if you run NPM start it should still start and should still connect.
+
+89
+00:07:42,340 --> 00:07:47,010
+I get an error at mongered evil database is not to find because of course here the connection string
+
+90
+00:07:47,370 --> 00:07:53,260
+it should should be Prozess ends Mongul default database just as it is in all the other places.
+
+91
+00:07:53,250 --> 00:07:55,570
+Thereafter everything starts just fine.
+
+92
+00:07:55,740 --> 00:07:58,940
+And now we have a running application using his environment variables.
+
+93
+00:07:58,950 --> 00:08:04,990
+Now these are still the development values but nonetheless we have that set up.
+
+94
+00:08:05,020 --> 00:08:10,300
+Now of course we're not always using gnomon and especially when deploying to zap will not be using it
+
+95
+00:08:10,450 --> 00:08:11,830
+because there we don't.
+
+96
+00:08:11,830 --> 00:08:17,920
+When I restart the server on every change because it will not change to code anyways so what I'll do
+
+97
+00:08:17,920 --> 00:08:21,780
+is I'll add a new start script to my package touch of snowfall.
+
+98
+00:08:21,850 --> 00:08:23,040
+I'll name it.
+
+99
+00:08:23,290 --> 00:08:24,780
+Start colon def.
+
+100
+00:08:24,790 --> 00:08:26,200
+You can name it however you want.
+
+101
+00:08:26,200 --> 00:08:29,080
+You could just name it to death whatever you want.
+
+102
+00:08:29,290 --> 00:08:33,530
+And there I will use Node 1 and in my main starred strip.
+
+103
+00:08:33,610 --> 00:08:35,250
+I just want to use note.
+
+104
+00:08:35,410 --> 00:08:38,780
+This however will now not used at node non-JS and fall.
+
+105
+00:08:39,010 --> 00:08:43,210
+So if you want to pass an environment variables here you also got different solutions.
+
+106
+00:08:43,400 --> 00:08:48,370
+And typically when using a hosting provider you can set up the environment variables in the dashboard
+
+107
+00:08:48,430 --> 00:08:49,780
+of your hosting provider.
+
+108
+00:08:49,780 --> 00:08:51,410
+That is something we'll see later.
+
+109
+00:08:51,760 --> 00:08:54,420
+But if you're not using that well then you can.
+
+110
+00:08:54,580 --> 00:09:02,900
+As a simple solution simply take decie value pairs you want to set up and add them in your package Duchessa
+
+111
+00:09:02,950 --> 00:09:05,720
+fall in front of the start script.
+
+112
+00:09:05,920 --> 00:09:11,450
+So there you would use Mongo user equals Maximillian like this.
+
+113
+00:09:13,300 --> 00:09:16,100
+And you would do that for all the values you want to pass in.
+
+114
+00:09:16,300 --> 00:09:23,690
+So now we can do the same for a password Mangu password you simply separated with a whitespace Mongo
+
+115
+00:09:24,190 --> 00:09:24,780
+password.
+
+116
+00:09:24,870 --> 00:09:33,720
+Equals this Mongo DB fold data base equals shop and thus.
+
+117
+00:09:34,170 --> 00:09:35,580
+Key equals.
+
+118
+00:09:35,580 --> 00:09:38,460
+And now I need to get that Strype key here.
+
+119
+00:09:38,460 --> 00:09:43,650
+Copy that move here and now we are obviously a very long startup string.
+
+120
+00:09:43,710 --> 00:09:50,430
+Again typically will not pass it like this but now it would run NPM start it should still start and
+
+121
+00:09:50,430 --> 00:09:53,310
+connect without issues to the long would it be database.
+
+122
+00:09:53,310 --> 00:09:59,160
+Because now we are running this with our environment variables here.
+
+123
+00:09:59,170 --> 00:10:06,010
+I also want to highlight one special environment variable which you can set manually and that is so
+
+124
+00:10:06,010 --> 00:10:12,450
+special on which I just want to log here on Prose's and there is the note and variable.
+
+125
+00:10:12,640 --> 00:10:18,760
+And now if I quit my server and restart it U.S. on the find here.
+
+126
+00:10:18,910 --> 00:10:22,190
+Now again this will be set automatically by hosting providers.
+
+127
+00:10:22,270 --> 00:10:28,270
+You can of course also set it on your own and hosting providers will set this to production.
+
+128
+00:10:28,340 --> 00:10:36,840
+Now if a restart we see production being locked here and this is a special environment variable even
+
+129
+00:10:36,840 --> 00:10:43,290
+though it's not set by default because expressed Yes we'll actually use that by default to determine
+
+130
+00:10:43,420 --> 00:10:49,770
+d environment mode and if you set that to production express Chase will change certain things.
+
+131
+00:10:49,770 --> 00:10:53,360
+And for example it will reduce the details for errors.
+
+132
+00:10:53,370 --> 00:10:57,930
+It froze and in general optimized some things for deployment.
+
+133
+00:10:57,930 --> 00:11:01,080
+So you want to set those when running your app in production.
+
+134
+00:11:01,080 --> 00:11:04,530
+And again hosting providers typically do that for you.
+
+135
+00:11:04,530 --> 00:11:09,420
+You can always check out the official box of your favorite hosting provider to find out if that is the
+
+136
+00:11:09,420 --> 00:11:09,970
+case.
+

@@ -1,0 +1,356 @@
+1
+00:00:02,140 --> 00:00:05,110
+So we're able to fetch all the products.
+
+2
+00:00:05,170 --> 00:00:09,760
+Let's now implement the code to fetch a single product and for that I'm back in the shop.
+
+3
+00:00:09,760 --> 00:00:16,510
+J.S. controller file and here it is to get product functional I want to work on here we get the product
+
+4
+00:00:16,510 --> 00:00:22,900
+ideas part of T U R L and then we want to use our product model to somehow find the fitting product
+
+5
+00:00:23,320 --> 00:00:28,560
+and therefore we of course need to work on the model again and feel free to implement this on your own
+
+6
+00:00:28,570 --> 00:00:30,390
+if you got some long would you be knowledge.
+
+7
+00:00:30,400 --> 00:00:31,860
+It's a great challenge.
+
+8
+00:00:32,170 --> 00:00:36,080
+Amber wise of course we'll just do this together.
+
+9
+00:00:36,810 --> 00:00:40,340
+So how would I fetch a single product.
+
+10
+00:00:40,680 --> 00:00:46,860
+Well besides having my static fetch all method I'll add another static method fine by ID and you can
+
+11
+00:00:46,860 --> 00:00:54,030
+name this however you want of course here I expect to get product ID as an argument and then just as
+
+12
+00:00:54,080 --> 00:00:59,260
+before all call gets D-B to get access to that database connection we have.
+
+13
+00:00:59,640 --> 00:01:08,820
+And I then want to return to a result of an operation where I use my collection and there I will now
+
+14
+00:01:08,820 --> 00:01:13,730
+pass products again because it's still the same collection I want to interact with.
+
+15
+00:01:14,220 --> 00:01:21,030
+And I will find a product here but I'll find only one product.
+
+16
+00:01:21,390 --> 00:01:29,100
+And to do that all narrow down the result set with find and then I'll pass a javascript object to it
+
+17
+00:01:29,190 --> 00:01:36,630
+which allows me to configure a filter here I want to look for a product where underscore ID is equal
+
+18
+00:01:36,660 --> 00:01:40,410
+to prod ID because that's the idea of the product I'm looking for.
+
+19
+00:01:42,200 --> 00:01:48,350
+So with this I'm returning theoretically all products which have this idea but I know it'll only be
+
+20
+00:01:48,350 --> 00:01:57,380
+one so I can use find like this and I'll only get back one product or do I will actually find will still
+
+21
+00:01:57,380 --> 00:02:01,470
+give me a cursor because more would it be doesn't know that I will only get one.
+
+22
+00:02:01,550 --> 00:02:03,250
+And here we can use.
+
+23
+00:02:03,320 --> 00:02:06,130
+Next the next function to get the next.
+
+24
+00:02:06,140 --> 00:02:10,910
+And in this case here also the last document that was returned by find here.
+
+25
+00:02:11,090 --> 00:02:14,830
+So here I can then add then and catch.
+
+26
+00:02:15,140 --> 00:02:20,940
+And as always log any error I might have.
+
+27
+00:02:21,100 --> 00:02:31,370
+And then then where I will have my one product there I will log into the console for one and then I
+
+28
+00:02:31,370 --> 00:02:34,890
+will return my product.
+
+29
+00:02:34,890 --> 00:02:38,950
+So now this should hopefully yield my product here.
+
+30
+00:02:39,030 --> 00:02:43,610
+Now with that we go back to the shop controller with find my ID.
+
+31
+00:02:43,650 --> 00:02:51,870
+I either have an error or I get my product and I try to render the product detail page.
+
+32
+00:02:51,870 --> 00:02:59,690
+Now let's go to the routes and there to the shop js file and we need to comment in that route here for
+
+33
+00:02:59,700 --> 00:03:04,460
+getting the product details we now save everything.
+
+34
+00:03:04,770 --> 00:03:06,370
+Let's click on details here
+
+35
+00:03:09,320 --> 00:03:14,150
+and one thing you can see is that this doesn't seem to work right.
+
+36
+00:03:14,150 --> 00:03:18,350
+We always get redirected to slash products page.
+
+37
+00:03:18,410 --> 00:03:23,090
+So if I go back to the starting page and we can tell the difference by the distance between the dollar
+
+38
+00:03:23,090 --> 00:03:28,910
+sign and the character on the starting page the click details I just get forwarded to products.
+
+39
+00:03:28,910 --> 00:03:38,250
+Now why stat now does actually happens because no product ID is passed when it click details and therefore
+
+40
+00:03:38,250 --> 00:03:39,820
+we end up in this route.
+
+41
+00:03:39,870 --> 00:03:42,340
+Now why is no product passed.
+
+42
+00:03:42,420 --> 00:03:51,540
+We have a look at our view and there at all are it next Ejaz fall in the shop folder in there.
+
+43
+00:03:51,840 --> 00:03:57,490
+We got our details button and I do actually get the product idea here.
+
+44
+00:03:57,510 --> 00:04:03,920
+But what is the error here well I Axxess product thought Id.
+
+45
+00:04:04,070 --> 00:04:07,340
+But with Mongo be it's underscore ID.
+
+46
+00:04:07,460 --> 00:04:14,700
+So I should use Pracht underscore ID and the same of course on the product list page there.
+
+47
+00:04:14,800 --> 00:04:18,240
+I should also use product underscore ID.
+
+48
+00:04:18,300 --> 00:04:26,580
+So all the places of the app where we use product ID we should now use product underscore ID with that
+
+49
+00:04:26,580 --> 00:04:31,260
+if we reload that page here to starting page or products page doesn't matter.
+
+50
+00:04:31,470 --> 00:04:33,200
+For now click details.
+
+51
+00:04:33,720 --> 00:04:35,030
+Now something else happens.
+
+52
+00:04:35,040 --> 00:04:42,480
+Now we get stuck here because we have an error but that is better than before because now at least we
+
+53
+00:04:42,630 --> 00:04:45,450
+do have an ID which we try to find.
+
+54
+00:04:45,450 --> 00:04:47,080
+So what's the issue here now.
+
+55
+00:04:47,400 --> 00:04:50,620
+Why do I get cannot read Property tyle of NULL.
+
+56
+00:04:51,210 --> 00:05:00,700
+Well for one it's worth noting that NULL is printed here as well and that NULL should be stemming from
+
+57
+00:05:00,700 --> 00:05:06,490
+my product model from fine by ID when I can unlock the product.
+
+58
+00:05:06,640 --> 00:05:09,940
+So it looks like we didn't find any product for that ID.
+
+59
+00:05:10,160 --> 00:05:12,170
+What could be the reason for dad now.
+
+60
+00:05:13,700 --> 00:05:20,390
+The reason for that is that the ID long would it be is actually stored a bit differently and we can
+
+61
+00:05:20,390 --> 00:05:25,160
+see doesn't compress the idea is actually sucha object id thing.
+
+62
+00:05:25,430 --> 00:05:32,480
+Now I did mention that moment he'd be storing data in Beast on format and this binary format of Jason
+
+63
+00:05:32,690 --> 00:05:36,210
+is not just used because it's a bit faster to work with.
+
+64
+00:05:36,260 --> 00:05:42,530
+It is but also because multi B can store some special types of data in there an object id is such a
+
+65
+00:05:42,530 --> 00:05:43,060
+type.
+
+66
+00:05:43,210 --> 00:05:48,970
+It's a type added by Mongo D-B its not a default javascript type actually doesn't exist in javascript
+
+67
+00:05:49,010 --> 00:05:56,980
+at all and its simply an ID object which Monga to be uses because this generates and manages IDs which
+
+68
+00:05:57,000 --> 00:05:58,880
+look random but actually aren't.
+
+69
+00:05:58,910 --> 00:06:05,320
+So IDs for example are created in a way that if you create an ID now and then a D-1 second later the
+
+70
+00:06:05,330 --> 00:06:10,740
+idea one second later will alphabetically be a higher value than the previous one.
+
+71
+00:06:10,850 --> 00:06:12,230
+But that's just one thing.
+
+72
+00:06:12,560 --> 00:06:17,020
+So object ID is an object provided by Mangu to be.
+
+73
+00:06:17,420 --> 00:06:23,330
+And if we look for a quality we can compare underscore ID which in that database will only hold object
+
+74
+00:06:23,330 --> 00:06:29,450
+id values with a string because a string is not equal to the object id and to string and here does not
+
+75
+00:06:29,450 --> 00:06:31,520
+count Maunganui B will not comparatives.
+
+76
+00:06:31,520 --> 00:06:34,820
+It compares the entire object to the entire object ID.
+
+77
+00:06:35,270 --> 00:06:43,370
+So to fix this we simply go into our product model and in there import long really be by requiring man
+
+78
+00:06:43,380 --> 00:06:45,560
+would he be from the package.
+
+79
+00:06:45,560 --> 00:06:49,340
+And now I can use would be to get access to the object id type.
+
+80
+00:06:49,490 --> 00:07:02,030
+So here when I compare I can use Muang would be dot object ID and I can create a new Does this a constructor
+
+81
+00:07:02,240 --> 00:07:06,260
+and you object that to which I pass a string which will be wrapped by that.
+
+82
+00:07:06,470 --> 00:07:11,180
+So now if I saved it and I try reloading that page for that ID.
+
+83
+00:07:11,420 --> 00:07:18,130
+Now you see this works because now I create such an object that you object and therefore here when I'm
+
+84
+00:07:18,140 --> 00:07:23,170
+telling mom would it be fine be all documents where are the ID stored in the database is equal to that
+
+85
+00:07:23,460 --> 00:07:30,650
+one would be will now succeed because we now pass on object id object to the comparison instead of just
+
+86
+00:07:30,650 --> 00:07:31,380
+a string.
+
+87
+00:07:31,700 --> 00:07:33,870
+And now this works too.
+
+88
+00:07:34,010 --> 00:07:40,160
+It's very important to keep in mind that Mangieri be stored as IDs an underscore ID and that it uses
+
+89
+00:07:40,190 --> 00:07:42,740
+special object type for that.
+

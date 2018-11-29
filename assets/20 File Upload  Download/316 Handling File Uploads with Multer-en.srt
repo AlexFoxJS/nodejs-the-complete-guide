@@ -1,0 +1,252 @@
+1
+00:00:02,610 --> 00:00:09,180
+So let's use mulcher now on our back and we can restart the server already because we installed that
+
+2
+00:00:09,180 --> 00:00:10,290
+package.
+
+3
+00:00:10,290 --> 00:00:15,100
+And now let's go to our admen controller and let's work on post at product here.
+
+4
+00:00:15,150 --> 00:00:21,720
+We want to use Malteser to extract incoming files now Mulder is actually not a package which we will
+
+5
+00:00:21,720 --> 00:00:27,410
+use in here instead just like the body parts that we use here.
+
+6
+00:00:27,420 --> 00:00:33,600
+Mulder is some middleware which we execute on every incoming request and then simply has a look at that
+
+7
+00:00:33,600 --> 00:00:34,500
+request.
+
+8
+00:00:34,490 --> 00:00:40,210
+CS if it's multipart form data and tries to extract files if that is the case.
+
+9
+00:00:40,350 --> 00:00:42,970
+So it is some extra middleware we add.
+
+10
+00:00:43,290 --> 00:00:47,230
+And therefore we can import a tear in our Apicius file.
+
+11
+00:00:48,150 --> 00:00:53,620
+We can import mulcher by requiring it from the package like this.
+
+12
+00:00:53,750 --> 00:01:00,530
+Walter and thereafter we can use it.
+
+13
+00:01:00,570 --> 00:01:05,650
+So maybe after the body parser we can use mulcher.
+
+14
+00:01:05,940 --> 00:01:11,260
+Mulder has to be executed as a function and then we have to call another method on that.
+
+15
+00:01:11,340 --> 00:01:16,980
+And that simply defines if you expect to get multiple files or only one file and we will only expect
+
+16
+00:01:16,980 --> 00:01:17,880
+one file.
+
+17
+00:01:17,910 --> 00:01:19,460
+So we use a single method.
+
+18
+00:01:19,650 --> 00:01:24,990
+And then we define the input name which will hold Dhaval in our case that is a match.
+
+19
+00:01:25,050 --> 00:01:26,770
+And this is not a random value.
+
+20
+00:01:26,830 --> 00:01:32,940
+I'm using image here because in my view this input which holds the file so does file picture here is
+
+21
+00:01:32,940 --> 00:01:35,310
+named image as well.
+
+22
+00:01:35,310 --> 00:01:39,460
+So with that we initialize Mulder.
+
+23
+00:01:39,750 --> 00:01:42,490
+And let's now see if that works.
+
+24
+00:01:42,510 --> 00:01:49,830
+Now to see that we need to know how multiple actually store the incoming file and for that let me go
+
+25
+00:01:49,830 --> 00:01:59,120
+back to post ad product and instead of extracting request body image let me x' a request file here and
+
+26
+00:01:59,180 --> 00:02:01,220
+let's see what this gives us.
+
+27
+00:02:01,260 --> 00:02:08,590
+I will also console Lauck image you are now.
+
+28
+00:02:08,610 --> 00:02:11,420
+Now let's save all that and see what that gives us.
+
+29
+00:02:11,680 --> 00:02:19,620
+If I now try to add a product again I'll choose that same file from before enter any values up here
+
+30
+00:02:19,700 --> 00:02:21,220
+like at product.
+
+31
+00:02:21,220 --> 00:02:22,440
+And I still get an error.
+
+32
+00:02:22,540 --> 00:02:27,130
+Now if we go back we see something interesting though indeed here.
+
+33
+00:02:27,280 --> 00:02:30,800
+This part is what I lock here.
+
+34
+00:02:30,910 --> 00:02:34,750
+So what we see is that Malteser seems to have done something.
+
+35
+00:02:34,810 --> 00:02:39,670
+It seems to have stored something in that file property on our request object.
+
+36
+00:02:39,820 --> 00:02:45,370
+And that is what we print here essentially and it's stored the name of the field where it extract that
+
+37
+00:02:45,370 --> 00:02:49,360
+that it detected the file name it detect that the MIME type.
+
+38
+00:02:49,360 --> 00:02:50,890
+So which type of file that is.
+
+39
+00:02:50,890 --> 00:02:55,310
+And that buffer here is essentially how node handles the binary data.
+
+40
+00:02:55,540 --> 00:02:58,310
+You'll learn about streams and buffers earlier in the end.
+
+41
+00:02:58,330 --> 00:03:05,290
+Does this deal resolve off the streambed data file basically was sent to our server as a stream or was
+
+42
+00:03:05,290 --> 00:03:11,560
+handled as a stream to handle it efficiently if it was bigger and then does this collected data in a
+
+43
+00:03:11,560 --> 00:03:14,330
+buffer which as we learned is like a bus stop.
+
+44
+00:03:14,380 --> 00:03:20,200
+It gives you a way of working with the stream data here in this case it's the combined streams and data
+
+45
+00:03:20,520 --> 00:03:25,770
+and we could indeed work with that buffer to turn it into a file.
+
+46
+00:03:25,780 --> 00:03:29,100
+Now you can actually configure Mulder a bit differently.
+
+47
+00:03:29,140 --> 00:03:35,880
+We go back to objects when we set up mulcher we can pass an object to the malware function and then
+
+48
+00:03:35,900 --> 00:03:37,420
+we can set some options.
+
+49
+00:03:37,540 --> 00:03:40,130
+And one option is the best option.
+
+50
+00:03:40,150 --> 00:03:47,100
+Now here we could specify slash images or just images like this.
+
+51
+00:03:47,150 --> 00:03:54,290
+What this will do is that when I again add a product here and don't worry that it still fails because
+
+52
+00:03:54,470 --> 00:03:59,180
+we're trying to store to follow the database right now and we'll do all kinds of stuff with it for which
+
+53
+00:03:59,180 --> 00:04:02,050
+our code is not prepared but the upload works.
+
+54
+00:04:02,100 --> 00:04:06,800
+But with this option set you also see that the output down there change a little bit.
+
+55
+00:04:06,800 --> 00:04:11,900
+We don't have the buffer because now Mulder is able to do something with the buffer instead of just
+
+56
+00:04:11,900 --> 00:04:13,620
+buffering it all in memory.
+
+57
+00:04:13,670 --> 00:04:20,710
+It can then turn that buffer back into binary data you could say and it stores it in this Poth year.
+
+58
+00:04:20,780 --> 00:04:27,140
+So indeed if you have a look at your folder you should not have images folder with some file in there
+
+59
+00:04:27,530 --> 00:04:34,000
+now that file has some random hash name does not have a file extension and is not recognized as a.
+
+60
+00:04:34,040 --> 00:04:40,580
+But indeed if I changed it and I at PNC at the end does this DMA app loaded.
+
+61
+00:04:40,580 --> 00:04:42,560
+So this does work.
+
+62
+00:04:42,590 --> 00:04:48,200
+All we now need to do is we need to tweak the way this file is named and that is something we'll do
+
+63
+00:04:48,260 --> 00:04:49,320
+in the next lecture.
+

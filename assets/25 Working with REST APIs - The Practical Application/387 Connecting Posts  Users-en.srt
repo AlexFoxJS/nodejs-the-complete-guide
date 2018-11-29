@@ -1,0 +1,336 @@
+1
+00:00:02,360 --> 00:00:07,160
+Let's connect posts and users for days in my back and code.
+
+2
+00:00:07,160 --> 00:00:11,850
+First of all I'll go to my post model and there we have that creator object.
+
+3
+00:00:11,900 --> 00:00:12,450
+Right.
+
+4
+00:00:12,650 --> 00:00:17,100
+Well that was like intermediated l solution.
+
+5
+00:00:17,180 --> 00:00:25,710
+Now that we know users in our application creator will no longer be of type Object type schema types
+
+6
+00:00:26,060 --> 00:00:35,450
+object ID because I will store a reference to a user so this will now be a reference to a user here.
+
+7
+00:00:35,450 --> 00:00:37,460
+This will also be required true.
+
+8
+00:00:37,550 --> 00:00:41,010
+Not required string what I had before this was a mistake of course.
+
+9
+00:00:41,030 --> 00:00:44,610
+So now we have a relation between posts and users.
+
+10
+00:00:44,660 --> 00:00:50,630
+We store the creator of a post in every post we create and on the user model we add the post to the
+
+11
+00:00:50,630 --> 00:00:52,450
+list of posts for that user.
+
+12
+00:00:52,640 --> 00:00:58,970
+That of course means we now need to adjust our feed controller in the place where we do create new posts
+
+13
+00:01:01,120 --> 00:01:06,860
+there and create post the validation which we do at the beginning still is.
+
+14
+00:01:06,880 --> 00:01:13,120
+All right but then before I create the post I should get my user ID.
+
+15
+00:01:13,310 --> 00:01:18,950
+Now I remember in my is all middleware I do actually stored it in the request object.
+
+16
+00:01:18,950 --> 00:01:20,950
+I get it from the decoded token.
+
+17
+00:01:21,140 --> 00:01:24,050
+So we have that user ID available here.
+
+18
+00:01:24,050 --> 00:01:32,520
+Now with that information all set creator equal to request user ID that will be a string not an object
+
+19
+00:01:32,520 --> 00:01:32,820
+ID.
+
+20
+00:01:32,850 --> 00:01:35,790
+But mongooses will take care about that and convert it.
+
+21
+00:01:35,820 --> 00:01:40,350
+So now we create a new post assigned to that user.
+
+22
+00:01:40,440 --> 00:01:44,670
+Now once I saved the post I'll not immediately send the response though.
+
+23
+00:01:44,790 --> 00:01:50,500
+Instead I now also want to add that post to the list of posts for the given user.
+
+24
+00:01:50,500 --> 00:01:55,490
+Therefore I'll import my user model into that feat.
+
+25
+00:01:55,500 --> 00:01:56,030
+J.S..
+
+26
+00:01:56,070 --> 00:02:00,470
+Fall requiring it from the models folder of course.
+
+27
+00:02:01,600 --> 00:02:03,510
+And uncreate post.
+
+28
+00:02:03,570 --> 00:02:11,460
+Once we did save the post all used at user model to find to user by ID for the request user ID.
+
+29
+00:02:11,460 --> 00:02:19,030
+So for the user id extracted from the token then I'll return this and close this.
+
+30
+00:02:19,080 --> 00:02:21,750
+Then block and add and you then block.
+
+31
+00:02:22,260 --> 00:02:32,050
+Right now get that user that was created now and this second then block here I now have a user system
+
+32
+00:02:32,130 --> 00:02:35,300
+not the user which was created by the user which was found.
+
+33
+00:02:35,310 --> 00:02:43,080
+I have that user with just the currently locked in user and now I can take that user object which is
+
+34
+00:02:43,290 --> 00:02:47,820
+a mongoose model here in the end and I can access the post post-office user.
+
+35
+00:02:47,820 --> 00:02:56,020
+Keep in mind to use remodeler has a post's property I can access these posts and I can push the newly
+
+36
+00:02:56,020 --> 00:02:57,630
+created post.
+
+37
+00:02:57,700 --> 00:03:04,630
+So this post here I can push that posts object to that user and mongooses will do all the heavy lifting
+
+38
+00:03:04,750 --> 00:03:11,750
+of pulling out the post ID and adding debt to the user actually.
+
+39
+00:03:11,760 --> 00:03:18,600
+Now I'll also add a new variable at the top which I'll name creator which is uninitialized.
+
+40
+00:03:18,810 --> 00:03:23,820
+And once I found a user I'll store the user in that creator variable.
+
+41
+00:03:23,820 --> 00:03:25,370
+Now what do I need that for.
+
+42
+00:03:25,500 --> 00:03:29,190
+Well I do update my user here.
+
+43
+00:03:29,280 --> 00:03:36,180
+That means that here I will also call user save and I will return that and hence we need a number.
+
+44
+00:03:36,210 --> 00:03:39,920
+Then block where I get the result of this operation.
+
+45
+00:03:40,020 --> 00:03:46,770
+Now in this next block I'll sent my response and there I will not just send the post but I also want
+
+46
+00:03:46,770 --> 00:03:49,660
+to set information about the Creator.
+
+47
+00:03:49,680 --> 00:03:56,430
+So here I'll add a creator or a key and that will be let's say some object with an ID underscore ID
+
+48
+00:03:56,850 --> 00:04:03,610
+of creator underscore ID and name which is creator name.
+
+49
+00:04:03,630 --> 00:04:06,670
+So I'm just passing this extra information with the response.
+
+50
+00:04:06,680 --> 00:04:09,390
+And if I want to do that I have to do it for a variable
+
+51
+00:04:12,450 --> 00:04:18,650
+so now posts get saved and get connected to users in both directions.
+
+52
+00:04:18,650 --> 00:04:20,090
+Let's try that out.
+
+53
+00:04:20,120 --> 00:04:25,160
+Let's save this code go back to the front end there.
+
+54
+00:04:25,170 --> 00:04:27,050
+Let's create a new post.
+
+55
+00:04:27,120 --> 00:04:28,860
+Good old duck again.
+
+56
+00:04:29,130 --> 00:04:33,400
+Let's add a duck image a duck.
+
+57
+00:04:33,430 --> 00:04:35,110
+How lovely.
+
+58
+00:04:35,200 --> 00:04:36,470
+Click except here.
+
+59
+00:04:37,350 --> 00:04:39,410
+And I get an error.
+
+60
+00:04:39,690 --> 00:04:41,340
+Let's see what's going wrong.
+
+61
+00:04:41,730 --> 00:04:44,160
+I do get back a response with a post.
+
+62
+00:04:44,620 --> 00:04:51,200
+And the problem is that post holds my user data actually which is a mistake.
+
+63
+00:04:51,210 --> 00:04:57,030
+Ms And of course the post I am sending back here is not the result the result here is to user which
+
+64
+00:04:57,030 --> 00:05:00,910
+updated it here post should be the post model.
+
+65
+00:05:00,930 --> 00:05:03,470
+The Post object I created up there.
+
+66
+00:05:03,630 --> 00:05:04,690
+So that's my mistake.
+
+67
+00:05:04,800 --> 00:05:07,220
+I do create a post there I stored it in a constant.
+
+68
+00:05:07,290 --> 00:05:12,580
+I can reuse that constant down there to send data about that tree and post back to the client.
+
+69
+00:05:12,760 --> 00:05:14,790
+So let me save that now.
+
+70
+00:05:14,850 --> 00:05:18,960
+Still what we'll see is in the database that go to the post collection.
+
+71
+00:05:19,020 --> 00:05:24,450
+It was created though because it only failed when it came to sending back the correct data.
+
+72
+00:05:24,450 --> 00:05:29,260
+And there we see that it's all connect to a user which ends with ABC.
+
+73
+00:05:29,460 --> 00:05:35,790
+If you have a look at the users is as user and they're in posts we all find the ID of the post which
+
+74
+00:05:35,790 --> 00:05:37,610
+ends with 6 E5.
+
+75
+00:05:38,040 --> 00:05:39,800
+Yep that is correct.
+
+76
+00:05:39,840 --> 00:05:41,110
+So this worked now.
+
+77
+00:05:41,160 --> 00:05:44,440
+Only a minor mistake here regarding that data I sent back.
+
+78
+00:05:44,580 --> 00:05:46,370
+Let's simply give this a try again.
+
+79
+00:05:46,450 --> 00:05:47,860
+Here's our post.
+
+80
+00:05:47,940 --> 00:05:53,230
+Let's add a cup like this.
+
+81
+00:05:54,240 --> 00:05:58,900
+Superhot and now this works without an error.
+
+82
+00:05:59,090 --> 00:06:02,880
+So now we are able to connect posts and users.
+
+83
+00:06:02,990 --> 00:06:08,990
+Let's now take it a step further and make sure that editing and deleting is only possible for posts
+
+84
+00:06:09,140 --> 00:06:11,210
+that belong to the currently locked end user.
+

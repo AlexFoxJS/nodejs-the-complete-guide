@@ -1,0 +1,212 @@
+1
+00:00:02,290 --> 00:00:05,400
+Now we added that found storage logic to our model.
+
+2
+00:00:05,450 --> 00:00:10,790
+Let's now fix this a little bit or improve the code in the model we're reusing some code.
+
+3
+00:00:10,840 --> 00:00:20,260
+And if we reuse code that always screams for some refactoring and indeed that is what I want to do I
+
+4
+00:00:20,260 --> 00:00:29,880
+will create a helper function and store it in a constant and I'll name that helper function get products
+
+5
+00:00:29,940 --> 00:00:35,360
+from file and this helper function will do this.
+
+6
+00:00:35,360 --> 00:00:39,120
+Lbf construction here for me and it will also read the file.
+
+7
+00:00:39,120 --> 00:00:47,300
+So we'll basically do everything I do here and fetch all this and it will even get my callback here.
+
+8
+00:00:48,360 --> 00:00:53,760
+Because I do execute that year and ultimately returned us because the issue of disk grows is taking
+
+9
+00:00:53,760 --> 00:01:00,150
+some time and we need to inform the caller of dysfunction about when it's done hasn't gone away.
+
+10
+00:01:00,180 --> 00:01:05,850
+So I still use the same pattern of having this helper function which receives a callback which it executes
+
+11
+00:01:06,030 --> 00:01:07,920
+once it's done reading the file.
+
+12
+00:01:08,280 --> 00:01:14,740
+With this get products from file is really just all I execute here and fetch all.
+
+13
+00:01:14,850 --> 00:01:21,210
+So I simply just call this in full ward to callback.
+
+14
+00:01:21,400 --> 00:01:28,860
+Now for save however it means that here I can also call get products from file.
+
+15
+00:01:29,170 --> 00:01:34,500
+But here I don't forborne any callback because instead I have my own logic here.
+
+16
+00:01:34,600 --> 00:01:39,640
+I do retrieve my products there and that's essentially the same logic I do have in get products from
+
+17
+00:01:39,640 --> 00:01:44,670
+file either return an empty array if I have an error or I parse my content.
+
+18
+00:01:44,830 --> 00:01:46,100
+We did it the other way around.
+
+19
+00:01:46,210 --> 00:01:49,040
+But in the end it will result in the same result.
+
+20
+00:01:49,390 --> 00:01:51,490
+So I'm only interested in this logic here.
+
+21
+00:01:51,490 --> 00:01:57,200
+Then you can remove dead and instead just take this code here.
+
+22
+00:01:58,800 --> 00:02:04,650
+And then create a new anonymous function where I know that I will get my products because this again
+
+23
+00:02:05,040 --> 00:02:06,690
+is still callback function.
+
+24
+00:02:06,690 --> 00:02:10,580
+It is the function it will pass as an argument to get products from file.
+
+25
+00:02:10,590 --> 00:02:13,070
+So it is what will get cold here.
+
+26
+00:02:13,260 --> 00:02:19,350
+So this function will get called in will receive an empty array or the array with the data and a ship
+
+27
+00:02:19,350 --> 00:02:24,840
+by the way add a return statement here to make sure that we never execute this code after having executed
+
+28
+00:02:24,840 --> 00:02:25,740
+this code.
+
+29
+00:02:25,740 --> 00:02:29,020
+That was an error we had in the code before.
+
+30
+00:02:29,020 --> 00:02:34,970
+Alternatively you simply wrap the above code in a Else statement either of the two.
+
+31
+00:02:34,990 --> 00:02:36,900
+So here I'll use the if else approach.
+
+32
+00:02:37,090 --> 00:02:41,530
+But now if that the callback will get executed and we'll get desire of products.
+
+33
+00:02:41,860 --> 00:02:49,270
+And now here in safe I do have this anonymous function which receives the products and in does anonymous
+
+34
+00:02:49,270 --> 00:02:49,930
+function.
+
+35
+00:02:49,930 --> 00:02:56,320
+I will then put in my code where I append a new product and make sure to always use aero functions so
+
+36
+00:02:56,320 --> 00:03:03,970
+that this never loses its context and always refers to to the class and therefore to the object based
+
+37
+00:03:03,970 --> 00:03:05,190
+on the class.
+
+38
+00:03:05,410 --> 00:03:07,660
+And then I write to the file.
+
+39
+00:03:07,660 --> 00:03:09,950
+This means I can get rid of this line too.
+
+40
+00:03:10,030 --> 00:03:16,110
+And now we get a slimmer wurden because we're reusing code but it still should work if I reload here.
+
+41
+00:03:16,240 --> 00:03:18,310
+Loading product seems to work.
+
+42
+00:03:18,610 --> 00:03:27,730
+And if I add a second book even though it's the fourth one this crashes because P is not defined yet.
+
+43
+00:03:27,800 --> 00:03:33,200
+The payoff here in Save that is a problem the POF is not defined.
+
+44
+00:03:34,680 --> 00:03:38,560
+Because I'm only defining it in my helper function now.
+
+45
+00:03:38,570 --> 00:03:41,090
+Now there are various ways of fixing that.
+
+46
+00:03:41,360 --> 00:03:48,410
+One of the easier ways is to simply create this as a global helper constant here p so that they can
+
+47
+00:03:48,410 --> 00:03:54,130
+use it and the entire file you can of course go for different solutions and pass it around into functions.
+
+48
+00:03:54,260 --> 00:03:59,760
+But now tipoffs should be available in the safe method and in get products from file.
+
+49
+00:03:59,830 --> 00:04:08,090
+And with that if and I'll reload and try this second actually fourth book again.
+
+50
+00:04:08,260 --> 00:04:10,180
+This now works.
+
+51
+00:04:10,180 --> 00:04:16,240
+So now we are able to elegantly work with our products stored them in a file fetched them from there
+
+52
+00:04:16,360 --> 00:04:18,580
+and all of that through a model.
+
+53
+00:04:18,580 --> 00:04:23,080
+And that is the MVC pattern implemented into our project.
+

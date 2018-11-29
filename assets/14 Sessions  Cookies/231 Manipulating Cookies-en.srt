@@ -1,0 +1,108 @@
+1
+00:00:02,120 --> 00:00:08,900
+So in the last lecture I showed you how you can set a cookie and some of that too complex way of extracting
+
+2
+00:00:08,900 --> 00:00:09,740
+that cookie.
+
+3
+00:00:09,740 --> 00:00:13,910
+Now if you want to extract cookies by the way there also are third party packages which can help you
+
+4
+00:00:13,910 --> 00:00:14,780
+with that.
+
+5
+00:00:14,780 --> 00:00:17,540
+But our approach has a number of flaw.
+
+6
+00:00:18,050 --> 00:00:22,500
+Well obviously since I can access my cookies that easily.
+
+7
+00:00:22,540 --> 00:00:28,130
+And the developer tools I can easily change them I can go here and manipulate the value.
+
+8
+00:00:28,160 --> 00:00:32,330
+For example if I set it to false and I reload.
+
+9
+00:00:32,330 --> 00:00:33,760
+I'm actually still locked in.
+
+10
+00:00:33,770 --> 00:00:38,180
+Because falses sent s text and text is always true that true.
+
+11
+00:00:38,360 --> 00:00:47,120
+But we can simply add a comparison here and see if that value is equal to true to the text true here
+
+12
+00:00:47,690 --> 00:00:52,040
+and now if I reload here I'm not logged in anymore.
+
+13
+00:00:52,040 --> 00:00:52,900
+They change it back.
+
+14
+00:00:52,910 --> 00:00:55,510
+True though and I do reload.
+
+15
+00:00:55,640 --> 00:00:56,570
+I am.
+
+16
+00:00:56,570 --> 00:01:02,750
+So the issue here is we can manipulate that from inside the browser and obviously you don't want to
+
+17
+00:01:02,750 --> 00:01:08,560
+allow users of your web site to log in by simply manipulating some cookie value.
+
+18
+00:01:08,630 --> 00:01:14,870
+So whilst it is certainly interesting to store some data in the client side especially things that are
+
+19
+00:01:14,870 --> 00:01:18,720
+related to tracking users advertisements tracking and so on.
+
+20
+00:01:18,800 --> 00:01:25,310
+Whilst this is interesting sensitive data should not be stored in the browser because users can edit
+
+21
+00:01:25,310 --> 00:01:29,460
+them as you see we can add it are locked in Kogi so wants.
+
+22
+00:01:29,470 --> 00:01:34,750
+Cookies are generally a good thing for storing data cross requests.
+
+23
+00:01:34,910 --> 00:01:41,240
+It might not be the best approach in all scenarios and that is exactly something where sessions can
+
+24
+00:01:41,240 --> 00:01:42,010
+help us with.
+
+25
+00:01:42,200 --> 00:01:47,870
+However before we dive into Sessions let me quickly explain use some other fields you can configure
+
+26
+00:01:47,870 --> 00:01:52,680
+about a cookie which will also highlight when a cookie does make sense to be used.
+
+27
+00:01:52,700 --> 00:01:55,960
+Before we dive into the scenario where it's not the best tool.
+

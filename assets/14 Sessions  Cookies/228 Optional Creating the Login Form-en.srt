@@ -1,0 +1,320 @@
+1
+00:00:02,080 --> 00:00:09,090
+So let's work on that log in page and forget First of all add new routes file which all name off J.S.
+
+2
+00:00:09,290 --> 00:00:12,810
+and in there I want to manage my authentication related routes.
+
+3
+00:00:13,240 --> 00:00:19,660
+Now for that I will first of all set this up in a similar way to my eyebrowed files which means I will
+
+4
+00:00:19,750 --> 00:00:22,730
+set up the Express router.
+
+5
+00:00:22,890 --> 00:00:24,860
+So let me simply create that here.
+
+6
+00:00:24,880 --> 00:00:33,570
+We don't need the admin control though so we have that router and an export led router and for now I
+
+7
+00:00:33,570 --> 00:00:42,210
+need one get out in here get route for Slash log in then which will load the log in page.
+
+8
+00:00:42,230 --> 00:00:45,640
+So slash log in is what I want to handle here.
+
+9
+00:00:45,690 --> 00:00:53,340
+And as always we have our request response the next function here for handling that incoming request.
+
+10
+00:00:53,340 --> 00:01:00,930
+Now in order to reach that route we of course need to register it in the app js file and in app J.S..
+
+11
+00:01:01,080 --> 00:01:03,910
+First of all let's import that route.
+
+12
+00:01:03,960 --> 00:01:10,080
+So I'll duplicate my shop routes name them all routes the name is up to you of course and it's in the
+
+13
+00:01:10,260 --> 00:01:12,900
+off file in the routes folder.
+
+14
+00:01:12,900 --> 00:01:17,220
+So that file we just added and wifi off routes there.
+
+15
+00:01:17,730 --> 00:01:21,840
+I would simply add them below my shop routes just like the shop routes.
+
+16
+00:01:21,840 --> 00:01:23,680
+I have no leading filter.
+
+17
+00:01:23,700 --> 00:01:29,980
+So every request will go in there and anything which is not found in the shop routes will therefore
+
+18
+00:01:30,000 --> 00:01:33,090
+go into the off routes and the off routes it will handle.
+
+19
+00:01:33,090 --> 00:01:37,680
+Slash log in this route here now here.
+
+20
+00:01:37,920 --> 00:01:45,900
+I simply want to render a page and I want to render a page in let's say off folder and just as I do
+
+21
+00:01:45,900 --> 00:01:51,280
+this in the shop controller here I will also create a off controller for dad.
+
+22
+00:01:51,300 --> 00:01:58,010
+So let's maybe duplicate does get orders action from the shop controller added here.
+
+23
+00:01:58,110 --> 00:01:58,680
+And let's name it.
+
+24
+00:01:58,680 --> 00:02:00,080
+Get log in.
+
+25
+00:02:00,360 --> 00:02:03,050
+And then I don't need to find any orders or anything like that.
+
+26
+00:02:03,050 --> 00:02:04,920
+Dead of course can be removed.
+
+27
+00:02:04,920 --> 00:02:06,570
+I just want to render something.
+
+28
+00:02:06,570 --> 00:02:10,470
+I want to render off log in here.
+
+29
+00:02:10,650 --> 00:02:19,590
+The possibility slash log in your orders Well I will simply nameless log in and I don't pass any other
+
+30
+00:02:19,680 --> 00:02:20,090
+data.
+
+31
+00:02:20,100 --> 00:02:26,010
+So it's a really simple controller action in my office last fall and with that in the off Chia's file
+
+32
+00:02:26,040 --> 00:02:29,300
+in the route's folder I can simply import dat.
+
+33
+00:02:29,520 --> 00:02:39,110
+So here I will import my off controller by requiring that from the control of folder and the website
+
+34
+00:02:39,290 --> 00:02:40,910
+off file there.
+
+35
+00:02:41,070 --> 00:02:48,640
+And then here for log in I will not use the function but point at my controller with the get Logan function.
+
+36
+00:02:48,930 --> 00:02:55,560
+Ok so now we get the same setup we used for the other routes and now we have that log in controller
+
+37
+00:02:55,560 --> 00:03:00,270
+action which will render the log in page with the appropriate title.
+
+38
+00:03:00,270 --> 00:03:02,190
+Now let me head over to navigation.
+
+39
+00:03:02,190 --> 00:03:07,620
+E.J. asks a real quick and make sure that this gets highlighted when we are on the page.
+
+40
+00:03:07,620 --> 00:03:14,510
+And for that I will copy that class assignments that see is as class assignment editor here.
+
+41
+00:03:14,670 --> 00:03:20,980
+And the payoff should be slash log in or whatever you assigned in your controller action.
+
+42
+00:03:21,150 --> 00:03:26,580
+With that out of the way let's add that folder and file in the views folder.
+
+43
+00:03:26,610 --> 00:03:30,380
+So we'll add an off folder here and in there a log in.
+
+44
+00:03:30,420 --> 00:03:36,150
+E.J. last fall because that is just what I try to render my controller right there.
+
+45
+00:03:36,150 --> 00:03:38,430
+I tried to render off log in.
+
+46
+00:03:38,430 --> 00:03:47,830
+So we need to have that lbf and file in our views folder and for that I will really just use my product
+
+47
+00:03:48,150 --> 00:03:54,550
+me in my admin edited product page because there I have a form and I will move that into the log in
+
+48
+00:03:54,590 --> 00:03:55,690
+Ejaz fall.
+
+49
+00:03:55,720 --> 00:03:57,900
+I will include head yes.
+
+50
+00:03:58,030 --> 00:04:00,610
+I don't need to product C as s but I need the forms.
+
+51
+00:04:00,610 --> 00:04:01,500
+C S S.
+
+52
+00:04:01,510 --> 00:04:10,630
+I will include the navigation then this year will receive a new class we can name this log in form and
+
+53
+00:04:10,630 --> 00:04:13,110
+see how we have to adjust the styling for that.
+
+54
+00:04:13,120 --> 00:04:18,480
+Then the action here well that action will always be the same.
+
+55
+00:04:18,480 --> 00:04:20,050
+We don't have different modes here.
+
+56
+00:04:20,100 --> 00:04:26,430
+The action is always log in and we send the post request to log in route and then here let's say we
+
+57
+00:04:26,430 --> 00:04:33,860
+have an email address we name that field email here and we give it an ideal email.
+
+58
+00:04:33,890 --> 00:04:36,500
+It's all of type email and all of type text.
+
+59
+00:04:36,800 --> 00:04:41,360
+And let's not start with a default value so we don't need that here.
+
+60
+00:04:41,690 --> 00:04:48,720
+And we all need a password let's say let's add password to your name this password and give it an ID
+
+61
+00:04:48,720 --> 00:04:54,020
+of password and to type here will also be password so that the characters are hidden.
+
+62
+00:04:54,260 --> 00:04:58,600
+And with that we get rid of this value here.
+
+63
+00:04:58,610 --> 00:05:03,290
+Now we don't need the phone controls so we can get rid of these form controls.
+
+64
+00:05:03,290 --> 00:05:11,250
+Also of the hidden one for now and let's simply add a button at the bottom which is of type submit and
+
+65
+00:05:11,250 --> 00:05:13,740
+which simply says log in.
+
+66
+00:05:13,740 --> 00:05:18,150
+So really simple form with all of that in place.
+
+67
+00:05:18,260 --> 00:05:23,520
+If we now click onto that log in button we are in d loading that log in page.
+
+68
+00:05:23,520 --> 00:05:29,610
+Now the styling is a bit off because we need to style that log in form and that our real quick ad.
+
+69
+00:05:29,640 --> 00:05:35,660
+And you see as a file which I'll name off SEUS as an in there on the log in form.
+
+70
+00:05:35,700 --> 00:05:37,550
+Let's have a look at the product form.
+
+71
+00:05:37,560 --> 00:05:40,290
+I think we can just reuse that style here.
+
+72
+00:05:40,360 --> 00:05:45,840
+And yes we could have therefore all Azel like refactored it into a global style but I'll just do it
+
+73
+00:05:45,840 --> 00:05:47,960
+like this and then log it Ejaz.
+
+74
+00:05:47,960 --> 00:05:54,750
+We now just make do need to make sure that we do also import that new offices as Falah just added.
+
+75
+00:05:54,870 --> 00:05:58,000
+So if you now reload this this looks pretty good.
+
+76
+00:05:58,290 --> 00:05:59,480
+So now we got this in place.
+
+77
+00:05:59,520 --> 00:06:03,810
+And as I mentioned I will not implement a full log flow right now.
+
+78
+00:06:03,810 --> 00:06:08,690
+We'll do that in the next module where we dive into authentication and everything that belongs to it.
+
+79
+00:06:08,910 --> 00:06:15,530
+But here I want to show you how we can use a cookie to save information that this user is locked in.
+
+80
+00:06:15,750 --> 00:06:20,540
+And that will continue in the next lecture and see how we can use cookies.
+

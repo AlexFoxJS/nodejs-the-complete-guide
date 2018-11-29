@@ -1,0 +1,220 @@
+1
+00:00:02,240 --> 00:00:07,010
+So let me quickly refresh our knowledge on how the web works.
+
+2
+00:00:07,100 --> 00:00:10,780
+If you are totally weariful DOES YOUR KIND of course skip this lecture.
+
+3
+00:00:11,060 --> 00:00:12,430
+Now the web works like this.
+
+4
+00:00:12,440 --> 00:00:14,370
+We get got a user a client.
+
+5
+00:00:14,460 --> 00:00:21,410
+Maybe you sitting in front of your browser wasting a web page or already being on a web page and submitting
+
+6
+00:00:21,410 --> 00:00:22,010
+a form.
+
+7
+00:00:22,100 --> 00:00:24,860
+So you're interacting with web pages.
+
+8
+00:00:24,860 --> 00:00:26,180
+Let's say you are wasting it.
+
+9
+00:00:26,180 --> 00:00:29,830
+So you're entering some you are l into your browser.
+
+10
+00:00:30,050 --> 00:00:36,650
+And what happens behind the scenes is actually that the browser reaches out to some domain name servers
+
+11
+00:00:36,650 --> 00:00:42,760
+to look Data Domain up because this domain is not really the address off your server.
+
+12
+00:00:42,800 --> 00:00:49,730
+It's basically encoded human readable words that address you could say your server itself has just an
+
+13
+00:00:49,730 --> 00:00:53,630
+IP address but it's just some technical thing behind the scenes.
+
+14
+00:00:53,630 --> 00:01:00,300
+In the end you enter this you are l and it will lead to some server you therefore or the browser therefore
+
+15
+00:01:00,380 --> 00:01:03,570
+sends a request to that server.
+
+16
+00:01:03,590 --> 00:01:09,200
+With that given IP address I mentioned Sodhi IP address belonging to that domain.
+
+17
+00:01:09,210 --> 00:01:15,500
+Now that's far Densil interesting but now we reached a part where no chase comes into play where your
+
+18
+00:01:15,520 --> 00:01:17,590
+no chase code matters.
+
+19
+00:01:17,690 --> 00:01:23,690
+You write the code that runs on that computer in the Internet which has that IP address.
+
+20
+00:01:23,690 --> 00:01:30,710
+You write the code that spins up that server which is able to handle the incoming request and do something
+
+21
+00:01:30,710 --> 00:01:31,380
+with it.
+
+22
+00:01:31,400 --> 00:01:33,080
+Now you don't need to use node.
+
+23
+00:01:33,090 --> 00:01:37,410
+JS For this you could use BHP as Peter that Ruby on Rails.
+
+24
+00:01:37,490 --> 00:01:38,320
+Anything like that.
+
+25
+00:01:38,390 --> 00:01:44,900
+But in discours will obviously use no yes because well it's no chess course.
+
+26
+00:01:45,130 --> 00:01:50,050
+Now in this code you can do all kinds of things and I already mentioned just the first course module
+
+27
+00:01:50,230 --> 00:01:51,780
+user input validation.
+
+28
+00:01:51,880 --> 00:01:57,460
+Communicating with a database maybe which runs on a separate database server but which you typically
+
+29
+00:01:57,460 --> 00:02:01,180
+reach out to from your back and so your server side code.
+
+30
+00:02:01,390 --> 00:02:08,570
+And once you're done with that you do one important thing you'll send back a response to the client.
+
+31
+00:02:08,590 --> 00:02:16,090
+This response can be some HD mail text some TMail code which is then handled by the client but it could
+
+32
+00:02:16,090 --> 00:02:20,780
+also be some average kind of data like a file some Jason or XM.
+
+33
+00:02:20,820 --> 00:02:21,700
+All data.
+
+34
+00:02:21,940 --> 00:02:28,960
+The response is more than just the content by the way a response and a request also has headers.
+
+35
+00:02:29,060 --> 00:02:34,330
+Does is some meta information which is attached to request and response describing what's inside it
+
+36
+00:02:34,330 --> 00:02:35,190
+for example.
+
+37
+00:02:35,230 --> 00:02:36,750
+But we'll see this too.
+
+38
+00:02:37,120 --> 00:02:43,630
+So does is how the Web generally works and no chases the part we will focus on it is the code that makes
+
+39
+00:02:43,630 --> 00:02:45,660
+up that server in the end.
+
+40
+00:02:45,660 --> 00:02:50,790
+Now that request and response transmission is done through some protocol.
+
+41
+00:02:50,800 --> 00:02:57,450
+So basically a standardized way of communicating you could say because obviously to correctly handler
+
+42
+00:02:57,460 --> 00:03:01,570
+request and send back a response the browser can work with.
+
+43
+00:03:01,630 --> 00:03:08,560
+We have to follow some rules and these rules are defined by the protocol we use age to be or age to
+
+44
+00:03:08,560 --> 00:03:13,180
+be as HTP stands for hypertext transfer protocol.
+
+45
+00:03:13,180 --> 00:03:19,480
+And there we simply define where it is defined how a valid request looks like and how that data should
+
+46
+00:03:19,480 --> 00:03:21,620
+be transferred from browser to server.
+
+47
+00:03:21,670 --> 00:03:28,660
+And the other way around an age to CBS simply is the same with SSL encryption turned on where all the
+
+48
+00:03:28,660 --> 00:03:36,490
+data that is transmitted is actually encrypted so that if anyone is spoofing your connection they can
+
+49
+00:03:36,520 --> 00:03:38,170
+read your data.
+
+50
+00:03:38,290 --> 00:03:44,200
+Now towards the end of the course I will show you how to enable h to be s for the majority we'll just
+
+51
+00:03:44,200 --> 00:03:49,820
+use HTP since we'll only be developing that code will only work on it locally.
+
+52
+00:03:49,840 --> 00:03:56,360
+But once you put it into production I will also show you how to turn on that SSL encryption.
+
+53
+00:03:56,650 --> 00:03:58,810
+This is how the web works.
+
+54
+00:03:58,810 --> 00:04:04,900
+In a nutshell and how no chase is related to it and this is exactly where we will now continue working
+
+55
+00:04:04,900 --> 00:04:09,430
+with no chase and where we will now finally create a server with no chance.
+

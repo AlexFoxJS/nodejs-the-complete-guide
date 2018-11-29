@@ -1,0 +1,116 @@
+1
+00:00:02,510 --> 00:00:09,880
+Now we added our Mulder configuration to rename our file and to control the storage place in detail.
+
+2
+00:00:10,040 --> 00:00:14,320
+Now we can also add a filter to mulcher to only allow certain kinds of files.
+
+3
+00:00:14,550 --> 00:00:21,240
+And for that 2D object when we configure Mulder I can add the file filter function here.
+
+4
+00:00:21,440 --> 00:00:29,520
+Now I'll again create a separate Konst up there to make it easier to read file filter will simply be
+
+5
+00:00:29,610 --> 00:00:31,380
+a function.
+
+6
+00:00:31,520 --> 00:00:34,180
+I'll use an arrow function near where I get the request.
+
+7
+00:00:34,220 --> 00:00:39,740
+Some follow data and a callback which I have to call and in there we should call the call back with
+
+8
+00:00:39,740 --> 00:00:47,120
+NULL as an error and true Drew if you want to accept Dead Files if it should be stored or false if we
+
+9
+00:00:47,120 --> 00:00:49,260
+don't want to store that file.
+
+10
+00:00:49,310 --> 00:00:51,860
+Now how can we determine whether we want to store it.
+
+11
+00:00:52,010 --> 00:00:54,120
+Well we can write any logic we want here.
+
+12
+00:00:54,320 --> 00:01:05,650
+And I would check if the file MIME type is equal to an image slash PMG or if to follow MIME type is
+
+13
+00:01:05,710 --> 00:01:14,860
+equal to image jpeg or if the file MIME type is equal to image J packed with an e.
+
+14
+00:01:15,130 --> 00:01:21,460
+If any of that is True's if I have a file which is of that type then I will accept that some will call
+
+15
+00:01:21,460 --> 00:01:23,690
+the callback with true as a second value.
+
+16
+00:01:23,830 --> 00:01:29,790
+Otherwise I'll call the call with Falls as a second value which means I'll not accept that file.
+
+17
+00:01:30,010 --> 00:01:35,600
+And now we can use that file filter and pass it as a value for fall filter in our options here.
+
+18
+00:01:35,860 --> 00:01:36,860
+And we have dead set up.
+
+19
+00:01:36,880 --> 00:01:40,720
+We got some logic here that should filter out invalid files.
+
+20
+00:01:40,750 --> 00:01:50,660
+So if I go back no and I submit a form here with let's say my boat pinchy I succeed here will I get
+
+21
+00:01:50,660 --> 00:01:53,720
+an error here but I succeed because it stores to fall.
+
+22
+00:01:54,230 --> 00:02:00,370
+But if I try to submit a different value let's say I'll pick a PTF year.
+
+23
+00:02:00,520 --> 00:02:07,960
+You can use any pedia of any non image file down you see I only get undefined here and that undefined
+
+24
+00:02:08,260 --> 00:02:11,370
+is stemming from my admen control or from this line.
+
+25
+00:02:11,380 --> 00:02:13,380
+So then monitor did not store anything.
+
+26
+00:02:13,450 --> 00:02:16,060
+And that is how we can filter out files.
+
+27
+00:02:16,090 --> 00:02:21,520
+Now I will remove all these files up there and I'll also clean up my database soon because right now
+
+28
+00:02:21,520 --> 00:02:23,800
+we're not storing the data appropriately.
+
+29
+00:02:23,860 --> 00:02:26,240
+And that is the next step we should do of course.
+

@@ -1,0 +1,300 @@
+1
+00:00:02,140 --> 00:00:08,170
+So we found out dead using a request for storing this is not ideal because the request is dead after
+
+2
+00:00:08,170 --> 00:00:11,180
+sending a response which alternatives do we have.
+
+3
+00:00:12,200 --> 00:00:19,490
+Well one alternative would be some kind of global variable you could use a global variable which you
+
+4
+00:00:19,490 --> 00:00:26,260
+store in an extra file in which you export from that file and which you'd then change and that variable
+
+5
+00:00:26,270 --> 00:00:28,920
+would actually survive your request cycles.
+
+6
+00:00:28,940 --> 00:00:36,800
+But since that variable would be shared across all requests it would all be shared across all users
+
+7
+00:00:37,670 --> 00:00:43,010
+and that is exactly where cookies can help us with cookies we can store data in the browser of a single
+
+8
+00:00:43,010 --> 00:00:50,660
+user and store data in that browser which is customized to the user which does not affect all the users
+
+9
+00:00:50,840 --> 00:00:57,650
+but can be sent with requests to tell us Hey I already am authenticated and that is exactly what we
+
+10
+00:00:57,650 --> 00:00:58,990
+will do here.
+
+11
+00:00:59,000 --> 00:01:06,350
+So instead of just redirecting your well we can do is we can set a cookie and we set such a cookie simply
+
+12
+00:01:06,620 --> 00:01:08,810
+by setting a header.
+
+13
+00:01:08,810 --> 00:01:13,350
+So we set a header on our response and we set a header here.
+
+14
+00:01:13,380 --> 00:01:18,210
+But first of all defining the name of the header and the name is set cookie Indie's.
+
+15
+00:01:18,320 --> 00:01:25,850
+That is a research name which will set a cookie and then you have the value of that header and the value
+
+16
+00:01:25,850 --> 00:01:33,680
+for set cookie in its simple form is simply a key value pair where you define any name you want in any
+
+17
+00:01:33,680 --> 00:01:35,000
+value you want.
+
+18
+00:01:35,000 --> 00:01:41,000
+So you could have something like locked in or locked in makes it easier to read.
+
+19
+00:01:41,130 --> 00:01:47,460
+Equally true this would set a cookie and I can show this to you if you now save this and you go to the
+
+20
+00:01:47,460 --> 00:01:55,900
+logon page and you click post here or click log in open your developer tools and then the chrome developer
+
+21
+00:01:55,900 --> 00:01:59,770
+tools you can go to the application tab and there are two cookies.
+
+22
+00:01:59,770 --> 00:02:03,890
+And if you expand this you should see your current address here.
+
+23
+00:02:03,950 --> 00:02:07,200
+If you click on that you will see some cookies.
+
+24
+00:02:07,500 --> 00:02:13,030
+Now some cookies will be set by a third party plug ins Chrome extensions and so on.
+
+25
+00:02:13,620 --> 00:02:17,260
+But you will also see locked in and the value true.
+
+26
+00:02:17,280 --> 00:02:20,640
+You should see that at least that is the cookie which just it.
+
+27
+00:02:20,710 --> 00:02:22,030
+Let me out a bit here.
+
+28
+00:02:23,410 --> 00:02:26,170
+There you see the domain to which it belongs.
+
+29
+00:02:26,170 --> 00:02:32,670
+The path when it will expire and this state is in the past because it's a so-called session cookie.
+
+30
+00:02:32,670 --> 00:02:37,510
+It will basically expire once you close the browser and come back.
+
+31
+00:02:37,620 --> 00:02:42,720
+You see the size and some other information to which will come back in a second.
+
+32
+00:02:43,140 --> 00:02:45,120
+So this cookie is now set.
+
+33
+00:02:45,240 --> 00:02:53,670
+And now this cookie is not only set but the browser by default sends it to the server with every request
+
+34
+00:02:53,670 --> 00:02:54,360
+we make.
+
+35
+00:02:54,360 --> 00:02:58,330
+So if you click on products have for example we go to the Network tab.
+
+36
+00:02:58,490 --> 00:03:01,340
+This is a request which was sent to the product's page.
+
+37
+00:03:01,590 --> 00:03:07,080
+And there if we have a look at the headers we scroll down to the request headers you'll see that a cookie
+
+38
+00:03:07,080 --> 00:03:07,780
+was sent.
+
+39
+00:03:07,830 --> 00:03:11,530
+The first one comes from an extension but here this is our cookie.
+
+40
+00:03:11,550 --> 00:03:19,770
+So it was sent to our server and now since we have debt every request will have that cookie attached
+
+41
+00:03:19,770 --> 00:03:24,160
+to itself and therefore this data is sent with every request.
+
+42
+00:03:24,480 --> 00:03:25,640
+And now we can use that.
+
+43
+00:03:25,800 --> 00:03:33,210
+Let's start simple let's say in the get log in page here we can have a look at our headers the console
+
+44
+00:03:33,210 --> 00:03:40,320
+log request get and then you enter the header name which is cookie because remember in the client side
+
+45
+00:03:40,380 --> 00:03:46,890
+def tools you saw that the cookie had a wast send with the request and now if you go to the logon page
+
+46
+00:03:47,160 --> 00:03:51,810
+or reload that page if you are on it I reloaded it a couple of times.
+
+47
+00:03:51,840 --> 00:03:53,350
+You see this output.
+
+48
+00:03:53,360 --> 00:03:56,730
+Now we can ignore the first cookie but these are locked in cookie.
+
+49
+00:03:57,030 --> 00:04:06,090
+And now we could extract that value for example by splitting on the semi-colon and then taking the second
+
+50
+00:04:06,090 --> 00:04:07,260
+value in that array.
+
+51
+00:04:07,260 --> 00:04:11,550
+The array index starts at zero so one gives us a second element.
+
+52
+00:04:11,550 --> 00:04:19,360
+And now if a reload is used to get locked in true here you could trim that to remove any excess white
+
+53
+00:04:19,360 --> 00:04:23,080
+spaces we could split this again on the equal sign.
+
+54
+00:04:23,120 --> 00:04:25,180
+This is obviously a very complex way.
+
+55
+00:04:25,300 --> 00:04:30,550
+But if I do this again and then I use the second value then I should get to true or false value.
+
+56
+00:04:31,700 --> 00:04:34,730
+So now either reload this I get.
+
+57
+00:04:34,740 --> 00:04:36,440
+True here.
+
+58
+00:04:36,490 --> 00:04:39,880
+So obviously it is a very complex way but should be quite readable.
+
+59
+00:04:40,120 --> 00:04:48,760
+And then I can extract my is locked in information from the incoming request header I'm getting the
+
+60
+00:04:48,760 --> 00:04:50,560
+cookie header.
+
+61
+00:04:50,930 --> 00:04:57,790
+I make sure that I get the second cookie that is sent which happens to be on is locked in cookie.
+
+62
+00:04:57,940 --> 00:05:03,890
+If you only have one cookie being sent by the way then make sure you extract the first value.
+
+63
+00:05:04,300 --> 00:05:09,340
+So whatever or wherever it is locked in is located for you if you only have one cookie use the first
+
+64
+00:05:09,340 --> 00:05:10,380
+one with zero.
+
+65
+00:05:10,480 --> 00:05:13,820
+If you've got multiple ones used to set the third one and so on.
+
+66
+00:05:14,110 --> 00:05:16,210
+And then I extract the true value.
+
+67
+00:05:16,290 --> 00:05:21,290
+And now I have that is locked in information which I can pass through is authenticated.
+
+68
+00:05:21,400 --> 00:05:29,170
+And with that on that page if I now reloaded hey here are our two options in the menu because now we
+
+69
+00:05:29,170 --> 00:05:33,680
+do enable that again because now we store that information across requests.
+
+70
+00:05:33,700 --> 00:05:36,970
+So now even if I never get away to a number page right.
+
+71
+00:05:37,000 --> 00:05:38,440
+Don't extract that cookie.
+
+72
+00:05:38,620 --> 00:05:43,840
+And it come back to log in there I do extract it and it is always sent with every request.
+
+73
+00:05:43,840 --> 00:05:47,210
+So it is a cross request data storage.
+
+74
+00:05:47,260 --> 00:05:50,280
+Still there is a big disadvantage.
+
+75
+00:05:50,380 --> 00:05:52,860
+And do you know which one that is.
+

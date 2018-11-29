@@ -1,0 +1,188 @@
+1
+00:00:02,490 --> 00:00:08,020
+Now we worked on code that allows us to mid end event and we create a new post.
+
+2
+00:00:08,070 --> 00:00:12,720
+Now obviously we're not just creating posts rules or updating or deleting posts.
+
+3
+00:00:12,750 --> 00:00:14,350
+We want to be able to handle that.
+
+4
+00:00:14,350 --> 00:00:21,280
+Q Now let's do that together and let's continue with updating posts on the back end of the feed controller.
+
+5
+00:00:21,300 --> 00:00:26,490
+I'll scroll down to the update post Methot and in there we won a midnight event.
+
+6
+00:00:26,490 --> 00:00:27,830
+Once we're done updating.
+
+7
+00:00:27,900 --> 00:00:34,830
+So towards the end once we got our result we saved the post and we're sending a response here.
+
+8
+00:00:34,840 --> 00:00:40,300
+I'll again use IO get IO to get access to our established I O connect.
+
+9
+00:00:40,310 --> 00:00:48,180
+You could say and again emit on this post's channel and I'll limit my data just as before.
+
+10
+00:00:48,190 --> 00:00:54,370
+Now I will keep my pattern of having an action where I this time right update because this ISDE action
+
+11
+00:00:54,370 --> 00:00:59,080
+were performed and my post asked and my result here calls for assault.
+
+12
+00:00:59,140 --> 00:01:02,510
+Turns out to be the result of my saving operation.
+
+13
+00:01:02,770 --> 00:01:09,670
+Now just as before I want to be sure that I also have some user data in there so will actually scroll
+
+14
+00:01:09,670 --> 00:01:14,410
+up where we find that post and how well populated with my creator data.
+
+15
+00:01:14,410 --> 00:01:18,910
+This again will take that creator ID which we stored in the post object.
+
+16
+00:01:18,910 --> 00:01:24,940
+Reach out to the users database for the users collection fetched data for that specific user and added
+
+17
+00:01:24,950 --> 00:01:27,820
+here in our host.
+
+18
+00:01:27,850 --> 00:01:34,480
+Now I do admit this event where I sent my created post.
+
+19
+00:01:34,480 --> 00:01:40,960
+And let's now go back to our front application year and also establish some code here to update our
+
+20
+00:01:40,960 --> 00:01:45,080
+posts for this ofter does add post function.
+
+21
+00:01:45,100 --> 00:01:48,830
+I'll add a new function which I'll name update.
+
+22
+00:01:48,830 --> 00:01:55,340
+Post Re again get my post data and then I do something with that in the Arrow function and ask before
+
+23
+00:01:55,430 --> 00:02:01,970
+I prepared some code which we just copy in there which will add or which will update to post in our
+
+24
+00:02:01,970 --> 00:02:03,310
+list of posts.
+
+25
+00:02:03,550 --> 00:02:10,580
+Now also scroll down in your re-act code here in the same file to finish edits hndler because there
+
+26
+00:02:10,580 --> 00:02:13,750
+were all to have some logic to edit the post here.
+
+27
+00:02:14,060 --> 00:02:15,480
+I will get rid of debt.
+
+28
+00:02:15,500 --> 00:02:21,150
+I will actually get rid of this entire part here and also of my update post assignment index returns
+
+29
+00:02:21,160 --> 00:02:29,690
+statement in set state call because I now no longer updated here but I do admit the event to all connect
+
+30
+00:02:29,690 --> 00:02:36,380
+clients including to clients who did well sent that update and therefore I can also set up my listener
+
+31
+00:02:36,380 --> 00:02:37,300
+and stead.
+
+32
+00:02:37,400 --> 00:02:41,300
+With this new update post function I copied it up there.
+
+33
+00:02:41,300 --> 00:02:48,580
+So let me now go up and here where I have my established Lisner 40 post-event.
+
+34
+00:02:48,860 --> 00:02:53,720
+I'll add the else block to see if the action maybe is update.
+
+35
+00:02:53,750 --> 00:03:00,910
+If it's not create in which case I'll call this update post and past data post to that.
+
+36
+00:03:00,950 --> 00:03:07,130
+Now before this will work let me go back to the service side code and there since I do populate my creator
+
+37
+00:03:07,310 --> 00:03:13,960
+when find that post in the update post function near this check your will actually fail where I do check
+
+38
+00:03:14,000 --> 00:03:20,480
+F.D. ID which is now not the ID any more but the full Creager object is equal to the request user ID.
+
+39
+00:03:20,480 --> 00:03:26,780
+So here I actually want to access creator dot underscore ID to string right because we're populating
+
+40
+00:03:26,780 --> 00:03:29,150
+to create field with the full user data.
+
+41
+00:03:29,150 --> 00:03:30,580
+It's not just the ID anymore.
+
+42
+00:03:30,650 --> 00:03:32,880
+So you would fail editing this post.
+
+43
+00:03:33,170 --> 00:03:38,830
+If we don't make this change and now if we save both and we go back and reload both pages I deleted
+
+44
+00:03:38,840 --> 00:03:41,430
+one post in the meantime so I only got to any more.
+
+45
+00:03:41,510 --> 00:03:46,970
+And let me now edit this post here and a couple of thanks to my remarks maybe and click.
+
+46
+00:03:46,980 --> 00:03:54,410
+Except and you'll see it added or being changed on both clients.
+
+47
+00:03:54,530 --> 00:03:56,770
+So this is not also working.
+

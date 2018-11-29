@@ -1,0 +1,152 @@
+1
+00:00:02,520 --> 00:00:06,920
+So how does authentication work in arrest API then.
+
+2
+00:00:07,230 --> 00:00:12,390
+Well they obviously still have our client and server and the client still sends authentication data
+
+3
+00:00:12,390 --> 00:00:13,040
+to the server.
+
+4
+00:00:13,080 --> 00:00:19,410
+So the email and the password let's say in the past we then would have checked that data on the server.
+
+5
+00:00:19,500 --> 00:00:23,000
+And if it is valid we would have established a session.
+
+6
+00:00:23,460 --> 00:00:28,440
+Now we don't use a session anymore because restful API eyes are stateless.
+
+7
+00:00:28,560 --> 00:00:30,820
+They don't care about the client.
+
+8
+00:00:30,900 --> 00:00:37,300
+You learned about that strict decoupling of server and client and every request should be treated standalone.
+
+9
+00:00:37,380 --> 00:00:43,460
+That means every request should have all the data it needs to authenticate itself with a session.
+
+10
+00:00:43,500 --> 00:00:49,680
+The server needs to store data about the client the server and stores that a client is authenticated
+
+11
+00:00:49,920 --> 00:00:57,270
+and that's just not how rest API is work the server will not store anything about any client.
+
+12
+00:00:57,270 --> 00:01:04,580
+So we don't store sessions on arrest API and therefore this approach will not be used anymore.
+
+13
+00:01:04,680 --> 00:01:10,260
+Obviously we will still validate the input on the server we'll still check for the validity of the e-mail
+
+14
+00:01:10,260 --> 00:01:11,610
+password combination.
+
+15
+00:01:11,850 --> 00:01:19,230
+But then instead we return a so-called token to the client that token will be generated on the server
+
+16
+00:01:19,500 --> 00:01:23,780
+and will hold some information which can only be validated by the server.
+
+17
+00:01:24,000 --> 00:01:26,550
+And this token will then be stored in the client.
+
+18
+00:01:26,550 --> 00:01:29,470
+So they're in storage in the browser.
+
+19
+00:01:29,490 --> 00:01:32,510
+There are specific storage mechanisms for this.
+
+20
+00:01:32,790 --> 00:01:39,410
+And the client can then attach this token to every subsequent request it sends to the server.
+
+21
+00:01:39,420 --> 00:01:46,180
+So this stored token and attached to every request that targets a resource on the server which requires
+
+22
+00:01:46,200 --> 00:01:53,740
+all indication that token can only be validated by the server which created the token.
+
+23
+00:01:53,940 --> 00:02:00,160
+And if you change that token on the front end or you try to create it to fake that you are authenticated.
+
+24
+00:02:00,390 --> 00:02:06,450
+That will be detected because the server used a certain algorithm for generating the token which you
+
+25
+00:02:06,450 --> 00:02:10,370
+can't fake because you don't know it or you don't know the private key.
+
+26
+00:02:10,400 --> 00:02:17,070
+You just buy that server for generating the token to be precise that token contains adjacent data or
+
+27
+00:02:17,070 --> 00:02:22,890
+javascript data and the end plus a signature which as I mentioned is generated on the server with a
+
+28
+00:02:22,890 --> 00:02:26,520
+special private key which is only stored on the server.
+
+29
+00:02:26,520 --> 00:02:34,380
+And this gives us a so-called Jason weap token this Jason web token is then returned to the client and
+
+30
+00:02:34,380 --> 00:02:35,180
+to signature.
+
+31
+00:02:35,250 --> 00:02:38,570
+As I explained can only be verified by a server.
+
+32
+00:02:38,610 --> 00:02:42,710
+So you can't edit or create the token on the client.
+
+33
+00:02:42,840 --> 00:02:49,120
+Well you can but then the server will detect this and will treat the token as invalid.
+
+34
+00:02:49,710 --> 00:02:54,260
+This is how we generate the token or how we do authentication and rest.
+
+35
+00:02:54,270 --> 00:02:55,040
+AP.
+
+36
+00:02:55,290 --> 00:03:00,800
+We have the token which can be checked by the server but which does not to be stored on the server.
+
+37
+00:03:00,930 --> 00:03:06,870
+And this gives us an elegant way of authentic Kading requests in a rest API world.
+
+38
+00:03:06,870 --> 00:03:08,010
+Now let's implement this.
+

@@ -1,0 +1,204 @@
+1
+00:00:02,640 --> 00:00:06,060
+Adding products is also very simple.
+
+2
+00:00:06,060 --> 00:00:12,000
+We got our Edmund Shayla's controller where we do interact with the product in the way of creating it
+
+3
+00:00:12,120 --> 00:00:13,670
+here post ad product.
+
+4
+00:00:13,680 --> 00:00:19,470
+We create a new product called Save and I essentially want to leave that code as it is with one tiny
+
+5
+00:00:19,470 --> 00:00:20,510
+change.
+
+6
+00:00:20,520 --> 00:00:27,310
+So first of all we have to go to the product geas file in the models folder and there to save methodis
+
+7
+00:00:27,330 --> 00:00:30,540
+not doing anything at the moment.
+
+8
+00:00:30,560 --> 00:00:35,700
+Now what it should do is it should reach out to the database and save the data there.
+
+9
+00:00:35,720 --> 00:00:42,260
+So again I'll use my DB constant the one up here which gives me access to my database pool to my connection
+
+10
+00:00:42,260 --> 00:00:45,860
+pool and I'll call execute to execute a query.
+
+11
+00:00:45,860 --> 00:00:54,350
+Now with sequel which we saw select for getting data for inserting data there is to insert into command
+
+12
+00:00:55,100 --> 00:01:00,380
+and there we to find a table where we want to insert something and I'll use the products table you're
+
+13
+00:01:01,100 --> 00:01:04,780
+followed by brackets where realist's different fields.
+
+14
+00:01:04,790 --> 00:01:06,780
+We want to insert value into.
+
+15
+00:01:06,800 --> 00:01:13,850
+So we have the title the price D-Mich. your L and the description and important you need to make sure
+
+16
+00:01:14,090 --> 00:01:20,580
+that the fields you define here match the field names you defined in your table in the database.
+
+17
+00:01:20,750 --> 00:01:27,040
+You don't need to specify the ID because that should be generated automatically by the database engine.
+
+18
+00:01:27,050 --> 00:01:27,900
+Now we're not done.
+
+19
+00:01:27,920 --> 00:01:33,000
+This only finds where do we want to insert something to what is missing.
+
+20
+00:01:33,110 --> 00:01:37,770
+We now need to values keyword followed by brackets with the values.
+
+21
+00:01:38,070 --> 00:01:47,120
+Now to safely insert values and not face the issue of sequel injection which is an attack pattern where
+
+22
+00:01:47,140 --> 00:01:54,680
+users can insert special data into your input fields in your web page that runs as Seacole queries.
+
+23
+00:01:54,800 --> 00:02:00,080
+We should use an approach where we just use question marks one for each of the fields we insert data
+
+24
+00:02:00,080 --> 00:02:07,100
+into separated with clomb us and then there is a second argument we passed to execute with the values
+
+25
+00:02:07,100 --> 00:02:09,810
+that will be injected instead of DS.
+
+26
+00:02:09,860 --> 00:02:10,810
+Question marks.
+
+27
+00:02:10,820 --> 00:02:16,690
+So the order of the elements we add here to this array is the order of arguments here.
+
+28
+00:02:16,980 --> 00:02:21,740
+And we don't do this on our own because it does my sequel package we're using here.
+
+29
+00:02:21,890 --> 00:02:28,850
+Will then safely escape our input values to basically parse it for a hidden sequel commands and remove
+
+30
+00:02:28,850 --> 00:02:29,830
+them.
+
+31
+00:02:29,840 --> 00:02:35,990
+So now does an extra security layer and here I want to answered this title because the first question
+
+32
+00:02:36,010 --> 00:02:38,840
+mark will be inserted as a value for title.
+
+33
+00:02:38,870 --> 00:02:41,320
+So the first element here should be the title.
+
+34
+00:02:41,720 --> 00:02:43,620
+Second one will be the price.
+
+35
+00:02:43,670 --> 00:02:52,500
+So here we should have this price followed by this image your L and this description does allows me
+
+36
+00:02:52,500 --> 00:02:54,380
+to insert elements there.
+
+37
+00:02:54,570 --> 00:03:01,500
+And again I will simply return the promise that execute yields that allows us to go back to the Edmon
+
+38
+00:03:01,500 --> 00:03:09,810
+Jaspal to the controller and on save I can then and then and catch again and catch hell just lock to
+
+39
+00:03:09,800 --> 00:03:10,480
+error.
+
+40
+00:03:10,650 --> 00:03:14,850
+But then I don't care so much about the result.
+
+41
+00:03:14,850 --> 00:03:24,100
+I just want to make sure that I only redirect inside this function so only redirect once to insert completed.
+
+42
+00:03:24,110 --> 00:03:32,630
+Now that we can save all our files and if we now try to insert a second product with some dummy or L
+
+43
+00:03:32,630 --> 00:03:34,800
+which of course will not work.
+
+44
+00:03:34,820 --> 00:03:43,430
+Nine ninety nine and some description and we click add product here we are redirected and this is looking
+
+45
+00:03:43,430 --> 00:03:44,380
+pretty good.
+
+46
+00:03:44,840 --> 00:03:51,890
+And if we have a look at our database and click that refresh button here we see our entries our new
+
+47
+00:03:51,890 --> 00:03:54,260
+entry with an all generated ID.
+
+48
+00:03:54,860 --> 00:03:56,200
+So this is working.
+
+49
+00:03:56,210 --> 00:04:00,350
+We now are able to all to insert data into our database.
+
+50
+00:04:00,500 --> 00:04:06,020
+Now as a next step let's make sure we can click the details I can here and therefore retrieve data for
+
+51
+00:04:06,020 --> 00:04:09,830
+a single document or a single entry in our database.
+

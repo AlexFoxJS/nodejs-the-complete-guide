@@ -1,0 +1,84 @@
+1
+00:00:02,610 --> 00:00:08,220
+So for now we got Dad gnomon package installed and it will just work because it automatically installed
+
+2
+00:00:08,280 --> 00:00:09,480
+all the dependencies.
+
+3
+00:00:09,480 --> 00:00:11,110
+This package needs in turn.
+
+4
+00:00:11,190 --> 00:00:13,260
+So how can we now use it.
+
+5
+00:00:13,260 --> 00:00:22,630
+Node one is a utility tool and it allows us to run our application our node application through this
+
+6
+00:00:23,260 --> 00:00:26,260
+package here which will run node apps.
+
+7
+00:00:26,290 --> 00:00:33,250
+Yes and he in the end but who will also watch our files for changes and restart the process for us if
+
+8
+00:00:33,250 --> 00:00:37,700
+we do change something so we can simply change start here.
+
+9
+00:00:37,780 --> 00:00:41,520
+So the note I have aperture has command to gnomon app.
+
+10
+00:00:41,580 --> 00:00:49,060
+Yes and this will look for a node Mawn tool which you will find in this project because we install it
+
+11
+00:00:49,060 --> 00:00:50,690
+here as a side note.
+
+12
+00:00:50,800 --> 00:00:56,380
+If you were to run node one actually down there you would get an error that this command is not found
+
+13
+00:00:56,710 --> 00:01:02,590
+because its only installed in this project and not globally on your machine but the terminal will try
+
+14
+00:01:02,590 --> 00:01:05,020
+to find us globally here.
+
+15
+00:01:05,170 --> 00:01:08,070
+It will work because this will look globally.
+
+16
+00:01:08,410 --> 00:01:15,460
+So if you now run A.P.M. start this will simply start the node server and outputs some extra information
+
+17
+00:01:16,090 --> 00:01:19,680
+and if you now go to your routes she has fallen out at something.
+
+18
+00:01:19,690 --> 00:01:25,210
+Lets just add an extra line and you save that file you see it's restarting.
+
+19
+00:01:25,210 --> 00:01:31,660
+And this of course is very convenient because now we dont have to spend time on manually exiting and
+
+20
+00:01:31,660 --> 00:01:32,540
+restarting.
+
+21
+00:01:32,560 --> 00:01:34,630
+Now is this done for us.
+

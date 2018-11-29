@@ -1,0 +1,128 @@
+1
+00:00:02,330 --> 00:00:09,270
+To be able to read was one and the same I O object dad manages the same connection that is exposed.
+
+2
+00:00:09,530 --> 00:00:14,400
+Let's create a new file name its socket touchiest a name is up to you though.
+
+3
+00:00:14,720 --> 00:00:19,890
+And in that file here I will create a new variable which I'll name I own.
+
+4
+00:00:20,420 --> 00:00:26,900
+And then all export with the notes as exports and takes an object in that object I want to have two
+
+5
+00:00:26,990 --> 00:00:30,110
+methods to functions the init method.
+
+6
+00:00:30,960 --> 00:00:38,270
+And does how you define a function in no chase syntax you have that key here like in a normal object
+
+7
+00:00:38,270 --> 00:00:45,480
+then a colon and then the value and the value here is a function which receives the HTP server as an
+
+8
+00:00:45,510 --> 00:00:46,280
+argument.
+
+9
+00:00:46,400 --> 00:00:54,320
+And then the function body using an arrow function here of course in the function body you require some
+
+10
+00:00:54,350 --> 00:00:54,870
+video.
+
+11
+00:00:54,930 --> 00:01:00,060
+So just as we do it and actually yes here we require socket IO and we passed a server to the function
+
+12
+00:01:00,120 --> 00:01:05,960
+that gets exposed by the exported object or by it it exported package.
+
+13
+00:01:05,970 --> 00:01:13,120
+So here I awls execute this function and I pass in that HTB server I expect to get here as an argument.
+
+14
+00:01:13,140 --> 00:01:22,930
+Now the result of that is our i o object which l store and that I O variable here and then I can return
+
+15
+00:01:23,200 --> 00:01:27,450
+IO like dis Indian function in Aperture.
+
+16
+00:01:27,540 --> 00:01:32,870
+Yes I can now require slash socket.
+
+17
+00:01:32,950 --> 00:01:35,310
+So my own socket Yes file.
+
+18
+00:01:35,560 --> 00:01:38,890
+And there I will call init dysfunction.
+
+19
+00:01:38,950 --> 00:01:45,250
+I just a find in there so this function I call that and there is still passed my server because in that
+
+20
+00:01:45,250 --> 00:01:52,610
+function I expect to get that server jarocho here does not change its stays the way it is.
+
+21
+00:01:52,750 --> 00:01:55,340
+Yes I now just add another function.
+
+22
+00:01:55,450 --> 00:01:58,680
+So an average key value pair in that exported object.
+
+23
+00:01:58,680 --> 00:02:01,990
+So let's add a comma and then I'll name does get I O.
+
+24
+00:02:02,050 --> 00:02:04,270
+The name is up to you just as it was for in this.
+
+25
+00:02:04,270 --> 00:02:12,280
+By the way here I don't expect any arguments but in the function body I'll check if I O does not exist.
+
+26
+00:02:12,280 --> 00:02:21,550
+So if this variable is undefined in which case I'll throw in a new era or socket I O not initialized
+
+27
+00:02:21,550 --> 00:02:23,130
+or something like that.
+
+28
+00:02:23,440 --> 00:02:30,430
+If I make it past as if Geck I know that I O has been initialized and then I will just return it.
+
+29
+00:02:30,430 --> 00:02:31,320
+Now is this.
+
+30
+00:02:31,390 --> 00:02:37,030
+We're managing a connection in this file and we can import this fall in all the places of our app where
+
+31
+00:02:37,030 --> 00:02:40,130
+we need to be able to interact with IO like our feet.
+
+32
+00:02:40,180 --> 00:02:44,800
+JS controller so let's continue with that next.
+

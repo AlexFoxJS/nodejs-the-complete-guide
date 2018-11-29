@@ -1,0 +1,360 @@
+1
+00:00:02,240 --> 00:00:08,480
+I add it does frozen you error in actually yes and to show you what it does let me go to another place
+
+2
+00:00:08,480 --> 00:00:08,650
+too.
+
+3
+00:00:08,650 --> 00:00:12,040
+Edmond Chester the controller and change some code there.
+
+4
+00:00:13,230 --> 00:00:20,310
+In there we of course have plenty of code to for example add a product and we do validate user input
+
+5
+00:00:20,400 --> 00:00:24,220
+which is also a form of error prevention or error handling.
+
+6
+00:00:24,240 --> 00:00:30,870
+We do validate that input and admin shapes into a folder there we added all our validation logic.
+
+7
+00:00:30,870 --> 00:00:34,430
+Now in Edmond James I'm extracting my logic.
+
+8
+00:00:34,800 --> 00:00:42,360
+Now let me force an error by quickly looking into my database with comp pastie graphical user interface
+
+9
+00:00:42,380 --> 00:00:44,870
+we used before for interacting with the database.
+
+10
+00:00:45,090 --> 00:00:47,070
+And then there in the shop database.
+
+11
+00:00:47,160 --> 00:00:51,910
+Let's go to products and let me pick a product idea here.
+
+12
+00:00:52,350 --> 00:00:54,210
+Now we're creating a new product.
+
+13
+00:00:54,360 --> 00:01:00,910
+Will also add underscore ID and it will temporarily import something from the magns package
+
+14
+00:01:06,440 --> 00:01:15,590
+because I want to create a new object id here and I can use mongoose types object id here pass my object
+
+15
+00:01:15,590 --> 00:01:22,230
+id and at the New keyword and now I will basically create a new product with an ID that already exists
+
+16
+00:01:22,230 --> 00:01:23,630
+and they offered that should fail.
+
+17
+00:01:23,910 --> 00:01:29,620
+Now let me start my application and let's quickly log in with a user here.
+
+18
+00:01:31,950 --> 00:01:36,620
+And add a product and here you can enter anything.
+
+19
+00:01:36,730 --> 00:01:38,490
+Let's look at product here.
+
+20
+00:01:39,070 --> 00:01:40,060
+And now it will fail.
+
+21
+00:01:40,060 --> 00:01:44,010
+You've got this infinitely spinning refresh again.
+
+22
+00:01:44,190 --> 00:01:49,630
+And if you have a look at your code where at the terminal where you ran NPM start you will see that
+
+23
+00:01:49,660 --> 00:01:56,170
+our server crashed because Mongo Duey fro through an error with a duplicate key problem which makes
+
+24
+00:01:56,170 --> 00:02:00,760
+sense because we added a product with an existing ID and therefore everything crashed.
+
+25
+00:02:00,760 --> 00:02:06,130
+Now of course this is a constructed scenario but just because I want to ensure that something goes wrong
+
+26
+00:02:06,130 --> 00:02:10,340
+at this point because now I want to show you how you could handle such a problem.
+
+27
+00:02:10,470 --> 00:02:15,060
+Now we are logging that error and I can confirm that does catch.
+
+28
+00:02:15,060 --> 00:02:26,590
+It's called by adding console log an error or a Kurt and I've saved this obviously our notes are restarts.
+
+29
+00:02:26,690 --> 00:02:29,630
+Let's add a product again or let's try this again.
+
+30
+00:02:29,630 --> 00:02:35,890
+It will fail again of course but if I click add product now and I go back to my code we see an error
+
+31
+00:02:35,890 --> 00:02:36,660
+occurred here.
+
+32
+00:02:36,660 --> 00:02:38,940
+So this proves that this catch block gets fired.
+
+33
+00:02:39,000 --> 00:02:43,580
+But that's great because this means that we now have a chance of handling that error.
+
+34
+00:02:43,590 --> 00:02:49,340
+Now what we could do here of course is we could return some 500 error page.
+
+35
+00:02:49,350 --> 00:02:54,270
+We could also redirect the user to any other page or we could render the ad product page again.
+
+36
+00:02:54,300 --> 00:03:00,180
+We could even keep the old input and that might make sense if we expect this to be a temporary issue.
+
+37
+00:03:00,450 --> 00:03:08,530
+So of course we could take our code from Velie dating copy all that and output it to your nick or use
+
+38
+00:03:08,530 --> 00:03:11,520
+a tear in the catch block set a status code of 500.
+
+39
+00:03:11,530 --> 00:03:17,530
+Which is a code indicating that a service side issue occurred and then we want to return added product
+
+40
+00:03:17,640 --> 00:03:21,570
+with at product page title and product in the payoff.
+
+41
+00:03:21,640 --> 00:03:23,950
+By the way should be fixed up there too.
+
+42
+00:03:24,320 --> 00:03:27,700
+Minor thing but make sure that the navigation item is selected.
+
+43
+00:03:28,000 --> 00:03:30,430
+Editing set to False has error.
+
+44
+00:03:30,550 --> 00:03:35,140
+Beach too true dear a message we can put our own error message here.
+
+45
+00:03:35,140 --> 00:03:39,520
+Something like database operation failed.
+
+46
+00:03:39,550 --> 00:03:41,380
+At least try again.
+
+47
+00:03:41,830 --> 00:03:45,260
+Validation errors can be an empty array.
+
+48
+00:03:45,310 --> 00:03:50,320
+We don't want to put a red border around anything and we want to keep to user input.
+
+49
+00:03:50,320 --> 00:03:56,250
+If he saved us and everything restarts let's try to is another time.
+
+50
+00:03:56,350 --> 00:03:58,080
+So let's add a new product here your
+
+51
+00:04:01,130 --> 00:04:01,860
+like this.
+
+52
+00:04:01,880 --> 00:04:04,060
+The victory and product indeed.
+
+53
+00:04:04,100 --> 00:04:08,260
+Now we have a better error handling because now I am returning that same page.
+
+54
+00:04:08,270 --> 00:04:14,330
+I give the user some error message and the user can try again but of course this year will keep on failing
+
+55
+00:04:14,390 --> 00:04:16,740
+because we have a fundamental problem in the code.
+
+56
+00:04:16,880 --> 00:04:21,690
+But if that was a temporary network issue this might be a fine way of handling this.
+
+57
+00:04:21,710 --> 00:04:26,950
+Sometimes you got bigger problems though and you don't want to use this solution.
+
+58
+00:04:26,960 --> 00:04:29,510
+You don't want to return the same page again.
+
+59
+00:04:29,510 --> 00:04:34,520
+Instead you really want to show an error page to show the user something bigger is wrong.
+
+60
+00:04:34,520 --> 00:04:38,380
+We're working on it but for now you'll probably not be able to continue.
+
+61
+00:04:38,870 --> 00:04:43,520
+And for such scenarios I'll add a new view next to my 404 file.
+
+62
+00:04:43,520 --> 00:04:45,590
+I'll add a 500 Ejaz file.
+
+63
+00:04:45,590 --> 00:04:50,210
+We actually already have a view for error handling the 400 page 404 page.
+
+64
+00:04:50,210 --> 00:04:55,780
+Now I'll add another page that will render error messages for bigger technical issues.
+
+65
+00:04:55,790 --> 00:04:57,540
+Not for a not found drought's.
+
+66
+00:04:57,650 --> 00:05:06,630
+I'll copy to code from 4 0 4 included in 500 and there I will say some error occurred and there may
+
+67
+00:05:06,640 --> 00:05:11,510
+be some paragraph were working on fixing this.
+
+68
+00:05:11,600 --> 00:05:14,430
+Sorry if we're in the can.
+
+69
+00:05:14,700 --> 00:05:17,890
+Vincenz something like that.
+
+70
+00:05:17,920 --> 00:05:19,640
+You could add anything you want here.
+
+71
+00:05:19,690 --> 00:05:26,410
+Now we have that 500 Ejay route and that might be something you also want to do in cases where you are
+
+72
+00:05:26,410 --> 00:05:30,320
+not sure if you will be able to handle this otherwise.
+
+73
+00:05:30,400 --> 00:05:32,980
+Now to return to his 500 page.
+
+74
+00:05:32,980 --> 00:05:34,090
+I'll go to my error.
+
+75
+00:05:34,200 --> 00:05:43,740
+As controller and all duplicate my get 400 route and at to get 500 x neither with status code 500 we
+
+76
+00:05:43,750 --> 00:05:52,870
+render to 500 each fall with a page title of error or whatever you want lbf can be slash 500 and is
+
+77
+00:05:52,920 --> 00:05:53,860
+authenticated.
+
+78
+00:05:53,950 --> 00:05:56,410
+Yeah we use our session information for that.
+
+79
+00:05:57,220 --> 00:05:58,920
+Now we have get five hundred.
+
+80
+00:05:58,960 --> 00:06:01,270
+We just need to add a route for it at now.
+
+81
+00:06:02,160 --> 00:06:10,930
+Let's go to the app J.S. because in their I use get 404 for every page for every middleware that does
+
+82
+00:06:10,930 --> 00:06:12,940
+not get hndler ahead of time.
+
+83
+00:06:12,940 --> 00:06:19,060
+Now there is one extra Rather they will add with apt get slash 500.
+
+84
+00:06:19,080 --> 00:06:24,560
+Here I want to use error control or get 500.
+
+85
+00:06:24,630 --> 00:06:28,330
+So now I define a route like this slash 500.
+
+86
+00:06:28,500 --> 00:06:31,110
+I now just have to make sure that we do a redirect to that route.
+
+87
+00:06:31,140 --> 00:06:36,900
+When a 500 occurs and we want to show that page and they offer an Edmonton and the controller in the
+
+88
+00:06:36,900 --> 00:06:41,850
+catch block I will indeed redirect to slash 500.
+
+89
+00:06:42,180 --> 00:06:49,410
+And now if we save that and a try submitting this again I end up on my 500 error page and this can be
+
+90
+00:06:49,410 --> 00:06:52,540
+a decent way of handling this for bigger problems.
+

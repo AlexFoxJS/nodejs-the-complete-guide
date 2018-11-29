@@ -1,0 +1,328 @@
+1
+00:00:02,150 --> 00:00:03,960
+Now I showed you how to use a session.
+
+2
+00:00:03,960 --> 00:00:09,760
+The problem here is this session is stored in memory and memory is not an infinite resource.
+
+3
+00:00:09,760 --> 00:00:15,370
+So for development is fine but for a production server this would be horrible because if you have designs
+
+4
+00:00:15,450 --> 00:00:22,470
+or one hundred thousands of users your memory will quickly overflow if you store all that information
+
+5
+00:00:22,470 --> 00:00:23,180
+in memory.
+
+6
+00:00:23,250 --> 00:00:26,370
+You don't want to do that from a security perspective.
+
+7
+00:00:26,370 --> 00:00:28,050
+It's also not ideal.
+
+8
+00:00:28,050 --> 00:00:30,390
+So we want to store sessions differently.
+
+9
+00:00:30,570 --> 00:00:37,780
+And on the Express session documentation so on the docs on the Get help page of that package we're using.
+
+10
+00:00:38,010 --> 00:00:42,940
+If you scroll down to the end you will find a list of session stores.
+
+11
+00:00:42,960 --> 00:00:43,930
+You can use.
+
+12
+00:00:44,070 --> 00:00:47,030
+And basically all kinds of databases are supported.
+
+13
+00:00:47,160 --> 00:00:51,460
+You could store in files though that might not give you the best performance.
+
+14
+00:00:51,660 --> 00:00:57,230
+And we will use Mongo TV because we are already using that right and for that will use the connect Maunganui
+
+15
+00:00:57,240 --> 00:00:58,960
+be session packets here.
+
+16
+00:00:59,220 --> 00:01:05,450
+So we'll install this package now and register this as a store with which we can work.
+
+17
+00:01:05,460 --> 00:01:12,090
+So back here in our project let me switch the server with CON-TROLL C and that's first of all install
+
+18
+00:01:12,090 --> 00:01:16,860
+that package with NPM install dash dash save connect dash.
+
+19
+00:01:16,920 --> 00:01:25,150
+Hmong would be Dash session and this will download this package which we can use to let our express
+
+20
+00:01:25,150 --> 00:01:29,020
+session package store data in the database.
+
+21
+00:01:29,060 --> 00:01:32,000
+So now it is installed we can restart our server.
+
+22
+00:01:32,610 --> 00:01:38,560
+And now let's go to the app chase where we do initialize our session here we do configure it a session
+
+23
+00:01:38,710 --> 00:01:43,400
+and this is also where we need to configure our store now to set up that store.
+
+24
+00:01:43,630 --> 00:01:52,940
+First of all I'll import Mongo D-B store or you can name this however you want and I will require connect
+
+25
+00:01:52,940 --> 00:01:55,590
+Monga to be session.
+
+26
+00:01:55,660 --> 00:02:00,660
+Now this actually gives you a function which should execute to which you pass your session.
+
+27
+00:02:00,730 --> 00:02:06,370
+So does session object you you're importing from Express session is passed to a function which is yielded
+
+28
+00:02:06,640 --> 00:02:12,010
+by required connect more would you be session and the result of that function call is stored and long
+
+29
+00:02:12,000 --> 00:02:13,740
+would be store.
+
+30
+00:02:13,750 --> 00:02:20,500
+Now if that you can initialize and you store a stored in a constant named store maybe that name is up
+
+31
+00:02:20,500 --> 00:02:27,070
+to you and you execute to be stored as a constructor because this function happens to yield a constructor
+
+32
+00:02:27,070 --> 00:02:32,850
+function which we store in one would it be stored to the constructor you passed some options and now
+
+33
+00:02:32,850 --> 00:02:36,520
+which options could that database store required.
+
+34
+00:02:36,730 --> 00:02:42,160
+Well it will require a connection string because it needs to know in which database on which database
+
+35
+00:02:42,250 --> 00:02:44,920
+server to store your data.
+
+36
+00:02:44,920 --> 00:02:47,500
+Now we have a connection string down there.
+
+37
+00:02:47,710 --> 00:02:54,340
+So we'll copy that and Harry you are l and cutted actually and I will store it in a constant up here.
+
+38
+00:02:55,450 --> 00:02:56,610
+I'll name it.
+
+39
+00:02:56,830 --> 00:02:58,880
+Mongo D-B you are I.
+
+40
+00:02:59,070 --> 00:03:06,700
+All capital case to signal that this is basically a constant value which I'll reuse and then here I
+
+41
+00:03:06,700 --> 00:03:12,780
+will use my mom would it be you are I and I will also use it down there.
+
+42
+00:03:14,330 --> 00:03:17,330
+Please note that the session will all be stored in a shop database.
+
+43
+00:03:17,450 --> 00:03:21,690
+You could use a different database but then you need to use two different you or else.
+
+44
+00:03:21,710 --> 00:03:23,970
+I'm fine with using the same database.
+
+45
+00:03:24,110 --> 00:03:29,000
+I will find a collection though and you need to to find a collection where your sessions will be stored
+
+46
+00:03:29,270 --> 00:03:30,140
+and it will name it.
+
+47
+00:03:30,140 --> 00:03:32,140
+SESSIONS But the name is up to you.
+
+48
+00:03:32,150 --> 00:03:34,700
+You could name this however you want.
+
+49
+00:03:34,730 --> 00:03:36,430
+Now you could also add more information.
+
+50
+00:03:36,430 --> 00:03:40,940
+Like for example when does should expire and then it can be cleaned up automatically by mail.
+
+51
+00:03:40,940 --> 00:03:41,590
+Would you be.
+
+52
+00:03:41,780 --> 00:03:43,640
+But I will send it up like this.
+
+53
+00:03:43,640 --> 00:03:50,390
+And now I have my store added here and when I saved I get an error or actually this can be fixed by
+
+54
+00:03:50,390 --> 00:03:53,750
+removing that retry it writes here at the end of the URL.
+
+55
+00:03:53,840 --> 00:03:56,400
+You do that to work.
+
+56
+00:03:56,410 --> 00:04:02,790
+So now we get the store set up here and now we can use that store as a session store and to use it.
+
+57
+00:04:02,800 --> 00:04:08,620
+We go to the place where we initialize our session down there and we add another option to store option
+
+58
+00:04:08,880 --> 00:04:14,500
+and we are equal to our store constant or whatever you named the constant where you store that initial
+
+59
+00:04:14,510 --> 00:04:15,920
+last moment to be store.
+
+60
+00:04:16,300 --> 00:04:19,390
+And with that your session data will be stored in there.
+
+61
+00:04:19,410 --> 00:04:24,810
+So for now go back to my page and I do click that log in.
+
+62
+00:04:24,830 --> 00:04:30,790
+And again I got an new session and use session cookie and that session will now be stored in Mongul
+
+63
+00:04:30,790 --> 00:04:31,590
+would be.
+
+64
+00:04:31,880 --> 00:04:37,430
+And we can of course validate that by starting long would it be has to look into our database.
+
+65
+00:04:37,660 --> 00:04:43,300
+There if you look at the your shop database you will find a sessions collection and then the sessions
+
+66
+00:04:43,300 --> 00:04:49,240
+collection you'll find a session with an ID and in that session you'll find that information like is
+
+67
+00:04:49,240 --> 00:04:54,670
+locked in and some information about the cookie which belongs to that session.
+
+68
+00:04:54,670 --> 00:04:58,570
+Also you find the expiry date that was set by default.
+
+69
+00:04:58,720 --> 00:05:04,360
+So this is how sessions are now stored and this is how you should store them for production use a real
+
+70
+00:05:04,360 --> 00:05:12,100
+session store don't use the memory store which is less secure and which also is less unlimited or which
+
+71
+00:05:12,100 --> 00:05:14,720
+will reach limits when more users use your app.
+
+72
+00:05:14,920 --> 00:05:22,360
+But with that sessions are a powerful tool for storing data across requests while still scoping them
+
+73
+00:05:22,450 --> 00:05:26,070
+to a single user and not sharing that data across users.
+
+74
+00:05:26,140 --> 00:05:29,390
+Because now as you saw different users have different sessions.
+
+75
+00:05:29,560 --> 00:05:35,050
+But this is now a great way mostly for managing authentication but you could also store something like
+
+76
+00:05:35,110 --> 00:05:36,800
+a shopping cart in a session.
+
+77
+00:05:36,880 --> 00:05:41,920
+We are storing it in a database which is all a decent solution but you could store it in a session and
+
+78
+00:05:41,920 --> 00:05:45,610
+therefore indirectly in the database I guess in the session database collection.
+
+79
+00:05:45,610 --> 00:05:47,920
+But you could use a session for something like this.
+
+80
+00:05:47,920 --> 00:05:53,740
+So in general use a session for any data that belongs to a user that you don't want to lose after every
+
+81
+00:05:53,740 --> 00:05:54,890
+response you send.
+
+82
+00:05:54,970 --> 00:05:57,310
+And that should not be visible to average users.
+

@@ -1,0 +1,416 @@
+1
+00:00:02,320 --> 00:00:08,660
+So you hopefully got a first picture of what no jazz is and why you use it and what you use it for.
+
+2
+00:00:08,740 --> 00:00:15,640
+Now typically And also what we will do in this course you use no chase to run it on a server to write
+
+3
+00:00:15,700 --> 00:00:17,310
+server side code.
+
+4
+00:00:17,710 --> 00:00:20,570
+And for that we have to have a look at the full picture.
+
+5
+00:00:20,590 --> 00:00:26,830
+We have our users using a client computer with the browser their mobile phone with a browser.
+
+6
+00:00:26,860 --> 00:00:32,760
+Even mobile apps and we will come back to how no CIOs can communicate with these later in the course
+
+7
+00:00:32,760 --> 00:00:33,170
+too.
+
+8
+00:00:33,310 --> 00:00:36,780
+But for now let's stick to the traditional browser picture.
+
+9
+00:00:36,790 --> 00:00:42,880
+We get our users using the browser and there we can use H TMLC s s and Javascript javascript in the
+
+10
+00:00:42,880 --> 00:00:44,800
+browser to create web pages.
+
+11
+00:00:44,800 --> 00:00:51,300
+Right now they with a page my page dot com and they send their request to do so.
+
+12
+00:00:51,370 --> 00:00:56,540
+For example by entering a you are in the browser a request is sent to your mail.
+
+13
+00:00:56,620 --> 00:00:59,120
+Now there does server A comes into play.
+
+14
+00:00:59,140 --> 00:01:05,380
+We got our server some computer running in the Internet which has the IP associated with that domain
+
+15
+00:01:05,410 --> 00:01:07,780
+which is automatically resolved for us.
+
+16
+00:01:07,780 --> 00:01:13,780
+And on that server we don't want to execute some code that does something with the incoming request
+
+17
+00:01:14,320 --> 00:01:20,880
+and returns a response often but not necessarily always as you will learn this response is the H team
+
+18
+00:01:20,880 --> 00:01:28,050
+l page which a browser that in turn can display by the way it is not necessarily just h m l it's also
+
+19
+00:01:28,060 --> 00:01:34,670
+things like C S S files or javascript files with javascript code for the browser not for the server.
+
+20
+00:01:34,690 --> 00:01:40,840
+Now on the server we typically do tasks that we can't or don't want to do from inside the browser for
+
+21
+00:01:40,840 --> 00:01:47,470
+performance for security reasons we connect to databases for example to fetch and store data.
+
+22
+00:01:47,560 --> 00:01:53,320
+We do user authentication which we obviously can only do on a place to use reconned access to make it
+
+23
+00:01:53,320 --> 00:01:56,320
+more secure and avoid it being hacked.
+
+24
+00:01:56,440 --> 00:02:01,410
+We do it for input validation to see if a user entered a correct e-mail address.
+
+25
+00:02:01,450 --> 00:02:03,450
+The browser can always be tricked.
+
+26
+00:02:03,460 --> 00:02:06,260
+Users can even edit their browser or site code.
+
+27
+00:02:06,280 --> 00:02:09,820
+You can open the developer tools and start working on that page you're on.
+
+28
+00:02:10,000 --> 00:02:13,330
+But this server is of course sheltered from that.
+
+29
+00:02:13,510 --> 00:02:15,240
+User can't access it.
+
+30
+00:02:15,670 --> 00:02:22,030
+And in general we have our business logic on the server ever thing our user shouldn't see which takes
+
+31
+00:02:22,030 --> 00:02:23,930
+too much time to run in the browser.
+
+32
+00:02:23,950 --> 00:02:29,410
+Well we obviously want to deliver a fast user experience or anything of that kind.
+
+33
+00:02:29,410 --> 00:02:31,260
+And that is where we use no J.S..
+
+34
+00:02:31,300 --> 00:02:33,080
+So all the javascript code.
+
+35
+00:02:33,160 --> 00:02:36,370
+But this time not on the browser but on the server.
+
+36
+00:02:36,640 --> 00:02:38,440
+And this is where we use the many features.
+
+37
+00:02:38,440 --> 00:02:45,730
+No chest gives us this is how we indirectly allow our users to work with the server request response
+
+38
+00:02:45,730 --> 00:02:49,730
+pattern that direct access is not available.
+
+39
+00:02:50,140 --> 00:02:56,140
+So this is how we will use no chase and this course also we will use it to write code on the server
+
+40
+00:02:56,380 --> 00:02:59,050
+that returns state to our users.
+
+41
+00:02:59,050 --> 00:03:00,980
+Our clients can work with.
+
+42
+00:03:01,060 --> 00:03:08,250
+Now one important side note at this point of time no chase is not limited to running code on a server.
+
+43
+00:03:08,290 --> 00:03:14,590
+Its a job this could on time and you even saw first demo which did not do anything where we needed a
+
+44
+00:03:14,590 --> 00:03:15,430
+browser right.
+
+45
+00:03:15,430 --> 00:03:17,400
+We didn't spin up a server there.
+
+46
+00:03:17,500 --> 00:03:22,400
+We didn't do any thing which we would have reached through a browser.
+
+47
+00:03:22,420 --> 00:03:28,120
+We'll do that a lot for the course but we haven't done it thus far because it's just a javascript runtime
+
+48
+00:03:28,150 --> 00:03:34,270
+we can execute any javascript code with no chance and often that is code that runs on a server and is
+
+49
+00:03:34,270 --> 00:03:36,310
+executed upon incoming requests.
+
+50
+00:03:36,490 --> 00:03:43,690
+But you also often use no chips for over a code for example for local utility scripts or Bell tools
+
+51
+00:03:43,930 --> 00:03:50,890
+if you work with let's say react or angular or view or anything of that kind you actually used no yes
+
+52
+00:03:51,070 --> 00:03:54,610
+indirectly a lot for all the build processes.
+
+53
+00:03:54,740 --> 00:04:01,600
+These languages are frameworks needed because as you know Chaske is a great tool for writing utility's
+
+54
+00:04:01,600 --> 00:04:02,200
+scripts.
+
+55
+00:04:02,260 --> 00:04:06,480
+You have access to the file system so you can write and read and manipulate files.
+
+56
+00:04:06,580 --> 00:04:12,240
+And this allows you to do a lot of utility stuff on your computer that is never exposed to the public.
+
+57
+00:04:12,310 --> 00:04:13,930
+And I just want you to know that.
+
+58
+00:04:14,020 --> 00:04:20,380
+And I'll even have a section this course where I dive a little bit more in such built tools and non
+
+59
+00:04:20,420 --> 00:04:22,880
+servus language usages of note.
+
+60
+00:04:22,920 --> 00:04:29,830
+Yes in general and that is the most popular thing you do have no chest though you use it in the context
+
+61
+00:04:29,830 --> 00:04:32,330
+of web development and service side code.
+
+62
+00:04:32,560 --> 00:04:34,240
+So you use it to run a server.
+
+63
+00:04:34,360 --> 00:04:36,810
+And actually that is an important difference too.
+
+64
+00:04:36,880 --> 00:04:44,200
+For example with no chess you don't just write the code that is running on your server.
+
+65
+00:04:44,200 --> 00:04:46,730
+You also write the server yourself.
+
+66
+00:04:46,780 --> 00:04:54,280
+So the code that takes the incoming requests and routes them to your well over code impeached.
+
+67
+00:04:54,370 --> 00:05:00,940
+You have extra tools like apache or Jencks which run the servers which listen to incoming requests and
+
+68
+00:05:00,940 --> 00:05:03,710
+then do your speech code here.
+
+69
+00:05:03,760 --> 00:05:05,320
+No she asked us both.
+
+70
+00:05:05,350 --> 00:05:05,810
+It does.
+
+71
+00:05:05,820 --> 00:05:06,800
+They're listening.
+
+72
+00:05:06,910 --> 00:05:10,630
+And it then also does whatever you want to do in your code.
+
+73
+00:05:10,660 --> 00:05:13,270
+So that's important and that's something you'll see in action soon.
+
+74
+00:05:14,270 --> 00:05:19,480
+We also use it or we therefore also use it to run all our business logic.
+
+75
+00:05:19,490 --> 00:05:26,330
+So not just to listen to incoming requests but to then work with their requests data work with files
+
+76
+00:05:26,510 --> 00:05:29,370
+work with databases all that fun stuff.
+
+77
+00:05:29,390 --> 00:05:34,690
+Nocera has is capable off and will do all that in this course obviously.
+
+78
+00:05:34,700 --> 00:05:41,120
+And we also handle the response site not just incoming requests you will also learn how you use no chance
+
+79
+00:05:41,120 --> 00:05:43,820
+to send back data to your clients.
+
+80
+00:05:43,940 --> 00:05:46,640
+Be that H.T. mail pages.
+
+81
+00:05:46,650 --> 00:05:54,190
+HTML pages with dynamic content or data only in the form of Jason or Exham or even files.
+
+82
+00:05:54,590 --> 00:06:00,100
+So this is what we use and okay and what we will dive heavily into in this course.
+
+83
+00:06:00,110 --> 00:06:04,410
+Alternatives to no chase would be things like Python.
+
+84
+00:06:04,610 --> 00:06:11,120
+Also with frameworks like flask or Django or BHP with frameworks like level maybe or standalone vanilla
+
+85
+00:06:11,180 --> 00:06:18,560
+Peachi of course and more as Peter and Ruby on Rails all that stuff this basically are all replacements
+
+86
+00:06:18,710 --> 00:06:19,150
+for.
+
+87
+00:06:19,160 --> 00:06:24,290
+No yes or no chicest can be a replacement for them and there is no clear winner.
+
+88
+00:06:24,530 --> 00:06:28,250
+All these languages are capable of doing the same kind of stuff.
+
+89
+00:06:28,370 --> 00:06:35,450
+And of course they differ in some technical regards but in general it's great to have that broad variety.
+
+90
+00:06:35,450 --> 00:06:42,320
+The huge advantage or one huge advantage of no chase is that it uses Javascript a language which you
+
+91
+00:06:42,320 --> 00:06:45,010
+need so much in modern web development.
+
+92
+00:06:45,080 --> 00:06:51,380
+For all the Front-End for some built tools and if you demin can also use it on the server side.
+
+93
+00:06:51,380 --> 00:06:54,080
+You don't need to learn a bunch of different languages.
+
+94
+00:06:54,140 --> 00:06:59,000
+You can use one in the same language and then use that for your server side code too.
+
+95
+00:06:59,000 --> 00:07:02,030
+This is why Nocera is a great language to learn.
+
+96
+00:07:02,030 --> 00:07:04,000
+You get so much efficiency out of it.
+
+97
+00:07:04,040 --> 00:07:07,340
+It's also a highly performant and popular language.
+
+98
+00:07:07,430 --> 00:07:10,130
+There are so many jobs out there for no chess.
+
+99
+00:07:10,220 --> 00:07:12,320
+There never was a better time to learn it.
+
+100
+00:07:12,350 --> 00:07:14,090
+It's used in so many environments.
+
+101
+00:07:14,170 --> 00:07:20,960
+Also for a lot of cutting edge stuff but in general no chess is a great solution.
+
+102
+00:07:20,960 --> 00:07:22,010
+It's trending.
+
+103
+00:07:22,010 --> 00:07:27,980
+It's fast it's efficient and it makes sure that you only need to learn one language to write all the
+
+104
+00:07:27,980 --> 00:07:30,510
+code you need in a modern web application.
+

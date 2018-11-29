@@ -1,0 +1,160 @@
+1
+00:00:02,360 --> 00:00:09,140
+That's it for this module was quite a lot a lot about middleware I guess but it is the crucial basis
+
+2
+00:00:09,140 --> 00:00:12,720
+for the arrest of the course where we will of course continue with no.
+
+3
+00:00:12,730 --> 00:00:20,050
+J.S. but by using expressed as a powerful framework and that is what expressed as has is it's a no she
+
+4
+00:00:20,040 --> 00:00:20,800
+has framework.
+
+5
+00:00:20,840 --> 00:00:22,690
+So you still use no yes.
+
+6
+00:00:22,730 --> 00:00:29,810
+We for example still use the POF core module in this module but you build up on it and get a bunch of
+
+7
+00:00:29,810 --> 00:00:36,770
+utility functions and a clear set of rules on how you should structure your app and it's all about middleware
+
+8
+00:00:36,890 --> 00:00:43,310
+and understanding data flow over requests through all the middleware functions expressed as is very
+
+9
+00:00:43,310 --> 00:00:45,630
+popular because it's highly extensible.
+
+10
+00:00:45,770 --> 00:00:53,120
+And as you already saw with the body parser in this module you can easily lock some packages a lot of
+
+11
+00:00:53,120 --> 00:00:59,300
+packages actually into an express app because they just expose Sache middleware functions and you can
+
+12
+00:00:59,300 --> 00:01:02,910
+therefore easily add them and the request gets funneled through them.
+
+13
+00:01:03,230 --> 00:01:09,020
+Now that concept of middleware is really important middleware functions Arties functions that took the
+
+14
+00:01:09,020 --> 00:01:15,800
+request object a response object that helped us sending a response and that next argument which turns
+
+15
+00:01:15,800 --> 00:01:21,890
+out to be a function you should call to forward a request to the next middleware in line and in line
+
+16
+00:01:21,890 --> 00:01:25,970
+means from top to bottom in your root file.
+
+17
+00:01:26,210 --> 00:01:32,000
+This is a crucial point you have to understand that you should always call next unless you are sending
+
+18
+00:01:32,000 --> 00:01:37,220
+a response in which case you should never call and XT and that you can therefore cleverly structure
+
+19
+00:01:37,220 --> 00:01:44,450
+your middleware to transform a request read something from it and send different responses depending
+
+20
+00:01:44,450 --> 00:01:46,900
+on the route you're accessing.
+
+21
+00:01:46,940 --> 00:01:53,290
+So depending on the POV and Mefford you're sending you'll learn that you can fill the request by profit
+
+22
+00:01:53,300 --> 00:01:59,140
+method easily with app use by adding a payoff or app get app post.
+
+23
+00:01:59,500 --> 00:02:06,230
+And then if you filter by method like if you had app get that the pauvres would then be matched exactly
+
+24
+00:02:06,470 --> 00:02:12,610
+overwise with app use the POF you passed would only be matched with the beginning of D.
+
+25
+00:02:12,630 --> 00:02:16,060
+You are all the part after localhost.
+
+26
+00:02:16,220 --> 00:02:23,270
+You also can use the express router package instead of app use app get because this allows you to elegantly
+
+27
+00:02:23,270 --> 00:02:29,810
+split your routes across multiple files since the router you export there can be added as a middleware
+
+28
+00:02:29,810 --> 00:02:33,670
+function into app use in your root file.
+
+29
+00:02:33,680 --> 00:02:40,340
+Last but not least we also surfed some files and it's important to know that you're not limited to serving
+
+30
+00:02:40,340 --> 00:02:42,500
+dummy text or anything like that.
+
+31
+00:02:42,680 --> 00:02:50,510
+You can send files for example as we did with Tim files and if a request is directly made for a file
+
+32
+00:02:50,600 --> 00:02:53,750
+like a CSSA or javascript file but also images.
+
+33
+00:02:53,780 --> 00:03:00,530
+Even though we didn't see that in this module you can enable static serving for such falls with the
+
+34
+00:03:00,530 --> 00:03:06,620
+help of express static which is a crucial part of any web application you're building because you typically
+
+35
+00:03:06,740 --> 00:03:15,320
+have such files that are dependencies of your aged him outfalls for example and this is the core basic
+
+36
+00:03:15,680 --> 00:03:17,610
+knowledge you should have about Express.
+
+37
+00:03:17,670 --> 00:03:24,170
+Yes daises what will now build up on and desists where we will now dive deeper into to learn how to
+
+38
+00:03:24,170 --> 00:03:32,000
+render dynamic content how to access databases and able authentication managed data on the server and
+
+39
+00:03:32,000 --> 00:03:33,170
+so much more.
+
+40
+00:03:33,320 --> 00:03:34,160
+So let's continue.
+

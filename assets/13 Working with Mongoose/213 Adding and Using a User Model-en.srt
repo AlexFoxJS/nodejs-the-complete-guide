@@ -1,0 +1,300 @@
+1
+00:00:02,070 --> 00:00:06,020
+We worked on the admin side and on the basic product.
+
+2
+00:00:06,040 --> 00:00:12,130
+Let's now add a user again and let's see how we can add a user model how we can connect it to a product
+
+3
+00:00:12,220 --> 00:00:13,290
+and so on.
+
+4
+00:00:13,650 --> 00:00:17,160
+For that I'll go to my user just fall in the models folder.
+
+5
+00:00:17,440 --> 00:00:26,470
+And first of all I want to import mongoose here by requiring mongoose like that.
+
+6
+00:00:26,830 --> 00:00:29,670
+So let's now work on the user's schema.
+
+7
+00:00:30,010 --> 00:00:37,480
+Well first of all we need to find a schema so the user schema to user schema is defined by using something
+
+8
+00:00:37,480 --> 00:00:39,870
+from the mongoose package which you don't have to.
+
+9
+00:00:39,880 --> 00:00:43,010
+But I will store in a separate constant.
+
+10
+00:00:43,180 --> 00:00:48,480
+So Mangu is schema with that we can call and use schema down there.
+
+11
+00:00:48,800 --> 00:00:54,440
+And I pass a javascript object to that constructor and then that object we describe how a user should
+
+12
+00:00:54,440 --> 00:00:55,810
+look like.
+
+13
+00:00:55,820 --> 00:01:02,750
+Now here I will say that I want to have a name where the type of data will be a string and this will
+
+14
+00:01:02,750 --> 00:01:04,940
+be required.
+
+15
+00:01:05,550 --> 00:01:08,950
+As an X feel I want to have an email as well.
+
+16
+00:01:08,950 --> 00:01:15,620
+This will be of type string and this will also be required like debt.
+
+17
+00:01:15,640 --> 00:01:23,080
+Now we also used a cart before and I still want to embed the card into my user document that hasn't
+
+18
+00:01:23,080 --> 00:01:25,430
+changed just because we use mongoose.
+
+19
+00:01:25,720 --> 00:01:32,200
+So we'll add my cart here and now in that cart there will be an embedded document and we can define
+
+20
+00:01:32,260 --> 00:01:33,610
+it just like that.
+
+21
+00:01:33,640 --> 00:01:37,640
+I will add items here and items will be an array.
+
+22
+00:01:37,690 --> 00:01:43,510
+And this is how you define that you want to store an array and here you simply create an array and then
+
+23
+00:01:43,510 --> 00:01:45,940
+you add what is inside of this array.
+
+24
+00:01:45,940 --> 00:01:52,600
+You could say an array of strings if you have an array of strings or numbers or booleans or an array
+
+25
+00:01:52,600 --> 00:01:56,170
+of wild documents that of course is all possible.
+
+26
+00:01:56,170 --> 00:02:03,840
+Now I want to have an array of documents where I have a product ID which I'll configure with this document
+
+27
+00:02:03,840 --> 00:02:09,810
+here I'll come back to that and I'll have a quantity and the quantity all configured at right away will
+
+28
+00:02:09,810 --> 00:02:16,660
+have a type of number and is required.
+
+29
+00:02:16,740 --> 00:02:18,720
+Now what's the product ID here.
+
+30
+00:02:18,720 --> 00:02:26,290
+Though the product ID will have a type off and now I need to get something from the schema there.
+
+31
+00:02:26,310 --> 00:02:31,800
+We have a type's field and there we got all these special types like object ID.
+
+32
+00:02:31,860 --> 00:02:38,280
+So I'm telling mongoose that this will actually store an object id will because it will store a reference
+
+33
+00:02:38,280 --> 00:02:43,440
+to a product and that is all is required.
+
+34
+00:02:44,280 --> 00:02:49,050
+Now that is a bit of a more complex schema therefore because we have an embattled document and we have
+
+35
+00:02:49,050 --> 00:02:51,940
+an array of then even embedded documents.
+
+36
+00:02:52,080 --> 00:02:54,040
+But this is how a user should look like.
+
+37
+00:02:54,090 --> 00:03:03,070
+Now just as before all export this by calling mongooses model give this a name and the name will be
+
+38
+00:03:03,070 --> 00:03:03,570
+user.
+
+39
+00:03:03,610 --> 00:03:09,280
+Hence this will be stored in a user's collection because mongoose will automatically take the plural
+
+40
+00:03:09,340 --> 00:03:14,550
+lowercase words enough that as a collective name and I pass my user schema here.
+
+41
+00:03:14,560 --> 00:03:19,670
+OK so now we get everything we need to and for mongooses how a user should look like.
+
+42
+00:03:19,690 --> 00:03:26,410
+Now of course I want to work with a user and for that I'll go back to the app chess file and it will
+
+43
+00:03:26,410 --> 00:03:28,280
+actually create a user here.
+
+44
+00:03:29,340 --> 00:03:36,990
+Before we start listening that let me import the user model again in J s.
+
+45
+00:03:37,180 --> 00:03:45,070
+And with that import it I can create a new user by simply calling new user and just as before I pass
+
+46
+00:03:45,070 --> 00:03:53,680
+a javascript object where I can figure out where I sign a name where I assign an email and where I also
+
+47
+00:03:53,680 --> 00:04:00,650
+need to set my card and that card will have an array of well empty items.
+
+48
+00:04:00,970 --> 00:04:03,030
+So this is my user.
+
+49
+00:04:03,080 --> 00:04:07,580
+I can then call user safe and this will be done when I start my server.
+
+50
+00:04:07,940 --> 00:04:14,110
+So here after I restarted we should have a user all ready for you refreshed the overall database server.
+
+51
+00:04:14,210 --> 00:04:21,000
+We indeed see our users there we see one user with that nested data.
+
+52
+00:04:21,010 --> 00:04:24,740
+So now with that user created that idea I'm interested in.
+
+53
+00:04:24,790 --> 00:04:31,740
+So let me copy that ID and go back to the AP-Reals file and comment does middleware back in here.
+
+54
+00:04:31,810 --> 00:04:34,030
+I again will find a user by ID.
+
+55
+00:04:34,060 --> 00:04:40,580
+I just need to paste in that Id off that user we just created find by ID is a method provided by mongoose.
+
+56
+00:04:40,600 --> 00:04:41,950
+So this will work.
+
+57
+00:04:42,010 --> 00:04:48,880
+We get back to user here then and then I can simply store that user in my request and keep in mind this
+
+58
+00:04:48,880 --> 00:04:55,510
+is a full mongooses model so we can call all these mongooses modeled functions or methods on that user
+
+59
+00:04:55,510 --> 00:04:59,380
+object and they offer also on the user Optik which I do store here.
+
+60
+00:04:59,860 --> 00:05:08,030
+So does should work if I now save this for every incoming request it should actually give us that user.
+
+61
+00:05:08,080 --> 00:05:12,880
+Now one issue is that with every restart of the server we also create a new user.
+
+62
+00:05:13,090 --> 00:05:14,900
+As you can see here.
+
+63
+00:05:14,990 --> 00:05:24,390
+So let me delete that new user because I have my a user creation code down there and I dont check whether
+
+64
+00:05:24,390 --> 00:05:26,010
+I want to create one or not.
+
+65
+00:05:26,010 --> 00:05:36,530
+So what all they quickly do is I will first of all see if we do have a user with user find one and find
+
+66
+00:05:36,530 --> 00:05:43,400
+one with if I give it no arguments will always give me back the first user id finds and then here in
+
+67
+00:05:43,400 --> 00:05:52,100
+the then block I will have my user object and only if this is undefined so if it is not set only then
+
+68
+00:05:52,400 --> 00:05:54,970
+I will create a new user.
+
+69
+00:05:55,340 --> 00:06:04,140
+So therefore now if I refreshed as we shouldn't have a new user if I however delete that first user
+
+70
+00:06:04,140 --> 00:06:13,160
+here and I therefore temporarily get rid of that lets say and I save and add restarts now or refresh
+
+71
+00:06:13,160 --> 00:06:19,460
+my users collection I do have a new user and now I just need to grab that ID and paste it back in here.
+
+72
+00:06:19,610 --> 00:06:23,300
+And now we get a set up where I don't constantly create new users.
+
+73
+00:06:23,300 --> 00:06:27,500
+OK so this is how we add a user model and how we basically use it.
+
+74
+00:06:27,500 --> 00:06:32,040
+But now of course we want to use it in conjunction with the products model and with the products.
+
+75
+00:06:32,040 --> 00:06:33,920
+So lets do that in the next lecture.
+

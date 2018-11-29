@@ -1,0 +1,236 @@
+1
+00:00:02,490 --> 00:00:09,290
+Let's start in the use Folder and let's start with our product list Ejaz file there.
+
+2
+00:00:09,360 --> 00:00:16,340
+We obviously also want to be able to view the details for a given product when we click on it.
+
+3
+00:00:16,350 --> 00:00:18,510
+Now this requires a couple of adjustments.
+
+4
+00:00:18,630 --> 00:00:23,830
+First of all we got our entire article here which holds our product information.
+
+5
+00:00:23,880 --> 00:00:30,300
+So this product card and we now need a way to also load a detail page for this.
+
+6
+00:00:30,300 --> 00:00:36,620
+I will go into my cart actions down there and add a new button there which is actually the anchor tag.
+
+7
+00:00:36,690 --> 00:00:39,690
+I'll just give it to a class button to make it look like one.
+
+8
+00:00:39,930 --> 00:00:45,960
+And there I'll add details or write details on it and this should go to some details page.
+
+9
+00:00:45,990 --> 00:00:48,320
+We'll continue working on this part in a second.
+
+10
+00:00:48,630 --> 00:00:54,330
+Let's now reload that Products page here and you should see that detail's button there.
+
+11
+00:00:54,390 --> 00:01:00,840
+Now details should of course not lead to just slash but to a page that does show us some details for
+
+12
+00:01:00,850 --> 00:01:01,970
+the given product.
+
+13
+00:01:02,010 --> 00:01:07,740
+And this is exactly one of the use cases where we need to pass additional information as part of our
+
+14
+00:01:07,740 --> 00:01:16,010
+path because let's say we want to load slash products and then slash information for this specific product.
+
+15
+00:01:16,020 --> 00:01:18,720
+Now if we're dead we need some unique identifier.
+
+16
+00:01:18,960 --> 00:01:24,390
+So first of all let's ensure that every product we create actually has a unique ID and for that I'll
+
+17
+00:01:24,390 --> 00:01:29,610
+go into my model product J.S. and in there we don't assign an ID yet.
+
+18
+00:01:29,670 --> 00:01:37,710
+So when we create a new product here or when we save it to the database so to say so to a file in one
+
+19
+00:01:37,710 --> 00:01:44,250
+of these steps we should also add an ID and I will do it and save right before we do save it to a file
+
+20
+00:01:44,520 --> 00:01:46,000
+or add a new property.
+
+21
+00:01:45,990 --> 00:01:47,760
+By writing this ID.
+
+22
+00:01:47,910 --> 00:01:52,230
+And this adds a new property to the entire product object we're working on.
+
+23
+00:01:52,530 --> 00:01:54,180
+And also it equal to.
+
+24
+00:01:54,300 --> 00:01:55,890
+And now we need some unique ID.
+
+25
+00:01:56,010 --> 00:02:00,970
+Well we can generate a real unique ID with some extra packages or anything like this.
+
+26
+00:02:01,110 --> 00:02:08,310
+For now I will simply take Moff random which theoretically is not guaranteed to be unique of course
+
+27
+00:02:08,400 --> 00:02:13,860
+but here as a dummy value it'll do so Moff random is not my unique ID.
+
+28
+00:02:14,910 --> 00:02:18,090
+All converted to a string to have a text unique ID.
+
+29
+00:02:18,090 --> 00:02:22,710
+You could use a number but I'll go with the string and therefore this will now be saved for all new
+
+30
+00:02:22,710 --> 00:02:23,790
+products too.
+
+31
+00:02:23,840 --> 00:02:29,460
+So our products will now have an ID and now that we know that back and product list.
+
+32
+00:02:29,720 --> 00:02:34,080
+Yes I went to pass that unique ID to my POV.
+
+33
+00:02:34,590 --> 00:02:42,090
+So will now use Ejay as here to also output something as part of that link here as part of this POV
+
+34
+00:02:42,510 --> 00:02:45,010
+and there will be product on ID.
+
+35
+00:02:45,180 --> 00:02:51,480
+We have that idea whaleboat now so this link will now lead to products and then lets say we had this
+
+36
+00:02:51,480 --> 00:02:52,770
+random value.
+
+37
+00:02:52,770 --> 00:02:55,370
+This would be one possible path.
+
+38
+00:02:55,380 --> 00:03:02,400
+Now now we just want to make sure that we are of course then also are able to handle debt and extract
+
+39
+00:03:02,430 --> 00:03:07,440
+dead unique ID from the POF in our routes file.
+
+40
+00:03:07,530 --> 00:03:08,150
+So did we.
+
+41
+00:03:08,160 --> 00:03:13,790
+Or in the controller so that we can load the correct product and show the details for it.
+
+42
+00:03:13,890 --> 00:03:15,680
+And that is the whole idea here.
+
+43
+00:03:15,720 --> 00:03:21,270
+We send some information as part of the POV so that we can extract all the data we need for the product
+
+44
+00:03:21,720 --> 00:03:28,170
+from the controller or inside of the controller because we can't really send the entire product as part
+
+45
+00:03:28,170 --> 00:03:28,950
+of to you or else.
+
+46
+00:03:29,100 --> 00:03:32,780
+But we can send this key information.
+
+47
+00:03:33,030 --> 00:03:39,340
+Now with that let's go to the data folder and make sure to remove all products you have in there.
+
+48
+00:03:39,360 --> 00:03:45,270
+I'll just quickly save that link here so that I don't have to search and you image but then make sure
+
+49
+00:03:45,270 --> 00:03:52,770
+to remove that or even easier add an ID by adding ID between double quotation marks and give that some
+
+50
+00:03:53,010 --> 00:03:55,360
+random number.
+
+51
+00:03:55,390 --> 00:03:59,450
+Theoretically you can use any string but I'll go for some random number.
+
+52
+00:03:59,480 --> 00:04:02,950
+Now we have that idea added and therefore our code will now work.
+
+53
+00:04:03,010 --> 00:04:07,990
+If we didn't add this well we would not find an ID and therefore we could not create that path that
+
+54
+00:04:07,990 --> 00:04:09,420
+contains the ID.
+
+55
+00:04:09,580 --> 00:04:16,560
+If you saved it and reload if you hover over details now or if we click on it you should see that indeed
+
+56
+00:04:16,690 --> 00:04:17,240
+you are l.
+
+57
+00:04:17,260 --> 00:04:22,540
+You now also have that ID in there and right now we got a page not found because we're not handling
+
+58
+00:04:22,540 --> 00:04:27,580
+this route yet but we have products and then this ID and then the next step.
+
+59
+00:04:27,580 --> 00:04:32,080
+We will now extract that ID and then know which product to load.
+

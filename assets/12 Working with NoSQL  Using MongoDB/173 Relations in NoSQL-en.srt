@@ -1,0 +1,208 @@
+1
+00:00:02,100 --> 00:00:04,090
+So we know how we store data.
+
+2
+00:00:04,290 --> 00:00:09,360
+And I mentioned that this gives you more flexibility also regarding the storage of relations between
+
+3
+00:00:09,360 --> 00:00:10,810
+different data.
+
+4
+00:00:11,010 --> 00:00:14,460
+Now a no sequel it would be pretty normal to have something like this.
+
+5
+00:00:14,580 --> 00:00:18,810
+Here are free collections and we have some duplicate data in there.
+
+6
+00:00:18,870 --> 00:00:24,720
+We have a users collection which holds all the details about a user but then we might have some copy
+
+7
+00:00:24,720 --> 00:00:31,920
+off that data or part of that data in an embedded or nested document in another document in a novel
+
+8
+00:00:31,920 --> 00:00:33,000
+collection.
+
+9
+00:00:33,030 --> 00:00:40,350
+So instead of just matching by ID as you do it in the sequel world here you can also depict a relation
+
+10
+00:00:40,410 --> 00:00:43,300
+by embedding data into documents.
+
+11
+00:00:43,350 --> 00:00:46,770
+You could and bad the idea which points out an error document.
+
+12
+00:00:46,770 --> 00:00:52,470
+So do you still have to merge two documents manually and you will indeed have to do that pretty manually
+
+13
+00:00:52,830 --> 00:00:59,400
+but you can also just take the information that is important for you in the context of a numbered document.
+
+14
+00:00:59,430 --> 00:01:04,500
+Let's say here is some user data for the orders and you copy that into the orders.
+
+15
+00:01:04,710 --> 00:01:10,260
+And then you have that data right there whenever you fetch all orders without you having to fetch all
+
+16
+00:01:10,260 --> 00:01:13,930
+orders then look for a fitting users and fetched them to you.
+
+17
+00:01:14,040 --> 00:01:19,540
+And this is part of what makes no sequel and especially Monga to be so fast and efficient.
+
+18
+00:01:19,680 --> 00:01:26,370
+It really is built to make sure that you query your data in the form that you need that you store the
+
+19
+00:01:26,370 --> 00:01:31,500
+data in the form that you needed that you don't have to do a lot of merging and so on but that you can
+
+20
+00:01:31,500 --> 00:01:36,720
+really fetch data in the form that you need it without having to combine multiple collections behind
+
+21
+00:01:36,720 --> 00:01:38,290
+the scenes on the server.
+
+22
+00:01:38,730 --> 00:01:44,780
+That being said you can still do that nested in and bad documents are one alternative for depicting
+
+23
+00:01:44,880 --> 00:01:45,730
+relations.
+
+24
+00:01:45,870 --> 00:01:48,030
+References are number one.
+
+25
+00:01:48,030 --> 00:01:54,110
+So here's the I'm bad at document example where the address is part of our customer document.
+
+26
+00:01:54,150 --> 00:02:00,000
+So instead of having two collections customers and addresses and then matching by ID here we put the
+
+27
+00:02:00,000 --> 00:02:02,330
+address right into the customer.
+
+28
+00:02:02,340 --> 00:02:08,040
+There are cases where you would have a lot of data duplication and where you need to work with that
+
+29
+00:02:08,040 --> 00:02:12,870
+data a lot and hence it would change a lot and you would have to manually update it in all duplicate
+
+30
+00:02:12,870 --> 00:02:17,160
+places where are you using embedded documents is not ideal.
+
+31
+00:02:17,340 --> 00:02:20,730
+So for example if you have some favorite books for every customer.
+
+32
+00:02:20,910 --> 00:02:25,320
+Well you would have lots of data duplication because a lot of customers might have the same favorite
+
+33
+00:02:25,320 --> 00:02:28,380
+books and these books mightst and change a lot.
+
+34
+00:02:28,410 --> 00:02:35,170
+Maybe there is a new edition published and you would have to go to all customers who have these boxes
+
+35
+00:02:35,250 --> 00:02:39,800
+favorites and update the entries for each customer in such a scenario.
+
+36
+00:02:39,810 --> 00:02:45,540
+It would be easier to still go to collections and only store the references to the books and a customer's
+
+37
+00:02:45,540 --> 00:02:51,900
+documents and then manually merged with the books which are managed in a different collection.
+
+38
+00:02:51,900 --> 00:02:56,010
+And over time you'll get a feeling for which approach you want to follow.
+
+39
+00:02:56,010 --> 00:03:01,800
+I'll show you some examples in this course and have a look at this complete Mullaly course I did mention
+
+40
+00:03:02,010 --> 00:03:07,420
+which drives much deeper into debt and shows you way more examples that can be helpful to you.
+
+41
+00:03:07,440 --> 00:03:14,670
+So this is the idea here though we can embed or we can use references whatever fits the purpose a bit
+
+42
+00:03:14,670 --> 00:03:15,430
+better.
+
+43
+00:03:15,750 --> 00:03:20,820
+And with that we know how Maunganui generally works that we have.
+
+44
+00:03:20,820 --> 00:03:24,300
+The important thing of not having a schema.
+
+45
+00:03:24,360 --> 00:03:27,550
+Hence we have more flexibility no structure is required.
+
+46
+00:03:27,840 --> 00:03:32,760
+And we have fewer data relations because we can relate by embedding.
+
+47
+00:03:33,090 --> 00:03:39,030
+We can still build relations manually with references as you saw but you should always know if that
+
+48
+00:03:39,030 --> 00:03:40,630
+is the best approach right now.
+
+49
+00:03:40,650 --> 00:03:44,780
+Or if you can use an embed document with too much work.
+
+50
+00:03:44,820 --> 00:03:49,170
+So these are no sequel directorates sticks and Daylesford among would be correct or mistakes.
+
+51
+00:03:49,230 --> 00:03:55,050
+And these are all part of the reason why Monga to be is so popular because of the speed and the flexibility
+
+52
+00:03:55,050 --> 00:03:55,670
+it gives you.
+

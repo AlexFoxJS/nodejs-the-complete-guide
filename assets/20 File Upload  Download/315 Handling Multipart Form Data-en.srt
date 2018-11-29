@@ -1,0 +1,232 @@
+1
+00:00:02,310 --> 00:00:04,870
+So nodded We added our fall pick.
+
+2
+00:00:04,960 --> 00:00:06,390
+Let's work on the back end.
+
+3
+00:00:06,490 --> 00:00:12,910
+And for that I'll go to my Edmon controller which is where I do handle the creation of products.
+
+4
+00:00:12,910 --> 00:00:18,060
+Also the editing of products which will work on later but for now let's focus on adding a product.
+
+5
+00:00:18,070 --> 00:00:21,100
+And here we are extracting data from the incoming requests.
+
+6
+00:00:21,350 --> 00:00:26,020
+Now I renamed my file picker here to image.
+
+7
+00:00:26,110 --> 00:00:32,230
+So the input name is now just image and this means that here when I try to retrieve it from the body
+
+8
+00:00:32,620 --> 00:00:41,930
+I should also target the image like this or we can keep this name because it will fail anyways if I
+
+9
+00:00:41,930 --> 00:00:48,960
+now submit this like debt and click add product I get invalid value here.
+
+10
+00:00:49,230 --> 00:00:55,770
+And the image you are Dazs fail because I do have my routes and the app and routes I do have some validation
+
+11
+00:00:55,770 --> 00:00:58,860
+place where I say D-Mich. your L should be a U or l.
+
+12
+00:00:59,160 --> 00:01:07,660
+And clearly it is not so let's remove that validator for the host at product route and let's try this
+
+13
+00:01:07,750 --> 00:01:08,680
+again.
+
+14
+00:01:08,740 --> 00:01:10,690
+And now we simply get an error.
+
+15
+00:01:10,720 --> 00:01:17,680
+So the error handling is working and the error we're getting is simply stemming from the fact that we're
+
+16
+00:01:17,680 --> 00:01:21,670
+not able to extract our image correctly.
+
+17
+00:01:21,730 --> 00:01:28,300
+I can show this to you if I console log image you are all here in post ad product and this controller
+
+18
+00:01:28,300 --> 00:01:35,570
+action and I tried to submit this then you don't see anything here.
+
+19
+00:01:35,910 --> 00:01:41,640
+It fails to log anything there because we failed to extract that image from the request body.
+
+20
+00:01:41,640 --> 00:01:43,500
+And why is that.
+
+21
+00:01:43,630 --> 00:01:49,500
+Because keep in mind you'll learn it is a little bit early in this course for extracting the content
+
+22
+00:01:49,590 --> 00:01:51,490
+off our incoming requests.
+
+23
+00:01:51,510 --> 00:01:59,640
+We set up a middleware in app Japs were using a special middleware this body parser middleware and this
+
+24
+00:01:59,730 --> 00:02:06,620
+middleware uses or expose's a couple of different parsers and we're using the you are encoded parser.
+
+25
+00:02:06,720 --> 00:02:10,630
+Now you are at encoded data is basically text data.
+
+26
+00:02:10,650 --> 00:02:13,920
+So if a form is submitted without a file.
+
+27
+00:02:13,920 --> 00:02:20,400
+So just with text fields no matter if that text field then stores a number a u r l or line text but
+
+28
+00:02:20,400 --> 00:02:23,670
+it's all encoded in text when it is submitted.
+
+29
+00:02:24,000 --> 00:02:27,320
+This format is called You are encoded.
+
+30
+00:02:27,550 --> 00:02:34,170
+And actually we can see that if we open the developer tools and go to the Network tab in there if I
+
+31
+00:02:34,170 --> 00:02:39,420
+do click submit here this failing requests at product request.
+
+32
+00:02:39,540 --> 00:02:46,770
+If we have a look at our request headers we can see that the content type is application and then SWW
+
+33
+00:02:46,870 --> 00:02:48,810
+W4 you are encoded.
+
+34
+00:02:48,900 --> 00:02:53,870
+And this basically means it tries to put all the data as text into its foreign body.
+
+35
+00:02:53,940 --> 00:02:57,730
+We can see that down there just for data tidal price and so on.
+
+36
+00:02:57,870 --> 00:03:00,320
+And just image does is invalid.
+
+37
+00:03:00,330 --> 00:03:08,940
+This is basically an empty text because it can't extract our file as text because a file is binary data.
+
+38
+00:03:09,060 --> 00:03:17,230
+Now because of that because of that failing extraction we need to work with this different.
+
+39
+00:03:17,280 --> 00:03:24,270
+We need to parse our data differently and the body parts that we're using here does not give us any
+
+40
+00:03:24,630 --> 00:03:31,440
+parser it does not include any parser that could handle file data as well.
+
+41
+00:03:31,440 --> 00:03:33,800
+We need a new package for that.
+
+42
+00:03:33,810 --> 00:03:39,870
+So let me quit that server and let's install a new package with NPM installed dash dash save and the
+
+43
+00:03:39,870 --> 00:03:41,890
+name of that package is Mulder.
+
+44
+00:03:42,210 --> 00:03:46,980
+Mulcher is a number third party package that parses incoming requests.
+
+45
+00:03:46,980 --> 00:03:51,130
+But this package parses incoming requests for files.
+
+46
+00:03:51,210 --> 00:03:59,780
+So it is able to handle file requests as well or requests with mixed data with text and file data.
+
+47
+00:03:59,790 --> 00:04:06,060
+We'll still keep body parser because we still have like for example our sign up form where we only submit
+
+48
+00:04:06,270 --> 00:04:13,260
+you are Ellen coded data but now we'll have to use a different encoding and that starts with our form.
+
+49
+00:04:13,260 --> 00:04:19,230
+So back in the view the added product you there I'll change my formula a little bit.
+
+50
+00:04:19,350 --> 00:04:24,520
+Besides to class and action here I'll also add a new field.
+
+51
+00:04:24,570 --> 00:04:33,310
+That's the Anke type field which all set to multipart form data application X W W O W form you are eling
+
+52
+00:04:33,330 --> 00:04:34,740
+coded as to default.
+
+53
+00:04:34,830 --> 00:04:41,760
+But now we'll switch to multipart form data which is simply the content type telling the server that
+
+54
+00:04:41,760 --> 00:04:49,170
+does submission to this request will not contain plain text but will contain mixed data text and binary
+
+55
+00:04:49,170 --> 00:04:55,440
+data and Mulder the package we just installed will be looking for incoming requests.
+
+56
+00:04:55,440 --> 00:05:03,410
+With this type of data and will then be able to parse both the text and our file.
+
+57
+00:05:03,420 --> 00:05:08,610
+So does this what we get there or what we will need.
+
+58
+00:05:08,610 --> 00:05:12,980
+And now with all that prepared let's use Mulder in the next lecture.
+

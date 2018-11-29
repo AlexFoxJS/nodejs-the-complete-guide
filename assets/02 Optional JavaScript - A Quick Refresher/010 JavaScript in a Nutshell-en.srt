@@ -1,0 +1,156 @@
+1
+00:00:02,250 --> 00:00:04,890
+So knouted we know for whom this modulus.
+
+2
+00:00:04,920 --> 00:00:08,030
+Let me summarize javascript briefly.
+
+3
+00:00:08,070 --> 00:00:11,230
+Javascript is a weekly typed programming language.
+
+4
+00:00:11,390 --> 00:00:14,210
+It's an object oriented programming language.
+
+5
+00:00:14,260 --> 00:00:16,250
+It's very we're style.
+
+6
+00:00:16,260 --> 00:00:18,770
+And what do you mean with that weekly type.
+
+7
+00:00:18,810 --> 00:00:21,570
+Instead we have no explicit type assignment.
+
+8
+00:00:21,690 --> 00:00:28,950
+Javascript knows types like numbers or text which is called string or booleans which is true or false
+
+9
+00:00:29,490 --> 00:00:35,470
+but it doesn't force you to define which type you're using in a variable or in a function.
+
+10
+00:00:35,610 --> 00:00:41,070
+And indeed you can also have a variable where you store a number which you then suddenly change to a
+
+11
+00:00:41,070 --> 00:00:42,180
+text variable.
+
+12
+00:00:42,180 --> 00:00:47,280
+So you can switch types dynamically in overlaying which just does this differently.
+
+13
+00:00:47,370 --> 00:00:53,260
+And was this gives you greater flexibility to be able to change it and to not have strict typing.
+
+14
+00:00:53,280 --> 00:00:55,060
+It also can lead to errors.
+
+15
+00:00:55,080 --> 00:00:57,590
+So it is just something you have to be aware of.
+
+16
+00:00:58,110 --> 00:01:04,110
+Object oriented simply means that data can be organized in logical objects and we'll see these objects
+
+17
+00:01:04,110 --> 00:01:05,280
+in this module.
+
+18
+00:01:05,590 --> 00:01:12,840
+And one important concept here is did you have to be aware about the difference of primitive and reference
+
+19
+00:01:12,840 --> 00:01:15,380
+types and attached to this lecture.
+
+20
+00:01:15,480 --> 00:01:21,360
+You'll find a link to an article and video I created for my free YouTube channel had a mind where I
+
+21
+00:01:21,360 --> 00:01:27,350
+do dive into primitive and reference types and where I do explain the difference and why they are important.
+
+22
+00:01:27,360 --> 00:01:33,780
+So definitely check that out if primitive and reference types don't tell you anything regarding the
+
+23
+00:01:33,780 --> 00:01:34,720
+versatility.
+
+24
+00:01:34,830 --> 00:01:36,590
+Well we can see that in this course.
+
+25
+00:01:36,660 --> 00:01:41,700
+Javascript runs in the browser and this is actually where it comes from but you can also use it with
+
+26
+00:01:41,700 --> 00:01:43,870
+no chest to run it on your PC.
+
+27
+00:01:43,980 --> 00:01:47,030
+Outside of a browser set up or on a server.
+
+28
+00:01:47,030 --> 00:01:49,740
+Therefore And that is exactly what we'll do in this course.
+
+29
+00:01:49,770 --> 00:01:52,380
+We'll build a web server with no chance.
+
+30
+00:01:52,410 --> 00:01:58,920
+So we got this Broadway versatility of being able to use javascript on different platforms and you can
+
+31
+00:01:58,920 --> 00:02:04,020
+also perform a broad variety of tasks with javascript Also depending on the platform you're running
+
+32
+00:02:04,020 --> 00:02:04,440
+on.
+
+33
+00:02:04,680 --> 00:02:11,490
+You can in the browser listen to user events read rendered the DOM and on the server or on a PC you
+
+34
+00:02:11,490 --> 00:02:14,080
+can work with files with databases.
+
+35
+00:02:14,100 --> 00:02:15,900
+Lot of cool stuff.
+
+36
+00:02:15,930 --> 00:02:20,980
+So this is a summary of javascript and what makes up the language.
+
+37
+00:02:21,120 --> 00:02:28,560
+Let's now dive into some core features also some core next generation telescope features which are supported
+
+38
+00:02:28,560 --> 00:02:29,810
+by no choice.
+
+39
+00:02:29,940 --> 00:02:32,800
+And let's see some things we'll see from the course.
+

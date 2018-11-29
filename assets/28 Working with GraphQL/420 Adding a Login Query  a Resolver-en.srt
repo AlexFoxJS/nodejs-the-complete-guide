@@ -1,0 +1,256 @@
+1
+00:00:02,720 --> 00:00:05,550
+Knouted we're able to create new users.
+
+2
+00:00:05,570 --> 00:00:09,320
+How does authentication work in the graphical world.
+
+3
+00:00:09,320 --> 00:00:13,370
+Does it work in a similar way to rest your eyes.
+
+4
+00:00:13,370 --> 00:00:15,350
+Do we use sessions again.
+
+5
+00:00:15,830 --> 00:00:23,990
+Well remember this slide a graph to you all API is also stateless and client independent.
+
+6
+00:00:23,990 --> 00:00:30,380
+So generally we still offend DK by using such a token which we then attach to every request that should
+
+7
+00:00:30,380 --> 00:00:39,740
+be able to access protected resources and a log in action is in the end just their normal Kery where
+
+8
+00:00:39,740 --> 00:00:43,550
+we send some user data and where we want to get back a token.
+
+9
+00:00:43,550 --> 00:00:44,560
+Right.
+
+10
+00:00:44,690 --> 00:00:52,680
+So in the end what we can do here is the following on our back and code in our schema.
+
+11
+00:00:52,750 --> 00:00:56,830
+I will now to find a real query instead of my dummy placeholder.
+
+12
+00:00:57,190 --> 00:01:01,640
+Hello query which name log in here.
+
+13
+00:01:01,780 --> 00:01:02,920
+I'll need some data.
+
+14
+00:01:03,280 --> 00:01:06,040
+And I could again to find my own input like here.
+
+15
+00:01:06,070 --> 00:01:10,500
+I did for a user input data but also to show how to use multiple arguments.
+
+16
+00:01:10,630 --> 00:01:17,120
+I will expect that email which is a string and a password which is a string.
+
+17
+00:01:17,340 --> 00:01:24,540
+And then I will return not a user but some data that contains let's say the user id and the token because
+
+18
+00:01:24,630 --> 00:01:26,720
+these are the two pieces of information.
+
+19
+00:01:26,820 --> 00:01:30,490
+I happened to need here and that makes sense as a response.
+
+20
+00:01:30,540 --> 00:01:34,500
+Of course you could return the overall user object.
+
+21
+00:01:34,560 --> 00:01:46,880
+So here all the a new type I'll name it off data and that will be my token which is a string and my
+
+22
+00:01:46,880 --> 00:01:53,780
+user ID which will be a string.
+
+23
+00:01:53,780 --> 00:02:00,700
+This is the data I will return when someone sends a query to log in.
+
+24
+00:02:00,710 --> 00:02:08,850
+Now we need a resolder for this of course so let's head over to resolvers and offer trade user.
+
+25
+00:02:08,980 --> 00:02:11,070
+I'll add my log in solver.
+
+26
+00:02:11,170 --> 00:02:18,340
+There again I get my R X and I can use destructuring again to retrieve the email and the password argument
+
+27
+00:02:18,670 --> 00:02:26,890
+which I both get because I did find both here in my log inquiry.
+
+28
+00:02:26,940 --> 00:02:28,670
+Again I want to use async await.
+
+29
+00:02:28,770 --> 00:02:36,620
+So I will turn this into a async function with this syntax and then there in my log and resolder to
+
+30
+00:02:36,630 --> 00:02:36,870
+go.
+
+31
+00:02:36,880 --> 00:02:42,700
+Now of course is to find a user with the right email address and then confirm the password.
+
+32
+00:02:42,710 --> 00:02:52,330
+So first of all I'll get my user by waiting for a user find one where I look for e-mail address in that
+
+33
+00:02:52,330 --> 00:02:55,960
+database that should match the e-mail I'm getting as an argument.
+
+34
+00:02:57,400 --> 00:02:59,890
+If this is not said if the user is undefined.
+
+35
+00:02:59,890 --> 00:03:07,180
+No I noted I've found no user with that e-mail address and therefore I can create a new error where
+
+36
+00:03:07,180 --> 00:03:14,500
+I say user are not found or whatever you want to set as I arrowed As such I can set a code here just
+
+37
+00:03:14,500 --> 00:03:18,770
+as I did it for a create user of let's say 404.
+
+38
+00:03:18,790 --> 00:03:24,220
+Because we didn't find a user or four hundred one because the user could not authenticate all go with
+
+39
+00:03:24,220 --> 00:03:34,160
+for 0 1 and all Froedtert error if we have passed does a check then we know that we have a user with
+
+40
+00:03:34,160 --> 00:03:35,340
+that e-mail address.
+
+41
+00:03:35,360 --> 00:03:41,600
+Now we need to check the password for Dad we used to beat up the package in there to compare function
+
+42
+00:03:42,060 --> 00:03:50,380
+and we pass in the password send with the request and the stored hashed password.
+
+43
+00:03:50,400 --> 00:03:57,790
+Now this is an asynchronous operation which gives us a promise so we can await debt and get back to
+
+44
+00:03:57,790 --> 00:03:59,580
+you is equal response.
+
+45
+00:04:00,910 --> 00:04:10,240
+Now if it's not equal then I know the user entered a wrong password so I can create a new error here
+
+46
+00:04:10,240 --> 00:04:19,020
+where I say password is being correct and I can also set the arrow code or 400 in one of your.
+
+47
+00:04:19,190 --> 00:04:26,920
+And then all is a fraud data error of course our Y is both to email exists and the password is correct.
+
+48
+00:04:27,050 --> 00:04:34,100
+And now I can generate a token and for that I'll again import my Jason web token package by requiring
+
+49
+00:04:34,100 --> 00:04:42,650
+Jason Webb token here and then down there in the log in resolver I will generate a token by running
+
+50
+00:04:42,650 --> 00:04:50,980
+JWT sign here are you now past data you want to encode in the token that could be your user ID which
+
+51
+00:04:50,980 --> 00:04:57,650
+you get from user underscore ID to string to convert to a string.
+
+52
+00:04:57,880 --> 00:05:04,280
+Maybe you also want to encode the email by getting data from the user or you you retrieve from the database.
+
+53
+00:05:04,440 --> 00:05:13,170
+And the second argument to design method Dennis your super secret secret which you use for assigning
+
+54
+00:05:13,170 --> 00:05:17,820
+the token which you don't use for verifying it something will do later.
+
+55
+00:05:17,820 --> 00:05:23,790
+And I'll configure it a token with the third argument by setting to expire is key in that object you
+
+56
+00:05:23,790 --> 00:05:29,750
+pass to the third argument to one hour so that the token expires after one hour.
+
+57
+00:05:29,760 --> 00:05:39,380
+That is exactly what we did and the rest API I.S. to now I will return that token in a token key and
+
+58
+00:05:39,380 --> 00:05:47,890
+make sure to match that schema you defined here so token and user ID is returned.
+
+59
+00:05:48,000 --> 00:05:55,680
+So in the resolver will you return the token on the token key and user ID which is again my user underscore
+
+60
+00:05:55,680 --> 00:05:57,210
+ID to string
+
+61
+00:06:00,900 --> 00:06:07,350
+and now with that we have a log in Clarion place where we send like a get request to lock the user into
+
+62
+00:06:07,350 --> 00:06:13,710
+gets the token and so on you could say now we need to wired it up to the front and in the next step.
+
+63
+00:06:13,710 --> 00:06:15,270
+And then of course test it.
+
+64
+00:06:15,390 --> 00:06:18,240
+If you're feeling bold all to try that on your own of course.
+

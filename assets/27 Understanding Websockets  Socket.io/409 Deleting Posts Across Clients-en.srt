@@ -1,0 +1,116 @@
+1
+00:00:02,330 --> 00:00:07,580
+We're now using Sokolow to successfully update and create posts.
+
+2
+00:00:07,640 --> 00:00:11,260
+Now let's of course awls a line deletion of posts.
+
+3
+00:00:11,520 --> 00:00:16,720
+And for that let's first of all go back to the back end quote to defeat the controller and find our
+
+4
+00:00:16,790 --> 00:00:19,110
+elite host methods here.
+
+5
+00:00:19,130 --> 00:00:22,010
+There it is now just as before.
+
+6
+00:00:22,030 --> 00:00:24,610
+I won a mountain event once we're done deleting.
+
+7
+00:00:24,890 --> 00:00:32,510
+So I will do that right before I sent my response here let's say I will use i o get I O to get that
+
+8
+00:00:32,510 --> 00:00:40,640
+connection and then I will admit to the Post's channel and I will keep my pattern of defining what happened
+
+9
+00:00:40,640 --> 00:00:48,130
+to my posts instead of the data package I'm emitting so I'll add my action which I'll name delete or
+
+10
+00:00:48,130 --> 00:00:55,690
+where I have a value of the lead I should say and then my post field here is just a post ID perps written
+
+11
+00:00:55,940 --> 00:00:58,300
+like that which in this delete post function.
+
+12
+00:00:58,300 --> 00:01:02,730
+I am extracting up there so I'm passing that ID through that event.
+
+13
+00:01:02,740 --> 00:01:05,280
+I'm now emitting Frue socket IO.
+
+14
+00:01:05,680 --> 00:01:07,900
+That is what happens on the backend.
+
+15
+00:01:07,930 --> 00:01:10,570
+Now let's move on for undealt to react.
+
+16
+00:01:10,570 --> 00:01:14,660
+Code of course and there just as before.
+
+17
+00:01:14,740 --> 00:01:18,170
+We want to do something when we delete the post and I'll keep it simple.
+
+18
+00:01:18,220 --> 00:01:20,260
+I'll simply reload the page here.
+
+19
+00:01:20,260 --> 00:01:25,130
+You could of course implement some cohered that simply finds that post a change and just delete said.
+
+20
+00:01:25,270 --> 00:01:30,500
+But I'll keep it relatively simple and just load the entire page.
+
+21
+00:01:30,740 --> 00:01:40,040
+If we scroll down a little bit to the delete post handler here we can tell for all the comment out this
+
+22
+00:01:40,430 --> 00:01:46,580
+code and instead just call this load posts to reload the page but reload the posts.
+
+23
+00:01:46,580 --> 00:01:51,500
+Essentially this will make sure that page anation also is considered correctly.
+
+24
+00:01:51,860 --> 00:01:59,030
+And now if it will up again to component add mound where I have my listeners for Succot I'll I'll check
+
+25
+00:01:59,030 --> 00:02:05,570
+if the date action might be delete which is the latest action we're emitting on the server and then
+
+26
+00:02:05,600 --> 00:02:09,890
+I just call this load posts to basically load all posts again.
+
+27
+00:02:10,880 --> 00:02:17,220
+Now this my Front-End code and now they go back to my application and I do delete a number.
+
+28
+00:02:17,270 --> 00:02:22,830
+Here it reloads and it also reloaded the posts on the page as you see.
+
+29
+00:02:22,850 --> 00:02:29,570
+So now we're also orchestrating deletion to have my trust multiple clients fruit socket IO.
+

@@ -1,0 +1,332 @@
+1
+00:00:02,150 --> 00:00:08,450
+Let's make sure we do is set this act of class on the right leg depending on which page we are now for
+
+2
+00:00:08,470 --> 00:00:16,160
+debt I will go to my routes and there since I'm working on the add product to the Aben just fall where
+
+3
+00:00:16,160 --> 00:00:18,910
+I do have that at product route this one.
+
+4
+00:00:19,130 --> 00:00:21,440
+Now I will return a new field here.
+
+5
+00:00:21,620 --> 00:00:30,280
+The path field and I will set this to admin add product so you can set this to whatever you want it
+
+6
+00:00:30,280 --> 00:00:34,680
+doesn't have to match the path this route has just a pattern I like.
+
+7
+00:00:34,690 --> 00:00:40,690
+So now I pass this POV into my view so that the viewer can find out what is the POV for which this was
+
+8
+00:00:40,690 --> 00:00:41,680
+loaded.
+
+9
+00:00:41,710 --> 00:00:44,230
+Now in main layout will get this payoff.
+
+10
+00:00:44,350 --> 00:00:48,390
+And now I can do something interesting in the main layout here.
+
+11
+00:00:48,580 --> 00:00:52,160
+I know that I want to add the active class to does add product.
+
+12
+00:00:52,300 --> 00:00:57,340
+If the payoff and the payoff now simply is a variable i get passed into the page.
+
+13
+00:00:57,520 --> 00:01:04,000
+If the POV simply is this one and that is something we define a Therefore you could pick any path you
+
+14
+00:01:04,000 --> 00:01:04,840
+want.
+
+15
+00:01:04,840 --> 00:01:06,840
+So now I will add a check here.
+
+16
+00:01:06,970 --> 00:01:10,750
+Now a class can be added A C is as class as an attribute here too.
+
+17
+00:01:10,780 --> 00:01:13,000
+You don't have to use that dot notation.
+
+18
+00:01:13,150 --> 00:01:14,830
+So class is equal to.
+
+19
+00:01:14,980 --> 00:01:20,020
+And now we'll have some javascript code which we can enclose with brackets here and now here I simply
+
+20
+00:01:20,020 --> 00:01:28,480
+check if Poth and pop is simply just what I pass in here so Diski.
+
+21
+00:01:28,870 --> 00:01:37,310
+If Prof is equal to this value and that is why I meant you can use whatever POF you want you are defining
+
+22
+00:01:37,310 --> 00:01:38,220
+the condition here.
+
+23
+00:01:38,240 --> 00:01:45,260
+So if pompe is equal to this then I know that at Productus the page I'm on because only 40 ad product
+
+24
+00:01:45,280 --> 00:01:48,160
+route I do set this path.
+
+25
+00:01:48,190 --> 00:01:54,000
+So then if that is the case I want to render active as a class here.
+
+26
+00:01:54,000 --> 00:01:55,050
+Otherwise an empty string.
+
+27
+00:01:55,050 --> 00:02:00,510
+So otherwise I basically set no class with this set up.
+
+28
+00:02:00,690 --> 00:02:06,990
+Now if I reload this page you'll see ad product is yellow because now it is marked as active.
+
+29
+00:02:07,200 --> 00:02:11,360
+If they go to shop that's not the case but on shop we also don't use the layout yet.
+
+30
+00:02:11,580 --> 00:02:12,330
+So let's continue.
+
+31
+00:02:12,330 --> 00:02:20,730
+Now for the shop I also want to use the layout so I will go to add product pack copy my code here and
+
+32
+00:02:20,730 --> 00:02:23,000
+move it all over to shop plug.
+
+33
+00:02:23,340 --> 00:02:25,750
+Let's keep your original code for now.
+
+34
+00:02:25,750 --> 00:02:30,340
+Extend the main layout therefore now I do need the product Zia's as follows here.
+
+35
+00:02:30,480 --> 00:02:35,340
+But I don't need the foreigns So let's remove that from the Stout's block and for the content it will
+
+36
+00:02:35,340 --> 00:02:36,020
+need main.
+
+37
+00:02:36,030 --> 00:02:37,890
+But we don't render a form here.
+
+38
+00:02:37,890 --> 00:02:42,080
+Instead we rendered this if loop so that's Or does if block.
+
+39
+00:02:42,090 --> 00:02:45,110
+So let's copy that entire code and put it in here.
+
+40
+00:02:45,180 --> 00:02:48,960
+Make sure indentation is correct and you don't mess this up.
+
+41
+00:02:49,050 --> 00:02:52,280
+And now we can get rid of all the other code here.
+
+42
+00:02:54,760 --> 00:03:02,990
+Now again for styling off the header we would have a problem if I now reload because it's not marked
+
+43
+00:03:02,990 --> 00:03:09,230
+as active because I need to use that same approach I did for the add product route I pass in an additional
+
+44
+00:03:09,230 --> 00:03:16,220
+key Poff and there I-PASS slash like this or slash shop.
+
+45
+00:03:16,220 --> 00:03:19,620
+Again you don't have to use the real path that led to this round.
+
+46
+00:03:19,700 --> 00:03:22,310
+I'll use slash though to keep this matched.
+
+47
+00:03:22,430 --> 00:03:29,870
+And now in May layout I copy my code from down there where I dynamically add does class and add it here
+
+48
+00:03:29,870 --> 00:03:31,130
+for the shop too.
+
+49
+00:03:31,250 --> 00:03:36,490
+But the part I'm checking for is just slash here and now I do an act of fear.
+
+50
+00:03:36,590 --> 00:03:44,380
+If the POV variable which gets injected into the template matches slash which is only DKs for this route.
+
+51
+00:03:44,630 --> 00:03:48,670
+So I've saved this I got an error here.
+
+52
+00:03:49,000 --> 00:03:49,400
+Yeah.
+
+53
+00:03:49,680 --> 00:03:50,900
+This should not be an equal sign here.
+
+54
+00:03:50,910 --> 00:03:52,670
+This should be a colon in shop.
+
+55
+00:03:52,710 --> 00:03:53,340
+Yes.
+
+56
+00:03:53,430 --> 00:03:55,690
+Because we're creating a javascript object.
+
+57
+00:03:56,010 --> 00:04:00,110
+And now over reload here this is active.
+
+58
+00:04:00,230 --> 00:04:01,530
+This is active.
+
+59
+00:04:02,090 --> 00:04:05,590
+And if we try adding a book this also works.
+
+60
+00:04:05,600 --> 00:04:07,050
+So this is now working.
+
+61
+00:04:07,110 --> 00:04:11,320
+Now there is one thing I saw that I forgot and that is the title for the page.
+
+62
+00:04:11,360 --> 00:04:12,980
+It's always page not found.
+
+63
+00:04:13,010 --> 00:04:15,380
+And that should of course not be the case.
+
+64
+00:04:15,380 --> 00:04:21,440
+Now you could turn this title into a block which you then set from inside the templates or if you do
+
+65
+00:04:21,440 --> 00:04:28,660
+add a dynamic output here with hash tag curly braces and give us a name page title maybe.
+
+66
+00:04:28,730 --> 00:04:35,270
+And now you just need to make sure that every render function passes in a page title.
+
+67
+00:04:35,390 --> 00:04:44,290
+So 44 0 for Page 40 at product page and the shop page we have to pass in that page title key.
+
+68
+00:04:44,900 --> 00:04:52,890
+So starting an admin J.S. here we already got page titles so we're fine in shop Chaz here at stock titles.
+
+69
+00:04:52,910 --> 00:04:59,940
+Let's read just two page title to be in line with the Arbre file and with our layout and in the aperture
+
+70
+00:04:59,960 --> 00:05:02,680
+Yes fall where we have our 4 0 4 route.
+
+71
+00:05:02,690 --> 00:05:04,450
+I'm not passing anything.
+
+72
+00:05:04,490 --> 00:05:09,960
+So there let's all send some data into the view and that's all set.
+
+73
+00:05:10,010 --> 00:05:10,960
+Page Title here.
+
+74
+00:05:11,030 --> 00:05:12,800
+Page Not Found.
+
+75
+00:05:12,950 --> 00:05:20,630
+If we now go to our page and reload it we see it shop here as a title for ad product we see at product
+
+76
+00:05:20,900 --> 00:05:24,110
+and if we enter something random Here we see Page Not Found.
+
+77
+00:05:24,380 --> 00:05:25,530
+So now does this working.
+
+78
+00:05:25,580 --> 00:05:27,180
+And now we're using Poch.
+
+79
+00:05:27,290 --> 00:05:32,600
+Now you can do way more with pi and you can combine all these features and do crazy stuff.
+
+80
+00:05:32,810 --> 00:05:35,140
+I recommend diving into their official box.
+
+81
+00:05:35,150 --> 00:05:39,990
+If you plan on using that I instead want to show you the alternatives to.
+
+82
+00:05:40,070 --> 00:05:46,220
+Now we learned the basics of how templating engines work and how you can use them to output dynamic
+
+83
+00:05:46,220 --> 00:05:48,110
+content in your views.
+

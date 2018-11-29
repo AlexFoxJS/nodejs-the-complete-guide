@@ -1,0 +1,324 @@
+1
+00:00:02,280 --> 00:00:11,190
+Rest AP eyes are there to solve one problem you could say not every front end user interface works with
+
+2
+00:00:11,280 --> 00:00:17,340
+H.T. email pages or not every user interface might want your server to generate.
+
+3
+00:00:17,400 --> 00:00:21,580
+Well DHV female code which effectively is user interface.
+
+4
+00:00:21,840 --> 00:00:23,360
+Think about mobile apps.
+
+5
+00:00:23,370 --> 00:00:30,990
+For example the Twitter app these apps typically don't work with service side rendered h HTML code.
+
+6
+00:00:30,990 --> 00:00:37,080
+They don't need a templating language on the server to render D.H. HTML code because you build these
+
+7
+00:00:37,080 --> 00:00:47,390
+apps with Java for Android or with swift object of C for iOS and you use a rich suit of built you.
+
+8
+00:00:47,400 --> 00:00:49,200
+I widgets you use you.
+
+9
+00:00:49,200 --> 00:00:53,420
+I libraries provided by Apple by Google and so on.
+
+10
+00:00:53,420 --> 00:01:01,140
+You use these libraries to build your user interfaces in the respective ID ease of these programming
+
+11
+00:01:01,140 --> 00:01:05,420
+languages like Android stood for Android development.
+
+12
+00:01:05,430 --> 00:01:10,540
+You built these user interfaces totally decoupled from your server.
+
+13
+00:01:10,560 --> 00:01:15,090
+You don't want to smell the code because you can't really render it there.
+
+14
+00:01:15,120 --> 00:01:17,190
+Obviously you have mobile browsers too.
+
+15
+00:01:17,200 --> 00:01:23,040
+You have a browser on your mobile phone and that will render H.T. all pages but all the apps you install
+
+16
+00:01:23,040 --> 00:01:28,580
+from the App Store most often don't use H-G mail to draw the interface.
+
+17
+00:01:28,710 --> 00:01:35,670
+But instead they built the interface with the tools given to them by the while by Apple by Google.
+
+18
+00:01:35,670 --> 00:01:40,690
+And then you only need to data to fill these user interfaces with life.
+
+19
+00:01:40,890 --> 00:01:46,170
+And number example would be single page web apps you might not have heard of these but do you do any
+
+20
+00:01:46,170 --> 00:01:49,190
+course player is actually a great example for it.
+
+21
+00:01:49,560 --> 00:01:50,750
+Here's an example.
+
+22
+00:01:50,760 --> 00:01:56,730
+This is a course by me but of course this has for any quartz watched us refreshed I can at the top left
+
+23
+00:01:56,730 --> 00:01:59,540
+corner as I now click around to course content.
+
+24
+00:01:59,580 --> 00:02:01,600
+Q and A and so on.
+
+25
+00:02:01,620 --> 00:02:08,350
+Now all these parts here do re render without the page reloading word a page being refreshed.
+
+26
+00:02:08,370 --> 00:02:14,550
+And the reason for that is that this entire page is actually rendered through browser side javascript.
+
+27
+00:02:14,550 --> 00:02:17,770
+You can of course execute javascript in the browser as you know.
+
+28
+00:02:17,970 --> 00:02:24,090
+And this javascript code can manipulate the dom dom is simply the rendered HTL code.
+
+29
+00:02:24,330 --> 00:02:29,610
+So what do you mean does here and what is very popular not just on you to me but on many modern web
+
+30
+00:02:29,610 --> 00:02:37,400
+applications is that you only fetch one initial h l page that does not really contain a lot of real
+
+31
+00:02:37,430 --> 00:02:46,050
+HVM content but that does load all these javascript script files and then does javascript scripts reach
+
+32
+00:02:46,050 --> 00:02:52,530
+out to some back and API to a restful API and only fetch today that I need to work with to then read
+
+33
+00:02:52,530 --> 00:02:54,030
+render to user interface.
+
+34
+00:02:54,030 --> 00:03:00,380
+So if I click on Q&amp;A some javascript code would reach out to you the server and get me.
+
+35
+00:03:00,390 --> 00:03:07,260
+Q And a items I want to display if I click on course content not rescript reaches out to the back and
+
+36
+00:03:07,260 --> 00:03:12,940
+and gives me these coarse items and if I click on one of them then I might enter a new area where a
+
+37
+00:03:12,950 --> 00:03:15,270
+number part of javascript takes over.
+
+38
+00:03:15,360 --> 00:03:22,140
+So such web applications are very popular because they give us a mobile app like feeling we click around
+
+39
+00:03:22,230 --> 00:03:24,510
+and we don't have to wait for a page refresh.
+
+40
+00:03:24,600 --> 00:03:29,670
+We always stay on the same page and only the data that gets rendered changes and they offer only the
+
+41
+00:03:29,670 --> 00:03:36,950
+data is exchanged behind the scenes all the user interface rendering is done through browser side javascript.
+
+42
+00:03:36,960 --> 00:03:43,810
+So this is another kind of popular user interface of popular front and you built these days.
+
+43
+00:03:43,890 --> 00:03:51,150
+And I actually got a lot of courses on react on angular on view which are popular browser side javascript
+
+44
+00:03:51,150 --> 00:03:58,620
+frameworks that you can use to build such user interfaces yawls it might not work on a particular front
+
+45
+00:03:58,670 --> 00:04:04,980
+and maybe you are working on a classic node application as we did thus far but you also have certain
+
+46
+00:04:04,980 --> 00:04:06,710
+service API is dead.
+
+47
+00:04:06,720 --> 00:04:09,650
+You might want to use like Google Maps API.
+
+48
+00:04:09,840 --> 00:04:16,260
+So here its not the front end that requires us to build a rest API on our own but this is another example
+
+49
+00:04:16,260 --> 00:04:20,460
+of for a case where you only need the data and no user interface.
+
+50
+00:04:20,460 --> 00:04:25,730
+You dont expect Google Maps API to give you back D.H. female code.
+
+51
+00:04:25,770 --> 00:04:29,360
+You might just be interested in some coordinates something like this.
+
+52
+00:04:29,430 --> 00:04:33,840
+So again youre interested in the data and thats a common theme here.
+
+53
+00:04:33,900 --> 00:04:40,170
+We have a front end where we have code that this decoupled from the backend or from a certain back and
+
+54
+00:04:40,170 --> 00:04:47,940
+logic like Google Maps and we only need to exchange the data because we dont want to get any user interface
+
+55
+00:04:47,970 --> 00:04:50,030
+we dont want to get HTL code.
+
+56
+00:04:50,040 --> 00:04:51,670
+We built that on our own.
+
+57
+00:04:51,690 --> 00:04:58,410
+We just have a back end that needs to serve us data and that is a core idea or that is the core idea
+
+58
+00:04:58,500 --> 00:04:59,420
+of building rest.
+
+59
+00:04:59,430 --> 00:05:07,760
+API eyes because theyre we need a different kind of response and rest API or rest stands for representational
+
+60
+00:05:07,760 --> 00:05:09,180
+state transfer.
+
+61
+00:05:09,380 --> 00:05:16,540
+And the simple translation I like to use is that we transfer data instead of user interfaces.
+
+62
+00:05:16,580 --> 00:05:23,840
+So instead of a female we just transfer data and we leave it to the client or to the front and be that
+
+63
+00:05:23,840 --> 00:05:26,810
+a mobile app be that a single page application.
+
+64
+00:05:26,810 --> 00:05:31,930
+We leave it to dead Front-End to do with data whatever it wants to do.
+
+65
+00:05:32,450 --> 00:05:37,610
+And thus far in the course we always rendered the H Tim L page on the server.
+
+66
+00:05:37,790 --> 00:05:42,790
+And that of course did not only include the data but also already the user interface.
+
+67
+00:05:42,980 --> 00:05:46,000
+And let me also highlight that this is not bad at all.
+
+68
+00:05:46,010 --> 00:05:51,950
+It's a common pattern for a lot of web applications but for other applications you might want to build
+
+69
+00:05:51,950 --> 00:05:57,370
+a decoupled from that or you might need to and then rest your eyes are the solution.
+
+70
+00:05:57,480 --> 00:06:04,190
+It's all important to highlight that only the response and the request data changes but not the general
+
+71
+00:06:04,190 --> 00:06:05,410
+server side logic.
+
+72
+00:06:05,630 --> 00:06:11,720
+So everything you learn about validating about reaching out to databases about handling files on the
+
+73
+00:06:11,720 --> 00:06:14,740
+server all these things don't change.
+
+74
+00:06:14,780 --> 00:06:22,160
+You do that in exactly the same way when building a rest API and that it's really important to me because
+
+75
+00:06:22,160 --> 00:06:29,000
+often rest a.p eyes and traditional web apps where you rendered of use on the server are as seen as
+
+76
+00:06:29,000 --> 00:06:30,890
+two totally different things.
+
+77
+00:06:30,920 --> 00:06:38,420
+They are not they only differ in the response and in the kind of data you expect but they don't differ
+
+78
+00:06:38,540 --> 00:06:40,210
+in what happens on the server.
+
+79
+00:06:40,220 --> 00:06:45,580
+Besides the fact that you don't render the view there and that is really important and this is also
+
+80
+00:06:45,590 --> 00:06:52,610
+of course why what you learned thus far is now not redundant actually will reuse 99 percent of the knowledge
+
+81
+00:06:52,790 --> 00:06:58,580
+will only to you in our data use such or our data handling and to respond response a little bit.
+

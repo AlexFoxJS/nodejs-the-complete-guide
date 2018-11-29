@@ -1,0 +1,280 @@
+1
+00:00:02,280 --> 00:00:04,550
+So how bad are errors.
+
+2
+00:00:04,770 --> 00:00:07,820
+Now arrows are not necessarily the end of your app.
+
+3
+00:00:08,010 --> 00:00:10,210
+You can recover from the errors.
+
+4
+00:00:10,290 --> 00:00:14,940
+You can inform the user that something went wrong and that he should try again.
+
+5
+00:00:14,940 --> 00:00:18,420
+For example you just need to handle arrows correctly.
+
+6
+00:00:18,420 --> 00:00:23,070
+That is a key take away and there are different types of errors.
+
+7
+00:00:23,160 --> 00:00:29,460
+We can have technical or network related errors where you have very little influence on at least if
+
+8
+00:00:29,460 --> 00:00:31,560
+you're not the system administrator.
+
+9
+00:00:31,740 --> 00:00:35,890
+We have so-called expect that they are us and this is not an official term.
+
+10
+00:00:35,910 --> 00:00:39,680
+That is something I came up with and I'll explain what this is and a second.
+
+11
+00:00:39,840 --> 00:00:43,700
+And we also have box or logical errors in your code.
+
+12
+00:00:43,920 --> 00:00:49,320
+Now for technically our hosts are mongered to be server might be down and they offer any interaction
+
+13
+00:00:49,320 --> 00:00:52,580
+with the database will fail in such a case.
+
+14
+00:00:52,590 --> 00:00:54,420
+There's not that much we can do.
+
+15
+00:00:54,450 --> 00:00:59,700
+The best thing might be to show some error page to the user to let the user know that something is wrong
+
+16
+00:00:59,730 --> 00:01:04,510
+on our end that we are sorry and that we're working on fixing the issue.
+
+17
+00:01:04,560 --> 00:01:10,820
+We also might want to be behind the scenes send an e-mail to the administrators or anything like that.
+
+18
+00:01:10,830 --> 00:01:15,940
+We also have these expected errors as I like to call them.
+
+19
+00:01:15,990 --> 00:01:17,250
+There are certain operations.
+
+20
+00:01:17,280 --> 00:01:21,630
+Let's say we are interacting with a file or with a database that can fail.
+
+21
+00:01:21,680 --> 00:01:23,100
+Not very often.
+
+22
+00:01:23,160 --> 00:01:27,750
+And of course it's not really expect that for this to fail but that can happen.
+
+23
+00:01:27,810 --> 00:01:34,620
+Maybe because there are too many simul take requests to a certain file anything like that here informing
+
+24
+00:01:34,620 --> 00:01:37,830
+the user and giving the user the ability to retry.
+
+25
+00:01:37,830 --> 00:01:40,080
+Might be a good solution.
+
+26
+00:01:40,080 --> 00:01:46,300
+For example the validation errors which we also implement in early a module these would all be expected.
+
+27
+00:01:46,320 --> 00:01:53,670
+Aeros users will input valid and invalid data and for invalid data we want to inform the user give the
+
+28
+00:01:53,670 --> 00:01:55,520
+user a chance of retrying.
+
+29
+00:01:55,950 --> 00:02:00,870
+And of course we also have errors in our code where we interact with a user object in a place where
+
+30
+00:02:00,870 --> 00:02:04,480
+it just can't exist or at least not in all circumstances.
+
+31
+00:02:04,560 --> 00:02:07,890
+We we should fix such errors during development.
+
+32
+00:02:07,890 --> 00:02:11,610
+We should test our code and we should fix such issues of course.
+
+33
+00:02:11,610 --> 00:02:12,830
+These are not arrows.
+
+34
+00:02:12,900 --> 00:02:14,450
+We should handle at runtime.
+
+35
+00:02:14,490 --> 00:02:20,310
+We should not show a message to the user because these errors are not the users or the networks fault
+
+36
+00:02:20,430 --> 00:02:22,750
+they are our fault.
+
+37
+00:02:22,800 --> 00:02:27,810
+So how can we work with the different types of Ariston we have to differentiate.
+
+38
+00:02:27,960 --> 00:02:35,080
+There are areas where the error is thrown an error or is a technical object in a node application.
+
+39
+00:02:35,100 --> 00:02:38,530
+So there is a built in error object which we can throw.
+
+40
+00:02:38,580 --> 00:02:40,780
+That's also a javascript language features.
+
+41
+00:02:40,830 --> 00:02:44,070
+Basically all programming languages have such a feature.
+
+42
+00:02:44,340 --> 00:02:50,340
+We also can't have scenarios where we can't continue with our code but there is no technical error.
+
+43
+00:02:50,340 --> 00:02:55,640
+An example would be that we try to log a user in but the email address does not exist.
+
+44
+00:02:55,650 --> 00:02:57,920
+This is not really a technical error.
+
+45
+00:02:58,020 --> 00:03:02,900
+There is no error or being thrown but we know we can continue.
+
+46
+00:03:03,000 --> 00:03:08,670
+And so we want to check for this scenario as well and handle it appropriately.
+
+47
+00:03:08,670 --> 00:03:17,250
+Now for the Aeros phone part we have certain tools we can use to test code and catch potential errors
+
+48
+00:03:17,430 --> 00:03:19,570
+so that we can handle them gracefully.
+
+49
+00:03:19,860 --> 00:03:26,900
+And for centredness code that would be try catch blocks for asynchronous code with promises we have
+
+50
+00:03:26,940 --> 00:03:30,840
+then and catch which you already saw quite a lot from this course.
+
+51
+00:03:31,140 --> 00:03:37,920
+In the end in both scenarios we then have the choice if we want to directly handle the error or if we
+
+52
+00:03:37,920 --> 00:03:44,040
+use a mechanism built into express a special error handling middleware which we haven't used thus far
+
+53
+00:03:44,350 --> 00:03:50,900
+which you can use to catch errors and then return a response to the user and I'll show how this works
+
+54
+00:03:50,910 --> 00:03:54,940
+in this module of course Florida's scenario that no Erris frozen.
+
+55
+00:03:55,080 --> 00:04:01,440
+Well we just have to check values with checks for example and then we can decide whether we want to
+
+56
+00:04:01,440 --> 00:04:07,650
+throw an error or two kind of enter the Left world here and then kick off that error handling process
+
+57
+00:04:08,130 --> 00:04:14,250
+or if we want to directly handle the error which is not a technical error but where we simply add some
+
+58
+00:04:14,250 --> 00:04:17,610
+code that can continue with the missing input data.
+
+59
+00:04:17,610 --> 00:04:23,170
+For example in all cases we've got different ways of communicating with our users.
+
+60
+00:04:23,250 --> 00:04:25,490
+We can return an error page.
+
+61
+00:04:25,530 --> 00:04:31,050
+So a dedicated page that informs the user hey we have a problem and that of course should be kind of
+
+62
+00:04:31,050 --> 00:04:36,220
+the last resort because the end user loses all his input can continue.
+
+63
+00:04:36,330 --> 00:04:44,610
+We also can return the page which we know which user was on and just give some error information.
+
+64
+00:04:44,700 --> 00:04:51,850
+That is what we did for validating for example there we returned the page to use was on kept the input
+
+65
+00:04:51,840 --> 00:04:54,440
+values and just added an error message.
+
+66
+00:04:54,570 --> 00:04:55,860
+Or we could redirect.
+
+67
+00:04:55,860 --> 00:05:02,060
+For example if we try to access a page which we are not authenticated to visit then we can redirect.
+
+68
+00:05:02,540 --> 00:05:04,970
+So these are two different tools.
+
+69
+00:05:04,970 --> 00:05:07,810
+We have different ways of working with Aeros we have.
+
+70
+00:05:08,000 --> 00:05:12,910
+And now let's dive into our code and see what we're already using and what we can use.
+

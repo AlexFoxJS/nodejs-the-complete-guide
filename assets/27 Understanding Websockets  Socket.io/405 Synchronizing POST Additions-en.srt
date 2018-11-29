@@ -1,0 +1,356 @@
+1
+00:00:02,430 --> 00:00:07,330
+Knouted we have a way of sharing our I O connections across multiple files.
+
+2
+00:00:07,350 --> 00:00:17,050
+Let's go ahead and in feature as an air controller on the backend there I want to use that I O or that
+
+3
+00:00:17,080 --> 00:00:19,120
+socket js file.
+
+4
+00:00:19,210 --> 00:00:25,050
+So here maybe above my Alber imports I'll add and you import and I'll name that.
+
+5
+00:00:25,150 --> 00:00:32,500
+I know the name is up to you though and I will require dots going up one level and then slash socket.
+
+6
+00:00:32,510 --> 00:00:34,230
+So this file was just created.
+
+7
+00:00:34,250 --> 00:00:36,650
+I will require that object for it.
+
+8
+00:00:36,890 --> 00:00:43,150
+And there I can now call get o to get my existing IO object which I do initialized first.
+
+9
+00:00:43,160 --> 00:00:44,140
+It actually is right.
+
+10
+00:00:44,180 --> 00:00:45,290
+We initialized it here.
+
+11
+00:00:45,380 --> 00:00:48,310
+So this will be initialized by the time we use it here.
+
+12
+00:00:48,890 --> 00:00:54,740
+So now this is how I import the year in V-chips.
+
+13
+00:00:54,840 --> 00:01:00,490
+Now instead of create post I now want to use stat.
+
+14
+00:01:00,790 --> 00:01:07,260
+And of course in create posts I want to use it once I'm done creating the post essentially.
+
+15
+00:01:07,270 --> 00:01:12,520
+So right before I sent my response back and that you're responsible to go back to the user who created
+
+16
+00:01:12,520 --> 00:01:16,310
+the post will not change does we have to send back a response.
+
+17
+00:01:16,540 --> 00:01:24,310
+But now I want to inform all of our users and for that I can use aioe and there I can call get IOE to
+
+18
+00:01:24,310 --> 00:01:28,940
+get my established IO object or connect Should we set up an app.
+
+19
+00:01:28,980 --> 00:01:32,180
+Yes and now there are a couple of helpful methods.
+
+20
+00:01:32,190 --> 00:01:36,850
+The I O a socket I O package gives you one of them is emit.
+
+21
+00:01:37,050 --> 00:01:43,450
+They're all would be broadcast the differences that emit will now send a message to all connected users.
+
+22
+00:01:43,630 --> 00:01:50,350
+Broadcast sends it to all users except for the one for which this request was sent.
+
+23
+00:01:50,350 --> 00:01:56,950
+Knobbly actually go with all users with emit Then you define a name and that name is totally up to you
+
+24
+00:01:56,960 --> 00:01:58,780
+all name it posts
+
+25
+00:02:01,430 --> 00:02:04,700
+and all to find data when I send this all up to you.
+
+26
+00:02:04,700 --> 00:02:10,740
+Typically it's a javascript object and you're all sending an object with any data you want all to find
+
+27
+00:02:10,740 --> 00:02:13,520
+the actual key to inform declines.
+
+28
+00:02:13,580 --> 00:02:20,780
+What happened to the channel you could say is posts but the act now is create and that is just one way
+
+29
+00:02:20,780 --> 00:02:22,550
+of implementing this of course.
+
+30
+00:02:22,700 --> 00:02:29,290
+And then the posted was created will be stored in let's say a post key and that is the post which we
+
+31
+00:02:29,290 --> 00:02:30,080
+do savior.
+
+32
+00:02:30,110 --> 00:02:38,400
+So I'm sending this post object in this data package on this post's channel you could say now that we're
+
+33
+00:02:38,420 --> 00:02:44,540
+sending this to all connected the clients in the next step will have to adjust our client side code
+
+34
+00:02:44,780 --> 00:02:47,650
+to also reacts to such incoming events.
+
+35
+00:02:47,840 --> 00:02:53,630
+And for that I'll go back to my client side code and here in component that mount in the future just
+
+36
+00:02:53,750 --> 00:03:00,620
+fall I want to set up the code to listen to incoming data from socket IO because in my app the events
+
+37
+00:03:00,620 --> 00:03:06,230
+I broadcast or I commit on the server happened to be related to post which I'm managing to features
+
+38
+00:03:06,260 --> 00:03:07,280
+fall in the end.
+
+39
+00:03:07,280 --> 00:03:09,350
+So here is where I'm interested in.
+
+40
+00:03:09,350 --> 00:03:11,110
+Well changes to that.
+
+41
+00:03:11,270 --> 00:03:17,420
+So in component did mount ofter opening my socket I would actually store something which is returned
+
+42
+00:03:17,420 --> 00:03:19,950
+by open socket and that is my socket.
+
+43
+00:03:20,030 --> 00:03:22,660
+So the socket the connection which was opened.
+
+44
+00:03:22,670 --> 00:03:25,010
+I'll store that in a constant named socket.
+
+45
+00:03:25,040 --> 00:03:26,250
+The name is up to you.
+
+46
+00:03:26,530 --> 00:03:32,040
+And now on that socket we can use to on method to listen to certain events.
+
+47
+00:03:32,100 --> 00:03:35,740
+And now here we want to use that same event name we used on the backend.
+
+48
+00:03:35,870 --> 00:03:42,020
+So dare I used posts if you use something different you now have to change that and your front end too.
+
+49
+00:03:42,170 --> 00:03:48,590
+So I use posts on the front end that they are for listen to the post-event and there we will get some
+
+50
+00:03:48,590 --> 00:03:49,270
+data.
+
+51
+00:03:49,460 --> 00:03:57,200
+Now I know that due to the set up I chose here my object which I send back and will have the action
+
+52
+00:03:57,200 --> 00:04:03,340
+key that defines what happened to posts but that's just the pattern I established here.
+
+53
+00:04:03,470 --> 00:04:06,120
+That is not enforced by socket I O.
+
+54
+00:04:06,230 --> 00:04:08,080
+You can send any data you want here.
+
+55
+00:04:08,120 --> 00:04:10,050
+You don't have to have an action key.
+
+56
+00:04:10,280 --> 00:04:16,220
+I want that though because I'll actually send different events or different kinds of operations on posts
+
+57
+00:04:16,430 --> 00:04:19,040
+through the same channel eventually.
+
+58
+00:04:19,040 --> 00:04:25,790
+So here I'll have my data object and I can check data action and see if that is equal to create which
+
+59
+00:04:25,790 --> 00:04:29,610
+in my case it will be for that event I'm emitting on the backend.
+
+60
+00:04:29,660 --> 00:04:32,390
+And then I want to call this at post.
+
+61
+00:04:32,390 --> 00:04:40,850
+So this function we created before and all pass data post because again I'm creating this whole set
+
+62
+00:04:40,850 --> 00:04:41,200
+up.
+
+63
+00:04:41,360 --> 00:04:48,530
+And I know that on the backend that data package I'm sending from socket I O will have a post key with
+
+64
+00:04:48,530 --> 00:04:50,140
+the post that was created.
+
+65
+00:04:50,390 --> 00:04:54,980
+So that is the post which I will send to at post which will be rendered by that code.
+
+66
+00:04:54,980 --> 00:05:02,860
+Then and that is it for now let's save that and also save all your back end code and go back to the
+
+67
+00:05:03,100 --> 00:05:04,070
+application.
+
+68
+00:05:04,300 --> 00:05:11,230
+And now to see that in action I'll actually fake to have a second client so I will actually open a different
+
+69
+00:05:11,230 --> 00:05:17,690
+browser Firefox and this is essentially the same as if it would run on a different PC now.
+
+70
+00:05:17,710 --> 00:05:25,420
+So these are two browsers are now like two different machines and you can tell by the fact that I'm
+
+71
+00:05:25,420 --> 00:05:31,380
+Loddon not locked in when you're on Firefox get a little display back here but we can ignore that for
+
+72
+00:05:31,380 --> 00:05:32,040
+now.
+
+73
+00:05:32,370 --> 00:05:38,730
+So let's use let's say the test to user create a different user if you don't have one.
+
+74
+00:05:38,790 --> 00:05:46,110
+And now I'm logged in on Firefox on the left and on chrome on the right now on Chrome does a test user
+
+75
+00:05:46,110 --> 00:05:50,730
+and on the left it's a test to at test dot com user named Max.
+
+76
+00:05:50,740 --> 00:05:59,310
+Now let me create a new post your own name that a duck and choose that duck image here and click except
+
+77
+00:06:00,350 --> 00:06:04,980
+and you see it to show up on the left to you also see show up on the right.
+
+78
+00:06:05,000 --> 00:06:15,050
+Two times simply because there I also get informed about this created post from my socket because I'm
+
+79
+00:06:15,290 --> 00:06:20,450
+not filtering to not send it to the client who sent the request and since I also have some code for
+
+80
+00:06:20,450 --> 00:06:31,510
+rendering the post in my finish edit handler and the features fall if you scroll down a little bit here
+
+81
+00:06:31,660 --> 00:06:36,460
+the post will show up there as well to prevent this from happening.
+
+82
+00:06:36,490 --> 00:06:41,330
+I can remove as elative case and I was saved as all the pages will automatically reload.
+
+83
+00:06:41,380 --> 00:06:44,260
+And now let's try this again a cup.
+
+84
+00:06:44,290 --> 00:06:45,330
+Let's Schuester Cup.
+
+85
+00:06:45,360 --> 00:06:51,460
+Mitch except and you see it show up on the left side.
+
+86
+00:06:51,480 --> 00:06:54,110
+Q And that is the interesting thing.
+
+87
+00:06:54,200 --> 00:06:58,740
+I never reloaded the page on left and still we see didn't you post show up there.
+
+88
+00:06:58,790 --> 00:07:05,990
+That is simply due to socket IO where we have an established connection on both clients now and thereafter.
+
+89
+00:07:06,020 --> 00:07:11,750
+It also updates on the left or Anstiss item on the left due to the code we added on our front it.
+

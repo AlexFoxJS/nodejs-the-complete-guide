@@ -1,0 +1,188 @@
+1
+00:00:02,460 --> 00:00:08,250
+I'm setting these query parameters and I can use that data on the back end to control which data I want
+
+2
+00:00:08,250 --> 00:00:09,150
+to fetch.
+
+3
+00:00:09,150 --> 00:00:13,540
+Obviously I do that in my controllers and they're in the shop controller here.
+
+4
+00:00:13,590 --> 00:00:19,500
+We're working on the index page so I'm looking for to get index controller action in here I need to
+
+5
+00:00:19,500 --> 00:00:22,050
+retrieve the information on which page we are.
+
+6
+00:00:22,080 --> 00:00:25,040
+So which data for which page needs to be displayed.
+
+7
+00:00:25,260 --> 00:00:30,180
+So I'll store this information in a new constant named page and then that constant will I will store
+
+8
+00:00:30,210 --> 00:00:36,160
+request and then we can get query parameters on the query object provided by express.
+
+9
+00:00:36,420 --> 00:00:44,150
+And there I can access page page because I named that query Ravager page here.
+
+10
+00:00:44,180 --> 00:00:49,350
+So now with that I'm getting at page number and I'll store it in this constant.
+
+11
+00:00:49,370 --> 00:00:54,400
+Now with that we just need to define how many items should be displayed per page.
+
+12
+00:00:54,920 --> 00:00:59,000
+And that's something I will store as a global constant in this file.
+
+13
+00:00:59,000 --> 00:01:03,250
+I could also store it in a different file export there and import to here.
+
+14
+00:01:03,410 --> 00:01:04,180
+But I will.
+
+15
+00:01:04,220 --> 00:01:07,970
+Named is items per page.
+
+16
+00:01:07,970 --> 00:01:09,880
+And this will be let's say 2.
+
+17
+00:01:10,010 --> 00:01:16,400
+It should be some number lowered and the number of items you have here so that you can see a difference.
+
+18
+00:01:16,430 --> 00:01:23,250
+So I have two items per page here and with that and get index.
+
+19
+00:01:23,250 --> 00:01:27,960
+I know that I if I'm on page 1 want to fetch the first two items.
+
+20
+00:01:27,960 --> 00:01:33,600
+If I'm on page two I want to fetch items free and for on page free it would fetch four and 5 and so
+
+21
+00:01:33,600 --> 00:01:34,740
+on.
+
+22
+00:01:34,770 --> 00:01:40,590
+Therefore we now need to control the amount of data we're retrieving from the database find right now
+
+23
+00:01:40,590 --> 00:01:45,870
+gives us all the items but we can actually control this in Mongolia.
+
+24
+00:01:45,870 --> 00:01:47,540
+And they offer also mongooses.
+
+25
+00:01:47,700 --> 00:01:57,150
+There is a skip function we can add this on a cursor and find does return a cursor to skip the first
+
+26
+00:01:57,270 --> 00:02:02,950
+X amount of results and here that would be page minus 1.
+
+27
+00:02:03,030 --> 00:02:10,930
+So the previous page number in brackets times items per page.
+
+28
+00:02:10,930 --> 00:02:18,920
+So if I am on page 2 I would skip the first page minus one sort of first one times items per page items.
+
+29
+00:02:18,940 --> 00:02:27,090
+So on page 2 if I have 2 items per page I would skip the first one times to the first two items.
+
+30
+00:02:28,750 --> 00:02:31,220
+I don't just want to skip some items.
+
+31
+00:02:31,330 --> 00:02:36,460
+I also want to limit the amount of items I retrieved though so that I don't just skipped the items of
+
+32
+00:02:36,460 --> 00:02:42,850
+previous pages but for the current page I also only fetch as many items as I want to display there and
+
+33
+00:02:42,850 --> 00:02:45,230
+this can be done with the limit method.
+
+34
+00:02:45,460 --> 00:02:49,800
+The limit method as the names of gests limits the amount of data we fetch to.
+
+35
+00:02:49,870 --> 00:02:56,800
+Well number we specify here and here I can pass items per page because that is my item limit per page
+
+36
+00:02:57,520 --> 00:03:04,630
+with debt if we save as quote We can reload the first page with the query parameter set to page 1 and
+
+37
+00:03:04,630 --> 00:03:06,790
+we only see the first two items.
+
+38
+00:03:06,790 --> 00:03:11,350
+If I now click on two down there I only see the third item because I'm on page 2.
+
+39
+00:03:11,410 --> 00:03:16,480
+I skip the first two items and then fetch the next two items and I only happened to have one other item
+
+40
+00:03:17,260 --> 00:03:24,010
+on page 3 if I would enter this we would not find any products because I have no items for this page
+
+41
+00:03:24,250 --> 00:03:27,620
+but Page 1 and 2 were just fine.
+
+42
+00:03:27,610 --> 00:03:30,460
+So does is the general idea behind page anation.
+
+43
+00:03:30,640 --> 00:03:32,950
+Now obviously the idea would be dead.
+
+44
+00:03:32,950 --> 00:03:41,770
+We update our page anation buttons here based on well the page we are on and the maximum number of pages
+
+45
+00:03:41,770 --> 00:03:43,700
+that are available or something like that.
+
+46
+00:03:43,810 --> 00:03:44,970
+So let's see what we can do.
+
+47
+00:03:44,970 --> 00:03:45,260
+There.
+

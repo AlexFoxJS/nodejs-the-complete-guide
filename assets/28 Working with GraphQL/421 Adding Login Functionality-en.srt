@@ -1,0 +1,212 @@
+1
+00:00:02,300 --> 00:00:03,610
+Did you try it on your own.
+
+2
+00:00:03,740 --> 00:00:10,850
+Well let's wire it up together for dead in the front and we need to go to the log in hndler which is
+
+3
+00:00:10,850 --> 00:00:18,500
+where we do log in users in the log in hndler I need to send the request to slash graph queue.
+
+4
+00:00:18,570 --> 00:00:20,730
+Of course it's a POST request.
+
+5
+00:00:21,040 --> 00:00:23,260
+And now all define my query.
+
+6
+00:00:23,380 --> 00:00:28,010
+So my graph all query you can name this constant however you want.
+
+7
+00:00:28,010 --> 00:00:35,630
+It's a javascript object with the keyword and then a string that defines to query and for a normal query.
+
+8
+00:00:35,760 --> 00:00:41,430
+You now don't repeat Kuri you just start right away with the curly braces as we did it.
+
+9
+00:00:41,450 --> 00:00:44,950
+And the graphical interface earlier.
+
+10
+00:00:44,950 --> 00:00:54,110
+Now let me splitters over multiple lines to make it easier to read in that Koury your.
+
+11
+00:00:54,240 --> 00:00:55,990
+I want to reach out to my log inquiry.
+
+12
+00:00:56,070 --> 00:01:02,660
+So to that query I find in that schema log in and need to pass email and password here.
+
+13
+00:01:02,730 --> 00:01:11,600
+So log in actually gets curly braces here and the email between double quotation marks will be the email
+
+14
+00:01:11,610 --> 00:01:15,950
+I also extract down there off the email in this case.
+
+15
+00:01:16,110 --> 00:01:24,440
+The second argument separated with a comma in this function like call here is to password also enclosed
+
+16
+00:01:24,510 --> 00:01:30,250
+between double quotation marks and there you inject off password off the password.
+
+17
+00:01:31,880 --> 00:01:39,190
+Now we can get back some data which we enclose between curly braces and the data we get back.
+
+18
+00:01:39,200 --> 00:01:46,010
+While there I'm interested in both the token and the user id so I specify both between these curly braces
+
+19
+00:01:46,010 --> 00:01:46,780
+here.
+
+20
+00:01:47,210 --> 00:01:53,000
+That is decree I want to execute and that is to date I to Jason string of ify on my request.
+
+21
+00:01:53,000 --> 00:01:54,230
+Body here.
+
+22
+00:01:54,590 --> 00:01:59,530
+Now as you learned checking the response like this will not work.
+
+23
+00:01:59,560 --> 00:02:02,990
+Instead we can grab the code we're used for signing up
+
+24
+00:02:08,030 --> 00:02:16,770
+this code here and copy that over in the log in hndler we therefore removed these checks in the first
+
+25
+00:02:16,860 --> 00:02:22,440
+then block and the second then block we now add the cockpit checks.
+
+26
+00:02:22,530 --> 00:02:28,280
+And here I just will say user log in failed because creation doesn't make much sense here.
+
+27
+00:02:28,300 --> 00:02:34,340
+Thereafter we set the state and the way we retrieve data from the response will not work.
+
+28
+00:02:34,340 --> 00:02:36,780
+I can already say that now.
+
+29
+00:02:36,810 --> 00:02:43,540
+Why will it not work well for that let's first of all run the query in the graphical interface there.
+
+30
+00:02:43,920 --> 00:02:47,060
+Let me get rid of that mutation instead.
+
+31
+00:02:47,280 --> 00:02:48,440
+Let's run a query.
+
+32
+00:02:49,820 --> 00:02:57,850
+You can also admit it does by the way and in their Donnelly's Hello I need to reload it now.
+
+33
+00:02:57,880 --> 00:03:00,830
+Log in.
+
+34
+00:03:00,900 --> 00:03:12,430
+Let me specify the valid email which I did use for the user and the password.
+
+35
+00:03:12,680 --> 00:03:18,950
+And now I want to get the token and the user id if I now had control enter.
+
+36
+00:03:19,190 --> 00:03:20,590
+I do get my data here.
+
+37
+00:03:21,610 --> 00:03:29,470
+And I do get it on an object which has a data field that is always added by graph Q L in there I have
+
+38
+00:03:29,470 --> 00:03:34,580
+the name of my query which was log in and there I have no response data.
+
+39
+00:03:34,630 --> 00:03:40,330
+So this is my rest data object in my re-act koto.
+
+40
+00:03:40,360 --> 00:03:44,940
+So rest data will be this entire object.
+
+41
+00:03:44,940 --> 00:03:50,190
+So if you want to get the token I need to drill into it into data log in token.
+
+42
+00:03:50,250 --> 00:03:54,930
+So in places where I'd just X-ists rested a token I instead need to do rest data.
+
+43
+00:03:54,990 --> 00:04:03,420
+Data log in token that is now the case for all the places where I retrieve something from the response
+
+44
+00:04:03,420 --> 00:04:06,090
+data I need to add data log in
+
+45
+00:04:09,050 --> 00:04:10,460
+with dead in place.
+
+46
+00:04:10,610 --> 00:04:16,040
+If I knew I was safe that front and code in the back end should be safe to of course we can go back
+
+47
+00:04:16,040 --> 00:04:18,670
+to our app and try logging in here.
+
+48
+00:04:20,110 --> 00:04:25,720
+And indeed we then get an error for fetching the posts which makes sense because we try to use our best
+
+49
+00:04:25,720 --> 00:04:32,120
+API you are l which does not exist but logging in actually succeeded.
+
+50
+00:04:32,560 --> 00:04:36,570
+So we got users sign up and log in emplace.
+
+51
+00:04:36,580 --> 00:04:43,050
+We now need to add some routes 4 or some endpoints for getting posts and for adding posts of course.
+
+52
+00:04:43,180 --> 00:04:52,610
+And we then also want to use that token we do get to protect certain but not all graft you'll endpoints.
+
+53
+00:04:52,660 --> 00:04:54,870
+These will all be steps with which we continue.
+

@@ -1,0 +1,268 @@
+1
+00:00:02,410 --> 00:00:04,470
+We don't just have products and users.
+
+2
+00:00:04,480 --> 00:00:11,980
+We all have the cart and we haven't worked on the card for quite some time now from a relation or association
+
+3
+00:00:12,010 --> 00:00:13,100
+perspective.
+
+4
+00:00:13,320 --> 00:00:21,460
+A card should belong to a user and a card that in turn simply holds products many products with a quantity
+
+5
+00:00:21,610 --> 00:00:23,500
+associated to them.
+
+6
+00:00:23,560 --> 00:00:25,800
+So actually will need more than one model.
+
+7
+00:00:25,990 --> 00:00:27,310
+I can already tell you that.
+
+8
+00:00:27,330 --> 00:00:29,740
+But let's work on the card model first.
+
+9
+00:00:29,830 --> 00:00:35,590
+I delete everything here and start writing it from scratch.
+
+10
+00:00:35,620 --> 00:00:40,710
+First of all imports sequel lies by requiring the sequel lies package.
+
+11
+00:00:40,960 --> 00:00:47,150
+And of course then I will also import sequel eyes from my database file.
+
+12
+00:00:47,200 --> 00:00:54,730
+So from utl database like this and then it's time to create the card model with sequela is to fine as
+
+13
+00:00:54,730 --> 00:00:56,290
+we did it before.
+
+14
+00:00:56,290 --> 00:01:04,470
+Name ID card and a card for me here simply has an ID and that id will be of type.
+
+15
+00:01:04,480 --> 00:01:14,130
+Sequel lies string autoincrement should be true allow null should be false and the primary key will
+
+16
+00:01:14,130 --> 00:01:15,240
+be true.
+
+17
+00:01:15,600 --> 00:01:17,490
+And then I will export this.
+
+18
+00:01:17,490 --> 00:01:24,900
+Now you might be wondering where are the products well we have to keep in mind that a card should belong
+
+19
+00:01:24,900 --> 00:01:29,570
+to a single user but may hold multiple products.
+
+20
+00:01:29,700 --> 00:01:36,810
+The carts table however should hold the different cards for different users so will not just need to
+
+21
+00:01:36,810 --> 00:01:42,900
+cartes table and model will also need a new card.
+
+22
+00:01:42,930 --> 00:01:44,260
+Item j.
+
+23
+00:01:44,270 --> 00:01:47,090
+Yes file in there.
+
+24
+00:01:47,390 --> 00:01:51,660
+I will also again I'll copy a code from cards to define a new model.
+
+25
+00:01:51,920 --> 00:02:00,630
+I'll call it carte item though an export card item here and I'll name it card item here.
+
+26
+00:02:00,680 --> 00:02:09,190
+When I did find a model the name it does will all have an ID but then also a quantity and that quantity
+
+27
+00:02:09,880 --> 00:02:18,150
+will be an integer because each card item is essentially a combination of a product and the ideal of
+
+28
+00:02:18,150 --> 00:02:21,840
+the card in which this product lies and the quantity.
+
+29
+00:02:21,840 --> 00:02:26,700
+Now the idea of the card to which does this relate to doesn't have to be added by us here because we
+
+30
+00:02:26,700 --> 00:02:33,900
+will again create an association and let sequel's managed this so it's time for some associations then
+
+31
+00:02:34,970 --> 00:02:44,610
+let's go to the app js file your and in there time to add more associations besides product and user
+
+32
+00:02:45,860 --> 00:02:54,710
+for example a user has one cart and for this to work we need to import the cart.
+
+33
+00:02:54,800 --> 00:03:02,020
+So let's scroll up to the imports and let's also import Cartier from the cart file.
+
+34
+00:03:02,270 --> 00:03:07,370
+We all need to cart item so import cart item from the cart.
+
+35
+00:03:07,610 --> 00:03:08,130
+Item.
+
+36
+00:03:08,130 --> 00:03:09,290
+Following the models folder.
+
+37
+00:03:09,290 --> 00:03:13,440
+So these two new ports have to be added and wisdom at it.
+
+38
+00:03:13,450 --> 00:03:20,820
+If we go down again let's go back to find their relations a user has one cart and a cart on the other
+
+39
+00:03:20,830 --> 00:03:23,330
+hand belongs to a user.
+
+40
+00:03:23,360 --> 00:03:26,810
+So this is basically in a world of this relation and it's optional.
+
+41
+00:03:26,840 --> 00:03:27,950
+You don't need to add it.
+
+42
+00:03:27,960 --> 00:03:30,530
+One Direction is enough.
+
+43
+00:03:30,560 --> 00:03:39,590
+This set up you're either of the two approaches will add key to Descartes and you field to cart which
+
+44
+00:03:39,590 --> 00:03:42,050
+is the user id to which the card belongs.
+
+45
+00:03:42,970 --> 00:03:55,460
+Next I will add my card here and say that this card belongs to many products and on the other hand a
+
+46
+00:03:55,510 --> 00:04:05,410
+product belongs to many carts some many to many relationship because one card can hold multiple products
+
+47
+00:04:05,740 --> 00:04:10,080
+and a single product can be part of multiple different cards.
+
+48
+00:04:10,570 --> 00:04:15,640
+This only works with an intermediates table that connects them which basically stores a combination
+
+49
+00:04:15,640 --> 00:04:17,610
+of product IDs and card IDs.
+
+50
+00:04:17,890 --> 00:04:20,450
+And for that I actually had my card item model.
+
+51
+00:04:20,710 --> 00:04:23,600
+I had a second argument to belongs to many.
+
+52
+00:04:23,620 --> 00:04:29,740
+And there we at the fruit keep telling sequels where these connections should be stored and that is
+
+53
+00:04:29,740 --> 00:04:36,820
+my card item model so I'll add that to both belongs to many calls here.
+
+54
+00:04:36,850 --> 00:04:45,640
+So now we got this set up here and therefore now we should have all the setup we need if we now again
+
+55
+00:04:45,640 --> 00:04:53,780
+temporarily set forest to true to ensure that we do recreate all tables as required and we go back to
+
+56
+00:04:53,780 --> 00:05:02,670
+the work bench and refresh all we actually only see two tables because we have an error here.
+
+57
+00:05:02,860 --> 00:05:07,910
+We scroll up a bit we see incorrect column specifier for column ID.
+
+58
+00:05:07,990 --> 00:05:14,080
+So something went wrong here when C-Class tried to create our tables because it looks like we got some
+
+59
+00:05:14,080 --> 00:05:18,510
+error in one of our models.
+
+60
+00:05:18,620 --> 00:05:25,760
+And the thing is the idea here in card item that should be an editor not a string same in card should
+
+61
+00:05:25,760 --> 00:05:28,370
+be an integer not a string.
+
+62
+00:05:28,370 --> 00:05:30,010
+Now this is looking much better.
+
+63
+00:05:30,200 --> 00:05:35,520
+And now if you go back and refresh all now we see carts and cart items here.
+
+64
+00:05:35,890 --> 00:05:42,800
+And we can see that in carts we only got Id created and they did that and the user id to which the cart
+
+65
+00:05:42,800 --> 00:05:50,420
+belongs in users we don't care about that we only have to user information and in card items we have
+
+66
+00:05:50,420 --> 00:05:56,120
+a combination of the cart ID too which does card item belongs and the Product ID.
+
+67
+00:05:56,450 --> 00:06:01,430
+So now we get everything we need to manage our card items for the cards we need.
+

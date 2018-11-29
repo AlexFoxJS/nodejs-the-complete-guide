@@ -1,0 +1,320 @@
+1
+00:00:02,130 --> 00:00:09,860
+Now with all of the theory out of the way let's build our first simple rest API and for that I mean
+
+2
+00:00:09,870 --> 00:00:11,420
+a brand new folder.
+
+3
+00:00:11,490 --> 00:00:16,790
+I only did one thing and there I ran NPM in it and confront all the default settings.
+
+4
+00:00:17,950 --> 00:00:23,980
+Since I'm using version control I also added a good or false so that I can ignore an upcoming node Marshall's
+
+5
+00:00:23,980 --> 00:00:25,990
+folder and that is it.
+
+6
+00:00:26,170 --> 00:00:27,850
+Now to build a rest.
+
+7
+00:00:27,850 --> 00:00:29,950
+API how do we start.
+
+8
+00:00:29,950 --> 00:00:33,600
+Well as I mentioned all the things you learned are still important.
+
+9
+00:00:33,670 --> 00:00:37,610
+We build a node express server just as we did before.
+
+10
+00:00:37,930 --> 00:00:44,320
+And also by the way of course you don't need to use Express you could build just a node server API but
+
+11
+00:00:44,320 --> 00:00:49,350
+you have to do a lot of request parsing and so on on your own as you learned before in discourse and
+
+12
+00:00:49,420 --> 00:00:54,800
+you can use our frameworks to there even our specialized arrest API frameworks.
+
+13
+00:00:54,970 --> 00:01:03,050
+But we will use Express which is a great all rounder and therefore I will install as a production dependency
+
+14
+00:01:03,050 --> 00:01:09,470
+with dash dash save Express we need express jast to build an API conveniently.
+
+15
+00:01:09,470 --> 00:01:13,670
+So this is our first dependency we'll install into this brand new project here.
+
+16
+00:01:14,580 --> 00:01:20,880
+Now with that installed I'll install another package and that will be a development dependency with
+
+17
+00:01:20,880 --> 00:01:22,290
+dash dash save death.
+
+18
+00:01:22,530 --> 00:01:28,040
+Node 1 because I still don't want to restart my server manually after every change.
+
+19
+00:01:28,140 --> 00:01:30,500
+So let's quickly install that package now.
+
+20
+00:01:31,490 --> 00:01:35,620
+With no one installed Let's go to the package adjacent file.
+
+21
+00:01:35,630 --> 00:01:42,440
+Let's add a start script in the script section and let's execute more apt Shazier to start.
+
+22
+00:01:42,440 --> 00:01:45,940
+Actually as with node one aperture does not exist yet.
+
+23
+00:01:45,950 --> 00:01:49,110
+So let's add it and then there we'll set up our node.
+
+24
+00:01:49,140 --> 00:01:50,470
+Yes server.
+
+25
+00:01:50,900 --> 00:01:52,620
+So what do we do in here.
+
+26
+00:01:52,880 --> 00:01:59,710
+Well first of all I will import express by requiring express like this.
+
+27
+00:01:59,710 --> 00:02:07,250
+Then I want to create my express app by executing express as a function and these are of course the
+
+28
+00:02:07,250 --> 00:02:10,870
+exact same steps we executed before in this course.
+
+29
+00:02:11,100 --> 00:02:15,830
+And last but not least we can listen to incoming requests.
+
+30
+00:02:15,860 --> 00:02:19,390
+Let's say on port 80 80 this time not free.
+
+31
+00:02:19,390 --> 00:02:20,490
+0 0 0 0 isn't all.
+
+32
+00:02:20,510 --> 00:02:22,290
+Need to add later for something else.
+
+33
+00:02:22,400 --> 00:02:24,590
+Let's use 80 80 for now.
+
+34
+00:02:24,710 --> 00:02:29,780
+This is a very simple server that we could now start that will not do anything of course.
+
+35
+00:02:29,780 --> 00:02:35,720
+It has no routes to find but this is our simple possible no express server.
+
+36
+00:02:35,720 --> 00:02:42,800
+Now to add some routes and to do something with them I will also install the body parser as a production
+
+37
+00:02:42,800 --> 00:02:46,310
+dependency with dash dash save so that I can Parus.
+
+38
+00:02:46,380 --> 00:02:49,710
+Well in-coming request bodies.
+
+39
+00:02:49,810 --> 00:02:57,180
+And now let's start adding some routes we could add them in here with app used to handle any method
+
+40
+00:02:57,360 --> 00:03:05,520
+or app get app Post app put and so on to handle specific HTP methods for specific postes.
+
+41
+00:03:05,820 --> 00:03:12,120
+But I will use the express router again and it will also create new routes folder which you wouldn't
+
+42
+00:03:12,120 --> 00:03:18,480
+have to do but this structure still make sense separating routes and controllers.
+
+43
+00:03:18,480 --> 00:03:20,930
+You just won't have the use anymore.
+
+44
+00:03:21,000 --> 00:03:26,180
+The views folder will not be recreated because it will not render any views anymore.
+
+45
+00:03:26,190 --> 00:03:28,360
+We'll just exchange data.
+
+46
+00:03:28,360 --> 00:03:30,010
+So new routes folder here.
+
+47
+00:03:30,150 --> 00:03:38,520
+Let's say we're building a simple block where we're a simple messaging social network block like application.
+
+48
+00:03:38,730 --> 00:03:40,990
+And we have some feed routes.
+
+49
+00:03:41,070 --> 00:03:47,430
+So like the news feed or something like that where we simply are able to create new messages show existing
+
+50
+00:03:47,430 --> 00:03:48,800
+messages and so on.
+
+51
+00:03:49,020 --> 00:03:56,250
+So all creative feet J.S. fall in the route's folder and in there we set up our express router by again
+
+52
+00:03:56,790 --> 00:04:02,550
+importing expressed into a disk Faltu because we need something from that package in the fall and then
+
+53
+00:04:02,550 --> 00:04:11,340
+I create the router by calling express router as a function and I will export the router at the bottom
+
+54
+00:04:11,860 --> 00:04:18,260
+in between we can now to find some routes and I want to start very simple with a Get route.
+
+55
+00:04:18,380 --> 00:04:24,010
+Q. Let's say posts where I serve my posts later on.
+
+56
+00:04:24,090 --> 00:04:26,130
+Not right now but later on.
+
+57
+00:04:26,190 --> 00:04:34,380
+So here I have my posts and of course I now need my logic that should execute when I request righteousness.
+
+58
+00:04:34,410 --> 00:04:41,140
+They are for all create a new folder controllers and in there I'll add my feet just fall as well.
+
+59
+00:04:41,170 --> 00:04:44,730
+So feature Yes and controllers now in there.
+
+60
+00:04:44,800 --> 00:04:54,220
+Let me export a new function get posts which of course and that also does not change gets or request
+
+61
+00:04:54,490 --> 00:05:00,430
+the response object and the next function could call to let the next Militaire take over and in there
+
+62
+00:05:00,670 --> 00:05:04,860
+I want to send the response and this will be the first part that gets interesting.
+
+63
+00:05:05,110 --> 00:05:13,480
+Before we write that code in my routes feet J.S. fall I will import my feeds controller by requiring
+
+64
+00:05:13,480 --> 00:05:17,750
+it from the controllers folder and there from the feed file.
+
+65
+00:05:18,820 --> 00:05:25,490
+And I will assign my feet controller get posts function your as the function that should be executed
+
+66
+00:05:25,490 --> 00:05:26,910
+for this route.
+
+67
+00:05:27,860 --> 00:05:34,880
+Now to be able to reach that route we need to register the route in Abdias which is our starting fall.
+
+68
+00:05:35,270 --> 00:05:46,160
+So in there I will import my feed routes by requiring them from routes feet like this and then all we
+
+69
+00:05:46,160 --> 00:05:53,090
+have to do here is we have to use these routes used to forward any HTP method will filter them out in
+
+70
+00:05:53,090 --> 00:05:56,660
+the route's fault then like with this get function.
+
+71
+00:05:57,140 --> 00:06:05,780
+So forward any incoming request to feed roundlets say or let's say we only forward requests that start
+
+72
+00:06:05,810 --> 00:06:07,450
+with Slash feet again.
+
+73
+00:06:07,460 --> 00:06:09,940
+Does this logic you already learned about.
+
+74
+00:06:09,950 --> 00:06:15,400
+So now any incoming request that starts with Slash feed will make it into feed routes.
+
+75
+00:06:15,470 --> 00:06:19,630
+So into this file and there we handle one request right now.
+
+76
+00:06:19,700 --> 00:06:20,850
+Slash posts.
+
+77
+00:06:20,990 --> 00:06:25,270
+So in total slash feet slash posts would be handled right now.
+
+78
+00:06:25,310 --> 00:06:27,710
+As long as it is a get request.
+
+79
+00:06:27,800 --> 00:06:32,400
+This kind of request would get handled by this controller.
+
+80
+00:06:32,870 --> 00:06:40,120
+And now let's talk about the response and how we could send a request to that route.
+

@@ -1,0 +1,256 @@
+1
+00:00:02,180 --> 00:00:09,640
+Let an Konst are two relatively new features in javascript and now a cool new feature are Erol functions
+
+2
+00:00:10,180 --> 00:00:17,320
+we can rewrite this function as an arrow function by first of all treating a new variable or constant.
+
+3
+00:00:17,320 --> 00:00:20,310
+Since I'll never set a new value I'll use a constant.
+
+4
+00:00:20,710 --> 00:00:22,950
+And I'll give that the name of my function.
+
+5
+00:00:22,990 --> 00:00:28,600
+So summarize user the value which hadn't assigned after the equal sign is a function.
+
+6
+00:00:28,780 --> 00:00:34,360
+Now we could already have done that in the past with this syntax is another way of defining a function
+
+7
+00:00:34,750 --> 00:00:40,540
+the part on the right side is a so-called anonymous function because we don't set up a name after a
+
+8
+00:00:40,540 --> 00:00:48,040
+function but we make it a named function implicitly by storing the anonymous function in that named
+
+9
+00:00:48,190 --> 00:00:54,170
+constant so we can always call that constant which holds a function as a value and we call the value
+
+10
+00:00:54,170 --> 00:00:57,890
+with the syntax and therefore it is like a named function here.
+
+11
+00:00:58,000 --> 00:01:00,220
+So this would have worked in the past too.
+
+12
+00:01:00,400 --> 00:01:07,840
+It is a way or a different way of defining a function but we can also use in Houston TX where we remove
+
+13
+00:01:07,840 --> 00:01:16,400
+the function keyword and instead we add an arrow between the argument list and the curly braces and
+
+14
+00:01:16,430 --> 00:01:20,130
+this arrow is simply the equal sign and the greater than sign.
+
+15
+00:01:20,220 --> 00:01:21,940
+This also creates a function.
+
+16
+00:01:21,970 --> 00:01:28,570
+It's a bit shorters since we saved the function keyword and it runs in the same way as dysfunction ran
+
+17
+00:01:28,570 --> 00:01:29,710
+the.
+
+18
+00:01:29,800 --> 00:01:34,450
+Now why would we use the syntax except for the reason that it's a bit shorter.
+
+19
+00:01:34,630 --> 00:01:41,680
+Well that is already a nice reason but also there's one key difference regarding this keyword which
+
+20
+00:01:41,680 --> 00:01:47,920
+javascript knows and attached you find a link to another video an article I created where I dive into
+
+21
+00:01:48,250 --> 00:01:52,400
+this keyword and how aero functions help us with it.
+
+22
+00:01:52,420 --> 00:01:58,430
+The attached article and video actually uses the browser but it's the same for no genius.
+
+23
+00:01:58,600 --> 00:02:00,620
+So this will be helpful too.
+
+24
+00:02:00,730 --> 00:02:06,490
+You have to know what javascript objects are for that but again that is some core knowledge I require
+
+25
+00:02:06,490 --> 00:02:09,960
+you to have for discourse in this course.
+
+26
+00:02:10,000 --> 00:02:12,970
+I will pretty much only use aero functions.
+
+27
+00:02:12,970 --> 00:02:18,120
+So does syntax for finding a function should be something you understand for discourse.
+
+28
+00:02:18,290 --> 00:02:20,250
+That is the name of the function.
+
+29
+00:02:20,500 --> 00:02:24,950
+And then here we have two arguments and then we have the function body.
+
+30
+00:02:25,000 --> 00:02:32,530
+Now a little side note there is also a shorter syntax of writing this or a couple of shorter syntaxes.
+
+31
+00:02:32,540 --> 00:02:35,590
+Let's say I have a number function which I'll name at.
+
+32
+00:02:35,930 --> 00:02:41,900
+And there I get two arguments A and B and I just returned to some of them so addition.
+
+33
+00:02:42,110 --> 00:02:49,160
+Then you could try to return a plus b of course and that allows us to run Konsole console.
+
+34
+00:02:49,580 --> 00:02:51,410
+Add with 1 plus 2.
+
+35
+00:02:51,980 --> 00:02:57,070
+And if I now run node plagal Yes we see three here.
+
+36
+00:02:57,200 --> 00:03:04,190
+As a result if you only have the arrow function with one statement which happens to be the return statement
+
+37
+00:03:04,350 --> 00:03:06,400
+or which you are fine returning.
+
+38
+00:03:06,740 --> 00:03:10,640
+Well then you can omit the curly braces.
+
+39
+00:03:10,640 --> 00:03:16,760
+You can omit the return step and you have to admit it and you just use to function like that.
+
+40
+00:03:16,850 --> 00:03:22,280
+This simply is the same syntax as before with the curly braces and with return and dysfunctional now
+
+41
+00:03:22,310 --> 00:03:26,720
+always return the result of this statement here.
+
+42
+00:03:26,780 --> 00:03:29,570
+Now over execute this again we still see free
+
+43
+00:03:33,330 --> 00:03:38,930
+Nova would adjust this function to let's say always add one.
+
+44
+00:03:39,140 --> 00:03:41,320
+Then I have just a as an argument.
+
+45
+00:03:41,330 --> 00:03:44,490
+Let's say that I return a plus one.
+
+46
+00:03:44,520 --> 00:03:47,470
+Now I could call this but con. logging.
+
+47
+00:03:47,470 --> 00:03:55,810
+Add 1 to let's say 1 year under assault should be 2 and I can of course execute this and indeed I see
+
+48
+00:03:55,810 --> 00:04:04,760
+to hear now in such a case you already saw my auto formatting removed the parentheses I had there previously
+
+49
+00:04:05,360 --> 00:04:10,520
+because if you only have one argument and that's the case really for that case only if you have one
+
+50
+00:04:10,520 --> 00:04:16,700
+argument only then you can just have the argument name here without parentheses and it will work just
+
+51
+00:04:16,700 --> 00:04:18,580
+as it will work with parentheses.
+
+52
+00:04:18,590 --> 00:04:23,570
+So both works here but you typically use the syntax without the parentheses.
+
+53
+00:04:23,600 --> 00:04:26,190
+And again my idea of formatting.
+
+54
+00:04:26,240 --> 00:04:28,070
+Remove them for me.
+
+55
+00:04:29,650 --> 00:04:39,400
+If you have the arrow function with no arguments at random then you have to specify an empty pair of
+
+56
+00:04:39,910 --> 00:04:42,460
+parentheses though you can't have just a whitespace.
+
+57
+00:04:42,460 --> 00:04:49,570
+You have to have that empty pair and then you can have your code there which obviously uses no arguments
+
+58
+00:04:49,570 --> 00:04:52,130
+because that's exactly what I want to show here.
+
+59
+00:04:52,190 --> 00:04:58,590
+So I could have at random called like this without any data passed in.
+
+60
+00:04:58,690 --> 00:05:01,940
+And now we see three year from that result.
+
+61
+00:05:02,350 --> 00:05:06,820
+So these are arrowed functions and there are different syntaxes and you will see them throughout the
+
+62
+00:05:06,820 --> 00:05:10,510
+course and you should recognize that syntax and understand how they work.
+
+63
+00:05:10,630 --> 00:05:12,870
+Again for a reason why to use them.
+
+64
+00:05:13,000 --> 00:05:15,270
+Check out the attached article plus video.
+

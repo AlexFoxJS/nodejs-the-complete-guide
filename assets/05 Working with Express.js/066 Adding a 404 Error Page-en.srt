@@ -1,0 +1,112 @@
+1
+00:00:02,250 --> 00:00:08,210
+Now one thing we did in the last lectures is we used the Express router and right now we have a set
+
+2
+00:00:08,210 --> 00:00:15,500
+up where we also have some unhandled routes if we enter some random string here we get this error.
+
+3
+00:00:15,510 --> 00:00:22,930
+Now typically we would want to see a 4 0 for error page and we can do that back in the fall.
+
+4
+00:00:22,950 --> 00:00:29,450
+We can take advantage of the middle of weares or the way express uses to middleware and funnels the
+
+5
+00:00:29,460 --> 00:00:31,290
+request for them.
+
+6
+00:00:31,320 --> 00:00:34,630
+Remember that the request goes from top to bottom.
+
+7
+00:00:34,770 --> 00:00:41,310
+So if it finds some middleware that handles it it will go in there and then for example year for Slash
+
+8
+00:00:41,310 --> 00:00:44,000
+with that get method on the router we would actually.
+
+9
+00:00:44,000 --> 00:00:46,370
+And here we also get no next call here.
+
+10
+00:00:46,410 --> 00:00:52,970
+So no other middleware would be executed but if we got no fitting middleware and we don't have one here
+
+11
+00:00:53,580 --> 00:00:59,090
+then we actually make it all the way to the bottom and eventually we don't handle that request.
+
+12
+00:00:59,400 --> 00:01:07,200
+So to send a 4 0 for error page we simply have to add catch all made aware at the bottom where we don't
+
+13
+00:01:07,200 --> 00:01:11,560
+need a path filter but we could add slash but that's difficult anyways.
+
+14
+00:01:11,940 --> 00:01:15,190
+And then simply hand the request recoat response next.
+
+15
+00:01:15,240 --> 00:01:23,110
+Since I use use here this will also handle all HTP methods not just get requests and there.
+
+16
+00:01:23,110 --> 00:01:29,390
+I can then also send some code like Page Not Found.
+
+17
+00:01:29,530 --> 00:01:37,060
+So little dummy h HTML document and maybe we all want to set the 404 status code and you can do that
+
+18
+00:01:37,060 --> 00:01:42,940
+by changing a number method prior to send and that is the status method.
+
+19
+00:01:43,120 --> 00:01:45,180
+And of course you cannot just use that here.
+
+20
+00:01:45,220 --> 00:01:48,260
+You could have used it here or in the admin Chesed fault too.
+
+21
+00:01:48,280 --> 00:01:53,930
+So always before sending you can call status to or set header.
+
+22
+00:01:54,010 --> 00:02:00,050
+You can actually chain all these method calls send just has to be the last one.
+
+23
+00:02:00,280 --> 00:02:06,160
+So you're calling status to set my status code and number a convenience method added by express Yes
+
+24
+00:02:06,490 --> 00:02:13,460
+and I'll send it to 404 which is the common code for a page was not found with this edit.
+
+25
+00:02:13,510 --> 00:02:24,230
+If I save this and then now reload my dummy POF your I get page not found whereas for at product I still
+
+26
+00:02:24,230 --> 00:02:25,180
+get that form.
+
+27
+00:02:25,190 --> 00:02:26,600
+So this is still working.
+
+28
+00:02:26,630 --> 00:02:28,340
+The rest however changed.
+

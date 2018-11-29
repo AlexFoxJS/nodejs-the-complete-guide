@@ -1,0 +1,52 @@
+1
+00:00:02,220 --> 00:00:09,120
+So it's time to dive deeper into your recipe eyes and build a complete project or a complete back and
+
+2
+00:00:09,120 --> 00:00:11,710
+forth project as arrest API.
+
+3
+00:00:12,060 --> 00:00:16,770
+And in this project we'll have a look at things like authentication and other interesting things like
+
+4
+00:00:16,950 --> 00:00:18,450
+image upload and so on.
+
+5
+00:00:18,630 --> 00:00:25,810
+So what's in this module in detail will plan our rest of your eye or I'll show you a project for which
+
+6
+00:00:25,810 --> 00:00:29,310
+you will need want and will then build it together of course.
+
+7
+00:00:29,370 --> 00:00:34,800
+So in detail we will implement all the corrupt operations our project needs.
+
+8
+00:00:34,890 --> 00:00:39,870
+So creating reading updating and deleting items in a database and so on.
+
+9
+00:00:39,870 --> 00:00:46,950
+That is what we'll do here will define all the rest API endpoints for days and so on will add validation
+
+10
+00:00:46,950 --> 00:00:52,280
+on the server side to make sure that only valid data gets stored in our database.
+
+11
+00:00:52,440 --> 00:00:59,660
+We'll add image upload so that we still can store images even though we're not rendering views anymore.
+
+12
+00:00:59,910 --> 00:01:06,700
+And finally all dive into off indication which will be very important and very interesting too.
+
+13
+00:01:06,960 --> 00:01:08,060
+So let's dive in.
+

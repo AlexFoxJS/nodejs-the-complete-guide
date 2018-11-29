@@ -1,0 +1,24 @@
+1
+00:00:02,370 --> 00:00:11,160
+Now one last adjustment I want to make is that I want to go into my views real quick and fix the placement
+
+2
+00:00:11,220 --> 00:00:13,570
+of my IT link in the orders.
+
+3
+00:00:13,580 --> 00:00:19,360
+E.J. last fall there I have that in ways link next to every product that is incorrect of course.
+
+4
+00:00:19,470 --> 00:00:21,010
+It should be next to the order.
+
+5
+00:00:21,030 --> 00:00:28,050
+So next to the Order ID I will have my NYC link so that now if I reload that orders page I have that
+
+6
+00:00:28,050 --> 00:00:32,760
+link up there which makes more sense logically but the behavior of course didn't change.
+

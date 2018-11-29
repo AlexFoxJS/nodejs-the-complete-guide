@@ -1,0 +1,292 @@
+1
+00:00:02,250 --> 00:00:04,980
+Get time to use our user object.
+
+2
+00:00:05,100 --> 00:00:08,800
+And the question of course is where do I want to use my user object.
+
+3
+00:00:09,030 --> 00:00:12,340
+Well a one to use the user object when creating a new product.
+
+4
+00:00:12,480 --> 00:00:12,720
+Right.
+
+5
+00:00:12,720 --> 00:00:18,440
+When saving a product I want to store a reference to a user here or and that's the entire user data
+
+6
+00:00:18,450 --> 00:00:19,220
+as you'll learn.
+
+7
+00:00:19,350 --> 00:00:24,860
+However for products and users you could actually find arguments for both approaches here.
+
+8
+00:00:24,870 --> 00:00:30,690
+You certainly don't want to enclose all the user data in an embattled document because that would mean
+
+9
+00:00:30,690 --> 00:00:34,710
+that if the user data changes you need to change that data in all products.
+
+10
+00:00:34,710 --> 00:00:40,290
+But if you do include something which is unlikely to change very often like to user name for example
+
+11
+00:00:40,650 --> 00:00:45,600
+well then you could certainly go ahead and and bad debt together with the idea so that you always have
+
+12
+00:00:45,600 --> 00:00:48,860
+that ID to fetch more data about the user if you need to.
+
+13
+00:00:48,900 --> 00:00:54,420
+You've got to find by the method and user model after all or that you have at least some snapshot data
+
+14
+00:00:54,600 --> 00:00:59,080
+like the username available immediately if that should change you need to update it everywhere.
+
+15
+00:00:59,190 --> 00:01:01,980
+The alternative to this is that you just store the ID.
+
+16
+00:01:02,010 --> 00:01:06,960
+So just a reference and therefore if you need connect data you always have to fetch it manually from
+
+17
+00:01:06,960 --> 00:01:08,420
+two collections.
+
+18
+00:01:08,520 --> 00:01:11,870
+But on the other hand you might not do that too often and therefore here.
+
+19
+00:01:11,910 --> 00:01:17,580
+Indeed when I fetched a product I don't really need the user data we're not displaying user name anywhere
+
+20
+00:01:17,580 --> 00:01:18,320
+in our app.
+
+21
+00:01:18,360 --> 00:01:23,030
+So I actually just want to store the user id so that we know who is connected.
+
+22
+00:01:23,100 --> 00:01:24,990
+Even though we're not fetching that a lot.
+
+23
+00:01:24,990 --> 00:01:28,430
+Now what does this mean for our application here though.
+
+24
+00:01:28,890 --> 00:01:34,990
+Well it means that when creating a new product we can pass the user id where we can accept the user
+
+25
+00:01:34,980 --> 00:01:35,740
+id here.
+
+26
+00:01:35,940 --> 00:01:42,930
+So this user ID is equal to user ID we store does as a property of our product now and with that we
+
+27
+00:01:42,930 --> 00:01:45,450
+have all we need in the product model.
+
+28
+00:01:45,450 --> 00:01:49,680
+Now we need to make sure that we do pass that user data when creating a product.
+
+29
+00:01:49,680 --> 00:02:00,610
+So the Edmond J us controller when adding new products here I want to pass now for the Product ID because
+
+30
+00:02:00,610 --> 00:02:07,180
+we dont have that when creating a new product but for the user id want to pass the ID off to user which
+
+31
+00:02:07,210 --> 00:02:11,160
+as you know we now store in our request we do this the press fall right.
+
+32
+00:02:11,170 --> 00:02:16,910
+We have that middleware which we set up in an earlier module where we find that user where I didnt store
+
+33
+00:02:16,910 --> 00:02:19,060
+that user in our request.
+
+34
+00:02:19,060 --> 00:02:25,000
+Now it is a bit of a constructed example because I'm storing it just to extract the ID which I hardcoded
+
+35
+00:02:25,000 --> 00:02:28,250
+here so we could just hard coded into our code anyways.
+
+36
+00:02:28,360 --> 00:02:33,580
+But the idea here of course is to show you how you can extract the user in one central place and then
+
+37
+00:02:33,580 --> 00:02:36,450
+reuse it in any other route.
+
+38
+00:02:36,520 --> 00:02:37,970
+And that's the idea here.
+
+39
+00:02:38,110 --> 00:02:43,120
+Later once we get an indication we'll manage that user a bit differently.
+
+40
+00:02:43,150 --> 00:02:48,640
+So for now we just have the user Optik in the request and they offer and the admin chase controller
+
+41
+00:02:48,880 --> 00:02:56,200
+here I can access request user and then underscore ID which will be just a string here because when
+
+42
+00:02:56,200 --> 00:03:00,480
+retrieving data the object id is converted to a string for us.
+
+43
+00:03:00,550 --> 00:03:02,970
+So we have just the string here.
+
+44
+00:03:04,020 --> 00:03:11,420
+Now with that we should actually store the user ID when creating a new product.
+
+45
+00:03:11,490 --> 00:03:16,860
+First of all delete that old product and then lets quickly add a new product here.
+
+46
+00:03:17,730 --> 00:03:25,710
+And I get an error that it cant read Property ID off on the find and should be coming from inside our
+
+47
+00:03:25,920 --> 00:03:30,750
+Aventuras fall here when I try to access my user underscore ID.
+
+48
+00:03:31,050 --> 00:03:33,990
+So something seems to be going wrong here.
+
+49
+00:03:35,120 --> 00:03:37,630
+I'm storing to request user here though.
+
+50
+00:03:39,720 --> 00:03:49,040
+Let's go to the user model find by Eddie let's add then and catch your and catch any error we might
+
+51
+00:03:49,040 --> 00:03:54,350
+be getting when fetching that user.
+
+52
+00:03:54,420 --> 00:04:00,000
+And here are also console lock to user Optik I'm getting right before I return it again.
+
+53
+00:04:00,890 --> 00:04:06,950
+And with that let me try to relate the admin product at product page and I now get an error.
+
+54
+00:04:06,950 --> 00:04:14,210
+We did retrieve the user here but then I sent duplicate headers by the look of it.
+
+55
+00:04:14,450 --> 00:04:17,260
+Yeah because I'm calling next to off to your in apt.
+
+56
+00:04:17,290 --> 00:04:17,920
+Yes.
+
+57
+00:04:17,950 --> 00:04:22,580
+Since I added the code again I don't need to call next at the bottom of it.
+
+58
+00:04:22,690 --> 00:04:26,050
+So let's save debt do not call next to you often.
+
+59
+00:04:26,650 --> 00:04:34,960
+Let's now reload this page here and now I just fetched a user with the ID which is a string here so
+
+60
+00:04:35,070 --> 00:04:37,150
+bad is actually valid.
+
+61
+00:04:37,150 --> 00:04:39,670
+Now let me try adding this again.
+
+62
+00:04:42,320 --> 00:04:43,600
+And now this works.
+
+63
+00:04:43,610 --> 00:04:47,390
+So it was dead error with double next.
+
+64
+00:04:47,400 --> 00:04:53,340
+So now if we have a look at our products here we see that product sold have a user ID which is just
+
+65
+00:04:53,340 --> 00:05:00,330
+a reference pointing at the user who did create that product which is one way of establishing relations.
+
+66
+00:05:00,420 --> 00:05:06,900
+The way you already know from my sequel of course this is not a bad document but here the argument simply
+
+67
+00:05:06,900 --> 00:05:11,400
+is when we're fetching products we don't really need any user information.
+
+68
+00:05:11,490 --> 00:05:17,850
+Hence we do it just like debt does of course will change once we start storing orders.
+
+69
+00:05:17,850 --> 00:05:22,720
+There you could say it does make sense to store information about the user.
+
+70
+00:05:22,740 --> 00:05:29,030
+For example the e-mail at least and for a product you want to store the title and the price maybe.
+
+71
+00:05:29,220 --> 00:05:33,250
+So there it makes sense to Satterlee aggregates does together.
+
+72
+00:05:33,450 --> 00:05:37,440
+Speaking of that why don't we work on card items and orders.
+
+73
+00:05:37,460 --> 00:05:37,910
+Next.
+

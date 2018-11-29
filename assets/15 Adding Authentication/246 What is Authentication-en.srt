@@ -1,0 +1,120 @@
+1
+00:00:02,130 --> 00:00:04,460
+So what is authentication.
+
+2
+00:00:04,560 --> 00:00:11,910
+While we obviously got our user using our application interacting with our dues and we get the server
+
+3
+00:00:12,000 --> 00:00:16,060
+and also database with which our server works.
+
+4
+00:00:16,200 --> 00:00:19,430
+These are all things we worked with in this course already.
+
+5
+00:00:19,740 --> 00:00:25,080
+Now in our application we might have different routes different actions.
+
+6
+00:00:25,110 --> 00:00:26,480
+A user can do.
+
+7
+00:00:26,580 --> 00:00:32,260
+We might be able to view all products to create and manage products or to place orders.
+
+8
+00:00:32,370 --> 00:00:37,060
+Now obviously we can do more things in our application but these are just some examples.
+
+9
+00:00:37,090 --> 00:00:43,650
+Now the idea behind authentication is that not all these actions are available to every user of our
+
+10
+00:00:43,650 --> 00:00:44,710
+application.
+
+11
+00:00:44,710 --> 00:00:53,160
+And now here's one important thing with user I don't mean locked in user I mean simply a person with
+
+12
+00:00:53,160 --> 00:00:56,610
+getting our page Wisting localhost free.
+
+13
+00:00:56,700 --> 00:01:00,870
+And in our case here later of course the domain under which we deployed it.
+
+14
+00:01:00,900 --> 00:01:07,590
+So I'm not talking about locked in users but really just people using our page and such anonymous users
+
+15
+00:01:07,650 --> 00:01:11,120
+who are not locked in should not be able to do all these things.
+
+16
+00:01:11,130 --> 00:01:17,610
+They certainly should be able to view all products just as you are able to view all products on Amazon.com
+
+17
+00:01:17,670 --> 00:01:19,320
+even if you're not locked in.
+
+18
+00:01:19,320 --> 00:01:21,760
+We want to allow this in our shop too.
+
+19
+00:01:22,110 --> 00:01:27,990
+But there are other things like for example here creating products managing products and placing orders
+
+20
+00:01:28,380 --> 00:01:34,320
+which should only be available to locked in users and not to every Wiznitzer of our page because in
+
+21
+00:01:34,320 --> 00:01:39,660
+order to buy a product you need to be locked in and in order to create a new product you also need to
+
+22
+00:01:39,660 --> 00:01:40,360
+be locked in.
+
+23
+00:01:40,440 --> 00:01:47,970
+Because in our application we of course connect a product to a locked in user we match to two things.
+
+24
+00:01:47,970 --> 00:01:50,110
+And this is what we need authentication for.
+
+25
+00:01:50,160 --> 00:01:56,790
+We need to be able to differentiate between anonymous users who are not locked in and locked in users
+
+26
+00:01:57,030 --> 00:02:03,750
+and we need to provide a flow of view and the back in logic that allows people visiting our page to
+
+27
+00:02:03,750 --> 00:02:10,500
+sign up and then to sign in and then we can use sessions as I showed it to you in the last module to
+
+28
+00:02:10,590 --> 00:02:19,030
+store the information whether a user is signed in and well let him interact with the page across requests.
+
+29
+00:02:19,140 --> 00:02:21,370
+This is the idea behind authentication.
+
+30
+00:02:21,390 --> 00:02:23,220
+Now how is it implemented.
+

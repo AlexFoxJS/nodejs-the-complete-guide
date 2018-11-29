@@ -1,0 +1,380 @@
+1
+00:00:02,910 --> 00:00:08,150
+So we're at the point where we know that the user did enter valid credentials.
+
+2
+00:00:08,160 --> 00:00:11,110
+Now we want to use that information to generate such.
+
+3
+00:00:11,160 --> 00:00:16,900
+Jason Webb token which I showed you on the slides for that let's quit the server here.
+
+4
+00:00:16,930 --> 00:00:17,840
+No it's server.
+
+5
+00:00:17,990 --> 00:00:21,330
+And let's install and you package the package.
+
+6
+00:00:21,350 --> 00:00:24,880
+I want to use is called Jason weap token.
+
+7
+00:00:24,950 --> 00:00:31,080
+One word does is a package which allows us to conveniently create such new Jason web tokens.
+
+8
+00:00:31,460 --> 00:00:33,570
+We can now restart a server.
+
+9
+00:00:33,770 --> 00:00:36,650
+And we need to import this into this file.
+
+10
+00:00:36,680 --> 00:00:42,010
+So your all important stored in a constant name JWT the name is of course up to you.
+
+11
+00:00:42,410 --> 00:00:48,080
+But Jason Webb token package or do you object it exposes now down there.
+
+12
+00:00:48,110 --> 00:00:55,490
+After checking the password I want to generate a new token stored the token and a constant name token
+
+13
+00:00:56,180 --> 00:01:00,000
+and then here I'll use to take the package and there sign method.
+
+14
+00:01:00,080 --> 00:01:08,530
+This creates a new signature and packs that into a new Jason web token we can add any data we want into
+
+15
+00:01:08,530 --> 00:01:12,190
+the token like for example we could store the user email.
+
+16
+00:01:12,190 --> 00:01:19,270
+So access to a loaded user e-mail and user id access to load a user underscore ID.
+
+17
+00:01:19,330 --> 00:01:25,080
+And since it's Mongo D-B object that year let's convert that to a string.
+
+18
+00:01:25,350 --> 00:01:27,540
+So now I'm storing some user data and a token.
+
+19
+00:01:27,580 --> 00:01:32,350
+Of course you should not store the raw password in here because that would be returned to the front
+
+20
+00:01:32,350 --> 00:01:39,760
+end to the user to whom the password belongs but still not ideal email and user ID should be fine however.
+
+21
+00:01:40,580 --> 00:01:48,480
+And then you need to pass a second argument which is that secret so that private key which is used for
+
+22
+00:01:48,480 --> 00:01:55,060
+a signing and that is now only known to the server and therefore you can't fake that token on the client.
+
+23
+00:01:55,300 --> 00:01:56,910
+I'll enter a secret here.
+
+24
+00:01:56,930 --> 00:02:05,240
+Typically you want to use a longer string like some super secret secret or even longer.
+
+25
+00:02:05,240 --> 00:02:11,840
+Also check out the official box of the Chaisson web token and to learn more about it all.
+
+26
+00:02:11,870 --> 00:02:18,130
+Also set a firm argument where I configure this and they're all set expiry time of one hour with this
+
+27
+00:02:18,140 --> 00:02:21,920
+syntax so that the token becomes invalid after one hour.
+
+28
+00:02:21,920 --> 00:02:26,990
+Now this is a security mechanism you should add because the token is stored in the client.
+
+29
+00:02:26,990 --> 00:02:33,740
+Now of course biot a client to whom it belongs but technically that token could be stolen if the user
+
+30
+00:02:33,740 --> 00:02:40,310
+does not log out another person copies the token from his browser storage and then can use it on his
+
+31
+00:02:40,310 --> 00:02:41,850
+own PC forever.
+
+32
+00:02:42,020 --> 00:02:46,770
+Well not forever now at least because after one hour the token becomes invalid.
+
+33
+00:02:46,910 --> 00:02:55,400
+So this is a good security mechanism which is like an Nye's finds a nice balance between usability where
+
+34
+00:02:55,400 --> 00:03:01,960
+you would want infinite sessions and security where you would want to limit this to like one second.
+
+35
+00:03:02,090 --> 00:03:06,660
+Now this is all a nice in-between solution which is pretty common.
+
+36
+00:03:07,010 --> 00:03:10,810
+So now we have a token which we can return to the client.
+
+37
+00:03:10,820 --> 00:03:17,700
+So here indeed I will not return a response with status code 200 where I add some data.
+
+38
+00:03:18,650 --> 00:03:27,140
+We can add a message if you want but I will only add that token which I generated and a user ID and
+
+39
+00:03:27,140 --> 00:03:35,270
+that is my loaded user Daut underscore ID to string now that data needs to be provided because India
+
+40
+00:03:35,270 --> 00:03:35,880
+react.
+
+41
+00:03:35,930 --> 00:03:36,810
+I gave you.
+
+42
+00:03:36,890 --> 00:03:41,350
+I'll be looking for that idea and I'll be storing it by the way should take 1 hour.
+
+43
+00:03:41,360 --> 00:03:48,200
+Because in that react to app log you out after one hour and all that storing and so on will be done
+
+44
+00:03:48,250 --> 00:03:49,840
+by the front end.
+
+45
+00:03:49,880 --> 00:03:53,390
+Now I'll show you how it gets stored in a second of course.
+
+46
+00:03:53,390 --> 00:04:00,560
+So let's now go back to our off route and connect our loggin route to our off controller and there the
+
+47
+00:04:00,560 --> 00:04:02,440
+log in action.
+
+48
+00:04:02,630 --> 00:04:08,170
+And now with that let's go back to the front end and work on the code there as well.
+
+49
+00:04:08,390 --> 00:04:12,790
+So in the front end here and the aperture has filed where we have to sign up Handler.
+
+50
+00:04:12,830 --> 00:04:19,230
+We have to look for loggin handler here and we should fix D or L there.
+
+51
+00:04:19,230 --> 00:04:25,790
+Q You are L is localhost 80 80 slash off slash log in.
+
+52
+00:04:25,790 --> 00:04:32,660
+We need to pass an object where we now also change the request method to post and where we pass our
+
+53
+00:04:32,660 --> 00:04:33,800
+data.
+
+54
+00:04:33,800 --> 00:04:40,010
+So just as with signing up we can actually copy that logic from there the headers and the body copy
+
+55
+00:04:40,010 --> 00:04:43,130
+that and move it to log in.
+
+56
+00:04:43,130 --> 00:04:45,700
+We don't past a name in the body though.
+
+57
+00:04:45,800 --> 00:04:47,890
+But password and email will be passed.
+
+58
+00:04:47,900 --> 00:04:51,050
+Now there is another small adjustment required here.
+
+59
+00:04:51,110 --> 00:04:57,770
+You can actually directly access off that e-mail and off data password.
+
+60
+00:04:57,770 --> 00:05:03,770
+Now if that's saved it go back to your re-act the app and try logging in with the credentials you created
+
+61
+00:05:03,770 --> 00:05:05,190
+a couple of Electress ago.
+
+62
+00:05:06,060 --> 00:05:06,970
+It should work.
+
+63
+00:05:06,990 --> 00:05:10,000
+This error still is coming from the status which will fix soon.
+
+64
+00:05:10,350 --> 00:05:17,100
+And here we all see that I'm logging something we see that token that was generated and the user ID
+
+65
+00:05:17,960 --> 00:05:23,940
+in your chrome browser dev tools you can also go to the application tab and there a go to local storage
+
+66
+00:05:24,090 --> 00:05:28,450
+select your domain and you will see that token here.
+
+67
+00:05:28,620 --> 00:05:31,230
+That is the token we generated on the server.
+
+68
+00:05:31,980 --> 00:05:39,240
+The data is data I'm storing here or that was stored way back by our application so we don't need that.
+
+69
+00:05:39,240 --> 00:05:40,780
+That has nothing to do with our app.
+
+70
+00:05:40,950 --> 00:05:43,980
+We have the expiry date which I generate on the client.
+
+71
+00:05:43,980 --> 00:05:49,580
+You know when I should remove the token because it expired and this is the token itself.
+
+72
+00:05:49,580 --> 00:05:56,310
+Now you can also take that token and was it JWT dot I O they are you can learn more about Jason Webb
+
+73
+00:05:56,310 --> 00:06:02,850
+tokens First of all and you can also paste your token into that area on the left.
+
+74
+00:06:03,000 --> 00:06:10,110
+And this allows you to look into your token you don't see your secret but you can now validate it.
+
+75
+00:06:10,190 --> 00:06:22,080
+If you enter your secret which you chose on the server some super secret secret then you should end
+
+76
+00:06:22,080 --> 00:06:24,560
+up with that same token you copied in.
+
+77
+00:06:24,570 --> 00:06:27,200
+And indeed if I replace it it does not change.
+
+78
+00:06:27,240 --> 00:06:31,570
+And here you see that payload data you add it on your server side.
+
+79
+00:06:31,650 --> 00:06:34,790
+You could theoretically extract that on the Kaline too.
+
+80
+00:06:34,920 --> 00:06:38,460
+And that is why you should not store super sensitive data in there.
+
+81
+00:06:38,580 --> 00:06:44,640
+But this also shows you that if I try to generate this token on my own let's say I also edited like
+
+82
+00:06:44,760 --> 00:06:50,850
+change to email address the token changes on the left and therefore if I added this it will not be validated
+
+83
+00:06:50,910 --> 00:06:57,360
+because now the token is not the same as it was when it was generated on the server with this secret.
+
+84
+00:06:57,360 --> 00:07:02,520
+So if I try to generate my own one with a different secret I'll end up with a different token and if
+
+85
+00:07:02,520 --> 00:07:08,290
+I try to edit the data in there I also do so I can't mess around with the token in the client.
+
+86
+00:07:08,400 --> 00:07:15,150
+The server will detect this disease how we can log in and how we work with tokens to know whether we
+
+87
+00:07:15,150 --> 00:07:16,210
+are locked in.
+
+88
+00:07:16,440 --> 00:07:19,360
+We're missing one important piece of information though.
+
+89
+00:07:19,740 --> 00:07:21,150
+We have that token.
+
+90
+00:07:21,150 --> 00:07:27,840
+Now we all need to attach the token to requests that require authentication because right now.
+
+91
+00:07:27,990 --> 00:07:34,890
+Well I am locked in I only see these options after logging in but theoretically deleting editing and
+
+92
+00:07:34,890 --> 00:07:39,290
+so on does not really care about the token we should change this.
+
+93
+00:07:39,300 --> 00:07:47,550
+We should also connect new posts to our user and we should make sure that only users who created a post
+
+94
+00:07:47,730 --> 00:07:49,660
+can edit or delete it.
+
+95
+00:07:49,680 --> 00:07:51,100
+So still some work to do.
+

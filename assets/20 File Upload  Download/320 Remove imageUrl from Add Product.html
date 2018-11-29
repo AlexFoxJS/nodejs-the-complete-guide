@@ -1,0 +1,28 @@
+<html>
+                <head>
+                <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+                <title>320 Remove imageUrl from Add Product</title>
+                </head>
+                <body>
+                <div class="container">
+                <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                    <p class="lead"><p>In the <code>postEditProduct</code> controller action, we already removed <code>imageUrl</code> from the data we return to the view if validation fails.</p><p><strong>You should do the same for </strong><code><strong>postAddProduct</strong></code><strong>. </strong></p><p>Your validation-failed responses should look like this:</p><pre class="prettyprint linenums">return res.status(422).render('admin/edit-product', {
+    pageTitle: 'Add Product',
+    path: '/admin/add-product',
+    editing: false,
+    hasError: true,
+    product: {
+        title: title,
+        price: price,
+        description: description
+    },
+    errorMessage: 'Attached file is not an image.',
+    validationErrors: []
+});</pre></p>
+                </div>
+                </div>
+                </div>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+                </body>
+                </html>

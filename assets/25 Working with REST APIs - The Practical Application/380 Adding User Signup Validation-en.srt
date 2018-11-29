@@ -1,0 +1,300 @@
+1
+00:00:02,330 --> 00:00:08,540
+I will create a new controller off JSA that is related to my users to my user data to my all indication
+
+2
+00:00:08,540 --> 00:00:16,280
+logic and in there I'll first of all import my user model by requiring it from my models folder the
+
+3
+00:00:16,280 --> 00:00:18,230
+user file.
+
+4
+00:00:18,230 --> 00:00:25,660
+Now we need at least two actions here and the first one is of course the action to sign a new user up.
+
+5
+00:00:25,760 --> 00:00:32,750
+So all named this action sign up and I'll get my request my response at that next function.
+
+6
+00:00:32,840 --> 00:00:39,100
+And then here I want to add all the logic I need to create a new user in the database so for.
+
+7
+00:00:39,120 --> 00:00:46,410
+Let's extract the email from request body email lets extract the name of the user from request body
+
+8
+00:00:46,500 --> 00:00:52,300
+name and lets extract the password from request body password.
+
+9
+00:00:52,350 --> 00:00:56,530
+Now obviously to extract all of that we need to know that it's there.
+
+10
+00:00:56,580 --> 00:00:59,870
+So we should add validation for this.
+
+11
+00:00:59,870 --> 00:01:02,990
+I'll go to my all routes again and just as in feet.
+
+12
+00:01:03,020 --> 00:01:07,440
+J.S. I will add this expressive validator check.
+
+13
+00:01:07,430 --> 00:01:11,940
+So I will copy that import from feed J.S. and add it to all.
+
+14
+00:01:12,060 --> 00:01:18,480
+J.S. and on Sign-Up Alden added an array of validation related middleware.
+
+15
+00:01:18,480 --> 00:01:19,610
+I'll check my request.
+
+16
+00:01:19,610 --> 00:01:27,810
+Body and their email field whether it is an email can also just to bring this back into memory to find
+
+17
+00:01:27,810 --> 00:01:29,670
+our own messages if we want to.
+
+18
+00:01:29,850 --> 00:01:32,920
+Please enter a valid email.
+
+19
+00:01:32,940 --> 00:01:37,090
+This would then be stored in the error or object we can retrieve.
+
+20
+00:01:37,110 --> 00:01:44,880
+We can also add our own custom validator here to check whether the email address already exists for
+
+21
+00:01:44,880 --> 00:01:45,550
+this.
+
+22
+00:01:45,750 --> 00:01:54,250
+I'll import my user model so require data from the models folder and then cast them and you'll learn
+
+23
+00:01:54,250 --> 00:01:59,190
+dad in the Valley Days Marchal by the way in case you want to dive deeply into that again.
+
+24
+00:01:59,220 --> 00:02:04,820
+The custom function or to cast him validator method here takes a function as an argument which reduced
+
+25
+00:02:04,820 --> 00:02:06,280
+the value we're looking at.
+
+26
+00:02:06,570 --> 00:02:13,140
+And then an object from which we can extract the request as a property with this destructuring syntax
+
+27
+00:02:13,830 --> 00:02:19,570
+and does function then it should return true if validation succeeds or return a promise.
+
+28
+00:02:19,740 --> 00:02:22,740
+If the validation actually uses some async task.
+
+29
+00:02:22,740 --> 00:02:27,540
+So if the validation does something which takes a little longer as an error case.
+
+30
+00:02:27,720 --> 00:02:35,100
+So I will return user find one and I want to find one user where the email off that user as stored in
+
+31
+00:02:35,100 --> 00:02:38,700
+the database matches the value of the e-mail we're looking at.
+
+32
+00:02:39,650 --> 00:02:49,300
+Now then I have my user document here so my user object as I've found that in the database and if data
+
+33
+00:02:49,300 --> 00:02:52,320
+is set and that's the only case I'm carrying about.
+
+34
+00:02:52,360 --> 00:03:01,390
+If that is set then I will reject a promise so I will return promise reject and that will cost me validation
+
+35
+00:03:01,390 --> 00:03:02,410
+to fail.
+
+36
+00:03:02,410 --> 00:03:13,100
+All other scenarios will cause it to succeed and they're all return email address already exists.
+
+37
+00:03:13,200 --> 00:03:17,140
+That's just a number validation we can add.
+
+38
+00:03:17,160 --> 00:03:20,310
+Of course I don't just want to validate the email though.
+
+39
+00:03:20,520 --> 00:03:24,420
+So let's all validate a number of fields in the request body.
+
+40
+00:03:24,630 --> 00:03:26,750
+Before I do that though just one step I forgot.
+
+41
+00:03:26,760 --> 00:03:29,100
+I will normalize the email as well.
+
+42
+00:03:30,010 --> 00:03:37,660
+But now I can look at our body fields like the password the password can be trimmed and should then
+
+43
+00:03:37,660 --> 00:03:44,890
+have let's say a length of at least 5 characters or whatever you want and I'll add a number check where
+
+44
+00:03:44,890 --> 00:03:48,190
+I'll look into my body there to the name.
+
+45
+00:03:48,190 --> 00:03:58,090
+Trim it to remove excess whitespace and this should now not be empty.
+
+46
+00:03:58,150 --> 00:04:01,080
+With that I got all my validation logic added.
+
+47
+00:04:01,200 --> 00:04:05,440
+Now that I'm here I can also already import my controller.
+
+48
+00:04:05,470 --> 00:04:15,530
+So my off controller can be imported from controllers off and now I'll use that off controller as the
+
+49
+00:04:15,530 --> 00:04:17,590
+last middleware on my Sign-Up route.
+
+50
+00:04:19,320 --> 00:04:26,850
+And reach out to the sign up action in their now validation was added Now back in the off controller
+
+51
+00:04:27,240 --> 00:04:31,740
+we want to collect any validation errors right at the start.
+
+52
+00:04:31,740 --> 00:04:34,080
+And for that I need to import something
+
+53
+00:04:36,910 --> 00:04:39,520
+from the Express evaluator package again.
+
+54
+00:04:41,090 --> 00:04:51,330
+And that will be that validation result function which I require from Express validators slash Shekh.
+
+55
+00:04:51,380 --> 00:04:57,590
+So this validation resoled function here and I collect arrows by calling that and passing the request
+
+56
+00:04:57,620 --> 00:04:58,370
+to it.
+
+57
+00:04:58,370 --> 00:05:05,990
+And now if not errors is empty so if we got errors then I noticed something went wrong or did I have
+
+58
+00:05:06,020 --> 00:05:06,790
+errors.
+
+59
+00:05:06,890 --> 00:05:16,580
+And in this case I want to create a new error where I say validation failed something like dat and I'll
+
+60
+00:05:16,580 --> 00:05:27,220
+set a status code of 400 22 and it can also maybe pass some data a new property all at where I store
+
+61
+00:05:27,220 --> 00:05:29,920
+my error or array like this.
+
+62
+00:05:29,920 --> 00:05:33,380
+And then I can throw my error here.
+
+63
+00:05:33,490 --> 00:05:38,980
+Didn't do that before but this would allow me to keep my errors which were retrieved bided validation
+
+64
+00:05:38,980 --> 00:05:39,940
+package.
+
+65
+00:05:39,940 --> 00:05:46,510
+I now just have to go to actually yes to my error handling function and there retrieve the data from
+
+66
+00:05:46,570 --> 00:05:47,140
+error.
+
+67
+00:05:47,170 --> 00:05:53,150
+The data property and also add does Tuta response him standing in case of an error.
+
+68
+00:05:53,170 --> 00:05:58,420
+Does is totally optional but just to show how you could keep your original arrows and past them to the
+
+69
+00:05:58,420 --> 00:05:59,920
+front end as well.
+
+70
+00:06:00,250 --> 00:06:05,260
+So now I'm doing this I'm doing that validation frilling an error if it fails if we make it postes does
+
+71
+00:06:05,360 --> 00:06:13,710
+if we know we have all that data we need and now we can start storing the user in the database.
+
+72
+00:06:13,710 --> 00:06:18,790
+Now there are parts of the authentication module which still matter here.
+
+73
+00:06:18,870 --> 00:06:22,760
+And one of them is that we should encrypt data password.
+
+74
+00:06:22,770 --> 00:06:23,790
+So let's finish.
+
+75
+00:06:23,790 --> 00:06:26,860
+Sign up in a secure way in the next lecture.
+

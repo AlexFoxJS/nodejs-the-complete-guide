@@ -1,0 +1,356 @@
+1
+00:00:02,220 --> 00:00:05,450
+So let's dive into throwing and handling arrows.
+
+2
+00:00:05,550 --> 00:00:08,950
+And here I do have an error in my custom validator.
+
+3
+00:00:08,970 --> 00:00:12,700
+Now this will be handled behind the scenes by the Express validator package.
+
+4
+00:00:12,900 --> 00:00:16,420
+So let's add some code that is not handled behind the scenes.
+
+5
+00:00:16,500 --> 00:00:18,900
+And for that first of all take a step backward.
+
+6
+00:00:18,930 --> 00:00:26,710
+I even quit my development server and all temporarily add a new file here error or playground.
+
+7
+00:00:26,800 --> 00:00:27,350
+Chase.
+
+8
+00:00:27,510 --> 00:00:33,080
+I will remove that it's not related to the app but there we can execute javascript code and we can executed
+
+9
+00:00:33,120 --> 00:00:36,650
+with the node runtime of course and end here.
+
+10
+00:00:36,750 --> 00:00:38,990
+Let's create a new constant.
+
+11
+00:00:39,250 --> 00:00:42,220
+Some where I take two values a and b.
+
+12
+00:00:42,510 --> 00:00:43,940
+Whoops.
+
+13
+00:00:44,010 --> 00:00:50,970
+So some will be a constant that holds an anonymous arrow function A and B and I return a plus b.
+
+14
+00:00:52,210 --> 00:00:57,910
+And then now there I call some with 1 and 2 and I can so lock the result.
+
+15
+00:00:57,910 --> 00:01:04,000
+Let's say now if I do this we can execute this file with node error playground.
+
+16
+00:01:04,130 --> 00:01:07,880
+Like this and we get free in the console down there.
+
+17
+00:01:08,100 --> 00:01:09,270
+And that's of course nice.
+
+18
+00:01:09,410 --> 00:01:11,330
+But now let's add an error.
+
+19
+00:01:11,690 --> 00:01:16,030
+Let's say I only pass one argument instead of two.
+
+20
+00:01:16,280 --> 00:01:21,980
+Now of execute this again I get not a number but not an error not a technical error object.
+
+21
+00:01:21,980 --> 00:01:28,370
+Now let's say here a check is a and b.
+
+22
+00:01:28,610 --> 00:01:33,300
+So both has to be true ish then I will return.
+
+23
+00:01:33,300 --> 00:01:34,150
+A-plus B.
+
+24
+00:01:34,260 --> 00:01:40,160
+Otherwise I'll throw that has a built in keyword and new error and that's a built in object.
+
+25
+00:01:40,170 --> 00:01:47,610
+No chips with where is say invalid arguments something like this.
+
+26
+00:01:47,620 --> 00:01:49,650
+Now let's execute this fall again.
+
+27
+00:01:50,140 --> 00:01:54,610
+And now we see such an error message which we saw before in the course as well.
+
+28
+00:01:54,670 --> 00:02:00,670
+Here we have our own error message and then we got a call stack which allows us to find out at which
+
+29
+00:02:00,820 --> 00:02:07,090
+function and which line number this error was thrown and what was called the that error.
+
+30
+00:02:07,210 --> 00:02:13,850
+We saw that before because that is the unhandled error we've Frot an error and that is a built in functionality
+
+31
+00:02:13,890 --> 00:02:19,380
+following such errors and node and a lot of the packages we use also fro arrows behind the scenes.
+
+32
+00:02:19,420 --> 00:02:24,580
+For example nobody will throw an error if it can't connect or if an operation fails.
+
+33
+00:02:24,580 --> 00:02:30,280
+So such Aeros can be frozen and if we don't handle them then our application just crashes.
+
+34
+00:02:30,460 --> 00:02:32,610
+And that's what we saw earlier in the course too.
+
+35
+00:02:32,770 --> 00:02:38,470
+You might remember a cases where I did something and we got Stec and that refreshed icon and the browser
+
+36
+00:02:38,470 --> 00:02:40,520
+kept on spinning and nothing happened.
+
+37
+00:02:40,720 --> 00:02:45,870
+That was because our server crashed because we had an error which we did not handle.
+
+38
+00:02:45,880 --> 00:02:48,310
+Now how can we handle errors.
+
+39
+00:02:48,310 --> 00:02:55,270
+Well one solution for synchronous code so code that executes line by line immediately and does not wait
+
+40
+00:02:55,270 --> 00:02:56,170
+for anything.
+
+41
+00:02:56,170 --> 00:03:02,050
+So for example where we don't interact with files or where we don't send requests well such code can
+
+42
+00:03:02,050 --> 00:03:06,270
+be wrapped with try catch and Navarrete built a language feature.
+
+43
+00:03:06,460 --> 00:03:12,940
+We try a certain code and then we have to add catch where we catch a potential error that might have
+
+44
+00:03:12,940 --> 00:03:16,030
+been thrown and then catch we can now handle it.
+
+45
+00:03:16,060 --> 00:03:20,680
+For example here it could output error or all.
+
+46
+00:03:20,980 --> 00:03:25,630
+And then I Konsole lock my error like this.
+
+47
+00:03:25,630 --> 00:03:33,580
+Now if my read execute my airplane don't chase fall I still get this error here.
+
+48
+00:03:33,770 --> 00:03:42,160
+But I get this additional Arab-Kurd message and if I not log my error object here and execute this then
+
+49
+00:03:42,170 --> 00:03:43,460
+actually get justice.
+
+50
+00:03:43,500 --> 00:03:46,240
+So then it does not crash and log it automatically.
+
+51
+00:03:46,290 --> 00:03:47,800
+But we could do anything we want.
+
+52
+00:03:47,910 --> 00:03:50,280
+We could continue with our code after this.
+
+53
+00:03:50,280 --> 00:03:51,320
+So here it could.
+
+54
+00:03:51,780 --> 00:03:53,250
+This works.
+
+55
+00:03:53,520 --> 00:03:58,060
+I could execute this line and we see this works being output here.
+
+56
+00:03:58,560 --> 00:04:02,170
+Just to demonstrate as if I comment out try catch.
+
+57
+00:04:02,400 --> 00:04:08,560
+And I just tried to console lock some one so I called this with an error being thrown.
+
+58
+00:04:08,580 --> 00:04:16,200
+Then we don't see this works anywhere because it crashes with our error at it's being thrown and it
+
+59
+00:04:16,200 --> 00:04:18,630
+does not continue with our code.
+
+60
+00:04:18,660 --> 00:04:25,860
+So this is why handling code like this is a good thing to do because this ensures that we can continue
+
+61
+00:04:25,860 --> 00:04:30,210
+with code that we can handle this gracefully in our node express application.
+
+62
+00:04:30,240 --> 00:04:35,490
+We could send the error response here which renders a valid page without crashing everything but which
+
+63
+00:04:35,490 --> 00:04:37,980
+informs the user that something bad happened.
+
+64
+00:04:38,220 --> 00:04:44,880
+And in the end this is what the Express validator package does for us with our Frot an error in our
+
+65
+00:04:45,130 --> 00:04:46,660
+where Frodo's error.
+
+66
+00:04:46,740 --> 00:04:53,970
+In the end express validator a catch justice and then just adds it to its own error or array and allows
+
+67
+00:04:53,970 --> 00:04:57,030
+us to read that list of Aeros it caught.
+
+68
+00:04:57,090 --> 00:04:59,690
+So that is what happens behind the scenes you could say.
+
+69
+00:04:59,760 --> 00:05:04,950
+Now here we have a look at an error and synchronous code frilling an error which we can handle with
+
+70
+00:05:04,950 --> 00:05:06,720
+try catch.
+
+71
+00:05:06,720 --> 00:05:14,280
+Now we all have async operations that can fail of course and such operations when using promises are
+
+72
+00:05:14,280 --> 00:05:16,310
+handled with them and catch.
+
+73
+00:05:16,530 --> 00:05:24,240
+And that is what we can see a lot in our code here where I do something where a find a user I have my
+
+74
+00:05:24,240 --> 00:05:28,880
+then block where I handle the case that the database operation succeeded.
+
+75
+00:05:28,890 --> 00:05:33,630
+Then I here still have my custom case to see if we did get a user because the database operation can
+
+76
+00:05:33,630 --> 00:05:36,160
+succeed even without retrieving a user.
+
+77
+00:05:36,510 --> 00:05:41,280
+But then also have a catch block here where I catch any errors that happened.
+
+78
+00:05:41,280 --> 00:05:46,230
+So here for example that would be the catch block related to my find one method.
+
+79
+00:05:46,230 --> 00:05:52,440
+So if the database operation fails because we don't have read access because the database server is
+
+80
+00:05:52,440 --> 00:05:57,130
+down temporarily anything like that then we make it into this catch block.
+
+81
+00:05:57,150 --> 00:06:05,610
+So does this try catch just with a sync code you could say then is your success KS and catch allows
+
+82
+00:06:05,610 --> 00:06:12,830
+you to execute code if that fails catch right away collects all errors that are frozen by any prior
+
+83
+00:06:12,890 --> 00:06:13,740
+then blocks.
+
+84
+00:06:13,740 --> 00:06:20,670
+So if we had more data then block and our chain here catch would fire on any error prone in any Then
+
+85
+00:06:20,670 --> 00:06:23,850
+block or any operation executed in a then block.
+
+86
+00:06:23,880 --> 00:06:25,900
+That's just a side note.
+
+87
+00:06:25,920 --> 00:06:32,340
+So it is how we can work with arus how we can handle them all now get rid of the playground file.
+
+88
+00:06:32,420 --> 00:06:35,790
+You find it attached to the video if you want to explore it a bit more.
+
+89
+00:06:35,940 --> 00:06:41,130
+Let's now see in our application how we can improve error handling.
+

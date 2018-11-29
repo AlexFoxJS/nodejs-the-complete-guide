@@ -1,0 +1,64 @@
+1
+00:00:02,540 --> 00:00:08,740
+You already learned a lot about note Jay asks and how to build amazing applications with it and the
+
+2
+00:00:08,750 --> 00:00:11,870
+Express framework it builds up on know genius.
+
+3
+00:00:12,140 --> 00:00:19,490
+You'll learn a lot about reaching out databases handling requests sending responses rendering templates
+
+4
+00:00:19,820 --> 00:00:25,130
+working with files a lot of crucial things that you will need for any node application you're going
+
+5
+00:00:25,130 --> 00:00:26,380
+to build.
+
+6
+00:00:26,480 --> 00:00:33,860
+Now I want to move away from one important thing that we always did thus far and that's the rendering
+
+7
+00:00:33,920 --> 00:00:36,680
+of templates with Ejay S..
+
+8
+00:00:36,740 --> 00:00:44,290
+It's a common thing to do that in a lot of node applications but there also is a very popular alternative
+
+9
+00:00:44,300 --> 00:00:51,350
+kind of or a very common over kind of node application that you will work with or that you will build
+
+10
+00:00:51,560 --> 00:00:52,810
+as a web developer.
+
+11
+00:00:52,910 --> 00:00:54,280
+And that are rest.
+
+12
+00:00:54,290 --> 00:01:02,060
+API is now in this module you will learn what exactly arrest API eyes are why you would use or built
+
+13
+00:01:02,060 --> 00:01:09,250
+them instead of the classic node express application that we built thus far where we rendered the use.
+
+14
+00:01:09,500 --> 00:01:16,220
+You will learn what the core rest concepts and principles are and we'll build our first rest API in
+
+15
+00:01:16,220 --> 00:01:17,400
+this module too.
+
+16
+00:01:17,630 --> 00:01:23,150
+So let's dive in and let's understand what rest your eyes are and why we would well use them.
+

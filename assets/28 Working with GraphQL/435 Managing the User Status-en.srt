@@ -1,0 +1,448 @@
+1
+00:00:02,410 --> 00:00:03,680
+We're almost done.
+
+2
+00:00:03,790 --> 00:00:05,400
+Let's make sure we can.
+
+3
+00:00:05,440 --> 00:00:09,370
+Also the you are user status and delete it.
+
+4
+00:00:09,430 --> 00:00:14,530
+And as I already mentioned at the end of the last lecture this again is a great practice for you.
+
+5
+00:00:14,530 --> 00:00:21,080
+So definitely feel free to try this on your own first posti video now and then implement these two functionalities
+
+6
+00:00:22,140 --> 00:00:22,700
+of course.
+
+7
+00:00:22,710 --> 00:00:25,100
+We'll also do it together after a short pause.
+
+8
+00:00:27,490 --> 00:00:29,400
+So did you succeed.
+
+9
+00:00:29,680 --> 00:00:34,070
+Well let's try it together and I'll do both in one go.
+
+10
+00:00:34,330 --> 00:00:35,670
+I need to add two things.
+
+11
+00:00:35,740 --> 00:00:40,310
+One theory and one mutation decree is for getting to status.
+
+12
+00:00:40,420 --> 00:00:46,690
+And actually since we're not using the approach I mentioned earlier where we add a new endpoint for
+
+13
+00:00:46,690 --> 00:00:52,420
+everything we have to remember that with craft you l we can control which data we get back.
+
+14
+00:00:52,630 --> 00:00:57,070
+So I will add a general user query without any arguments.
+
+15
+00:00:57,070 --> 00:01:02,270
+All this for the currently locked in user and I will return a user object here.
+
+16
+00:01:02,560 --> 00:01:08,950
+Now in my mutations I will add my update status.
+
+17
+00:01:08,960 --> 00:01:16,330
+Nutation I could add an updated user mutation if I generally would be fine with the user changing since
+
+18
+00:01:16,330 --> 00:01:18,980
+I have no such functionality planned in my app.
+
+19
+00:01:19,150 --> 00:01:23,040
+I will only add a special mutation for justice status.
+
+20
+00:01:23,050 --> 00:01:28,300
+Otherwise we could of course go with a more generic approach here to there.
+
+21
+00:01:29,330 --> 00:01:36,040
+I expect to get the status as a string and I will return the updated user.
+
+22
+00:01:36,280 --> 00:01:40,430
+With that we can move on to our resoled Rhus.
+
+23
+00:01:40,560 --> 00:01:43,620
+Let me add the code for returning a user.
+
+24
+00:01:43,620 --> 00:01:52,320
+So for this user there I get no arguments so I get that object but I will not retrieve any offering
+
+25
+00:01:52,530 --> 00:01:54,020
+anything from there.
+
+26
+00:01:54,510 --> 00:02:01,370
+And again I will write this as a async function to be able to use D-Wade keyword.
+
+27
+00:02:01,460 --> 00:02:03,620
+I'll then check if the user is authenticated.
+
+28
+00:02:03,630 --> 00:02:08,920
+If he's not then well you have a problem and it will not continue.
+
+29
+00:02:09,390 --> 00:02:17,550
+Otherwise I will get my user by waiting for a user find by ID and I can use the user ID stored in the
+
+30
+00:02:17,550 --> 00:02:23,000
+request and on that user here I'm interested in the status right.
+
+31
+00:02:23,030 --> 00:02:25,850
+That's the state is I want to return.
+
+32
+00:02:25,960 --> 00:02:34,120
+So if I find no user for that ID somehow then I will basically do the same I did when I found no post
+
+33
+00:02:34,890 --> 00:02:39,320
+on return an error no user found.
+
+34
+00:02:39,340 --> 00:02:46,560
+If I do have a user though then I will simply return a response and that is my whole user data.
+
+35
+00:02:46,780 --> 00:02:55,120
+I just will make sure to replace the ID with user underscore ID to string so I can now theoretically
+
+36
+00:02:55,120 --> 00:03:00,310
+fetch all the data about a user I'm interested in but obviously I'll implement that in a way that I
+
+37
+00:03:00,310 --> 00:03:07,660
+only fetch the status and that is something I do here in my feature Yes file of my front that application
+
+38
+00:03:08,390 --> 00:03:14,740
+there in component did MT I send the request to an endpoint which does not exist anymore.
+
+39
+00:03:14,980 --> 00:03:17,970
+Instead we're now of course targeting graft to L.
+
+40
+00:03:18,130 --> 00:03:22,330
+The method here will now be post.
+
+41
+00:03:22,410 --> 00:03:30,630
+I will send the token but I'll also set the content type to application.
+
+42
+00:03:30,660 --> 00:03:39,370
+Jason and I'll set the body to Mike vary and that query is something I need to create up there.
+
+43
+00:03:39,440 --> 00:03:47,190
+Graph Cuil query is a constant I'll create here that is object with the corroboree key.
+
+44
+00:03:48,390 --> 00:03:55,080
+Which again is surrounded by doubleback ticks or single back ticks but I need to opening and closing
+
+45
+00:03:56,090 --> 00:04:06,260
+and here I'll send my request to my user query or else use the user query and all the data I get back.
+
+46
+00:04:06,250 --> 00:04:08,660
+I'm not interested in the name or the email.
+
+47
+00:04:08,720 --> 00:04:16,520
+I'm only interested in the status that is biographical Korea and that is what I'll send in spring you
+
+48
+00:04:16,520 --> 00:04:17,200
+fight.
+
+49
+00:04:17,210 --> 00:04:19,540
+Werman To that end point.
+
+50
+00:04:19,730 --> 00:04:22,630
+Again handling arrows like this will not work.
+
+51
+00:04:22,640 --> 00:04:29,990
+Let's instead wrap the code we have below here where I just check for the existence of the error or
+
+52
+00:04:30,290 --> 00:04:32,910
+object after parsing the request body.
+
+53
+00:04:34,230 --> 00:04:38,580
+So you're fetching status failed would be my error message.
+
+54
+00:04:38,700 --> 00:04:45,490
+And when I extract the data I need to drill into the data field and then the status field.
+
+55
+00:04:45,500 --> 00:04:47,870
+Now if I save that and I reload
+
+56
+00:04:50,790 --> 00:04:56,850
+the internal error here cannot return NULL.
+
+57
+00:04:56,930 --> 00:04:59,980
+Let's quickly check our resoldering a user's Soler.
+
+58
+00:05:00,060 --> 00:05:02,740
+I return my user object here.
+
+59
+00:05:03,230 --> 00:05:04,410
+But I did not save it.
+
+60
+00:05:04,430 --> 00:05:10,690
+I guess this now looks better but I'm not seeing the status here.
+
+61
+00:05:10,710 --> 00:05:18,320
+And I got an error about which shall take care of the second my status here is not found in data.
+
+62
+00:05:18,340 --> 00:05:20,910
+I have to drill into a user field as well.
+
+63
+00:05:20,950 --> 00:05:26,590
+We can see that if we go to the network tab and have a look at that request where we get that data we
+
+64
+00:05:26,590 --> 00:05:33,310
+get data and in their user which is the name of our query of course and ever got that but obviously
+
+65
+00:05:33,570 --> 00:05:39,370
+Cuore name is always where the data is stored in and that Dan has a status field.
+
+66
+00:05:39,370 --> 00:05:41,610
+So this is a change that is required.
+
+67
+00:05:41,830 --> 00:05:45,410
+And now that we see the status and this error message also is gone.
+
+68
+00:05:46,230 --> 00:05:47,040
+Like dead.
+
+69
+00:05:47,340 --> 00:05:48,360
+So this is it.
+
+70
+00:05:48,390 --> 00:05:54,030
+Now let's all make sure we can update a status and for that let's first of all make sure we do something
+
+71
+00:05:54,030 --> 00:05:54,930
+for this schema.
+
+72
+00:05:54,930 --> 00:06:00,150
+We added for the update status schema in our resolvers file.
+
+73
+00:06:00,540 --> 00:06:05,720
+So this is the last resolve or functional add here update status.
+
+74
+00:06:05,780 --> 00:06:15,000
+I'll get my status argument and the request of course and I will ask before I use my async function
+
+75
+00:06:15,000 --> 00:06:18,720
+syntax and any here.
+
+76
+00:06:18,880 --> 00:06:22,350
+First of all will check whether the user is authenticated.
+
+77
+00:06:22,570 --> 00:06:29,420
+But that's not the case we throw in error and then all get my user by a waiting for a user find by ID
+
+78
+00:06:29,430 --> 00:06:32,440
+for the request.
+
+79
+00:06:32,440 --> 00:06:33,410
+User ID.
+
+80
+00:06:33,520 --> 00:06:41,740
+So for the locked in user if I have no user then we get a problem so I will copy that code from above
+
+81
+00:06:41,770 --> 00:06:42,700
+and fro in error.
+
+82
+00:06:42,720 --> 00:06:49,040
+If that's the case otherwise I'll set the user status to the new status I'm getting as an argument.
+
+83
+00:06:49,330 --> 00:06:53,480
+And then I will await user save to safety update.
+
+84
+00:06:53,500 --> 00:06:53,890
+User
+
+85
+00:06:56,730 --> 00:07:05,490
+I can then return an object where I take my user doc data and where I replaced the ID.
+
+86
+00:07:05,710 --> 00:07:09,900
+So user ID with the string you fired weren't all that.
+
+87
+00:07:10,130 --> 00:07:13,000
+And this is my update status mutation now.
+
+88
+00:07:13,010 --> 00:07:16,670
+Last but not least I also need to edit this on the front end.
+
+89
+00:07:18,290 --> 00:07:24,860
+So in my re-act app and there we simply search for the status update handler here where we of course
+
+90
+00:07:24,860 --> 00:07:29,660
+send the request to draft Q L and Datchet a post request.
+
+91
+00:07:29,660 --> 00:07:34,280
+The headers are all right and I will define my graph all query.
+
+92
+00:07:34,280 --> 00:07:37,040
+Here is an object.
+
+93
+00:07:37,160 --> 00:07:46,640
+The query key my the back takes of course and the worry now is a mutation with the name update status
+
+94
+00:07:46,700 --> 00:07:51,900
+or whatever you defined in your graphed ULS schema file.
+
+95
+00:07:52,110 --> 00:07:54,720
+And there I need to pass in the status which is a string.
+
+96
+00:07:54,780 --> 00:08:00,500
+So we need double quotation marks around de-value which I'll now inject here and the value is still
+
+97
+00:08:00,660 --> 00:08:06,780
+state status dessous where the status is stored to which the user enters into the input field and off
+
+98
+00:08:06,780 --> 00:08:08,020
+the data I get back.
+
+99
+00:08:08,040 --> 00:08:16,650
+I'm only interested in the status then we want to send this here in a string you fight.
+
+100
+00:08:16,670 --> 00:08:19,900
+Werman And again we don't handle arrows here.
+
+101
+00:08:19,900 --> 00:08:27,010
+We handled them as we do up there checking for the existence of the error object in our parsed response
+
+102
+00:08:27,070 --> 00:08:27,810
+data.
+
+103
+00:08:29,950 --> 00:08:32,390
+And that is already it.
+
+104
+00:08:32,410 --> 00:08:36,220
+Now if I saved that and saved the back end as well.
+
+105
+00:08:36,310 --> 00:08:40,990
+If I add a couple of exclamation marks and I click Update seems to succeed.
+
+106
+00:08:41,130 --> 00:08:47,350
+If we can validate this by reloading if I now log in with a different user there of course we should
+
+107
+00:08:47,350 --> 00:08:49,200
+not see that updated status.
+
+108
+00:08:49,210 --> 00:08:51,620
+There we see the status of that user.
+
+109
+00:08:51,850 --> 00:08:58,870
+And with that we moved our entire rest API over to graft to L and I hope you see the power graph tool
+
+110
+00:08:58,900 --> 00:09:06,190
+gives you by being more flexible regarding the data you fetch from the backend and therefore your front
+
+111
+00:09:06,190 --> 00:09:13,280
+of development can move faster because your back and gives you the entire bandwidth of data.
+
+112
+00:09:13,330 --> 00:09:14,710
+You might be interested in.
+

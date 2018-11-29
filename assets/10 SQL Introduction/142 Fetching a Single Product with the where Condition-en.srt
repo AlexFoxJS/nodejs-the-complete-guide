@@ -1,0 +1,148 @@
+1
+00:00:02,410 --> 00:00:08,840
+Were able to to save a new product and fetch all products let's now find a single product by ID.
+
+2
+00:00:09,010 --> 00:00:11,670
+This also is not that difficult.
+
+3
+00:00:11,710 --> 00:00:19,870
+We can again use our D-B pool execute a query and the query we want to execute here is select everything
+
+4
+00:00:19,870 --> 00:00:26,300
+from products and everything here means not all rows but simply all fields.
+
+5
+00:00:26,440 --> 00:00:33,610
+But now we can restrict the number of rows with the WHERE condition and where is the sequel keyword.
+
+6
+00:00:33,750 --> 00:00:42,310
+So dare we can X you go where products ID equals one equals sign only not multiple ones as in javascript
+
+7
+00:00:42,730 --> 00:00:48,990
+where the idea is equal to questionmark simply to let my physical inject devalue again the ID we're
+
+8
+00:00:49,000 --> 00:00:50,790
+getting as an argument here.
+
+9
+00:00:50,800 --> 00:00:53,840
+Now let's return this promise here.
+
+10
+00:00:54,010 --> 00:00:58,950
+And this is our statement for fetching a single product with all the columns though.
+
+11
+00:00:58,990 --> 00:01:06,630
+So with all the data that we can go back to shop J.S. and dare where we do fetch a single product and
+
+12
+00:01:06,630 --> 00:01:12,710
+get product Well there we still use find by ID for a given product ID.
+
+13
+00:01:12,840 --> 00:01:16,270
+But of course no one asked to function here.
+
+14
+00:01:16,290 --> 00:01:17,360
+That didn't change.
+
+15
+00:01:17,370 --> 00:01:19,700
+Let's strip that out of there.
+
+16
+00:01:19,770 --> 00:01:29,250
+Simply call find by id like this and instead and then and catch and catch we got our error which we
+
+17
+00:01:29,250 --> 00:01:35,160
+can output and then we got our product in the end or to be precise.
+
+18
+00:01:35,160 --> 00:01:42,030
+We of course got that nested array where we know that the first element will be all the rows we got
+
+19
+00:01:42,090 --> 00:01:46,490
+and that will just be or our product or it should just be the product.
+
+20
+00:01:46,530 --> 00:01:51,570
+Make sure to wrap that special index square brackets into parentheses.
+
+21
+00:01:52,080 --> 00:01:59,610
+So now we just need to render a function here and place it in this function we passed to then and we're
+
+22
+00:01:59,610 --> 00:02:03,700
+extracting a product here we're passing it to our view here.
+
+23
+00:02:03,750 --> 00:02:06,180
+Let's see if that works.
+
+24
+00:02:06,270 --> 00:02:12,450
+If I now save this and I click on details this failed.
+
+25
+00:02:12,510 --> 00:02:18,810
+Now let's simply console log our products here to see why it failed.
+
+26
+00:02:20,470 --> 00:02:23,920
+If I reload this page here's what gets locked.
+
+27
+00:02:24,030 --> 00:02:29,820
+And the reason why it failed is that product still is an array an array with one element only but still
+
+28
+00:02:29,820 --> 00:02:30,550
+in that array.
+
+29
+00:02:30,750 --> 00:02:35,780
+But the view simply expects one single object not an array with one object.
+
+30
+00:02:35,780 --> 00:02:39,380
+The solution is to simply pass the first element in that array.
+
+31
+00:02:39,540 --> 00:02:42,850
+And we know that there will only be one element in that array.
+
+32
+00:02:42,870 --> 00:02:44,590
+It's never reload this page.
+
+33
+00:02:44,670 --> 00:02:46,440
+We see the second product.
+
+34
+00:02:46,440 --> 00:02:48,270
+I just didn't add an image for that.
+
+35
+00:02:48,270 --> 00:02:50,150
+Otherwise we would see that too.
+
+36
+00:02:50,580 --> 00:02:52,330
+So this is working.
+
+37
+00:02:52,350 --> 00:02:54,840
+We're able to fetch a single product to.
+

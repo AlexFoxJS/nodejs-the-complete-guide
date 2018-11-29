@@ -1,0 +1,284 @@
+1
+00:00:02,240 --> 00:00:03,920
+Now in this module we covered a lot.
+
+2
+00:00:03,920 --> 00:00:05,510
+And we work with files a lot.
+
+3
+00:00:05,510 --> 00:00:11,870
+Now one thing you might notice is that whenever we for example change an image or when we delete a product
+
+4
+00:00:12,130 --> 00:00:17,360
+to a file belonging to that product the image belong to the product sticks around.
+
+5
+00:00:17,360 --> 00:00:22,790
+Now obviously you can always delete files with the file system package.
+
+6
+00:00:22,910 --> 00:00:25,700
+There you also got options for deleting foz.
+
+7
+00:00:25,970 --> 00:00:33,470
+You could delete false whenever you added a product when you override the image.
+
+8
+00:00:33,470 --> 00:00:37,630
+So here if you are inside that if block and we set a new image you are l.
+
+9
+00:00:37,640 --> 00:00:43,340
+Then we could all the kick of a function that goes ahead and deletes the old image by fetching dead
+
+10
+00:00:43,430 --> 00:00:48,050
+from the product first because we're fetching the product here so we can get access to the old image
+
+11
+00:00:48,050 --> 00:00:54,020
+lbf by fetching that POV and then using the file system to delete that old image and we can of course
+
+12
+00:00:54,020 --> 00:00:57,590
+also lead to image when we delete the product.
+
+13
+00:00:57,830 --> 00:01:06,350
+So let's add this functionality as a last step now and for that I will go to my utile folder
+
+14
+00:01:10,500 --> 00:01:16,180
+and add a file Jaspal where I will add some help or functionality.
+
+15
+00:01:16,190 --> 00:01:23,090
+They are all import to follow system so the fault system is imported here and I'll have a constant which
+
+16
+00:01:23,090 --> 00:01:32,270
+holds a function which I'll name delete file disfunctions should accept the file path and debts.
+
+17
+00:01:32,280 --> 00:01:39,320
+Let's see in here I can use the filesystem package and there.
+
+18
+00:01:39,360 --> 00:01:45,690
+You'll have to try and link Methot it deletes the name and default it is connected to the names or deletes
+
+19
+00:01:45,750 --> 00:01:47,060
+a file it does Poth.
+
+20
+00:01:47,220 --> 00:01:56,640
+So here I pass fall POF and then this has to call because we know with an error if it fails and in here
+
+21
+00:01:56,640 --> 00:01:58,860
+we can simply check if we got an error.
+
+22
+00:01:58,860 --> 00:02:04,920
+Then I want to throw it again and then it should bubble up in our default express air handler should
+
+23
+00:02:04,920 --> 00:02:06,090
+be able to take over.
+
+24
+00:02:06,310 --> 00:02:08,200
+Otherwise I'll not do anything here.
+
+25
+00:02:08,280 --> 00:02:09,680
+So it's like method.
+
+26
+00:02:09,690 --> 00:02:13,660
+I can always call to pass and fall apart and delete that file.
+
+27
+00:02:14,010 --> 00:02:16,820
+And now we can use that in our admin controller.
+
+28
+00:02:17,970 --> 00:02:30,860
+So let me import my file helper here or requiring it from the utl folder and the ERDA file file and
+
+29
+00:02:30,880 --> 00:02:32,410
+I can use that file helper.
+
+30
+00:02:32,490 --> 00:02:40,780
+For example in the place where we added a product if we are and is if block and we know will replace
+
+31
+00:02:40,780 --> 00:02:41,960
+the image you are l.
+
+32
+00:02:42,090 --> 00:02:50,650
+Then before I do so I will use Fall helper and call my function there for dead.
+
+33
+00:02:50,660 --> 00:02:52,170
+I need to export that though.
+
+34
+00:02:52,500 --> 00:02:57,530
+So in here I want to export delete file.
+
+35
+00:02:57,530 --> 00:03:00,000
+This will hold my delete Falah constant.
+
+36
+00:03:00,050 --> 00:03:03,680
+So does function and now in the Edmond J as controller.
+
+37
+00:03:03,680 --> 00:03:10,360
+Here I can call fall helper delete file and pass in product image.
+
+38
+00:03:10,370 --> 00:03:16,590
+You are also the path to dat file and now does chaud fire.
+
+39
+00:03:16,590 --> 00:03:18,770
+I'm not waiting for this to complete.
+
+40
+00:03:18,810 --> 00:03:21,030
+I continue with my eyebrow operations.
+
+41
+00:03:21,030 --> 00:03:24,150
+I'm doing this in a fire and forget manners.
+
+42
+00:03:24,150 --> 00:03:27,210
+I'm firing this function and I don't care about the result.
+
+43
+00:03:27,210 --> 00:03:32,910
+If I wanted to I would have to pass my callback here so a function which then continues with the rest.
+
+44
+00:03:32,910 --> 00:03:34,070
+In this function here.
+
+45
+00:03:34,200 --> 00:03:40,140
+But I simply fire it like this and I will do the same when we delete a product.
+
+46
+00:03:40,210 --> 00:03:51,080
+So in there when we do delete it here I also want to delete the respective image.
+
+47
+00:03:51,220 --> 00:03:57,000
+And for that I first of all need to fetch by product of course so I will have find my ID in here.
+
+48
+00:03:57,950 --> 00:03:59,710
+Find it by Prod. ID.
+
+49
+00:04:00,040 --> 00:04:09,160
+And then here I have then and catch and catch I can next any error I get and then block I will have
+
+50
+00:04:09,160 --> 00:04:11,550
+access to my product.
+
+51
+00:04:11,830 --> 00:04:16,000
+So here I can then ex you by fall helper.
+
+52
+00:04:16,340 --> 00:04:23,030
+I should of course all the check if product is not set in which case I'll also return next with a new
+
+53
+00:04:23,960 --> 00:04:26,400
+error product not found.
+
+54
+00:04:28,210 --> 00:04:34,790
+And otherwise I delete that and it should only trigger delete one here after I found this.
+
+55
+00:04:34,870 --> 00:04:39,370
+Otherwise we have a race condition where deleting could finish before finding is finished and that would
+
+56
+00:04:39,370 --> 00:04:47,980
+be bad so we'll grab that delete one code move that here and return it to return to Brahmas return by
+
+57
+00:04:47,980 --> 00:04:51,720
+delete one.
+
+58
+00:04:51,950 --> 00:04:56,270
+And then I can actually replace that catch block with my old then and catch block and does will catch
+
+59
+00:04:56,270 --> 00:05:03,020
+arrows in any of the then blocks and it will also make sure that at first find the product once I have
+
+60
+00:05:03,020 --> 00:05:04,000
+found it.
+
+61
+00:05:04,270 --> 00:05:09,150
+I delete the image and I assembles heinously start deleting the product itself.
+
+62
+00:05:09,490 --> 00:05:12,130
+Let's save all dead and let's see if that works.
+
+63
+00:05:12,190 --> 00:05:24,620
+If I go back to Aben products here and I delete product one this is cleared and here I also have one
+
+64
+00:05:24,700 --> 00:05:31,530
+much less if I delete the second product it's only free images so this works.
+
+65
+00:05:31,530 --> 00:05:36,650
+Diablerie images are still sticking around because previously when I started deleting products and so
+
+66
+00:05:36,650 --> 00:05:40,520
+on I did not have that logic in place but now this works.
+
+67
+00:05:41,730 --> 00:05:45,100
+Fetching my wise or generating it on the fly were.
+
+68
+00:05:45,300 --> 00:05:48,480
+And thanks to the fact that we store a snapshot of that in the database.
+
+69
+00:05:48,480 --> 00:05:50,670
+It even works after the product was deleted.
+
+70
+00:05:50,700 --> 00:05:52,700
+Which is of course the way we want it to work.
+
+71
+00:05:52,710 --> 00:05:54,810
+With that we have a really nice setup here.
+

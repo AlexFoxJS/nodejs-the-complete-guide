@@ -1,0 +1,268 @@
+1
+00:00:02,270 --> 00:00:08,710
+Knouted we learn about does express error handling which we can use which we added.
+
+2
+00:00:08,990 --> 00:00:15,350
+What exactly does Frot new era or indice catch block in the middle where you just fall due for us.
+
+3
+00:00:15,350 --> 00:00:18,600
+I mentioned that this will become important now.
+
+4
+00:00:18,680 --> 00:00:22,100
+Like does it unfortunately not do anything.
+
+5
+00:00:22,100 --> 00:00:29,150
+Let me start up our summer Real quick again and let me ensure did we do get an error by simply throwing
+
+6
+00:00:29,270 --> 00:00:30,890
+a new error a dummy error.
+
+7
+00:00:30,890 --> 00:00:34,430
+Here again to simply simulate that something goes wrong.
+
+8
+00:00:34,430 --> 00:00:35,350
+I've Frot it here.
+
+9
+00:00:35,420 --> 00:00:39,710
+If a fro and then block the next catch block will catch it and handle it.
+
+10
+00:00:39,710 --> 00:00:41,410
+Now let's see what this does.
+
+11
+00:00:41,570 --> 00:00:50,210
+Now to see the effect I have to log in to ensure that we do get a user session and we can already see
+
+12
+00:00:50,330 --> 00:00:51,660
+disk crashes here.
+
+13
+00:00:51,680 --> 00:00:56,460
+It slows infinitely because I have an error here.
+
+14
+00:00:56,940 --> 00:00:58,730
+My dummy error.
+
+15
+00:00:59,020 --> 00:01:02,000
+So this is now not doing anything.
+
+16
+00:01:02,100 --> 00:01:04,220
+The app is still crashing.
+
+17
+00:01:04,350 --> 00:01:10,980
+So one important take away is frilling an error here does not lead to our general error handling malware
+
+18
+00:01:10,980 --> 00:01:13,730
+being called and that is important.
+
+19
+00:01:13,740 --> 00:01:18,140
+This is true because we're inside some async code inside a promise here.
+
+20
+00:01:18,170 --> 00:01:24,360
+We're inside then or a catch block if you fro error there you will not reach dead.
+
+21
+00:01:24,360 --> 00:01:26,570
+Express error handling middleware.
+
+22
+00:01:26,580 --> 00:01:32,230
+The interesting thing is if you what throw an error outside of async code.
+
+23
+00:01:32,330 --> 00:01:34,940
+So in a place where the code executes synchronously.
+
+24
+00:01:35,100 --> 00:01:40,800
+So basically outside of a promise than catch block or outside of a callback.
+
+25
+00:01:40,800 --> 00:01:46,730
+So here if I throw my sync dummy like this if we do that.
+
+26
+00:01:46,770 --> 00:01:49,140
+So does this now throwing in a normal function.
+
+27
+00:01:49,200 --> 00:01:52,630
+Not nested inside a promise or a callback or anything like that.
+
+28
+00:01:52,860 --> 00:01:59,470
+If I now reload this you'll see that try to load the 500 page but it still failed.
+
+29
+00:01:59,490 --> 00:02:01,310
+The reason for this is really simple.
+
+30
+00:02:01,350 --> 00:02:07,720
+We have our middleware in place here where I retrieved my user and there I wrote the error.
+
+31
+00:02:07,740 --> 00:02:10,400
+But this executes for every incoming request.
+
+32
+00:02:10,440 --> 00:02:16,180
+Now when we redirect here we do send the new request so we kind of enter an infinite loop.
+
+33
+00:02:16,320 --> 00:02:17,600
+We execute this again.
+
+34
+00:02:17,670 --> 00:02:18,670
+It was an error.
+
+35
+00:02:18,780 --> 00:02:25,860
+We go to the error handling middle where we trigger and you request a solution here can be to simply
+
+36
+00:02:25,860 --> 00:02:32,600
+not redirect to 500 but immediately execute our rendering code.
+
+37
+00:02:32,670 --> 00:02:38,760
+So this code in our get 500 controller action and we could absolutely do that.
+
+38
+00:02:38,790 --> 00:02:48,630
+We could render our error here instead of redirecting we could render our page here and if we do that
+
+39
+00:02:48,930 --> 00:02:50,660
+you will see that now overload.
+
+40
+00:02:51,120 --> 00:02:58,350
+I just get a problem regarding my C as r token because it can't be generated based on the incoming request
+
+41
+00:02:58,380 --> 00:03:06,160
+because that request basically has issues here in our middleware before we set up DC as our token.
+
+42
+00:03:06,300 --> 00:03:12,960
+So the solution for dad would be to switch the order to make sure we set this token before we actually
+
+43
+00:03:12,990 --> 00:03:16,940
+do something with the user which we tried to fetch.
+
+44
+00:03:16,950 --> 00:03:20,730
+So now this works and now we get to error handling in place.
+
+45
+00:03:20,730 --> 00:03:26,280
+The interesting thing is not just that we had to switch to order though and dead we should avoid infinite
+
+46
+00:03:26,280 --> 00:03:26,980
+loops.
+
+47
+00:03:27,150 --> 00:03:31,150
+But the interesting thing here also is that here I'm just throwing an error.
+
+48
+00:03:31,260 --> 00:03:34,270
+And we still reach this global error handling louer.
+
+49
+00:03:34,380 --> 00:03:40,830
+The reason for that is that in synchronous places so outside of callbacks and promises you fro in error
+
+50
+00:03:40,950 --> 00:03:47,810
+and express will detect this and execute your next error handling middleware inside of async code.
+
+51
+00:03:47,850 --> 00:03:48,890
+So inside of.
+
+52
+00:03:48,900 --> 00:03:51,280
+Then catch or callbacks.
+
+53
+00:03:51,300 --> 00:03:52,870
+This does not work however.
+
+54
+00:03:53,120 --> 00:03:58,590
+Inside of that you have to use next with an error or include it.
+
+55
+00:03:58,680 --> 00:04:04,320
+So this is then detected by express again and this is what we used and the files and inside of async
+
+56
+00:04:04,320 --> 00:04:05,640
+code snippets you need to use.
+
+57
+00:04:05,640 --> 00:04:08,390
+Next wrapping that error outside.
+
+58
+00:04:08,400 --> 00:04:10,410
+You can't just throw that error.
+
+59
+00:04:10,730 --> 00:04:19,380
+And so if an uncommon does you will see that if I try to reload my page I get this error no matter what
+
+60
+00:04:19,380 --> 00:04:25,150
+I do because I still have this dummy error being thrown in I promise hands to catch log executes and
+
+61
+00:04:25,160 --> 00:04:26,690
+still executes.
+
+62
+00:04:26,730 --> 00:04:32,280
+So now I will get rid of that but I will leave this catch block as it is and you have to understand
+
+63
+00:04:32,460 --> 00:04:38,530
+that for one you showed a white infinite loops triggered for your error handling middleware as we had
+
+64
+00:04:38,550 --> 00:04:39,440
+initially here.
+
+65
+00:04:39,720 --> 00:04:46,710
+And second that you can Rodi error in synchronous code places like this one but inside a promise then.
+
+66
+00:04:46,730 --> 00:04:50,490
+Or catch blocks or inside of callbacks you have to use.
+
+67
+00:04:50,490 --> 00:04:52,340
+Next around the error.
+

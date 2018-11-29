@@ -1,0 +1,208 @@
+1
+00:00:02,090 --> 00:00:05,440
+We're nearing the end let's make sure we can also delete card items.
+
+2
+00:00:05,440 --> 00:00:10,980
+Now for this first of all get rid of that code I previously had for updating the cart.
+
+3
+00:00:11,000 --> 00:00:14,070
+We outsourced design to our cart model for now.
+
+4
+00:00:14,300 --> 00:00:19,580
+And now let's work on the post-cart delete product action here in the shop controller.
+
+5
+00:00:19,580 --> 00:00:25,850
+I of course want to be able to delete items from the cart and to delete items from the cart.
+
+6
+00:00:25,910 --> 00:00:29,740
+The user model is again a great place to work on.
+
+7
+00:00:29,820 --> 00:00:31,440
+I'll add a new method.
+
+8
+00:00:31,910 --> 00:00:33,950
+Delete item from cart.
+
+9
+00:00:33,980 --> 00:00:40,430
+The name is up to you and I only need the product ID here to remove the entire product from the card
+
+10
+00:00:41,270 --> 00:00:43,580
+with that Id passed.
+
+11
+00:00:43,660 --> 00:00:51,800
+We can create a new constant updated card items and first of all copy all existing card items.
+
+12
+00:00:51,810 --> 00:00:59,730
+Again with this spread operator however we can even take an easier route and just use discard items
+
+13
+00:01:00,120 --> 00:01:01,860
+and then the built in filter method.
+
+14
+00:01:01,860 --> 00:01:08,970
+This is again a method provided by Vanilla javascript filter allows us to define a criterium on how
+
+15
+00:01:08,970 --> 00:01:10,970
+we want to filter the elements in that array.
+
+16
+00:01:11,010 --> 00:01:17,220
+So in this case the elements of the items array and then it will return a new array with all the filtered
+
+17
+00:01:17,220 --> 00:01:22,920
+items so all the items that make it through the filter the filter is a function here which runs on every
+
+18
+00:01:22,920 --> 00:01:25,300
+item and then we'd return true.
+
+19
+00:01:25,320 --> 00:01:27,630
+If you want to keep the item in the new array.
+
+20
+00:01:27,660 --> 00:01:28,440
+Or false.
+
+21
+00:01:28,440 --> 00:01:29,810
+If you want to get rid of it.
+
+22
+00:01:30,120 --> 00:01:35,020
+Now I want to keep all items except for the item which we're deleting.
+
+23
+00:01:35,220 --> 00:01:42,600
+So I will look into each item and discard items are objects off the structure we define up here.
+
+24
+00:01:42,600 --> 00:01:47,400
+They are objects with a product in a quantity so I'm looking for the product ID now.
+
+25
+00:01:48,920 --> 00:01:58,290
+Down there looking for the product ID and if that is equal to the Product ID and getting here then I
+
+26
+00:01:58,290 --> 00:01:59,190
+know this is TLM.
+
+27
+00:01:59,220 --> 00:02:05,670
+I want to remove all check for the opposite because remember I return true here if I want to keep the
+
+28
+00:02:05,670 --> 00:02:06,170
+item.
+
+29
+00:02:06,190 --> 00:02:08,820
+So I want to return False if I want to get rid of it.
+
+30
+00:02:08,880 --> 00:02:10,380
+So this should return false.
+
+31
+00:02:10,470 --> 00:02:17,420
+If I want to get rid of it and I want to get rid of it for this condition ask before with two string
+
+32
+00:02:17,440 --> 00:02:21,150
+we can guarantee we're working with the right type of data here.
+
+33
+00:02:21,490 --> 00:02:26,740
+And now we have the updated card items which we just need to save back to our cart and therefore to
+
+34
+00:02:26,740 --> 00:02:32,360
+the database because it is already Ardit cart items with the one item we wanted to get rid of removed.
+
+35
+00:02:33,320 --> 00:02:41,310
+So I can simply copy my code from up there where I update the database like this and when I say updated
+
+36
+00:02:41,430 --> 00:02:47,070
+Cartier will simply mean I want to assign this to an object with an item's property because that is
+
+37
+00:02:47,070 --> 00:02:48,820
+what our card has right.
+
+38
+00:02:48,840 --> 00:02:58,160
+We have items that are an item is equal to our updated card items and that as it does now we'll update
+
+39
+00:02:58,250 --> 00:03:03,210
+the card to have all card items except for the one we deleted.
+
+40
+00:03:03,230 --> 00:03:10,890
+So back in the shop G-S controller here I don't need to call get cart instead on the user.
+
+41
+00:03:11,000 --> 00:03:16,610
+I can call my new method delete item from card which you just edit.
+
+42
+00:03:16,940 --> 00:03:23,450
+We can call that year and pass the product ID as an argument and that we can get rid of all that code
+
+43
+00:03:24,170 --> 00:03:25,270
+and simply redirect.
+
+44
+00:03:25,280 --> 00:03:28,740
+Once we're done so let's see if that works.
+
+45
+00:03:29,050 --> 00:03:37,750
+If we now saved as lets go to the routes and add this post route for deleting card items reload this
+
+46
+00:03:37,750 --> 00:03:42,730
+page here and let's delete the second item and this is looking good.
+
+47
+00:03:42,770 --> 00:03:43,970
+It's gone here.
+
+48
+00:03:44,480 --> 00:03:46,240
+No arrows here.
+
+49
+00:03:46,280 --> 00:03:47,430
+So this is looking good.
+
+50
+00:03:47,650 --> 00:03:53,600
+And if my update doesn't compeers we see that for this user We indeed.
+
+51
+00:03:53,750 --> 00:03:59,480
+Well obviously only have the other items so this worked and that is how we can delete card items with
+
+52
+00:03:59,500 --> 00:03:59,810
+these.
+

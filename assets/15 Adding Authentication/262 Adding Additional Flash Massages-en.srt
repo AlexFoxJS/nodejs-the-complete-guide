@@ -1,0 +1,132 @@
+1
+00:00:02,130 --> 00:00:03,770
+So were you successful.
+
+2
+00:00:03,900 --> 00:00:09,720
+We added our flash message here when we used an email which we did not find.
+
+3
+00:00:09,840 --> 00:00:15,870
+Now obviously if we have a password that does not match here where we redirect to log in I also want
+
+4
+00:00:15,870 --> 00:00:19,570
+to flash my invalid email or password message onto the session.
+
+5
+00:00:19,680 --> 00:00:24,760
+So it is a great place because we now save this on the logon screen.
+
+6
+00:00:24,780 --> 00:00:33,210
+I might have a valid email but an invalid password and I get this error message with valid credentials.
+
+7
+00:00:33,210 --> 00:00:34,700
+It of course works fine though.
+
+8
+00:00:36,280 --> 00:00:42,490
+Now we could also do something when signing up because when signing up I'm checking with an email address
+
+9
+00:00:42,520 --> 00:00:43,930
+already exists.
+
+10
+00:00:43,930 --> 00:00:48,260
+Well before redirecting here I can also output something there.
+
+11
+00:00:48,290 --> 00:00:52,350
+Email exists already.
+
+12
+00:00:52,350 --> 00:00:56,270
+Please pick a different one.
+
+13
+00:00:56,690 --> 00:01:04,060
+Something like that we now save debt and I enter the e-mail address which indeed does already exist.
+
+14
+00:01:05,600 --> 00:01:08,710
+Well then I redirect it without having any effect.
+
+15
+00:01:08,990 --> 00:01:12,350
+And that makes sense because we flashed a message but I'm not outputting it.
+
+16
+00:01:12,380 --> 00:01:18,080
+So we need to go to the logon page and copy that code for outputting an error message and then go to
+
+17
+00:01:18,080 --> 00:01:21,060
+sign up and there above the form.
+
+18
+00:01:21,080 --> 00:01:23,540
+Let's also output the error message here.
+
+19
+00:01:23,660 --> 00:01:28,020
+But of course for this to work we also need to extract that when loading the sign up page.
+
+20
+00:01:28,160 --> 00:01:34,280
+So that code which I'm using and get log in to render my error message I need to get in get sign up
+
+21
+00:01:34,280 --> 00:01:34,800
+to.
+
+22
+00:01:34,970 --> 00:01:41,300
+And then there I also need to pass this error message variable Ceuta view which holds that message I'm
+
+23
+00:01:41,300 --> 00:01:42,090
+extracting.
+
+24
+00:01:42,140 --> 00:01:45,810
+I realize we can't display it even though we flash it into the session.
+
+25
+00:01:45,830 --> 00:01:52,010
+So now if dat Let's try again let's reuse a passenger email that already exists.
+
+26
+00:01:52,080 --> 00:01:57,720
+And now I get this error if I do create a valid user with a valid email.
+
+27
+00:01:57,750 --> 00:01:58,730
+This works however.
+
+28
+00:01:58,740 --> 00:02:01,860
+So now we quickly check our users collection.
+
+29
+00:02:01,860 --> 00:02:04,070
+We see that was added.
+
+30
+00:02:04,080 --> 00:02:05,220
+So these are some messages.
+
+31
+00:02:05,250 --> 00:02:08,260
+I can flash onto the screen you could add more.
+
+32
+00:02:08,280 --> 00:02:13,710
+For example after logging out you could also output some confirmation for that but this should do it
+
+33
+00:02:13,710 --> 00:02:18,620
+for now was a nice practice and improves the user experience a little bit.
+

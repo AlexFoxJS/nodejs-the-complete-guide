@@ -1,0 +1,316 @@
+1
+00:00:02,230 --> 00:00:05,230
+Now we learned about course in the last lecture.
+
+2
+00:00:05,230 --> 00:00:08,740
+Now let me show you how it affects our post requests.
+
+3
+00:00:09,070 --> 00:00:18,260
+So I'll use my post button to also add an event listener dare click like this.
+
+4
+00:00:19,090 --> 00:00:27,440
+And there I'll also use to fetch Methot to send a fetch request to the same as asked before but it ends
+
+5
+00:00:27,440 --> 00:00:31,600
+with Slash post because I'm targeting this.
+
+6
+00:00:31,640 --> 00:00:34,530
+You are all here which is just post not posts.
+
+7
+00:00:36,000 --> 00:00:41,840
+So if you named differently you should of course use your path here since it will be a POST request.
+
+8
+00:00:41,850 --> 00:00:47,060
+I need to pass a javascript object as a second argument which allows me to set some options.
+
+9
+00:00:47,280 --> 00:00:54,270
+Specifically I want to set the method to post here to send a POST request and then I will copy that
+
+10
+00:00:54,270 --> 00:01:02,100
+code from up there for handling the response so that I can well extract the data or log a potential
+
+11
+00:01:02,100 --> 00:01:06,690
+error for now clear dat and I hit create post.
+
+12
+00:01:06,870 --> 00:01:12,720
+I get post-trial successfully but if we inspect the post object we see that the title and content are
+
+13
+00:01:12,720 --> 00:01:13,750
+missing.
+
+14
+00:01:13,770 --> 00:01:17,350
+Now that makes a lot of sense because we didn't send that data.
+
+15
+00:01:17,610 --> 00:01:24,090
+Instead on the post request and declined we also want to set a body object and that object will hold
+
+16
+00:01:24,090 --> 00:01:24,740
+the title
+
+17
+00:01:28,330 --> 00:01:34,560
+code pen post and content created wya code.
+
+18
+00:01:34,570 --> 00:01:37,030
+And whatever you want to clear that.
+
+19
+00:01:37,040 --> 00:01:42,990
+Now I click that button again Hmm I still don't see that here.
+
+20
+00:01:43,290 --> 00:01:50,820
+Now on the service side nothing goes wrong here but actually on the service side if I would go to my
+
+21
+00:01:50,820 --> 00:01:59,310
+controller and I would log title and content here or used to node debugger to see their values if we
+
+22
+00:01:59,310 --> 00:02:03,390
+locked that in it click Create post then we'd see that.
+
+23
+00:02:03,420 --> 00:02:05,420
+And the find gets locked here.
+
+24
+00:02:05,520 --> 00:02:08,480
+So we are not able to extract that data.
+
+25
+00:02:08,880 --> 00:02:14,110
+And the reason for that can be found if we go to the Network tab and have a look at this post request
+
+26
+00:02:14,110 --> 00:02:17,770
+it was sent there in the request headers.
+
+27
+00:02:17,880 --> 00:02:26,140
+We see that the content type was text plain and that is the problem it should be application Jason.
+
+28
+00:02:26,320 --> 00:02:33,190
+But we all just see that the request payload was not Jason data which in the end is just text but in
+
+29
+00:02:33,190 --> 00:02:34,510
+a special format.
+
+30
+00:02:34,720 --> 00:02:41,140
+But deaded was a javascript object which just can't be sent where which can't be handled.
+
+31
+00:02:41,140 --> 00:02:43,270
+So there are two things we need to do.
+
+32
+00:02:43,270 --> 00:02:51,100
+First of all on the body I will call Jason string ify which is a method provided by default by javascript.
+
+33
+00:02:51,130 --> 00:02:56,570
+It will take a javascript object and convert to to Jason we can see that immediately if I click Create
+
+34
+00:02:56,590 --> 00:02:59,230
+post again and we inspect that request.
+
+35
+00:02:59,230 --> 00:03:07,000
+The payload now is indeed text in the Jason format but we need to tell the good server that our account
+
+36
+00:03:07,010 --> 00:03:09,680
+that type is of type application Jason.
+
+37
+00:03:09,790 --> 00:03:17,500
+And therefore besides setting the body on the client all the add headers or one header the content type
+
+38
+00:03:17,500 --> 00:03:22,830
+header content dash type which is application slash Jason.
+
+39
+00:03:22,890 --> 00:03:27,090
+And now with that that click Create post again.
+
+40
+00:03:27,090 --> 00:03:33,860
+Now in the created post we see title or title and content because now that data is sent and extracted
+
+41
+00:03:33,870 --> 00:03:40,980
+correctly because we send it in the right format and we inform the server about the content type.
+
+42
+00:03:40,980 --> 00:03:48,330
+Now this also allows me to demonstrate what happens if I would comment out does header here the access
+
+43
+00:03:48,330 --> 00:03:52,030
+control allow headers header on the service side.
+
+44
+00:03:52,110 --> 00:03:59,700
+If I save after commenting this out and try to create a post again I fail because I'm not allowed to
+
+45
+00:03:59,700 --> 00:04:01,580
+set Content-Type.
+
+46
+00:04:01,950 --> 00:04:06,300
+I do allow it as by adding this header on the service side.
+
+47
+00:04:06,330 --> 00:04:09,600
+So this is how you communicate between client and server.
+
+48
+00:04:09,660 --> 00:04:14,290
+Of course the client code differs depending on the client you're using.
+
+49
+00:04:14,310 --> 00:04:17,020
+Does this javascript code using the fetch API.
+
+50
+00:04:17,160 --> 00:04:20,700
+There are different ways of sending asynchronous requests.
+
+51
+00:04:20,700 --> 00:04:26,700
+For example you can send Ajax requests through libraries like X years and if you were building a mobile
+
+52
+00:04:26,700 --> 00:04:33,570
+app you might have a totally different object or a helper methods for sending such requests in Android
+
+53
+00:04:33,720 --> 00:04:35,700
+in swift and so on.
+
+54
+00:04:35,700 --> 00:04:41,960
+So this client code differs does the javascript code using to fetch API the server side code does not
+
+55
+00:04:41,960 --> 00:04:42,800
+really differ.
+
+56
+00:04:42,960 --> 00:04:48,440
+You want to make sure your clients can communicate and that everything works just fine there.
+
+57
+00:04:48,450 --> 00:04:53,410
+Now before I conclude this though one more word about the post request we're sending just click.
+
+58
+00:04:53,760 --> 00:04:57,370
+You might see that I actually have two requests being sent.
+
+59
+00:04:57,420 --> 00:05:03,090
+The second one is our post request what does the first request.
+
+60
+00:05:03,090 --> 00:05:07,990
+If you have a look at it and we see the responses just post OK.
+
+61
+00:05:08,100 --> 00:05:13,670
+The headers are interesting though we can see that in the general part.
+
+62
+00:05:13,920 --> 00:05:19,970
+The method here is options and that is the last method I showed on the slide earlier.
+
+63
+00:05:20,120 --> 00:05:23,390
+I mentioned it would be sent automatically by the browser and all.
+
+64
+00:05:23,400 --> 00:05:28,130
+For example by many mobile app Cline's What is the idea behind options.
+
+65
+00:05:28,180 --> 00:05:36,580
+The browser simply goes ahead and checks whenever the request you plan to send which is a post request.
+
+66
+00:05:36,580 --> 00:05:40,910
+That is why here to request headers which are generated automatically by the browser.
+
+67
+00:05:41,020 --> 00:05:46,690
+It checks for the post request it checks if Dad will be allowed.
+
+68
+00:05:46,780 --> 00:05:48,690
+Otherwise it will throw an error.
+
+69
+00:05:48,700 --> 00:05:54,060
+This is simply a mechanism the browser and many of the clients use and there is not too much you need
+
+70
+00:05:54,100 --> 00:05:56,380
+you to do to make this work.
+
+71
+00:05:56,380 --> 00:05:58,300
+It just works out of the box.
+
+72
+00:05:58,390 --> 00:06:00,910
+You just want to make sure that you set the right course.
+
+73
+00:06:00,910 --> 00:06:08,260
+Headers here you can add options to yell out methods but as you see it was able to make this request
+
+74
+00:06:08,260 --> 00:06:09,010
+before.
+
+75
+00:06:09,010 --> 00:06:11,210
+Does this not really something you need to do.
+
+76
+00:06:11,230 --> 00:06:16,000
+But you can do it but the important thing is that you are not confused by that extra request.
+
+77
+00:06:16,000 --> 00:06:21,550
+It's simply a mechanism the browser uses to see if the next request which it wants to do the post request
+
+78
+00:06:21,730 --> 00:06:29,320
+will succeed if it is allowed and this is all I want to tell you about cores and client server communication.
+
+79
+00:06:29,320 --> 00:06:29,820
+For now.
+

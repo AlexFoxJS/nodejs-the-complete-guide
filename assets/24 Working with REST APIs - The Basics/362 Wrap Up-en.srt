@@ -1,0 +1,132 @@
+1
+00:00:02,300 --> 00:00:09,050
+That's it for the basics of rest your eyes will dive much deeper into recipes and build a real project
+
+2
+00:00:09,050 --> 00:00:12,020
+with the rest AP in the next module.
+
+3
+00:00:12,080 --> 00:00:14,540
+The core concept and ideas are dead rest.
+
+4
+00:00:14,540 --> 00:00:21,720
+AP eyes are all about data no user interface logic is exchanged blue eyes are normal no service though
+
+5
+00:00:21,800 --> 00:00:26,060
+and that is really important to keep in mind we're not building a totally different kind of apple of
+
+6
+00:00:26,060 --> 00:00:34,640
+a sudden just the data format and the way we send responses changes because now we simply expose a couple
+
+7
+00:00:34,640 --> 00:00:38,330
+of points which is a combination of H and P methods and payoffs.
+
+8
+00:00:38,330 --> 00:00:40,200
+But we did this before too.
+
+9
+00:00:40,310 --> 00:00:47,390
+We just have more methods available now and we exchange data and adjacent format for both requests and
+
+10
+00:00:47,390 --> 00:00:48,190
+responses.
+
+11
+00:00:48,260 --> 00:00:51,750
+We don't return HTL pages as a response anymore.
+
+12
+00:00:51,970 --> 00:00:56,780
+Rest API eyes are decoupled from the client staff where they are totally decoupled.
+
+13
+00:00:56,780 --> 00:01:01,830
+They don't share any connection history or story any connection history.
+
+14
+00:01:01,970 --> 00:01:07,070
+Now when we have a look at the requests and responses it is important to understand that you should
+
+15
+00:01:07,070 --> 00:01:13,460
+attach data for requests and response in adjacent format and that you should let the other end know
+
+16
+00:01:13,820 --> 00:01:16,290
+by setting the content type header.
+
+17
+00:01:16,530 --> 00:01:20,450
+Just as automatically when using the Jason method in the browser.
+
+18
+00:01:20,480 --> 00:01:24,980
+It depends on which method you use when using the fetch API as we did.
+
+19
+00:01:25,010 --> 00:01:28,170
+We had to set it manually when you would use x Yes.
+
+20
+00:01:28,240 --> 00:01:33,300
+And never a common library in browser side javascript for sending async requests.
+
+21
+00:01:33,380 --> 00:01:35,500
+It would be done automatically.
+
+22
+00:01:35,700 --> 00:01:38,510
+Corse errors are also something we had to look at.
+
+23
+00:01:38,510 --> 00:01:44,870
+They occur when the API and your client are sitting on different service different domains and they
+
+24
+00:01:44,870 --> 00:01:46,280
+want to exchange data.
+
+25
+00:01:46,280 --> 00:01:50,550
+You fix them in quotation marks because they are a security mechanism.
+
+26
+00:01:50,600 --> 00:01:57,530
+But you can bypass that on purpose by setting the right course hatters which basically tell the client
+
+27
+00:01:57,710 --> 00:01:59,180
+hey it's fine.
+
+28
+00:01:59,180 --> 00:02:00,460
+I'm a public API.
+
+29
+00:02:00,470 --> 00:02:02,170
+You may use my data.
+
+30
+00:02:02,330 --> 00:02:04,130
+These are the basics.
+
+31
+00:02:04,130 --> 00:02:06,660
+Now let's dive much deeper into that.
+
+32
+00:02:06,680 --> 00:02:10,580
+Use different HTP methods adult syndication and so on.
+
+33
+00:02:10,610 --> 00:02:12,320
+By working on a real project.
+

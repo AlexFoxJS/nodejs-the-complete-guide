@@ -1,0 +1,156 @@
+1
+00:00:02,130 --> 00:00:07,860
+There is one notable feature about the Express router that I want to show you.
+
+2
+00:00:07,950 --> 00:00:12,540
+Now we have a catch all route and we got our outsourced routes here.
+
+3
+00:00:12,720 --> 00:00:18,230
+Now sometimes these outsourced routes have a common starting path.
+
+4
+00:00:18,270 --> 00:00:26,070
+So let's say all the admin routes actually are triggered with admin slash add product and admin maybe
+
+5
+00:00:26,070 --> 00:00:27,570
+also add product.
+
+6
+00:00:27,570 --> 00:00:33,180
+We can repeat the tipoff here because we got different methods GET and POST So these will be two different
+
+7
+00:00:33,180 --> 00:00:34,260
+routes too.
+
+8
+00:00:34,280 --> 00:00:41,220
+So that is one important take away already the same path can be used if the methods differ of course
+
+9
+00:00:41,220 --> 00:00:42,480
+here in the form.
+
+10
+00:00:42,480 --> 00:00:48,400
+I should also point at at product design but there is an important take away.
+
+11
+00:00:48,690 --> 00:00:57,660
+If we have such a setup where our payoffs in such a router fall start with the same part or with the
+
+12
+00:00:57,660 --> 00:01:05,850
+same segment here we can take that segment out of this Routier and then go to the capture last fall
+
+13
+00:01:06,000 --> 00:01:10,680
+and added here so add that segment as a filter.
+
+14
+00:01:10,890 --> 00:01:17,930
+Now only routes starting with Slash admen will go into the admin Roulettes file.
+
+15
+00:01:17,940 --> 00:01:26,990
+So to say and not only that it also will or Express shares will also omit or ignore it.
+
+16
+00:01:27,130 --> 00:01:29,610
+This slash Edmon part indeed.
+
+17
+00:01:29,630 --> 00:01:33,360
+You are L-L when it tries to match these routes.
+
+18
+00:01:33,420 --> 00:01:41,580
+So now slash at product will match the slash admen slash at product route because slash admen was already
+
+19
+00:01:41,580 --> 00:01:42,200
+stripped out.
+
+20
+00:01:42,200 --> 00:01:49,500
+Here you could say let me show this to you in practice if I reload my ad product route we get page not
+
+21
+00:01:49,500 --> 00:01:51,600
+found because this does not exist anymore.
+
+22
+00:01:51,750 --> 00:01:57,630
+Does this now slash admin slash at product and indeed he has to form.
+
+23
+00:01:57,770 --> 00:02:03,590
+And if I now add my book again here and hit add product I get page not found.
+
+24
+00:02:03,810 --> 00:02:10,410
+And the reason for that is that of course you're in for an action I'm leading to slash slash at product
+
+25
+00:02:10,740 --> 00:02:16,380
+but this should be slash admen slash product too because we want to reach that route which is the Edmund
+
+26
+00:02:16,380 --> 00:02:22,530
+jazz fall which is only reachable through requests that have Slash admen at the beginning.
+
+27
+00:02:22,530 --> 00:02:24,300
+So let's give this another try.
+
+28
+00:02:24,480 --> 00:02:31,510
+Let's go to slash adman's slash at product and let's try adding that book again.
+
+29
+00:02:31,560 --> 00:02:37,620
+Now we are redirected and now we can also see that we were logging this year.
+
+30
+00:02:37,620 --> 00:02:46,570
+So this filtering mechanism here in actually yes allows us to put a common starting segment for our
+
+31
+00:02:46,590 --> 00:02:53,550
+POV which all routes in a given file use to outsource that into disaster areas fall so that we don't
+
+32
+00:02:53,550 --> 00:02:56,640
+have to repeat it for all the routes here.
+
+33
+00:02:56,640 --> 00:03:05,330
+Implicitly this route is reached under admen add product and so is this route here.
+
+34
+00:03:05,670 --> 00:03:10,050
+There's one with a post request and this one with a get request.
+
+35
+00:03:10,240 --> 00:03:15,600
+Now this can be a bit challenging to wrap your head around but this is an average core thing you have
+
+36
+00:03:15,600 --> 00:03:21,720
+to understand how these requests are funneled through and how they may reach this file.
+
+37
+00:03:21,810 --> 00:03:28,650
+If they start with Slash admin because we are filtering here and how in that file the slash Abyan part
+
+38
+00:03:28,710 --> 00:03:35,470
+is then not checked again but it only checks to second part and therefore reaches does or dis requests
+
+39
+00:03:35,490 --> 00:03:36,030
+Routier.
+

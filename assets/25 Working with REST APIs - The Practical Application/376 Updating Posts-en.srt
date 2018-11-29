@@ -1,0 +1,720 @@
+1
+00:00:02,240 --> 00:00:08,630
+We're making very good progress we're able to create posts view posts view a single post upload files
+
+2
+00:00:08,780 --> 00:00:10,080
+validate content.
+
+3
+00:00:10,130 --> 00:00:11,450
+All great.
+
+4
+00:00:11,450 --> 00:00:12,910
+Now what is missing.
+
+5
+00:00:12,920 --> 00:00:15,030
+We want to be able to edit posts.
+
+6
+00:00:15,080 --> 00:00:20,690
+We want to be able to delete posts and authentication and users and connecting posts to users.
+
+7
+00:00:20,690 --> 00:00:22,840
+This is all missing now.
+
+8
+00:00:22,880 --> 00:00:29,890
+Let's continue with editing and deleting posts before we dive into the indication and user related things.
+
+9
+00:00:29,930 --> 00:00:37,640
+So for that let's go to our feed routes in our node rest API project and there I'll add a new route.
+
+10
+00:00:37,640 --> 00:00:40,750
+I want to be able to edit post Snel and Frenette.
+
+11
+00:00:40,760 --> 00:00:45,170
+I will use a new HTP method which we haven't used before.
+
+12
+00:00:45,170 --> 00:00:51,020
+Editing a post essentially is like replacing it replacing the old post with a new one will keep the
+
+13
+00:00:51,020 --> 00:00:58,130
+old ID but that is it since will replace a resource are used to put Methot here and to put method is
+
+14
+00:00:58,130 --> 00:01:03,470
+one to learn about in the last module but which we haven't used before because we have normal browser
+
+15
+00:01:03,470 --> 00:01:04,020
+forms.
+
+16
+00:01:04,070 --> 00:01:09,070
+You're not able to send it through a synchronous requests triggered by javascript.
+
+17
+00:01:09,080 --> 00:01:17,320
+You are however now we need a u r l here and D you are l Wilby slash post and then also the idea of
+
+18
+00:01:17,330 --> 00:01:19,870
+the post encoded in the Eurail.
+
+19
+00:01:19,930 --> 00:01:21,920
+So Colin posts.
+
+20
+00:01:22,370 --> 00:01:26,900
+Now we all need a controller action to handle that.
+
+21
+00:01:26,920 --> 00:01:31,510
+The important thing about port requests and the same is true for Patch requests.
+
+22
+00:01:31,510 --> 00:01:36,940
+By the way is that they also have a request body just like post requests.
+
+23
+00:01:37,030 --> 00:01:39,710
+But you can also have parameters in the.
+
+24
+00:01:39,760 --> 00:01:40,470
+You are out.
+
+25
+00:01:40,570 --> 00:01:43,670
+Well that would have been the case for a post requests too by the way.
+
+26
+00:01:43,960 --> 00:01:50,050
+But the important thing is we have a body forty's request we can add or request body and dad will hold
+
+27
+00:01:50,050 --> 00:01:57,010
+the actual post data that I want to will use and that I want to use to replace my existing post.
+
+28
+00:01:57,220 --> 00:02:05,890
+So let's work on the controller now in the feed controller at the bottom I'll add a new action and I'll
+
+29
+00:02:05,890 --> 00:02:08,470
+name it update.
+
+30
+00:02:08,480 --> 00:02:10,580
+Hostname is up to you but this is what I will do.
+
+31
+00:02:10,580 --> 00:02:12,670
+Will update the post in there.
+
+32
+00:02:12,680 --> 00:02:17,360
+Does this function in any here in this function.
+
+33
+00:02:17,580 --> 00:02:17,910
+I can.
+
+34
+00:02:17,910 --> 00:02:24,510
+First of all retrieve my post ID from my request parents because we just added that there right in my
+
+35
+00:02:24,570 --> 00:02:25,180
+route.
+
+36
+00:02:25,350 --> 00:02:29,730
+Host ID is a parameter which of course I can extract.
+
+37
+00:02:29,730 --> 00:02:39,810
+Now when updating a post I also will extract my title so request body title I will extract my content
+
+38
+00:02:40,380 --> 00:02:45,750
+request body content and want to extract by file my image.
+
+39
+00:02:45,750 --> 00:02:49,420
+You are el However for that you are l.
+
+40
+00:02:49,470 --> 00:02:54,510
+We have two options when updating the first option is and that will be our default.
+
+41
+00:02:54,720 --> 00:03:00,680
+That image you are l is part of the incoming request and it's just some text in the request body.
+
+42
+00:03:00,960 --> 00:03:04,250
+That would be the case if no new file was added.
+
+43
+00:03:04,290 --> 00:03:10,770
+If no new file was picked then my front end code has all the logic to take the existing you are l and
+
+44
+00:03:10,770 --> 00:03:14,100
+keep that but we might have pix a file.
+
+45
+00:03:14,220 --> 00:03:22,660
+And in this case request file will be set and I can now set image your L equal to request file path.
+
+46
+00:03:22,690 --> 00:03:28,820
+Does the alternative after all of this at least one of the two should be set.
+
+47
+00:03:28,960 --> 00:03:35,980
+So if image your L is not set at this point because we were not able to extract it from there and we
+
+48
+00:03:35,980 --> 00:03:40,260
+did not make it into this if statement then we should follow an error.
+
+49
+00:03:40,270 --> 00:03:51,910
+So hearable prepare and you error or no file picked I'll set my status code to 4:22 and I will throw
+
+50
+00:03:52,600 --> 00:03:54,870
+that error here.
+
+51
+00:03:54,970 --> 00:03:57,010
+So that's my first piece of validation.
+
+52
+00:03:57,040 --> 00:03:59,350
+Will add more validation of course.
+
+53
+00:04:00,660 --> 00:04:06,260
+Normally we should have a much yourself however now I have one little mistake here by the way.
+
+54
+00:04:06,400 --> 00:04:09,570
+This should be image here whatever tree from the front end.
+
+55
+00:04:09,700 --> 00:04:12,790
+And we need to tweak our fronted a little bit too.
+
+56
+00:04:12,950 --> 00:04:14,440
+They're in feet.
+
+57
+00:04:14,510 --> 00:04:17,770
+J.S. and source pages feed veejay.
+
+58
+00:04:18,040 --> 00:04:26,830
+When we load all posts so load posts that is when we basically load to post data from the server including
+
+59
+00:04:27,040 --> 00:04:29,220
+our image you are l.
+
+60
+00:04:29,320 --> 00:04:34,390
+Now we then sent word a poster in the front end so that the rest of you react application.
+
+61
+00:04:34,390 --> 00:04:40,330
+The rest of the code I prepared can handle that we need to tweak this line a little bit.
+
+62
+00:04:40,360 --> 00:04:48,220
+Dear you should X-ists rest data posts but we have to map this which set default javascript Methot into
+
+63
+00:04:48,220 --> 00:04:52,720
+a different kind of array or every element has to be changed a little bit.
+
+64
+00:04:52,900 --> 00:04:58,300
+Map takes a function that executes on every element in the array and it gets the element which in our
+
+65
+00:04:58,300 --> 00:05:01,920
+case is a post as an argument and then we return.
+
+66
+00:05:02,050 --> 00:05:09,190
+Well the updated word is not that object so I return a new object here where I will use a spread operator
+
+67
+00:05:09,190 --> 00:05:17,650
+to get all the properties off my post object and then I'll add the image Poth key here which is post
+
+68
+00:05:17,680 --> 00:05:18,490
+dot image.
+
+69
+00:05:18,520 --> 00:05:19,320
+You are l.
+
+70
+00:05:19,390 --> 00:05:20,260
+Now image you are.
+
+71
+00:05:20,270 --> 00:05:24,280
+L here is referring to the property I am storing on my service site.
+
+72
+00:05:24,340 --> 00:05:28,480
+They are restoring the poverty image in the image you are l key.
+
+73
+00:05:28,480 --> 00:05:31,440
+You could have named it differently if you named it differently here.
+
+74
+00:05:31,570 --> 00:05:34,000
+You would have to name it differently here.
+
+75
+00:05:34,030 --> 00:05:40,660
+Now I'm storing the original Pasquier because when I'm viewing a single post for example I do extract
+
+76
+00:05:40,660 --> 00:05:44,500
+that image your L and I append my U R L to the domain.
+
+77
+00:05:44,500 --> 00:05:48,110
+Now the pop should be well just a path without a domain.
+
+78
+00:05:48,220 --> 00:05:52,460
+Because I'm keeping that here and this will get very used later when we add it.
+
+79
+00:05:52,470 --> 00:05:54,240
+This food is added motile.
+
+80
+00:05:54,280 --> 00:06:01,570
+Behind the scenes this POV will be stored and if I don't choose a new file here this path will be submitted
+
+81
+00:06:01,990 --> 00:06:09,640
+with my added that post and there the POF will be stored in a property named image.
+
+82
+00:06:09,670 --> 00:06:15,040
+You can see that in the components to feed edit component under feed feed edit.
+
+83
+00:06:15,150 --> 00:06:19,150
+There you could see all the internals if you know a little bit of react.
+
+84
+00:06:19,180 --> 00:06:25,660
+You can see the internals and see that of extracting my image path and I'm storing it in an image key
+
+85
+00:06:25,660 --> 00:06:26,510
+ultimately.
+
+86
+00:06:26,650 --> 00:06:31,420
+I don't want to dive too deep into react but this is what I'm doing on the front end and does was one
+
+87
+00:06:31,420 --> 00:06:37,600
+adjustment that was required and on the service side we can now extract our image from the body and
+
+88
+00:06:37,600 --> 00:06:46,040
+either does a set or we selected a new file in which case a file will be found.
+
+89
+00:06:46,050 --> 00:06:50,960
+So now we can continue working on update post and we can continue working.
+
+90
+00:06:50,970 --> 00:06:56,180
+First of all adding more validation which we do in our route's of course.
+
+91
+00:06:56,190 --> 00:07:02,540
+Well there I will copy that array from my post route and I will add it here.
+
+92
+00:07:02,580 --> 00:07:08,460
+So for my ports route I also want to validate the title by the way we should switch it back to 5 characters
+
+93
+00:07:08,460 --> 00:07:11,560
+of length for both posting and putting.
+
+94
+00:07:11,720 --> 00:07:13,700
+So I will validate these two things.
+
+95
+00:07:13,800 --> 00:07:20,400
+I'll not validate my image because data done directly in the controller action and I don't need to do
+
+96
+00:07:20,400 --> 00:07:22,450
+any validations for now.
+
+97
+00:07:22,740 --> 00:07:28,230
+So with that added Let's go back to the controller and let's copy the validation logic from the post
+
+98
+00:07:28,230 --> 00:07:34,180
+route where I gather all my errors and then I check for Aeros not being empty.
+
+99
+00:07:34,290 --> 00:07:36,400
+And then I would Frot an error.
+
+100
+00:07:36,420 --> 00:07:43,110
+So before I extract anything else I'll check these things in update post whether I have any errors and
+
+101
+00:07:43,110 --> 00:07:45,400
+if I have of Frot an error.
+
+102
+00:07:45,420 --> 00:07:50,010
+If I don't have errors I continue check the file and if we make it down here.
+
+103
+00:07:50,010 --> 00:07:53,720
+So after all these if statements then I know I have valid data.
+
+104
+00:07:53,820 --> 00:07:59,290
+And now we can update it in the database to update it in the database.
+
+105
+00:07:59,310 --> 00:08:09,580
+I will find my post by ID for the post ID which I extracted from the U R L then I can do something or
+
+106
+00:08:09,580 --> 00:08:16,270
+we might have an error or if we have an error all reused add error handling logic you find in Abre places
+
+107
+00:08:16,330 --> 00:08:17,590
+in our actions.
+
+108
+00:08:17,880 --> 00:08:23,170
+So I'll add my status code and the next error if I am successful.
+
+109
+00:08:23,170 --> 00:08:26,030
+I know we have no database error.
+
+110
+00:08:26,110 --> 00:08:28,640
+I still need to check if post is on the find.
+
+111
+00:08:28,660 --> 00:08:34,810
+Which means you didn't find a post in which case I will also Frot an error just as we did for getting
+
+112
+00:08:34,810 --> 00:08:35,920
+a single post.
+
+113
+00:08:35,980 --> 00:08:39,900
+I can copy that logic and again if you are copying a lot of code.
+
+114
+00:08:39,970 --> 00:08:42,070
+You might of course also refactor that.
+
+115
+00:08:42,070 --> 00:08:44,000
+I liked the more we're both.
+
+116
+00:08:44,110 --> 00:08:48,550
+To make sure we all understand each step we take in each action creator.
+
+117
+00:08:49,020 --> 00:08:55,390
+And if we make it past this if Geck inside of the van block then we found a post and then I want to
+
+118
+00:08:55,450 --> 00:08:57,670
+update the post of course.
+
+119
+00:08:57,670 --> 00:09:04,690
+So here I'll set my post title equal to the Tyla extract that I'll my post image.
+
+120
+00:09:04,690 --> 00:09:10,810
+You're all equal to the image your ally extracted and I'll set my post content equal to the content
+
+121
+00:09:10,840 --> 00:09:11,760
+I extracted.
+
+122
+00:09:12,310 --> 00:09:20,550
+And then I can return post save here to save that updated post back to the database.
+
+123
+00:09:20,550 --> 00:09:23,500
+Overriding the old post but keeping the old ID.
+
+124
+00:09:24,030 --> 00:09:27,890
+And then here we get the result of that safe operation.
+
+125
+00:09:28,030 --> 00:09:32,480
+And here I want to return a response with a status code of 200.
+
+126
+00:09:32,490 --> 00:09:40,510
+We didn't create a new resource so it's not 201 with some Jason code or some Chaisson data where I say
+
+127
+00:09:41,130 --> 00:09:49,830
+post updated maybe and where I return that updated post which is stored in the result in the end.
+
+128
+00:09:49,880 --> 00:09:52,840
+So does this now the updating logic here.
+
+129
+00:09:52,840 --> 00:09:57,010
+There is one more thing we can add and that is some logic to delete the image.
+
+130
+00:09:57,020 --> 00:10:00,690
+For that I'll add a little helper function down there.
+
+131
+00:10:00,740 --> 00:10:09,140
+Clear image which is a function that accepts a file path as an argument and then I will use the file
+
+132
+00:10:09,140 --> 00:10:11,240
+system package no chase offers.
+
+133
+00:10:11,240 --> 00:10:16,480
+So important at the top by requiring f s.
+
+134
+00:10:16,700 --> 00:10:22,000
+And with that imported in that clear image function you're all.
+
+135
+00:10:22,000 --> 00:10:29,430
+First of all construct my file path for which I'll also import the POF package by two ways.
+
+136
+00:10:29,430 --> 00:10:38,760
+Let's import that at the top to and now the fall Poth can be constructed by joining Der. name then going
+
+137
+00:10:38,790 --> 00:10:43,860
+up one folder because we're running this inside of the control folder which is not where you will find
+
+138
+00:10:43,860 --> 00:10:44,310
+images.
+
+139
+00:10:44,310 --> 00:10:51,030
+So we should go up one folder to be in the root folder and then we look for whatever file path we got
+
+140
+00:10:51,030 --> 00:10:51,500
+here.
+
+141
+00:10:51,570 --> 00:10:56,020
+So image hasn't been the image name would be the case in our application.
+
+142
+00:10:57,730 --> 00:11:05,140
+And I could then use the unlink function to delete that file by passing the file path to it and we can
+
+143
+00:11:05,140 --> 00:11:08,140
+also log any error message.
+
+144
+00:11:08,320 --> 00:11:14,660
+And I want to trigger dead Cleator image function when ever I uploaded a new image.
+
+145
+00:11:14,680 --> 00:11:25,660
+So inside of my update post action creator right before I save my updated post maybe I'll check if my
+
+146
+00:11:25,750 --> 00:11:28,210
+image Eurail which is the to the image.
+
+147
+00:11:28,300 --> 00:11:31,310
+If that is not equal to post image you are l.
+
+148
+00:11:31,360 --> 00:11:34,170
+So to the image you're all I stored in my post before.
+
+149
+00:11:34,180 --> 00:11:39,790
+If they're not equal it obviously changed so I uploaded a new file and that is where I will execute
+
+150
+00:11:39,790 --> 00:11:42,860
+clear image and past the old image.
+
+151
+00:11:42,880 --> 00:11:45,930
+Also the old path as an argument.
+
+152
+00:11:45,940 --> 00:11:50,180
+Now with that we got all in place you're in the controller.
+
+153
+00:11:50,260 --> 00:11:55,690
+Now we can go to the route and there we still need to register that controller action on the port route.
+
+154
+00:11:55,710 --> 00:12:01,120
+So on the feed controller access update post your That's one important step.
+
+155
+00:12:01,240 --> 00:12:08,960
+And on the front and so into re-act code we also need to do something there in source feed feed.
+
+156
+00:12:08,980 --> 00:12:11,390
+J.S. Indee
+
+157
+00:12:14,770 --> 00:12:19,030
+finish edit handler function where we need to adjust our code.
+
+158
+00:12:19,030 --> 00:12:24,510
+Now there we set up our form data which is correct for updating as well.
+
+159
+00:12:24,730 --> 00:12:29,800
+But if we are in edit mode which will be the case if we make it inside this if statement due to the
+
+160
+00:12:29,800 --> 00:12:36,720
+logic I configured on the front end we want to send the request to localhost 88.
+
+161
+00:12:37,300 --> 00:12:40,440
+Slash feed slash post slash.
+
+162
+00:12:40,440 --> 00:12:48,770
+Now we need the post ID which we get from this state added Post dot underscore ID.
+
+163
+00:12:48,990 --> 00:12:54,390
+That is where it will be stored in my re-act app and I'll set the method to put because we create the
+
+164
+00:12:54,390 --> 00:12:55,580
+port route.
+
+165
+00:12:55,890 --> 00:13:01,350
+Now with that we can save all that and try it out and hopefully not get an error.
+
+166
+00:13:01,380 --> 00:13:06,670
+Let's add at the second dock here and add a couple of exclamation marks and both title and content.
+
+167
+00:13:06,750 --> 00:13:08,770
+Let's not choose a new file.
+
+168
+00:13:10,110 --> 00:13:12,300
+Looking good I see my estimation marks there.
+
+169
+00:13:12,420 --> 00:13:14,840
+I see them in the content as well.
+
+170
+00:13:14,860 --> 00:13:20,870
+Here I get a confirmation message should looks good on the back that I still only have one image.
+
+171
+00:13:20,910 --> 00:13:23,950
+Well that makes sense because I didn't replace it anyways.
+
+172
+00:13:24,330 --> 00:13:27,520
+Let's now replace it by editing that same doc again.
+
+173
+00:13:27,540 --> 00:13:31,350
+Let's not change title and content but choose a different file.
+
+174
+00:13:31,350 --> 00:13:36,610
+Maybe that coffee mug click except post update it is looking good.
+
+175
+00:13:37,340 --> 00:13:43,420
+It's not a duck any more so the title is not correct but on the back end we only have the coffee Magno
+
+176
+00:13:43,860 --> 00:13:46,150
+so updating seems to work.
+
+177
+00:13:46,220 --> 00:13:49,370
+And of course we can confirm this by viewing that image as well.
+
+178
+00:13:49,370 --> 00:13:52,190
+There we are all to see all the updated data.
+
+179
+00:13:52,460 --> 00:13:54,320
+So that is working.
+
+180
+00:13:54,560 --> 00:14:00,600
+And with that only deleting is missing before we can finally start working on authentication.
+

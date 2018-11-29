@@ -1,0 +1,752 @@
+1
+00:00:02,240 --> 00:00:07,330
+Our age team all pages look pretty boring and obviously dessous know of course.
+
+2
+00:00:07,350 --> 00:00:12,330
+I got one if you want to learn more about seems as though but that's just a little side note.
+
+3
+00:00:12,540 --> 00:00:18,450
+But this is no it is of course but still it's important to understand how you can serve C S S in your
+
+4
+00:00:18,450 --> 00:00:19,500
+node apps too.
+
+5
+00:00:19,530 --> 00:00:24,510
+Because typically you have C S S and also a javascript code in your apps.
+
+6
+00:00:24,570 --> 00:00:26,580
+Now let's start simple.
+
+7
+00:00:26,610 --> 00:00:34,080
+I'm on the slash page here so on shop h tim L and let's add some styling here with good old style Tex
+
+8
+00:00:34,230 --> 00:00:37,740
+in the head section and does this Nottoway will keep it.
+
+9
+00:00:37,740 --> 00:00:43,290
+Does it just so that we can work on it and auto update this because importing an external style file
+
+10
+00:00:43,380 --> 00:00:46,390
+wouldn't work at the moment to spoil the fun already.
+
+11
+00:00:46,440 --> 00:00:49,320
+Now ask before you can skip this lecture.
+
+12
+00:00:49,380 --> 00:00:54,070
+If you don't want to write dishtowels together with me and you'll find it attached to the next doctor.
+
+13
+00:00:54,270 --> 00:00:56,620
+Otherwise let's do this together.
+
+14
+00:00:56,760 --> 00:01:00,230
+So let's start stalling this and let's start with the header.
+
+15
+00:01:01,580 --> 00:01:04,070
+Now I want to target the elements directly instead.
+
+16
+00:01:04,070 --> 00:01:08,010
+This will be my main navigation or my main header.
+
+17
+00:01:08,020 --> 00:01:09,260
+Let's give it a classmate however.
+
+18
+00:01:09,260 --> 00:01:10,010
+Header.
+
+19
+00:01:10,260 --> 00:01:17,180
+This will be the main header neth And if you're wondering about the strange CS's class name I'm using
+
+20
+00:01:17,180 --> 00:01:19,450
+a styling system named BVM.
+
+21
+00:01:19,460 --> 00:01:24,760
+More on that can be learned in that C as s course I mentioned or of course you can google SEUS SBM.
+
+22
+00:01:24,950 --> 00:01:28,520
+It's a certain way of naming your classes to avoid double class names.
+
+23
+00:01:28,520 --> 00:01:42,100
+Basically here I'll have my main header whoops head header item list and here I'll have my main header
+
+24
+00:01:42,610 --> 00:01:46,620
+items like this and you can of course named as However you want.
+
+25
+00:01:46,630 --> 00:01:50,110
+So these are a bunch of CS's classes that should help us with styling.
+
+26
+00:01:50,150 --> 00:01:52,030
+Now let's start with the header.
+
+27
+00:01:52,030 --> 00:01:57,880
+The header should have a width of 100 percent to take the full width of the page and let's say it should
+
+28
+00:01:57,880 --> 00:02:01,680
+have a height of 56 pixels.
+
+29
+00:02:01,840 --> 00:02:10,310
+Or if you want to work in R.E.M. which has certain Vonta just we could also go with Freethought 5 RPM.
+
+30
+00:02:10,330 --> 00:02:17,200
+Now let's all give it nice background color and here you're really free I'll not stick to red but now
+
+31
+00:02:17,200 --> 00:02:21,980
+I can hover over this and use this nice color picker and pick any color you want.
+
+32
+00:02:21,980 --> 00:02:29,530
+Now I'll try to pick a nice yellow golden ish orange colors something like this.
+
+33
+00:02:29,530 --> 00:02:33,210
+Maybe if you click on RGV it will also convert to a hex code.
+
+34
+00:02:33,220 --> 00:02:39,880
+So let's use debt and of course the class is not Hetter but main header and now if is saved us and go
+
+35
+00:02:39,880 --> 00:02:41,500
+back and reload.
+
+36
+00:02:41,530 --> 00:02:43,800
+We got that looks better now.
+
+37
+00:02:43,810 --> 00:02:46,980
+There is some some padding in the bodies.
+
+38
+00:02:46,990 --> 00:02:52,210
+Let's actually define that we want to have no padding and no margin.
+
+39
+00:02:52,240 --> 00:02:59,230
+I think it's a margin that we don't want to have that looks at this looks almost better.
+
+40
+00:02:59,230 --> 00:03:01,180
+We still got some margin here at the top.
+
+41
+00:03:01,180 --> 00:03:07,220
+Does this coming from our list in here though that some margin call it missing doing its job here.
+
+42
+00:03:07,360 --> 00:03:11,870
+Now let's also get rid of that by now.
+
+43
+00:03:11,870 --> 00:03:14,590
+Also styling our main header.
+
+44
+00:03:14,640 --> 00:03:15,320
+Tim list.
+
+45
+00:03:15,360 --> 00:03:16,770
+Let's copy that.
+
+46
+00:03:16,770 --> 00:03:18,230
+Add a class here.
+
+47
+00:03:18,450 --> 00:03:24,690
+Set the list style to nonne and remove any margin and padding.
+
+48
+00:03:24,690 --> 00:03:27,990
+We might have year that looks better now.
+
+49
+00:03:28,050 --> 00:03:32,000
+Obviously the items are not looking nice.
+
+50
+00:03:32,340 --> 00:03:39,150
+For this I will actually change the display here to flex to use flex box for de-list and then style
+
+51
+00:03:39,180 --> 00:03:43,580
+our items here a bit on these items.
+
+52
+00:03:43,620 --> 00:03:48,780
+For now I'll remove all margin and padding them I'd have reload.
+
+53
+00:03:48,780 --> 00:03:51,960
+Now thanks to flex books they're sitting next to each other.
+
+54
+00:03:51,960 --> 00:03:54,640
+Now let's also style our links in there.
+
+55
+00:03:54,840 --> 00:03:56,420
+So main hador item.
+
+56
+00:03:56,460 --> 00:04:06,190
+Any nested anchor tag should have no text decoration and the color of white may be looks a bit better
+
+57
+00:04:06,250 --> 00:04:06,700
+now.
+
+58
+00:04:06,790 --> 00:04:09,020
+Where Diggles centering would also be nice.
+
+59
+00:04:09,160 --> 00:04:16,600
+And for that I'll go back to the main Hetter execution back to the main had are Navier let's add a class
+
+60
+00:04:16,600 --> 00:04:17,720
+for dads too.
+
+61
+00:04:17,950 --> 00:04:23,290
+And here all first of all he has a height of 100 percent because this is a child element of the main
+
+62
+00:04:23,290 --> 00:04:28,840
+header and therefore it should take all its height and this will all be display.
+
+63
+00:04:29,010 --> 00:04:35,020
+Flex now and we can center items vertically with a line items centered.
+
+64
+00:04:36,170 --> 00:04:39,950
+With this device save that and reload this page.
+
+65
+00:04:39,950 --> 00:04:41,250
+Now it is centered.
+
+66
+00:04:41,300 --> 00:04:45,180
+Now let's add some padding to our main header.
+
+67
+00:04:45,400 --> 00:04:48,560
+For this let's go here add a padding top and bottom.
+
+68
+00:04:48,560 --> 00:04:54,910
+I don't need padding but left and right maybe 1.5 RLM something like this.
+
+69
+00:04:55,130 --> 00:04:58,440
+On mobile phone also still ok I'd say.
+
+70
+00:04:58,670 --> 00:05:01,110
+Let's all change the global fund Bytheway.
+
+71
+00:05:01,160 --> 00:05:02,100
+So in the body.
+
+72
+00:05:02,120 --> 00:05:03,200
+All set.
+
+73
+00:05:03,440 --> 00:05:06,430
+Fun family to send Sarath for now.
+
+74
+00:05:06,740 --> 00:05:09,560
+Looks a bit nicer than the surf font I think.
+
+75
+00:05:09,830 --> 00:05:15,050
+And now I want to have some spacing between my navigation items for sale.
+
+76
+00:05:15,140 --> 00:05:24,790
+Let's actually go to the main header item and let's add a margin to the left and right of one REM like
+
+77
+00:05:24,790 --> 00:05:25,400
+that.
+
+78
+00:05:25,750 --> 00:05:27,430
+And for now this will do.
+
+79
+00:05:27,430 --> 00:05:29,560
+Now little Huberty fact for the links maybe.
+
+80
+00:05:29,590 --> 00:05:39,870
+So let's all go your main had or item habere and Main had or I'd active and that's all the define a
+
+81
+00:05:39,870 --> 00:05:45,610
+rule which would apply FDA anchor has an active clause attached to it.
+
+82
+00:05:46,080 --> 00:05:48,890
+And there I want to set the color.
+
+83
+00:05:48,920 --> 00:05:59,070
+Q Well we have this nice little yellow touchier so we could go into the bluish direction here.
+
+84
+00:05:59,330 --> 00:06:01,700
+Maybe like this purplish color.
+
+85
+00:06:01,810 --> 00:06:05,110
+Let's let's see how that looks like.
+
+86
+00:06:05,250 --> 00:06:06,100
+Not too shabby.
+
+87
+00:06:06,150 --> 00:06:07,430
+So let's go with that.
+
+88
+00:06:07,560 --> 00:06:14,580
+And now since we have that act of class rule here on shop H L where disliked is active we can actually
+
+89
+00:06:14,580 --> 00:06:19,650
+add the act of class here and you will learn how to set that dynamically later and of course too of
+
+90
+00:06:19,650 --> 00:06:20,580
+course.
+
+91
+00:06:20,580 --> 00:06:23,490
+So now does is active now for the main section.
+
+92
+00:06:23,490 --> 00:06:25,410
+It's all a style this.
+
+93
+00:06:25,600 --> 00:06:34,620
+Here I will define a general rule for main that I want to have a padding of let's say one in all directions
+
+94
+00:06:36,030 --> 00:06:38,180
+and now this is to stop when I go with.
+
+95
+00:06:38,190 --> 00:06:47,820
+Now let's also of course work on the admin adds product styling here and we can simply copy the entire
+
+96
+00:06:47,820 --> 00:06:49,670
+style object from the shop.
+
+97
+00:06:49,670 --> 00:06:55,790
+H tim l fall in the ad product h HTML file and this will already get us pretty far.
+
+98
+00:06:56,160 --> 00:07:03,030
+Now one thing we should change in ad product we should of course add all these classes so we can basically
+
+99
+00:07:03,030 --> 00:07:04,430
+copy that header.
+
+100
+00:07:04,770 --> 00:07:07,650
+And later we will also learn how to reuse it across files.
+
+101
+00:07:07,650 --> 00:07:10,370
+By the way let's copy that header.
+
+102
+00:07:11,150 --> 00:07:16,280
+By the way that auto formatting I'm doing occasionally can be set up in the preferences by going to
+
+103
+00:07:16,280 --> 00:07:22,280
+the keyboard shortcuts and searching for format document desists a shortcut I am using here but that's
+
+104
+00:07:22,280 --> 00:07:23,750
+just a side note.
+
+105
+00:07:23,840 --> 00:07:28,780
+So here we now all have to change the act of class.
+
+106
+00:07:28,780 --> 00:07:35,020
+It's not on the shop link here but of course it should go onto the add product link and with that if
+
+107
+00:07:35,020 --> 00:07:37,840
+I now reload this page looks way better.
+
+108
+00:07:37,870 --> 00:07:39,820
+Now let's work on the form here too.
+
+109
+00:07:41,280 --> 00:07:50,500
+And for this I want I go to my form give it a class of product form maybe the name is up to you.
+
+110
+00:07:51,450 --> 00:07:57,500
+Add a little div with which to give a class of form control and indebt div.
+
+111
+00:07:57,540 --> 00:08:07,270
+All insert does import here and also add a label for the title get the title as a label on it give that
+
+112
+00:08:07,300 --> 00:08:14,950
+input DVD titles so that it matches the label for accessibility reasons simply.
+
+113
+00:08:15,000 --> 00:08:18,130
+And now let's stall this to four days.
+
+114
+00:08:18,160 --> 00:08:21,120
+All use my form control.
+
+115
+00:08:21,170 --> 00:08:31,820
+So does KLOS I added to to just rounding Dith and here I want to make sure that a label as well as input
+
+116
+00:08:31,850 --> 00:08:38,270
+which is nested in a form control use as a display of type block so that it takes the full away level
+
+117
+00:08:38,270 --> 00:08:39,350
+with.
+
+118
+00:08:39,490 --> 00:08:41,720
+And also want to style the input then.
+
+119
+00:08:42,130 --> 00:08:47,510
+So the input here should have a border of one pixel Sallet.
+
+120
+00:08:47,510 --> 00:08:54,720
+And then I will reuse stat yellow color we used for the header the font should be inherit that so that
+
+121
+00:08:54,720 --> 00:08:57,350
+it uses a default font family and so on.
+
+122
+00:08:57,920 --> 00:09:03,920
+And I'll give it a little border radius of like two pixels maybe let's see how that looks like or border
+
+123
+00:09:03,920 --> 00:09:10,570
+radius if I now reload this doesn't look too bad.
+
+124
+00:09:11,980 --> 00:09:14,350
+Let's now also work on the button for this.
+
+125
+00:09:14,350 --> 00:09:19,140
+I will set up a generic button style here for now.
+
+126
+00:09:19,330 --> 00:09:21,970
+Inherits debt default font.
+
+127
+00:09:22,180 --> 00:09:26,600
+Give it a border of one pixel Sallet and it is light gray.
+
+128
+00:09:28,030 --> 00:09:32,710
+A background of white maybe.
+
+129
+00:09:32,900 --> 00:09:41,390
+Maybe give it a blackboard or he or simply and a border radius of free pixels.
+
+130
+00:09:41,390 --> 00:09:43,120
+Now let's see how that looks like.
+
+131
+00:09:45,010 --> 00:09:48,600
+It's OK but let's reuse the yellow color here actually.
+
+132
+00:09:48,600 --> 00:09:53,090
+And let's also get the text that yellow color.
+
+133
+00:09:53,150 --> 00:09:59,120
+Additionally I want to make sure that we assign the pointer a Kirsner to get this hand cursor when hovering
+
+134
+00:09:59,180 --> 00:09:59,890
+over it.
+
+135
+00:10:01,990 --> 00:10:08,040
+And last but not least I want to have some spacing but we my form control div and the button.
+
+136
+00:10:08,170 --> 00:10:15,970
+So on the form control itself I'll add some margin to top and bottom off.
+
+137
+00:10:15,980 --> 00:10:18,650
+Let's say one REM and Cyril left and right.
+
+138
+00:10:20,510 --> 00:10:22,810
+So it looks like that.
+
+139
+00:10:22,960 --> 00:10:27,370
+And I think for the button maybe you to go with the purple colors instead.
+
+140
+00:10:27,370 --> 00:10:28,690
+Should be easier to read.
+
+141
+00:10:29,810 --> 00:10:34,810
+And let's all assign a hover and active state for that button.
+
+142
+00:10:35,990 --> 00:10:43,240
+And when it is active I just want to set the background color to purple and the text color to white.
+
+143
+00:10:43,270 --> 00:10:43,620
+Then
+
+144
+00:10:47,060 --> 00:10:48,300
+now it looks like this.
+
+145
+00:10:48,490 --> 00:10:49,810
+And this doesn't look too shabby.
+
+146
+00:10:49,810 --> 00:10:54,160
+We can go with that I guess we can always work on this and we will continue to work on this for the
+
+147
+00:10:54,160 --> 00:10:55,000
+course.
+
+148
+00:10:55,000 --> 00:10:56,530
+But for now this is good.
+
+149
+00:10:56,890 --> 00:10:59,010
+Let's now centered the entire forum.
+
+150
+00:10:59,170 --> 00:11:04,190
+And for Dad I assigned the product form class to to form.
+
+151
+00:11:04,330 --> 00:11:15,400
+So here I want to give it as a width of let's say 30 REM a max width of 100 percent or Also 90 percent
+
+152
+00:11:15,410 --> 00:11:16,630
+in case we're on the mobile.
+
+153
+00:11:16,690 --> 00:11:21,510
+You give it a margin of auto does will automate center it horizontally.
+
+154
+00:11:21,980 --> 00:11:25,470
+And now just make sure that the input and so on take the available space.
+
+155
+00:11:25,490 --> 00:11:29,520
+Let's reduce this 20 actually I think Ferdie's a bit too much.
+
+156
+00:11:29,630 --> 00:11:32,700
+And on the form control for Laili an input.
+
+157
+00:11:32,720 --> 00:11:34,950
+I'll give it a width of 100 percent.
+
+158
+00:11:36,560 --> 00:11:39,690
+And now this looks much better.
+
+159
+00:11:39,870 --> 00:11:42,970
+Now I'm not happy with the white text here now to think about it.
+
+160
+00:11:42,970 --> 00:11:50,580
+So let's actually go to the header and change to white link text to Bleck Let's see how that looks like
+
+161
+00:11:52,350 --> 00:11:54,050
+yeah I think I prefer that.
+
+162
+00:11:54,050 --> 00:12:02,520
+So let's actually take that and also add it to shop h tim L. so that we have the black color there too.
+
+163
+00:12:04,090 --> 00:12:06,960
+And I think the purple could be a little bit darker.
+
+164
+00:12:07,090 --> 00:12:11,440
+So let's now also go to the hovering and active stall here.
+
+165
+00:12:13,660 --> 00:12:20,530
+And make this a darker purple and replaced the purple in all occurrences with that color style.
+
+166
+00:12:20,530 --> 00:12:22,090
+I'm using a multi-select feature.
+
+167
+00:12:22,090 --> 00:12:24,010
+The idea here to do that quickly.
+
+168
+00:12:24,110 --> 00:12:28,990
+And of course also search and replace to do that reload.
+
+169
+00:12:29,260 --> 00:12:31,960
+Yeah I think that is a bit better now.
+
+170
+00:12:32,020 --> 00:12:33,490
+You can always tweet this to your needs.
+
+171
+00:12:33,490 --> 00:12:35,070
+It's not a C is s course here.
+
+172
+00:12:35,170 --> 00:12:38,870
+I just want to have some basic styling that we can use.
+
+173
+00:12:39,070 --> 00:12:44,280
+So this is the style with which we'll go from now on and which will of course continue to tweak.
+
+174
+00:12:44,290 --> 00:12:51,790
+Now one thing we should also do now let's copy that style from the shop age him alcohol and put it into
+
+175
+00:12:51,790 --> 00:12:54,120
+the 4 or 4 edge to melt fall here.
+
+176
+00:12:55,550 --> 00:13:01,580
+Because there I also want to take the header and copy that into there because I don't just want to have
+
+177
+00:13:01,580 --> 00:13:02,800
+the page not found thing.
+
+178
+00:13:02,840 --> 00:13:11,210
+I also want to show the header so that now if I do enter some route which does not exist like this we
+
+179
+00:13:11,210 --> 00:13:12,340
+also got the head or dare.
+
+180
+00:13:12,380 --> 00:13:17,230
+And we can at least leave that route though we can't because I obviously got an error.
+
+181
+00:13:17,250 --> 00:13:17,910
+Indeed you are l.
+
+182
+00:13:17,930 --> 00:13:23,320
+That should be adman's flash at product.
+
+183
+00:13:23,490 --> 00:13:28,030
+Let's fix that everywhere here including our form of course.
+
+184
+00:13:30,550 --> 00:13:33,580
+Like Dat.
+
+185
+00:13:33,690 --> 00:13:43,900
+And now if I reload we can navigate around just fine here and try adding a book that seems to work.
+
+186
+00:13:44,000 --> 00:13:48,110
+And with that we get the styling in there we get the basic h tim l Mark up.
+
+187
+00:13:48,230 --> 00:13:53,750
+But of course regarding the styling the issue is staed it's all in our html files would be nice to have
+
+188
+00:13:53,750 --> 00:13:55,820
+some external falls for that wouldn't it.
+

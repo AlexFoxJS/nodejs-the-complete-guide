@@ -1,0 +1,148 @@
+1
+00:00:02,340 --> 00:00:08,700
+Now let's start with uploading files and they are we have a really great use case and that of course
+
+2
+00:00:08,790 --> 00:00:16,290
+is that when we add a new product we right now always have to enter a U R L that is not a very realistic
+
+3
+00:00:16,290 --> 00:00:24,270
+set up because in a real world application you're a users who are trying to sell things will probably
+
+4
+00:00:24,270 --> 00:00:28,790
+not have pictures of their products stored somewhere in the web.
+
+5
+00:00:28,920 --> 00:00:34,530
+So we definitely want to give our users the possibility of uploading images and that is exactly what
+
+6
+00:00:34,530 --> 00:00:40,920
+I'll work on now adding file upload means that we have to do two things.
+
+7
+00:00:40,950 --> 00:00:47,430
+The first thing is that we need to adjust our form here to show a flower picker to our users.
+
+8
+00:00:47,430 --> 00:00:53,030
+So a tool which they can use to well select a file on their operating system on their computer.
+
+9
+00:00:53,370 --> 00:00:59,250
+And then the second part Disston we need to be able to accept that file in the place where we will handle
+
+10
+00:00:59,250 --> 00:01:02,100
+it where we handle the incoming requests.
+
+11
+00:01:02,100 --> 00:01:06,770
+Now let's start with the form and let's add a file picker there.
+
+12
+00:01:06,810 --> 00:01:11,930
+So we'll dive into our views and there it's in the admin section the edit product.
+
+13
+00:01:11,970 --> 00:01:15,660
+Last fall there we will have our image.
+
+14
+00:01:15,690 --> 00:01:19,360
+You are all control this one and then the end.
+
+15
+00:01:19,410 --> 00:01:25,080
+This image you are l should now become a file picker for it at all.
+
+16
+00:01:25,080 --> 00:01:28,240
+Copy this old block and comment it out.
+
+17
+00:01:28,350 --> 00:01:31,900
+So did we still have it around in case we needed later.
+
+18
+00:01:32,010 --> 00:01:34,380
+But this will now become a new image uploader.
+
+19
+00:01:34,380 --> 00:01:37,170
+There I'll just have a match as a label.
+
+20
+00:01:37,380 --> 00:01:44,730
+Now that class here where I try to mark this as invalid all removed that because I will not have it
+
+21
+00:01:44,750 --> 00:01:52,750
+and put where we would add a red border around the type here will be changed to file the name I'll change
+
+22
+00:01:52,750 --> 00:01:59,340
+that to image and I'll change the ID to image to also appear there for.
+
+23
+00:01:59,410 --> 00:02:02,050
+And now the value with which all pre-populated does.
+
+24
+00:02:02,110 --> 00:02:08,350
+I'll remove that because even if I were editing this I will always present an empty file picker and
+
+25
+00:02:08,350 --> 00:02:11,120
+we'll just have to tweak our back and logic later.
+
+26
+00:02:11,140 --> 00:02:16,960
+So to do and we're editing this and we're not sending a new file we simply keep the old one and we overwrite
+
+27
+00:02:16,960 --> 00:02:18,680
+the old one if we do send a new one.
+
+28
+00:02:18,760 --> 00:02:22,630
+But for now I'll simply set up my file input like this.
+
+29
+00:02:22,630 --> 00:02:26,790
+Now if I saved that and I reload this page.
+
+30
+00:02:26,800 --> 00:02:30,770
+Now we have our file picker here which is a default h tim l element.
+
+31
+00:02:30,770 --> 00:02:36,950
+Now if we click it we can select a file like this boat here you can pick any file it should be an image
+
+32
+00:02:36,950 --> 00:02:37,820
+of course.
+
+33
+00:02:38,240 --> 00:02:46,190
+So now I have chosen that and now if I would enter to rest and add this product we would fail because
+
+34
+00:02:46,250 --> 00:02:53,440
+right now we've got no logic in place to handle incoming file to store it or to do anything with it.
+
+35
+00:02:53,480 --> 00:02:56,320
+And this is the part we'll have to adjust now.
+
+36
+00:02:56,420 --> 00:03:02,450
+So the next lecture I want to make sure that we can handle incoming files just as well as incoming text
+
+37
+00:03:02,540 --> 00:03:04,580
+which we previously always accepted.
+

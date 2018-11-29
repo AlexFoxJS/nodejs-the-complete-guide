@@ -1,0 +1,224 @@
+1
+00:00:02,340 --> 00:00:08,480
+Snotted we had a brief look at how asynchronous code can be identified and what is important about asynchronous
+
+2
+00:00:08,480 --> 00:00:14,180
+code and that you can use callbacks and promise us to handle asynchronous code knouted we learn all
+
+3
+00:00:14,180 --> 00:00:15,070
+that.
+
+4
+00:00:15,080 --> 00:00:22,820
+Let me introduce you to async a wait to use that you first of all have to prepare and the async keyword
+
+5
+00:00:23,060 --> 00:00:26,870
+in front of a function like this arrow function here.
+
+6
+00:00:26,900 --> 00:00:31,970
+So this function where you plan to use a wait keyword.
+
+7
+00:00:31,970 --> 00:00:37,920
+So where you want to use these two key words they always are used together async in front of the function
+
+8
+00:00:38,330 --> 00:00:41,490
+and then you can tweak this syntax.
+
+9
+00:00:41,600 --> 00:00:46,250
+You can write this syntax almost as if it would run synchronously.
+
+10
+00:00:46,250 --> 00:00:53,650
+You can get your count a new constant or variable you create by a waiting post.
+
+11
+00:00:53,660 --> 00:00:59,790
+Find count documents and then you would get rid of this then block here.
+
+12
+00:01:00,080 --> 00:01:06,340
+You would instead continue here where you directly store your total items here to be precise.
+
+13
+00:01:06,380 --> 00:01:10,410
+You can get rid of this line now and you get rid of this return statement.
+
+14
+00:01:10,590 --> 00:01:13,030
+Instead you continue with the next line.
+
+15
+00:01:13,060 --> 00:01:14,380
+Most find limit.
+
+16
+00:01:14,450 --> 00:01:17,050
+This gives you back a list of posts.
+
+17
+00:01:17,060 --> 00:01:21,750
+So what you currently have in that then block and you again write it like this.
+
+18
+00:01:21,840 --> 00:01:30,570
+Posts a weight Post find and then this whole statement that in the end would be followed by a then block.
+
+19
+00:01:30,580 --> 00:01:33,420
+Now get rid of the then locked like this.
+
+20
+00:01:33,460 --> 00:01:34,360
+Let's comment out.
+
+21
+00:01:34,370 --> 00:01:38,500
+Catch because that is something we'll care about in a second.
+
+22
+00:01:38,560 --> 00:01:43,100
+And now as a reformer this does our adjusted code or does this using a single weight.
+
+23
+00:01:43,170 --> 00:01:50,650
+It does now looks like the normal javascript code right but behind the scenes a sync a way it takes
+
+24
+00:01:50,650 --> 00:01:55,530
+your code and transforms it into the old Then like structure we used.
+
+25
+00:01:55,540 --> 00:01:59,290
+So it uses then behind the scenes we just can't see it.
+
+26
+00:01:59,380 --> 00:02:03,820
+And we have this more convenient way of writing our asynchronous code.
+
+27
+00:02:03,940 --> 00:02:10,120
+Now I haven't used this discourse thus far because I think that if you're relatively new to javascript
+
+28
+00:02:10,150 --> 00:02:17,290
+or note this can quickly lead you to think that this works just like the Agricole lags and that doesn't
+
+29
+00:02:17,830 --> 00:02:23,860
+always keep in mind a weight just does some behind the scenes transformation of your code.
+
+30
+00:02:23,920 --> 00:02:31,300
+It takes your code and adds then ofter it gets the result of that operation and then stores it in total
+
+31
+00:02:31,300 --> 00:02:38,680
+items and then moves onto the next line executes that inside of that then block it creates here implicitly.
+
+32
+00:02:38,680 --> 00:02:44,590
+So basically the exact same code we had before this is done by a single weight behind the scenes.
+
+33
+00:02:44,680 --> 00:02:50,580
+But if you know if you understand this then this can be a syntax you might prefer.
+
+34
+00:02:50,590 --> 00:02:51,620
+You don't have to.
+
+35
+00:02:51,640 --> 00:02:57,000
+You can absolutely use the other one with them and catch but you might prefer this one.
+
+36
+00:02:57,010 --> 00:02:58,700
+Now back to kaching.
+
+37
+00:02:58,810 --> 00:03:01,090
+How do we handle errors now.
+
+38
+00:03:01,360 --> 00:03:07,580
+Well since this now runs almost like asynchronous code we use try and catch.
+
+39
+00:03:07,600 --> 00:03:19,690
+So we try something we try some code this code here to be precise and we then catch an error or
+
+40
+00:03:23,230 --> 00:03:30,460
+like this which we then handle in there with the code we previously had instead of catch flies this
+
+41
+00:03:32,770 --> 00:03:33,820
+therefore you still have to.
+
+42
+00:03:33,820 --> 00:03:39,250
+Next and the error here because keep in mind behind the scenes this gets converted to then and catch
+
+43
+00:03:39,250 --> 00:03:39,490
+us.
+
+44
+00:03:39,490 --> 00:03:48,480
+We used it before but now with that we have transformed this first snippet where we used promises to
+
+45
+00:03:48,610 --> 00:03:55,960
+sync a weight and we can see that if I now saved it and I go back to my running application let me quickly
+
+46
+00:03:55,960 --> 00:04:01,030
+log in and open the developer tools to see if we get any errors.
+
+47
+00:04:01,030 --> 00:04:06,490
+And I currently got no so quickly create one test post.
+
+48
+00:04:06,620 --> 00:04:08,630
+We'll take that duck again.
+
+49
+00:04:08,880 --> 00:04:10,770
+This is just a test.
+
+50
+00:04:10,800 --> 00:04:13,860
+Let me add except here and it looks good.
+
+51
+00:04:13,860 --> 00:04:14,950
+Now if I refresh.
+
+52
+00:04:14,970 --> 00:04:16,450
+We definitely fetched a post.
+
+53
+00:04:16,500 --> 00:04:17,670
+And this still works.
+
+54
+00:04:17,670 --> 00:04:19,350
+So all that code still works.
+
+55
+00:04:19,350 --> 00:04:21,940
+We also get no error here on the back end.
+
+56
+00:04:21,990 --> 00:04:24,150
+And now we transform to a single weight.
+

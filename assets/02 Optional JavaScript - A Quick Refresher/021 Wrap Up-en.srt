@@ -1,0 +1,44 @@
+1
+00:00:02,220 --> 00:00:07,830
+That's it for this refresher module Obviously there's no complete javascript module.
+
+2
+00:00:07,860 --> 00:00:10,560
+There are way more feature which I didn't touch on.
+
+3
+00:00:10,650 --> 00:00:16,740
+And the reason for it at a simple I do require very basic javascript knowledge at least if you've gotten
+
+4
+00:00:16,750 --> 00:00:17,330
+on.
+
+5
+00:00:17,370 --> 00:00:21,390
+Check out the resources linked in the second lecture off this module.
+
+6
+00:00:21,390 --> 00:00:27,270
+These resources allow you to dive into javascript for free or with paid courses whatever you want.
+
+7
+00:00:27,510 --> 00:00:35,790
+And with that plus as a refresher about next gen javascript items or features as well you are more than
+
+8
+00:00:35,790 --> 00:00:40,140
+prepared to continue with the course and now understand the code.
+
+9
+00:00:40,260 --> 00:00:43,080
+We will ride for the course.
+
+10
+00:00:43,080 --> 00:00:44,290
+I hope this was helpful.
+
+11
+00:00:44,340 --> 00:00:48,450
+Let's now dive in to know Chase and write exciting applications.
+

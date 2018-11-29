@@ -1,0 +1,136 @@
+1
+00:00:02,170 --> 00:00:03,610
+So let's work on the navigation.
+
+2
+00:00:03,610 --> 00:00:07,420
+And for now let's simply add links to all important views.
+
+3
+00:00:07,540 --> 00:00:15,280
+So we got our slash shop route so to just starting page I also want to have a products link going to
+
+4
+00:00:15,280 --> 00:00:21,330
+let's say slash products and does is a route which doesn't exist yet which will have to at.
+
+5
+00:00:21,490 --> 00:00:28,990
+I want to set the active C Ss class day or if the payoff is slash products and in our controller where
+
+6
+00:00:28,990 --> 00:00:34,930
+we render this view we of course have to make sure that we don't provide this lbf property with the
+
+7
+00:00:34,930 --> 00:00:36,840
+right value.
+
+8
+00:00:36,850 --> 00:00:42,220
+Now does this one additional link the product detail is something we don't need to add here because
+
+9
+00:00:42,230 --> 00:00:46,450
+we'll go there by clicking on a product not from the main navigation.
+
+10
+00:00:46,480 --> 00:00:49,120
+The cart is something I want to have here though.
+
+11
+00:00:49,330 --> 00:00:57,350
+So we'll add another item in the navigation my cart which should be reachable by going to slash cart.
+
+12
+00:00:57,580 --> 00:00:59,740
+And of course the parfit check here.
+
+13
+00:00:59,740 --> 00:01:01,520
+That also is slash cart.
+
+14
+00:01:01,600 --> 00:01:07,600
+But don't forget this here doesn't have to match just pop theater but it's simply easier to remember
+
+15
+00:01:07,750 --> 00:01:10,230
+if we keep it close together.
+
+16
+00:01:10,270 --> 00:01:14,740
+Now for the admin area I want to have that at product link still.
+
+17
+00:01:14,890 --> 00:01:20,110
+I don't need that added product link because that should be triggered by clicking on a product in the
+
+18
+00:01:20,170 --> 00:01:24,730
+admin products list but obviously I need a link for that then.
+
+19
+00:01:24,850 --> 00:01:33,070
+So besides at product I want to have admin products link here which simply goes to admin products and
+
+20
+00:01:33,070 --> 00:01:38,820
+loads a list of all the products for the administrator with administrative options and they were here
+
+21
+00:01:38,830 --> 00:01:42,610
+the POF is also admin products so this is looking good.
+
+22
+00:01:42,610 --> 00:01:49,360
+And if we now reloaders we see a bunch of new items in our main navigation now in Mobile view diskettes
+
+23
+00:01:49,870 --> 00:01:56,060
+well a bit Katta off for now and we'll leave this and added in-between sections and then also append
+
+24
+00:01:56,110 --> 00:01:59,130
+de-code of course to make this responsive.
+
+25
+00:01:59,140 --> 00:02:04,570
+Let's not focus on the C S S now though let's focus on our node logic.
+
+26
+00:02:04,840 --> 00:02:06,650
+So we got all these items added.
+
+27
+00:02:06,730 --> 00:02:13,080
+And of course cart and so on these routes all don't work because we haven't registered these routes.
+
+28
+00:02:13,090 --> 00:02:15,270
+Now this is a great practice for you.
+
+29
+00:02:15,460 --> 00:02:19,930
+We got the links here so you know which parts I want to use.
+
+30
+00:02:19,930 --> 00:02:27,790
+You can now go ahead and add these routes at fitting controller functions or even new controllers.
+
+31
+00:02:27,820 --> 00:02:34,570
+If you want and make sure you rendered the appropriate use and if you're really feeling fancy you can
+
+32
+00:02:34,570 --> 00:02:40,610
+even go into these views and rendered the navigation as well as some dummy content dare.
+
+33
+00:02:40,630 --> 00:02:42,670
+This is all stuff we did thus far.
+
+34
+00:02:42,670 --> 00:02:47,340
+We'll do it together in the next lecture but definitely feel free to try this on your own first.
+

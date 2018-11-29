@@ -1,0 +1,236 @@
+1
+00:00:02,810 --> 00:00:06,480
+So let's use that query year from the front end.
+
+2
+00:00:06,620 --> 00:00:12,020
+And for that I'll go to my re-act application of course there to feed J S file.
+
+3
+00:00:12,020 --> 00:00:17,240
+And here we have to scroll up a little bit to load posts.
+
+4
+00:00:17,330 --> 00:00:21,470
+There we have some page anation logic which we can ignore for now and then.
+
+5
+00:00:21,470 --> 00:00:24,690
+All right my graph will query here.
+
+6
+00:00:27,030 --> 00:00:35,820
+Which is a javascript object where I have a query which now is that multi-line string and in that multi-line
+
+7
+00:00:35,820 --> 00:00:46,220
+string I now will start with curly braces right away and in there just as I did it in graphical and
+
+8
+00:00:46,220 --> 00:00:51,680
+therefore we can of course again copy that I'll look for posts.
+
+9
+00:00:53,630 --> 00:00:59,400
+Does this the name of my carry and in there does happens to return this post data object which has posts
+
+10
+00:00:59,400 --> 00:01:07,710
+and total posts and for every post I'm interested in the ID title content image you are l also creator
+
+11
+00:01:08,400 --> 00:01:13,090
+and also created at Creator again as a complex object.
+
+12
+00:01:13,200 --> 00:01:15,290
+And there I'm interested in the name.
+
+13
+00:01:15,360 --> 00:01:20,860
+So does the data I need to render my posts sufficiently now to run that query.
+
+14
+00:01:22,460 --> 00:01:23,330
+Let's change that.
+
+15
+00:01:23,330 --> 00:01:34,510
+You are all down there and you know which your elde it is localhost 88 slash graphed you will.
+
+16
+00:01:34,720 --> 00:01:45,720
+The method will be post of course headers is the token but also the content type which should be application.
+
+17
+00:01:45,720 --> 00:01:54,290
+Jason and of course I need to add my body here and that body will be string you find with the adjacent
+
+18
+00:01:54,290 --> 00:01:57,140
+package and that will be that graph called queery.
+
+19
+00:01:57,200 --> 00:01:58,640
+I wrote up there.
+
+20
+00:01:58,640 --> 00:02:05,020
+And please note again that we see the entire flexibility of graph all doing its job here.
+
+21
+00:02:05,150 --> 00:02:11,030
+We're fetching exactly that post-state we need we don't fetch things like create or email which we don't
+
+22
+00:02:11,030 --> 00:02:14,600
+need we don't fetch the updated field which we don't need.
+
+23
+00:02:14,630 --> 00:02:19,460
+We only fetch what we need and we actually don't even need D-Mich. you all here now that think about
+
+24
+00:02:19,460 --> 00:02:19,670
+it.
+
+25
+00:02:19,730 --> 00:02:22,760
+We're not rendering that image on that starting page.
+
+26
+00:02:23,000 --> 00:02:28,980
+So really we only fetch what we need and we use graph tool to its fullest potential here.
+
+27
+00:02:29,510 --> 00:02:33,990
+But back to our request I'm not sending this request now.
+
+28
+00:02:34,110 --> 00:02:38,480
+Again handling errors like this will not succeed.
+
+29
+00:02:38,480 --> 00:02:42,470
+Instead we want to handle it as we did down there.
+
+30
+00:02:42,470 --> 00:02:49,590
+We don't need to check for validation errors though because in this query we can't send incorrect data.
+
+31
+00:02:49,820 --> 00:02:52,800
+So we'll simply check if we get any other errors.
+
+32
+00:02:53,060 --> 00:03:00,190
+And I'll then say fetching posts failed and otherwise we'll have our posts and we can't access them
+
+33
+00:03:00,200 --> 00:03:01,440
+on rest data posts.
+
+34
+00:03:01,520 --> 00:03:10,610
+Though as you know instead we have a look at our schema our post data will be found on data then posts
+
+35
+00:03:10,640 --> 00:03:16,640
+because that's the name of the query that will be an object of this type with the number of field of
+
+36
+00:03:16,640 --> 00:03:21,180
+posts in there and then we can drill into our post data.
+
+37
+00:03:21,220 --> 00:03:28,890
+So here the posts the final post can be found on rest stayed at that data posts daat posts.
+
+38
+00:03:28,960 --> 00:03:33,780
+Does this decree and desist and the posts field in the returned Adolph decree.
+
+39
+00:03:34,030 --> 00:03:38,920
+And then we can let re-act do its job for the total posts.
+
+40
+00:03:38,920 --> 00:03:40,190
+It's all the rest data.
+
+41
+00:03:40,220 --> 00:03:44,890
+Data posts and then it's not total items but total posts.
+
+42
+00:03:44,920 --> 00:03:52,720
+I renamed that on my back and if we now save that we go back to our re-act application we can already
+
+43
+00:03:52,720 --> 00:03:53,400
+see it.
+
+44
+00:03:53,560 --> 00:03:59,410
+That arrows coming from the user status but behind that we see our posts are getting rendered we see
+
+45
+00:03:59,410 --> 00:04:00,290
+the user name.
+
+46
+00:04:00,320 --> 00:04:02,060
+So that is all working.
+
+47
+00:04:02,320 --> 00:04:10,110
+And now let's also add the code to add a new post to this page immediately before we then also add page
+
+48
+00:04:10,120 --> 00:04:15,400
+nation and then also have a look at how we can get our image onto the server.
+
+49
+00:04:15,400 --> 00:04:19,380
+So let's quickly add the code to add a new post immediately.
+
+50
+00:04:19,450 --> 00:04:27,010
+We do that in the feet Jasc file of the front end code in the finish added handler and there we scroll
+
+51
+00:04:27,010 --> 00:04:30,190
+down to the place where we create our post object.
+
+52
+00:04:30,190 --> 00:04:37,650
+We're not actually doing anything with that thus far so that's time to change so there.
+
+53
+00:04:37,690 --> 00:04:44,930
+With this post I prepared some code which you can now use can just copy it in and replace the.
+
+54
+00:04:44,950 --> 00:04:54,030
+This said states step in with the hash code and thereafter go back to your application and add another
+
+55
+00:04:54,220 --> 00:04:54,760
+cup.
+
+56
+00:04:54,810 --> 00:04:55,680
+For example
+
+57
+00:05:00,520 --> 00:05:07,360
+also hot and hit except and you see that chapter 2 page nation is not working but will take care about
+
+58
+00:05:07,360 --> 00:05:08,030
+that later.
+
+59
+00:05:08,050 --> 00:05:11,500
+For now we can add that and we can load our posts in general.
+

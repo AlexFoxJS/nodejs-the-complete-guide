@@ -1,0 +1,316 @@
+1
+00:00:02,300 --> 00:00:07,670
+So to populate this forum with the product data we need to fetch the product first.
+
+2
+00:00:07,670 --> 00:00:16,190
+So for an added note here after not being redirected then I want to get my product information for this
+
+3
+00:00:16,340 --> 00:00:22,250
+I need the product model which I already have and I need the product ID fraud ID can be retrieved from
+
+4
+00:00:22,250 --> 00:00:27,940
+the incoming request because if you check the routes real quick we have that dynamic segment here.
+
+5
+00:00:27,950 --> 00:00:31,640
+So by this name we can extract the Product ID.
+
+6
+00:00:31,890 --> 00:00:39,740
+So Edmund J.S. here I can set or I can access request parents product ID and get that ID from the URL.
+
+7
+00:00:40,190 --> 00:00:47,840
+Therefore I can then use my product model and find this product by id and then here I have my callback
+
+8
+00:00:47,840 --> 00:00:52,940
+where I received the product that was retrieved and by the way of course you should also try to add
+
+9
+00:00:52,940 --> 00:00:58,640
+a check to see if you have a product and redirect to user in case you don't let's do it like this for
+
+10
+00:00:58,640 --> 00:00:59,280
+now.
+
+11
+00:00:59,540 --> 00:01:07,100
+So here I will now get my product and then rendered this page assuming that I always get a product and
+
+12
+00:01:07,100 --> 00:01:13,050
+pass my product on a product key and you can name Diski whatever you want of course.
+
+13
+00:01:14,600 --> 00:01:20,000
+And we can for example add a check if we don't have a product so if this is invalid if it's undefined
+
+14
+00:01:20,390 --> 00:01:26,210
+then we could return a redirect for now which is not the best user experience.
+
+15
+00:01:26,210 --> 00:01:28,840
+Most of the time you would want to show an error instead.
+
+16
+00:01:28,970 --> 00:01:32,180
+But let's now for now do we like this.
+
+17
+00:01:32,180 --> 00:01:36,360
+So we assume we always make it here and we get the product in the view no.
+
+18
+00:01:36,530 --> 00:01:41,680
+So let's move over to the edit product to you as you're first of all let's work on that button.
+
+19
+00:01:41,750 --> 00:01:43,170
+Right now it's at product.
+
+20
+00:01:43,310 --> 00:01:47,320
+But I want to change that button caption if we're in added mode.
+
+21
+00:01:47,330 --> 00:01:54,140
+Now remember we're setting this editing property year so this is a variable away that will in the template.
+
+22
+00:01:54,140 --> 00:02:03,230
+So here I reasonably want to check if editing and then add a curly brace.
+
+23
+00:02:03,320 --> 00:02:11,560
+If this is true then I actually want to display the added or maybe update product texture on the button
+
+24
+00:02:14,220 --> 00:02:22,080
+Oberweis and for dead all clues the first IF block here and Attah else block still in my Ejay as tax
+
+25
+00:02:22,080 --> 00:02:22,900
+of course.
+
+26
+00:02:22,950 --> 00:02:29,040
+So overwise year if we're in this Altes block here I want to show at product and thereafter I also have
+
+27
+00:02:29,040 --> 00:02:35,700
+to close my curly braces off that if statement if and I'll reload this page we see Update product correctly.
+
+28
+00:02:35,700 --> 00:02:41,810
+And by the way if they go to add product I'll now get an error because editing is not defined.
+
+29
+00:02:44,040 --> 00:02:52,440
+So to fix this I also have to make sure that in my controller for showing the ad product page eyes that
+
+30
+00:02:52,460 --> 00:03:00,510
+editing to falles of course and now you're reloading this page will work.
+
+31
+00:03:00,620 --> 00:03:06,120
+Going back to the editing page will show us the update button.
+
+32
+00:03:06,200 --> 00:03:08,910
+Now that is one step back to the template.
+
+33
+00:03:09,020 --> 00:03:11,640
+I don't just want to show the caption here.
+
+34
+00:03:11,660 --> 00:03:17,360
+I also want to change the action so here on the forum the router is setting the request to should all
+
+35
+00:03:17,480 --> 00:03:18,530
+change of course.
+
+36
+00:03:18,530 --> 00:03:25,470
+Right now it's always add product but it should only be add product if we are not in editing mode.
+
+37
+00:03:25,490 --> 00:03:26,400
+So here indeed.
+
+38
+00:03:26,630 --> 00:03:28,490
+I will also output something dynamic
+
+39
+00:03:31,200 --> 00:03:33,840
+I will check if we're editing.
+
+40
+00:03:34,310 --> 00:03:36,450
+So all have the same logic for de Botton.
+
+41
+00:03:36,470 --> 00:03:44,700
+And if this is the case I went to load slash edit product let's say our wise all closed that and have
+
+42
+00:03:44,700 --> 00:03:54,010
+my ELSE block open up so Oberweis does is my Ejaz else block I'll add add product into my u r l here
+
+43
+00:03:54,340 --> 00:03:57,010
+and I can inject these segments into DO YOU OR.
+
+44
+00:03:57,100 --> 00:04:00,280
+Because this will just be converted to normal text in the end.
+
+45
+00:04:01,060 --> 00:04:04,030
+Does this what each asked us or what all templating engines do.
+
+46
+00:04:04,240 --> 00:04:09,750
+So all the clothes that curly brace of the else block here and with that if I saved this we should make
+
+47
+00:04:09,750 --> 00:04:14,350
+sure that if you click that update button we go to add a product.
+
+48
+00:04:14,370 --> 00:04:20,010
+Well let's go back and let's see if we can pre populate this with product information.
+
+49
+00:04:20,010 --> 00:04:26,760
+Now keep in mind that in Edmond J as I am retrieving the product whip's not here but here and get at
+
+50
+00:04:26,770 --> 00:04:30,390
+it product and I pass product information into my view.
+
+51
+00:04:30,690 --> 00:04:33,450
+So therefore in the view we can of course use that.
+
+52
+00:04:33,790 --> 00:04:38,810
+And we can set it on all our inputs here on value.
+
+53
+00:04:38,920 --> 00:04:44,410
+I also want to check if I'm in editing mode and if I am I want to display my product information if
+
+54
+00:04:44,410 --> 00:04:46,790
+I'm not I don't want to do that.
+
+55
+00:04:46,810 --> 00:04:48,640
+So same logic as before
+
+56
+00:04:54,190 --> 00:05:01,750
+all check if I'm editing if I am then I will display product title here because this is the title input
+
+57
+00:05:02,560 --> 00:05:07,370
+Oberweis I will not do anything and therefore I don't even need Altes block.
+
+58
+00:05:07,420 --> 00:05:09,880
+I just DUDAS if I am in editing mode.
+
+59
+00:05:10,000 --> 00:05:11,530
+Otherwise nothing will happen.
+
+60
+00:05:11,890 --> 00:05:19,780
+So for now reloaders we indeed see product title and the issue here is that of course this is simply
+
+61
+00:05:19,780 --> 00:05:23,130
+output as text to output the real value behind it.
+
+62
+00:05:23,230 --> 00:05:31,930
+We need debt equals Ejay as tag here nested into our other Ejaz tasks like this.
+
+63
+00:05:31,930 --> 00:05:37,620
+So this was now added equals unclosing with a dollar sign greater than sign.
+
+64
+00:05:37,870 --> 00:05:39,820
+And this can be hard to read.
+
+65
+00:05:39,820 --> 00:05:44,530
+You simply have to divide it up in blocks you've got if then you've got the output and then you've got
+
+66
+00:05:44,530 --> 00:05:51,120
+the closing curly brace for and with that safety if you now reload you'll see the real title behind
+
+67
+00:05:51,120 --> 00:05:54,920
+that and let's do the same for all the other values.
+
+68
+00:05:55,050 --> 00:05:59,580
+So I'll just copy that value here real quick for the image you are l.
+
+69
+00:05:59,670 --> 00:06:02,240
+I always want to output image.
+
+70
+00:06:02,250 --> 00:06:07,070
+You are el for the price.
+
+71
+00:06:07,210 --> 00:06:13,210
+I want to output a product price for the description we get a text area.
+
+72
+00:06:13,340 --> 00:06:20,890
+So here I will not have value equals I'll just output the value between the opening and closing text
+
+73
+00:06:20,890 --> 00:06:22,180
+area tax.
+
+74
+00:06:22,290 --> 00:06:26,430
+And here I'll put the description in it if that all saved.
+
+75
+00:06:26,440 --> 00:06:29,050
+If we reload this is looking good.
+
+76
+00:06:29,140 --> 00:06:32,070
+And now we can start editing our products.
+
+77
+00:06:32,500 --> 00:06:37,550
+Now I want to hook up that edit button so that we can really load the product and this newly added view.
+
+78
+00:06:37,750 --> 00:06:38,700
+So let's do that.
+
+79
+00:06:38,830 --> 00:06:44,080
+And then also work on the functionality to store the updated information over the next Electra's.
+

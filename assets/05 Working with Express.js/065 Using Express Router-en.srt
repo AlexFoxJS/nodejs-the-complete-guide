@@ -1,0 +1,368 @@
+1
+00:00:02,140 --> 00:00:07,240
+We're nearing the end of this module because we already learned a lot about the core concepts of express
+
+2
+00:00:07,260 --> 00:00:12,910
+chaps and disdain for a crucial module because all the rest of the Course will basically build up on
+
+3
+00:00:12,910 --> 00:00:17,200
+this and this knowledge of how Express shapes works.
+
+4
+00:00:17,210 --> 00:00:24,250
+Now even though our Dhami app here is really simple thus far we're already putting all our code into
+
+5
+00:00:24,260 --> 00:00:27,240
+this single capture last fall which is damn for getting bigger.
+
+6
+00:00:27,490 --> 00:00:31,170
+Now obviously for Apple this size it's not a problem at all.
+
+7
+00:00:31,180 --> 00:00:39,350
+It's still pretty small but typically we want to split our routing code over multiple files.
+
+8
+00:00:39,430 --> 00:00:44,410
+We want to basically export our logic in different files and imported into this fall.
+
+9
+00:00:44,590 --> 00:00:50,500
+We could do this we could create files where we export these functions but expressed Yes actually gives
+
+10
+00:00:50,500 --> 00:00:54,880
+us a pretty nice way of outsourcing routing into faults.
+
+11
+00:00:55,150 --> 00:00:57,930
+And for this I'll change our folder structure a bit.
+
+12
+00:00:58,050 --> 00:01:01,180
+I'll add a new folder which will name routes.
+
+13
+00:01:01,360 --> 00:01:02,650
+Now you don't have to name us.
+
+14
+00:01:02,650 --> 00:01:04,290
+You could name it differently too.
+
+15
+00:01:04,420 --> 00:01:10,540
+But it's a convention you often see that you put your routing related code so your code it should execute
+
+16
+00:01:10,540 --> 00:01:17,050
+four different pops and HTP methods that you put that into files which is stored in the route's folder
+
+17
+00:01:17,750 --> 00:01:23,870
+and there since we're building or we're slowly building towards an online shop here.
+
+18
+00:01:24,130 --> 00:01:31,300
+All in a route which I'll name admen dot J.S. because this should be the route that handles the creation
+
+19
+00:01:31,300 --> 00:01:34,490
+of products which the admin of the shop can do.
+
+20
+00:01:34,480 --> 00:01:38,370
+I'll also add another file and that will be shop J.S..
+
+21
+00:01:38,380 --> 00:01:44,650
+So basically what the users see let's say now will not build the full choppier will slowly develop it
+
+22
+00:01:44,710 --> 00:01:49,910
+over to the next Electress and modules because it uses a lot of cool features like database and so on.
+
+23
+00:01:50,410 --> 00:01:57,610
+But we candidly start putting our code into these files here the add product route and this product
+
+24
+00:01:57,610 --> 00:02:04,300
+post request should certainly go into our admin last fall because these are routes that are reached
+
+25
+00:02:04,720 --> 00:02:12,230
+by the admin and general Routier should go into our shop Chia's fault so that users that are whizzing
+
+26
+00:02:12,230 --> 00:02:14,680
+our front page see this route.
+
+27
+00:02:14,680 --> 00:02:20,680
+Now one convenient feature offered by express chase to achieve this is to go into these files and import
+
+28
+00:02:20,710 --> 00:02:27,700
+express again you can and you typically do import this into multiple falls and then we can use a feature
+
+29
+00:02:27,860 --> 00:02:30,220
+of it called the router.
+
+30
+00:02:30,220 --> 00:02:35,140
+Now you can also create this with a lower case r at the beginning the name is totally up to you.
+
+31
+00:02:35,590 --> 00:02:42,890
+And I do create that router by calling express dot router and this is a function execute.
+
+32
+00:02:42,910 --> 00:02:50,020
+This router is like a mini Xpress app tied to the ber express app or pluggable into the Express app
+
+33
+00:02:50,020 --> 00:02:52,730
+I'll say which we can export here.
+
+34
+00:02:52,780 --> 00:02:57,070
+So here I can use module exports and set it equal to the router.
+
+35
+00:02:57,520 --> 00:02:59,020
+Now of course this doesn't do much.
+
+36
+00:02:59,020 --> 00:03:05,290
+We have to use that router to now register things and actually all named this year with all lowercase
+
+37
+00:03:05,350 --> 00:03:08,380
+are to be in line with our names.
+
+38
+00:03:08,380 --> 00:03:11,340
+This however has to have a capital case.
+
+39
+00:03:11,890 --> 00:03:19,660
+So now the router here can be used to again define the use function for all requests a get function
+
+40
+00:03:19,690 --> 00:03:22,480
+forget post for post and so on.
+
+41
+00:03:22,690 --> 00:03:28,930
+So basically we can go back to recapture last fall cut these two admen routes from there put them in
+
+42
+00:03:28,930 --> 00:03:36,260
+here in the Edman Yes file and simply replace app with router here.
+
+43
+00:03:36,300 --> 00:03:42,620
+Now the router gets exported so the router now has two routes registered because we export that here.
+
+44
+00:03:42,690 --> 00:03:48,540
+And this is the Optik on which we registered these routes the agro code can stay as it is because the
+
+45
+00:03:48,840 --> 00:03:54,840
+router functions here basically work in exactly the same way as the app use function does or the app
+
+46
+00:03:54,840 --> 00:03:56,540
+get and so on function does.
+
+47
+00:03:56,850 --> 00:04:01,920
+I'll rename this to get though because I only want to handle get requests to add product and return
+
+48
+00:04:01,920 --> 00:04:03,410
+to this form.
+
+49
+00:04:03,660 --> 00:04:10,410
+And with that with this exported here we can now import debt into the last fall.
+
+50
+00:04:10,440 --> 00:04:16,200
+Now for this I'll add an import at the top separated from Express to make sure or to make clear that
+
+51
+00:04:16,200 --> 00:04:22,880
+this is my own file and I'll name it admen route's the name is totally up to you.
+
+52
+00:04:23,040 --> 00:04:31,510
+But I do require a relative payoff to the route's folder and that in there the admin fall and you can
+
+53
+00:04:31,510 --> 00:04:36,900
+omit diot JSA as I already explained this will be added automatically so now does this.
+
+54
+00:04:36,910 --> 00:04:44,380
+Importing this router object to your end does rowdier object in turn has these routes registered and
+
+55
+00:04:44,500 --> 00:04:49,600
+the nice thing is about this router that it is actually a valid middleware function.
+
+56
+00:04:49,600 --> 00:04:56,540
+So we can take admen routes and just call app use and put our admen routes in there just like this.
+
+57
+00:04:56,650 --> 00:04:58,390
+Not calling it like a function.
+
+58
+00:04:58,450 --> 00:05:06,340
+So without parentheses but simply just the object itself the router object we're exporting in this file
+
+59
+00:05:06,970 --> 00:05:15,070
+we can use this year and now it will automatically consider our routes in the Edman last fall when funding
+
+60
+00:05:15,070 --> 00:05:17,340
+the request for this middleware here.
+
+61
+00:05:17,410 --> 00:05:24,440
+Now just before the order matters so if we put this offer does middleware we will never reached it.
+
+62
+00:05:24,460 --> 00:05:27,120
+So this hasn't changed.
+
+63
+00:05:27,240 --> 00:05:30,200
+Now we can do the same for our front facing round here.
+
+64
+00:05:30,210 --> 00:05:35,440
+Let's go to the shop geus fall and there again feel free to post a video and try this on your own.
+
+65
+00:05:35,460 --> 00:05:43,560
+Try to implement this with the express router as we just did in the Edmon shares fall where you is successful.
+
+66
+00:05:43,580 --> 00:05:51,410
+Let's import express first of all by requiring express then let's create a dead router object by calling
+
+67
+00:05:51,410 --> 00:05:54,440
+express dot router as a function.
+
+68
+00:05:54,890 --> 00:05:57,670
+Let's export the router here.
+
+69
+00:05:58,960 --> 00:06:06,910
+And let's then use app use or paste in what I copied back replace app with router and maybe use with
+
+70
+00:06:06,910 --> 00:06:14,320
+get you don't have to do that the use method would exist too but now we only have to get requests here.
+
+71
+00:06:14,450 --> 00:06:21,560
+Now we can go back to Edmund J S X you need to add J S and import all routes there to the order of the
+
+72
+00:06:21,560 --> 00:06:23,280
+imports doesn't matter.
+
+73
+00:06:23,450 --> 00:06:30,310
+So my shop routes I required them from the routes folder and they are from their shop js file.
+
+74
+00:06:30,560 --> 00:06:35,230
+And now here again the order matters we should register this second.
+
+75
+00:06:35,240 --> 00:06:40,720
+Now if I save this and I reload add routes at product this works.
+
+76
+00:06:40,730 --> 00:06:43,200
+Now Actually here's one important thing to understand.
+
+77
+00:06:44,050 --> 00:06:53,270
+Even if I would switch the position here and have shop routes first and I reload it would work and we
+
+78
+00:06:53,270 --> 00:06:55,470
+would not end up in disarray.
+
+79
+00:06:55,610 --> 00:07:02,810
+But this only happens because I have Gettier get post and so on will actually do an exact match here.
+
+80
+00:07:03,140 --> 00:07:10,860
+If I would use use here as I did before to handle any incoming HTP method then if I reload here we see
+
+81
+00:07:10,860 --> 00:07:12,550
+a halo from Express again.
+
+82
+00:07:12,800 --> 00:07:18,830
+So this exact matching is not achieved by using the router but because we use Gettier and that would
+
+83
+00:07:18,830 --> 00:07:24,790
+have been the same if we stick to the app way of doing this in the app japes file we had previously.
+
+84
+00:07:24,980 --> 00:07:26,810
+So get.
+
+85
+00:07:26,810 --> 00:07:32,160
+Also make sure that it's not just a get method but this access path and therefore.
+
+86
+00:07:32,300 --> 00:07:39,770
+Now if I enter some random stuff I actually get an error because now I got no single middleware that
+
+87
+00:07:39,770 --> 00:07:41,120
+would handle this.
+
+88
+00:07:41,330 --> 00:07:46,190
+But I do have my routes set up here now and split up and then registered here.
+
+89
+00:07:46,310 --> 00:07:51,620
+And as I mentioned it's not the worst practice to still care about the order.
+
+90
+00:07:51,800 --> 00:07:55,610
+Even though at the moment it'll work fine no matter what the order is.
+
+91
+00:07:55,610 --> 00:08:01,220
+But if you ever change something back to use it would matter and therefore why don't we just care about
+
+92
+00:08:01,220 --> 00:08:02,520
+it right from the start.
+

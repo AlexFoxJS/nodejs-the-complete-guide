@@ -1,0 +1,188 @@
+1
+00:00:02,360 --> 00:00:04,640
+We add a D is email validator.
+
+2
+00:00:04,640 --> 00:00:10,490
+Now there are way more built in validators available from which you can choose and you'll find them
+
+3
+00:00:10,490 --> 00:00:16,070
+when you visit the Express validator page because they're If you check the official docs to which this
+
+4
+00:00:16,070 --> 00:00:23,930
+link points you'll see that in the end it's wrapper around devaluated or J.S. validator.
+
+5
+00:00:23,940 --> 00:00:30,360
+So that's another package that was implicitly installed with express elevator and here on the docks
+
+6
+00:00:30,360 --> 00:00:34,280
+a validator J.S. which is a different package which was installed.
+
+7
+00:00:34,440 --> 00:00:40,380
+You'll find all the built in validators and what they do and how you might configure them if possible.
+
+8
+00:00:40,380 --> 00:00:42,720
+And you see this is the one we're using is e-mail.
+
+9
+00:00:42,720 --> 00:00:44,220
+This is what I'm using here.
+
+10
+00:00:44,250 --> 00:00:50,670
+We could configure it to change different e-mail formats you want accept or not accept.
+
+11
+00:00:50,670 --> 00:00:52,450
+We can check for emptiness.
+
+12
+00:00:52,560 --> 00:00:57,460
+We can check whether something is a full domain or a full.
+
+13
+00:00:57,660 --> 00:00:58,430
+R l.
+
+14
+00:00:58,590 --> 00:01:05,010
+We got all kinds of things we can check if a value is in a certain array of possible allowed values
+
+15
+00:01:05,310 --> 00:01:09,130
+if we have a certain length will be important for the password.
+
+16
+00:01:09,330 --> 00:01:11,030
+And so much more.
+
+17
+00:01:11,190 --> 00:01:18,120
+So there are a bunch of things we can check and definitely go through this list to learn more about
+
+18
+00:01:18,120 --> 00:01:20,100
+the built in validators.
+
+19
+00:01:20,130 --> 00:01:27,390
+You can also add your own validator though and to demonstrate just real quick.
+
+20
+00:01:27,420 --> 00:01:30,800
+Let's say we're not just using is e-mail.
+
+21
+00:01:30,960 --> 00:01:33,460
+I also want to make sure it's a specific e-mail.
+
+22
+00:01:33,480 --> 00:01:43,350
+I want to have for data can add custom here and now a validator is in the end a function like dis a
+
+23
+00:01:43,350 --> 00:01:51,270
+function receives the value of the field where checking so the value in the email field and optionally
+
+24
+00:01:51,540 --> 00:01:58,050
+an object from which we can extract things like the location to which is was sent the POF or the request
+
+25
+00:01:58,140 --> 00:02:01,770
+object in case we need to extract more from the request.
+
+26
+00:02:01,770 --> 00:02:07,620
+Now in this function you want to throw an error or when validation fails.
+
+27
+00:02:07,650 --> 00:02:15,330
+So here we could simply check if value equals and let's say it should be test at test dot com because
+
+28
+00:02:15,330 --> 00:02:16,500
+we don't want to allow that.
+
+29
+00:02:16,500 --> 00:02:18,130
+That's just some dummy logic here.
+
+30
+00:02:18,150 --> 00:02:28,900
+So if that is the case then I'll throw an error by calling Frode new error with a mass of this email
+
+31
+00:02:29,020 --> 00:02:32,650
+address is for bidin something like that.
+
+32
+00:02:32,740 --> 00:02:36,520
+Of course this is very arbitrary that I'm checking for exactly that e-mail address.
+
+33
+00:02:36,580 --> 00:02:42,360
+But this is how you can generally write your own validators in case the many built in ones don't suffice
+
+34
+00:02:42,490 --> 00:02:43,770
+your requirements.
+
+35
+00:02:43,780 --> 00:02:53,160
+So now if I save this we should see that if I reload that page and I enter test the test of come I get
+
+36
+00:02:53,160 --> 00:02:55,010
+this e-mail address is forbidden.
+
+37
+00:02:55,200 --> 00:03:00,580
+If I test to a test dot com then I get invalid value though.
+
+38
+00:03:01,570 --> 00:03:08,070
+The reason for this invalid value here simply is that if we do succeed we should return true.
+
+39
+00:03:08,170 --> 00:03:09,980
+So we throw an error if we fail.
+
+40
+00:03:10,030 --> 00:03:16,090
+We could return false to go with the default error message or we throw an error to have our own error
+
+41
+00:03:16,090 --> 00:03:19,470
+message or we return true if it succeeded.
+
+42
+00:03:19,690 --> 00:03:25,650
+And now you will see that if I enter test to this work.
+
+43
+00:03:25,780 --> 00:03:30,150
+Now this will actually be stored a bit strange in the database now because I entered a new user with
+
+44
+00:03:30,340 --> 00:03:35,530
+invalid password with an empty password but we didn't add any password validation yet.
+
+45
+00:03:35,620 --> 00:03:40,410
+The key takeaway is that you saw how you can add your own validator returning true if it's fine.
+
+46
+00:03:40,540 --> 00:03:46,520
+Returning false or frozen error if it's not and how you can use to many built in once.
+
+47
+00:03:46,600 --> 00:03:53,030
+And of course that you can chain them off each other to add multiple validators to one in the same field.
+

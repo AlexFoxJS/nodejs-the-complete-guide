@@ -1,0 +1,692 @@
+1
+00:00:02,240 --> 00:00:08,550
+I'm back in Visual Studio Cody IDL use for this course and this is again a totally empty folder.
+
+2
+00:00:08,570 --> 00:00:12,650
+I only got my get ignore or fall in there because I will use word management here.
+
+3
+00:00:12,710 --> 00:00:13,190
+Good.
+
+4
+00:00:13,220 --> 00:00:16,890
+You don't need to use it at all if it doesn't tell you anything you can just ignore that.
+
+5
+00:00:17,000 --> 00:00:19,260
+You don't need to read good ignore file.
+
+6
+00:00:19,370 --> 00:00:21,300
+So I have an empty folder.
+
+7
+00:00:21,440 --> 00:00:28,370
+And again I will now create a new file with command and or by pressing this I can here and this fall
+
+8
+00:00:28,370 --> 00:00:29,660
+can have any name you want.
+
+9
+00:00:29,750 --> 00:00:34,150
+But often you name it Server dot J.S. or app dot.
+
+10
+00:00:34,170 --> 00:00:39,310
+J.S. because it is the root file that makes up your node J.S. application.
+
+11
+00:00:39,370 --> 00:00:45,860
+So to know J.S. code you will execute on a computer in the cloud on the server in the end so I'll name
+
+12
+00:00:45,860 --> 00:00:47,570
+it app JCR.
+
+13
+00:00:47,570 --> 00:00:54,470
+Now in this file I want to create a server from no J.S. thus far in the first module we only saw how
+
+14
+00:00:54,470 --> 00:00:56,930
+we can work with the file system.
+
+15
+00:00:57,170 --> 00:01:00,380
+So how can we now spin out such a server.
+
+16
+00:01:00,380 --> 00:01:07,850
+We again need to import some functionality because the way javascript works both for the browser and
+
+17
+00:01:07,880 --> 00:01:08,910
+no chase.
+
+18
+00:01:09,080 --> 00:01:16,370
+There is a handful of functions and objects we can use globally without importing anything into the
+
+19
+00:01:16,370 --> 00:01:17,040
+file.
+
+20
+00:01:17,240 --> 00:01:23,900
+But generally most functionalities are in a way Lebel by default to not pollute our global namespace
+
+21
+00:01:23,900 --> 00:01:26,570
+with all these were sort of keywords and names basically.
+
+22
+00:01:26,760 --> 00:01:32,430
+And also to make it very obvious in each file on which functionality this fall depends.
+
+23
+00:01:32,430 --> 00:01:35,440
+Thus far this file does not depend on anything.
+
+24
+00:01:35,750 --> 00:01:41,450
+Now there are a couple of core modules no chance ships with and as you will learn from the course you
+
+25
+00:01:41,450 --> 00:01:46,550
+can also install third party modules which do not ship with node but that stick to the core modules
+
+26
+00:01:46,550 --> 00:01:47,440
+for now.
+
+27
+00:01:47,510 --> 00:01:48,970
+Here are a handful of them.
+
+28
+00:01:49,070 --> 00:01:52,400
+Now not all core modules just some.
+
+29
+00:01:52,400 --> 00:01:55,880
+And as you can see there is f s which we already used thus far.
+
+30
+00:01:55,880 --> 00:01:59,960
+There also is Poth which helps us with constructing payoffs.
+
+31
+00:02:00,050 --> 00:02:07,940
+So payoffs to files on a file system that work on any operating system because Windows and Mac and Linux
+
+32
+00:02:08,150 --> 00:02:10,370
+use different path formats.
+
+33
+00:02:10,430 --> 00:02:16,290
+There is the OS package which helps us with operating system relevant information and so on.
+
+34
+00:02:16,520 --> 00:02:20,970
+And there are the two top most packages age to be and HTP.
+
+35
+00:02:21,170 --> 00:02:27,110
+And as you might be able to guess these two sound very helpful when it comes to creating a server and
+
+36
+00:02:27,110 --> 00:02:35,450
+working with HTP requests and HTP responses and indeed HTP helps as we're launching a server or all
+
+37
+00:02:35,510 --> 00:02:42,320
+that with our tasks like sending requests because a node app could also send a request to another server.
+
+38
+00:02:42,350 --> 00:02:45,220
+You can have multiple servers communicate with each other.
+
+39
+00:02:45,260 --> 00:02:51,570
+For example you could send that request to the Google Maps API to send some coordinates and get back
+
+40
+00:02:51,570 --> 00:02:57,230
+to address but that's just an example let's keep it simple here and let's focus on the launch a server
+
+41
+00:02:57,230 --> 00:03:04,160
+aspect H2B as would be helpful when we want to launch SS l uncoated server so where all that data which
+
+42
+00:03:04,160 --> 00:03:05,560
+is transferred is encrypted.
+
+43
+00:03:05,630 --> 00:03:10,490
+And as I mentioned earlier this is something I'll come back to towards the end of the course.
+
+44
+00:03:10,640 --> 00:03:18,030
+Now with that let's use that HTP module and to use it we need to import it.
+
+45
+00:03:18,050 --> 00:03:25,430
+So we basically need to make sure that we can use features from that HTP module which no Che's ships
+
+46
+00:03:25,430 --> 00:03:30,180
+with but which still is not available globally by default.
+
+47
+00:03:30,350 --> 00:03:34,150
+We need to make sure that we can use these features in this file.
+
+48
+00:03:34,280 --> 00:03:38,090
+And for this we import that functionality.
+
+49
+00:03:38,090 --> 00:03:41,390
+We do this by creating a new constant.
+
+50
+00:03:41,540 --> 00:03:48,740
+And you could create a voire or a use let to but since we all have some value here which we will never
+
+51
+00:03:48,740 --> 00:03:53,820
+change we can also just use a cons to make this really clear that we will never touch this again.
+
+52
+00:03:53,870 --> 00:03:56,360
+We'll use it but will not overwrite it.
+
+53
+00:03:56,780 --> 00:04:02,750
+And you can give us any name you want but typically you keep the name of the module you're importing.
+
+54
+00:04:02,750 --> 00:04:04,290
+So I'll name this.
+
+55
+00:04:04,460 --> 00:04:07,850
+But again you could rename just to whatever you want.
+
+56
+00:04:07,850 --> 00:04:11,480
+Then you have an equal sign and now we need to assign a value.
+
+57
+00:04:11,750 --> 00:04:14,990
+And now there's a special keyword a special function.
+
+58
+00:04:14,990 --> 00:04:17,790
+No Chase does Expo's globally.
+
+59
+00:04:17,870 --> 00:04:24,890
+So you can use it by default in any file you run by a note J.S. and that is the require a keyword.
+
+60
+00:04:24,890 --> 00:04:34,250
+Now this is simply the way you import files in no G-S require ever takes a payoff to another file.
+
+61
+00:04:34,250 --> 00:04:38,970
+You can also import your own javascript files but will not do this for now.
+
+62
+00:04:38,990 --> 00:04:41,330
+We'll do this for all the courts though.
+
+63
+00:04:41,720 --> 00:04:48,830
+Or if you don't have a path to one of your files you can also import a clor module like H to the.
+
+64
+00:04:48,910 --> 00:04:57,080
+By the way a payoff to one of your files always has to start with dot slash or slash if it's an absolute
+
+65
+00:04:57,080 --> 00:04:59,590
+Poth dot slash would be a relative path.
+
+66
+00:04:59,630 --> 00:05:04,080
+So does would lead to the same folder and would look for HTP file.
+
+67
+00:05:04,200 --> 00:05:07,880
+By the way it automatically adds dot JS at the end.
+
+68
+00:05:07,890 --> 00:05:10,300
+You don't need to add it on your own but you can.
+
+69
+00:05:10,710 --> 00:05:13,960
+But does it now look for a local file named HTP.
+
+70
+00:05:14,010 --> 00:05:19,610
+If you omit dot slash or a slash at the beginning it will not look for a local file.
+
+71
+00:05:19,770 --> 00:05:25,440
+So even if you had a file named HTP Dolce s it would not import this file.
+
+72
+00:05:25,440 --> 00:05:32,790
+Let's get rid of it but instead will always look for a global module named HTP and indeed such a module
+
+73
+00:05:32,790 --> 00:05:35,940
+exists because no Chia's ships with it.
+
+74
+00:05:35,940 --> 00:05:42,260
+So now we got this important and now we can start using functionalities from that global module and
+
+75
+00:05:42,270 --> 00:05:50,640
+you can see that if you type HTP DOT does is how you access functions or so-called methods and properties
+
+76
+00:05:50,640 --> 00:05:57,480
+on objects and Javascript and as you can see this HTP object which we import from the age to be module
+
+77
+00:05:57,720 --> 00:06:01,490
+has a bunch of fields and methods we can execute.
+
+78
+00:06:01,530 --> 00:06:05,880
+Most importantly it has to create server method.
+
+79
+00:06:05,940 --> 00:06:07,710
+Now as the names of gests.
+
+80
+00:06:07,710 --> 00:06:14,630
+This is a crucial method when it comes to well creating a server and create server.
+
+81
+00:06:14,640 --> 00:06:16,030
+Actually we have over it.
+
+82
+00:06:16,050 --> 00:06:23,700
+We can see it actually takes a so-called request listener as an argument a request listener simply is
+
+83
+00:06:23,700 --> 00:06:29,160
+a function that will execute for every incoming request.
+
+84
+00:06:29,280 --> 00:06:35,210
+So let's define such a function for this I'll create a new function with the function keyword.
+
+85
+00:06:35,520 --> 00:06:37,440
+We can name it however you want.
+
+86
+00:06:37,530 --> 00:06:44,400
+Our AQ Lisner or whatever you want the name is totally up to you and this function has to receive two
+
+87
+00:06:44,460 --> 00:06:45,410
+arguments.
+
+88
+00:06:45,420 --> 00:06:51,450
+You can see this here if you hover over it at the request listener receives a request which is of type
+
+89
+00:06:51,510 --> 00:06:54,810
+incoming message and a response object.
+
+90
+00:06:54,810 --> 00:07:01,920
+So in short no Che's automatically gives us some object that represents the incoming request and allows
+
+91
+00:07:01,920 --> 00:07:09,480
+us to read data from that request and it gives us an object response which we can use to return a response
+
+92
+00:07:09,480 --> 00:07:12,060
+to whoever sent that request.
+
+93
+00:07:12,240 --> 00:07:17,380
+So now we have to accept these two arguments here and you can again name the arguments however you want.
+
+94
+00:07:17,430 --> 00:07:22,470
+You just have to keep in mind that the first one will contain data about the request and the second
+
+95
+00:07:22,470 --> 00:07:26,670
+one will help you send a response so I'll name a wreck and rest.
+
+96
+00:07:26,760 --> 00:07:29,500
+And these are typical shortcuts you often see.
+
+97
+00:07:29,870 --> 00:07:31,110
+Now this is a function.
+
+98
+00:07:31,110 --> 00:07:32,420
+Are you a listener.
+
+99
+00:07:32,610 --> 00:07:37,170
+And now we can pass this function reference so we don't execute it.
+
+100
+00:07:37,170 --> 00:07:39,170
+Don't set curly braces.
+
+101
+00:07:39,480 --> 00:07:44,690
+Just passed a name to that function because this will simply tell create server.
+
+102
+00:07:44,760 --> 00:07:50,880
+Hey please look for dysfunction with this name and executed for every incoming request.
+
+103
+00:07:50,880 --> 00:07:57,390
+So does this now will we set up this function will now run for every request that reaches our server
+
+104
+00:07:57,600 --> 00:08:03,400
+which will be started by calling create server or almost one piece is missing.
+
+105
+00:08:03,420 --> 00:08:05,230
+I'll come back to that.
+
+106
+00:08:05,520 --> 00:08:07,310
+Now this is one way of doing it.
+
+107
+00:08:07,470 --> 00:08:11,080
+Now you don't have to explicitly create such a function though.
+
+108
+00:08:11,340 --> 00:08:14,250
+You can also use a so-called anonymous function.
+
+109
+00:08:14,340 --> 00:08:18,950
+So here you can also type function Reyk rest like this.
+
+110
+00:08:18,960 --> 00:08:20,790
+This is now a function without a name.
+
+111
+00:08:20,790 --> 00:08:24,350
+That is why it's called Anonymous and it still achieves the same.
+
+112
+00:08:24,360 --> 00:08:31,590
+We passed that function to create server and therefore node will execute this function when ever a request
+
+113
+00:08:31,700 --> 00:08:32,330
+reach us.
+
+114
+00:08:32,340 --> 00:08:36,480
+Our server does is event driven architecture.
+
+115
+00:08:36,480 --> 00:08:38,450
+No Chayefsky was this heavily.
+
+116
+00:08:38,460 --> 00:08:46,670
+You work a lot with such setups or as such code snippets where you tell note if X happens do Y.
+
+117
+00:08:46,740 --> 00:08:52,140
+So in this case if a request comes please execute this function.
+
+118
+00:08:52,170 --> 00:08:59,160
+Now you can also use next gen javascript syntax and use the arrow function where you omit the function
+
+119
+00:08:59,160 --> 00:09:05,010
+keyword and just have the two arguments followed by an equal sign and a greater sign.
+
+120
+00:09:05,040 --> 00:09:12,420
+Hence an arrow and then the function body does is basically equivalent to the function keyword approach.
+
+121
+00:09:12,420 --> 00:09:21,090
+OK so this is our create server callback function as it's called it's called by no chase when ever requests
+
+122
+00:09:21,100 --> 00:09:22,710
+reach us our server.
+
+123
+00:09:22,710 --> 00:09:27,980
+For now let's simply console lock the request object to see what's inside.
+
+124
+00:09:28,080 --> 00:09:33,960
+Now if we execute this fall we can do this in the belt and terminal which is already navigated into
+
+125
+00:09:33,960 --> 00:09:35,190
+this project folder.
+
+126
+00:09:35,190 --> 00:09:37,810
+Make sure you go into that project folder.
+
+127
+00:09:37,830 --> 00:09:40,800
+If you are using the terminal outside of that ID.
+
+128
+00:09:41,160 --> 00:09:46,530
+So once you are in a terminal navigate it in that folder you can run node and then app.
+
+129
+00:09:46,530 --> 00:09:51,870
+J.S. this will execute tiap J S file and lets see what it does.
+
+130
+00:09:51,870 --> 00:09:53,390
+Hmm nothing right.
+
+131
+00:09:53,460 --> 00:09:59,340
+We don't see Konsole loggin that makes sense because we didn't send a request to the server but we don't
+
+132
+00:09:59,340 --> 00:10:01,320
+even know where the server is.
+
+133
+00:10:01,880 --> 00:10:04,940
+How do we reached that server which address does it have.
+
+134
+00:10:05,480 --> 00:10:07,930
+Well one important thing is missing.
+
+135
+00:10:08,420 --> 00:10:13,050
+This creates a method actually returns a server.
+
+136
+00:10:13,190 --> 00:10:19,130
+So we have to store that in a new variable or constant and all use a constant because I'll never overwrite
+
+137
+00:10:19,130 --> 00:10:21,440
+it I only create a server once.
+
+138
+00:10:21,440 --> 00:10:28,050
+So I would create a restored here and now we can use that server and do something with it.
+
+139
+00:10:28,190 --> 00:10:35,540
+As you can see we get a bunch of methods we can call and one method is listen listen now actually starts
+
+140
+00:10:35,540 --> 00:10:43,670
+a process where no chase will not immediately exit our script but where no chase will instead keep this
+
+141
+00:10:43,670 --> 00:10:45,590
+running to listen.
+
+142
+00:10:45,680 --> 00:10:49,970
+That's why the method is named like this for incoming requests.
+
+143
+00:10:49,970 --> 00:10:55,410
+Now listen as you can see it takes a couple of arguments optional arguments.
+
+144
+00:10:55,460 --> 00:11:01,480
+The first one is the port on which you want to listen now in production you typically would not filled
+
+145
+00:11:01,480 --> 00:11:04,540
+it out and it would take the default of port 80.
+
+146
+00:11:04,610 --> 00:11:11,030
+But here on local development we want to use a different port and you can also find a hostname now by
+
+147
+00:11:11,030 --> 00:11:11,570
+default.
+
+148
+00:11:11,600 --> 00:11:14,630
+This will be the name of the machine this is running on.
+
+149
+00:11:14,630 --> 00:11:18,790
+So for our local machine this is local host by default.
+
+150
+00:11:18,830 --> 00:11:25,040
+So let's just pass a port three thousand is a port you often use but you're relatively free to use any
+
+151
+00:11:25,040 --> 00:11:29,650
+power port you want that thousands port are typically pretty safe.
+
+152
+00:11:30,020 --> 00:11:37,730
+And now with debt if you really execute this you'll see one important thing the cursor here in the terminal
+
+153
+00:11:38,120 --> 00:11:44,030
+doesn't go back in a new line because this procedure is now still running.
+
+154
+00:11:44,120 --> 00:11:52,770
+It didn't finish this file execution didn't finish because we now get the ongoing looping process where
+
+155
+00:11:52,770 --> 00:11:55,440
+it will keep on listening for requests.
+
+156
+00:11:55,580 --> 00:11:57,320
+And this is obviously what you want right.
+
+157
+00:11:57,350 --> 00:12:01,670
+You want to have a web server that keeps on listening for requests.
+
+158
+00:12:01,670 --> 00:12:09,140
+Now we can see that in action by opening a new browser window where we simply enter localhost three
+
+159
+00:12:09,320 --> 00:12:12,120
+thousand whence you did that.
+
+160
+00:12:12,180 --> 00:12:16,830
+Nothing happens because we haven't configured to return any mail page.
+
+161
+00:12:16,830 --> 00:12:25,540
+But if you go back to your terminal you'll see a lot of output there and that is this line does is your
+
+162
+00:12:25,540 --> 00:12:28,170
+request being locked to the console.
+
+163
+00:12:28,570 --> 00:12:33,520
+Now let's analyze what happened here in detail and what's inside this request.
+
+164
+00:12:33,610 --> 00:12:42,040
+Over the next lectures but does the lines here already give you a fully functional or almost fully functional
+
+165
+00:12:42,340 --> 00:12:43,870
+web server.
+
+166
+00:12:43,990 --> 00:12:50,740
+And this is how you create servers in no chess and I know that this can be hard to wrap your head around
+
+167
+00:12:50,860 --> 00:12:57,340
+because it was for me when I started out with no chess years ago it was difficult to understand debt
+
+168
+00:12:57,610 --> 00:12:59,830
+coming from a PH background.
+
+169
+00:12:59,980 --> 00:13:05,380
+You suddenly write your own server that sounded like something super complex.
+
+170
+00:13:05,380 --> 00:13:08,230
+Well actually it's just Deis few lines.
+
+171
+00:13:08,230 --> 00:13:14,590
+And from now on we just have to focus on doing something meaningful with the request and important sending
+
+172
+00:13:14,590 --> 00:13:16,510
+back a response.
+
+173
+00:13:16,510 --> 00:13:20,150
+So time for a detailed analysis in the next lectures.
+

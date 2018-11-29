@@ -1,0 +1,264 @@
+1
+00:00:02,510 --> 00:00:09,440
+So let's add a view or we do have you but let's add some logic in that you infer this all take the code
+
+2
+00:00:09,440 --> 00:00:15,440
+from one of my other simple views like orders each class and pasted in there so that I got the hat and
+
+3
+00:00:16,280 --> 00:00:19,190
+also my navigation and so on.
+
+4
+00:00:19,220 --> 00:00:22,940
+Now in here I don't want to output nothing there of course.
+
+5
+00:00:22,940 --> 00:00:32,260
+Instead here I want to output my product information so my product detail for this I will quickly give
+
+6
+00:00:32,270 --> 00:00:39,220
+those main elements to a class of centered and find you my see is as code real quick.
+
+7
+00:00:39,220 --> 00:00:40,590
+The main idea is as follows.
+
+8
+00:00:40,750 --> 00:00:43,310
+Let's simply add a class can added anywhere.
+
+9
+00:00:43,320 --> 00:00:50,710
+All added relatively top centered where I said text align to center for now so that everything is centered
+
+10
+00:00:51,160 --> 00:00:52,720
+horizontally.
+
+11
+00:00:52,720 --> 00:00:59,990
+Now in there I'll put my agent one task and there I expect to get information about the product we loaded.
+
+12
+00:01:00,220 --> 00:01:04,770
+So here I want to get some product and output the title.
+
+13
+00:01:04,960 --> 00:01:08,750
+Now right now we're not rendering this view and we're not passing the data into it.
+
+14
+00:01:08,800 --> 00:01:10,270
+But eventually we will.
+
+15
+00:01:10,510 --> 00:01:12,070
+So here is my title.
+
+16
+00:01:12,190 --> 00:01:19,500
+Then maybe render a horizontal line and then display an image for this product because we got it right.
+
+17
+00:01:19,810 --> 00:01:26,920
+So I will add a div here and in this different image and there I will output product image.
+
+18
+00:01:26,980 --> 00:01:30,120
+U r l datus the field in which you are storing the image.
+
+19
+00:01:30,130 --> 00:01:32,230
+Check your model in case you're not sure.
+
+20
+00:01:32,440 --> 00:01:43,660
+And as old text output product title now below the image I want to output to tag where I output my product
+
+21
+00:01:43,840 --> 00:01:53,130
+price like this and believe that a paragraph with my product description just like this.
+
+22
+00:01:53,200 --> 00:01:58,600
+So that is my detailed page there and if we now saved as we have to make sure that we render this view
+
+23
+00:01:58,810 --> 00:02:00,690
+for our detail route.
+
+24
+00:02:00,850 --> 00:02:07,950
+So in our controller where we do get this single product data instead of redirecting here I'll remove
+
+25
+00:02:07,960 --> 00:02:12,070
+that and instead of logging this to the console all say rest render.
+
+26
+00:02:12,340 --> 00:02:19,390
+And I want to render my view into a shop folder and there is the product Dasch detail view.
+
+27
+00:02:19,480 --> 00:02:26,060
+So basically the filename here product detail and we have to pass some information.
+
+28
+00:02:26,080 --> 00:02:32,890
+We do that by passing a javascript object and in there we now need to pass in a product property because
+
+29
+00:02:32,890 --> 00:02:35,470
+we're accessing this here in the view.
+
+30
+00:02:35,800 --> 00:02:38,170
+So back in our shop J follows.
+
+31
+00:02:38,350 --> 00:02:45,870
+Let's pass product and set this equal to our product.
+
+32
+00:02:45,880 --> 00:02:51,520
+We're retrieving your product on the right side of the colon is the product for retrieving product on
+
+33
+00:02:51,520 --> 00:02:56,090
+the left side is simply the key but which will be able to access it in the view.
+
+34
+00:02:57,380 --> 00:03:05,340
+That Let's save that and go back to product to load the details here and we get an error or that we're
+
+35
+00:03:05,340 --> 00:03:12,390
+missing the page title showing us which Linus following the error and old tells us page is not the find.
+
+36
+00:03:12,510 --> 00:03:20,200
+And this makes sense because in the head of our of each page we're outputting to page title here.
+
+37
+00:03:20,280 --> 00:03:22,890
+So we also have to pass that into our view.
+
+38
+00:03:23,220 --> 00:03:29,400
+So in shop JCR let's make sure we don't just pass the product but also the page title.
+
+39
+00:03:29,460 --> 00:03:35,950
+And here we can actually use product title to dynamically set the page title to the title of the product.
+
+40
+00:03:35,950 --> 00:03:45,910
+With that simply reload this page I'm also missing the POF now because in the navigation we're using
+
+41
+00:03:45,910 --> 00:03:49,420
+data to determine which path is active.
+
+42
+00:03:49,630 --> 00:03:55,740
+And now there the question is which path do we want to highlight in a navigation file here.
+
+43
+00:03:55,750 --> 00:04:03,040
+We obviously have no ports no link to this exact product but I think it makes sense to highlight the
+
+44
+00:04:03,040 --> 00:04:09,920
+products link here because we're still in the product area just in the detail for a single product.
+
+45
+00:04:10,240 --> 00:04:16,900
+If we want to highlight this the POF we should pass is slash products because that's the payoff We're
+
+46
+00:04:16,900 --> 00:04:17,740
+checking here.
+
+47
+00:04:17,920 --> 00:04:19,010
+So in shop.
+
+48
+00:04:19,230 --> 00:04:19,620
+Yes.
+
+49
+00:04:19,650 --> 00:04:26,410
+File said pove to slash products here because this is the POV for which I want to mark the navigation
+
+50
+00:04:26,410 --> 00:04:27,680
+item as active.
+
+51
+00:04:28,090 --> 00:04:29,450
+Now if we reload.
+
+52
+00:04:29,740 --> 00:04:30,970
+Does looks better.
+
+53
+00:04:30,970 --> 00:04:32,820
+And now this doesn't look too shabby.
+
+54
+00:04:32,860 --> 00:04:35,060
+We got a nice detail page here.
+
+55
+00:04:35,200 --> 00:04:36,610
+Does the trick for NL.
+
+56
+00:04:36,730 --> 00:04:41,510
+Let's maybe finish it up by adding add to cart button below the product.
+
+57
+00:04:41,860 --> 00:04:46,050
+But with that I'd say this is what we need for the moment.
+
+58
+00:04:46,060 --> 00:04:52,130
+So let's go back to our product detail Ejaz file and below all that information.
+
+59
+00:04:52,210 --> 00:05:01,890
+I will now add a little forum which leads to cart with post request because I want to add that product
+
+60
+00:05:02,610 --> 00:05:10,830
+and I'll add a button with class button and type submit and the route for this is missing still where
+
+61
+00:05:10,830 --> 00:05:12,560
+I say Add to Cart.
+
+62
+00:05:12,810 --> 00:05:16,230
+And now if that if we reload we got that but you're too.
+
+63
+00:05:16,500 --> 00:05:17,490
+So this is now working.
+
+64
+00:05:17,520 --> 00:05:19,140
+And this is looking decent.
+
+65
+00:05:19,380 --> 00:05:21,620
+With that I'd say Why don't we work on that.
+
+66
+00:05:21,740 --> 00:05:24,390
+Add to card functionality as a nextstep.
+

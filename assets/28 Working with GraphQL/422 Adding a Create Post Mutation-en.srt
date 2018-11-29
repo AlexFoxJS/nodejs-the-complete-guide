@@ -1,0 +1,348 @@
+1
+00:00:02,380 --> 00:00:05,890
+Knouted we have users in place let's work on posts.
+
+2
+00:00:05,950 --> 00:00:11,730
+And for now I will add posts without a real image because the image upload is something all managed
+
+3
+00:00:11,740 --> 00:00:16,240
+differently for a post with just title the content.
+
+4
+00:00:16,240 --> 00:00:20,140
+Some dummy text for the image you are L and an attached user.
+
+5
+00:00:20,140 --> 00:00:24,880
+You can definitely try this on your own though that will be challenging of course but give it a try.
+
+6
+00:00:24,880 --> 00:00:28,910
+Go as far as you can and then try to solve it together with me.
+
+7
+00:00:28,930 --> 00:00:31,750
+I will of course now also do it with you.
+
+8
+00:00:31,980 --> 00:00:40,580
+So I would start in my back and in my schema here and I will add a new mutation create post there.
+
+9
+00:00:40,580 --> 00:00:43,490
+I expect to get some data that describes the post.
+
+10
+00:00:43,670 --> 00:00:46,980
+We could get it all as separate arguments.
+
+11
+00:00:47,060 --> 00:00:55,550
+Or again we define import type which I will do here and that will be my post input data and in my post
+
+12
+00:00:55,640 --> 00:01:02,990
+input data here I will require everything I need to well create a new post and I expect that to be a
+
+13
+00:01:02,990 --> 00:01:11,720
+title which is a string the content which is a string and also the image Eurail the user is something
+
+14
+00:01:11,780 --> 00:01:18,110
+I can retrieve from the token which has to be attached at some point anyways and DMA upload something
+
+15
+00:01:18,170 --> 00:01:20,260
+will handle differently later.
+
+16
+00:01:20,510 --> 00:01:23,550
+So to post input data isn't the end what I get here.
+
+17
+00:01:23,690 --> 00:01:25,340
+So post input will be of type.
+
+18
+00:01:25,340 --> 00:01:29,630
+Post input data and I will return the created post here.
+
+19
+00:01:29,630 --> 00:01:37,990
+Remember that we did create that post type earlier already and now with that we can actually already
+
+20
+00:01:38,200 --> 00:01:42,360
+move on to the resolvers and add a new resolder Witchell name.
+
+21
+00:01:42,370 --> 00:01:45,080
+Create post in there.
+
+22
+00:01:45,090 --> 00:01:52,980
+I can use destructuring to extract by post input argument which I just find in my schema here.
+
+23
+00:01:55,160 --> 00:02:01,310
+And I do get the request as the second argument will need to add later to get the user data.
+
+24
+00:02:01,500 --> 00:02:07,460
+Now for now let's simply create a dummy post with dummy data we are able to use right now.
+
+25
+00:02:07,690 --> 00:02:12,040
+And of course let's also validate the input for validation.
+
+26
+00:02:12,040 --> 00:02:18,880
+I'll use the same approach as when we created oarlock to users in I'll create an empty array and empty
+
+27
+00:02:18,910 --> 00:02:22,470
+Aeros array and then I'll add a couple of if statements.
+
+28
+00:02:22,600 --> 00:02:26,900
+Here I'll check if validator is empty but this is empty.
+
+29
+00:02:26,920 --> 00:02:32,290
+So if the input is empty and I'll check that for my title.
+
+30
+00:02:32,500 --> 00:02:41,320
+If that is the case or if it don't meet a minimum length requirement with is length for the post input
+
+31
+00:02:41,590 --> 00:02:47,590
+title and then I can figure out its length with the second argument to be a minimum of five characters
+
+32
+00:02:47,590 --> 00:02:48,310
+long.
+
+33
+00:02:48,580 --> 00:02:56,320
+If we have either of these two cases then I'll push a new object onto my Aeros array with a message
+
+34
+00:02:56,320 --> 00:02:59,200
+of title is invalid.
+
+35
+00:02:59,200 --> 00:03:02,800
+Obviously again you could be more detailed here.
+
+36
+00:03:02,800 --> 00:03:05,190
+So that is my title validation.
+
+37
+00:03:05,190 --> 00:03:11,950
+I'll then add a number check where I check the content for exactly the same two things.
+
+38
+00:03:12,310 --> 00:03:13,750
+And that is it for now.
+
+39
+00:03:15,620 --> 00:03:23,870
+Now with that in place all keep my code I have up there where I have a look at my error.
+
+40
+00:03:23,970 --> 00:03:32,270
+Length and I will copy that down here to to throw an error if we have any validation errors.
+
+41
+00:03:32,500 --> 00:03:35,350
+If we make it past this if block here.
+
+42
+00:03:35,560 --> 00:03:40,930
+I know my input is valid and we can now create a new post for it.
+
+43
+00:03:40,930 --> 00:03:47,560
+It will eventually all need a user but for now I'll ignore the user and instead here up there.
+
+44
+00:03:47,550 --> 00:03:56,400
+I'll import my post mongoose model from the models folder and now we can use that to create new posts.
+
+45
+00:03:57,350 --> 00:03:58,480
+Which you of course do.
+
+46
+00:03:59,660 --> 00:04:02,150
+It's not user post.
+
+47
+00:04:02,630 --> 00:04:06,740
+By using our constructor mongooses gives us.
+
+48
+00:04:06,830 --> 00:04:08,630
+Now I want to use async a way.
+
+49
+00:04:08,660 --> 00:04:13,250
+Again all tweak that to use this syntax here.
+
+50
+00:04:14,880 --> 00:04:24,640
+Del down there where I create my books not user my new post I pass in the title which I get from post
+
+51
+00:04:24,670 --> 00:04:25,150
+input.
+
+52
+00:04:25,160 --> 00:04:26,890
+Title of course.
+
+53
+00:04:26,890 --> 00:04:33,820
+Also add to content here so post input content the image you are l.
+
+54
+00:04:33,830 --> 00:04:41,840
+Post input image your L and for now I won't add a creator here because I'm not able to retrieve the
+
+55
+00:04:41,840 --> 00:04:44,570
+user yet so that is my post.
+
+56
+00:04:44,570 --> 00:04:53,180
+I can now store the created post in a new constant and I get that by a waiting for post save to finish
+
+57
+00:04:54,340 --> 00:04:54,800
+here.
+
+58
+00:04:54,810 --> 00:05:02,280
+I'll then also need to add posts to users posts later once I do all the retrieve to user.
+
+59
+00:05:02,290 --> 00:05:10,100
+For now I can just return my response here so to say why getting all the data from the request from
+
+60
+00:05:10,100 --> 00:05:21,290
+the created post doc and then I'll overwrite the ID because I can't returned Mongo D-B object id I need
+
+61
+00:05:21,290 --> 00:05:24,740
+to return a string and I will override.
+
+62
+00:05:24,740 --> 00:05:29,790
+Created at an update to that because these will be stored as data types.
+
+63
+00:05:29,900 --> 00:05:31,990
+Graph CULE does not understand that.
+
+64
+00:05:32,030 --> 00:05:34,140
+So I need to convert that to a string too.
+
+65
+00:05:34,280 --> 00:05:36,860
+So I get that from my created post there.
+
+66
+00:05:36,890 --> 00:05:37,960
+Created at.
+
+67
+00:05:38,000 --> 00:05:41,360
+And I need to call to ISO's string here.
+
+68
+00:05:41,510 --> 00:05:43,020
+The same for updated at.
+
+69
+00:05:43,190 --> 00:05:44,270
+Updated at.
+
+70
+00:05:44,360 --> 00:05:52,460
+Will be created post updated at you Isel string and now with that does is the data I want to return
+
+71
+00:05:52,560 --> 00:05:55,650
+when a new post was added.
+
+72
+00:05:55,650 --> 00:05:58,890
+Now for now I'm not checking if the user is authenticated and so on.
+
+73
+00:05:58,920 --> 00:06:06,400
+I'll just have this resolver added this create post Roessler for the respective mutation.
+
+74
+00:06:06,960 --> 00:06:09,500
+Let's try it out in graphical.
+
+75
+00:06:09,510 --> 00:06:10,410
+First of all.
+
+76
+00:06:10,680 --> 00:06:16,900
+So here if I reload that sauted it loads my latest definition.
+
+77
+00:06:16,920 --> 00:06:21,540
+I can add a mutation here and that is now create post there.
+
+78
+00:06:21,660 --> 00:06:30,810
+I have my post input which is an object where I have a title test where I have a contant test and where
+
+79
+00:06:30,810 --> 00:06:39,030
+I have image your L sum you are l and where I then went that is recreated.
+
+80
+00:06:39,120 --> 00:06:47,230
+Can get back to the ID at the title at say let me click on pre-define to make this a bit easier to read
+
+81
+00:06:47,900 --> 00:06:53,500
+and now if I hit the play button I get invalid input which makes sense because Tyler and Condit are
+
+82
+00:06:53,500 --> 00:07:00,550
+too short so let's make them 5 characters long and now I simply get an error from the database that
+
+83
+00:07:00,550 --> 00:07:02,800
+the Creator is missing which makes sense.
+
+84
+00:07:02,860 --> 00:07:05,540
+But the general mutation is working.
+
+85
+00:07:05,560 --> 00:07:12,520
+Let's now make sure we also validate that token which we need to send anyways and that we extract the
+
+86
+00:07:12,520 --> 00:07:19,030
+user id and the user therefore so that we can connect posts and users and their ofter will of course
+
+87
+00:07:19,090 --> 00:07:21,120
+also connect to our front end.
+

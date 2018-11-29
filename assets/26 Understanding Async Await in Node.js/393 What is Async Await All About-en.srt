@@ -1,0 +1,220 @@
+1
+00:00:02,680 --> 00:00:11,260
+So what is a sink a weight all about a sink and a weight are two key words which are part of the core
+
+2
+00:00:11,350 --> 00:00:12,640
+javascript language.
+
+3
+00:00:12,670 --> 00:00:16,020
+They're not an exclusive part of the no js runtime.
+
+4
+00:00:16,100 --> 00:00:21,160
+They are also available in modern browsers or in Front-End projects.
+
+5
+00:00:21,180 --> 00:00:25,760
+They're not part of no Jasp but you can use them in notorious projects.
+
+6
+00:00:25,780 --> 00:00:29,090
+The question of course is what do these two keywords do.
+
+7
+00:00:29,670 --> 00:00:36,310
+A single away it allows you to write asynchronous requests so requests where you have some operation
+
+8
+00:00:36,310 --> 00:00:43,000
+that takes a little while and comes back later in a synchronous way and you see there is an asterisk
+
+9
+00:00:43,070 --> 00:00:48,760
+off Duras synchronous way because async in a way it allows you to write asynchronous statements in a
+
+10
+00:00:48,760 --> 00:00:53,590
+way that looks synchronous but it still isn't a synchronous request.
+
+11
+00:00:53,590 --> 00:00:55,960
+Now this is of course very abstract.
+
+12
+00:00:55,960 --> 00:00:59,170
+So let's simply dive into our existing notorious code.
+
+13
+00:00:59,170 --> 00:01:04,810
+And let me show you which parts of it you could change to use async going to wait and then it will become
+
+14
+00:01:04,810 --> 00:01:06,830
+very clear what it does.
+
+15
+00:01:06,850 --> 00:01:08,300
+I'm back in my note.
+
+16
+00:01:08,320 --> 00:01:10,730
+J.S. back end application year.
+
+17
+00:01:10,840 --> 00:01:17,270
+And let me point out that as I mentioned you could all use a single weight in you react application
+
+18
+00:01:17,380 --> 00:01:19,060
+but this is no re-act course.
+
+19
+00:01:19,060 --> 00:01:24,600
+So I will leave this code untouched and we'll go back to my node application.
+
+20
+00:01:24,730 --> 00:01:26,780
+Now how can we use a sync.
+
+21
+00:01:26,800 --> 00:01:27,640
+And the weight.
+
+22
+00:01:27,970 --> 00:01:34,640
+Well if you go into your feed controller you'll see that there we have an asynchronous operation post
+
+23
+00:01:34,690 --> 00:01:40,680
+find how can you see or how can you identify asynchronous operations.
+
+24
+00:01:40,690 --> 00:01:42,570
+Well for example when you're using.
+
+25
+00:01:42,570 --> 00:01:49,450
+Promises Promises are a typical construct that help you deal with a synchronous code because promises
+
+26
+00:01:49,450 --> 00:01:56,320
+were like that post find gets executed and count documents all that gets executed immediately.
+
+27
+00:01:56,320 --> 00:02:03,460
+But then does actually count documents returns a promise or a promise like object and you don't use
+
+28
+00:02:03,580 --> 00:02:06,950
+then to define a function that should be executed.
+
+29
+00:02:07,030 --> 00:02:13,500
+Once this operation here is done and since we access the database here does typically takes a bit longer.
+
+30
+00:02:13,510 --> 00:02:15,320
+We're talking about milli seconds here.
+
+31
+00:02:15,370 --> 00:02:18,150
+But still it doesn't happen instantly.
+
+32
+00:02:18,310 --> 00:02:24,340
+All the opposite this line and does line get executed after each other instantly does operation does
+
+33
+00:02:24,340 --> 00:02:27,800
+essentially not take any time at all it's so fast.
+
+34
+00:02:27,850 --> 00:02:32,420
+Javascript can wait for it to complete and move onto the next step right away here.
+
+35
+00:02:32,500 --> 00:02:34,690
+It will not wait for that to complete.
+
+36
+00:02:34,690 --> 00:02:40,860
+And that is why after this statement javascript would actually move on with the next statement in line.
+
+37
+00:02:40,900 --> 00:02:46,940
+So if we had a statement on the same level as Post find we would continue with that.
+
+38
+00:02:46,960 --> 00:02:51,630
+Now in this case we got on but if we would have some code there like a console log or anything this
+
+39
+00:02:51,630 --> 00:03:00,060
+would execute right away probably or very likely before this or this code or this code was executed.
+
+40
+00:03:00,070 --> 00:03:06,730
+The reason for that is that with then we define code snippets or we define functions that should run
+
+41
+00:03:06,820 --> 00:03:07,930
+in the future.
+
+42
+00:03:07,980 --> 00:03:15,520
+Once it is longer taking a synchronous operation is done and it's called asynchronous because it doesn't
+
+43
+00:03:15,520 --> 00:03:21,880
+happen instantly but it takes a little while callbacks which we used earlier and of course are a number
+
+44
+00:03:21,880 --> 00:03:24,460
+way of working with asynchronous code.
+
+45
+00:03:24,490 --> 00:03:27,340
+So here are two four account documents.
+
+46
+00:03:27,340 --> 00:03:32,680
+You could actually and you'll see that your and the documentation that pops up you could define a callback
+
+47
+00:03:32,680 --> 00:03:33,550
+function.
+
+48
+00:03:33,550 --> 00:03:38,600
+So here you could define a function that gets executed once it's done instead of then.
+
+49
+00:03:38,740 --> 00:03:41,810
+And we don't use callbacks because in there.
+
+50
+00:03:41,810 --> 00:03:47,530
+We want to use that code and then we would need a call by each year in the Find function and we would
+
+51
+00:03:47,530 --> 00:03:51,760
+nest all these callbacks leading to very unreadable code.
+
+52
+00:03:51,760 --> 00:03:57,190
+That is why you often prefer promises even though you could do it with callbacks because there you have
+
+53
+00:03:57,220 --> 00:04:00,880
+one then block after each other and it's very readable.
+
+54
+00:04:00,880 --> 00:04:03,920
+Still it can get more readable with a sink in a way.
+
+55
+00:04:04,090 --> 00:04:06,240
+And that is what I want to show you in the next lecture.
+

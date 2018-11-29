@@ -1,0 +1,120 @@
+1
+00:00:03,140 --> 00:00:09,190
+Now there's one thing you also might have noticed when we only have two posts so we have no page nation
+
+2
+00:00:09,190 --> 00:00:14,930
+because we don't have enough poets to have a second page and add a new value like a duck here.
+
+3
+00:00:16,320 --> 00:00:20,500
+Then the stock will show up but we don't get that next button.
+
+4
+00:00:20,520 --> 00:00:24,430
+There is a little box here which is easy to fix has nothing to with no chance.
+
+5
+00:00:24,450 --> 00:00:29,850
+But it is really easy to get rid of in or finish edit handler here.
+
+6
+00:00:29,910 --> 00:00:39,390
+When we go down to decode where we create that new post and we then add to our existing posts it's this
+
+7
+00:00:39,720 --> 00:00:46,380
+block here which is interesting to us where we in the end make sure that we only render two items at
+
+8
+00:00:46,380 --> 00:00:50,070
+a time and then we add our new post at the beginning of the list.
+
+9
+00:00:50,070 --> 00:00:59,610
+Now here what I need to do is I need to make sure that I do increase the amount of total posts in our
+
+10
+00:00:59,610 --> 00:01:05,140
+state in re-act here where we manage how many posts we have on that page.
+
+11
+00:01:05,430 --> 00:01:09,180
+I do set total posts here to a different amount of posts.
+
+12
+00:01:09,300 --> 00:01:16,260
+When I fetch all posts where I get that total posts information well when adding a new element I know
+
+13
+00:01:16,290 --> 00:01:20,110
+that total posts will simply be the old total posts plus one.
+
+14
+00:01:20,550 --> 00:01:22,420
+So I will add a new variable here.
+
+15
+00:01:22,440 --> 00:01:25,340
+Right below up the posts and that's updated.
+
+16
+00:01:25,350 --> 00:01:33,900
+Total Posts and that will be previous state total posts and that is a bit off re-act logic here but
+
+17
+00:01:33,900 --> 00:01:40,130
+this first of all takes the old status and now when I do go into to the else block which is the case
+
+18
+00:01:40,140 --> 00:01:48,960
+when I am not editing but what I am adding then I want to set updated total posts plus 1 with the plus
+
+19
+00:01:48,960 --> 00:01:53,290
+plus syntax I incremented by 1 and then here is the return statement.
+
+20
+00:01:53,310 --> 00:01:59,270
+I'll set the total posts equal to updated total posts and have this change in place.
+
+21
+00:01:59,280 --> 00:02:07,080
+Fine I'll quickly delete my doc again so that I'm back to two items and I do add my doc so that I go
+
+22
+00:02:07,080 --> 00:02:09,570
+up to free items again.
+
+23
+00:02:09,570 --> 00:02:14,580
+Now you see that next button and you can use it of course because now we're managing the total post
+
+24
+00:02:14,580 --> 00:02:15,380
+correctly too.
+
+25
+00:02:15,510 --> 00:02:19,220
+So that's just a Leelah adjustment has nothing to do with Knode or graphs you all.
+
+26
+00:02:19,290 --> 00:02:22,850
+But since I spotted that bug I of course also want to get rid of it.
+
+27
+00:02:23,190 --> 00:02:30,210
+And with that we moved our entire rest API over to graft to L and I hope you see the power graph tool
+
+28
+00:02:30,240 --> 00:02:37,530
+gives you by being more flexible regarding the data you fetch from the backend and therefore your front
+
+29
+00:02:37,530 --> 00:02:44,640
+that development can move faster because your back and gives you the entire bandwidth of data.
+
+30
+00:02:44,640 --> 00:02:46,050
+You might be interested in.
+

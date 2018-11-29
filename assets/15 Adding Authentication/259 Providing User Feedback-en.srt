@@ -1,0 +1,364 @@
+1
+00:00:02,300 --> 00:00:05,920
+We've got all the core features that are related to authentication.
+
+2
+00:00:05,960 --> 00:00:14,420
+Implement it now when I work on the user experience a little bit at least right now when we log in and
+
+3
+00:00:14,420 --> 00:00:20,660
+we for example try to log in with invalid credentials where we don't find the email or the password
+
+4
+00:00:20,660 --> 00:00:25,870
+does not match or we try to create a user for whom the email already exists.
+
+5
+00:00:26,060 --> 00:00:31,980
+Then we are just redirected without any error message being shown on the page.
+
+6
+00:00:32,000 --> 00:00:37,670
+Now I will dive deeper into how to validate user input in the valley Dacian marginal to course but here
+
+7
+00:00:37,760 --> 00:00:43,620
+we're not talking about validation so much but really about giving some feedback to the user in general.
+
+8
+00:00:43,760 --> 00:00:50,060
+Now when rendering Due's with the render method as we are doing it here including data that should be
+
+9
+00:00:50,060 --> 00:00:53,870
+rendered on the page was simple by the way is offene.
+
+10
+00:00:53,930 --> 00:00:57,390
+It can be deleted here because we always include this as a local.
+
+11
+00:00:57,500 --> 00:01:00,120
+That is the case for all our routes.
+
+12
+00:01:00,140 --> 00:01:01,120
+As a side note.
+
+13
+00:01:01,400 --> 00:01:08,450
+So you can remove that indicated thing from all render methods but this is not really what I wanted
+
+14
+00:01:08,450 --> 00:01:11,700
+to do here it's a little aside thing we can do though.
+
+15
+00:01:11,870 --> 00:01:18,710
+The main thing is that it's easy to pass data to our views inside of the render method as you can see
+
+16
+00:01:18,950 --> 00:01:24,570
+it was never a problem to get our data into did you stare.
+
+17
+00:01:24,720 --> 00:01:31,770
+However it is a huge problem if you want to pass some data into the rendered view when we are redirecting
+
+18
+00:01:31,810 --> 00:01:38,500
+as we are doing it here because upon a redirect technically a new request is started a new request to
+
+19
+00:01:38,620 --> 00:01:40,690
+slash log in in this case.
+
+20
+00:01:40,690 --> 00:01:48,280
+And on that new request we don't know that we got here because the user entered an invalid e-mail or
+
+21
+00:01:48,280 --> 00:01:51,780
+anything like that when we triggered this new request.
+
+22
+00:01:51,920 --> 00:01:58,060
+Dessous treated in the same way as a request was triggered by clicking on the log in button in our menu.
+
+23
+00:01:58,240 --> 00:02:02,410
+So we have no way of finding out if we want to display the error message or not.
+
+24
+00:02:02,530 --> 00:02:08,080
+And hence in the render method of get log in where we showed the log in page we don't know if we want
+
+25
+00:02:08,080 --> 00:02:10,630
+to include some error message.
+
+26
+00:02:10,630 --> 00:02:18,880
+Now to solve that problem and storing some data before we redirect which we then use the brand new request
+
+27
+00:02:18,910 --> 00:02:20,840
+that is triggered by the redirect.
+
+28
+00:02:21,070 --> 00:02:30,350
+How could we do that well you learned if you want to store data across requests you need a session.
+
+29
+00:02:30,580 --> 00:02:32,520
+So we can use a session for that.
+
+30
+00:02:32,650 --> 00:02:37,950
+But of course I don't want to store the error message in the session permanently.
+
+31
+00:02:37,960 --> 00:02:45,090
+I want to add something to the error message kind of flash it onto the session.
+
+32
+00:02:45,290 --> 00:02:51,200
+And once the error message was then used to once we pulled it out of the session and did something with
+
+33
+00:02:51,200 --> 00:02:53,610
+it I went to remove it from the session.
+
+34
+00:02:53,690 --> 00:02:59,550
+So did for a subsequent requests this arrow message is not part of the session anymore.
+
+35
+00:02:59,810 --> 00:03:04,910
+And for this we can use another package which makes this really easy.
+
+36
+00:03:04,970 --> 00:03:09,620
+We installed it with NPM installed Asheesh safe and then the package is called connect.
+
+37
+00:03:09,620 --> 00:03:12,900
+Dash flash if you hit enter.
+
+38
+00:03:13,010 --> 00:03:21,010
+This gets downloaded and added to your project can restart the server thereafter.
+
+39
+00:03:21,150 --> 00:03:24,360
+And now connect flash is really simple to use.
+
+40
+00:03:24,360 --> 00:03:31,350
+First of all we initialize in our app chase folder and file in there we install it or we import it just
+
+41
+00:03:31,350 --> 00:03:33,020
+as we import our packages.
+
+42
+00:03:33,210 --> 00:03:38,160
+You can store it in a concept which you name however you want I'll name it flash and I will require
+
+43
+00:03:38,250 --> 00:03:45,080
+Kinect flashier now flash then needs to be registered.
+
+44
+00:03:45,080 --> 00:03:48,100
+You could say initialized I'll do this year at the bottom.
+
+45
+00:03:48,140 --> 00:03:53,870
+You need to do it after you initialized the session so certainly after dismal where they are I will
+
+46
+00:03:53,870 --> 00:03:58,050
+call you as and I will simply call flash as a function here.
+
+47
+00:03:58,100 --> 00:04:05,930
+Now we can use that flash middleware anywhere in our application on the request object.
+
+48
+00:04:05,960 --> 00:04:07,380
+So now let's save that.
+
+49
+00:04:07,550 --> 00:04:13,160
+Let's head over to office and let's say here when we're logging in and we don't find a user with that
+
+50
+00:04:13,190 --> 00:04:18,760
+e-mail which is the problem here we want to flash an Arab message into our session.
+
+51
+00:04:18,980 --> 00:04:22,060
+We do this now with request and there will be a flash method.
+
+52
+00:04:22,070 --> 00:04:32,030
+Now added by this package this flash message now simply takes a key under which this message will be
+
+53
+00:04:32,030 --> 00:04:32,660
+stored.
+
+54
+00:04:32,660 --> 00:04:34,730
+We could name this error.
+
+55
+00:04:35,270 --> 00:04:36,760
+And then the message.
+
+56
+00:04:36,760 --> 00:04:43,380
+And in this case this would be invalid e-mail were password.
+
+57
+00:04:43,390 --> 00:04:46,150
+Now you could also say just invalid e-mail.
+
+58
+00:04:46,240 --> 00:04:49,600
+Some people advocate not being as clear as people can.
+
+59
+00:04:49,600 --> 00:04:52,860
+Otherwise guess which part of the credentials was wrong.
+
+60
+00:04:52,900 --> 00:04:56,520
+I'd argue they can test is anyways by trying to sign up with that e-mail.
+
+61
+00:04:56,650 --> 00:05:01,000
+But whatever you want you can output or flash such an error message.
+
+62
+00:05:01,000 --> 00:05:04,150
+Now if there is a session and it's indure until we use it.
+
+63
+00:05:04,390 --> 00:05:08,800
+Now we want to use it here when we do render the log in page here.
+
+64
+00:05:08,830 --> 00:05:14,650
+I want to include an error message very let's say.
+
+65
+00:05:14,980 --> 00:05:20,710
+And that error message variable will simply pulled it by using request flash again.
+
+66
+00:05:20,740 --> 00:05:25,450
+And here we now just access to key for which you want to get the message.
+
+67
+00:05:25,450 --> 00:05:28,290
+So in my case that key is what I specified here.
+
+68
+00:05:28,410 --> 00:05:29,130
+Error.
+
+69
+00:05:29,430 --> 00:05:32,100
+So now I can pull that message out with error.
+
+70
+00:05:32,110 --> 00:05:38,560
+So whatever I stored in error will now be retrieved and stored an error message and there ofter information
+
+71
+00:05:38,680 --> 00:05:40,510
+is removed from the session.
+
+72
+00:05:41,300 --> 00:05:48,290
+So now error message will be set and will hold a value only if we have an error flashed into a recession
+
+73
+00:05:49,150 --> 00:05:56,770
+and therefore we can now move over to our view to the log in view and display the error message.
+
+74
+00:05:56,860 --> 00:06:00,280
+Let's say above all of that I add a death.
+
+75
+00:06:00,310 --> 00:06:05,200
+And for now let's make this really simple and just output our error message.
+
+76
+00:06:05,260 --> 00:06:11,560
+So here error message is the variable in which I'm storing it.
+
+77
+00:06:11,560 --> 00:06:14,720
+Obviously I want to check if that exists before I rendered this.
+
+78
+00:06:14,770 --> 00:06:20,610
+So we'll wrap this with some Ejay as if statement were a check if error message.
+
+79
+00:06:20,680 --> 00:06:26,830
+This will not be treated as true if it's simply not defined so if we simply are not able to retrieve
+
+80
+00:06:26,830 --> 00:06:27,710
+anything.
+
+81
+00:06:28,090 --> 00:06:31,240
+And then let's try to output it like this.
+
+82
+00:06:31,240 --> 00:06:32,900
+Let's see if that works.
+
+83
+00:06:33,040 --> 00:06:38,070
+If I go back to my application and I reload that log in page that seems to work.
+
+84
+00:06:38,170 --> 00:06:40,490
+And now let me Andray invalid email.
+
+85
+00:06:41,540 --> 00:06:50,810
+And indeed I see invalid e-mail or password if I do enter a valid email but the invalid password I don't
+
+86
+00:06:50,810 --> 00:06:55,980
+see that because I don't flash anything onto my session yet.
+
+87
+00:06:56,030 --> 00:06:57,700
+So this is working.
+
+88
+00:06:57,800 --> 00:07:00,100
+Now let's quickly reformat that.
+
+89
+00:07:00,410 --> 00:07:01,690
+I'll do that in next lecture.
+
+90
+00:07:01,700 --> 00:07:06,550
+You can skip it and download the finished formatted code if you want to and there after let's add an
+
+91
+00:07:06,620 --> 00:07:07,970
+Abra useful places to.
+

@@ -1,0 +1,412 @@
+1
+00:00:02,300 --> 00:00:08,270
+Noted we had a look at the basics about no chairs what we can do with it and now did we even used it.
+
+2
+00:00:08,270 --> 00:00:13,700
+Let me walk you through the content of this course and explain what's in the course and where you can
+
+3
+00:00:13,700 --> 00:00:18,830
+find what we're almost done getting started in the next module.
+
+4
+00:00:18,830 --> 00:00:25,040
+I will give you a brief javascript refresher just to make sure we're all on the same page regarding
+
+5
+00:00:25,040 --> 00:00:31,520
+the core javascript syntax but more importantly about some Next-Gen javascript features which we'll
+
+6
+00:00:31,520 --> 00:00:37,500
+use in of course basic javascript knowledge is assumed and will not be taught in that module.
+
+7
+00:00:37,580 --> 00:00:39,290
+But if you just need a refresher.
+
+8
+00:00:39,350 --> 00:00:45,710
+Some additional information or this next gen javascript knowledge then this is a module you should take.
+
+9
+00:00:45,740 --> 00:00:47,800
+Otherwise it's optional.
+
+10
+00:00:48,020 --> 00:00:51,520
+Now offered as a refresher or immediately after this module.
+
+11
+00:00:51,530 --> 00:00:55,440
+If you don't need a refresher will dive into the notorious basics.
+
+12
+00:00:55,520 --> 00:01:01,400
+How it generally works how we can work with streams of data and some core no chess modules.
+
+13
+00:01:01,400 --> 00:01:07,270
+So really the nitty gritty details you need to know about the language so to say.
+
+14
+00:01:07,640 --> 00:01:12,070
+And will then dive into efficiently developing with nodes.
+
+15
+00:01:12,070 --> 00:01:12,810
+J.S..
+
+16
+00:01:12,860 --> 00:01:17,400
+How you can debug your code handle errors and so on.
+
+17
+00:01:17,450 --> 00:01:20,270
+Now they are after all dive into Express Geass.
+
+18
+00:01:20,450 --> 00:01:24,390
+The most popular framework you can use for notorious.
+
+19
+00:01:24,440 --> 00:01:31,730
+I'll explain why we use it and why we still in it's hard use no G-S why we still learn about no chess
+
+20
+00:01:32,030 --> 00:01:36,850
+even though we use Xpress to us because using it makes sense it makes things easier.
+
+21
+00:01:36,860 --> 00:01:43,120
+You will use it if you are working with no chance but still of course we still use no chase.
+
+22
+00:01:43,130 --> 00:01:45,170
+With all of that now.
+
+23
+00:01:45,290 --> 00:01:50,930
+Thereafter We'll dive into templating engines that are basically some tools you could say that allow
+
+24
+00:01:50,930 --> 00:01:57,900
+you to generate HTL pages on the server with dynamic content encoded in them and that is how you can
+
+25
+00:01:57,910 --> 00:02:01,700
+return different pages or pages with different content.
+
+26
+00:02:01,700 --> 00:02:02,950
+Back to your users.
+
+27
+00:02:03,050 --> 00:02:05,250
+So that will be an important module.
+
+28
+00:02:05,300 --> 00:02:10,070
+Now their offer will dive into the model view controller pattern what that is and why we use it.
+
+29
+00:02:10,070 --> 00:02:14,910
+And of course how we use it and will then have a look at some advanced routing concepts.
+
+30
+00:02:14,930 --> 00:02:20,750
+Routing is something we'll also learn and expressed as module and we'll dive deep into the models of
+
+31
+00:02:20,750 --> 00:02:23,180
+the model view controller pattern.
+
+32
+00:02:23,180 --> 00:02:27,020
+Now after we're done with that it's time to dive into databases.
+
+33
+00:02:27,020 --> 00:02:31,300
+I will start by connecting our node application with a sequel database.
+
+34
+00:02:31,400 --> 00:02:32,330
+My sequel.
+
+35
+00:02:32,360 --> 00:02:38,390
+To be precise as a next step will dive deeper into that and use a package that makes working with siecle
+
+36
+00:02:38,410 --> 00:02:39,750
+databases easier.
+
+37
+00:02:39,790 --> 00:02:47,480
+Sequela is now and after having seen sequel will continue with no sequel and see how we would use that
+
+38
+00:02:47,900 --> 00:02:53,840
+eval use Mangu is there to also make work that easier and will then stick to no sequel for the rest
+
+39
+00:02:53,840 --> 00:03:01,280
+of the course but you'll thoroughly learn both sequel and no sequel no authors will dive into sessions
+
+40
+00:03:01,280 --> 00:03:01,920
+and cookies.
+
+41
+00:03:01,920 --> 00:03:04,480
+What that is why you use it and how you use it.
+
+42
+00:03:04,730 --> 00:03:06,470
+We'll have a look at often dictation.
+
+43
+00:03:06,500 --> 00:03:13,540
+So how we can make sure that users can sign up and sign in with our application will dive into sending
+
+44
+00:03:13,550 --> 00:03:15,110
+emails how that would work.
+
+45
+00:03:15,110 --> 00:03:20,300
+How can we auto generate emails when a user signs up for example.
+
+46
+00:03:20,420 --> 00:03:27,170
+We'll also dive into advanced authentication features and also offer accusation which means that for
+
+47
+00:03:27,170 --> 00:03:31,850
+example only a user who created a product can edit or delete it.
+
+48
+00:03:32,150 --> 00:03:38,480
+We'll then have a look at user input validation which is a crucial part in any web application because
+
+49
+00:03:38,480 --> 00:03:44,390
+you want to make sure that the data your users enter into your forms is correct and valid and you'll
+
+50
+00:03:44,390 --> 00:03:46,240
+learn how you can do that efficiently.
+
+51
+00:03:46,280 --> 00:03:52,520
+In this module and will then dive into error handling because errors will happen.
+
+52
+00:03:52,520 --> 00:03:58,640
+For example if the user enters wrong input and I will show you how you can handle different kinds of
+
+53
+00:03:58,640 --> 00:04:00,920
+errors in an elegant way.
+
+54
+00:04:01,370 --> 00:04:04,380
+Now their offer will divert to something important.
+
+55
+00:04:04,430 --> 00:04:06,500
+File up and downloads.
+
+56
+00:04:06,500 --> 00:04:08,140
+How can you handle these.
+
+57
+00:04:08,150 --> 00:04:14,410
+How can you write code that takes incoming files store them and is able to return files.
+
+58
+00:04:14,420 --> 00:04:20,630
+I'll also show you how you can automatically generate PTF documents on the server in this module.
+
+59
+00:04:21,170 --> 00:04:22,790
+Well then have a look at page anation.
+
+60
+00:04:22,820 --> 00:04:27,370
+So how we can return our data in chunks instead of all the data at once.
+
+61
+00:04:27,410 --> 00:04:29,810
+Which is not ideal for your bandwidth.
+
+62
+00:04:29,960 --> 00:04:35,060
+Will there ofter have a look at async request and I'll explain what that is and how we can handle it
+
+63
+00:04:35,150 --> 00:04:38,970
+with no choice and will then dive into payments.
+
+64
+00:04:38,990 --> 00:04:43,260
+How can we accept payments from a service called Strype J.S..
+
+65
+00:04:43,280 --> 00:04:49,580
+Obviously something we'll need in any shop we built and thereafter will dive into a different kind of
+
+66
+00:04:49,580 --> 00:04:51,690
+application you can build with no chairs.
+
+67
+00:04:51,890 --> 00:04:53,110
+We'll dive into rest.
+
+68
+00:04:53,120 --> 00:04:59,850
+AP eyes and one module does not sound like a lot of content on this very important technology.
+
+69
+00:05:00,050 --> 00:05:05,840
+But actually I got two modules on that and we'll also dive into file uploads and rest API.
+
+70
+00:05:06,020 --> 00:05:08,800
+Authentication page anation all that stuff.
+
+71
+00:05:08,870 --> 00:05:14,810
+And additionally these modules will build up on the entire modules before that because you will learn
+
+72
+00:05:14,850 --> 00:05:20,480
+the arrest API does not differ that much from a normal node application.
+
+73
+00:05:20,480 --> 00:05:26,480
+And I will show you in detail which knowledge you still need and how you need to change some things.
+
+74
+00:05:26,480 --> 00:05:31,060
+Not that many actually to turn an existing application into a rest.
+
+75
+00:05:31,070 --> 00:05:32,680
+API now.
+
+76
+00:05:32,750 --> 00:05:38,690
+And once we're done with that I will dive into a more modern javascript feature.
+
+77
+00:05:38,740 --> 00:05:44,570
+A single weight and how you can use that in your node application and will dive into web sockets and
+
+78
+00:05:44,570 --> 00:05:51,860
+socket I O does that technology or a set of technologies that allows you to add real time functionalities
+
+79
+00:05:51,890 --> 00:05:52,570
+to your app.
+
+80
+00:05:52,580 --> 00:05:59,270
+So for example if one user sends a message and you instantly want to notify an every user you can use
+
+81
+00:05:59,270 --> 00:06:00,370
+WEP sockets for that.
+
+82
+00:06:00,470 --> 00:06:06,930
+And I will show how it works in this module offered as Marshall will dive into a different kind of API
+
+83
+00:06:06,960 --> 00:06:13,700
+as we had a look at rest API as well and have a look at graph Q API eyes graph Q is a very modern and
+
+84
+00:06:13,700 --> 00:06:16,370
+popular way of building API.
+
+85
+00:06:16,610 --> 00:06:18,800
+It has some advantages over rest.
+
+86
+00:06:18,800 --> 00:06:21,480
+API is also some disadvantages.
+
+87
+00:06:21,620 --> 00:06:27,200
+And I will dive into graphical and how it differs from rest API eyes in this module and I will show
+
+88
+00:06:27,200 --> 00:06:34,340
+you how to build a graphical API from scratch with no genius and this will be quite a big module even
+
+89
+00:06:34,340 --> 00:06:37,020
+though its only one block on this slide.
+
+90
+00:06:37,040 --> 00:06:39,580
+Now there often will have a look at deployment.
+
+91
+00:06:39,590 --> 00:06:43,720
+How can you take your application you build all your node code you build.
+
+92
+00:06:43,760 --> 00:06:49,110
+How can you take that and move it to a real server in the web and ensure that it runs there.
+
+93
+00:06:49,280 --> 00:06:50,590
+This will be shown there.
+
+94
+00:06:50,600 --> 00:06:56,420
+There are also dive into things like setting up SSL encryption and once were done with that I'll have
+
+95
+00:06:56,420 --> 00:06:58,300
+a short module on note.
+
+96
+00:06:58,330 --> 00:07:04,020
+JS functionality is beyond creating web service with it because you can use it for other things too.
+
+97
+00:07:04,070 --> 00:07:05,350
+As I WILL mentioned there.
+
+98
+00:07:05,750 --> 00:07:07,440
+And then we're done.
+
+99
+00:07:07,440 --> 00:07:13,230
+I'll end the course by giving you some next steps potential ideas on how to continue and by the end
+
+100
+00:07:13,310 --> 00:07:20,720
+you will have learned a lot about nodes J.S. and express and the many things we'll dive into in this
+
+101
+00:07:20,720 --> 00:07:21,840
+course.
+
+102
+00:07:21,950 --> 00:07:27,500
+I hope you are as excited as I am and with that let's quickly move on so that we can quickly get to
+
+103
+00:07:27,500 --> 00:07:28,930
+the point where we write code.
+

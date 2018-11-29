@@ -1,0 +1,200 @@
+1
+00:00:02,230 --> 00:00:11,230
+Before we start working on the project let me quickly have a look at rest your eyes and the over knowledge
+
+2
+00:00:11,230 --> 00:00:17,410
+you gained from the course is that now all redundant we learn about things like setting up our node
+
+3
+00:00:17,410 --> 00:00:25,480
+and express app routing handling requests responses request validation database communication file handling
+
+4
+00:00:25,510 --> 00:00:29,410
+uploads downloads sessions and cookies and often dictation.
+
+5
+00:00:29,410 --> 00:00:32,790
+These are some big topics we covered for the course.
+
+6
+00:00:32,920 --> 00:00:37,300
+Now how do we have to adjust our knowledge.
+
+7
+00:00:37,360 --> 00:00:43,480
+Now did we build a restful API instead of a view based application.
+
+8
+00:00:43,840 --> 00:00:49,330
+Well regarding the general setup we already saw that in the last module there are no changes we need
+
+9
+00:00:49,330 --> 00:00:49,870
+to do.
+
+10
+00:00:49,900 --> 00:00:54,370
+We still set up our normal node and express server regarding the routing.
+
+11
+00:00:54,370 --> 00:00:56,490
+We also have no significant changes.
+
+12
+00:00:56,530 --> 00:01:00,610
+We just use more HTP methods more HTB works now.
+
+13
+00:01:00,700 --> 00:01:05,320
+That's the only difference in the end for handling requests and responses.
+
+14
+00:01:05,410 --> 00:01:06,700
+You already learned that.
+
+15
+00:01:06,700 --> 00:01:10,820
+Now we work with Jason data instead of the use.
+
+16
+00:01:10,870 --> 00:01:14,920
+So that is a difference we render no use anymore.
+
+17
+00:01:14,950 --> 00:01:21,150
+We have no use Folder anymore we don't use Ejay as handlebars or anything like that.
+
+18
+00:01:21,160 --> 00:01:24,310
+Instead we only exchange data so there is a change.
+
+19
+00:01:24,340 --> 00:01:29,300
+But as you learned in the last module This is also not too hard to implement.
+
+20
+00:01:29,590 --> 00:01:35,970
+Now if you want to add validation for incoming request data then we will not have to change anything.
+
+21
+00:01:36,010 --> 00:01:42,640
+We still can add validation for example with Express validator which we used in the validation module
+
+22
+00:01:42,640 --> 00:01:48,890
+of this course and the way we use it and the logic behind it does not change a single bit.
+
+23
+00:01:49,330 --> 00:01:50,750
+Database communication.
+
+24
+00:01:50,770 --> 00:01:57,120
+So working with database B that a sequel or no sequel database also does not change.
+
+25
+00:01:57,160 --> 00:02:04,420
+This happens on the server side in controller action typically and the logic we write dare the code
+
+26
+00:02:04,450 --> 00:02:11,290
+we write there is not affected by the data we exchange or by the fact whether we render a view or if
+
+27
+00:02:11,290 --> 00:02:17,310
+we send around Jason data when we talk about file uploads downloads and so on.
+
+28
+00:02:17,320 --> 00:02:19,110
+There's also not much to change.
+
+29
+00:02:19,360 --> 00:02:22,940
+On the service side nothing changes actually on the client side.
+
+30
+00:02:22,960 --> 00:02:29,320
+The logic changes a little bit and I will show you how we can implement file upload and of course also
+
+31
+00:02:29,320 --> 00:02:32,160
+serving files in this module.
+
+32
+00:02:32,290 --> 00:02:40,900
+Now for sessions and cookies there we have changes because we will not use sessions and cookies anymore
+
+33
+00:02:41,110 --> 00:02:41,980
+with rest.
+
+34
+00:02:41,980 --> 00:02:48,790
+API eyes are the reason for that simply is that you learned about these restful principles or rest API
+
+35
+00:02:48,790 --> 00:02:55,200
+principles and one of them was that each request is treated separately.
+
+36
+00:02:55,300 --> 00:03:02,610
+It is looked at independently from previous requests so we have no connection between the client and
+
+37
+00:03:02,710 --> 00:03:03,230
+server.
+
+38
+00:03:03,280 --> 00:03:09,790
+We have no shared connection history to be precise and therefore we managed no sessions on the server
+
+39
+00:03:09,970 --> 00:03:17,340
+because the rest API does not care about the clients or whether that client connected to the API before
+
+40
+00:03:17,860 --> 00:03:20,730
+and therefore authentication will also have to change.
+
+41
+00:03:20,770 --> 00:03:26,110
+We'll use a different authentication approach and I'll show you which approach does this and how to
+
+42
+00:03:26,110 --> 00:03:28,730
+implement it in this module too.
+
+43
+00:03:29,110 --> 00:03:32,320
+So overall there are not too many changes.
+
+44
+00:03:32,320 --> 00:03:33,310
+Some changes.
+
+45
+00:03:33,340 --> 00:03:38,710
+The biggest changes are related to sessions and they are for authentication and I will show you how
+
+46
+00:03:38,710 --> 00:03:44,500
+to implement them but the rest will still work the same you learn that and for all the knowledge you
+
+47
+00:03:44,500 --> 00:03:48,290
+gained from the Course is of course everything but redundant.
+
+48
+00:03:48,370 --> 00:03:50,950
+It's still super important.
+
+49
+00:03:50,950 --> 00:03:53,070
+And with that let's dive in.
+
+50
+00:03:53,110 --> 00:03:57,710
+Let's see which project will be working on and how we can work on it.
+

@@ -1,0 +1,144 @@
+1
+00:00:02,190 --> 00:00:04,710
+Knouted we're able to load the cartes data.
+
+2
+00:00:04,830 --> 00:00:11,250
+Of course make sure we can also delete cart items for that we have the postcard to delete product action
+
+3
+00:00:11,340 --> 00:00:13,710
+in our shop controller.
+
+4
+00:00:13,710 --> 00:00:20,070
+Now in there I used to delete the item from cart method on the user object which we wrote on our own
+
+5
+00:00:20,070 --> 00:00:24,500
+in the last module and which of course is also not a default mongooses method.
+
+6
+00:00:24,870 --> 00:00:29,910
+So it's time to go back into the user model and have a look at the delete item from card method and
+
+7
+00:00:29,910 --> 00:00:34,200
+see how we can recreate that functionality there.
+
+8
+00:00:34,200 --> 00:00:39,630
+What I do is essentially I create an updated card items array by filtering out the items that should
+
+9
+00:00:39,720 --> 00:00:40,400
+survive.
+
+10
+00:00:40,410 --> 00:00:47,160
+So all the items except for the one I want to remove and then I update my model.
+
+11
+00:00:47,490 --> 00:00:50,800
+Well we can of course do that by copying.
+
+12
+00:00:51,030 --> 00:00:57,690
+Well basically just that code here and adding a number Methot just as we did it with Add to Cart.
+
+13
+00:00:57,690 --> 00:01:06,080
+So I will use my user schema and there are the methods again and then I'll add or remove from card method
+
+14
+00:01:06,530 --> 00:01:08,310
+which will be a function.
+
+15
+00:01:08,650 --> 00:01:16,760
+And in that function I will add that code which I copied from the bottom does code relies on being aware
+
+16
+00:01:17,030 --> 00:01:20,710
+of the product ID of the product we want to delete.
+
+17
+00:01:20,750 --> 00:01:25,680
+So Product ID is an argument I expect in this function here in this method.
+
+18
+00:01:26,150 --> 00:01:28,310
+And now we get the updated card items.
+
+19
+00:01:28,310 --> 00:01:35,720
+And now all we need to do is we need to set this card item's equal to the updated card items and then
+
+20
+00:01:35,720 --> 00:01:38,670
+we return this safe.
+
+21
+00:01:38,670 --> 00:01:45,630
+And now we got a method that we should be able to call to remove an item from the card just like Ted.
+
+22
+00:01:45,630 --> 00:01:47,180
+So let's move over to the shop.
+
+23
+00:01:47,180 --> 00:01:52,250
+Jay has fallen to control this folder and there in the postcard delete product route.
+
+24
+00:01:52,500 --> 00:01:54,180
+Well I just renamed it a bit.
+
+25
+00:01:54,210 --> 00:01:56,000
+I need to remove from card.
+
+26
+00:01:56,070 --> 00:01:58,460
+You could have kept the original name of course.
+
+27
+00:01:58,470 --> 00:02:04,130
+Now I have removed from cart I passed the product ID and a redirect here to the card page.
+
+28
+00:02:04,170 --> 00:02:10,610
+Once we're done that should work but it will only work if we enable the fitting route again.
+
+29
+00:02:10,770 --> 00:02:16,770
+So let's go to the routes folder the shop chaps file and let's comment in the card delete item read
+
+30
+00:02:16,770 --> 00:02:17,680
+it again.
+
+31
+00:02:18,060 --> 00:02:24,690
+And with that all changed we now go back and we click delete your.
+
+32
+00:02:24,920 --> 00:02:25,610
+That looks good.
+
+33
+00:02:25,610 --> 00:02:31,520
+We load up the card page and all the data is gone let's all verify doesn't compress by reloading our
+
+34
+00:02:31,520 --> 00:02:36,850
+users collection there in the cart items is an empty array.
+
+35
+00:02:37,190 --> 00:02:41,470
+So we're now able to add items to the cart and remove items from the cart.
+
+36
+00:02:41,480 --> 00:02:43,280
+Let's next work on the orders.
+

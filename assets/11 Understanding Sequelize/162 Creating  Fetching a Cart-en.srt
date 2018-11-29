@@ -1,0 +1,276 @@
+1
+00:00:02,540 --> 00:00:08,420
+To work with our new cart Let's go to the control us folder here and there to shop chairs fall which
+
+2
+00:00:08,420 --> 00:00:16,580
+is where we have our cart related actions get products get product get index debtors all working get
+
+3
+00:00:16,580 --> 00:00:18,980
+card however will not work.
+
+4
+00:00:20,200 --> 00:00:31,510
+In their I want to use a card associated with my existing user to get all the products in it and render
+
+5
+00:00:31,510 --> 00:00:33,120
+them to the screen.
+
+6
+00:00:33,670 --> 00:00:41,620
+For this let's get rid of that code but I'll comment it out so that I easily can use my render function
+
+7
+00:00:41,620 --> 00:00:42,240
+again.
+
+8
+00:00:43,470 --> 00:00:50,060
+Let's use request user that's still a user stored in our request by the way one important adjustment.
+
+9
+00:00:50,090 --> 00:00:57,150
+Let's disable that force sinking again so that we don't always override any data we stored.
+
+10
+00:00:57,170 --> 00:01:02,870
+So let's go back to happen chase at a as excuse me and let's use the user we retrieve for every new
+
+11
+00:01:02,870 --> 00:01:07,070
+request and which we stored in the request and there.
+
+12
+00:01:07,250 --> 00:01:14,130
+Let's execute cart and let's look into this and see if this gives us anything meaningful.
+
+13
+00:01:15,870 --> 00:01:21,690
+Finale's safeness and I go to cart it doesn't load the page.
+
+14
+00:01:22,000 --> 00:01:23,900
+And if I go back we see on the find here.
+
+15
+00:01:23,950 --> 00:01:26,130
+So we can't access to cards like this.
+
+16
+00:01:26,530 --> 00:01:34,970
+But what we can do here is we can use our request user and get the card which is associated to it looks
+
+17
+00:01:34,970 --> 00:01:36,440
+at them and catch
+
+18
+00:01:41,220 --> 00:01:45,300
+here will get to the card and let's lock the card here.
+
+19
+00:01:46,750 --> 00:01:53,070
+We save that and reload this page and still will not load.
+
+20
+00:01:53,190 --> 00:01:57,010
+But now I get Knol here and not on the find.
+
+21
+00:01:57,020 --> 00:02:02,270
+Now the reason why we don't find anything here for either of the two approaches is that we got no cards
+
+22
+00:02:02,280 --> 00:02:02,760
+yet.
+
+23
+00:02:03,000 --> 00:02:09,720
+If we look into our database cards it's totally empty just as we create a user right at startup.
+
+24
+00:02:09,810 --> 00:02:14,740
+Alternate a card for dead user so here I create a user.
+
+25
+00:02:14,950 --> 00:02:23,490
+Now in the next or get dead user I will also create a cart by adding user create cart like this.
+
+26
+00:02:26,900 --> 00:02:32,390
+And I don't need to pass any data in that because a card in the beginning will will not hold any special
+
+27
+00:02:32,390 --> 00:02:34,930
+data it just needs to be there.
+
+28
+00:02:35,110 --> 00:02:40,290
+I'll then return this and only listen in the next step.
+
+29
+00:02:41,300 --> 00:02:42,550
+Where I get my card.
+
+30
+00:02:42,560 --> 00:02:53,140
+So to say and with this now set up you see insert into cards call is done here we now have a look into
+
+31
+00:02:53,140 --> 00:02:54,110
+our hearts.
+
+32
+00:02:54,280 --> 00:03:02,250
+We see now we get a card associated You are a user with the ID 1 and now if I tried to reload that card's
+
+33
+00:03:02,250 --> 00:03:13,230
+page again here we now get some output and this output is stemming from our Get card call here.
+
+34
+00:03:13,490 --> 00:03:16,120
+So disconsolate Guerrera you looked at card.
+
+35
+00:03:16,200 --> 00:03:20,630
+So now it is working now for completeness sake.
+
+36
+00:03:20,630 --> 00:03:24,910
+Let's also console log request user card.
+
+37
+00:03:24,920 --> 00:03:28,370
+Again that's does all the work.
+
+38
+00:03:28,560 --> 00:03:33,290
+If a reload year does still it's the old log.
+
+39
+00:03:33,370 --> 00:03:36,590
+But if I scroll above it we still see on the find.
+
+40
+00:03:36,610 --> 00:03:44,170
+So this does not work we can't access card as property here but we can call get cards to work with the
+
+41
+00:03:44,170 --> 00:03:45,570
+card.
+
+42
+00:03:45,610 --> 00:03:49,630
+So now we've got the cart a way that will we loaded the card from the database.
+
+43
+00:03:49,630 --> 00:03:55,680
+We know more about that card here with the card away label.
+
+44
+00:03:55,840 --> 00:04:02,320
+We can use it to fetch the products that are inside of it by returning cards get products.
+
+45
+00:04:02,440 --> 00:04:11,220
+Remember a card is associated to products in a rapturous fall through belongs to Manny and sequel lies
+
+46
+00:04:11,230 --> 00:04:14,710
+will do the magic of looking into card item and so on.
+
+47
+00:04:14,710 --> 00:04:15,900
+So into this.
+
+48
+00:04:16,550 --> 00:04:24,270
+In between table so we can get products was added by sequel lies as a magic method.
+
+49
+00:04:25,510 --> 00:04:30,780
+And therefore here in this then block will have products available.
+
+50
+00:04:30,990 --> 00:04:34,230
+And here again just like any error I get.
+
+51
+00:04:34,370 --> 00:04:40,720
+But then block here we should have the products that are in this cart and that of course means that
+
+52
+00:04:40,720 --> 00:04:43,750
+we can now render these products.
+
+53
+00:04:43,750 --> 00:04:45,520
+So here I will render
+
+54
+00:04:48,430 --> 00:04:50,620
+my products here.
+
+55
+00:04:50,890 --> 00:04:54,250
+Store them in products and pass them to to you.
+
+56
+00:04:54,270 --> 00:04:57,190
+Now this will not work as expected though.
+
+57
+00:04:57,310 --> 00:05:01,050
+If I now reload this page we see no products in CART.
+
+58
+00:05:01,150 --> 00:05:06,850
+Now we got no products in a cart but we'll see that later once we do have them it'll all not work but
+
+59
+00:05:06,850 --> 00:05:08,230
+I'll come back yet.
+
+60
+00:05:08,260 --> 00:05:12,090
+For now let's just have a look at our Querrey statement.
+
+61
+00:05:12,100 --> 00:05:15,990
+We can see the disaster statement executed by sequel ice.
+
+62
+00:05:16,270 --> 00:05:21,910
+And if you didn't see it before here we can definitely see the advantage we have by using a package
+
+63
+00:05:21,910 --> 00:05:22,690
+like this.
+
+64
+00:05:22,690 --> 00:05:25,490
+We don't have to write that sequel Saipan on our own.
+
+65
+00:05:25,540 --> 00:05:29,560
+We use sequel eyes and let it do that behind the scenes.
+
+66
+00:05:29,560 --> 00:05:35,440
+So before we come back to what we will have to do regarding getting the card products lets make sure
+
+67
+00:05:35,590 --> 00:05:37,630
+we can add process to the card.
+
+68
+00:05:37,780 --> 00:05:44,380
+So for now I'll get rid of all that logic here and I will focus on adding products to the card in the
+
+69
+00:05:44,380 --> 00:05:45,070
+next step.
+

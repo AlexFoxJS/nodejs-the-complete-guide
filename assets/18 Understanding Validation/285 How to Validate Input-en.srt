@@ -1,0 +1,212 @@
+1
+00:00:02,290 --> 00:00:05,850
+Now how do you validate user input.
+
+2
+00:00:05,850 --> 00:00:10,210
+Well obviously we got our user entering some data into a foreign server.
+
+3
+00:00:10,260 --> 00:00:11,470
+Where we want to handle it.
+
+4
+00:00:11,670 --> 00:00:15,110
+And now we got a couple of places where we can add validation.
+
+5
+00:00:15,150 --> 00:00:20,090
+For example we can validate on the client side with the help of Javascript.
+
+6
+00:00:20,100 --> 00:00:27,420
+So before any request is sent we can write some javascript that for example watch the inputs for key
+
+7
+00:00:27,420 --> 00:00:27,870
+events.
+
+8
+00:00:27,870 --> 00:00:33,990
+So for the user typing and then checks the import whilst users working on the form and then you can
+
+9
+00:00:33,990 --> 00:00:38,680
+display the error because you can use javascript to change the dom at runtime.
+
+10
+00:00:38,760 --> 00:00:44,840
+You can display an error right in the browser before anything is sent to the server.
+
+11
+00:00:44,880 --> 00:00:50,520
+Now just can greatly enhance your user experience and it is something which I discuss in my dedicated
+
+12
+00:00:50,790 --> 00:00:52,830
+javascript and Javascript framework.
+
+13
+00:00:52,820 --> 00:00:57,750
+Courses like my Riak course my Ingela course and it's totally optional.
+
+14
+00:00:58,040 --> 00:00:59,070
+That is important.
+
+15
+00:00:59,070 --> 00:01:03,990
+It can definitely improve the user experience and therefore you might want to consider using it.
+
+16
+00:01:04,110 --> 00:01:12,690
+But it is optional because since we use client side javascript so javascript code that runs in the browser
+
+17
+00:01:13,170 --> 00:01:20,760
+the user can see that code the user could change that code into a user can of course disable Javascript.
+
+18
+00:01:20,760 --> 00:01:27,930
+So this is not a protection that secures you against incorrect data being sent to your server.
+
+19
+00:01:27,930 --> 00:01:30,330
+This is not a secure solution.
+
+20
+00:01:30,360 --> 00:01:36,570
+It's only there to improve the user experience because of course there you can validate and you can
+
+21
+00:01:36,570 --> 00:01:42,090
+show a nice error message and keep the old input so that the user doesn't have to re-enter that email
+
+22
+00:01:42,090 --> 00:01:44,780
+address where the sign was forgotten.
+
+23
+00:01:45,030 --> 00:01:49,580
+But it's only for user experience thing.
+
+24
+00:01:49,650 --> 00:01:51,550
+It's not really secure.
+
+25
+00:01:52,050 --> 00:01:55,680
+So your next option is to validate on the service side.
+
+26
+00:01:55,680 --> 00:02:00,810
+Now this is what will focus on in this module and in this course because this is of course what we do
+
+27
+00:02:00,810 --> 00:02:01,570
+with No.
+
+28
+00:02:01,650 --> 00:02:08,460
+J.S. we have to do that because this code can't be seen or changed by the user.
+
+29
+00:02:08,520 --> 00:02:14,330
+The user can't disable us using that code because it happens on the server not in the browser.
+
+30
+00:02:14,550 --> 00:02:21,480
+And this is the crucial part where we have to add validation where we really have to filter out invalid
+
+31
+00:02:21,550 --> 00:02:22,400
+values.
+
+32
+00:02:22,440 --> 00:02:28,140
+So this is a must have it's absolutely required and it is what we'll focus on and distend ensures that
+
+33
+00:02:28,140 --> 00:02:34,650
+we only work with valid data in our node app and ultimately if we do plan on storing it that we do store
+
+34
+00:02:34,680 --> 00:02:36,050
+correct data.
+
+35
+00:02:36,450 --> 00:02:42,930
+Now also important for some database engines and foremost database engines actually like for example
+
+36
+00:02:42,930 --> 00:02:43,800
+Man would it be.
+
+37
+00:02:43,800 --> 00:02:47,040
+There is also a built in validation which you can turn on.
+
+38
+00:02:47,040 --> 00:02:48,430
+I do covered that for example.
+
+39
+00:02:48,430 --> 00:02:51,150
+My mom would be course if you want to learn more about that.
+
+40
+00:02:51,150 --> 00:02:57,630
+It's also optional because this can be a last resort but if you have good service and validation in
+
+41
+00:02:57,630 --> 00:03:04,500
+place as you should have then this might not be required because there is not really a scenario where
+
+42
+00:03:04,560 --> 00:03:10,280
+invalid data could reach your database because you filter it out in that Surace validation already ready
+
+43
+00:03:10,800 --> 00:03:16,390
+no matter which approach you have if you validate on the server side and or in the database though.
+
+44
+00:03:16,650 --> 00:03:18,000
+Or is not really an option.
+
+45
+00:03:18,000 --> 00:03:23,550
+You should validate on the server side at all means but no matter what you choose in the end.
+
+46
+00:03:23,550 --> 00:03:27,510
+This can of course fail and then you should always return an error message.
+
+47
+00:03:27,540 --> 00:03:35,130
+A helpful error message if possible and never reload the page but always keep the data the user already
+
+48
+00:03:35,130 --> 00:03:41,100
+inserted because that of course is a horrible user experience which we all know that you enter something
+
+49
+00:03:41,160 --> 00:03:42,750
+incorrect and you get back.
+
+50
+00:03:42,790 --> 00:03:48,890
+Hey this password is not known or this e-mail address is unknown and you have to enter it all again.
+
+51
+00:03:49,020 --> 00:03:55,430
+So this is another part on which I'll focus on this module that we provide a good user experience and
+
+52
+00:03:55,430 --> 00:04:00,230
+with that we know how to do validation at least in theory.
+
+53
+00:04:00,320 --> 00:04:02,090
+Time to turn that into practice.
+

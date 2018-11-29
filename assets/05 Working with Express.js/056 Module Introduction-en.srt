@@ -1,0 +1,112 @@
+1
+00:00:02,110 --> 00:00:07,260
+You've now got an introduction to know Chase and how it works and how you can use it to write BASIC
+
+2
+00:00:07,260 --> 00:00:08,790
+no chess programs.
+
+3
+00:00:08,880 --> 00:00:12,550
+But what you also already saw is dead with no.
+
+4
+00:00:12,590 --> 00:00:21,040
+J.S. alone you have to write a lot of code to deal with basic things like extracting the body of incoming
+
+5
+00:00:21,120 --> 00:00:22,080
+request.
+
+6
+00:00:22,080 --> 00:00:23,540
+Now typically you don't want to do that.
+
+7
+00:00:23,550 --> 00:00:26,120
+You want to focus on your business logic.
+
+8
+00:00:26,280 --> 00:00:29,460
+The code that makes up your specific application.
+
+9
+00:00:29,580 --> 00:00:36,600
+You don't want to work or you don't want to care about standard tasks like handling incoming requests
+
+10
+00:00:36,630 --> 00:00:37,810
+or routing.
+
+11
+00:00:37,810 --> 00:00:43,530
+So executing different code for different pauvres difference or else you don't want to do that.
+
+12
+00:00:43,560 --> 00:00:46,860
+And therefore we'll now have a look at Express.
+
+13
+00:00:46,890 --> 00:00:55,080
+J.S. this is a framework you can install as a third party package into your note project and as such
+
+14
+00:00:55,290 --> 00:01:01,860
+it basically helps you outsource some of that nitty gritty work some of the details you don't want to
+
+15
+00:01:01,860 --> 00:01:02,680
+care about.
+
+16
+00:01:02,790 --> 00:01:10,470
+It gives you a rule set in which you work and a lot of utility functions that help you write cleaner
+
+17
+00:01:10,470 --> 00:01:13,400
+code and focus on your core business.
+
+18
+00:01:13,410 --> 00:01:18,210
+So what's inside this module then we'll have a brief look at what Express chess is.
+
+19
+00:01:18,240 --> 00:01:22,610
+I gave you a short introduction already now but let's take a closer look.
+
+20
+00:01:22,610 --> 00:01:30,090
+I'll then have a look at one important concept that pretty much defines express chess or that expressed
+
+21
+00:01:30,090 --> 00:01:32,600
+chess is built around middleware.
+
+22
+00:01:32,730 --> 00:01:38,190
+And what this is of course will that have a look at how we can work with requests and responses with
+
+23
+00:01:38,190 --> 00:01:44,940
+the help of express in a way easier way than we did thus far and we'll all have a look at routing and
+
+24
+00:01:44,940 --> 00:01:51,630
+see how we can execute different code for different incoming requests and payoffs or you or else without
+
+25
+00:01:51,630 --> 00:01:54,400
+having to write a bunch of if statements.
+
+26
+00:01:54,450 --> 00:02:02,910
+And last but not least of all to show you how we can return HVM pages so files we prepared to our client
+
+27
+00:02:03,120 --> 00:02:10,340
+instead of writing HVM all code in no chance as we did us far which was really that great.
+
+28
+00:02:10,380 --> 00:02:13,040
+So let's dive into all of that in this module.
+

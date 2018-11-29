@@ -1,0 +1,268 @@
+1
+00:00:02,090 --> 00:00:07,420
+Know we had a very close look at Pike as a templating engine but it's only one of three options.
+
+2
+00:00:07,470 --> 00:00:13,290
+Now it is was a quite extensive look because I also explained what templating engines are and what their
+
+3
+00:00:13,290 --> 00:00:14,640
+core logic is.
+
+4
+00:00:14,700 --> 00:00:19,240
+It'll be a bit faster 42 overlaying which just for the other two solutions.
+
+5
+00:00:19,420 --> 00:00:26,300
+Let's continue with handlebars which does not follow such a minimal Tim approach but uses normal Tim
+
+6
+00:00:26,350 --> 00:00:29,040
+L mixed with some templating logic.
+
+7
+00:00:29,430 --> 00:00:32,370
+So let's use handlebars and Fortius.
+
+8
+00:00:32,490 --> 00:00:33,460
+Let's go to aperture.
+
+9
+00:00:33,470 --> 00:00:34,260
+Yes.
+
+10
+00:00:34,290 --> 00:00:38,100
+And in there we now need to change our view engine.
+
+11
+00:00:38,100 --> 00:00:45,460
+Now we did install express handlebars but this actually is a package that is not auto installed by express.
+
+12
+00:00:45,540 --> 00:00:52,340
+So instead we manually have to tell express that there is such a Express handlebars engine available.
+
+13
+00:00:52,660 --> 00:00:58,560
+And for this we first of all import it and to find out whether you do need to do this for your favorite
+
+14
+00:00:58,560 --> 00:01:04,680
+engine or not you'll simply check their docs because there does this mentioned to express handlebars.
+
+15
+00:01:04,680 --> 00:01:05,870
+We at Express.
+
+16
+00:01:05,950 --> 00:01:10,650
+Yes the name is up to you by requiring express handlebars.
+
+17
+00:01:10,760 --> 00:01:12,170
+So now it is important.
+
+18
+00:01:12,180 --> 00:01:16,320
+And now we have to tell express that this exists that this is an engine.
+
+19
+00:01:16,350 --> 00:01:17,360
+It can use.
+
+20
+00:01:17,460 --> 00:01:24,570
+We do this by calling app and now there is engine Methot and this registers a new templating engine
+
+21
+00:01:24,660 --> 00:01:31,610
+in case we're using one which is not built in pi was built in kind of express handlebars is not.
+
+22
+00:01:32,070 --> 00:01:38,530
+So to register this we have to define a name for our engine and you can use any name you want though
+
+23
+00:01:38,550 --> 00:01:44,190
+of course you should try to not clash with the built in engines to which you all to find a link at the
+
+24
+00:01:44,190 --> 00:01:49,920
+end of this Montral by the way handlebars is a name we can use for example.
+
+25
+00:01:49,920 --> 00:01:53,900
+So let's give this engine this name and now we just have to tell.
+
+26
+00:01:53,970 --> 00:01:55,950
+EXPRESS This is just a name.
+
+27
+00:01:55,980 --> 00:01:58,700
+Now what is the actual tool I should use.
+
+28
+00:01:58,890 --> 00:02:00,280
+And that is express.
+
+29
+00:02:00,780 --> 00:02:07,440
+So that object we just import that dead just turns out to be a function we can call and we have to call
+
+30
+00:02:07,800 --> 00:02:10,970
+that basically initialises this engine you could say.
+
+31
+00:02:11,090 --> 00:02:17,730
+So this function returns the initialised view engine which we can assign to engine here.
+
+32
+00:02:18,240 --> 00:02:24,810
+So Express handlebars gives us this engine and now we have to switch the engine here to handlebars.
+
+33
+00:02:24,810 --> 00:02:28,920
+And obviously this name here has to match the name you set up here.
+
+34
+00:02:28,950 --> 00:02:30,900
+It does you're good to go.
+
+35
+00:02:30,900 --> 00:02:34,330
+Now you're ready to use handlebars in your coat.
+
+36
+00:02:34,530 --> 00:02:36,260
+Now how do you use it.
+
+37
+00:02:36,430 --> 00:02:38,850
+No you do create new files for this.
+
+38
+00:02:38,850 --> 00:02:45,860
+And let's start with the 4 4 H.T. male page ultra 4 0 for handle bars page.
+
+39
+00:02:45,870 --> 00:02:48,260
+Now we have to name it handlebars here.
+
+40
+00:02:48,310 --> 00:02:53,830
+Asked Is this a default by express handlebars and we find this as an engine name your.
+
+41
+00:02:54,040 --> 00:02:55,660
+You can also change the name.
+
+42
+00:02:55,660 --> 00:03:05,820
+For example do abs like this and now you're able to use thought abs as an extension so this is how that
+
+43
+00:03:05,820 --> 00:03:09,630
+works and how you register handlebars as the view engine.
+
+44
+00:03:09,690 --> 00:03:15,870
+Now with that just let's use it and let's take the four of four HDMI all fall and copy its content into
+
+45
+00:03:15,870 --> 00:03:23,110
+D 4 0 4 HP Saval because handlebars uses normal HD mail with some custom syntax.
+
+46
+00:03:23,160 --> 00:03:27,930
+Therefore there is no minimal H.M. version as was with Plag.
+
+47
+00:03:27,930 --> 00:03:33,810
+Now in this file let's remove that act of clause on that link and the navigation because that's still
+
+48
+00:03:33,810 --> 00:03:35,880
+wrong in that file.
+
+49
+00:03:35,910 --> 00:03:38,300
+I now want to change that here.
+
+50
+00:03:38,400 --> 00:03:43,220
+I want you output that title dynamically so that you can see how that works with handlebars.
+
+51
+00:03:43,230 --> 00:03:50,310
+Keep in mind that in APT Yes where we load that for 0 for page we are passing in does data and the way
+
+52
+00:03:50,310 --> 00:03:54,550
+you pass data into templates doesn't change with the engine.
+
+53
+00:03:54,570 --> 00:04:00,720
+This is always the same type of flow you pass in an object with key value pairs where the key is and
+
+54
+00:04:00,720 --> 00:04:07,290
+therefore indirectly all of the values are available in the template just the way you use it in a template
+
+55
+00:04:07,500 --> 00:04:09,710
+differs from engine to engine.
+
+56
+00:04:09,890 --> 00:04:16,920
+And in handlebars we output this value year by adding double curly braces opening and closing and between
+
+57
+00:04:16,920 --> 00:04:22,660
+these we add page title so that key name for which we want to output the value.
+
+58
+00:04:22,810 --> 00:04:30,240
+And with that if we save that and we go back and reload some page which does not exist we should still
+
+59
+00:04:30,240 --> 00:04:36,360
+get Page Not Found this time handled through handlebars and just as before with Paga if we inspect the
+
+60
+00:04:36,360 --> 00:04:37,090
+source.
+
+61
+00:04:37,170 --> 00:04:44,160
+We of course see no handlebars code the curly braces was simply replaced with the content that should
+
+62
+00:04:44,160 --> 00:04:45,920
+be rendered.
+
+63
+00:04:45,960 --> 00:04:47,840
+So this is how we use handlebars.
+
+64
+00:04:48,020 --> 00:04:53,580
+And now you we're feeling confident with the help of the official docs where you'll learn how to use
+
+65
+00:04:53,640 --> 00:04:55,560
+IF statements and loops.
+
+66
+00:04:55,560 --> 00:05:01,920
+Feel free to go ahead and all that you've placed the ad product pages with the handlebar equivalents
+
+67
+00:05:02,430 --> 00:05:05,840
+Otherwise we'll of course do that together in the next lecture.
+

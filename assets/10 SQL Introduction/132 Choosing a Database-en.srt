@@ -1,0 +1,244 @@
+1
+00:00:02,330 --> 00:00:07,070
+So sequel or no sequel that is the question and to answer that question.
+
+2
+00:00:07,090 --> 00:00:13,810
+We first of all have to understand the differences or what sequel and those sequel databases are how
+
+3
+00:00:13,810 --> 00:00:18,610
+would it differ how they differ regarding how we store the data and so on.
+
+4
+00:00:18,630 --> 00:00:25,350
+Our goal always is to store data and make it easily available or accessible so that we have an easy
+
+5
+00:00:25,350 --> 00:00:30,440
+way of accessing our data and not just easy from a code perspective.
+
+6
+00:00:30,510 --> 00:00:34,080
+But of course efficient it should be fast.
+
+7
+00:00:34,080 --> 00:00:35,740
+That is why we use a database.
+
+8
+00:00:35,820 --> 00:00:40,710
+It's simply quicker than accessing a file especially as the data in there grows.
+
+9
+00:00:40,710 --> 00:00:47,550
+It also helps us with things like we don't have to read the entire file to just find one piece of information.
+
+10
+00:00:47,580 --> 00:00:51,950
+Now as I mentioned we can opt for a sequel based database.
+
+11
+00:00:52,080 --> 00:00:59,500
+My sequel would be an example database engine that you can use or a no sequel database and there Mongo
+
+12
+00:00:59,500 --> 00:01:03,470
+D-B is one of the most prominent and well known alternatives.
+
+13
+00:01:03,960 --> 00:01:08,910
+So what is sequel how does it work then a sequel database.
+
+14
+00:01:08,940 --> 00:01:11,300
+Things in so-called tables.
+
+15
+00:01:11,370 --> 00:01:18,600
+So we might have a users a product and let's say an Orders table and in each table you have so-called
+
+16
+00:01:18,600 --> 00:01:26,310
+fields or columns for example a user could be defined by having an ID and email a name and a product
+
+17
+00:01:26,310 --> 00:01:29,870
+could have an ID title prize and a description.
+
+18
+00:01:29,880 --> 00:01:35,330
+Now we fill in data for these fields so-called the records.
+
+19
+00:01:35,340 --> 00:01:42,000
+So basically the rows in our tables for example here we got a couple of users with their data and we
+
+20
+00:01:42,000 --> 00:01:46,420
+get a couple of products to sequel based databases.
+
+21
+00:01:46,440 --> 00:01:46,980
+All they have.
+
+22
+00:01:46,980 --> 00:01:55,800
+One important thing they allow you to relate different tables for example an order could simply be described
+
+23
+00:01:55,830 --> 00:01:58,930
+as a connection of a user and a product right.
+
+24
+00:01:59,070 --> 00:02:03,900
+Because a user might order a couple of different products and a product might be ordered by a couple
+
+25
+00:02:03,900 --> 00:02:05,220
+of different users.
+
+26
+00:02:05,220 --> 00:02:10,570
+So basically we have such relations in sequence based databases here.
+
+27
+00:02:10,620 --> 00:02:13,970
+We can see one example relation.
+
+28
+00:02:13,970 --> 00:02:19,740
+This is one of the core things about sequel and in general the core sequel database characteristics
+
+29
+00:02:19,800 --> 00:02:26,560
+are that we have a strong data schema so that for each table we clearly define how to add data in there
+
+30
+00:02:26,610 --> 00:02:27,840
+should look like.
+
+31
+00:02:27,930 --> 00:02:29,590
+So which feels Do we have.
+
+32
+00:02:29,700 --> 00:02:32,700
+Which type of data does each field still work.
+
+33
+00:02:32,760 --> 00:02:33,610
+Is it a number.
+
+34
+00:02:33,630 --> 00:02:35,580
+Is it string is always a text.
+
+35
+00:02:35,580 --> 00:02:36,990
+Is it a boolean.
+
+36
+00:02:36,990 --> 00:02:43,500
+So then we have as strong the or strictly defined schema and all data in the table has to fit the schema
+
+37
+00:02:43,530 --> 00:02:44,490
+for this table.
+
+38
+00:02:44,490 --> 00:02:45,790
+This is really important.
+
+39
+00:02:45,810 --> 00:02:53,820
+So this schema this definition of how the data has to look like is one core thing in a sequel database.
+
+40
+00:02:53,820 --> 00:02:59,550
+We also have relations between our data that is a natural core characteristic of sequel based databases
+
+41
+00:03:00,150 --> 00:03:06,780
+we relate our differing tables with basically free important kinds of relations one to one one too many
+
+42
+00:03:06,990 --> 00:03:08,000
+many to many.
+
+43
+00:03:08,040 --> 00:03:12,900
+This simply means that we can have two tables where each record fits one of a record.
+
+44
+00:03:12,980 --> 00:03:18,900
+A record might fit multiple records or multiple records in table A can fit multiple records in table
+
+45
+00:03:18,930 --> 00:03:23,190
+B and you'll see this in practice and in code in this module.
+
+46
+00:03:23,430 --> 00:03:24,880
+So tables are connected.
+
+47
+00:03:24,960 --> 00:03:27,330
+That's an important thing.
+
+48
+00:03:27,330 --> 00:03:32,060
+Now sequel simply stands for structured query language.
+
+49
+00:03:32,190 --> 00:03:34,260
+So queries are a crucial things.
+
+50
+00:03:34,260 --> 00:03:40,680
+Queries are simply commands we use to interact with the database and in sequel Ikari look something
+
+51
+00:03:40,680 --> 00:03:41,390
+like this.
+
+52
+00:03:41,400 --> 00:03:43,170
+Of course there are different commands.
+
+53
+00:03:43,170 --> 00:03:49,900
+This would be a command that selects all users so all entries all records in the Users table where the
+
+54
+00:03:49,990 --> 00:03:52,550
+H is greater than 28.
+
+55
+00:03:52,650 --> 00:03:54,890
+So this is a so-called worry.
+
+56
+00:03:55,050 --> 00:04:01,740
+We've got a couple of key words there which are making up dead sequel language sort of structured query
+
+57
+00:04:01,740 --> 00:04:08,220
+language simply has to use keywords and then we Edzard some parameters or some data we connect with
+
+58
+00:04:08,220 --> 00:04:09,030
+these keywords.
+
+59
+00:04:09,030 --> 00:04:12,280
+This is how a sequel works.
+
+60
+00:04:12,330 --> 00:04:14,550
+Now let's have a look at no sequel.
+
+61
+00:04:14,550 --> 00:04:15,480
+The next lecture in.
+

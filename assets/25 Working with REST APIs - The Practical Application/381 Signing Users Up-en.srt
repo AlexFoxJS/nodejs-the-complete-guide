@@ -1,0 +1,376 @@
+1
+00:00:02,550 --> 00:00:09,000
+To stored a password we should hash it so that if someone gains access to our database the password
+
+2
+00:00:09,000 --> 00:00:12,290
+is not stored in plain text format.
+
+3
+00:00:12,420 --> 00:00:18,930
+All install a new package which we used before and that is Biek script J.S. which allows us to hash
+
+4
+00:00:18,930 --> 00:00:23,840
+a password in a secure way after this was installed.
+
+5
+00:00:24,030 --> 00:00:32,460
+We can rerun NPM start and now in my off controller I'll import be tripped by requiring it from the
+
+6
+00:00:32,460 --> 00:00:36,020
+big crypt Jr's package in there.
+
+7
+00:00:36,390 --> 00:00:44,340
+So in down there in my sign up action I'll use be tripped and there the a hash method to hash out the
+
+8
+00:00:44,340 --> 00:00:48,110
+password which is plain text you're with assault of 12.
+
+9
+00:00:48,120 --> 00:00:49,560
+So a strength of 12.
+
+10
+00:00:49,560 --> 00:00:50,550
+So to say.
+
+11
+00:00:51,150 --> 00:00:57,910
+And I'll then continue or face error osier.
+
+12
+00:00:57,960 --> 00:01:01,700
+Now I have an error here somewhere.
+
+13
+00:01:01,790 --> 00:01:03,700
+Then it'll be a service site error.
+
+14
+00:01:03,770 --> 00:01:06,090
+I'll copy the logic from before.
+
+15
+00:01:06,500 --> 00:01:12,380
+So from my feet J.S. controller where a just check for the existence of a status code if no status code
+
+16
+00:01:12,380 --> 00:01:12,940
+exists.
+
+17
+00:01:12,980 --> 00:01:13,380
+All set.
+
+18
+00:01:13,380 --> 00:01:14,890
+Five hundred and.
+
+19
+00:01:14,990 --> 00:01:17,160
+Well Frode an error like this.
+
+20
+00:01:19,220 --> 00:01:27,600
+In the then block however we'll have our hashed password and that is the password and I want to store
+
+21
+00:01:27,600 --> 00:01:29,160
+in the database.
+
+22
+00:01:29,280 --> 00:01:38,110
+So here are now create a new user with the help of my user or constructors so my user Maalik created
+
+23
+00:01:38,100 --> 00:01:42,370
+from mongooses and I'll set the fields I need to set on the user.
+
+24
+00:01:42,450 --> 00:01:46,600
+So that would be email password name status.
+
+25
+00:01:46,650 --> 00:01:53,980
+Actually we can change the status year from required true to default off I am new.
+
+26
+00:01:54,180 --> 00:01:56,780
+So now we don't need to setted when creating a user instead.
+
+27
+00:01:56,790 --> 00:02:01,430
+Every user will start with this status this year just a little adjustment.
+
+28
+00:02:01,640 --> 00:02:07,950
+With that we don't need to set the status but we do need to set e-mail password and name so the email
+
+29
+00:02:07,950 --> 00:02:11,050
+is to extract that e-mail password.
+
+30
+00:02:12,500 --> 00:02:19,570
+ISDE hashed password not the extracted one but the last one to Securitas and the name Asti extract that
+
+31
+00:02:19,570 --> 00:02:20,860
+name.
+
+32
+00:02:20,920 --> 00:02:28,360
+Now last but not least I will call save to save to the database and I will return that so that we can
+
+33
+00:02:28,360 --> 00:02:29,160
+add a number.
+
+34
+00:02:29,170 --> 00:02:36,380
+Then block where we get the result of that database operation and here we know it will have succeeded.
+
+35
+00:02:36,490 --> 00:02:44,290
+So we can return a response with a status code off 200 and one because a resource was created where
+
+36
+00:02:44,290 --> 00:02:53,180
+I can return some Jason data with a message of user created and then maybe the user ID which I can extract
+
+37
+00:02:53,180 --> 00:03:00,000
+from the result which is the user object result that underscore ID.
+
+38
+00:03:00,020 --> 00:03:02,280
+So now we're creating a user here.
+
+39
+00:03:02,690 --> 00:03:07,820
+Let's now save that and to seed it on the front and we need to go into the front end code in there to
+
+40
+00:03:07,820 --> 00:03:09,910
+the app js file.
+
+41
+00:03:10,220 --> 00:03:17,960
+And here first of all we need to correct our u r l and I also need to change something so did we start
+
+42
+00:03:18,320 --> 00:03:20,040
+in unauthenticated mode.
+
+43
+00:03:20,150 --> 00:03:22,990
+Currently we are starting as if we were authenticated.
+
+44
+00:03:23,000 --> 00:03:25,470
+I'll have to change to it in the front end too.
+
+45
+00:03:25,550 --> 00:03:34,510
+Now first of all in the sign up Handler let's fix that u r l and there the U R L will be local host
+
+46
+00:03:34,880 --> 00:03:42,160
+ADHD slash off slash Sign-Up that will reach this Routier right.
+
+47
+00:03:42,200 --> 00:03:44,110
+Because it's slash sign.
+
+48
+00:03:44,250 --> 00:03:50,140
+And we only end up there for requests that start with slash off.
+
+49
+00:03:50,160 --> 00:03:58,050
+Now we find a put request here on the back end so we have to set the method in the second argument in
+
+50
+00:03:58,050 --> 00:03:59,820
+this object we pass to fetch.
+
+51
+00:03:59,940 --> 00:04:03,240
+We have to set the method to put.
+
+52
+00:04:03,300 --> 00:04:07,950
+We also need to append some data and that data will be of type application Jason.
+
+53
+00:04:08,100 --> 00:04:13,140
+So we should add the content type header and set this to application.
+
+54
+00:04:13,140 --> 00:04:21,800
+Jason last but not least let's at the request body and here will need to use Jason string ify to convert
+
+55
+00:04:21,840 --> 00:04:28,200
+an object to Jason and that object will be a javascript Optik with the e-mail which we can retrieve
+
+56
+00:04:28,200 --> 00:04:32,970
+from off data email off data is an argument we'll get here.
+
+57
+00:04:32,970 --> 00:04:37,040
+And I wrote the code to make sure that we get the data the user entered.
+
+58
+00:04:37,440 --> 00:04:39,320
+So we'll get the e-mail.
+
+59
+00:04:39,450 --> 00:04:41,940
+We'll get the password.
+
+60
+00:04:41,960 --> 00:04:49,250
+So let's also extract data from off data and we'll get the name from off data.
+
+61
+00:04:49,280 --> 00:04:57,070
+So everything which we extract on the service side this is now all passed to our back and now in app
+
+62
+00:04:57,120 --> 00:05:02,630
+just stroll up a bit more to the very top here in this state.
+
+63
+00:05:02,650 --> 00:05:05,860
+Now a change is off to false.
+
+64
+00:05:05,920 --> 00:05:09,390
+So did we start on authenticated now.
+
+65
+00:05:10,270 --> 00:05:15,960
+When you when the page reloads you start on the logon page and you can switch to sign up and there.
+
+66
+00:05:15,970 --> 00:05:20,280
+Let's create a new user can enter any name you want.
+
+67
+00:05:24,940 --> 00:05:29,150
+And I accidentally hit enter which is good because we now see validation is doing its job.
+
+68
+00:05:29,410 --> 00:05:38,150
+But now let me enter a valid password which you should remember and click sign up and it still failed.
+
+69
+00:05:38,600 --> 00:05:40,420
+Let's see what's wrong here.
+
+70
+00:05:40,760 --> 00:05:43,930
+Let's inspect for which field we're getting this indeed.
+
+71
+00:05:44,390 --> 00:05:54,560
+By inspecting the network tab and then here we see OK all three fields give us the error.
+
+72
+00:05:54,620 --> 00:05:59,870
+That's kind of a strong signal that the data is simply not passed to the back end at all so something
+
+73
+00:05:59,870 --> 00:06:01,320
+seems to be wrong there.
+
+74
+00:06:02,900 --> 00:06:05,130
+Indeed we can validate just by clicking on headers.
+
+75
+00:06:05,120 --> 00:06:09,440
+There we see there is no request payload added to this request.
+
+76
+00:06:10,470 --> 00:06:16,490
+And that's simply a little mistake on my site in actually as an affront to the code in Sign-Up handler
+
+77
+00:06:17,000 --> 00:06:19,740
+here Lura extract off the e-mail and so on.
+
+78
+00:06:19,820 --> 00:06:27,190
+That should be sign up form dot e-mail at value and the same for all the other fields too.
+
+79
+00:06:27,200 --> 00:06:33,060
+So let's add sign up for him in front of that and thought value at the end the same first name.
+
+80
+00:06:33,110 --> 00:06:38,010
+Does this how the data is stored here internally in the re-act app and this how we should extract it.
+
+81
+00:06:38,030 --> 00:06:39,390
+So let's give it another try.
+
+82
+00:06:39,410 --> 00:06:42,290
+Let's The email address and name and password.
+
+83
+00:06:43,250 --> 00:06:44,560
+And now this looks much better.
+
+84
+00:06:44,570 --> 00:06:50,810
+I get back user created I'm forwarded to the logon page here in my front and I get that user ID.
+
+85
+00:06:50,810 --> 00:06:53,410
+And of course we can always use.
+
+86
+00:06:53,420 --> 00:06:57,780
+Would you be Compaq's to take a closer look at our database.
+
+87
+00:06:57,890 --> 00:06:59,630
+There I got this message just database.
+
+88
+00:06:59,630 --> 00:07:02,550
+If I reloaded now I got a user collection in there.
+
+89
+00:07:02,630 --> 00:07:05,040
+And here I have that user.
+
+90
+00:07:05,240 --> 00:07:06,920
+So that is working.
+
+91
+00:07:06,920 --> 00:07:09,800
+The user also has a starting status.
+
+92
+00:07:09,800 --> 00:07:11,990
+Now we have no posts of course.
+
+93
+00:07:12,020 --> 00:07:17,620
+Now we can continue and we can work on logging the user in and that will now be the interesting part
+
+94
+00:07:17,660 --> 00:07:22,660
+because I already mentioned that authentication will now work differently.
+

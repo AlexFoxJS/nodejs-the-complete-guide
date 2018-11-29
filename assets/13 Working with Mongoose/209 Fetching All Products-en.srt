@@ -1,0 +1,136 @@
+1
+00:00:02,110 --> 00:00:04,510
+Knouted we're able to save products.
+
+2
+00:00:04,510 --> 00:00:07,310
+Obviously we again want to be able to fetch up.
+
+3
+00:00:07,450 --> 00:00:09,600
+So let's head over to the shop yes.
+
+4
+00:00:09,610 --> 00:00:16,750
+Fall in the control us folder and let's start working on get products and get index action star so we
+
+5
+00:00:16,750 --> 00:00:18,750
+can indeed fetch all products.
+
+6
+00:00:18,790 --> 00:00:23,020
+Now we got no fetch all Methot in mongoose.
+
+7
+00:00:23,020 --> 00:00:28,780
+That was a method we defined on our own but we can still use something on the product model which we're
+
+8
+00:00:28,780 --> 00:00:35,170
+still importing from the product bottles folder and which is the mongoose model and yet and there we
+
+9
+00:00:35,170 --> 00:00:36,970
+got a couple of static methods.
+
+10
+00:00:36,970 --> 00:00:39,470
+You can find all in the official docs of course.
+
+11
+00:00:39,520 --> 00:00:44,030
+And one of them is the find method which you already know from them on would be driver.
+
+12
+00:00:44,080 --> 00:00:47,740
+Now find works a bit differently when used with mongoose.
+
+13
+00:00:47,740 --> 00:00:49,840
+It does not give us a cursor.
+
+14
+00:00:49,960 --> 00:00:56,970
+Instead it does give us the products we could add dot cursor and call this to get access to the cursor
+
+15
+00:00:57,280 --> 00:01:03,160
+and then use each async which would allow us to loop through them or next to get the next element.
+
+16
+00:01:03,310 --> 00:01:10,550
+But I will just use find and this will essentially give me all my products automatically.
+
+17
+00:01:10,570 --> 00:01:16,470
+So then in products I should get my products and I should be able to output them.
+
+18
+00:01:16,510 --> 00:01:21,450
+So if I now console log my products here sort of we can also see them.
+
+19
+00:01:21,880 --> 00:01:28,240
+We we have to go to the shop route as well and there we want to include to get a next route and to get
+
+20
+00:01:28,240 --> 00:01:29,420
+products out.
+
+21
+00:01:29,470 --> 00:01:35,550
+And since I also did include to get in route here I of course also need to work on get index in my shop
+
+22
+00:01:35,560 --> 00:01:43,480
+js file in the controller's folder there we all want to use find instead of fetch all but that should
+
+23
+00:01:43,480 --> 00:01:44,020
+be it.
+
+24
+00:01:44,050 --> 00:01:47,750
+If we now save everything and we go to the products page.
+
+25
+00:01:47,890 --> 00:01:49,460
+Indeed I do see my product here.
+
+26
+00:01:49,480 --> 00:01:50,620
+So this is looking good.
+
+27
+00:01:50,740 --> 00:01:55,990
+And if I go back well then I see here is the output of the data that was fetched.
+
+28
+00:01:55,990 --> 00:02:00,670
+And you see I get an array here because I find when used with Mangu is automatic.
+
+29
+00:02:00,660 --> 00:02:02,230
+It gives me that array year.
+
+30
+00:02:02,260 --> 00:02:07,270
+Now again if you know you will query large amounts of data you should turn this into a cursor.
+
+31
+00:02:07,360 --> 00:02:13,510
+Or of course manipulate find to limit the set of data that is retrieved something we will see in the
+
+32
+00:02:13,510 --> 00:02:16,470
+page anation module later in the course.
+
+33
+00:02:16,490 --> 00:02:21,490
+So here I now got my work in get products and get indexed route.
+
+34
+00:02:21,700 --> 00:02:25,540
+Let's next work on the detail route for a single product.
+

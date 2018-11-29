@@ -1,0 +1,272 @@
+1
+00:00:02,400 --> 00:00:08,730
+We're now able to keep the old user data and as you see it was relatively easy using that value we attribute
+
+2
+00:00:08,910 --> 00:00:13,000
+and ensuring that we simply return the input the user entered.
+
+3
+00:00:13,020 --> 00:00:18,340
+Now you can also do even more on your front side.
+
+4
+00:00:18,390 --> 00:00:24,820
+For example you could give these invalid inputs a red border that is also something you often see that
+
+5
+00:00:24,840 --> 00:00:30,370
+you just have to keep in mind that you have to use that information which you're getting to pass it
+
+6
+00:00:30,380 --> 00:00:36,000
+to your view and then render something different based on that information.
+
+7
+00:00:36,000 --> 00:00:44,580
+So in our case for example in the Sign-Up road we do have our errors array here right here where I output
+
+8
+00:00:44,580 --> 00:00:50,490
+my error array and that errors A contains all the problematic fields.
+
+9
+00:00:50,490 --> 00:00:53,770
+Now we then return an error message based on that array.
+
+10
+00:00:53,910 --> 00:01:00,120
+But of course we could pass another key here validation error or whatever name you want.
+
+11
+00:01:00,220 --> 00:01:03,060
+And that could be just arus aere.
+
+12
+00:01:03,100 --> 00:01:06,190
+So the full array is now returned as well.
+
+13
+00:01:06,190 --> 00:01:12,370
+In my render function so non-return not just a first message which I picked to show but also the full
+
+14
+00:01:12,370 --> 00:01:14,230
+array of errors.
+
+15
+00:01:14,260 --> 00:01:20,710
+Now as always this means that I should go to my Iver's scenario get sign up and also rendered it.
+
+16
+00:01:20,770 --> 00:01:25,160
+So validation errors here would be an empty array because I got no errors.
+
+17
+00:01:25,240 --> 00:01:26,970
+And now we know it's an empty array.
+
+18
+00:01:27,010 --> 00:01:36,620
+If we load that page without errors or we have an array of inputs that do have real problems.
+
+19
+00:01:36,820 --> 00:01:41,940
+So how can we now benefit from that array of errors.
+
+20
+00:01:42,220 --> 00:01:48,610
+Well we can go back to our Front-End and there we could change the styling off that input based on the
+
+21
+00:01:48,610 --> 00:01:51,400
+existence of an error or for that input.
+
+22
+00:01:51,400 --> 00:01:52,890
+Now how can we do that.
+
+23
+00:01:53,200 --> 00:01:57,380
+Well let me structured is over multiple lines to make it a bit easier to read.
+
+24
+00:01:57,640 --> 00:02:04,790
+And then here on this input we could assign a conditional C-s as clause that sets invalid styling.
+
+25
+00:02:04,930 --> 00:02:08,230
+So we could add classier.
+
+26
+00:02:08,390 --> 00:02:12,710
+And now we use Ejay as syntax to output something there.
+
+27
+00:02:12,780 --> 00:02:18,650
+And what I want to output here is that I check my validation errors which is that array of errors which
+
+28
+00:02:18,650 --> 00:02:25,470
+I just talked about and there I tried to find which is a built in javascript method we can call on arrays.
+
+29
+00:02:25,490 --> 00:02:29,570
+I tried to find an error where error or
+
+30
+00:02:32,420 --> 00:02:36,380
+param is equal to email.
+
+31
+00:02:36,390 --> 00:02:39,600
+Keep in mind this these are the error objects in that array.
+
+32
+00:02:39,650 --> 00:02:43,570
+They do have a pair in the field which holds the name of the problematic input.
+
+33
+00:02:43,580 --> 00:02:50,870
+So here I'm trying to find an error for the email input because I'm on the email input here in my team
+
+34
+00:02:51,010 --> 00:02:52,190
+code.
+
+35
+00:02:52,310 --> 00:02:54,730
+Now this will ever return.
+
+36
+00:02:54,730 --> 00:03:02,540
+I'm the find or Nahlah if I don't find it or it will give me that entry I'm looking for.
+
+37
+00:03:02,540 --> 00:03:05,340
+So I can check if that is not false ish.
+
+38
+00:03:05,350 --> 00:03:15,320
+So if it is not undefined or anything like that then I want to add invalid as a class here.
+
+39
+00:03:15,630 --> 00:03:18,000
+ABA wise I will not add anything.
+
+40
+00:03:18,000 --> 00:03:23,430
+So just an empty string because that should be text that is added as a C as is class.
+
+41
+00:03:23,430 --> 00:03:30,230
+Now that I should get that invalid class on my input when I do have an error or for email control.
+
+42
+00:03:30,510 --> 00:03:36,940
+Now to see something I'll go to my a public folder real quick to see s s and their to forms C S S and
+
+43
+00:03:36,980 --> 00:03:42,790
+in there let me now add the invalid class which is a class at just defined in my template.
+
+44
+00:03:43,080 --> 00:03:45,580
+And let's give it a border color of a.
+
+45
+00:03:45,840 --> 00:03:52,770
+Now due to the way C is s works I should also be more precise here and say if a form control input has
+
+46
+00:03:52,770 --> 00:03:55,090
+to KLOS in so this C is as selector.
+
+47
+00:03:55,110 --> 00:03:57,860
+Let me save it and let me sign it again.
+
+48
+00:03:57,870 --> 00:04:05,460
+And now we see this red border because if we inspect this element we see that indeed the invalid C is
+
+49
+00:04:05,460 --> 00:04:11,040
+as class was added and now that is a pattern which you of course can repeat in our view.
+
+50
+00:04:11,130 --> 00:04:17,430
+We can go where we can take that logic here for adding a class we can add that to any input.
+
+51
+00:04:17,430 --> 00:04:19,600
+Obviously not just to the email.
+
+52
+00:04:19,650 --> 00:04:27,950
+So here I'll do it for my password and I'll simply check for the password control here.
+
+53
+00:04:27,960 --> 00:04:30,880
+And of course you could find other ways of implementing this.
+
+54
+00:04:30,900 --> 00:04:32,200
+Just one example.
+
+55
+00:04:32,460 --> 00:04:36,950
+But it is an example of where we would now also marked a password read if it is invalid.
+
+56
+00:04:37,080 --> 00:04:45,120
+And the same for a confirmed password of course there we can also simply restructure dad for readability
+
+57
+00:04:45,120 --> 00:04:55,820
+reasons for nothing else than that and then simply add this CSA is classier based on the Confirm password
+
+58
+00:04:56,120 --> 00:04:57,110
+field.
+
+59
+00:04:57,380 --> 00:04:58,790
+And how has that changed.
+
+60
+00:04:58,790 --> 00:05:02,100
+If I had sign up here these are all red.
+
+61
+00:05:02,180 --> 00:05:04,220
+The password is not because it's actually valid.
+
+62
+00:05:04,250 --> 00:05:07,160
+If I would enter a two short one they're all red.
+
+63
+00:05:07,430 --> 00:05:10,280
+And now this is another way of enhancing the user experience.
+
+64
+00:05:10,280 --> 00:05:14,550
+Now feel free to play around with that and find your own solutions.
+
+65
+00:05:14,570 --> 00:05:15,980
+See what else you can do.
+
+66
+00:05:15,980 --> 00:05:21,210
+I just want to give you the ideas on how you can utilize that information.
+
+67
+00:05:21,230 --> 00:05:26,450
+The server side validation package gives you and of course you all see how you can pass that information
+
+68
+00:05:26,660 --> 00:05:27,570
+to your front and.
+

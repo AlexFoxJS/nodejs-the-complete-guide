@@ -1,0 +1,208 @@
+1
+00:00:02,130 --> 00:00:09,150
+So he added see is or if token protection but it will only work if we are visiting or get it next page.
+
+2
+00:00:09,150 --> 00:00:15,930
+Now we want to have such a token and by the way also our authentication status on every page we render
+
+3
+00:00:16,740 --> 00:00:23,910
+what we can do to get it onto every page is we can remove it from our render function here and instead
+
+4
+00:00:23,940 --> 00:00:26,280
+tell express chase.
+
+5
+00:00:26,340 --> 00:00:32,850
+And does this now totally unrelated from D.C. Is there anything tell express to us that we have some
+
+6
+00:00:32,850 --> 00:00:36,190
+data that should be included in every rendered view.
+
+7
+00:00:36,720 --> 00:00:43,760
+We'll do Disney-ABC J.S. file and there after this middleware where we extract the user.
+
+8
+00:00:43,830 --> 00:00:51,180
+But before all are relics I'll add another middleware normal middleware with our normal middleware function
+
+9
+00:00:51,180 --> 00:00:58,080
+with the free arguments and in there we can use a special feature provided by express JS We can access
+
+10
+00:00:58,080 --> 00:01:02,420
+a special field on the response the locals field.
+
+11
+00:01:02,430 --> 00:01:09,360
+This allows us to set local variables that are passed into the views local Simply because while they
+
+12
+00:01:09,360 --> 00:01:12,100
+will only exist in the views which are rendered.
+
+13
+00:01:12,300 --> 00:01:19,770
+So there we can add our is authenticated property which I removed from the render function where I X-ists
+
+14
+00:01:19,770 --> 00:01:23,570
+request session is locked in.
+
+15
+00:01:23,750 --> 00:01:34,030
+And I can also add my or f token variable which I get from request C is f token from this function.
+
+16
+00:01:34,040 --> 00:01:39,770
+So now for every request that is executed these two fields would be set for the views that are rendered
+
+17
+00:01:40,130 --> 00:01:46,700
+and then we have to call next so that we are able to continue with this if we go back and we reload
+
+18
+00:01:46,700 --> 00:01:49,670
+this page seems to work seems to work.
+
+19
+00:01:49,700 --> 00:01:54,480
+And now let's all try signing in where we also have a post request.
+
+20
+00:01:54,890 --> 00:01:56,040
+And now does fails.
+
+21
+00:01:56,060 --> 00:01:58,700
+And how do you know why it well.
+
+22
+00:01:58,720 --> 00:02:04,600
+Because I do pass my token into all views but in the views I still need to use it.
+
+23
+00:02:04,940 --> 00:02:09,160
+So for that we have to repeat the code we added to the navigation.
+
+24
+00:02:09,160 --> 00:02:12,720
+We need that hidden input with that name and that value.
+
+25
+00:02:12,910 --> 00:02:17,760
+And we have to add it into all our forms and that is something you just have to do.
+
+26
+00:02:17,890 --> 00:02:24,730
+So for example here in the Add to Cart Post forum we need Deadhead input to see is our token and also
+
+27
+00:02:24,740 --> 00:02:33,580
+an admin added product we need somewhere in that form that hidden token input the same for our all for
+
+28
+00:02:33,580 --> 00:02:39,290
+all it's of course when logging in we need to hit and put it the same for signing up.
+
+29
+00:02:39,290 --> 00:02:43,370
+This is required in the products Jasin the admin folder there.
+
+30
+00:02:43,390 --> 00:02:48,490
+We also have a forum for deleting a product we need to token in there too.
+
+31
+00:02:49,000 --> 00:02:55,820
+And in a shop in the cart we all have a delete card item button when you didn't put there as well.
+
+32
+00:02:56,710 --> 00:03:03,160
+And also down there for the order now button this also sends a post request and we need our hidden input
+
+33
+00:03:03,170 --> 00:03:06,860
+there are C S R F tokin on index Ejay S..
+
+34
+00:03:07,070 --> 00:03:09,280
+We don't need an add to cart.
+
+35
+00:03:09,350 --> 00:03:15,830
+I just added it so there we already have it in the product list page it's the same and it was added
+
+36
+00:03:15,830 --> 00:03:18,470
+to add to cart and all the product detail page.
+
+37
+00:03:18,470 --> 00:03:23,570
+I also only have to cart on the orders page here.
+
+38
+00:03:23,650 --> 00:03:25,360
+We all have no post for him.
+
+39
+00:03:25,540 --> 00:03:29,230
+So now we should have this tokin everywhere where we needed.
+
+40
+00:03:29,320 --> 00:03:36,990
+And if you save all that and you now go back to your let's say starting page and use it to logon page
+
+41
+00:03:37,020 --> 00:03:38,470
+and you do log in.
+
+42
+00:03:38,520 --> 00:03:44,640
+This now works because we have that token we also can add items to the cart.
+
+43
+00:03:44,940 --> 00:03:47,880
+We can also order them.
+
+44
+00:03:48,530 --> 00:03:51,350
+Well there is an area which you will fix in a second.
+
+45
+00:03:51,360 --> 00:03:54,110
+So for now let's not order them but let's delete them.
+
+46
+00:03:54,110 --> 00:03:56,970
+This works and generally just works.
+
+47
+00:03:57,010 --> 00:04:03,120
+Let me fix this bug here which is not too late to see SRF token in the next Lechter real quick but this
+
+48
+00:04:03,130 --> 00:04:08,830
+hopefully and that is the main takeaway here shows you how to use Sezer of protection and this is a
+
+49
+00:04:08,830 --> 00:04:13,780
+crucial thing which you have to add to any production ready application.
+
+50
+00:04:13,780 --> 00:04:15,030
+It's not optional.
+
+51
+00:04:15,130 --> 00:04:17,880
+Otherwise you'll have a huge security issue on your page.
+
+52
+00:04:18,010 --> 00:04:21,790
+You need to add this to ensure that your sessions don't get stolen.
+

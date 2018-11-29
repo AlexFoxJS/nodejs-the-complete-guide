@@ -1,0 +1,332 @@
+1
+00:00:02,480 --> 00:00:07,210
+Knouted we successfully connected our code to the sequel database.
+
+2
+00:00:07,340 --> 00:00:09,080
+Let's start working on the project.
+
+3
+00:00:09,140 --> 00:00:11,190
+And for this I'll remove this code.
+
+4
+00:00:11,210 --> 00:00:12,240
+And you actually asked for.
+
+5
+00:00:12,260 --> 00:00:17,780
+Because this was just some testing code not the real code we'll use instead.
+
+6
+00:00:17,790 --> 00:00:20,550
+I of course want to work on my Mols here.
+
+7
+00:00:20,570 --> 00:00:27,410
+Let's say on the product model there we right now already have export class which we can instantiate
+
+8
+00:00:27,740 --> 00:00:31,470
+and where we then for example have a Save method to create a new product.
+
+9
+00:00:31,490 --> 00:00:38,960
+Now even though we're still fetching product from our file for now we also have our static methods for
+
+10
+00:00:38,960 --> 00:00:43,910
+fetching data and dare we fetch data from our files.
+
+11
+00:00:44,000 --> 00:00:45,200
+Now we can do that.
+
+12
+00:00:45,200 --> 00:00:48,310
+But of course this is not really the set up I want to use.
+
+13
+00:00:48,440 --> 00:00:55,370
+I will still work with static methods for fetching data but I want to fetch data from the database and
+
+14
+00:00:55,430 --> 00:01:01,400
+not from a file to do that in my product just fall in the models folder.
+
+15
+00:01:01,490 --> 00:01:07,350
+I don't need FS and Poth because I'll not work with files and playoff's anymore.
+
+16
+00:01:07,490 --> 00:01:10,770
+I don't need to construct a path at the top.
+
+17
+00:01:10,910 --> 00:01:15,480
+We can leave the cart for now but that functionality will be broken for the moment.
+
+18
+00:01:15,740 --> 00:01:20,990
+I don't need my helper function here for getting products from a file because it will not work with
+
+19
+00:01:20,990 --> 00:01:22,050
+files anymore.
+
+20
+00:01:22,400 --> 00:01:26,630
+I will still create a product like this so I will leave that code as it is.
+
+21
+00:01:26,640 --> 00:01:33,620
+However I will delete my code for saving here will override this eventually Ali will delete my code
+
+22
+00:01:33,620 --> 00:01:41,400
+for deleting for fetching and for finding by ID and I want to start with fetch all now here.
+
+23
+00:01:41,510 --> 00:01:46,540
+I also don't want to work with callbacks anymore but with promises so I don't need that argument.
+
+24
+00:01:46,550 --> 00:01:51,980
+The callback argument I shouldn't need that in any of my functions here.
+
+25
+00:01:51,980 --> 00:01:53,070
+So fetch all.
+
+26
+00:01:53,090 --> 00:01:54,870
+Should now reach out to the database.
+
+27
+00:01:55,010 --> 00:01:57,480
+And what do we need to do to do dat.
+
+28
+00:01:57,860 --> 00:02:00,260
+Well we need to get access to the database.
+
+29
+00:02:00,440 --> 00:02:05,420
+So let's import our pool object from the database js file.
+
+30
+00:02:05,720 --> 00:02:13,040
+So create a new constant DBI and require database website not database but will go up one level into
+
+31
+00:02:13,040 --> 00:02:17,390
+utile and their database Jass without JS.
+
+32
+00:02:17,480 --> 00:02:23,760
+So now we get access to the pool and now fetch all we can execute a query.
+
+33
+00:02:23,960 --> 00:02:29,180
+And now which query do we need to execute here definitely feel free to pause to video and write it on
+
+34
+00:02:29,180 --> 00:02:29,870
+your own.
+
+35
+00:02:29,930 --> 00:02:37,250
+If you already know it well here we want to fetch all products so it seeks sect's inquiry.
+
+36
+00:02:37,260 --> 00:02:38,570
+We ran before.
+
+37
+00:02:38,620 --> 00:02:42,810
+Select everything the star stands for everything.
+
+38
+00:02:42,930 --> 00:02:47,040
+We could all the select just the ID and title with this syntax.
+
+39
+00:02:47,130 --> 00:02:53,030
+But I want to select everything all fields from products.
+
+40
+00:02:53,250 --> 00:02:57,500
+Now as a side note you could write select and from in lowercase too.
+
+41
+00:02:57,630 --> 00:03:05,550
+But I like to keep these keywords uppercase to indicate what is core sequel's syntax and what are our
+
+42
+00:03:05,670 --> 00:03:06,960
+dynamic values.
+
+43
+00:03:07,530 --> 00:03:12,870
+So we select everything from products here and now as a set this returns a promise.
+
+44
+00:03:12,900 --> 00:03:15,510
+Now we could add then and catch here.
+
+45
+00:03:15,660 --> 00:03:21,340
+But actually I'm interested in the returned value in the place where I'm calling factual.
+
+46
+00:03:21,510 --> 00:03:28,210
+So I will simply return the entire promise that execute returns so that we can use it somewhere else.
+
+47
+00:03:29,390 --> 00:03:35,330
+So now we can go to the place where we do call fecche all and that isn't the shop just fall in the control
+
+48
+00:03:35,480 --> 00:03:43,010
+folder there for example so we get the index page we do call fecche all but right now we still pass
+
+49
+00:03:43,010 --> 00:03:47,180
+on a function that previously was a callback.
+
+50
+00:03:47,180 --> 00:03:55,540
+Now we got no callback anymore so let's take out that render code we will need data later and remove
+
+51
+00:03:55,570 --> 00:04:02,850
+that anonymous function instead fecche all will now return a promise so we can add then and catch.
+
+52
+00:04:03,040 --> 00:04:08,320
+You don't have to add both but you typically alter one to have some error handling mechanism that will
+
+53
+00:04:08,380 --> 00:04:10,790
+learn about a better one in the future.
+
+54
+00:04:10,840 --> 00:04:12,200
+So later in this course.
+
+55
+00:04:12,580 --> 00:04:16,960
+So here I will again simply lock my error and not do anything else with it.
+
+56
+00:04:17,170 --> 00:04:21,810
+But then you remember we got this nested array.
+
+57
+00:04:21,830 --> 00:04:28,330
+Now we can use some next gen syntax with a feature called destructuring where I can already pull out
+
+58
+00:04:28,330 --> 00:04:32,200
+information off the value I'm receiving as an argument here.
+
+59
+00:04:32,410 --> 00:04:33,770
+In my argument list.
+
+60
+00:04:33,910 --> 00:04:39,700
+So here is my anonymous function which will be executed once we get data and instead of using Risaldar
+
+61
+00:04:39,730 --> 00:04:46,900
+anything like that which is a nested array I can use the syntax here where I pull out my rows and my
+
+62
+00:04:46,990 --> 00:04:47,910
+field data.
+
+63
+00:04:47,950 --> 00:04:53,560
+You can name it however you want and this will simply be the first element off the nested array which
+
+64
+00:04:53,560 --> 00:04:57,730
+would be our argument data and that will be the second element.
+
+65
+00:04:57,730 --> 00:05:05,230
+And now we can use these two variables which simply hold these two nested erase and therefore I can
+
+66
+00:05:05,230 --> 00:05:08,080
+cancel lock them but I don't need to lock them.
+
+67
+00:05:08,290 --> 00:05:12,250
+I instead want to render my page inside of this anonymous function.
+
+68
+00:05:12,250 --> 00:05:19,960
+So once we got that data and Rose should be my products because my rows here are the entries in the
+
+69
+00:05:19,960 --> 00:05:23,430
+products table and therefore these should be my products.
+
+70
+00:05:23,680 --> 00:05:33,140
+If we now save that and we go back to our running application in the server all localhost 3000 we shouldn't
+
+71
+00:05:33,210 --> 00:05:39,560
+see the book here and also have no errors on our console.
+
+72
+00:05:43,130 --> 00:05:47,190
+Now we see that book because our data is retrieved from the database.
+
+73
+00:05:47,570 --> 00:05:53,290
+And therefore if we were to go to the database and we for example add an exclamation mark in the title
+
+74
+00:05:53,810 --> 00:05:54,790
+and then click apply.
+
+75
+00:05:54,800 --> 00:05:58,610
+You always need to do that apply close.
+
+76
+00:05:58,840 --> 00:06:02,940
+If I reload my page here it has no estimation marker right now.
+
+77
+00:06:03,040 --> 00:06:03,900
+But now it has.
+
+78
+00:06:04,000 --> 00:06:06,870
+So this is really coming from the database.
+
+79
+00:06:07,040 --> 00:06:09,930
+Now here's your little mini task.
+
+80
+00:06:09,940 --> 00:06:14,890
+Also make sure you're fetching data from the database when loading the product page which right now
+
+81
+00:06:14,890 --> 00:06:17,460
+is broken or not working.
+
+82
+00:06:17,590 --> 00:06:21,530
+Because there we still try to reach out to a file which will not work.
+
+83
+00:06:21,790 --> 00:06:28,480
+Try to fix this on your own before we also start inserting documents or elements into the database.
+

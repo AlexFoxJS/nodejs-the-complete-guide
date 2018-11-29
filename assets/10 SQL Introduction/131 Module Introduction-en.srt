@@ -1,0 +1,60 @@
+1
+00:00:02,230 --> 00:00:08,740
+It's now finally time that we start storing our data in a more correct or realistic way because thus
+
+2
+00:00:08,740 --> 00:00:16,000
+far we either used the mammary when we just stored the data in a variable in our node program and it
+
+3
+00:00:16,000 --> 00:00:23,140
+was then even shared across requests or we stored it in a file and that's also not optimal because accessing
+
+4
+00:00:23,140 --> 00:00:29,950
+files is pretty slow especially as we start storing more and more data in them and it's not really something
+
+5
+00:00:29,950 --> 00:00:32,650
+we would do in a real application.
+
+6
+00:00:32,650 --> 00:00:39,200
+Instead there you typically would use a data base which is a specific program that allows you that is
+
+7
+00:00:39,220 --> 00:00:46,600
+built for storing data and for efficiently retrieving data to Denver and this module will have a look
+
+8
+00:00:46,600 --> 00:00:53,620
+at the different kinds of databases or two important different kinds of databases sequel and no sequel
+
+9
+00:00:53,650 --> 00:01:00,180
+databases and I will compare them highlight the differences and we will actually see examples for both
+
+10
+00:01:00,190 --> 00:01:04,510
+in the course and we'll start with sequel awls and this module.
+
+11
+00:01:04,510 --> 00:01:11,050
+So no sequel will also follow in a separate module but let me first of all show you how you would use
+
+12
+00:01:11,290 --> 00:01:16,630
+a sequel based data base to gabber with your no JSA application.
+
+13
+00:01:16,840 --> 00:01:20,200
+This is what we'll cover and that will actually be a lot.
+
+14
+00:01:20,200 --> 00:01:26,110
+So let's dive right into it and let's learn what the different kinds of databases are and whether a
+
+15
+00:01:26,110 --> 00:01:31,260
+sequel or no sequel could be the right choice for your application.
+

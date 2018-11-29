@@ -1,0 +1,424 @@
+1
+00:00:02,210 --> 00:00:08,340
+Handlebars does support layouts but it works a bit differently than it did with Poch.
+
+2
+00:00:08,440 --> 00:00:14,770
+First of all we have to configure something in app G-S where we register our handlebars and then we
+
+3
+00:00:14,770 --> 00:00:16,570
+have to pass some options.
+
+4
+00:00:16,630 --> 00:00:21,440
+Now my ID helps me here if I controls space it shows me which options I can set.
+
+5
+00:00:21,610 --> 00:00:26,650
+And you can of course explored your official box to learn all about them now what it allows me to do
+
+6
+00:00:26,650 --> 00:00:33,790
+here is it allows you to set up where my layouts live so which folder I can find my layouts.
+
+7
+00:00:33,930 --> 00:00:40,560
+Let's set this year to a string which by default is the layout so you don't need to set this but you
+
+8
+00:00:40,560 --> 00:00:44,710
+can set it kind of to reconfirm this but this is redundant.
+
+9
+00:00:44,760 --> 00:00:50,490
+You only need to set it if you would store it somewhere else like in Les's or if you had a different
+
+10
+00:00:50,490 --> 00:00:57,390
+default useful or I'll send it today even though that is to default so that you'd see that setting.
+
+11
+00:00:57,390 --> 00:01:01,860
+Now you can also define a default layout that should be used for all files.
+
+12
+00:01:01,980 --> 00:01:07,040
+And here I'll just name it main and that means you will have to have a main or main layout.
+
+13
+00:01:07,040 --> 00:01:12,050
+In my case you will have to have a main layout but H.B. as fall in your layouts folder.
+
+14
+00:01:12,060 --> 00:01:13,930
+So let's add a main layout.
+
+15
+00:01:13,980 --> 00:01:20,880
+HB as fall in the layouts folder and let's set it up similarly to the POC layout and that was of course
+
+16
+00:01:21,300 --> 00:01:28,680
+influenced by you for a for a page let's copy overdye for a for HTL code into the main layout code.
+
+17
+00:01:29,010 --> 00:01:31,240
+And first of all Peytral found.
+
+18
+00:01:31,290 --> 00:01:39,640
+Of course we want out of this dynamically or we'll output the page title here with the handlebars handlers.
+
+19
+00:01:39,660 --> 00:01:46,830
+Now regarding the styling in Pike we did find a block where we could dynamically add the content that
+
+20
+00:01:46,830 --> 00:01:51,700
+should be rendered from inside the view that extended this layout.
+
+21
+00:01:52,050 --> 00:01:58,750
+Unfortunately HP doesn't have such a feature so we can't do that we can't define a block here.
+
+22
+00:01:58,830 --> 00:02:06,800
+Instead the only thing we can do there is we can define a placeholder with three curly braces.
+
+23
+00:02:06,810 --> 00:02:13,660
+Opening a closing so not normal double curly braces but free curly braces and then adding body here.
+
+24
+00:02:13,800 --> 00:02:16,740
+And you have to exactly use this placeholder.
+
+25
+00:02:16,770 --> 00:02:22,340
+This is understood by handlebars and you will then be able to target this in your view that extend the
+
+26
+00:02:22,420 --> 00:02:26,610
+layout automatically because you just said it as the default layout.
+
+27
+00:02:26,610 --> 00:02:34,050
+However if you have some part like this where you need to add some styling depending on the page you
+
+28
+00:02:34,050 --> 00:02:40,690
+are on you will have to solve this differently in a kind of a similar approach as we solved the act
+
+29
+00:02:40,730 --> 00:02:43,000
+of class here in public.
+
+30
+00:02:43,050 --> 00:02:45,130
+You will have to add if statement here.
+
+31
+00:02:45,280 --> 00:02:51,810
+Your main layout and this is of course a bit of a more cumbersome or complex way though you can do way
+
+32
+00:02:51,810 --> 00:02:53,000
+more with handlebars.
+
+33
+00:02:53,100 --> 00:02:56,190
+You could define custom helpers to help you with that.
+
+34
+00:02:56,250 --> 00:03:00,660
+But this is beyond the scope of this course where I just want to give you a brief introduction.
+
+35
+00:03:00,750 --> 00:03:06,900
+Let me show you the easiest way of solving this and this is that we add the if block here and we check
+
+36
+00:03:07,020 --> 00:03:14,750
+if product C-s s and if this is the case let's all close the if statement here.
+
+37
+00:03:14,860 --> 00:03:16,750
+Then I will add a link.
+
+38
+00:03:19,330 --> 00:03:23,290
+To buy a product C is as follows.
+
+39
+00:03:23,470 --> 00:03:27,620
+And I will repeat that same logic of course for Florance.
+
+40
+00:03:27,640 --> 00:03:31,420
+And again as I said this is the easy solution but it will do for now.
+
+41
+00:03:31,480 --> 00:03:35,520
+So forums here we have forums CSSA.
+
+42
+00:03:35,740 --> 00:03:37,290
+So this is working now.
+
+43
+00:03:37,300 --> 00:03:42,390
+Now what regarding the act of class we all want to add that dynamically right.
+
+44
+00:03:43,300 --> 00:03:45,910
+Well again simply at the class here.
+
+45
+00:03:46,240 --> 00:03:54,180
+And I add my handlebars handlers here and at the if statement to check if act of shop is true.
+
+46
+00:03:54,270 --> 00:03:57,090
+And this is a variable we'll have to pass into this view.
+
+47
+00:03:57,950 --> 00:04:00,040
+If that is true then I'll at the act of class.
+
+48
+00:04:00,050 --> 00:04:04,420
+And of course all the clothes may have statement so he can also write this in line.
+
+49
+00:04:04,430 --> 00:04:06,010
+That is an important take away.
+
+50
+00:04:06,410 --> 00:04:13,970
+And I'll do the same for the ad product route here where I check if active at Productus truth.
+
+51
+00:04:14,150 --> 00:04:20,330
+Of course we'll have to make sure that these variables are also passed into the view at least when they're
+
+52
+00:04:20,330 --> 00:04:20,830
+needed.
+
+53
+00:04:20,870 --> 00:04:23,730
+If you don't pass them they're always treated as false.
+
+54
+00:04:23,750 --> 00:04:27,910
+So you only need to pass them if you want to have them treated as truth.
+
+55
+00:04:28,970 --> 00:04:31,340
+With that our layout is prepared.
+
+56
+00:04:31,340 --> 00:04:37,040
+Now let's go back to the shop Chia's fault who starred with that and as I just mentioned we now have
+
+57
+00:04:37,040 --> 00:04:44,850
+to pass in active shop does it is variable or does property we're checking for here in the statement.
+
+58
+00:04:45,100 --> 00:04:50,910
+And we should set this to true for this route to ensure that for this route the act of Klaas's added.
+
+59
+00:04:51,050 --> 00:04:56,420
+So let's set this to true and therefore in the main layout this will be true and therefore actif will
+
+60
+00:04:56,420 --> 00:05:01,400
+be rendered active that product would be false because we don't pass it at all and therefore this would
+
+61
+00:05:01,400 --> 00:05:02,870
+not be rendered.
+
+62
+00:05:02,990 --> 00:05:03,920
+So that is that.
+
+63
+00:05:03,950 --> 00:05:07,250
+Now of course we also need to make sure that the product C as S gets rendered.
+
+64
+00:05:07,310 --> 00:05:09,320
+So we need to pass in this to.
+
+65
+00:05:09,450 --> 00:05:10,810
+So back and shop.
+
+66
+00:05:10,850 --> 00:05:14,730
+Let's all pass in product C-s essence add this to true.
+
+67
+00:05:14,900 --> 00:05:20,300
+So you can already tell you configure a lot from inside node express when using handlebars and that
+
+68
+00:05:20,360 --> 00:05:22,090
+is its philosophy.
+
+69
+00:05:22,460 --> 00:05:29,400
+So now with that set up we can go back to lay out have that finished and move over to shop abs.
+
+70
+00:05:29,570 --> 00:05:31,870
+Notice we'll use to lay out by the fold.
+
+71
+00:05:31,970 --> 00:05:38,330
+You could this abled is by going to the render function for a given page and setting a special layout
+
+72
+00:05:38,330 --> 00:05:40,060
+key and setting it to false.
+
+73
+00:05:40,070 --> 00:05:45,770
+This is a special key that is understood by handlebars and it would not use the default layout.
+
+74
+00:05:45,770 --> 00:05:47,040
+Otherwise it will.
+
+75
+00:05:47,300 --> 00:05:53,630
+So since it will do that by default in shop H.B. as we can get rid of this entire code here.
+
+76
+00:05:53,870 --> 00:05:55,020
+Occluding the.
+
+77
+00:05:55,460 --> 00:06:05,700
+And just half in this fall what should be injected into our triple curly brace body tag in the main
+
+78
+00:06:05,700 --> 00:06:06,310
+layout.
+
+79
+00:06:06,370 --> 00:06:14,040
+So here what ever should get entered in displays should be added to shop abs and nothing else.
+
+80
+00:06:14,080 --> 00:06:21,520
+So if that if we save this and we go to the shop you'll see we get an error and the error is a bit annoying
+
+81
+00:06:21,520 --> 00:06:27,220
+to be honest with Express Helleborus it's looking for the main layout thought handlebars file.
+
+82
+00:06:27,400 --> 00:06:30,600
+So it does not take dot HP sir.
+
+83
+00:06:30,880 --> 00:06:38,140
+And for whatever reason you explicitly have to tell handlebars to do that differently you have to go
+
+84
+00:06:38,140 --> 00:06:45,730
+to the options and set the extension name which only applies to the layout and not to all files just
+
+85
+00:06:45,730 --> 00:06:52,310
+as this applies to all files but the layout you have to set the stage here.
+
+86
+00:06:52,930 --> 00:06:58,030
+HP Yes this is really strange but it is how Express handlebars works.
+
+87
+00:06:58,030 --> 00:07:02,740
+So now we're setting the extension to H.B. apps for layouts too.
+
+88
+00:07:03,070 --> 00:07:10,360
+And now if we reload this page we see our normal shop page and with that we can of course also go to
+
+89
+00:07:10,360 --> 00:07:17,800
+add product here at product HP s remove everything but the part which should be rendered in the place
+
+90
+00:07:17,890 --> 00:07:22,940
+of our body triple curly brace body tax.
+
+91
+00:07:23,030 --> 00:07:27,350
+And if we reload something's missing right.
+
+92
+00:07:27,470 --> 00:07:29,100
+Do you know what went wrong.
+
+93
+00:07:29,970 --> 00:07:36,150
+Well we're missing some styles and the reason for data is that we need the forums and for this however
+
+94
+00:07:36,180 --> 00:07:39,630
+we need to ensure that foreigns CSSA is set to true.
+
+95
+00:07:39,630 --> 00:07:43,040
+We will also need product Zia's s by the way so it admin.
+
+96
+00:07:43,070 --> 00:07:52,920
+J.S. we should ensure that when we rendered this route we set forums C-s as to true and product CMS
+
+97
+00:07:52,930 --> 00:08:01,400
+as this one product CSSA to true and that we also to get that active link in the navigation that we
+
+98
+00:08:01,400 --> 00:08:11,390
+also set active at product to true because active at product is the key we're looking for here.
+
+99
+00:08:11,570 --> 00:08:14,270
+With that if we save all files and we reload here.
+
+100
+00:08:14,550 --> 00:08:15,720
+This is looking better.
+
+101
+00:08:15,800 --> 00:08:19,370
+And now it's all working again with handlebars.
+
+102
+00:08:19,370 --> 00:08:22,740
+So as you can see handlebars uses a different philosophy.
+
+103
+00:08:22,850 --> 00:08:25,400
+Definitely something you have to get used to.
+
+104
+00:08:25,410 --> 00:08:30,800
+Therefore your templates are leaner and there is no better or worse way of doing this.
+
+105
+00:08:30,800 --> 00:08:33,500
+It really is up to you which one you prefer.
+
+106
+00:08:33,710 --> 00:08:38,540
+Let's now have a look at a third option Ejaz which is my personal favorite.
+

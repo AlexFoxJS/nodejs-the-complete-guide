@@ -1,0 +1,240 @@
+1
+00:00:03,180 --> 00:00:08,570
+Attached to this video you find a new project and this is now not a note.
+
+2
+00:00:08,580 --> 00:00:10,410
+J.S. project instead.
+
+3
+00:00:10,420 --> 00:00:11,760
+Does this now a react.
+
+4
+00:00:11,770 --> 00:00:13,980
+J.S. project react.
+
+5
+00:00:13,980 --> 00:00:16,720
+J S is a front and Javascript framework.
+
+6
+00:00:16,740 --> 00:00:21,630
+It runs in the browser and it allows you to create such a single page application which I mentioned
+
+7
+00:00:21,720 --> 00:00:23,450
+in the last course module.
+
+8
+00:00:23,670 --> 00:00:29,850
+You can simply download the attached project extract it into a new folder and then navigate into that
+
+9
+00:00:29,850 --> 00:00:36,630
+folder in a terminal or simply open that folder in an ID like visuals you code and you know and then
+
+10
+00:00:36,720 --> 00:00:44,250
+inside of that extract that project run NPM install to install all the dependencies off the project.
+
+11
+00:00:44,250 --> 00:00:46,420
+Now I mentioned that this is not a node.
+
+12
+00:00:46,430 --> 00:00:47,500
+JS project.
+
+13
+00:00:47,550 --> 00:00:50,190
+Why do we need to run NPM install then.
+
+14
+00:00:50,250 --> 00:00:56,700
+Because it's pretty common that we manage any dependencies in javascript projects even for browser side
+
+15
+00:00:56,700 --> 00:01:00,410
+projects with NPM with the node package manager.
+
+16
+00:01:00,480 --> 00:01:05,000
+The packages I'm installing here are only packages that are getting used in the browser.
+
+17
+00:01:05,010 --> 00:01:09,630
+Though there are no note express or anything like that packages beneath them.
+
+18
+00:01:09,630 --> 00:01:14,860
+Indeed if you have a look at the package digests and fall you'll only find re-act related packages here
+
+19
+00:01:14,970 --> 00:01:20,840
+which do run in the browser so don't be confused by the fact that we're using NPM these packages here
+
+20
+00:01:20,850 --> 00:01:26,610
+still only run the browser and we're just using NPM to install these packages because in modern front
+
+21
+00:01:26,610 --> 00:01:33,150
+end development you have very complex setups you have very complex package dependencies and using a
+
+22
+00:01:33,160 --> 00:01:35,980
+package like NPM can speed that up.
+
+23
+00:01:36,000 --> 00:01:42,330
+Now once you ran all of that you can run NPM start to start a development server which is now actually
+
+24
+00:01:42,330 --> 00:01:42,730
+a node.
+
+25
+00:01:42,750 --> 00:01:48,240
+JS server serving your application but it's not related to the node server.
+
+26
+00:01:48,240 --> 00:01:49,130
+We will build.
+
+27
+00:01:49,170 --> 00:01:56,050
+It's not related to our back and this is only a dummy development server which simply serves the belt
+
+28
+00:01:56,250 --> 00:02:01,720
+wears on off our front end application so it serves a simple H team l file.
+
+29
+00:02:01,730 --> 00:02:06,660
+What you can actually see in the public folder this one which does not have a lot of content which is
+
+30
+00:02:06,840 --> 00:02:12,390
+what I mentioned earlier or in the last module actually that single page applications have very trivial
+
+31
+00:02:12,410 --> 00:02:20,100
+h html files but we have some hooks here which are used by the re-act application which is built in
+
+32
+00:02:20,100 --> 00:02:21,070
+the source folder.
+
+33
+00:02:21,090 --> 00:02:27,870
+There is the source code that will be mounted onto DS hooks here automatically in the browser which
+
+34
+00:02:27,870 --> 00:02:29,850
+leads to an application like this.
+
+35
+00:02:29,920 --> 00:02:35,310
+You will see an error by default when you first start is up will fix Deandra from the module and there
+
+36
+00:02:35,430 --> 00:02:40,240
+you will see this interface and this interface is now fully rendered through react.
+
+37
+00:02:40,270 --> 00:02:41,130
+J.S..
+
+38
+00:02:41,370 --> 00:02:46,640
+If you inspect the source codes if you view the page source you will find th's female page.
+
+39
+00:02:46,650 --> 00:02:53,790
+I just showed you with these hooks and then a couple of script imports at the bottom and if you inspect
+
+40
+00:02:53,790 --> 00:02:55,980
+the DOM though you will see way more.
+
+41
+00:02:56,000 --> 00:03:03,000
+Tim L elements and these are all rendered dynamically by react so by the browser side javascript framework
+
+42
+00:03:03,320 --> 00:03:07,020
+and if you want to learn more about reac I get a whole course on that of course.
+
+43
+00:03:07,050 --> 00:03:08,190
+So check that out.
+
+44
+00:03:08,370 --> 00:03:10,700
+Will not ride re-act code here.
+
+45
+00:03:10,830 --> 00:03:14,690
+Almost all the code will work with is already prepared by me.
+
+46
+00:03:14,700 --> 00:03:18,870
+We'll just have to tweak some things as we create our rest API.
+
+47
+00:03:19,050 --> 00:03:22,650
+But this is the front end we'll use to Gabr with our rest API.
+
+48
+00:03:22,740 --> 00:03:26,900
+And the ideal of course is that you get a feeling for how front end and back end.
+
+49
+00:03:26,970 --> 00:03:33,110
+So how do you react when the rest AAPI are decoupled and can still work together now.
+
+50
+00:03:33,210 --> 00:03:35,470
+So this is the project we'll work with.
+
+51
+00:03:35,490 --> 00:03:41,550
+It's a very simple social network blog messaging like application.
+
+52
+00:03:41,550 --> 00:03:44,730
+We can have our users status which you can update here.
+
+53
+00:03:44,760 --> 00:03:50,630
+We can create new posts here we can later also added and delete posts and little later all the add off
+
+54
+00:03:50,630 --> 00:03:51,750
+indication.
+
+55
+00:03:51,750 --> 00:03:55,120
+Right now nothing is working because I got no back and attached.
+
+56
+00:03:55,230 --> 00:04:00,200
+It is also the reason why we have an error message right at the start but we will get rid of that throughout
+
+57
+00:04:00,210 --> 00:04:01,920
+this module of course.
+
+58
+00:04:01,920 --> 00:04:07,530
+So this is the front that and this is now a front and I want to connect to my backend So lets now see
+
+59
+00:04:07,890 --> 00:04:14,940
+which kind of restfully API endpoints this front end could need before we then start implementing them
+
+60
+00:04:14,940 --> 00:04:15,690
+step by step.
+

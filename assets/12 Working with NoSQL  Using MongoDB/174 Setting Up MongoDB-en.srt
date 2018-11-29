@@ -1,0 +1,272 @@
+1
+00:00:02,220 --> 00:00:08,520
+Now that you had a brief introduction to what Mongo DB is and what no sequel databases are let's install
+
+2
+00:00:08,520 --> 00:00:08,730
+more.
+
+3
+00:00:08,730 --> 00:00:09,340
+Would it be.
+
+4
+00:00:09,420 --> 00:00:15,160
+Let's set it up and let's use it for our project here now to install longer to be.
+
+5
+00:00:15,210 --> 00:00:21,090
+You can either do that locally on long would he be dot com you can click on get Mongo D-B download the
+
+6
+00:00:21,300 --> 00:00:26,880
+installer or the tools when you click on community server here and follow the insulations struction
+
+7
+00:00:26,970 --> 00:00:31,400
+and this will all work and it will give you a locally running along with the server.
+
+8
+00:00:31,770 --> 00:00:36,140
+Now I would go for a cloud solution here because it's a more realistic environment.
+
+9
+00:00:36,150 --> 00:00:40,760
+You would use for a deployment anyways and it's really easy to set up and it's free.
+
+10
+00:00:40,980 --> 00:00:43,580
+And that will be Atlas Atlas.
+
+11
+00:00:43,620 --> 00:00:47,260
+So I got here by clicking on get more would be and then choosing Atlus.
+
+12
+00:00:47,310 --> 00:00:48,320
+Now again this is free.
+
+13
+00:00:48,330 --> 00:00:50,570
+You don't need a credit card or anything like that.
+
+14
+00:00:50,670 --> 00:00:54,120
+You just need to sign up and you can spin up your own in the cloud.
+
+15
+00:00:54,120 --> 00:00:59,520
+Best practice managed long would be server which is a great environment for practicing because this
+
+16
+00:00:59,520 --> 00:01:03,750
+will follow all the best practices so sign up here.
+
+17
+00:01:04,230 --> 00:01:07,800
+Now once you did sign up you should end up on a page that looks something like this.
+
+18
+00:01:07,830 --> 00:01:12,510
+Maybe you need to create in your project first give it any name you want and then you should be on that
+
+19
+00:01:12,510 --> 00:01:14,850
+page where you can build a new cluster.
+
+20
+00:01:14,850 --> 00:01:18,540
+You might also end up in dead which are derived from the start.
+
+21
+00:01:18,540 --> 00:01:23,960
+Now here you are among the cloud clusters so basically among the TBS server and they offer a longer
+
+22
+00:01:23,970 --> 00:01:29,230
+to be database or multiple data amazes as many as you want running into a server.
+
+23
+00:01:29,730 --> 00:01:32,060
+You can generally leave all the default settings.
+
+24
+00:01:32,160 --> 00:01:37,970
+Make sure to do you choose a region where a free tier is available behind the scenes moment it uses
+
+25
+00:01:37,980 --> 00:01:42,150
+one of these cloud providers but you don't need to be signed up with them or anything like that.
+
+26
+00:01:42,180 --> 00:01:48,600
+So you can choose anything you want here then you choose to cluster tier there you should use the free
+
+27
+00:01:48,600 --> 00:01:51,210
+one zero where it says free.
+
+28
+00:01:51,330 --> 00:01:56,590
+And then this will not cost you anything under additional settings you can will lethal defaults.
+
+29
+00:01:56,610 --> 00:01:59,970
+You can change to any ways in the frontier but that's fine.
+
+30
+00:02:00,240 --> 00:02:05,010
+You can change a class name if you want to then you can click Create cluster and this will now create
+
+31
+00:02:05,010 --> 00:02:05,920
+a new cluster.
+
+32
+00:02:05,940 --> 00:02:12,660
+We'll take a couple of minutes which you then can connect to later and what you Denn can use as your
+
+33
+00:02:12,730 --> 00:02:13,530
+Bakken.
+
+34
+00:02:13,860 --> 00:02:19,620
+Now one important note you might see that I have some cost here in this account and this is not coming
+
+35
+00:02:19,620 --> 00:02:20,710
+from the set up.
+
+36
+00:02:20,730 --> 00:02:21,720
+I'm showing you here.
+
+37
+00:02:21,780 --> 00:02:25,700
+I was simply using this for some of the set up in the past which did cost something.
+
+38
+00:02:25,710 --> 00:02:28,070
+This does not cost you anything.
+
+39
+00:02:28,210 --> 00:02:34,020
+Now Watts's getting set up you can already click on secure to year and there you will probably not have
+
+40
+00:02:34,020 --> 00:02:35,560
+as many users as I do.
+
+41
+00:02:35,890 --> 00:02:41,600
+No make sure you add at least one new user and I already did this which.
+
+42
+00:02:41,610 --> 00:02:45,500
+And that's important which has read and write access to any database.
+
+43
+00:02:45,660 --> 00:02:52,230
+You can turn it into an atlas admin but more realistic this year because this will later be the role
+
+44
+00:02:52,320 --> 00:02:57,930
+which are no japes application assumes which should be able to read and write our databases but not
+
+45
+00:02:57,960 --> 00:03:03,840
+to administrate them because we'll not do database administration Frue no chance Dad would be something
+
+46
+00:03:03,870 --> 00:03:05,830
+our database admin does.
+
+47
+00:03:06,070 --> 00:03:07,670
+And then for not our app.
+
+48
+00:03:07,710 --> 00:03:09,540
+So make sure you create such a user.
+
+49
+00:03:09,840 --> 00:03:14,240
+You can also sign your own password or order generate a secure one.
+
+50
+00:03:14,280 --> 00:03:17,980
+Make sure you do save that because you'll need it later.
+
+51
+00:03:18,880 --> 00:03:22,360
+And then also make sure you have a look at IP wirelessed.
+
+52
+00:03:22,570 --> 00:03:27,490
+There you see all the IP addresses that are allowed to connect to your mom would to be server.
+
+53
+00:03:27,490 --> 00:03:31,630
+Now I already got a bunch here that will probably be last for you.
+
+54
+00:03:31,630 --> 00:03:38,470
+Now one thing you should do here is you should add a new IP address as your current IP address.
+
+55
+00:03:38,530 --> 00:03:44,760
+Since the note runs locally on your machine your node app will have this IP address later when you deployed
+
+56
+00:03:44,770 --> 00:03:45,240
+a node.
+
+57
+00:03:45,280 --> 00:03:51,250
+This should of course use the IP address of your server where you deploy it to.
+
+58
+00:03:51,280 --> 00:03:56,850
+But here you can use your local one so that you can connect and your node app can connect to the server.
+
+59
+00:03:57,070 --> 00:04:03,320
+That's of course a good security feature because this makes sure that no on offer ised access can tap
+
+60
+00:04:03,320 --> 00:04:09,280
+into your database so your database is now locked down both from our IP perspective but also from a
+
+61
+00:04:09,280 --> 00:04:10,540
+user perspective.
+
+62
+00:04:10,690 --> 00:04:15,700
+And now we can wait for it to set up to finish and I'll be back once it did finish.
+
+63
+00:04:15,750 --> 00:04:21,780
+Now to set up this complete and now we can connect to our mom would it be server from inside our node
+
+64
+00:04:22,020 --> 00:04:28,440
+app ad for this we can click on Connect here and choose a connection method which in our case will be
+
+65
+00:04:28,650 --> 00:04:30,170
+an application.
+
+66
+00:04:30,180 --> 00:04:36,160
+Now here we can check I'm using describer and we get this you r l which will need it.
+
+67
+00:04:36,420 --> 00:04:41,260
+But first of all we need to install them on to be driver in our case for no chase.
+
+68
+00:04:41,340 --> 00:04:45,840
+You can click on an example down there but I will simply show it to you in our project.
+

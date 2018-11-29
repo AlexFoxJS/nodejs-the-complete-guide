@@ -1,0 +1,296 @@
+1
+00:00:02,460 --> 00:00:06,880
+We edit our first graph kill Querrey which allowed us to get data.
+
+2
+00:00:07,170 --> 00:00:12,920
+Let's now add a query that allows us to save data and for debt.
+
+3
+00:00:13,050 --> 00:00:22,230
+Why don't we start with our Front-End which we used and make sure that we can actually sign up users
+
+4
+00:00:22,260 --> 00:00:27,970
+so that we can create users because that sounds like a mutation to me for it.
+
+5
+00:00:28,230 --> 00:00:33,760
+First of all let me clean up my front and I'm not using Succot I O error there anymore.
+
+6
+00:00:33,900 --> 00:00:36,540
+So in the fetal J.S. file at the top.
+
+7
+00:00:36,540 --> 00:00:43,350
+Remove that open socket import and then let's remove that logic from component did mount where I created
+
+8
+00:00:43,350 --> 00:00:48,180
+my socket connection and let's all the room move add post and up that post.
+
+9
+00:00:48,270 --> 00:00:52,830
+I'll do that differently later after changing this.
+
+10
+00:00:52,840 --> 00:00:58,750
+Let's go to actually yes which is where we do sign up and we want to make sure that forward a sign up
+
+11
+00:00:58,750 --> 00:00:59,380
+Handler.
+
+12
+00:00:59,500 --> 00:01:01,490
+We now reach one of our mutations.
+
+13
+00:01:01,690 --> 00:01:04,370
+And for that we first of all need to create it.
+
+14
+00:01:04,420 --> 00:01:06,550
+Now how do we create a mutation.
+
+15
+00:01:06,730 --> 00:01:09,330
+I'll get rid of this resolver will later add.
+
+16
+00:01:09,340 --> 00:01:10,730
+Can we resolve this again.
+
+17
+00:01:10,930 --> 00:01:13,900
+For now I will get rid of my query here.
+
+18
+00:01:13,900 --> 00:01:21,790
+For now I only need a mutation and we add that no schema by adding mutation here and then just as with
+
+19
+00:01:21,790 --> 00:01:28,650
+the query we define a type which you could name station or root mutation whatever you want.
+
+20
+00:01:29,140 --> 00:01:31,750
+And there you now to find different mutations.
+
+21
+00:01:31,810 --> 00:01:33,100
+You want to allow.
+
+22
+00:01:33,100 --> 00:01:38,790
+So here I'll just point at the root mutation and then the root mutation.
+
+23
+00:01:38,820 --> 00:01:40,320
+I'll add one Witchell name.
+
+24
+00:01:40,410 --> 00:01:45,840
+Create user you could name it sign up you can name it whatever you want.
+
+25
+00:01:45,840 --> 00:01:53,190
+Now that mutation here will actually require some input some arguments and that is a difference in text
+
+26
+00:01:53,190 --> 00:01:55,010
+which you now haven't seen before.
+
+27
+00:01:55,080 --> 00:01:59,400
+You can add parentheses after you require the name.
+
+28
+00:01:59,700 --> 00:02:05,010
+And this allows you to specify arguments that have to be given to Dad resolder that will run in the
+
+29
+00:02:05,010 --> 00:02:05,970
+end.
+
+30
+00:02:06,000 --> 00:02:09,940
+And here we could find that we need some user input data.
+
+31
+00:02:10,350 --> 00:02:12,720
+And now we need to find a type of that data.
+
+32
+00:02:12,720 --> 00:02:14,550
+So how does this data look like.
+
+33
+00:02:14,790 --> 00:02:20,040
+Well first of all we could of course except the title of type string and then another argument which
+
+34
+00:02:20,040 --> 00:02:26,130
+is not the title the email of type string and then a number argument which is a password of type string
+
+35
+00:02:26,460 --> 00:02:27,820
+that would work too.
+
+36
+00:02:28,110 --> 00:02:34,920
+Or we bundle it in one object which we expect and for data object we can create a new type and we don't
+
+37
+00:02:34,920 --> 00:02:41,110
+do does with the type keyword but there is a special keyword for day that that is used as the input.
+
+38
+00:02:41,160 --> 00:02:47,600
+So for data as is used as an argument and that is the input keyword and you can now named as however
+
+39
+00:02:47,610 --> 00:02:48,150
+you want.
+
+40
+00:02:48,260 --> 00:02:52,170
+I'll name it user data and their.
+
+41
+00:02:52,260 --> 00:02:55,750
+How does my user data look like or my let's name it.
+
+42
+00:02:55,750 --> 00:02:58,510
+User input data maybe.
+
+43
+00:02:58,510 --> 00:02:59,840
+How does that look like.
+
+44
+00:03:00,280 --> 00:03:07,210
+Well that will be an object which has an email field which is a string that is required.
+
+45
+00:03:07,220 --> 00:03:10,670
+I need that to be a string and I need that field to be there.
+
+46
+00:03:11,570 --> 00:03:19,720
+I also will get a name which is a string and a password.
+
+47
+00:03:19,720 --> 00:03:25,100
+Now this is the data type I'll use here for my argument to create user.
+
+48
+00:03:25,480 --> 00:03:30,520
+And now the question just is what do I get back after a user was created.
+
+49
+00:03:30,520 --> 00:03:33,460
+Well there I want to get back a user object.
+
+50
+00:03:33,460 --> 00:03:39,810
+So for that all define a new type not input but normal type which name user.
+
+51
+00:03:40,170 --> 00:03:43,840
+There I'll have an underscore ID field which will be an ID type.
+
+52
+00:03:43,990 --> 00:03:49,750
+It's a special type provided by graft UL which simply signals that this is unique and well treated as
+
+53
+00:03:49,750 --> 00:03:50,750
+an ID.
+
+54
+00:03:51,240 --> 00:03:54,510
+I'll then also have the user name which is a string.
+
+55
+00:03:54,880 --> 00:03:57,510
+I'll have the email which is a string.
+
+56
+00:03:57,880 --> 00:04:03,820
+I have the password which is a string which I don't require let's say because I don't necessarily need
+
+57
+00:04:03,820 --> 00:04:13,230
+to return that I'll have a status which is a string and I'll have my posts now that will be an array
+
+58
+00:04:13,240 --> 00:04:20,220
+and for that I also need to define how my posts should look like select me to find another type for
+
+59
+00:04:20,410 --> 00:04:23,770
+the post type and that will have an ID.
+
+60
+00:04:25,100 --> 00:04:28,790
+That will then also have a title of course.
+
+61
+00:04:28,790 --> 00:04:35,490
+A post will also have a content the post will then also have the image you are el
+
+62
+00:04:38,690 --> 00:04:42,370
+And of course you might notice some similarities to my mongoose models.
+
+63
+00:04:42,380 --> 00:04:46,150
+There I also defined how the data will look like and how it is connected.
+
+64
+00:04:46,190 --> 00:04:51,620
+We're essentially doing the same here because this will allow us to then retrieve that data efficiently.
+
+65
+00:04:51,620 --> 00:04:58,850
+So now I have my post in which you are all we alterable have a creator which is a user object and we'll
+
+66
+00:04:58,850 --> 00:05:00,650
+have to striated at field.
+
+67
+00:05:00,680 --> 00:05:03,110
+Now granule does not know dates.
+
+68
+00:05:03,140 --> 00:05:07,170
+So I'll use a string here and the same for updated at.
+
+69
+00:05:07,190 --> 00:05:15,280
+Remember we'll get these two fields because in the mongooses model for the post we enable time stamps.
+
+70
+00:05:15,380 --> 00:05:23,010
+OK so that is the post model we needed that because the user type we now will have an array of posts.
+
+71
+00:05:23,090 --> 00:05:28,040
+And this is how you tell graphs you all that you have an array of something you enclose it in square
+
+72
+00:05:28,040 --> 00:05:37,190
+brackets and that user data is now what I want to return here when I create a user that is a schema
+
+73
+00:05:37,190 --> 00:05:38,130
+defined.
+
+74
+00:05:38,150 --> 00:05:40,580
+Let's now work on the resolver for that.
+

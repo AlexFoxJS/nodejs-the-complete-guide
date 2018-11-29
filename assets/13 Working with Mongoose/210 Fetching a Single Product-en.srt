@@ -1,0 +1,80 @@
+1
+00:00:02,120 --> 00:00:08,320
+Now that we're able to get all products let's also make sure we can get a single product and for that
+
+2
+00:00:08,680 --> 00:00:15,140
+I'll work on my get product action in their shop controller and then we extract the product that which
+
+3
+00:00:15,140 --> 00:00:15,800
+is great.
+
+4
+00:00:15,940 --> 00:00:17,950
+I don't need Dischord here anymore.
+
+5
+00:00:17,950 --> 00:00:18,540
+By the way.
+
+6
+00:00:18,760 --> 00:00:25,120
+And the good thing is product is a mongoose model and Mangu is indeed has a fine by the method.
+
+7
+00:00:25,150 --> 00:00:27,790
+So little convenience method that defines for us.
+
+8
+00:00:27,790 --> 00:00:35,440
+So I again find by a d here it's not our own method it's defined by mongooses and best of all we can't
+
+9
+00:00:35,440 --> 00:00:41,440
+even pass a string to find by id and mongooses will automatically convert this to an object ID.
+
+10
+00:00:41,500 --> 00:00:43,750
+So it will handle data for us as well.
+
+11
+00:00:43,750 --> 00:00:47,990
+So again getting a lot of that convenience by just using mongooses.
+
+12
+00:00:48,370 --> 00:00:51,610
+And then we should be able to get back a product and use that.
+
+13
+00:00:51,850 --> 00:00:55,010
+So actually this should be everything we need to do.
+
+14
+00:00:55,210 --> 00:00:55,680
+Nothing.
+
+15
+00:00:55,690 --> 00:00:56,870
+Basically I guess.
+
+16
+00:00:57,070 --> 00:01:02,380
+One thing I have to do of course is I have to comment that route back and so does route for loading
+
+17
+00:01:02,380 --> 00:01:09,940
+a single product with that if you save everything and you click on details here we indeed see the detail
+
+18
+00:01:09,940 --> 00:01:11,970
+page for this product.
+
+19
+00:01:11,980 --> 00:01:14,120
+So this is now also working.
+
+20
+00:01:14,200 --> 00:01:22,060
+And that of course is really great because well this allows us to easily adjust our code to use mongoose.
+

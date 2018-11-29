@@ -1,0 +1,236 @@
+1
+00:00:02,180 --> 00:00:07,460
+Let's start with the status quo how does our application we both thus far work.
+
+2
+00:00:07,670 --> 00:00:13,370
+And with that I'm not just referring to that arrest API but to the shop we built before that.
+
+3
+00:00:13,380 --> 00:00:18,630
+Q How do typical node or node express applications work.
+
+4
+00:00:19,100 --> 00:00:24,890
+We got our client we got our server the client would be our browser mobile phone or something like that.
+
+5
+00:00:24,950 --> 00:00:29,530
+The server is of course essentially what we built our node application.
+
+6
+00:00:29,540 --> 00:00:32,620
+Now thus far we always sent the request from the client.
+
+7
+00:00:32,750 --> 00:00:34,770
+We waited for his request on the server.
+
+8
+00:00:34,790 --> 00:00:38,170
+We set up some routes to handle different kinds of requests.
+
+9
+00:00:38,360 --> 00:00:43,460
+And once we're done doing something on the server for example reach out to a database we send back a
+
+10
+00:00:43,460 --> 00:00:44,990
+response to the client.
+
+11
+00:00:45,020 --> 00:00:48,470
+So first request then response.
+
+12
+00:00:48,470 --> 00:00:51,700
+Now that is how our application works thus far.
+
+13
+00:00:51,700 --> 00:00:53,960
+And this is how most web applications work.
+
+14
+00:00:53,990 --> 00:00:58,580
+And by the way we're now not going to replace it with something totally new which will then use all
+
+15
+00:00:58,580 --> 00:00:59,270
+the time.
+
+16
+00:00:59,300 --> 00:01:07,600
+This is a fine pattern because a lot of resources on the Internet should be available biogas pull approach.
+
+17
+00:01:07,700 --> 00:01:14,040
+So you pull information from the client you tell the server that you want something.
+
+18
+00:01:14,210 --> 00:01:17,700
+Does the typical approach and is a fine approach.
+
+19
+00:01:17,930 --> 00:01:20,950
+But sometimes you have a different requirement.
+
+20
+00:01:21,140 --> 00:01:26,450
+What if you want to send something from the server to the client so what if something happens and you
+
+21
+00:01:26,450 --> 00:01:28,010
+want to inform the client.
+
+22
+00:01:28,400 --> 00:01:37,190
+Let's say you're building a chat application user aid on PCa or on his mobile phone sends a message
+
+23
+00:01:37,190 --> 00:01:38,690
+to user or B.
+
+24
+00:01:39,080 --> 00:01:41,850
+Now obviously they're not sharing the same device.
+
+25
+00:01:41,900 --> 00:01:45,200
+They might be in two totally different places on the world.
+
+26
+00:01:45,380 --> 00:01:51,830
+Now User A sends a request to the server that contains the message and disserve restores the message
+
+27
+00:01:51,830 --> 00:01:55,880
+in the database and the server can return a response to user.
+
+28
+00:01:56,060 --> 00:02:03,670
+But User B the person with whom user chats does not send the request to the server asking for the message
+
+29
+00:02:03,920 --> 00:02:06,380
+or at least that is unlikely to happen.
+
+30
+00:02:06,380 --> 00:02:11,510
+You could certainly use some patterns where you send the request every second to see if there are new
+
+31
+00:02:11,510 --> 00:02:12,310
+messages.
+
+32
+00:02:12,440 --> 00:02:19,590
+But you'll then hammer your server with requests were most requests will not yield new messages.
+
+33
+00:02:19,610 --> 00:02:26,120
+So instead it would be nice to have some push way off and forming User B about the new message.
+
+34
+00:02:26,120 --> 00:02:29,300
+And that is exactly the scenario we're looking at here.
+
+35
+00:02:29,450 --> 00:02:36,380
+What if something changed on the server and we actively want to inform a client well then we can use
+
+36
+00:02:36,380 --> 00:02:39,080
+web sockets instead of HTP.
+
+37
+00:02:39,200 --> 00:02:42,110
+Now HTP is the protocol we used thus far.
+
+38
+00:02:42,230 --> 00:02:44,600
+Where we send the request and we get a response.
+
+39
+00:02:44,840 --> 00:02:48,050
+Web sockets built up on HTP.
+
+40
+00:02:48,080 --> 00:02:50,420
+They are established via HTP.
+
+41
+00:02:50,540 --> 00:02:57,950
+They use a so-called HTP handshake to upgrade the HTP protocol to the Web sockets protocol and the web
+
+42
+00:02:57,950 --> 00:03:01,670
+sockets protocol that simply talks about how data is exchanged.
+
+43
+00:03:01,670 --> 00:03:01,910
+Right.
+
+44
+00:03:01,910 --> 00:03:04,710
+So this protocol is something you don't have to manage.
+
+45
+00:03:04,720 --> 00:03:12,980
+Actually the browser and the server communicate through a protocol and protocol defines how the communication
+
+46
+00:03:12,980 --> 00:03:18,870
+can happen with HTP It's request response with WEP sockets.
+
+47
+00:03:18,920 --> 00:03:22,600
+It is push data are actually it's both.
+
+48
+00:03:22,610 --> 00:03:25,890
+We can also send data from the client to the server does is still included.
+
+49
+00:03:25,940 --> 00:03:29,480
+But most importantly and that's the feature I really want to highlight here.
+
+50
+00:03:29,570 --> 00:03:36,500
+We can push data from the server to declined and you can and you typically will use both together in
+
+51
+00:03:36,500 --> 00:03:37,670
+one in the same nodes.
+
+52
+00:03:37,790 --> 00:03:44,330
+So it's not like you have to decide do I build an app with web sockets or do a build one with HDTV.
+
+53
+00:03:44,570 --> 00:03:49,180
+You still have a lot of places where you want to use that request response pattern.
+
+54
+00:03:49,190 --> 00:03:53,810
+For example if you were sending a message or if you're creating a user.
+
+55
+00:03:54,020 --> 00:03:59,320
+These are operations where you do send some information from the browser to the server.
+
+56
+00:03:59,330 --> 00:04:03,360
+So there is a request response narrow makes perfect sense.
+
+57
+00:04:03,500 --> 00:04:09,290
+But if you have some active notification you want to get to your users then you all want to integrate
+
+58
+00:04:09,290 --> 00:04:10,640
+web sockets.
+
+59
+00:04:10,640 --> 00:04:15,040
+Now let me show you how to add web sockets to your project in the next ELECTRESS.
+

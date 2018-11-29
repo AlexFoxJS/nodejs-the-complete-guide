@@ -1,0 +1,580 @@
+1
+00:00:02,180 --> 00:00:08,370
+Over the last lectures I extensively mentioned how Noad works with asynchronous code.
+
+2
+00:00:08,390 --> 00:00:11,610
+And they mentioned this event loop which is important.
+
+3
+00:00:11,720 --> 00:00:16,070
+Let me dive deeper into that and deeper into how.
+
+4
+00:00:16,060 --> 00:00:24,380
+No chance exactly executes your code to stay performant and still be able to handle long taking tasks
+
+5
+00:00:24,560 --> 00:00:29,360
+like working with files or things like that because there is an important concept which you have to
+
+6
+00:00:29,360 --> 00:00:34,100
+understand to understand well what is happening behind the scenes.
+
+7
+00:00:34,100 --> 00:00:37,250
+So in our node application we have our code.
+
+8
+00:00:37,280 --> 00:00:44,420
+And one important thing to understand and to really keep in mind is that node J.S. uses only one single
+
+9
+00:00:44,450 --> 00:00:46,100
+javascript Fred.
+
+10
+00:00:46,460 --> 00:00:50,710
+Fred is basically like a process in your operating system you could say.
+
+11
+00:00:50,900 --> 00:00:57,380
+So it's only using data one thread and the obvious question is how is it then able to handle multiple
+
+12
+00:00:57,380 --> 00:01:05,390
+requests because if we're not able to assign a new fret for each request they ultimately end up all
+
+13
+00:01:05,390 --> 00:01:07,390
+running in one on the same fret.
+
+14
+00:01:07,430 --> 00:01:10,310
+And this of course poses a security question.
+
+15
+00:01:10,310 --> 00:01:17,990
+Can you then access data from request a from request B and most importantly here at this point when
+
+16
+00:01:17,990 --> 00:01:23,930
+we talk about performance there are of course always the question of does does not mean that if you
+
+17
+00:01:23,930 --> 00:01:30,480
+request a is still doing work request B can't be handled well both this taking care of all.
+
+18
+00:01:30,500 --> 00:01:30,840
+No.
+
+19
+00:01:30,890 --> 00:01:31,470
+Yes.
+
+20
+00:01:31,550 --> 00:01:37,340
+And at this point of time here I want to focus on the performance question though I'll also briefly
+
+21
+00:01:37,340 --> 00:01:39,150
+touch on the security question.
+
+22
+00:01:39,290 --> 00:01:41,510
+Now let's start with the performance.
+
+23
+00:01:41,510 --> 00:01:49,100
+Let's say we have some code which accesses the file system as we already did in this course to now working
+
+24
+00:01:49,100 --> 00:01:55,670
+with files off this a task that takes longer because files can be very big and it doesn't necessarily
+
+25
+00:01:55,670 --> 00:01:57,380
+complete instantly.
+
+26
+00:01:57,620 --> 00:02:03,950
+Therefore if we're doing days upon an incoming request a second request might have to wait because we're
+
+27
+00:02:03,950 --> 00:02:07,070
+not able to handle it yet or it even gets declined.
+
+28
+00:02:07,070 --> 00:02:11,270
+So basically our Web page is down for dead user.
+
+29
+00:02:11,270 --> 00:02:17,780
+Now one important construct I already mentioned is debt event loop the event loop is automatically started
+
+30
+00:02:17,780 --> 00:02:20,580
+by no chase when your program starts.
+
+31
+00:02:20,600 --> 00:02:22,830
+You don't have to do that explicitly.
+
+32
+00:02:22,880 --> 00:02:24,810
+No chase dust when well.
+
+33
+00:02:24,860 --> 00:02:27,380
+It basically starts running code.
+
+34
+00:02:27,620 --> 00:02:31,970
+This is responsible for a handling event callbacks though.
+
+35
+00:02:32,090 --> 00:02:39,260
+So all these nice functions we basically added thus far in create server for example the event loop
+
+36
+00:02:39,290 --> 00:02:45,830
+is responsible for basically running that code when a certain event occurs you could say it's aware
+
+37
+00:02:45,830 --> 00:02:52,520
+of all these callbacks and basically well execute said code that doesn't help us with our long taking
+
+38
+00:02:52,520 --> 00:02:59,330
+file operation though and it's important to understand that this operation is not handled by the event
+
+39
+00:02:59,330 --> 00:03:04,890
+loop just the call back that we might have to find on right file.
+
+40
+00:03:04,940 --> 00:03:11,150
+Once it's done that code will be handled in an event loop but that code will finish fast.
+
+41
+00:03:11,150 --> 00:03:17,950
+So basically the event loop will only handle callbacks that contain fast finishing code.
+
+42
+00:03:18,710 --> 00:03:25,370
+Instead our file system operation and a couple of Avro long tagging operations are sent to a worker
+
+43
+00:03:25,400 --> 00:03:29,810
+pool which is also spun up and managed by no js automatically.
+
+44
+00:03:30,180 --> 00:03:34,450
+This worker pool is responsible for all the heavy lifting.
+
+45
+00:03:34,650 --> 00:03:42,450
+This worker pool is kind of totally detached of your javascript code you could say and it runs on different
+
+46
+00:03:42,450 --> 00:03:47,990
+frets Fretz it can spin up multiple Fretz it's closely intervened with your operating system you're
+
+47
+00:03:47,990 --> 00:03:49,200
+running the app on.
+
+48
+00:03:49,220 --> 00:03:55,560
+So this is really detached from your code and this worker pool is therefore doing all the heavy lifting.
+
+49
+00:03:55,640 --> 00:04:01,710
+If you're doing something with a file Well a worker from that pool will take care and will do its job.
+
+50
+00:04:01,760 --> 00:04:09,000
+Totally detached from your code and from the request and from the event loop D-1 connection to the event.
+
+51
+00:04:09,020 --> 00:04:11,360
+We will have though is dead.
+
+52
+00:04:11,390 --> 00:04:19,550
+Once the worker is done so for example once we read a file it will trigger the call back for dead read
+
+53
+00:04:19,550 --> 00:04:25,460
+file operation and since the event loop is responsible for two events and the callbacks does well in
+
+54
+00:04:25,460 --> 00:04:28,100
+the end and up in the event loop.
+
+55
+00:04:28,100 --> 00:04:33,560
+So there no G-S will then basically execute the appropriate callback.
+
+56
+00:04:33,560 --> 00:04:39,050
+Now this is a lot of behind the scenes stuff which is nice to know you don't have to write any code
+
+57
+00:04:39,350 --> 00:04:40,360
+to make this work.
+
+58
+00:04:40,360 --> 00:04:42,620
+This is all built into no jack ass.
+
+59
+00:04:42,650 --> 00:04:47,810
+And if you write code as you learn it in this course you automatically take advantage of this.
+
+60
+00:04:47,840 --> 00:04:53,210
+I still of course want you to understand how it works behind the scenes because I believe that helps
+
+61
+00:04:53,210 --> 00:04:54,100
+you understand.
+
+62
+00:04:54,110 --> 00:04:56,060
+No change is better.
+
+63
+00:04:56,060 --> 00:04:57,610
+Now let's look into that event loop.
+
+64
+00:04:57,620 --> 00:05:00,710
+Then that event loop isn't the end.
+
+65
+00:05:00,710 --> 00:05:07,570
+A loop which is run or started by no chase that keeps the no chase process running.
+
+66
+00:05:07,650 --> 00:05:14,060
+And as I just mentioned that handles all the callbacks and it has a certain order in which it goes through
+
+67
+00:05:14,160 --> 00:05:15,300
+the callbacks.
+
+68
+00:05:15,690 --> 00:05:19,250
+So basically it's a loop that just keeps on looping.
+
+69
+00:05:19,290 --> 00:05:25,650
+Unsurprisingly at the beginning of each new iteration it checks if there are any time or callbacks it
+
+70
+00:05:25,650 --> 00:05:29,410
+should execute We haven't set up any timers yet.
+
+71
+00:05:29,590 --> 00:05:32,840
+But basically there is set time out and set interval.
+
+72
+00:05:32,860 --> 00:05:39,760
+You might notice from Front-End javascript to their DS methods also exist now and no chance you can
+
+73
+00:05:39,760 --> 00:05:47,040
+also set a timer and basically you set a timer and always pass a method a function that should be executed.
+
+74
+00:05:47,080 --> 00:05:52,840
+Once that timer completes and no chance is aware of this and at the beginning of each new iteration
+
+75
+00:05:53,170 --> 00:05:56,020
+it executes any due time or callbacks.
+
+76
+00:05:56,020 --> 00:06:02,740
+So any callbacks that have to be executed because of timer completes then as a next step it checks Avro
+
+77
+00:06:02,740 --> 00:06:03,520
+callbacks.
+
+78
+00:06:03,550 --> 00:06:10,240
+For example if we had write or read file we might have a callback because that operation finished and
+
+79
+00:06:10,240 --> 00:06:13,600
+it will then also execute these callbacks.
+
+80
+00:06:13,630 --> 00:06:21,340
+Now be aware that with I O here I mean generally any input output operations that typically is file
+
+81
+00:06:21,340 --> 00:06:27,370
+operations but can also be network operations and in general I'm talking about blocking long taking
+
+82
+00:06:27,370 --> 00:06:28,730
+operations.
+
+83
+00:06:28,750 --> 00:06:34,540
+Now it's important to understand that no chase will leave dead face at a certain point of time and that
+
+84
+00:06:34,540 --> 00:06:40,900
+can also mean that if there are too many outstanding callbacks it will continue its loop iteration and
+
+85
+00:06:40,900 --> 00:06:48,910
+postpone these callbacks to the next iteration to execute them after working on these open callbacks
+
+86
+00:06:48,940 --> 00:06:50,930
+and hopefully finishing them all.
+
+87
+00:06:50,980 --> 00:07:00,310
+It will enter a pulse face the pole phase is basically a phase where no chase will look for new events
+
+88
+00:07:00,340 --> 00:07:07,000
+and basically do its best to execute dare call backs immediately if possible.
+
+89
+00:07:07,000 --> 00:07:14,440
+Now if that's not possible it will defer the execution and basically register this as a pending callback.
+
+90
+00:07:14,470 --> 00:07:16,160
+So this is how that works.
+
+91
+00:07:17,220 --> 00:07:23,970
+Important it all to we'll check if there are any timer callbacks due to be executed.
+
+92
+00:07:24,030 --> 00:07:29,010
+And if that is the case it will chum to that time or face and execute them right away.
+
+93
+00:07:29,070 --> 00:07:32,510
+So it can actually chump back there and not finished iteration.
+
+94
+00:07:32,640 --> 00:07:34,150
+Otherwise it will continue.
+
+95
+00:07:34,350 --> 00:07:42,030
+And next set immediate callbacks will be executed in a so-called check face set immediate is a bit like
+
+96
+00:07:42,030 --> 00:07:50,000
+sex time out or is that interval just deaded will execute immediately but always offer any open callbacks
+
+97
+00:07:50,070 --> 00:07:51,750
+have been executed.
+
+98
+00:07:51,870 --> 00:07:58,140
+So typically faster then sets time out with one millisecond of open duration let's say.
+
+99
+00:07:58,230 --> 00:08:01,450
+But after the current cycle.
+
+100
+00:08:01,620 --> 00:08:06,750
+Well finished or at least finished open callbacks that were due to be handled in that current iteration
+
+101
+00:08:06,960 --> 00:08:09,770
+and now we're entering a highly theoretical terrain.
+
+102
+00:08:09,900 --> 00:08:15,780
+And I don't want to dive too deep into that though you will find a couple of resources that you dive
+
+103
+00:08:15,780 --> 00:08:21,600
+deeper at the end of this module in case you want to join you know chess team and really dive super
+
+104
+00:08:21,600 --> 00:08:23,270
+hard core introduce.
+
+105
+00:08:23,490 --> 00:08:30,510
+Now we're nearing the end of each iteration cycle and now no chase will execute all close event callbacks.
+
+106
+00:08:30,510 --> 00:08:34,860
+So if you register any close events and in our code we haven't.
+
+107
+00:08:34,920 --> 00:08:40,890
+But if you had any close events this would be the point of time where no chase executes dare appropriate
+
+108
+00:08:40,890 --> 00:08:41,940
+callbacks.
+
+109
+00:08:42,120 --> 00:08:49,290
+So roughly spoken we have timer callbacks we don't have any I O related callbacks and other event callbacks
+
+110
+00:08:49,650 --> 00:08:53,470
+and set immediate followed by close event called x.
+
+111
+00:08:53,520 --> 00:08:58,830
+So close events are basically handled separately or they're callbacks are handled separately we should
+
+112
+00:08:58,830 --> 00:09:09,750
+say well and Denn we might exit the whole node Jasp program but only if there are no remaining event
+
+113
+00:09:09,840 --> 00:09:17,150
+handlers which are registered and that is what I mean with this refs equal Knol thing here internally.
+
+114
+00:09:17,180 --> 00:09:25,050
+Note J.S. keeps track of its open event listeners and it basically has a counter references or refs
+
+115
+00:09:25,260 --> 00:09:30,000
+which it increments by 1 for every new call back to registered.
+
+116
+00:09:30,000 --> 00:09:32,760
+Every new event listener that is registered.
+
+117
+00:09:32,850 --> 00:09:35,630
+So every new future work it has to do.
+
+118
+00:09:35,630 --> 00:09:41,460
+You could say and it reduces that counter by 1 for every event listener that it doesn't need any more
+
+119
+00:09:41,640 --> 00:09:47,280
+every call back it finished and sends a server environment.
+
+120
+00:09:47,280 --> 00:09:53,370
+We create a server with create server and then listened to incoming requests with listen.
+
+121
+00:09:53,460 --> 00:09:59,820
+This is an event which never is finished by default and therefore we always have at least one reference
+
+122
+00:10:00,000 --> 00:10:06,630
+and therefore we don't exit in a normal node web server program we can call the exit function as you
+
+123
+00:10:06,630 --> 00:10:07,720
+already saw.
+
+124
+00:10:07,950 --> 00:10:14,070
+And if we do anything else like at the beginning of the course when we just use node to execute a file
+
+125
+00:10:14,070 --> 00:10:21,270
+that did not listen to a web server or on a web server then it all finishes eventually once its done
+
+126
+00:10:21,360 --> 00:10:23,150
+with its work.
+
+127
+00:10:23,160 --> 00:10:25,340
+So this is how it eventually works.
+
+128
+00:10:25,740 --> 00:10:34,110
+And this can be very few radical all these different phases typically don't matter to you certainly
+
+129
+00:10:34,110 --> 00:10:36,650
+not when getting started with no chance.
+
+130
+00:10:36,780 --> 00:10:40,930
+Now consult these advanced resources if you want to learn more.
+
+131
+00:10:40,950 --> 00:10:48,660
+For now just be aware of that first picture I showed you of how node shapes handles complex work that
+
+132
+00:10:48,660 --> 00:10:54,270
+there is a worker pool that takes care that your things are not getting blocked and that it therefore
+
+133
+00:10:54,270 --> 00:10:56,280
+stays performant.
+
+134
+00:10:56,280 --> 00:11:02,110
+Now I also touched on that security thing with that one javascript fret.
+
+135
+00:11:02,350 --> 00:11:06,340
+And regarding that we also got no problems by default.
+
+136
+00:11:06,480 --> 00:11:13,920
+Though I will come back later to how we can manage global data and how we should manage it to ensure
+
+137
+00:11:13,920 --> 00:11:19,050
+that we do not spoil data from request to request be by default.
+
+138
+00:11:19,050 --> 00:11:25,350
+We have some separation because remember that callback method in 3:8 server gets executed for every
+
+139
+00:11:25,350 --> 00:11:31,080
+new incoming request and therefore dysfunction only runs for that incoming request and anything we do
+
+140
+00:11:31,080 --> 00:11:36,900
+to a request or a response Optik there will not be exposed to our request or response objects because
+
+141
+00:11:36,900 --> 00:11:42,100
+each function is only scoped to itself and not accessible by the functions.
+
+142
+00:11:42,120 --> 00:11:47,760
+So by default we have that separation due to how javascript works.
+
+143
+00:11:47,760 --> 00:11:50,130
+Now that was a big chunk of theory.
+
+144
+00:11:50,130 --> 00:11:55,200
+Again not something you have to learn by heart but something where you should at least keep that big
+
+145
+00:11:55,200 --> 00:11:58,910
+picture in mind of how no chase manages its work.
+

@@ -1,0 +1,216 @@
+1
+00:00:02,200 --> 00:00:08,300
+We're coming closer to the end of this module only order part is missing and I want to include that
+
+2
+00:00:08,330 --> 00:00:14,600
+too because this will show you a novel way of creating relations with the card we had liked the middle
+
+3
+00:00:14,600 --> 00:00:15,110
+way.
+
+4
+00:00:15,320 --> 00:00:21,500
+The card is an embedded document but the items on the card then are a combination of references and
+
+5
+00:00:21,500 --> 00:00:22,780
+extra metadata.
+
+6
+00:00:23,030 --> 00:00:26,330
+Now for the orders this will change.
+
+7
+00:00:26,330 --> 00:00:28,590
+So let's work on the orders now.
+
+8
+00:00:28,820 --> 00:00:36,920
+And for that I'll go to my shop chase fall where we post the order again I want to store orders on users.
+
+9
+00:00:36,920 --> 00:00:45,700
+So in the user model we can add an order method and this doesn't take any arguments because the card
+
+10
+00:00:45,730 --> 00:00:51,610
+which will be passed as an order or as the data for an order is already registered on this user.
+
+11
+00:00:51,790 --> 00:00:59,330
+So all I need to do here is I need to add the orders to my user or the other way around.
+
+12
+00:00:59,410 --> 00:01:05,950
+You could also argue that you want to store the orders in a new collection because you might have thousands
+
+13
+00:01:05,950 --> 00:01:11,230
+of orders and you don't want to and bath them all into user objects because these objects will then
+
+14
+00:01:11,230 --> 00:01:12,840
+get pretty quick.
+
+15
+00:01:12,970 --> 00:01:16,310
+Cards don't get that big Budha order history.
+
+16
+00:01:16,420 --> 00:01:22,390
+Well often that can get very long so it will actually work with a new collection here.
+
+17
+00:01:22,480 --> 00:01:30,910
+I'll still create order here as a method on my user though so I'll reach out to my database client and
+
+18
+00:01:30,910 --> 00:01:35,430
+then reach out to a new collection orders there.
+
+19
+00:01:35,440 --> 00:01:44,500
+I want to insert one new order now I return the entire thing and that one your order will be well the
+
+20
+00:01:44,500 --> 00:01:45,080
+card.
+
+21
+00:01:45,220 --> 00:01:46,320
+I currently have.
+
+22
+00:01:46,360 --> 00:01:46,660
+Right.
+
+23
+00:01:46,660 --> 00:01:54,640
+That is essentially what I did before too when I added an order I added my products in the order model.
+
+24
+00:01:54,670 --> 00:01:56,600
+We had no special fields for that.
+
+25
+00:01:56,620 --> 00:02:00,850
+We just had our products and then the quantity of every product.
+
+26
+00:02:00,850 --> 00:02:03,410
+And that is still the same I want to add here.
+
+27
+00:02:03,610 --> 00:02:09,200
+So you could say I'll insert one and I'll insert my cart.
+
+28
+00:02:09,290 --> 00:02:20,000
+So this cart which refers to a user's cart I insert this as an order and then when this succeeds I set
+
+29
+00:02:20,010 --> 00:02:24,390
+this card equal to an object where items is an empty array.
+
+30
+00:02:24,390 --> 00:02:27,970
+So basically empty my card at this point.
+
+31
+00:02:28,230 --> 00:02:30,350
+Of course I don't just want to empty it here.
+
+32
+00:02:30,360 --> 00:02:33,660
+I also want to clear it in the database.
+
+33
+00:02:33,840 --> 00:02:40,170
+So we'll also copy that code for updating my user in the database and I will return that here and does
+
+34
+00:02:40,180 --> 00:02:49,400
+it then block and there I will simply search for that user and set the card equal to an object where
+
+35
+00:02:49,460 --> 00:02:52,710
+items is an empty array.
+
+36
+00:02:52,720 --> 00:02:57,860
+So now I clear it both in the User object as well as in the database.
+
+37
+00:02:57,940 --> 00:03:02,720
+But I also ordered the card into the orders collection before I clean it.
+
+38
+00:03:02,800 --> 00:03:06,130
+And that of course is the important part with that.
+
+39
+00:03:06,130 --> 00:03:09,110
+We already are adding the order now in shop.
+
+40
+00:03:09,120 --> 00:03:21,600
+J.S. in post order word order gets placed i can't they for remove all the code up here and simply say
+
+41
+00:03:22,230 --> 00:03:26,420
+add order simply execute this method and then redirect.
+
+42
+00:03:26,430 --> 00:03:33,630
+Once this is done and then add order I will store my card as you order and you could of course also
+
+43
+00:03:33,630 --> 00:03:37,530
+add some new fields like the total of value for example if you wanted to.
+
+44
+00:03:38,070 --> 00:03:39,410
+And that is it for now.
+
+45
+00:03:39,600 --> 00:03:41,550
+So there after I redirect.
+
+46
+00:03:41,550 --> 00:03:42,890
+Now let's see if that works.
+
+47
+00:03:44,300 --> 00:03:52,900
+By going to the shop as fall and re-adding that create order route and let's click order now here.
+
+48
+00:03:53,350 --> 00:04:00,940
+Now I have a page not found because orders the orders page to route wasn't added again but let's refresh
+
+49
+00:04:01,180 --> 00:04:02,570
+the entire page here.
+
+50
+00:04:02,830 --> 00:04:11,710
+And my items in the cart certainly are gone but I don't see new orders in the shop database.
+
+51
+00:04:11,800 --> 00:04:15,370
+I don't see that collection your.
+
+52
+00:04:15,570 --> 00:04:22,430
+But here it is after updating this once with the update arrow in the top left corner and in orders.
+
+53
+00:04:22,650 --> 00:04:29,870
+I have one order with Indeed the items I had in my card previously and the card is now empty.
+
+54
+00:04:29,870 --> 00:04:34,770
+So let's now make sure the next lecture that we can see are orders page again.
+

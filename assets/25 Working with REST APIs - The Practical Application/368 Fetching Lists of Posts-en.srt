@@ -1,0 +1,336 @@
+1
+00:00:02,270 --> 00:00:03,740
+So let's start working on the rest.
+
+2
+00:00:03,740 --> 00:00:04,710
+API again.
+
+3
+00:00:04,850 --> 00:00:12,410
+And for that all Ron NPM start in my rest API note J.S. project 2 and that is all that the reason why
+
+4
+00:00:12,410 --> 00:00:17,440
+I'm using different ports by the way here I'm starting the application on port 80 80.
+
+5
+00:00:17,510 --> 00:00:24,920
+My front end application automatically takes port free thousand and this simulates dead these two ends
+
+6
+00:00:24,980 --> 00:00:28,630
+of my application are served by different servers.
+
+7
+00:00:28,640 --> 00:00:34,790
+In the end which is a pretty common scenario sends front and only applications like re-act can be served
+
+8
+00:00:34,790 --> 00:00:41,180
+and so-called static hosts which are optimized for applications that only consist of html javascript
+
+9
+00:00:41,180 --> 00:00:47,120
+and C-s s and hence you might indeed have two different service even if you created both the back end
+
+10
+00:00:47,270 --> 00:00:48,560
+and the front end.
+
+11
+00:00:48,620 --> 00:00:53,000
+So we have different ports and therefore we have different domains and therefore we definitely need
+
+12
+00:00:53,060 --> 00:00:54,160
+our course headers.
+
+13
+00:00:54,200 --> 00:00:56,050
+Otherwise nothing would work.
+
+14
+00:00:56,120 --> 00:00:59,720
+And with that we can now start working on our fleet routes.
+
+15
+00:00:59,750 --> 00:01:06,110
+We actually got two routes already slash posts and slash post for creating a new post and for getting
+
+16
+00:01:06,110 --> 00:01:07,230
+existing posts.
+
+17
+00:01:07,310 --> 00:01:14,600
+And now let's add some logic so to our controller actions to actually return something useful and to
+
+18
+00:01:14,600 --> 00:01:17,180
+enable the user to create new posts.
+
+19
+00:01:17,180 --> 00:01:23,530
+Let's maybe start with getting hostes because that would allow us see at least some dummy data.
+
+20
+00:01:23,720 --> 00:01:31,880
+So data something useful for that and get posts we actually already return a list of dummy data posts.
+
+21
+00:01:31,910 --> 00:01:35,610
+Each post has a title and some content.
+
+22
+00:01:35,610 --> 00:01:42,410
+Now it's of course always up to you how you want your data to look like in an application in this application
+
+23
+00:01:42,470 --> 00:01:44,750
+because my front than I expected.
+
+24
+00:01:44,930 --> 00:01:51,740
+I went to have a post which in the end consists of a title which has a user attached to it a creator
+
+25
+00:01:51,860 --> 00:01:58,400
+or an offer which has a creation date which has an image and which has some content.
+
+26
+00:01:58,400 --> 00:02:00,390
+This is what I want to put in my front end.
+
+27
+00:02:00,470 --> 00:02:04,370
+So the data we store on the server should have all these fields in the end.
+
+28
+00:02:04,370 --> 00:02:07,330
+Now we don't have to start with the full package though.
+
+29
+00:02:07,340 --> 00:02:09,760
+I already have a title and content here.
+
+30
+00:02:09,890 --> 00:02:13,330
+Now let's maybe add some image you are ill here.
+
+31
+00:02:13,370 --> 00:02:17,210
+And Ford at all trade and you images folder.
+
+32
+00:02:17,360 --> 00:02:21,800
+And for the moment I will just copy the image into that folder.
+
+33
+00:02:21,800 --> 00:02:28,730
+Later we'll of course at image upload our copy in my good old duck image which I used before in the
+
+34
+00:02:28,730 --> 00:02:31,370
+course.
+
+35
+00:02:31,580 --> 00:02:33,680
+And here it is the lovely duck Che pic.
+
+36
+00:02:33,920 --> 00:02:36,290
+And I want to serve that duck.
+
+37
+00:02:36,320 --> 00:02:38,600
+So here is an image you are L..
+
+38
+00:02:38,780 --> 00:02:50,560
+I will actually provide images slash duck Dolce Peck as a POF because that is my local path on the server
+
+39
+00:02:50,560 --> 00:02:55,130
+here it's missing my domain and so on will have to attached as on the front end.
+
+40
+00:02:55,270 --> 00:03:02,260
+Business now a post as I could serve it if I know saved as we can actually fetch that data with a get
+
+41
+00:03:02,260 --> 00:03:11,020
+request to local host 1880 slash feet because that is what we have as a filter to reach to feed routes.
+
+42
+00:03:11,080 --> 00:03:14,830
+So slash feed slash posts.
+
+43
+00:03:14,830 --> 00:03:19,480
+Now let's try it out in our Front-End application there.
+
+44
+00:03:19,540 --> 00:03:29,200
+We fetch our posts and the feet js file in the source pages feed folder in there you should find load
+
+45
+00:03:29,320 --> 00:03:31,450
+posts function.
+
+46
+00:03:31,450 --> 00:03:38,620
+Load posts is a function that is called by the react code and so on in the end and what we do here is
+
+47
+00:03:38,870 --> 00:03:42,310
+I also support page nation which will add later.
+
+48
+00:03:42,490 --> 00:03:51,820
+For now I just want to reach out to my u r l which is HTP localhost 1880.
+
+49
+00:03:51,910 --> 00:03:53,260
+Written like this.
+
+50
+00:03:54,650 --> 00:03:59,210
+And then slash feet slash posts like this.
+
+51
+00:03:59,230 --> 00:04:02,570
+So this route just talked about and the rest API.
+
+52
+00:04:02,990 --> 00:04:05,750
+This should fetch all these posts then.
+
+53
+00:04:05,740 --> 00:04:09,860
+Here I just checked if the status code is not equal to 200.
+
+54
+00:04:09,910 --> 00:04:14,830
+Which would mean that something went wrong and then I've Frot an error which is handle in your react
+
+55
+00:04:14,830 --> 00:04:16,060
+application.
+
+56
+00:04:16,060 --> 00:04:23,530
+Otherwise I extract my body and then here I have my body and I use some re-act logic to load that body
+
+57
+00:04:23,530 --> 00:04:26,590
+in the end and to hopefully display it.
+
+58
+00:04:26,590 --> 00:04:34,890
+If I save dat and I go back to my application I'll get an error regarding the name.
+
+59
+00:04:34,930 --> 00:04:36,990
+You offer name which is missing.
+
+60
+00:04:37,070 --> 00:04:44,000
+I'm not supporting users yet so this will be a problem for the moment and will also get an error regarding
+
+61
+00:04:44,000 --> 00:04:45,650
+the date eventually.
+
+62
+00:04:45,680 --> 00:04:51,880
+So to a white this we should go back to our controller and add some dummy data for this too.
+
+63
+00:04:52,040 --> 00:04:57,290
+Let's add a creator object because that is what I'll be looking for at my react code which should be
+
+64
+00:04:57,290 --> 00:05:00,560
+an object with a name where you can enter any name you want.
+
+65
+00:05:00,590 --> 00:05:03,760
+Later will of course connect us to a real user in the database.
+
+66
+00:05:03,950 --> 00:05:05,380
+And let's also add a date.
+
+67
+00:05:05,390 --> 00:05:10,050
+And here you can simply create a new date with Will new date like this.
+
+68
+00:05:10,070 --> 00:05:16,580
+Last but not least you also want to add some ID and that should be underscore ID because I'll be looking
+
+69
+00:05:16,580 --> 00:05:19,320
+for under square ID in the Front-End code.
+
+70
+00:05:19,350 --> 00:05:20,910
+Andy re-act application.
+
+71
+00:05:21,020 --> 00:05:26,960
+Because later we'll use mongooses again here and that of course or Mongo to be in general and that of
+
+72
+00:05:26,960 --> 00:05:29,750
+course simply adds IDs with underscore ID.
+
+73
+00:05:29,810 --> 00:05:33,110
+So here you can enter any ID you want.
+
+74
+00:05:33,110 --> 00:05:38,690
+Now if you save that update that controller code and the server therefore restarts you can reload and
+
+75
+00:05:38,690 --> 00:05:40,020
+you'll still get that error.
+
+76
+00:05:40,040 --> 00:05:43,970
+Which is related to our status or user status which we still can't fetch.
+
+77
+00:05:43,970 --> 00:05:50,670
+But if you simply click that way you see that first post here and that is looking better than before.
+
+78
+00:05:51,440 --> 00:05:57,180
+The end with a date is a problem because actually the fuel to be named created at not date there was
+
+79
+00:05:57,180 --> 00:05:59,120
+a tiny mistake on my side on the server.
+
+80
+00:05:59,140 --> 00:06:00,620
+It should be created at.
+
+81
+00:06:00,630 --> 00:06:04,170
+With that if you reload you'll see this post.
+
+82
+00:06:04,170 --> 00:06:05,870
+So fetching posts works.
+
+83
+00:06:05,880 --> 00:06:09,660
+Of course it's just dummy data though to work with real data.
+
+84
+00:06:09,660 --> 00:06:16,500
+I want to be able to create new posts by clicking new posts so that is something we can add as an nextstep.
+

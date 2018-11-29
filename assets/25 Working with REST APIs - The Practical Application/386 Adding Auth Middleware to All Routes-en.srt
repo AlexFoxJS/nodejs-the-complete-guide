@@ -1,0 +1,92 @@
+1
+00:00:02,410 --> 00:00:05,000
+We add that this is all middleware on the server.
+
+2
+00:00:05,080 --> 00:00:11,770
+Let's now protect all feed routes with it not as super simple we just copy that middleware and we add
+
+3
+00:00:11,770 --> 00:00:19,040
+it to every route we have there as the first middleware before we do anything else because of no token
+
+4
+00:00:19,040 --> 00:00:19,470
+to stare.
+
+5
+00:00:19,490 --> 00:00:21,810
+We don't even need to continue with anything else.
+
+6
+00:00:22,220 --> 00:00:23,970
+Every route should be protected here.
+
+7
+00:00:24,020 --> 00:00:30,010
+So we simply add this to every single route.
+
+8
+00:00:30,010 --> 00:00:35,110
+Now once you did add it to every route you have to make sure that you passed the token on the front
+
+9
+00:00:35,110 --> 00:00:35,540
+end.
+
+10
+00:00:35,860 --> 00:00:42,040
+So this headers set up where you add does offer a sation header.
+
+11
+00:00:42,080 --> 00:00:45,340
+This is something you now need to add in a couple of places in the front end.
+
+12
+00:00:46,480 --> 00:00:55,890
+For example our edit handler Stehr there on the fecche request we now should also add some headers and
+
+13
+00:00:55,890 --> 00:00:59,100
+the headers should contain are all for I sation token
+
+14
+00:01:01,870 --> 00:01:05,770
+if we scroll down further we also got the lead post handler.
+
+15
+00:01:05,980 --> 00:01:12,680
+Well there obviously we also want to add some headers and that one had or we want to add is our offer
+
+16
+00:01:12,790 --> 00:01:18,420
+sation token of course we can all the fecche single posts.
+
+17
+00:01:18,420 --> 00:01:25,030
+So in this single post js file in the front end code where we fetch a single post we all want to pass
+
+18
+00:01:25,030 --> 00:01:31,330
+that second argument to fetch add our headers and there at the all right sation header.
+
+19
+00:01:31,330 --> 00:01:35,210
+Now we should be able to navigate around as long as we are authentic hate it.
+
+20
+00:01:35,230 --> 00:01:41,190
+But I also want to lock down access to ensure that I can only added and delete posts which actually
+
+21
+00:01:41,180 --> 00:01:42,090
+create it.
+
+22
+00:01:42,130 --> 00:01:44,430
+Now in the last lecture I deleted all posts.
+
+23
+00:01:44,530 --> 00:01:49,890
+So let's make sure that we first of all connect posts and users when we create new posts.
+

@@ -1,0 +1,348 @@
+1
+00:00:02,620 --> 00:00:07,630
+In modern javascript there are two important operators.
+
+2
+00:00:07,690 --> 00:00:13,630
+You all should be aware of since I'll be using them from the Course as well and that are to rest and
+
+3
+00:00:13,630 --> 00:00:14,440
+spread.
+
+4
+00:00:14,460 --> 00:00:19,500
+Operators know specifically the spread operator is one will use quite a bit.
+
+5
+00:00:19,540 --> 00:00:26,390
+Let's say we want to implement the pattern where when we add a new hobby we don't edit the original
+
+6
+00:00:26,410 --> 00:00:26,980
+array.
+
+7
+00:00:27,190 --> 00:00:32,830
+But we create a new array with all the old values and the new value.
+
+8
+00:00:32,840 --> 00:00:39,090
+This is actually a pretty common pattern called immutability where we never added existing values but
+
+9
+00:00:39,100 --> 00:00:43,110
+we're we always replace them with copies plus the changes.
+
+10
+00:00:43,210 --> 00:00:46,330
+And that is all a pattern I'll use quite a lot in the course.
+
+11
+00:00:46,330 --> 00:00:52,930
+The idea behind that is that we avoid errors because we always have this clear approach of copy.
+
+12
+00:00:52,930 --> 00:00:58,930
+Then add it and don't edit existing objects which might lead to more unreadable code.
+
+13
+00:00:58,930 --> 00:01:03,900
+Now to copy an array let's say Here I create a copied array.
+
+14
+00:01:04,120 --> 00:01:06,520
+We got a couple of possible techniques.
+
+15
+00:01:06,670 --> 00:01:09,190
+One of them is to used to slice operator.
+
+16
+00:01:09,190 --> 00:01:16,030
+Now if I output copied arrays down there and I run no place I see sports and cooking's so I did indeed
+
+17
+00:01:16,030 --> 00:01:22,990
+copy it Sly's simply copies an array we can pass arguments to narrow down the range of elements we want
+
+18
+00:01:22,990 --> 00:01:24,870
+to copy with no arguments.
+
+19
+00:01:24,880 --> 00:01:27,220
+We copied the entire array.
+
+20
+00:01:27,280 --> 00:01:33,580
+Now instead of Sluys There is also a different technique we can create a new array with square brackets
+
+21
+00:01:34,030 --> 00:01:36,270
+and we could at hobby's stare right.
+
+22
+00:01:36,400 --> 00:01:40,810
+Now what happens if we execute this what will we see in the console.
+
+23
+00:01:41,580 --> 00:01:48,840
+Well if I hit Enter we see well it looks like a copy on first sight but actually it's an array with
+
+24
+00:01:48,840 --> 00:01:50,520
+a number array in it.
+
+25
+00:01:50,550 --> 00:01:55,040
+So the outer array has only one element and that's the inner array.
+
+26
+00:01:55,170 --> 00:01:56,400
+So it's not a copy.
+
+27
+00:01:56,460 --> 00:02:00,360
+It's just a new array where the first element is the old array.
+
+28
+00:02:00,360 --> 00:02:04,350
+And with that I mean the exact same object not a copy of that.
+
+29
+00:02:04,830 --> 00:02:08,970
+So we just create created nested array here.
+
+30
+00:02:09,030 --> 00:02:15,630
+That of course was not what we did want to do here and here we can use to spread operator the spread.
+
+31
+00:02:15,630 --> 00:02:21,460
+Operator are three dots we can add in front of an array or of an object.
+
+32
+00:02:21,460 --> 00:02:26,300
+And these free dots are an operator just as the plus or minus are.
+
+33
+00:02:26,830 --> 00:02:28,800
+And they do one thing.
+
+34
+00:02:28,960 --> 00:02:38,630
+They take the array or object ofter the operator and pull out all the elements or properties.
+
+35
+00:02:38,650 --> 00:02:47,710
+So all the elements of the array or all the properties of an object and put it to whatever is around
+
+36
+00:02:47,750 --> 00:02:49,120
+debt spread operator.
+
+37
+00:02:49,330 --> 00:02:55,210
+In this case we got square brackets around the spread operator and they had for all the elements which
+
+38
+00:02:55,210 --> 00:03:00,530
+are pulled out of the existing array or add it to the new array.
+
+39
+00:03:00,730 --> 00:03:06,300
+And therefore if I now run this fall again whoops and I save it before running it again.
+
+40
+00:03:06,550 --> 00:03:10,410
+Now we see this was the output of the old approach the nested array.
+
+41
+00:03:10,420 --> 00:03:12,640
+Now we got no nested array anymore.
+
+42
+00:03:12,640 --> 00:03:13,900
+We got one array.
+
+43
+00:03:13,960 --> 00:03:21,160
+And this is now a copy of the old one because we take the spread operator to pull out these elements
+
+44
+00:03:21,370 --> 00:03:25,310
+and add them one by one to the new era.
+
+45
+00:03:25,720 --> 00:03:31,690
+So this is something you'll see me do a lot to copy existing arrays or object and would work in the
+
+46
+00:03:31,690 --> 00:03:40,690
+same way we could have our copied person by using curly braces then the spread operator the free dots
+
+47
+00:03:41,080 --> 00:03:50,110
+and then the old person and now if a console locked to copied person your and I execute this file again.
+
+48
+00:03:50,270 --> 00:03:56,920
+This is our copied person here because I'm pulling out all these elements from that object and I added
+
+49
+00:03:56,960 --> 00:03:58,130
+to a new object.
+
+50
+00:03:58,160 --> 00:04:01,030
+So this works for both objects and arrays.
+
+51
+00:04:01,100 --> 00:04:05,150
+And in this syntax I'll use quite a bit in this course.
+
+52
+00:04:05,180 --> 00:04:06,250
+Now does this to spread.
+
+53
+00:04:06,250 --> 00:04:09,800
+Operator I also mentioned the rest.
+
+54
+00:04:09,800 --> 00:04:15,240
+Operator and the rest operator is essentially the opposite.
+
+55
+00:04:15,280 --> 00:04:18,950
+Let's say I have a function which all named Q array.
+
+56
+00:04:19,320 --> 00:04:20,880
+It's an arrow function.
+
+57
+00:04:21,100 --> 00:04:30,010
+And there I expect arguments are one or two are free I want to return an array that contains these arguments
+
+58
+00:04:30,580 --> 00:04:32,920
+and issue at equal sign here.
+
+59
+00:04:32,920 --> 00:04:36,270
+So I want to return an array that contains these arguments.
+
+60
+00:04:36,580 --> 00:04:42,910
+I can return square brackets here of course and then the first element will be one then I have are two
+
+61
+00:04:42,920 --> 00:04:46,040
+as the second element and are free as the first element.
+
+62
+00:04:47,170 --> 00:04:57,580
+Now I can console lock to Array and I pass one two and free as the free arguments to that function.
+
+63
+00:04:58,420 --> 00:05:03,140
+If I now execute plage as we see an array with 1 2 and free these free elements.
+
+64
+00:05:03,220 --> 00:05:04,410
+So this is working.
+
+65
+00:05:04,600 --> 00:05:06,720
+But this is totally not flexible.
+
+66
+00:05:06,910 --> 00:05:09,280
+What if we want to pass for arguments.
+
+67
+00:05:09,280 --> 00:05:10,880
+Well we could call it like that.
+
+68
+00:05:11,020 --> 00:05:12,720
+Javascript actually allows that.
+
+69
+00:05:12,760 --> 00:05:18,310
+But of course it doesn't get added because we only work with free arguments here where we could do was
+
+70
+00:05:18,340 --> 00:05:23,300
+we could use the so-called rest operator dear dot dot dot.
+
+71
+00:05:23,400 --> 00:05:30,000
+And then just aurochs and this will actually take all the arguments how many we might specify that doesn't
+
+72
+00:05:30,000 --> 00:05:34,110
+matter and we'll bundle them up in an array for us.
+
+73
+00:05:34,110 --> 00:05:38,440
+So here args will be an array and I can just return data actually.
+
+74
+00:05:38,460 --> 00:05:46,800
+And now if we execute this with two aere getting four arguments you'll see now I have my array with
+
+75
+00:05:46,800 --> 00:05:48,000
+four arguments here.
+
+76
+00:05:48,270 --> 00:05:51,170
+So the rest operator looks just like the spread operator.
+
+77
+00:05:51,270 --> 00:05:56,320
+Three dots and it's the place where you use it that defines how you call it.
+
+78
+00:05:56,360 --> 00:06:04,560
+Are you using it to pull elements or properties out of arrays or objects then it would be the spread
+
+79
+00:06:04,650 --> 00:06:05,670
+operator.
+
+80
+00:06:06,090 --> 00:06:12,440
+Are you using it to merge multiple arguments into an array.
+
+81
+00:06:12,720 --> 00:06:15,660
+And you use it in the argument list of a function.
+
+82
+00:06:15,840 --> 00:06:18,400
+Then it's the rest operator.
+
+83
+00:06:18,450 --> 00:06:24,390
+It's the same operator by the syntax or from a syntax perspective the name differs depending on the
+
+84
+00:06:24,390 --> 00:06:26,340
+place where you use it.
+
+85
+00:06:26,340 --> 00:06:29,980
+I'll not use that syntax a lot in this course but it's still nice to know.
+
+86
+00:06:30,120 --> 00:06:35,790
+But being able to pull out elements or properties that is something you should understand because dad
+
+87
+00:06:35,790 --> 00:06:38,610
+is a Sendak's you'll see me use quite a bit for all the course.
+

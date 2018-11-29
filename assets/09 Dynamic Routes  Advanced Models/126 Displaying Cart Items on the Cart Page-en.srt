@@ -1,0 +1,412 @@
+1
+00:00:02,300 --> 00:00:04,220
+We're already able to work on the cart.
+
+2
+00:00:04,250 --> 00:00:12,280
+Now when a display card items on cards s there I simply will add a main section before the end each
+
+3
+00:00:12,280 --> 00:00:12,900
+and include.
+
+4
+00:00:12,910 --> 00:00:14,380
+That's important.
+
+5
+00:00:14,380 --> 00:00:16,840
+Now first of all what do we need to do here.
+
+6
+00:00:16,870 --> 00:00:22,570
+We need to check if we do have products and if we do have them then we want to display them and I will
+
+7
+00:00:22,570 --> 00:00:26,620
+simply display them in a really boring list.
+
+8
+00:00:26,620 --> 00:00:28,640
+For now we can add styling later.
+
+9
+00:00:28,660 --> 00:00:31,630
+Just want to see if that works.
+
+10
+00:00:31,630 --> 00:00:36,300
+So let's go real quick to the shop controller where we load the cart and there.
+
+11
+00:00:36,310 --> 00:00:41,530
+First of all we need to be prepared to fetch all products because we want to return them to the cart.
+
+12
+00:00:41,530 --> 00:00:46,510
+However of course not all products we have just the products we have in the cart.
+
+13
+00:00:46,600 --> 00:00:51,510
+So it is we need to go to the cart model first of all we get the lead product and add product.
+
+14
+00:00:51,580 --> 00:00:59,970
+Now we need a way to get all the products in a cart so at a news static function get products here and
+
+15
+00:00:59,970 --> 00:01:05,220
+in this function I will exit my file and simply return the product IDs.
+
+16
+00:01:06,430 --> 00:01:13,170
+I need to get a callback date for which I can call once I got the products and then I can use disfunctional
+
+17
+00:01:13,240 --> 00:01:15,900
+here to read the file.
+
+18
+00:01:18,140 --> 00:01:23,440
+And in here I know I get my card this time doing it correctly with Jason Parr's follow content.
+
+19
+00:01:23,500 --> 00:01:26,170
+This is not a card.
+
+20
+00:01:26,270 --> 00:01:31,950
+And actually all named as get card and not get products because they will return the entire card here
+
+21
+00:01:31,950 --> 00:01:33,370
+and my callback does.
+
+22
+00:01:33,380 --> 00:01:42,150
+All I want to do now obviously this can fail if we have no cards yet so we'll check if we have an error.
+
+23
+00:01:42,190 --> 00:01:51,450
+And if that is the case I will call call back null here and I reply as in the else block here I will
+
+24
+00:01:51,450 --> 00:01:55,040
+return a card with valid values.
+
+25
+00:01:56,060 --> 00:02:04,160
+Now we can go to the shop G-S controller in get cart and here I call cart get cart I will have to pass
+
+26
+00:02:04,160 --> 00:02:09,430
+a function there to call that function I just added in the cart model where a will eventually received
+
+27
+00:02:09,430 --> 00:02:13,770
+a card and it will render my view inside of this function.
+
+28
+00:02:13,910 --> 00:02:18,570
+However I don't just need to cart I need a little bit more information about the products too.
+
+29
+00:02:18,920 --> 00:02:25,620
+So I will use my product model then to fetch all products here and I will add my call back here.
+
+30
+00:02:27,140 --> 00:02:33,770
+And make sure that this is nested in the cart function and we're having a lot of callbacks here but
+
+31
+00:02:33,770 --> 00:02:34,730
+it's still readable.
+
+32
+00:02:34,730 --> 00:02:41,070
+Later we'll also find a number way of working with a lot of depending async actions.
+
+33
+00:02:41,120 --> 00:02:43,060
+So I got my card and they got the products.
+
+34
+00:02:43,060 --> 00:02:48,520
+Now I just need to filter out the products which are actually in the cart so I will go through all of
+
+35
+00:02:48,520 --> 00:02:49,160
+their products.
+
+36
+00:02:49,160 --> 00:02:55,390
+So for product of products looping through all the products I have in there and I will check if this
+
+37
+00:02:55,400 --> 00:03:01,360
+given product is also stored in a cart and I can check this because the card we got the product ID.
+
+38
+00:03:01,490 --> 00:03:07,550
+If you have a look at card Jason here will store the product IDs.
+
+39
+00:03:07,720 --> 00:03:15,270
+So I'll check if cartes products if I do find this product here.
+
+40
+00:03:15,270 --> 00:03:23,700
+So if the product I'm looking at in the cart if the idea of that product equals my product ID here and
+
+41
+00:03:23,700 --> 00:03:29,520
+of course this is some code that can be improved if you store large quantities of data but we won't
+
+42
+00:03:29,520 --> 00:03:34,000
+store large quantities of data in our files anyways.
+
+43
+00:03:34,080 --> 00:03:35,730
+We'll use a database for that.
+
+44
+00:03:35,880 --> 00:03:38,520
+And therefore for now is perfectly fine.
+
+45
+00:03:38,520 --> 00:03:46,310
+And if I do find an ID in the cart then I know well the product is part of that and therefore I will
+
+46
+00:03:46,340 --> 00:03:53,080
+try a new constant your cart products which is an array.
+
+47
+00:03:53,280 --> 00:03:59,910
+And I will simply add that product to cart products then so card products push it I will add the product
+
+48
+00:03:59,940 --> 00:04:03,060
+I'm currently looking at in this iteration of the loop.
+
+49
+00:04:03,210 --> 00:04:08,310
+So this product I'm looking at if it's part of the card I'll add it to card products.
+
+50
+00:04:08,340 --> 00:04:13,500
+This means that after the loop is done I'll have an array of card products that contains all the products
+
+51
+00:04:13,590 --> 00:04:15,600
+which are indeed part of the card.
+
+52
+00:04:15,960 --> 00:04:20,130
+Now important just adding the product like this does not suffice.
+
+53
+00:04:20,160 --> 00:04:28,020
+Instead I'll add an object with product data field which holds the product and also quantity field because
+
+54
+00:04:28,020 --> 00:04:33,390
+the quantity is stored in a cart too but not in that product looping through because these are just
+
+55
+00:04:33,390 --> 00:04:34,910
+a product some storing in the product.
+
+56
+00:04:34,920 --> 00:04:39,530
+Jason fault obviously there is no quantity in there in the card.
+
+57
+00:04:39,540 --> 00:04:45,390
+However every product I store there does have a quantity attached to it.
+
+58
+00:04:45,390 --> 00:04:46,180
+So in shop.
+
+59
+00:04:46,260 --> 00:04:55,890
+J.S. here I will also store the quantity of the product I'm looking at nomics directing my cart product
+
+60
+00:04:55,890 --> 00:04:56,580
+here.
+
+61
+00:04:56,820 --> 00:05:05,810
+So actually all store it is Condes cart product data all store ID card product I'm finding in the card
+
+62
+00:05:05,810 --> 00:05:11,870
+products array in card product data and I'll check the existence of that then and if it exists I know
+
+63
+00:05:11,870 --> 00:05:17,330
+there is some data about this product in the cart ident stored the original complete product data from
+
+64
+00:05:17,330 --> 00:05:20,990
+the product model and from the card product data.
+
+65
+00:05:20,990 --> 00:05:28,360
+I'll take the quantity we got quantity and product data in there and we push that object to cart products
+
+66
+00:05:28,810 --> 00:05:31,300
+and cart products is now what I want to return.
+
+67
+00:05:31,510 --> 00:05:36,470
+So here I'll return a products field which holds card products.
+
+68
+00:05:36,610 --> 00:05:39,980
+This is sent to my view.
+
+69
+00:05:40,210 --> 00:05:46,360
+Now if we have no products in the cart then cart products will simply be an empty array and I can check
+
+70
+00:05:46,360 --> 00:05:48,960
+for that in my template.
+
+71
+00:05:48,980 --> 00:05:51,740
+So now let's go to the card each S file.
+
+72
+00:05:52,000 --> 00:06:00,580
+And first of all the if statement and check if products and remember products is simply this key here
+
+73
+00:06:00,730 --> 00:06:02,970
+I'm sending into my view.
+
+74
+00:06:03,730 --> 00:06:11,190
+So check products length is rage or Cyril and then close that.
+
+75
+00:06:11,210 --> 00:06:16,960
+And also already define Altes block here because I want to render something if we got no products in
+
+76
+00:06:16,960 --> 00:06:18,270
+a card too.
+
+77
+00:06:18,540 --> 00:06:23,910
+So here in the else block and you need to close that curly brace thereafter in the else block I'll rendah
+
+78
+00:06:23,930 --> 00:06:27,600
+h one tag whereas say no products in cart
+
+79
+00:06:30,340 --> 00:06:31,130
+like this.
+
+80
+00:06:31,300 --> 00:06:36,930
+But here of course I want to render the products in the first block of the if statement.
+
+81
+00:06:36,970 --> 00:06:42,970
+So here all render an order list for now where I simply loop for all the products again using Ejay as
+
+82
+00:06:45,710 --> 00:06:50,130
+products for each product.
+
+83
+00:06:53,470 --> 00:07:07,590
+And that is an anonymous function you're like that then close deep for each loop by closing the curly
+
+84
+00:07:07,590 --> 00:07:13,650
+brace off that anonymous function and then bracket off does for each method here.
+
+85
+00:07:13,890 --> 00:07:16,280
+Now in here I want you output the product information.
+
+86
+00:07:16,410 --> 00:07:20,430
+And now it's important to keep in mind that product here.
+
+87
+00:07:20,520 --> 00:07:26,300
+Maybe we should name it product data that does
+
+88
+00:07:29,880 --> 00:07:36,960
+does actually hold or does actually refer to a product with a product data field in a quantity field
+
+89
+00:07:37,170 --> 00:07:40,500
+and the product data field is the product I'm interested in.
+
+90
+00:07:40,590 --> 00:07:42,330
+But I also need to quantity.
+
+91
+00:07:42,330 --> 00:07:48,300
+So maybe even I don't name that product data but just Pete.
+
+92
+00:07:48,450 --> 00:07:56,160
+And then in here I can output the dot product data referring to that nested pro-black data which holds
+
+93
+00:07:56,160 --> 00:07:58,140
+the product information like the title.
+
+94
+00:07:58,380 --> 00:08:04,570
+So dot product data or title would allow me to put the title and then also maybe in brackets and there's
+
+95
+00:08:04,590 --> 00:08:07,580
+no Ejaz indexes n'roll hardcoded text here.
+
+96
+00:08:07,680 --> 00:08:15,540
+But then in there I use Aegeus again to access P-doc quantity and remember he simply is that object.
+
+97
+00:08:15,600 --> 00:08:20,700
+We passed that card products array on our back and code.
+
+98
+00:08:21,270 --> 00:08:22,890
+So now let's see if that works.
+
+99
+00:08:22,920 --> 00:08:30,450
+If I save this and I reload this card page we see no products and cart if I go to products here and
+
+100
+00:08:30,490 --> 00:08:34,750
+I click Add to Cart we indeed see that on our page.
+
+101
+00:08:34,830 --> 00:08:38,850
+If I add does one more time we see it twice.
+
+102
+00:08:38,880 --> 00:08:40,420
+So this is not working.
+
+103
+00:08:40,530 --> 00:08:43,020
+The last step is that I want to be able to delete it.
+

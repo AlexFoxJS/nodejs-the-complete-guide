@@ -1,0 +1,252 @@
+1
+00:00:02,810 --> 00:00:04,820
+So we learn about sequel and those sequel.
+
+2
+00:00:04,820 --> 00:00:09,530
+Let's now compare them and let's start with horizontal and vertical scaling because as I mentioned at
+
+3
+00:00:09,530 --> 00:00:15,260
+the end of the last lecture we often need to scale our database to keep up with our growing application
+
+4
+00:00:15,380 --> 00:00:18,490
+with more and more users horizontal and vertical scaling.
+
+5
+00:00:18,500 --> 00:00:21,640
+Are the two approaches we can use to scale our database.
+
+6
+00:00:21,680 --> 00:00:27,540
+Now what do they mean well in horizontal scaling we simply add more service.
+
+7
+00:00:27,620 --> 00:00:31,750
+And the advantage of course is that we can do this infinitely.
+
+8
+00:00:31,820 --> 00:00:38,420
+We can always buy it and use servers be dead on a cloud provider or in our own data center and connect
+
+9
+00:00:38,420 --> 00:00:42,650
+them to our database and split our data across all these servers.
+
+10
+00:00:42,650 --> 00:00:47,630
+Of course this means that we all need some process that runs queries on all of them and merge them together
+
+11
+00:00:47,630 --> 00:00:48,580
+intelligently.
+
+12
+00:00:48,590 --> 00:00:54,050
+So this is generally something which is not that easy to do but this is of course a good way of scaling
+
+13
+00:00:54,800 --> 00:01:03,020
+vertical scaling simply means that we make our existing server stronger by adding more Sibiu or memory
+
+14
+00:01:03,020 --> 00:01:05,890
+or something like that especially with cloud providers.
+
+15
+00:01:05,890 --> 00:01:09,800
+This is typically very easy you simply choose a number option from the dropdown.
+
+16
+00:01:09,830 --> 00:01:11,960
+You pay more and you're done.
+
+17
+00:01:11,960 --> 00:01:18,260
+The problem here is that you have some limit you can't fit in finitely much Seip you power into a single
+
+18
+00:01:18,260 --> 00:01:20,150
+machine.
+
+19
+00:01:20,170 --> 00:01:22,720
+So these are the two ways we can scale.
+
+20
+00:01:22,720 --> 00:01:24,790
+Now let's compare a sequel and no sequel.
+
+21
+00:01:24,790 --> 00:01:33,310
+Regarding that and in general now in general in sequel we use schemas we also have relations.
+
+22
+00:01:33,310 --> 00:01:39,250
+These are two core correcter mystics and data is typically distributed across many many tables which
+
+23
+00:01:39,250 --> 00:01:41,850
+are then connected through relations.
+
+24
+00:01:41,860 --> 00:01:48,580
+Now regarding the scaling it's important that horizontal scaling often is very difficult or even impossible
+
+25
+00:01:48,790 --> 00:01:50,810
+due to the way sequel works.
+
+26
+00:01:50,830 --> 00:01:57,030
+You can of course add more servers but running them all on one shared data cloud.
+
+27
+00:01:57,040 --> 00:02:01,160
+So to say one shared data base is pretty difficult.
+
+28
+00:02:01,210 --> 00:02:03,400
+We're legal Schelling is easily possible.
+
+29
+00:02:03,400 --> 00:02:09,500
+You can simply make your server stronger but adding more servers can be very hard or even impossible.
+
+30
+00:02:09,500 --> 00:02:11,960
+Definitely not trivial.
+
+31
+00:02:12,100 --> 00:02:18,790
+So this is a problem possibly if we have multiple or thousands of read and write queries per second.
+
+32
+00:02:18,850 --> 00:02:26,920
+Then maybe our sequel database especially if we do very complex joins between related tables can reach
+
+33
+00:02:27,070 --> 00:02:30,770
+limits or can not be the best choice.
+
+34
+00:02:30,880 --> 00:02:39,250
+No sequel is schema less and has only a few relations if at all the data is typically not distributed
+
+35
+00:02:39,250 --> 00:02:45,800
+across multiple collections but instead work with merged or nested documents in an existing document.
+
+36
+00:02:45,800 --> 00:02:51,610
+The we of course also have a couple of collections for different features of our application typically
+
+37
+00:02:52,240 --> 00:02:55,410
+with no sequel horizontal scaling is easier.
+
+38
+00:02:55,570 --> 00:03:01,000
+Still something where you have to know what you do but there are cloud providers which do that for us
+
+39
+00:03:01,180 --> 00:03:07,090
+so we don't have to know the ins and outs of debt and in general due to the way it works with less connections
+
+40
+00:03:07,090 --> 00:03:13,630
+as on this is possible and therefore we also get great performance for mass read write requests and
+
+41
+00:03:13,630 --> 00:03:19,190
+no sequel can be very performant in an application with high throughput.
+
+42
+00:03:19,240 --> 00:03:25,420
+Now this makes sequel look very bad but the full truth is that it always depends on the kind of data
+
+43
+00:03:25,420 --> 00:03:26,740
+you are storing.
+
+44
+00:03:26,770 --> 00:03:31,810
+If you are storing where desolations are really important and where you want to have a split up across
+
+45
+00:03:31,810 --> 00:03:36,310
+tables and where you want to have strong schemas siecle can be perfect.
+
+46
+00:03:36,310 --> 00:03:41,610
+Also not every part of your data is accessed multiple times per second.
+
+47
+00:03:41,620 --> 00:03:45,130
+You can't have parts of your application where you manage general data.
+
+48
+00:03:45,130 --> 00:03:50,600
+Let's say user data which does not change that often and therefore a sequel might be very good.
+
+49
+00:03:50,600 --> 00:03:59,260
+There over parts of the application let's say orders or shopping carts that do change frequently could
+
+50
+00:03:59,260 --> 00:04:05,170
+be stored with no sequel and their relations might not be that important because you can always put
+
+51
+00:04:05,230 --> 00:04:10,420
+all the information that belongs to a shopping cart or to order in one single document.
+
+52
+00:04:10,510 --> 00:04:15,310
+And even if you do for example store some user data there you might not need to touch that document
+
+53
+00:04:15,400 --> 00:04:21,360
+just because the user change his photo because you probably didn't stored it along with the order anyways.
+
+54
+00:04:21,550 --> 00:04:23,870
+Now in this course we will build both.
+
+55
+00:04:23,890 --> 00:04:26,430
+We will use both because I want to teach you both.
+
+56
+00:04:26,590 --> 00:04:32,190
+And it's not so much about this course application but you should know how to use sequel with no choice
+
+57
+00:04:32,320 --> 00:04:37,900
+because maybe you need to add in your application or your work on a project where you don't decide which
+
+58
+00:04:37,900 --> 00:04:40,460
+database to use but you simply have to use it.
+
+59
+00:04:40,480 --> 00:04:46,010
+So we will use sequel first but then it will also show you how to use no sequel of Mongo baby.
+
+60
+00:04:46,120 --> 00:04:52,300
+So we'll basically implement the course project or the current state of the Course project with both
+
+61
+00:04:52,510 --> 00:04:55,910
+databases and you will see how to interact with both of them.
+
+62
+00:04:55,960 --> 00:05:01,630
+And let's start with sequel in this module let's install on my sequel database and learn how to interact
+
+63
+00:05:01,630 --> 00:05:04,170
+with it from inside our no chess code.
+

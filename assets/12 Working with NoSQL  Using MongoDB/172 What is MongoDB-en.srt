@@ -1,0 +1,208 @@
+1
+00:00:02,100 --> 00:00:04,100
+So what is Mongo DVH.
+
+2
+00:00:04,130 --> 00:00:10,910
+No let me first of all tell you that I do actually have a complete course for developers on Long Beach.
+
+3
+00:00:10,920 --> 00:00:15,930
+So you might want to check that out if you want to learn way more about money to be than I'll be able
+
+4
+00:00:15,930 --> 00:00:17,450
+to cover in discourse.
+
+5
+00:00:17,460 --> 00:00:23,460
+But now with that let me start with a brief introduction to Mangu to be at least what is it Mangieri
+
+6
+00:00:23,580 --> 00:00:30,420
+be is both the name of the company which developed Mangu to be but also a den of their most famous product
+
+7
+00:00:30,660 --> 00:00:38,010
+a database solution a database engine you could say a tool you can use to run very efficient no sequel
+
+8
+00:00:38,010 --> 00:00:39,080
+databases.
+
+9
+00:00:39,180 --> 00:00:45,630
+The name stems from the word humongous because Mangini was built for one major purpose that you could
+
+10
+00:00:45,630 --> 00:00:47,350
+store and work.
+
+11
+00:00:47,430 --> 00:00:53,440
+And that really is important to work part that you could store and work with lots and lots of data.
+
+12
+00:00:53,460 --> 00:01:00,720
+So Monga to be is build for large scale applications Monga to be as bult to quickly clear the data store
+
+13
+00:01:00,720 --> 00:01:02,340
+data interact with data.
+
+14
+00:01:02,380 --> 00:01:09,870
+So it's really fast and it's really awesome data Bay's philosophy behind those sequel databases and
+
+15
+00:01:09,870 --> 00:01:10,930
+they'll for all the behind.
+
+16
+00:01:10,930 --> 00:01:12,280
+Mom would you be.
+
+17
+00:01:12,390 --> 00:01:13,630
+Now how does it work.
+
+18
+00:01:13,920 --> 00:01:20,690
+Well just like in the sequel world we spin up the beast server and then we can have multiple databases.
+
+19
+00:01:20,790 --> 00:01:27,990
+For example a shop database now in such a database in the sequel world we would have multiple tables
+
+20
+00:01:28,380 --> 00:01:30,620
+in the no sequel hmong of the world.
+
+21
+00:01:30,660 --> 00:01:35,260
+We have multiple collections like to users and orders collected for example.
+
+22
+00:01:35,490 --> 00:01:41,610
+Now inside of each collection we don't have so-called records but we have a couple of documents now
+
+23
+00:01:41,620 --> 00:01:43,360
+documents also look different.
+
+24
+00:01:43,380 --> 00:01:47,220
+Dad records did and it's not just about different names being used.
+
+25
+00:01:47,220 --> 00:01:51,070
+The core philosophy behind that database really is a totally different one.
+
+26
+00:01:51,300 --> 00:01:58,500
+For example Mangieri B is schema less inside of one collection your documents which is your data your
+
+27
+00:01:58,500 --> 00:02:04,350
+entries so to say don't have to have the same structure in sequel that was totally different.
+
+28
+00:02:04,380 --> 00:02:09,690
+We had a users table there and in that users table we had an ID and name and email password.
+
+29
+00:02:09,690 --> 00:02:11,520
+Now here that different.
+
+30
+00:02:11,580 --> 00:02:15,130
+Here we can have any kind of data in one and the same collection.
+
+31
+00:02:15,280 --> 00:02:21,240
+Often you will still end up with a at least similar structure but you're not forced to have exactly
+
+32
+00:02:21,240 --> 00:02:22,170
+the same structure.
+
+33
+00:02:22,200 --> 00:02:28,680
+And this gives you more flexibility also for your application to grow and to change its data requirements
+
+34
+00:02:28,710 --> 00:02:29,490
+over time.
+
+35
+00:02:29,490 --> 00:02:34,010
+Without that being difficult to depict in your database world.
+
+36
+00:02:34,260 --> 00:02:38,420
+So this is one thing a document in long to be looks like this.
+
+37
+00:02:38,520 --> 00:02:41,990
+And this looks a lot like javascript object notation.
+
+38
+00:02:41,990 --> 00:02:47,850
+And to be precise it kind of is to be uses Jason to store data in collections.
+
+39
+00:02:47,910 --> 00:02:51,420
+So every document you store looks something like this.
+
+40
+00:02:51,540 --> 00:02:57,330
+It follows the javascript object notation format to be very precise moment to be used a something which
+
+41
+00:02:57,330 --> 00:03:03,840
+is called Pisan for binary Jason but that only means that Monga to be kind of transforms this behind
+
+42
+00:03:03,840 --> 00:03:06,930
+the scenes before storing it in the files.
+
+43
+00:03:06,930 --> 00:03:08,450
+But you don't have to worry about that.
+
+44
+00:03:08,520 --> 00:03:15,660
+You will basically use it as Jason now such adjacent document is basically the same as a javascript
+
+45
+00:03:15,660 --> 00:03:22,920
+object you could say and there as you see we can have nested or as Moli to be called STEM and badis
+
+46
+00:03:23,040 --> 00:03:27,380
+documents for example the address here would hold and embed to document.
+
+47
+00:03:27,600 --> 00:03:31,450
+And you can also have a race inside of that document and the data array can.
+
+48
+00:03:31,470 --> 00:03:37,940
+Like in this case hold on for documents of the objects or it could also just hold strings numbers.
+
+49
+00:03:37,980 --> 00:03:39,240
+Anything of that kind.
+
+50
+00:03:39,360 --> 00:03:47,040
+So again for data you have great flexibility and the existence of these nested documents also means
+
+51
+00:03:47,340 --> 00:03:52,830
+dead relations are managed a bit differently in the no sequel Maunganui be world.
+
+52
+00:03:52,830 --> 00:03:54,890
+So let me come back to that in the next lecture.
+

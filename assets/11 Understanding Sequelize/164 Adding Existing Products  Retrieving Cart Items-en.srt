@@ -1,0 +1,224 @@
+1
+00:00:02,460 --> 00:00:05,070
+So let's ensure we can see items on the card page.
+
+2
+00:00:05,130 --> 00:00:09,890
+And the problem is that right now this does not work because you're on card.
+
+3
+00:00:09,910 --> 00:00:10,350
+E.J..
+
+4
+00:00:10,360 --> 00:00:17,460
+Yes we're still accessing product data for every product we loaded but the products we have here are
+
+5
+00:00:17,460 --> 00:00:20,850
+now just the products from our database.
+
+6
+00:00:21,000 --> 00:00:25,760
+So we don't need to access any nested product data.
+
+7
+00:00:26,220 --> 00:00:33,360
+Instead here we'll just have pre-title we'll have a look at the quantity in a second and the down there.
+
+8
+00:00:33,360 --> 00:00:39,420
+So it's directly access to fields of our products on well the product we're looping through not a quantity
+
+9
+00:00:39,420 --> 00:00:46,710
+is not part of that but off the related card item you could say and conveniently sequel lies also gives
+
+10
+00:00:46,710 --> 00:00:53,640
+us a card item key for device which stores information about this in-between table and the entry that
+
+11
+00:00:53,640 --> 00:00:55,960
+is related to this product there.
+
+12
+00:00:56,460 --> 00:01:04,730
+So if this if we save this and we now reload this page it still doesn't work because that should be
+
+13
+00:01:04,730 --> 00:01:06,280
+Card item with a capital I.
+
+14
+00:01:06,270 --> 00:01:08,930
+This is how I named my model.
+
+15
+00:01:08,960 --> 00:01:10,750
+So now you can see this works.
+
+16
+00:01:10,910 --> 00:01:14,330
+And now we're displaying our current item here.
+
+17
+00:01:15,370 --> 00:01:19,120
+And that of course is not quantity but quantity.
+
+18
+00:01:19,120 --> 00:01:23,970
+So the key name we defined in our in between table and now we see the quantity 2.
+
+19
+00:01:24,010 --> 00:01:26,560
+So now we can see the card items again.
+
+20
+00:01:26,740 --> 00:01:34,100
+Now we can go back to making sure that we also handle the case that we add an existing item to the card.
+
+21
+00:01:34,140 --> 00:01:40,050
+So let's make sure we handle this case that we add a product to the card which is already part of the
+
+22
+00:01:40,050 --> 00:01:47,480
+card and Datchet of course simply increment the quantity that therefore here if we make it into this
+
+23
+00:01:47,780 --> 00:01:56,700
+lock I essentially want to get my old quantity First of all which I can get from my product by accessing
+
+24
+00:01:56,700 --> 00:02:00,450
+card item as we just did it in the view in the last lecture.
+
+25
+00:02:00,450 --> 00:02:05,360
+This is this extra field that gets added by sequel's to give us access to this in-between table.
+
+26
+00:02:05,730 --> 00:02:11,160
+And they are to the quantity and sequel as does not just give us access to the in-between table but
+
+27
+00:02:11,160 --> 00:02:14,430
+to this exact product in the in-between table.
+
+28
+00:02:14,490 --> 00:02:19,210
+So therefore we get the quantity for this product as it's stored in the cart.
+
+29
+00:02:19,710 --> 00:02:24,520
+So now we have our old quantity and new quantity.
+
+30
+00:02:24,570 --> 00:02:32,640
+The variable we initialize with 1 here is now simply old quantity plus one.
+
+31
+00:02:32,740 --> 00:02:34,730
+With that we just have to add it to the card.
+
+32
+00:02:34,750 --> 00:02:44,010
+So here I will return fetched cart to get access to the cart and then add product as I do it down there
+
+33
+00:02:44,010 --> 00:02:57,000
+to add product and then simply my product here and my Frue call where I set my quantity to whip's new
+
+34
+00:02:57,180 --> 00:03:00,030
+quantity just as I do it down there.
+
+35
+00:03:00,880 --> 00:03:08,630
+If we now want it to a wide nested then blocks here what we could do is we could add a new then block
+
+36
+00:03:08,630 --> 00:03:09,240
+here.
+
+37
+00:03:10,380 --> 00:03:17,400
+Where we get some data to which I'll come back where we do handle Day is fetch card thing which is the
+
+38
+00:03:17,400 --> 00:03:19,000
+same for both cases.
+
+39
+00:03:19,020 --> 00:03:22,520
+Essentially we add a product with new quantity.
+
+40
+00:03:22,890 --> 00:03:26,280
+So we can certainly remove that.
+
+41
+00:03:26,470 --> 00:03:31,690
+But now the differences that data here actually should hold both the product that needs to be added
+
+42
+00:03:32,170 --> 00:03:33,790
+and our quantity.
+
+43
+00:03:33,820 --> 00:03:36,350
+Right because the quantity is calculated differently.
+
+44
+00:03:36,460 --> 00:03:47,050
+It overstays at one or here we set it to old quantity plus one to make sure that we correctly get that
+
+45
+00:03:47,050 --> 00:03:54,460
+data we can of course pull new quantity out of this anonymous function and make it a top level variable
+
+46
+00:03:54,760 --> 00:03:57,420
+in this overall function here.
+
+47
+00:03:57,640 --> 00:04:03,990
+And they knew new quantity is available in all then blocks and we never leave it at 1 here.
+
+48
+00:04:04,240 --> 00:04:11,490
+Or if we got a product we also need to return that product here because that will then be our product
+
+49
+00:04:13,200 --> 00:04:14,460
+we receive in the then block.
+
+50
+00:04:14,500 --> 00:04:17,240
+It's automatically wrapped by a promise as I mentioned earlier.
+
+51
+00:04:17,480 --> 00:04:23,950
+And now we have a set up that should work again and that ultimately should ensure that we redirect.
+
+52
+00:04:23,950 --> 00:04:29,920
+So now let's see this let's click at the card again and decline the teen deed as to now.
+
+53
+00:04:30,160 --> 00:04:42,190
+And if I add a second product to your this one with the price 66 and I add this to my cart does this
+
+54
+00:04:42,220 --> 00:04:46,070
+now add 1 and that is not pretty neat.
+
+55
+00:04:46,100 --> 00:04:49,220
+We can now start adding all these products.
+
+56
+00:04:49,670 --> 00:04:52,730
+Now let's make sure we can also delete them from the cart.
+

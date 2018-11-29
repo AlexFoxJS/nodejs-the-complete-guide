@@ -1,0 +1,64 @@
+1
+00:00:02,130 --> 00:00:07,330
+Last but not least let's make sure we can also delete data so that you see that last part of the drug
+
+2
+00:00:07,380 --> 00:00:09,670
+operations with mongooses as well.
+
+3
+00:00:09,840 --> 00:00:17,820
+For that we got our Postol product action and I'm calling delete by ID here on my product model.
+
+4
+00:00:17,820 --> 00:00:25,170
+Now if I have a look at delete you'll see this is not something offered by mongooses.
+
+5
+00:00:25,230 --> 00:00:31,850
+However we do with find by id and remove and dead is exactly what we want here right.
+
+6
+00:00:31,870 --> 00:00:34,900
+So if we call that then we've got everything we need.
+
+7
+00:00:35,050 --> 00:00:39,840
+This is a built in method provided by Mungo's that should remove a document.
+
+8
+00:00:40,150 --> 00:00:44,660
+And now we can go to the admin route's again comment in that last Edmon route again.
+
+9
+00:00:44,770 --> 00:00:46,260
+Save that.
+
+10
+00:00:46,300 --> 00:00:49,180
+And with that being saved if I now click delete.
+
+11
+00:00:49,600 --> 00:00:56,470
+No products are found and we can of course also confirm this in comp as if I refresh there are no documents
+
+12
+00:00:56,470 --> 00:00:58,390
+in the product collection.
+
+13
+00:00:58,390 --> 00:01:04,630
+So this is how we can work with mongooses and do basic craft operations with it.
+
+14
+00:01:04,630 --> 00:01:12,370
+Now let's again add a user and see how we can relate different entities with mongooses So how we can
+
+15
+00:01:12,370 --> 00:01:13,730
+manage relations.
+
+16
+00:01:13,930 --> 00:01:17,230
+And let's then add that cart and orders thing again.
+

@@ -1,0 +1,272 @@
+1
+00:00:02,110 --> 00:00:04,680
+So let's see what else express Chase can do for us.
+
+2
+00:00:04,690 --> 00:00:09,390
+And let's also start building a more exciting application than solves for days.
+
+3
+00:00:09,400 --> 00:00:15,130
+We want to handle different routes to friend you or else to do that all.
+
+4
+00:00:15,220 --> 00:00:18,760
+First of all remove our dummy middleware which is not doing anything.
+
+5
+00:00:18,940 --> 00:00:26,570
+And this second one should only trigger for requests that go to just slash nothing.
+
+6
+00:00:26,590 --> 00:00:29,430
+Now how can we filter for such requests.
+
+7
+00:00:29,650 --> 00:00:33,670
+Well I mentioned that the use function here has multiple words.
+
+8
+00:00:33,760 --> 00:00:36,340
+You can see that here for overloads.
+
+9
+00:00:36,370 --> 00:00:41,190
+So we basically have four different or five different ways of using that function.
+
+10
+00:00:41,230 --> 00:00:46,480
+You can see a great explanation in the official docs and on Express JSE dot com.
+
+11
+00:00:46,550 --> 00:00:50,650
+They are the API reference for the version we're using here the latest version.
+
+12
+00:00:50,650 --> 00:00:54,160
+And there you find app that you use where you find the explanation of how to use it.
+
+13
+00:00:54,160 --> 00:00:59,030
+Now don't be confused that this is only one definition instead of the five I've promised the five.
+
+14
+00:00:59,050 --> 00:01:01,900
+Basically just as made up of different combinations.
+
+15
+00:01:01,930 --> 00:01:04,230
+So in the end this is how you can use app.
+
+16
+00:01:04,600 --> 00:01:10,150
+You got an optional first argument which is some Poth and dead already is what we're looking for.
+
+17
+00:01:10,150 --> 00:01:14,160
+This allows us to filter out certain requests.
+
+18
+00:01:14,320 --> 00:01:17,730
+However this works a bit different than our IF statements to it before.
+
+19
+00:01:17,740 --> 00:01:19,450
+But I'll come back to that.
+
+20
+00:01:19,600 --> 00:01:20,820
+Then we have to call back.
+
+21
+00:01:20,820 --> 00:01:25,570
+So basically the function that should be executed and we can have more than one off that callback we
+
+22
+00:01:25,570 --> 00:01:27,060
+can have as many as we want.
+
+23
+00:01:27,130 --> 00:01:29,850
+We can all have multiple paths filters here.
+
+24
+00:01:29,950 --> 00:01:32,660
+Now you can obviously read more in the docs here.
+
+25
+00:01:32,740 --> 00:01:37,500
+But let's just use it and learn during the course so we can add a payoff at the beginning.
+
+26
+00:01:37,510 --> 00:01:39,720
+For example just slash.
+
+27
+00:01:39,730 --> 00:01:41,860
+This however is the default by the way.
+
+28
+00:01:42,070 --> 00:01:45,700
+And now we would handle this for just with a team slash right.
+
+29
+00:01:45,760 --> 00:01:49,330
+If I reload we still see Hallo from Express.
+
+30
+00:01:49,390 --> 00:01:54,290
+Now what happens if I for example enter slash at product.
+
+31
+00:01:54,760 --> 00:02:01,870
+We still see Hallo from Express and we still see I'm in a number middleware so dismal where it gets
+
+32
+00:02:01,870 --> 00:02:08,880
+executed for both slash and add product because this does not mean that the full path.
+
+33
+00:02:08,920 --> 00:02:15,680
+So the part after the domain has to be a slash but that it has to start with that.
+
+34
+00:02:15,700 --> 00:02:19,220
+Now of course every route starts with just a slash.
+
+35
+00:02:19,480 --> 00:02:21,970
+And then we have different other criteria.
+
+36
+00:02:22,420 --> 00:02:27,820
+So what we can do is we can simply duplicate this and add it before it does middleware and add slash
+
+37
+00:02:27,910 --> 00:02:29,350
+add product.
+
+38
+00:02:29,350 --> 00:02:32,430
+Now why before this middleware and not after it.
+
+39
+00:02:32,650 --> 00:02:35,390
+Because remember the request goes through the file.
+
+40
+00:02:35,400 --> 00:02:41,150
+From top to bottom and if we don't call next it's not going to the next middleware.
+
+41
+00:02:41,470 --> 00:02:44,180
+Well I am not calling next year.
+
+42
+00:02:44,320 --> 00:02:48,710
+So in the end if we have slash at product does middleware will be reached first.
+
+43
+00:02:48,720 --> 00:02:53,100
+Because top to bottom ad product will match just middleware.
+
+44
+00:02:53,350 --> 00:02:59,470
+And since I don't call next disk middleware we'll never get a chance of handling that request even though
+
+45
+00:02:59,620 --> 00:03:03,940
+the filter here would have well-matched data requests too.
+
+46
+00:03:03,940 --> 00:03:15,400
+So here if I just add there at product page like this and I save this you will see that on slash at
+
+47
+00:03:15,400 --> 00:03:24,850
+product we see the at product page and on any Rip-Off including random stuff or just slash nothing you
+
+48
+00:03:24,850 --> 00:03:27,130
+see Hello from Express.
+
+49
+00:03:27,130 --> 00:03:33,180
+And this is how we can use staed middleware approach to control what is getting shown and the ordered
+
+50
+00:03:33,190 --> 00:03:39,340
+year as well as the fact whether we are calling next or not matters a lot by the way.
+
+51
+00:03:39,460 --> 00:03:44,830
+If you were sending a response this is a good indication that you never want to call next to because
+
+52
+00:03:44,860 --> 00:03:50,500
+you don't want to execute any of our response related code just as before with when ilah know chase
+
+53
+00:03:50,680 --> 00:03:55,360
+you don't want to send more than one response does won't work and will result in an error.
+
+54
+00:03:55,360 --> 00:03:57,620
+So this is a code we can use here.
+
+55
+00:03:57,660 --> 00:04:02,740
+Does this the code that allows us to route our requests into different middleware.
+
+56
+00:04:02,740 --> 00:04:08,140
+And if we have a middleware that should be applied to all requests we would simply add it on top of
+
+57
+00:04:08,140 --> 00:04:09,370
+all the average middleware.
+
+58
+00:04:09,640 --> 00:04:15,160
+And then add it like this if we don't add a filter or a filter that matches all requests it should match
+
+59
+00:04:15,450 --> 00:04:17,730
+then dismissal where it will always run first.
+
+60
+00:04:17,860 --> 00:04:23,490
+And if we call the next function well then of course the request will also be able to continue.
+
+61
+00:04:23,540 --> 00:04:31,210
+So if we have this middleware here which allows Tichel request to continue we have Kohn's a log does
+
+62
+00:04:32,570 --> 00:04:35,490
+always runs well with this code.
+
+63
+00:04:35,940 --> 00:04:40,240
+What we will get asked that if I saved this if a reload here.
+
+64
+00:04:40,430 --> 00:04:44,460
+And I also go to add product here.
+
+65
+00:04:44,810 --> 00:04:49,220
+We have this always run twice because well there's always runs.
+
+66
+00:04:49,250 --> 00:04:51,230
+That's just how it works.
+
+67
+00:04:51,230 --> 00:04:56,630
+So this is how the middleware works and how you can work with it to funnel your request into the right
+
+68
+00:04:56,630 --> 00:04:57,340
+place.
+

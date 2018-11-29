@@ -1,0 +1,120 @@
+1
+00:00:02,230 --> 00:00:06,970
+So in our application we get a bunch of error handling in place already.
+
+2
+00:00:07,060 --> 00:00:08,190
+Let's start Andy actually.
+
+3
+00:00:08,200 --> 00:00:17,320
+Yes there I do already handle the case or I do have a catch block at least where I try to fetch my user
+
+4
+00:00:17,330 --> 00:00:23,590
+at the beginning of the request and fetch it fetch the user from a session and then store that user
+
+5
+00:00:23,590 --> 00:00:24,610
+object.
+
+6
+00:00:24,610 --> 00:00:28,690
+Still we can improve that and we will improve that in a second.
+
+7
+00:00:28,720 --> 00:00:31,470
+In my controllers I also have some error handling.
+
+8
+00:00:31,510 --> 00:00:34,170
+Let's say you off genius fall there.
+
+9
+00:00:34,270 --> 00:00:43,720
+I do check in log in whether his email address does exist and if not I do already return the same page
+
+10
+00:00:43,960 --> 00:00:45,700
+with an error code.
+
+11
+00:00:45,710 --> 00:00:53,410
+Actually where I do pass that information that the input was invalid We do the same with the validation
+
+12
+00:00:53,410 --> 00:00:54,640
+logic we added earlier.
+
+13
+00:00:54,640 --> 00:01:01,750
+By the way here in the routes where we used the Express validator package to add built in validation
+
+14
+00:01:01,750 --> 00:01:09,760
+functions so built into that package there behind the scenes this package also froze and handles errors
+
+15
+00:01:10,000 --> 00:01:16,300
+and allows us to simply collect all these errors which are now not these technical error objects but
+
+16
+00:01:16,300 --> 00:01:20,760
+which are simply we're just data managed by that package.
+
+17
+00:01:20,800 --> 00:01:24,170
+We collect these errors here and then we handle them manually.
+
+18
+00:01:24,190 --> 00:01:32,830
+That would be the right side of this slide here because there we handle orders manually or we added
+
+19
+00:01:32,950 --> 00:01:38,080
+If check where we check if data we got is enough to continue or not.
+
+20
+00:01:38,080 --> 00:01:40,980
+We get no technical error being frozen here.
+
+21
+00:01:41,020 --> 00:01:44,920
+These technical arrows by the way can always be seen if you have an error message down there in the
+
+22
+00:01:44,920 --> 00:01:45,790
+terminal.
+
+23
+00:01:45,790 --> 00:01:51,910
+We have no such error but we still have invalid code and therefore we checked this manually and proceed
+
+24
+00:01:51,910 --> 00:01:55,520
+on our own in our custom validators.
+
+25
+00:01:55,530 --> 00:02:01,530
+However if we have a look at that there I do fro a technical error.
+
+26
+00:02:01,530 --> 00:02:03,840
+For example when passwords do not match.
+
+27
+00:02:03,840 --> 00:02:09,230
+Now this error would normally bubble up and would be handled by express but does express validate or
+
+28
+00:02:09,230 --> 00:02:11,500
+package happens to also handle it.
+
+29
+00:02:11,580 --> 00:02:17,490
+And now it's this error handling which I want to dive into first before we then start implementing proper
+
+30
+00:02:17,490 --> 00:02:20,300
+solutions for the different kinds of errors we could have.
+

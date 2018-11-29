@@ -1,0 +1,184 @@
+1
+00:00:02,290 --> 00:00:09,070
+Now we added our first nutation and mutations of course also means that we store data in the database.
+
+2
+00:00:09,250 --> 00:00:15,420
+When something like this happens we want to ensure that the data we store is valid and previously in
+
+3
+00:00:15,440 --> 00:00:23,560
+arrest API and also in the normal node express application where we rendered views we use Express validator
+
+4
+00:00:23,560 --> 00:00:30,450
+for that and we added that as a middleware on our routes with graft to elders is not an option because
+
+5
+00:00:30,450 --> 00:00:31,950
+we only have one route.
+
+6
+00:00:31,950 --> 00:00:38,910
+This one does the only endpoint we have and we certainly don't want to validate all requests in exactly
+
+7
+00:00:38,910 --> 00:00:40,220
+the same way.
+
+8
+00:00:40,800 --> 00:00:47,950
+So to change that and to adjust it to our needs we want to move validation into our resolvers.
+
+9
+00:00:48,000 --> 00:00:54,510
+There we have our endpoints and there is a place where we can now validate our incoming request data
+
+10
+00:00:55,650 --> 00:01:02,750
+to do validation dare all install a new package with NPM install and then dash dash save.
+
+11
+00:01:03,060 --> 00:01:09,480
+And that is called validator and that by the way is a package which express validator use behind the
+
+12
+00:01:09,480 --> 00:01:16,160
+scenes we can use that directly in our code now so line resolvers fall.
+
+13
+00:01:16,420 --> 00:01:25,120
+I will import that validator object provided by the validator package and now uncreate user we can add
+
+14
+00:01:25,120 --> 00:01:29,330
+some validation logic with simple IF statements.
+
+15
+00:01:29,360 --> 00:01:33,930
+For example I can check if I don't have a valid email.
+
+16
+00:01:34,130 --> 00:01:35,960
+So not validator.
+
+17
+00:01:35,960 --> 00:01:42,350
+And then is e-mail and you got the same rules as with Express validator because as I mentioned it builds
+
+18
+00:01:42,440 --> 00:01:50,220
+up on this validator package and then check is user input email is not an email address.
+
+19
+00:01:50,510 --> 00:01:56,340
+And if that is the case then I want to store that error so I'll create my own arrows array here.
+
+20
+00:01:56,340 --> 00:01:58,100
+And that's just one way of handling this.
+
+21
+00:01:58,100 --> 00:02:00,140
+You could find a different pattern of course.
+
+22
+00:02:01,180 --> 00:02:04,550
+And I will push a new error onto desir.
+
+23
+00:02:04,640 --> 00:02:11,030
+And for me here and that again is only my implementation and error will be an object where I have a
+
+24
+00:02:11,030 --> 00:02:17,190
+message for example e-mail is invalid.
+
+25
+00:02:17,200 --> 00:02:19,720
+Now let's say we don't just want to validate to e-mail.
+
+26
+00:02:19,930 --> 00:02:25,870
+We also want to check whether our password is there and if it's too short.
+
+27
+00:02:25,870 --> 00:02:29,440
+So if validator is empty
+
+28
+00:02:32,460 --> 00:02:40,290
+user input password then we have a problem because then we got no values for the password or we all
+
+29
+00:02:40,350 --> 00:02:42,280
+have a problem if it's not empty.
+
+30
+00:02:42,450 --> 00:02:45,990
+But if the length is not long enough.
+
+31
+00:02:45,990 --> 00:02:54,300
+So if the length for a password is not fitting the criteria we specify in the second argument to is
+
+32
+00:02:54,300 --> 00:03:00,400
+length which is an object where we can set a min and max key and I'll set mine to 5.
+
+33
+00:03:00,720 --> 00:03:07,630
+So if we enter a password that is empty or not long enough.
+
+34
+00:03:07,790 --> 00:03:11,620
+So if it is not long enough we need to add an exclamation mark here.
+
+35
+00:03:12,970 --> 00:03:15,610
+Then we make it into this if statement here.
+
+36
+00:03:15,790 --> 00:03:18,160
+And then we all have a problem in there.
+
+37
+00:03:18,180 --> 00:03:26,050
+I also want to push an error onto my arrows aere and they are all add a message of passwords to short
+
+38
+00:03:28,820 --> 00:03:32,470
+notice it is just one way of implementing this.
+
+39
+00:03:32,480 --> 00:03:38,990
+Now after having all these checks I can check if my arrows array has a length that is greater than zero
+
+40
+00:03:38,990 --> 00:03:48,470
+which means I do have errors and if I do them I'll create my own new error object where I've fro invalid
+
+41
+00:03:48,770 --> 00:03:53,150
+input or where a report invalid input.
+
+42
+00:03:53,150 --> 00:03:56,950
+And now I throw that error.
+
+43
+00:03:56,970 --> 00:03:58,630
+Now let's give that a try.
+
+44
+00:03:59,020 --> 00:04:07,540
+If I now try to add an email address which is not an e-mail address and I hit play here I indeed see
+
+45
+00:04:07,540 --> 00:04:12,760
+my invalid input message and that is how we can add validation.
+
+46
+00:04:12,760 --> 00:04:17,920
+What if we now want to pass more data with our error message here.
+

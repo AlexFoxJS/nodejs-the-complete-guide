@@ -1,0 +1,384 @@
+1
+00:00:02,140 --> 00:00:07,660
+So in the last lecture we edit this log in a form which you can reach by clicking on log in here on
+
+2
+00:00:07,660 --> 00:00:08,910
+the top right corner.
+
+3
+00:00:09,250 --> 00:00:13,360
+And you can simply download the attached code to have that same starting project.
+
+4
+00:00:13,360 --> 00:00:14,460
+If you download it.
+
+5
+00:00:14,530 --> 00:00:21,340
+Just make sure that you use your database credentials here when connecting to the database because mine
+
+6
+00:00:21,400 --> 00:00:25,530
+won't work for you obviously because I shut down the server after I'm done recording.
+
+7
+00:00:25,570 --> 00:00:30,350
+So I edit this log in page and will not implement authentication right now.
+
+8
+00:00:30,370 --> 00:00:35,710
+We'll do this in a separate module but this is a great Dhami scenario for using a cookie because let's
+
+9
+00:00:35,710 --> 00:00:42,700
+say when we click that submit button here the log in button we will actually send a log in request to
+
+10
+00:00:42,700 --> 00:00:49,060
+the backend because that is what we stored in the log in form here and off log in we are sending a POST
+
+11
+00:00:49,060 --> 00:00:51,880
+request to slash log in.
+
+12
+00:00:51,880 --> 00:00:57,910
+And since we do that we should handle this and we want you in a real scenario validator to e-mail that
+
+13
+00:00:57,910 --> 00:01:04,220
+password in this module will not do that we'll just assume that the input data is valid.
+
+14
+00:01:04,240 --> 00:01:06,990
+Because it's not the topic we'll focus on for now.
+
+15
+00:01:07,350 --> 00:01:13,910
+So let's add a new controller action first of all in the office last fall and all named post log in.
+
+16
+00:01:14,390 --> 00:01:21,430
+Now in post log in I will get my log and data e-mail password and so on and I don't really care about
+
+17
+00:01:21,490 --> 00:01:28,230
+that data so I'll just assume the user is locked in and will then redirect to just slash.
+
+18
+00:01:28,630 --> 00:01:31,150
+However And now that is important.
+
+19
+00:01:31,630 --> 00:01:38,190
+If we do it like this and we add a route for it is of course to our off route file.
+
+20
+00:01:38,320 --> 00:01:45,400
+So here is this post a post request to slash log in and we used to post log in controller action.
+
+21
+00:01:45,520 --> 00:01:51,220
+If I do this and then click on log and here I am indeed forwarded to the slash route.
+
+22
+00:01:51,450 --> 00:01:51,740
+OK.
+
+23
+00:01:51,760 --> 00:01:54,430
+So this could mean we are authenticated.
+
+24
+00:01:54,430 --> 00:01:59,180
+Now let's say we want to store that information that the user is authenticated.
+
+25
+00:01:59,230 --> 00:02:01,540
+How could we store that.
+
+26
+00:02:01,540 --> 00:02:09,310
+Well you could say I go into my controller and in post look and where I do lock to use written I stored
+
+27
+00:02:09,310 --> 00:02:16,380
+that information in my request object is locked in because we are already doing a similar thing.
+
+28
+00:02:16,450 --> 00:02:17,560
+Actually yes.
+
+29
+00:02:17,560 --> 00:02:23,500
+Right at the start we fetch our one dummy user and stored it in the request so that we can use it for
+
+30
+00:02:23,500 --> 00:02:25,360
+the rest of that request.
+
+31
+00:02:25,360 --> 00:02:31,840
+So in all the routes and controllers where we handle that request we can do the same here and set it
+
+32
+00:02:31,830 --> 00:02:35,150
+to true by default right at the start it will not be set.
+
+33
+00:02:35,170 --> 00:02:41,770
+So the value will be undefined which is treated as false and that is the information I need now to validate
+
+34
+00:02:41,770 --> 00:02:42,850
+whether that works.
+
+35
+00:02:42,850 --> 00:02:47,570
+Let's actually go to our views and deer in the navigationally chest.
+
+36
+00:02:47,590 --> 00:02:53,380
+I commented out to rabbits for which we could say we need to use or to be authenticated.
+
+37
+00:02:53,620 --> 00:02:58,430
+Let's comment them in but only render them if the user is authenticated.
+
+38
+00:02:58,780 --> 00:03:00,780
+So how would we go about that.
+
+39
+00:03:01,790 --> 00:03:09,590
+Well we could use Ejaz for that of course and we can check if let's say we expect to get some authenticated
+
+40
+00:03:10,700 --> 00:03:11,700
+value here.
+
+41
+00:03:11,720 --> 00:03:18,980
+So if is ofay they hate it then we'll do something will render this part here and otherwise this will
+
+42
+00:03:18,980 --> 00:03:21,820
+not be rendered because we don't make it into that if block.
+
+43
+00:03:22,190 --> 00:03:26,530
+So if I do it like this and I reload this page I get an error.
+
+44
+00:03:26,540 --> 00:03:27,030
+Dead.
+
+45
+00:03:27,070 --> 00:03:29,590
+Is that OK that is not defined.
+
+46
+00:03:29,600 --> 00:03:34,760
+Because we're not always rendering this to our different views.
+
+47
+00:03:34,760 --> 00:03:41,220
+So what we actually need to do since the whole thing is part of every page for every render call here.
+
+48
+00:03:41,390 --> 00:03:46,550
+We need to pass the information whether the user is authenticated or not.
+
+49
+00:03:46,550 --> 00:03:53,000
+And for that access request is authenticated because that is exactly where is locked in excuse me is
+
+50
+00:03:53,000 --> 00:03:56,560
+locked in because that is the field we're storing that information.
+
+51
+00:03:56,570 --> 00:04:03,080
+So access request is locked in because that is what I will set to true when we do log in.
+
+52
+00:04:03,080 --> 00:04:08,510
+So our ad is authenticated and stored at value to every render recall here.
+
+53
+00:04:09,730 --> 00:04:13,550
+Here hear for get at product.
+
+54
+00:04:13,850 --> 00:04:22,160
+Also on the error page here like this and awls in shop Ejaz of course for all our routes here like this
+
+55
+00:04:22,160 --> 00:04:32,670
+one basically every time when we call render in all these cases I will add my is authenticated information
+
+56
+00:04:34,290 --> 00:04:40,830
+so now that I added it to all routes and I saved all files if I reload I still failed because I obviously
+
+57
+00:04:40,830 --> 00:04:45,890
+alternated need to render and edits to off Jay as to my render out there.
+
+58
+00:04:46,080 --> 00:04:54,660
+So now if I reload this works and we are missing these two fields if I log in we are still missing them
+
+59
+00:04:54,660 --> 00:04:55,140
+though.
+
+60
+00:04:55,290 --> 00:04:56,400
+And why is that.
+
+61
+00:04:56,400 --> 00:04:58,330
+Do you know why this does not work.
+
+62
+00:04:58,410 --> 00:05:03,270
+Even though I am storing the information that I am locked in in is locked in.
+
+63
+00:05:03,300 --> 00:05:09,510
+When we click that button I just ring it in my request and then I use that information request on every
+
+64
+00:05:09,750 --> 00:05:17,640
+route I handle and I pass it into is authenticated which is the field which I'm using in my front to
+
+65
+00:05:17,670 --> 00:05:19,080
+my navigation there.
+
+66
+00:05:19,080 --> 00:05:25,930
+I am checking for is authenticated and that is what I am passing today at Front-End in my render called
+
+67
+00:05:25,980 --> 00:05:27,860
+here.
+
+68
+00:05:28,030 --> 00:05:35,080
+Well the problem of course is yes I update is locked in here in the request and what happens to the
+
+69
+00:05:35,080 --> 00:05:37,060
+request once I send a response.
+
+70
+00:05:37,060 --> 00:05:39,680
+And we do send a response by redirecting.
+
+71
+00:05:40,060 --> 00:05:43,320
+Well the request is that it's done with a response.
+
+72
+00:05:43,330 --> 00:05:47,740
+We basically finished a request we got a request and we sent the response.
+
+73
+00:05:47,830 --> 00:05:48,700
+We're done.
+
+74
+00:05:48,700 --> 00:05:51,500
+This data does not stick around.
+
+75
+00:05:51,520 --> 00:05:55,810
+This data is lost after the request or after we send the response.
+
+76
+00:05:56,140 --> 00:06:02,770
+So whenever we wisit a different page like here where we do get redirected so we get redirected here
+
+77
+00:06:02,920 --> 00:06:09,240
+and we reach our Get index action here in the end and there we do render the sharp index page.
+
+78
+00:06:09,280 --> 00:06:10,690
+But this is a brand.
+
+79
+00:06:10,720 --> 00:06:18,490
+You request their redirection creates a brand new request and does a super important to understand we're
+
+80
+00:06:18,490 --> 00:06:25,270
+working with totally separate requests and that is important because your application your page will
+
+81
+00:06:25,270 --> 00:06:31,960
+have hundreds of users and obviously the requests of all these users are not related to job.
+
+82
+00:06:32,140 --> 00:06:37,550
+Otherwise you could maybe look into data that they shouldn't see and even the requests of a single user.
+
+83
+00:06:37,660 --> 00:06:44,680
+So requests made from the same IP address are treated as totally independent requests.
+
+84
+00:06:44,740 --> 00:06:48,690
+They are not seen in a bigger context or anything like that.
+
+85
+00:06:48,760 --> 00:06:49,920
+And this is a good thing.
+
+86
+00:06:49,930 --> 00:06:57,670
+This is deliberately designed that way and for any data we store here can be used as long as we are
+
+87
+00:06:57,670 --> 00:06:59,620
+working on the same request.
+
+88
+00:06:59,620 --> 00:07:05,530
+That is why when we retrieve the user and actually is here and it is stored in the request that is why
+
+89
+00:07:05,530 --> 00:07:11,950
+we still can use that request user in all our action controllers because they again at a later point
+
+90
+00:07:11,950 --> 00:07:12,590
+of time.
+
+91
+00:07:12,650 --> 00:07:17,420
+Does middleware runs on every incoming request before our routes handle it.
+
+92
+00:07:17,470 --> 00:07:24,460
+So the data we store here is used in the same request cycle in our route handlers in our controllers.
+
+93
+00:07:24,550 --> 00:07:31,120
+But if I do a change to request at the end of its lifetime like here right before I send the response
+
+94
+00:07:31,510 --> 00:07:33,280
+this data will not be useful to us.
+
+95
+00:07:33,350 --> 00:07:35,390
+It's really important to understand this.
+
+96
+00:07:35,410 --> 00:07:38,320
+So lets now see how we could solve this in a better way.
+

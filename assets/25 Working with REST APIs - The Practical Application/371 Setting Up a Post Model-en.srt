@@ -1,0 +1,284 @@
+1
+00:00:02,290 --> 00:00:07,590
+So time to add some database logic and I will again use Hmong would it be an mongooses.
+
+2
+00:00:07,630 --> 00:00:13,510
+And I will use the same Mongo D-B Atlas server we configured earlier in the course.
+
+3
+00:00:13,510 --> 00:00:18,450
+So go back to that long would be module if you want to see how that worked.
+
+4
+00:00:18,520 --> 00:00:22,900
+And if you want to use my sequel or something like this you can of course also take the knowledge you
+
+5
+00:00:22,900 --> 00:00:29,220
+gain the sequel related modules of the course and implement your own sequel's Lucian here to follow
+
+6
+00:00:29,220 --> 00:00:30,250
+along smoothly.
+
+7
+00:00:30,250 --> 00:00:32,520
+You should use Muang would you be though.
+
+8
+00:00:32,530 --> 00:00:34,540
+I will again use the mongoose package.
+
+9
+00:00:34,630 --> 00:00:41,590
+So let's install it with NPM install dash dash save mongooses and that will be required to connect to
+
+10
+00:00:41,590 --> 00:00:48,370
+the database and to then of course also create our mongooses models store data and so on.
+
+11
+00:00:49,090 --> 00:00:51,940
+I'll restart NPM start there after and now.
+
+12
+00:00:51,940 --> 00:00:59,710
+First of all let's connect for this let's open the app js file and let's import mongoose year by simply
+
+13
+00:00:59,710 --> 00:01:01,530
+requiring mongooses.
+
+14
+00:01:01,750 --> 00:01:07,300
+Now as you learned in the Mongo D.B and the mongooses modules of discourse we Dennis stablish a connection
+
+15
+00:01:07,870 --> 00:01:14,870
+by using mongooses connect here and now we need a u r l a connection u r l.
+
+16
+00:01:14,990 --> 00:01:17,320
+Now as I mentioned I'll use the same connection.
+
+17
+00:01:17,320 --> 00:01:19,940
+You are L I used before in the course.
+
+18
+00:01:20,020 --> 00:01:21,630
+So that does not change.
+
+19
+00:01:21,670 --> 00:01:23,930
+I will just copy that.
+
+20
+00:01:23,950 --> 00:01:24,610
+Here it is.
+
+21
+00:01:24,610 --> 00:01:31,990
+That is my Atlus server to which I can connect and this now establish a connection and then I can add
+
+22
+00:01:32,050 --> 00:01:36,980
+then in a catch block catch in case this connection establishing fails.
+
+23
+00:01:37,030 --> 00:01:38,670
+Then I want to lock the error.
+
+24
+00:01:38,830 --> 00:01:45,430
+But if we are successful if we are in that then block here then I will start my node server and start
+
+25
+00:01:45,430 --> 00:01:46,960
+listening to requests.
+
+26
+00:01:46,960 --> 00:01:50,460
+If we save that it now gets restarted and it should succeed.
+
+27
+00:01:50,530 --> 00:01:53,170
+You can ignore this deprecation warning here by the way.
+
+28
+00:01:53,350 --> 00:01:58,810
+Now we're connected to mongooses or too much would he be fruit mongoose and now what can we do.
+
+29
+00:01:59,080 --> 00:02:03,970
+Well we have to create some models to work with right because that is how we interact with the database
+
+30
+00:02:04,000 --> 00:02:05,030
+ultimately.
+
+31
+00:02:05,110 --> 00:02:11,680
+So let's create a model's folder here in our node rest API and I'll create a post js file in there to
+
+32
+00:02:11,680 --> 00:02:14,630
+define how a post should look like.
+
+33
+00:02:15,090 --> 00:02:23,240
+They're I will simply import mongoose by requiring mongoose from the mongoose package.
+
+34
+00:02:23,570 --> 00:02:30,320
+We can then extract the schema from that mongooses object that schema constructor and use that to create
+
+35
+00:02:30,350 --> 00:02:31,850
+a new post schema.
+
+36
+00:02:31,850 --> 00:02:37,670
+You can name that however you want but you use new schema to now define how a post should look like
+
+37
+00:02:37,670 --> 00:02:40,370
+in your database and in your application.
+
+38
+00:02:40,460 --> 00:02:43,670
+Now you can of course define this in whichever way you want.
+
+39
+00:02:43,670 --> 00:02:50,270
+I want to have a title in there which will be of type string and you learn all about that schema declaration
+
+40
+00:02:50,270 --> 00:02:54,440
+thing in the mongoose module so I'll be walking through it a bit faster.
+
+41
+00:02:54,770 --> 00:02:59,250
+So type will be string and let's say it's required.
+
+42
+00:02:59,280 --> 00:03:03,050
+We then also will have an image you are.
+
+43
+00:03:03,060 --> 00:03:06,870
+Or image or however you want to name it and that will also be a string.
+
+44
+00:03:06,870 --> 00:03:13,200
+It will be you are pointing at that file and this will all be required.
+
+45
+00:03:14,520 --> 00:03:17,340
+Now will also have a content of course.
+
+46
+00:03:17,960 --> 00:03:25,850
+Where the time is string as well and which also is required so thus far not too exciting.
+
+47
+00:03:25,850 --> 00:03:31,720
+Now I also will have a creator here and that will later be a link to a user.
+
+48
+00:03:31,730 --> 00:03:33,320
+For now I don't have that.
+
+49
+00:03:33,470 --> 00:03:36,460
+So for now it will just be an object and be required.
+
+50
+00:03:36,890 --> 00:03:40,430
+But this is only temporary will change does later.
+
+51
+00:03:40,430 --> 00:03:42,410
+So this is my current set up.
+
+52
+00:03:42,590 --> 00:03:48,410
+Now I will pass an option to the schema constructor which we haven't seen before we can configure this
+
+53
+00:03:48,710 --> 00:03:53,780
+and in that object I'm passing up a second argument to the schema constructor.
+
+54
+00:03:53,780 --> 00:03:59,930
+I can add the time stamps key and set this to true and Mongoose will then automatically add time stamps
+
+55
+00:03:59,930 --> 00:04:05,330
+when a new word is added to the database when a new object is added to the database.
+
+56
+00:04:05,480 --> 00:04:10,820
+So we automatically get created and updated at timestep out of the then.
+
+57
+00:04:10,910 --> 00:04:15,440
+And you can learn more about that feature in the official mongoose stocks of course.
+
+58
+00:04:15,440 --> 00:04:18,970
+Last but not least we now need to export this.
+
+59
+00:04:19,160 --> 00:04:23,810
+And you'll learn that we don't export the schema but a model based on the schema.
+
+60
+00:04:24,110 --> 00:04:29,330
+So I use mongooses and then the model method to create a model based on a schema.
+
+61
+00:04:29,510 --> 00:04:31,370
+You can name that model however you want.
+
+62
+00:04:31,400 --> 00:04:38,210
+I'll name it post and therefore this will create the post database and I will export my post schema
+
+63
+00:04:38,210 --> 00:04:40,180
+here or use my post schema.
+
+64
+00:04:40,370 --> 00:04:42,890
+So this is the model defined.
+
+65
+00:04:42,950 --> 00:04:47,910
+One important note about my connection string by the way in app J.S. there.
+
+66
+00:04:47,960 --> 00:04:56,730
+I'm connecting to a database and I will connect to my messages database you can name as however you
+
+67
+00:04:56,730 --> 00:04:58,010
+want.
+
+68
+00:04:58,020 --> 00:04:59,980
+So now we'll connected the database.
+
+69
+00:05:00,030 --> 00:05:06,330
+And thanks to this bottle there mongoose will use a post's collection for us when we start using that
+
+70
+00:05:06,330 --> 00:05:07,160
+model.
+
+71
+00:05:07,530 --> 00:05:12,120
+Well speaking of that let's start using that model in the next lecture.
+

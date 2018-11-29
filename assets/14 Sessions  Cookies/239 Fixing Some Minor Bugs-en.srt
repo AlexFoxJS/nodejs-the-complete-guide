@@ -1,0 +1,212 @@
+1
+00:00:02,120 --> 00:00:04,540
+So knouted we learned a lot about sessions.
+
+2
+00:00:04,540 --> 00:00:07,340
+Let me fix some things here real quick.
+
+3
+00:00:07,390 --> 00:00:13,810
+For example if I go to my card or to my orders I have some issues there and the problem of course is
+
+4
+00:00:14,080 --> 00:00:21,400
+that without a valid session and we don't have a valid session now after destroying it all these methods
+
+5
+00:00:21,480 --> 00:00:27,250
+under all these actions where I do reach out to my user to fetch to occur and orders these will all
+
+6
+00:00:27,250 --> 00:00:28,100
+fail.
+
+7
+00:00:28,240 --> 00:00:33,340
+And of course this makes sense because we need a secondary because we need a user for debt.
+
+8
+00:00:33,430 --> 00:00:38,560
+So what would work our shop and products and their details.
+
+9
+00:00:38,580 --> 00:00:40,410
+Andrew Card will not work though.
+
+10
+00:00:40,480 --> 00:00:46,720
+So a first step to improving debt besides checking for the existence of a user on the server which we
+
+11
+00:00:46,720 --> 00:00:49,450
+will all add in the indication module.
+
+12
+00:00:49,480 --> 00:00:56,410
+But first thing we can do is that we adjust our front end to only display things we can actually interact
+
+13
+00:00:56,410 --> 00:01:00,080
+with based on our current authentication status.
+
+14
+00:01:00,160 --> 00:01:06,010
+So for debt I'll go back to my views and I'll start with the navigation First of all because we can
+
+15
+00:01:06,010 --> 00:01:12,700
+all say that log in and log out should only be displayed should only be rendered when we are actually
+
+16
+00:01:12,700 --> 00:01:14,380
+not locked in.
+
+17
+00:01:14,740 --> 00:01:21,260
+So here I'm checking if we are often dictated to show ad product and Edmon products.
+
+18
+00:01:21,340 --> 00:01:29,200
+First of all this should move up and also include cart and orders because DS also only makes sense if
+
+19
+00:01:29,200 --> 00:01:32,570
+we have a user because otherwise Anbesol will get an error.
+
+20
+00:01:32,590 --> 00:01:39,100
+If you visit these pages and then we can repeat the logic down there and only showed this entire unordered
+
+21
+00:01:39,100 --> 00:01:39,490
+list.
+
+22
+00:01:39,550 --> 00:01:50,040
+If we are not indicated So if this is not true then I want to show these items.
+
+23
+00:01:50,160 --> 00:01:57,150
+Now we can also add this code and if we now save that and we reload this page we only see sharp end
+
+24
+00:01:57,150 --> 00:01:58,680
+products by default.
+
+25
+00:01:58,740 --> 00:02:07,750
+Once I log in though we see the rest well actually log out should be visible once we are authenticated
+
+26
+00:02:07,750 --> 00:02:08,760
+not to think about it.
+
+27
+00:02:08,770 --> 00:02:15,980
+So we should reverse this move that in there and only don't show this log in list item.
+
+28
+00:02:15,980 --> 00:02:19,900
+If we are not authenticated if we are often the case that.
+
+29
+00:02:19,990 --> 00:02:29,160
+So here we can use else if we are often educated then I of course want to show the log out screen.
+
+30
+00:02:29,680 --> 00:02:31,750
+Me get this correct here.
+
+31
+00:02:32,230 --> 00:02:35,670
+So now here I can now close this.
+
+32
+00:02:35,680 --> 00:02:43,720
+So now if I saved that again and I reload my page here I do see log out once Eclectus I.S. log in and
+
+33
+00:02:43,720 --> 00:02:47,810
+once I do log in again I see worse.
+
+34
+00:02:48,100 --> 00:02:50,020
+And now all of you are free to post a video.
+
+35
+00:02:50,020 --> 00:02:51,680
+Make sure for add to cart.
+
+36
+00:02:51,700 --> 00:02:52,750
+The same is true.
+
+37
+00:02:52,800 --> 00:02:57,830
+This should only be visible when you are locked in but not when we are locked out.
+
+38
+00:02:57,850 --> 00:03:02,570
+Here's your chance to post a video very successful.
+
+39
+00:03:02,650 --> 00:03:09,850
+It's actually the same logic because it is information we pass to every view anyways so therefore we
+
+40
+00:03:09,850 --> 00:03:15,120
+can go to the product list each fall where we doing collude Add to Cart.
+
+41
+00:03:15,130 --> 00:03:17,730
+So we should go to add to card actually and there.
+
+42
+00:03:17,750 --> 00:03:22,190
+This entire You should only be rendered if we can add the item to the cart.
+
+43
+00:03:22,240 --> 00:03:29,140
+So if we do have a session if we are authenticated and therefore let's go back to the product list doesn't
+
+44
+00:03:29,140 --> 00:03:33,970
+hire here should only be rendered if we are authentic.
+
+45
+00:03:34,030 --> 00:03:41,920
+So if it's ok authenticated is true then we'll include this year over y as we won't.
+
+46
+00:03:41,920 --> 00:03:49,810
+So now with this change if we saved it if I reload this page and I'm not locked in I still see it because
+
+47
+00:03:49,900 --> 00:03:56,760
+I'm on the wrong page for products this will work but for the index page this is a separate page.
+
+48
+00:03:56,870 --> 00:04:04,030
+In each case there we should also replace our include with that updated logic where we check for the
+
+49
+00:04:04,030 --> 00:04:08,680
+existence of our while locked in user.
+
+50
+00:04:08,680 --> 00:04:14,680
+So now with this added to index Aegeus to now either reload the starting page does is only there.
+
+51
+00:04:15,700 --> 00:04:22,190
+After I locked in as you will see now we can add to the cart and we fail again though.
+
+52
+00:04:22,240 --> 00:04:23,150
+Now why is that.
+
+53
+00:04:23,320 --> 00:04:25,280
+Let's check this in the next lecture.
+

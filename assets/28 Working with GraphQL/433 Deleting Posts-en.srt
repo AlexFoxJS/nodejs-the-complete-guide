@@ -1,0 +1,436 @@
+1
+00:00:02,180 --> 00:00:06,960
+Let's finish the post functionality by making sure we can delete posts.
+
+2
+00:00:07,100 --> 00:00:10,710
+And as always feel free to do that on your own as a practice.
+
+3
+00:00:11,180 --> 00:00:17,510
+Create the appropriate queery or mutation and respect them for a solver functionality on your own and
+
+4
+00:00:17,510 --> 00:00:19,920
+feel free to edit the front end too.
+
+5
+00:00:20,150 --> 00:00:22,700
+After a short pause which you can use to pause the video.
+
+6
+00:00:22,730 --> 00:00:24,890
+Try it on your own we'll do it together.
+
+7
+00:00:25,830 --> 00:00:27,260
+Were you successful.
+
+8
+00:00:27,600 --> 00:00:34,610
+Well again we start in the scheme of our Bacchante and I'll add that the lead post mutation here and
+
+9
+00:00:34,640 --> 00:00:38,840
+I expect to get the idea of the post which should be deleted.
+
+10
+00:00:38,850 --> 00:00:43,710
+I will then only return a boolean that indicates whoever did succeeded or not.
+
+11
+00:00:43,770 --> 00:00:45,300
+Does this like mutation.
+
+12
+00:00:45,300 --> 00:00:48,170
+More interesting is the result.
+
+13
+00:00:48,180 --> 00:00:53,250
+For that let's go to the resolvers file here and there.
+
+14
+00:00:53,250 --> 00:01:00,720
+I'll add delete post all retrieve the ID from the incoming data package so to say from the arguments
+
+15
+00:01:00,720 --> 00:01:08,210
+object and I'll write this in the async function syntax again so that I can use async await.
+
+16
+00:01:08,430 --> 00:01:12,750
+And again I'll start by checking the log in status.
+
+17
+00:01:12,750 --> 00:01:16,040
+Now obviously you could refactor this into a common function.
+
+18
+00:01:16,050 --> 00:01:21,390
+I deliberately have the more we're both set up here to make it really clear that we have to check in
+
+19
+00:01:21,510 --> 00:01:24,580
+every of these were sold or functions.
+
+20
+00:01:25,040 --> 00:01:31,320
+After knowing that the user is signed in let's fetch the post we want to remove so that we can check
+
+21
+00:01:31,320 --> 00:01:35,690
+whether the creator of the post is a user who tries to delete it.
+
+22
+00:01:36,240 --> 00:01:43,500
+So we get the post by a waiting for a post find by ID with the chosen post ID.
+
+23
+00:01:43,520 --> 00:01:48,820
+Now here we can check if we don't have a post and again does this some logic.
+
+24
+00:01:48,860 --> 00:01:54,620
+We can copy from before and the same is true for our authorization.
+
+25
+00:01:54,620 --> 00:02:01,040
+Check regarding the quality of the Creator and the locked end user so it copied these two statements
+
+26
+00:02:01,040 --> 00:02:07,500
+in here to check if the post exists and then I want to compare the creator with the locked end user.
+
+27
+00:02:07,520 --> 00:02:12,140
+Not important since I don't populate my creator field here.
+
+28
+00:02:12,140 --> 00:02:18,270
+The creator here is not an object with underscore ID but creator itself is already the ID.
+
+29
+00:02:18,290 --> 00:02:20,970
+Because that is how it's stored in a post.
+
+30
+00:02:21,020 --> 00:02:23,900
+And we need to call populate to change that and the result.
+
+31
+00:02:23,900 --> 00:02:31,900
+We're not doing that here so we only Xs creator to directly get the ID of the user who created the post.
+
+32
+00:02:31,910 --> 00:02:37,910
+Now we got all the checks in place we need an offer dis We want to delete the image that belongs to
+
+33
+00:02:37,910 --> 00:02:38,720
+that post.
+
+34
+00:02:38,810 --> 00:02:42,310
+Now for that I have that functionality in apt.
+
+35
+00:02:42,480 --> 00:02:47,420
+Yes your.
+
+36
+00:02:47,460 --> 00:02:56,640
+Now I will copy that and put it into a separate folder util where it will add a file js file and in
+
+37
+00:02:56,640 --> 00:03:00,660
+there I will just import Poth by requiring
+
+38
+00:03:02,960 --> 00:03:10,070
+path and it will import the file system by requiring that core node module.
+
+39
+00:03:10,220 --> 00:03:17,790
+Now in here I can export clear image so that we can use it in our files and I want to use it.
+
+40
+00:03:17,810 --> 00:03:20,840
+Actually yes where I already did use it in the past.
+
+41
+00:03:20,930 --> 00:03:27,590
+There I don't need to file system import any more but I will add import to my own clear file functionality
+
+42
+00:03:28,100 --> 00:03:37,480
+by requiring utl file and then here I use destructuring to get that clear image function.
+
+43
+00:03:37,850 --> 00:03:44,570
+So this is now using that restructured code where I moved that function into a seperate file and in
+
+44
+00:03:44,570 --> 00:03:45,510
+the resolver.
+
+45
+00:03:45,560 --> 00:03:48,020
+I can also import debt.
+
+46
+00:03:48,020 --> 00:03:52,420
+So here I also want to import clear image by requiring.
+
+47
+00:03:52,700 --> 00:03:59,140
+And here I need to go up one level then util folder and then the file file.
+
+48
+00:03:59,150 --> 00:04:05,600
+So now I have clear image available and now at the bottom of my resoled verse in that delete post resolver
+
+49
+00:04:05,690 --> 00:04:10,900
+here I will call Cleator image and pass my post image.
+
+50
+00:04:10,920 --> 00:04:16,730
+You are there because that is the Pawlowski image on my server.
+
+51
+00:04:16,810 --> 00:04:26,260
+Now after this was done I will await the result of post find by id and remove and I'll do that for my
+
+52
+00:04:26,260 --> 00:04:27,480
+post with that ID.
+
+53
+00:04:28,460 --> 00:04:34,720
+Once this is done I just need to make sure I removed that post from my user as well.
+
+54
+00:04:34,790 --> 00:04:46,200
+So for that I first of all need to get my user by a waiting user find by ID for the user ID stored in
+
+55
+00:04:46,200 --> 00:04:55,240
+my request object due to the off middle of where we added earlier and on that user I can then access
+
+56
+00:04:55,240 --> 00:04:58,770
+to posts and pull my ID.
+
+57
+00:04:58,780 --> 00:05:02,810
+So the idea of the post which I just deleted and after.
+
+58
+00:05:02,980 --> 00:05:09,640
+I will await the result of user A safe to save that updated user back to the database and then I will
+
+59
+00:05:09,640 --> 00:05:15,440
+return true because remember in my schema I find that I want to return a boolean.
+
+60
+00:05:15,490 --> 00:05:22,180
+I could wrap this all with try catch this part too also and return false if it fails and that is generally
+
+61
+00:05:22,180 --> 00:05:25,210
+something we can do on all these resoled rows.
+
+62
+00:05:25,210 --> 00:05:30,160
+I will not do it here to keep just code a little bit more simple but in the end that is something you
+
+63
+00:05:30,160 --> 00:05:33,410
+could add important that you hear return true.
+
+64
+00:05:34,570 --> 00:05:35,710
+That is the back end.
+
+65
+00:05:35,920 --> 00:05:41,610
+Let's all work on the front end as well and let's make sure we can trigger the deletion of the posts
+
+66
+00:05:41,650 --> 00:05:45,040
+there for Dad and the feed to js file.
+
+67
+00:05:45,040 --> 00:05:51,850
+You want to go to the delete post handler and there again to find your craft you will query
+
+68
+00:05:54,800 --> 00:05:57,310
+which has the shape you already know and love.
+
+69
+00:05:59,960 --> 00:06:05,290
+In that query here I'll run a mutation.
+
+70
+00:06:05,540 --> 00:06:08,700
+The Delete post mutation.
+
+71
+00:06:09,230 --> 00:06:13,670
+The idea here is inject that between double quotation marks.
+
+72
+00:06:13,810 --> 00:06:17,170
+The post ID I am getting as an argument.
+
+73
+00:06:17,330 --> 00:06:22,730
+And we have no nested object here so we couldn't even get any nested or detailed data.
+
+74
+00:06:22,730 --> 00:06:25,180
+We only get true or false.
+
+75
+00:06:25,200 --> 00:06:26,330
+That is my query.
+
+76
+00:06:30,030 --> 00:06:37,860
+And then here again I'll send this request localhost ADHD slash graph Q L the method as always will
+
+77
+00:06:37,860 --> 00:06:39,400
+be a post request.
+
+78
+00:06:39,480 --> 00:06:41,150
+We add our token.
+
+79
+00:06:41,310 --> 00:06:46,140
+We also set the content type to application.
+
+80
+00:06:46,260 --> 00:06:55,740
+Jason and of course we need to add or Kuri expression as a body by using Jason's string you fly and
+
+81
+00:06:55,740 --> 00:07:01,190
+passing our graph you'll carry in there we don't handle errors like that as you learned instead.
+
+82
+00:07:01,290 --> 00:07:08,190
+We do it on the parsed response because that is where we would have an arrows object if there are any
+
+83
+00:07:08,400 --> 00:07:09,410
+errors.
+
+84
+00:07:09,420 --> 00:07:16,740
+So copy that code from above and then move that in here to check if there is an error object which means
+
+85
+00:07:16,740 --> 00:07:22,750
+something did go wrong and then deleting the post would fail.
+
+86
+00:07:23,540 --> 00:07:24,830
+And that is it.
+
+87
+00:07:24,830 --> 00:07:27,530
+Now let's save that as well as the back and code.
+
+88
+00:07:27,860 --> 00:07:32,530
+And let's click on the link to your and that is looking good.
+
+89
+00:07:32,880 --> 00:07:39,970
+And I can carefully delete all my data on Lesters only until there is only one doc left.
+
+90
+00:07:42,510 --> 00:07:53,570
+And if I now refresh my posts only one doc is there and in users that user still has two decks where
+
+91
+00:07:53,570 --> 00:08:04,060
+two posts but that is probably related to something I deleted earlier behind the scenes which is all
+
+92
+00:08:04,070 --> 00:08:06,050
+the reason why I have two images here.
+
+93
+00:08:07,980 --> 00:08:09,960
+To validate that everything does work.
+
+94
+00:08:09,980 --> 00:08:12,030
+Let's delete that.
+
+95
+00:08:12,320 --> 00:08:18,690
+And on that user let's manually delete the 2 array elements clear all the posts.
+
+96
+00:08:18,690 --> 00:08:21,390
+As I mentioned clear all the images here
+
+97
+00:08:24,570 --> 00:08:31,990
+and now reload we have no host so let's create a duck and let's give it a dead duck.
+
+98
+00:08:32,020 --> 00:08:33,640
+Imagine I'm content.
+
+99
+00:08:34,120 --> 00:08:41,790
+Let's also create another item a cup and give that the cup image here.
+
+100
+00:08:45,480 --> 00:08:50,210
+Kind of you to come see it we all see the duck here.
+
+101
+00:08:51,020 --> 00:08:54,440
+Now let me delete the duck.
+
+102
+00:08:54,440 --> 00:08:56,150
+The cap is still there.
+
+103
+00:08:56,660 --> 00:09:03,440
+Only one image is looking good but I expect my users only one item to cup so that now makes perfect
+
+104
+00:09:03,440 --> 00:09:04,400
+sense.
+
+105
+00:09:04,430 --> 00:09:11,090
+And now let me also try logging in with a different user who didn't create that and they're deleting
+
+106
+00:09:11,090 --> 00:09:12,880
+and did does not work.
+
+107
+00:09:13,220 --> 00:09:20,420
+So we have all that in place let's now finished is all up by making sure we can view and edit our user
+
+108
+00:09:20,420 --> 00:09:21,170
+status.
+
+109
+00:09:21,170 --> 00:09:23,370
+And again is this a great challenge for you.
+

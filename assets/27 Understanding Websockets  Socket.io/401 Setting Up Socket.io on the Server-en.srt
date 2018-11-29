@@ -1,0 +1,196 @@
+1
+00:00:02,370 --> 00:00:03,890
+Want to use Socan I'll.
+
+2
+00:00:03,940 --> 00:00:07,570
+And we have to add it on both the server and the client.
+
+3
+00:00:07,570 --> 00:00:14,800
+So both on the node appier and on the re-act up because client server will communicate through web sockets
+
+4
+00:00:15,070 --> 00:00:22,250
+so we have to establish that communication channel on both ends on the front end react and on the back
+
+5
+00:00:22,250 --> 00:00:23,700
+end note.
+
+6
+00:00:23,710 --> 00:00:26,370
+Now let's start on the back end here.
+
+7
+00:00:26,530 --> 00:00:32,770
+And for that I'll quit my development server here and I will install this socket IO package with NPM
+
+8
+00:00:32,780 --> 00:00:41,500
+installed dash dash save Succot dot IO let me enter here and this will install the package in your node
+
+9
+00:00:41,650 --> 00:00:43,160
+project.
+
+10
+00:00:43,180 --> 00:00:45,220
+Now how do we use it.
+
+11
+00:00:45,220 --> 00:00:46,960
+Well let's go to actually yes.
+
+12
+00:00:46,970 --> 00:00:54,600
+So the first file that runs when we start our server and there we should set up or Succot IO connections.
+
+13
+00:00:54,640 --> 00:00:58,130
+We want to expose just as we set up our routes there.
+
+14
+00:00:58,150 --> 00:01:02,250
+In the end we forward requests to our routes.
+
+15
+00:01:02,340 --> 00:01:06,440
+And you could have cords all the socket I O set up in a different file but I'll do it here.
+
+16
+00:01:06,550 --> 00:01:14,230
+But just as we set up our routes Florida normal HTP requests we can also set up our socket I O channels
+
+17
+00:01:14,470 --> 00:01:18,410
+and keep in mind socket IO uses a different protocol.
+
+18
+00:01:18,510 --> 00:01:24,850
+Web sockets and therefore web Succot requests will not interfere with the normal HTP requests which
+
+19
+00:01:24,850 --> 00:01:27,190
+are sent by default by the browser.
+
+20
+00:01:27,190 --> 00:01:30,250
+So how do we set up socket IO here.
+
+21
+00:01:30,250 --> 00:01:37,650
+Well once we connect to our database when we start up our server there I also want to establish or I
+
+22
+00:01:37,660 --> 00:01:40,070
+want to set up my socket IO connection.
+
+23
+00:01:40,150 --> 00:01:54,500
+I tried a new constant I know and I will require the socket I O packets here this package or the thing
+
+24
+00:01:54,500 --> 00:02:04,380
+we are exporting here actually exposes a function which requires our created server as an argument.
+
+25
+00:02:04,380 --> 00:02:12,440
+Now the list method here does actually return us a new node server so we can store that in a constant.
+
+26
+00:02:12,440 --> 00:02:14,720
+This is the notes server we spun up.
+
+27
+00:02:14,750 --> 00:02:16,220
+It's stored here.
+
+28
+00:02:16,340 --> 00:02:20,090
+We have to pass that to a function returned by require socket I O.
+
+29
+00:02:20,360 --> 00:02:26,630
+So we add parentheses here to execute that function that is returned by socket IO and we passed a server
+
+30
+00:02:26,630 --> 00:02:27,550
+to it.
+
+31
+00:02:27,680 --> 00:02:30,130
+This sets up socket I O.
+
+32
+00:02:30,200 --> 00:02:34,210
+And I mentioned that web sockets built up on HTP.
+
+33
+00:02:34,250 --> 00:02:41,300
+Now since this server here uses HTP we used that HTP server to establish our web socket connection that
+
+34
+00:02:41,300 --> 00:02:44,670
+uses that HTP protocol as a basis you could say.
+
+35
+00:02:44,840 --> 00:02:51,800
+Now this gives us an i o a socket IO object which does set up all the web sockets stuff behind the scenes
+
+36
+00:02:51,800 --> 00:02:54,320
+for us and which we now can use.
+
+37
+00:02:54,440 --> 00:03:01,010
+Now we can use it to define a couple of event listeners for example for example to wait for new connections.
+
+38
+00:03:01,040 --> 00:03:03,380
+So whatever in you client connects to us.
+
+39
+00:03:03,680 --> 00:03:10,520
+So then we execute a certain function where we get the client the so-called Succot disconnect as an
+
+40
+00:03:10,520 --> 00:03:14,980
+argument or the connection as an argument to be precise.
+
+41
+00:03:15,050 --> 00:03:19,880
+So this is the connection between our server and the client which connected and this function will be
+
+42
+00:03:19,880 --> 00:03:22,610
+executed for every new client that connects.
+
+43
+00:03:22,610 --> 00:03:27,080
+So not only one time but as often as required as many clients as connect.
+
+44
+00:03:27,500 --> 00:03:32,320
+So here I will for any client connected.
+
+45
+00:03:32,320 --> 00:03:37,810
+And right now if I run NPM start will never see client connected in the console.
+
+46
+00:03:37,810 --> 00:03:42,760
+You don't see it here because we established all that on the service side.
+
+47
+00:03:42,760 --> 00:03:47,470
+We now got a waiting socket connection or port.
+
+48
+00:03:47,500 --> 00:03:53,710
+You could say but we got no client which would connect and that of course is the next step we have to
+
+49
+00:03:53,710 --> 00:03:54,230
+do.
+

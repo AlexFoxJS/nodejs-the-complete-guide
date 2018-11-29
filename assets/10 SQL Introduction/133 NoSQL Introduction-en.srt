@@ -1,0 +1,224 @@
+1
+00:00:02,380 --> 00:00:05,340
+We had to look at sequel based databases.
+
+2
+00:00:05,350 --> 00:00:08,320
+Now it's time to look at no sequel based databases.
+
+3
+00:00:08,410 --> 00:00:14,080
+Now the name no sequel simply means that it doesn't follow the approach sequel follows.
+
+4
+00:00:14,080 --> 00:00:21,730
+It also uses a different language but instead of having schemas and relations no sequel has iver focuses
+
+5
+00:00:21,730 --> 00:00:23,350
+her on her strengths.
+
+6
+00:00:23,350 --> 00:00:30,400
+So in those sequel we can still have a database and we can give this database a name shop let's say.
+
+7
+00:00:30,430 --> 00:00:32,190
+Now that's the same for a sequel right away.
+
+8
+00:00:32,240 --> 00:00:35,270
+There we all have databases now in sequel.
+
+9
+00:00:35,290 --> 00:00:39,190
+We then had tables users and orders and maybe all the products.
+
+10
+00:00:39,190 --> 00:00:40,740
+These are just examples here.
+
+11
+00:00:40,900 --> 00:00:49,310
+Now Infoseek Well tables are called collections but you can think of them as tables so as to table equivalent
+
+12
+00:00:49,480 --> 00:00:52,320
+but we call them collections in the world.
+
+13
+00:00:52,570 --> 00:00:59,470
+Now in collection we don't find records but so-called documents which looked like this.
+
+14
+00:00:59,530 --> 00:01:04,330
+And since we're working with javascript in this course here we of course can kind of see that this looks
+
+15
+00:01:04,330 --> 00:01:07,020
+a bit like a javascript object.
+
+16
+00:01:07,150 --> 00:01:13,300
+So documents are very close to how we describe data in Javascript you could say now that our documents
+
+17
+00:01:13,360 --> 00:01:19,180
+in our collections and what you can already see here in the user's collection Exxon-Mobile is that no
+
+18
+00:01:19,180 --> 00:01:24,810
+sequel doesn't have a strict schema here we got two documents in the same collection.
+
+19
+00:01:24,940 --> 00:01:32,460
+But the second document manual here does not have an H and that is perfectly fine in no sequel.
+
+20
+00:01:32,500 --> 00:01:37,670
+You can store multiple documents with different structures in the same collection.
+
+21
+00:01:37,690 --> 00:01:43,780
+Now often you'll of course still try to have kind of a similar structure but it's also not uncommon
+
+22
+00:01:43,780 --> 00:01:49,630
+for some applications that you don't always have exactly the same fields away level for the data.
+
+23
+00:01:49,630 --> 00:01:53,010
+You are storing in the database and that is ok and no sequel.
+
+24
+00:01:53,050 --> 00:02:00,230
+You can definitely store documents which are generally equal but whereas some fields might differ.
+
+25
+00:02:00,260 --> 00:02:05,440
+One other thing is that in the sequel world we got no real relations.
+
+26
+00:02:05,440 --> 00:02:07,720
+Instead we go for duplicate data.
+
+27
+00:02:07,750 --> 00:02:13,020
+Now that simply means that if we have orders collection here we have a nested document.
+
+28
+00:02:13,060 --> 00:02:19,970
+The user which also is stored as a separate document with more details may be in the users collection
+
+29
+00:02:20,290 --> 00:02:24,740
+and we don't connect that to some idea or behind the scenes set up relation.
+
+30
+00:02:24,880 --> 00:02:27,880
+Instead we simply duplicate data to be precise.
+
+31
+00:02:27,970 --> 00:02:30,840
+The data we need in the order is collection year.
+
+32
+00:02:31,000 --> 00:02:36,320
+That of course means that if that data changes we have to update it in multiple places.
+
+33
+00:02:36,400 --> 00:02:43,130
+If all these places need the latest update or the latest data change but that can be OK because this
+
+34
+00:02:43,160 --> 00:02:50,540
+only gives us a huge advantage that if we ever retrieve data we don't have to join multiple tables to
+
+35
+00:02:50,550 --> 00:02:57,850
+gabber which can lead to very long and difficult code and which can also impact performance.
+
+36
+00:02:57,850 --> 00:03:03,040
+Instead we can simply reads the data from the orders collection and we probably got all the data we
+
+37
+00:03:03,040 --> 00:03:07,040
+need to display on the orders page without having to reach out to collections.
+
+38
+00:03:07,060 --> 00:03:13,220
+And for this can be done in a super fast way and that is one of the huge advantages of no sequel.
+
+39
+00:03:13,240 --> 00:03:15,800
+It can be very fast and efficient.
+
+40
+00:03:16,090 --> 00:03:21,420
+So no sequel characteristics in general are that we have no strong data schema.
+
+41
+00:03:21,460 --> 00:03:24,410
+We can have mixed data in the same collection.
+
+42
+00:03:24,520 --> 00:03:29,470
+No structure is required and that we have generally no data or relations.
+
+43
+00:03:29,470 --> 00:03:32,820
+Now we can relate documents in some way.
+
+44
+00:03:32,950 --> 00:03:38,560
+And this is possible and we will see how to work with CONNECT that data in the no sequel module off
+
+45
+00:03:38,560 --> 00:03:39,460
+this course.
+
+46
+00:03:39,550 --> 00:03:46,870
+But generally we have no or only a few connections and instead try to copy data and have a collection
+
+47
+00:03:46,870 --> 00:03:50,400
+with documents that work on their own.
+
+48
+00:03:50,410 --> 00:03:52,210
+This is the difference.
+
+49
+00:03:52,210 --> 00:03:55,110
+We also got a difference between sequel and no sequel.
+
+50
+00:03:55,120 --> 00:03:57,240
+Regarding our scalability.
+
+51
+00:03:57,370 --> 00:04:03,100
+So as our application grows and we need to store more add more data and access that data or work with
+
+52
+00:04:03,100 --> 00:04:04,450
+it more frequently.
+
+53
+00:04:04,450 --> 00:04:10,750
+We might need to scale our database servers and we can differentiate between horizontal and vertical
+
+54
+00:04:10,750 --> 00:04:11,410
+scaling.
+
+55
+00:04:11,590 --> 00:04:18,130
+We'll have a look at this and in general how the two worlds sequel and those sequel compare in the next
+
+56
+00:04:18,130 --> 00:04:18,480
+lecture.
+

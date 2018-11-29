@@ -1,0 +1,360 @@
+1
+00:00:02,250 --> 00:00:05,620
+Knouted we're able to store orders for the user.
+
+2
+00:00:05,790 --> 00:00:10,100
+Let's add a new method to the user model to also get orders.
+
+3
+00:00:10,170 --> 00:00:12,090
+And this will be a method we need to make.
+
+4
+00:00:12,120 --> 00:00:18,350
+Our orders page work at Yet now getting orders is pretty straightforward.
+
+5
+00:00:19,430 --> 00:00:29,900
+We reach out to our orders collect your and then we need to find all orders for a given user and oh
+
+6
+00:00:30,410 --> 00:00:31,770
+how do we do that.
+
+7
+00:00:32,180 --> 00:00:34,520
+Well there's one thing which we forgot.
+
+8
+00:00:34,520 --> 00:00:34,850
+Right.
+
+9
+00:00:34,880 --> 00:00:40,580
+When adding orders or orders right now contain the content of the cart but no information about the
+
+10
+00:00:40,580 --> 00:00:41,820
+user to which to belong.
+
+11
+00:00:42,020 --> 00:00:43,580
+And that is something we need to change.
+
+12
+00:00:43,580 --> 00:00:45,680
+First of all so let's pause.
+
+13
+00:00:45,680 --> 00:00:50,510
+Getting orders for now let's tweak our ad order function here.
+
+14
+00:00:50,780 --> 00:00:55,090
+We Edzard one order and read now the orders only are a cart.
+
+15
+00:00:55,370 --> 00:00:58,070
+Well this is not the entire truth right.
+
+16
+00:00:58,070 --> 00:01:00,930
+We also need information about the user.
+
+17
+00:01:01,040 --> 00:01:06,590
+So let's create a new constant order in here which is the object we actually want to save.
+
+18
+00:01:06,590 --> 00:01:08,670
+And then there we certainly want to have the items.
+
+19
+00:01:08,690 --> 00:01:14,120
+So we want to have the card items in there that is for sure but we also want to have some information
+
+20
+00:01:14,120 --> 00:01:16,020
+about the user and vidis.
+
+21
+00:01:16,040 --> 00:01:26,230
+I'll add an embedded document where I add d id and here I want to create a new object id based on this
+
+22
+00:01:26,380 --> 00:01:28,150
+idea on the idea of the user.
+
+23
+00:01:28,150 --> 00:01:36,440
+We're working with but I also want to store the name which we have as a property here and email.
+
+24
+00:01:36,580 --> 00:01:42,270
+So hearable duplicates data because this will then end up in the orders collection and in the users
+
+25
+00:01:42,280 --> 00:01:43,090
+collection.
+
+26
+00:01:43,240 --> 00:01:49,810
+But I don't care too much about this because to date I have been here the user data I have enure might
+
+27
+00:01:49,840 --> 00:01:56,810
+change for sure but it doesn't need to be updated on all the orders because if you had like processed
+
+28
+00:01:56,820 --> 00:02:03,130
+and open orders for all processed orders you wouldn't care too much about user email changed because
+
+29
+00:02:03,130 --> 00:02:04,780
+you might not need to touch it there.
+
+30
+00:02:04,990 --> 00:02:08,360
+And of course if you do care you can always get rid of all the data.
+
+31
+00:02:08,380 --> 00:02:13,480
+So now even if the user name would change I could be fine with not changing it here and only in the
+
+32
+00:02:13,570 --> 00:02:15,470
+users collection.
+
+33
+00:02:15,550 --> 00:02:21,640
+I also want to store more information about my products by the way because right now my items are really
+
+34
+00:02:21,640 --> 00:02:23,280
+just a product ideas.
+
+35
+00:02:23,290 --> 00:02:30,500
+But the idea was that we have more information about our products than just their IDs to be precise.
+
+36
+00:02:30,640 --> 00:02:34,430
+When we have a look at our order is Aegeus file here.
+
+37
+00:02:34,510 --> 00:02:41,990
+I also put the product title for example and you could argue you also want to show the price so storing
+
+38
+00:02:41,990 --> 00:02:45,770
+some extra information would be useful too.
+
+39
+00:02:45,890 --> 00:02:52,580
+Therefore we all need to work on this card items again and we need to fetch some data from our products
+
+40
+00:02:52,580 --> 00:02:53,250
+database.
+
+41
+00:02:53,270 --> 00:02:57,190
+So we need to tweak that add order method a bit more.
+
+42
+00:02:57,220 --> 00:03:02,050
+Now we learned how to fetch product information with get card there.
+
+43
+00:03:02,050 --> 00:03:07,550
+We actually get a card with enriched information about all products.
+
+44
+00:03:07,570 --> 00:03:16,510
+So actually what we can do is an ad order I can first of all call this get cart and then and then to
+
+45
+00:03:16,510 --> 00:03:18,520
+work with the data get card gives me.
+
+46
+00:03:18,580 --> 00:03:27,370
+So with my updated products so inside then here I get my card products and these products will have
+
+47
+00:03:27,400 --> 00:03:30,650
+all the product information along with the quantity.
+
+48
+00:03:32,170 --> 00:03:35,510
+And I then create my order inside of that van block.
+
+49
+00:03:35,510 --> 00:03:40,940
+So once I know that I have that product data because outside of that then lock the code would execute
+
+50
+00:03:40,940 --> 00:03:41,870
+too early.
+
+51
+00:03:42,230 --> 00:03:45,770
+And then my items here will be my products.
+
+52
+00:03:45,800 --> 00:03:49,810
+So an array of products with product information and to quantity.
+
+53
+00:03:49,880 --> 00:03:53,830
+So now the product information will also be part of the order.
+
+54
+00:03:53,990 --> 00:04:01,010
+And here I really don't care about that information changing because if it should change for orders
+
+55
+00:04:01,130 --> 00:04:02,710
+we need a snapshot anyways.
+
+56
+00:04:02,810 --> 00:04:07,070
+If the price of a product changes that doesn't affect the possed order.
+
+57
+00:04:07,100 --> 00:04:11,320
+So there we wouldn't want to update the price even if it would change.
+
+58
+00:04:11,540 --> 00:04:18,800
+So for orders such a snapshot and Dale for an embattled document is a great way of relating you ordered
+
+59
+00:04:18,800 --> 00:04:24,170
+and the product because the product data might be duplicate but it doesn't need to change in the orders
+
+60
+00:04:24,170 --> 00:04:27,770
+collection because there we want to snapshot.
+
+61
+00:04:27,830 --> 00:04:33,190
+So now I have my products in there and some user data not all but some.
+
+62
+00:04:33,330 --> 00:04:38,760
+And now I'll take my insertion code here and move that into this.
+
+63
+00:04:38,760 --> 00:04:44,390
+Then look after my Konst order thing and move this then block up.
+
+64
+00:04:44,430 --> 00:04:50,340
+So now the order is we get the cart which is essentially an array of products we create an order with
+
+65
+00:04:50,340 --> 00:04:51,250
+that data.
+
+66
+00:04:51,510 --> 00:04:58,620
+Then we insert dis order into our orders collection that's new we need to incur debt we'd returned a
+
+67
+00:04:58,620 --> 00:04:59,730
+result of that.
+
+68
+00:04:59,880 --> 00:05:05,610
+And then here we know that we were successful with inserting this and we clean up our existing card
+
+69
+00:05:06,620 --> 00:05:07,150
+with debt.
+
+70
+00:05:07,250 --> 00:05:15,490
+Let's testis Let's go back to our application and add a couple of products to the cart.
+
+71
+00:05:15,950 --> 00:05:18,050
+Let's say like this.
+
+72
+00:05:18,230 --> 00:05:26,880
+And now this click order now and I get an error or yes because I need to return the result of this ad
+
+73
+00:05:26,920 --> 00:05:27,810
+order thing.
+
+74
+00:05:27,910 --> 00:05:35,400
+So that outside of an order to be resized to my controller I can call then on that.
+
+75
+00:05:35,400 --> 00:05:37,020
+So that needs to change.
+
+76
+00:05:37,020 --> 00:05:40,700
+So let me go back to my cart here.
+
+77
+00:05:40,860 --> 00:05:44,400
+It's actually deleted because we did ride it to the database.
+
+78
+00:05:44,400 --> 00:05:47,910
+So if I do update orders we actually can see it there.
+
+79
+00:05:47,910 --> 00:05:49,500
+This was our old order.
+
+80
+00:05:49,500 --> 00:05:51,750
+We can't delete that with the trash.
+
+81
+00:05:51,750 --> 00:05:57,900
+I can hear the second document and you order we just add it and there you see it it is indeed does have
+
+82
+00:05:57,960 --> 00:06:03,810
+all the enriched product information to snapshots of our products and the quantity in there and we have
+
+83
+00:06:03,810 --> 00:06:05,070
+some user data.
+
+84
+00:06:05,070 --> 00:06:06,080
+So this works.
+
+85
+00:06:06,180 --> 00:06:08,890
+And now with that little change I just made.
+
+86
+00:06:08,940 --> 00:06:11,050
+Let's see if that works again.
+
+87
+00:06:11,990 --> 00:06:12,880
+For Order now.
+
+88
+00:06:12,890 --> 00:06:13,260
+Yes.
+
+89
+00:06:13,340 --> 00:06:14,560
+Now we get no error.
+
+90
+00:06:14,720 --> 00:06:19,540
+So now we can work on that card page and on getting our order information.
+

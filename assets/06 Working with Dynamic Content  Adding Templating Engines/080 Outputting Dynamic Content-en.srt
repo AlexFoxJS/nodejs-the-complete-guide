@@ -1,0 +1,584 @@
+1
+00:00:02,140 --> 00:00:07,280
+Where rendering our shop template but we're not rendering any dynamic content.
+
+2
+00:00:07,380 --> 00:00:11,400
+That however is the whole idea of this module.
+
+3
+00:00:11,400 --> 00:00:13,600
+We get our admen data with the products.
+
+4
+00:00:13,740 --> 00:00:22,390
+So let's actually take these products out of admen data products and now we want to pass that into our
+
+5
+00:00:22,390 --> 00:00:28,680
+template injected into our template so that we can use it in this template file and somehow output it
+
+6
+00:00:28,690 --> 00:00:30,840
+there to do that.
+
+7
+00:00:31,030 --> 00:00:37,600
+We can simply pass a second argument to the render method the render method allows us to pass in data
+
+8
+00:00:37,660 --> 00:00:40,450
+that should be added into our view.
+
+9
+00:00:40,970 --> 00:00:45,000
+Here we can simply pass products however not like this.
+
+10
+00:00:45,130 --> 00:00:51,970
+But as a javascript object where we map it to a key name which we can use in the template to refer to
+
+11
+00:00:51,970 --> 00:00:58,690
+the data we're passing in and we can pass in Pre-OT's simply to avoid naming confusion.
+
+12
+00:00:58,690 --> 00:01:02,880
+You could use products but then all bind my products.
+
+13
+00:01:02,890 --> 00:01:06,880
+So does constant Brodsky in this object.
+
+14
+00:01:06,900 --> 00:01:08,590
+This is passed into this template.
+
+15
+00:01:08,770 --> 00:01:12,280
+And now in that template we will just be able to access process.
+
+16
+00:01:12,300 --> 00:01:16,360
+This is now available by the way we can all pass more than one field.
+
+17
+00:01:16,360 --> 00:01:17,410
+We could pass in.
+
+18
+00:01:17,680 --> 00:01:23,360
+Let's say a doc title which is shop and now we can use that too.
+
+19
+00:01:23,380 --> 00:01:25,270
+And let's maybe start with the doc title.
+
+20
+00:01:25,300 --> 00:01:31,870
+So does additional field where passing in this object in Schupbach let's say the title here should actually
+
+21
+00:01:31,870 --> 00:01:38,610
+be data doc title for this we can use to custom templating Sendak's pack gives us.
+
+22
+00:01:38,610 --> 00:01:44,770
+And if you just went out put some text does a hash tag followed by two curly braces and between these
+
+23
+00:01:44,770 --> 00:01:50,260
+curly braces you can put any value you are passing into your view.
+
+24
+00:01:50,260 --> 00:01:58,530
+So any field you have in this object like Doc title we can use that and simply refer to Doc title here.
+
+25
+00:01:59,270 --> 00:02:05,150
+If we now safe that we go back to our page right now it's still in my shop right.
+
+26
+00:02:05,400 --> 00:02:14,280
+If I now reload it's shop and Adis shop because it's a title I'm storing in Doc tightly and Doc Thaila
+
+27
+00:02:14,280 --> 00:02:16,290
+is what we're outputting here.
+
+28
+00:02:16,290 --> 00:02:18,880
+So this flow is important to understand.
+
+29
+00:02:19,020 --> 00:02:24,380
+Now of course we can also use debt to output our products for this next to the header.
+
+30
+00:02:24,390 --> 00:02:30,840
+So on the same indentation level this is important because it defines the nesting of th html we get
+
+31
+00:02:30,840 --> 00:02:33,630
+at the main element just as we have it here.
+
+32
+00:02:33,960 --> 00:02:37,030
+And now I don't want to have does age one paragraph.
+
+33
+00:02:37,260 --> 00:02:44,250
+Instead now I want to output my product with this code so I'll copy it over even though it is H-2 him
+
+34
+00:02:44,250 --> 00:02:49,950
+all the code but will a justice and transfer it to packet code.
+
+35
+00:02:50,130 --> 00:02:53,810
+So the defeater becomes just dots grid.
+
+36
+00:02:53,970 --> 00:02:56,800
+You don't need death because you don't have anything.
+
+37
+00:02:56,820 --> 00:02:58,410
+It's assumed to be a death.
+
+38
+00:02:58,740 --> 00:03:03,630
+The article with dishcloths becomes article dot product.
+
+39
+00:03:03,630 --> 00:03:09,930
+Item however important if you've got multiple clauses you need to merge them and simply concatenate
+
+40
+00:03:09,930 --> 00:03:14,310
+them separated by dots and never forget the inundation.
+
+41
+00:03:14,310 --> 00:03:20,760
+The article should be inside of this div with this class so let's indented one level here.
+
+42
+00:03:20,790 --> 00:03:26,700
+We got an indented header because it's nested in the article and this header also has this class here
+
+43
+00:03:26,780 --> 00:03:32,130
+so let's added like this and then in the header we got to h tech.
+
+44
+00:03:32,200 --> 00:03:32,740
+So lets all.
+
+45
+00:03:32,740 --> 00:03:37,210
+And then this And here again this has a c as as class.
+
+46
+00:03:37,210 --> 00:03:43,390
+Now it all has some text and you simply separate the text with whitespace from the element and you never
+
+47
+00:03:43,390 --> 00:03:44,610
+need closing tax here.
+
+48
+00:03:44,620 --> 00:03:46,230
+That is handled for you by pug.
+
+49
+00:03:46,420 --> 00:03:51,040
+So this is really a syntax that is very different to normal HTL and is really up to you if you liked
+
+50
+00:03:51,040 --> 00:03:51,890
+it or not.
+
+51
+00:03:51,910 --> 00:03:54,950
+I personally don't work too much with it but if you like it.
+
+52
+00:03:54,950 --> 00:03:59,580
+This can of course allow you to write very lean Rached female files.
+
+53
+00:03:59,710 --> 00:04:04,360
+We don't need the closing had to attack because again this is added automatically so we can move on
+
+54
+00:04:04,480 --> 00:04:08,140
+to the card image which should be next to the card header.
+
+55
+00:04:08,370 --> 00:04:16,610
+So let's indent remove that smaller than sign at this Placidyl without the class keyword.
+
+56
+00:04:17,260 --> 00:04:19,250
+And let's add the image inside of there.
+
+57
+00:04:19,480 --> 00:04:24,000
+We get an image and again as before with the links here.
+
+58
+00:04:24,190 --> 00:04:29,560
+If you have attributes you wrap them in normal rackets like this.
+
+59
+00:04:29,560 --> 00:04:34,370
+Select the source and also the alt key.
+
+60
+00:04:35,240 --> 00:04:37,400
+You can always by the way also use Emett here.
+
+61
+00:04:37,400 --> 00:04:40,040
+This is the plugin which helps you with auto treating this.
+
+62
+00:04:40,040 --> 00:04:44,960
+If you type the tag or the class name with a daughter at the beginning and hit enter it will autocomplete
+
+63
+00:04:44,960 --> 00:04:48,800
+that for you and give you the respect the pocket representation.
+
+64
+00:04:49,040 --> 00:04:54,280
+And there we saw that we actually need a comma after source right before Allt.
+
+65
+00:04:54,680 --> 00:04:58,190
+So now this will create the image nested in this card image.
+
+66
+00:04:58,280 --> 00:05:05,650
+Don't need to closing Divac know the card content is also a sibling to the card image.
+
+67
+00:05:05,690 --> 00:05:11,260
+So let's indent this remove that and at this start here.
+
+68
+00:05:13,160 --> 00:05:16,440
+And let's do the same 40 to tag indented.
+
+69
+00:05:16,520 --> 00:05:18,660
+Turn it into a pocket conform.
+
+70
+00:05:18,950 --> 00:05:19,890
+Set up here.
+
+71
+00:05:20,150 --> 00:05:22,070
+We have some text next to it like this.
+
+72
+00:05:22,250 --> 00:05:23,530
+For now that's static.
+
+73
+00:05:23,570 --> 00:05:25,530
+Later this will become dynamic.
+
+74
+00:05:25,910 --> 00:05:35,600
+And let's also do the same here for a paragraph adds declasse here and have some static text and remove
+
+75
+00:05:35,690 --> 00:05:36,760
+the closing tag.
+
+76
+00:05:38,140 --> 00:05:41,820
+And we're almost done only a couple of elements to go.
+
+77
+00:05:41,890 --> 00:05:42,900
+We get a diff.
+
+78
+00:05:43,000 --> 00:05:48,760
+Now this should be all next two cards contents let's indented a div as I mentioned doesn't have a tag
+
+79
+00:05:48,760 --> 00:05:49,350
+you need to add.
+
+80
+00:05:49,360 --> 00:05:51,150
+You can just have dot something.
+
+81
+00:05:51,200 --> 00:05:55,520
+So Dot and the class name if you have no class of course you would write that diff.
+
+82
+00:05:55,540 --> 00:06:00,590
+Otherwise there is nothing the button is inside of card actions.
+
+83
+00:06:00,600 --> 00:06:03,380
+And this does have a clause in.
+
+84
+00:06:03,610 --> 00:06:07,810
+And then it does have some text inside of it which we add next to the button element.
+
+85
+00:06:08,020 --> 00:06:10,540
+And all these closing tacks can be removed.
+
+86
+00:06:10,690 --> 00:06:15,140
+Now does outputs a grid of product carts.
+
+87
+00:06:15,310 --> 00:06:17,640
+However only with static content.
+
+88
+00:06:17,690 --> 00:06:24,830
+Now to make this less static we need to iterate through all the products and remember that we do pass
+
+89
+00:06:24,830 --> 00:06:33,260
+the product into the view here on the Pre-OT's key so to iterate and repeat this article for all the
+
+90
+00:06:33,260 --> 00:06:39,910
+products we can simply add a special syntax provided by POC and you do create such a loop by adding
+
+91
+00:06:40,100 --> 00:06:46,310
+each keyword then a value in which you want to store the value for the current iteration.
+
+92
+00:06:46,430 --> 00:06:49,040
+So a single product that our case.
+
+93
+00:06:49,040 --> 00:06:53,210
+And then in and then the array for which you want to loop.
+
+94
+00:06:53,240 --> 00:07:00,740
+So this would be Pre-OT's in our case again with Pre-OT's referring to this key in this object we're
+
+95
+00:07:00,740 --> 00:07:02,170
+passing to our view.
+
+96
+00:07:03,600 --> 00:07:05,570
+So now we're looping through the process.
+
+97
+00:07:05,610 --> 00:07:11,580
+Let's all indent this into the loop so that we repeat this entire block for each product.
+
+98
+00:07:11,640 --> 00:07:17,550
+In this process irrate and now we can use the product variable which we're creating on the fly here
+
+99
+00:07:17,910 --> 00:07:19,350
+to output the data.
+
+100
+00:07:19,470 --> 00:07:24,080
+Like the title here we could output hash tag.
+
+101
+00:07:24,210 --> 00:07:32,370
+And then again just product Daut title because remember a single product we add to this array here is
+
+102
+00:07:32,370 --> 00:07:35,210
+an object with a title key.
+
+103
+00:07:35,220 --> 00:07:40,180
+We do create this here in Edmond J.S. we push an object with the title key.
+
+104
+00:07:40,180 --> 00:07:43,790
+This is one single product as we'll have it when we loop through it.
+
+105
+00:07:43,920 --> 00:07:48,980
+So this is what we add here or what we output here with all these changes in place.
+
+106
+00:07:48,990 --> 00:07:55,560
+If we now save this and we reload this page we don't see anything because we have no products yet.
+
+107
+00:07:55,800 --> 00:08:05,520
+But if we add a first book here we do actually see that here and we see that TMH does not work anymore.
+
+108
+00:08:05,890 --> 00:08:14,470
+Let me quickly add a number free to use image you can of course simply google for any image that you
+
+109
+00:08:14,470 --> 00:08:23,480
+can use as a dummy image here for now once you got one take that source whichever it is and simply replace
+
+110
+00:08:23,480 --> 00:08:23,940
+it here.
+
+111
+00:08:24,050 --> 00:08:27,190
+This is only for practice purposes here.
+
+112
+00:08:28,590 --> 00:08:33,760
+So now if we repeat this this looks much better by the way if you only change something in the template
+
+113
+00:08:33,900 --> 00:08:34,950
+as I just did.
+
+114
+00:08:35,070 --> 00:08:40,560
+You don't need to restart the server and no one will not do so because the templates are not part of
+
+115
+00:08:40,560 --> 00:08:41,870
+your service code.
+
+116
+00:08:41,910 --> 00:08:45,440
+They are basically just templates which are picked up on the fly anyways.
+
+117
+00:08:45,450 --> 00:08:49,740
+So if you change them for the next request that's coming they will automate he'd take that and you were
+
+118
+00:08:49,860 --> 00:08:51,920
+already.
+
+119
+00:08:52,010 --> 00:08:54,590
+So with this we get a basic introduction to pi.
+
+120
+00:08:54,620 --> 00:09:04,270
+It's strange very minimal syntax and how you can output single values like some text or loop through
+
+121
+00:09:04,280 --> 00:09:05,750
+some items.
+
+122
+00:09:05,750 --> 00:09:09,290
+Now of course we could have the case to be bigshots no products at all.
+
+123
+00:09:09,290 --> 00:09:15,710
+So one thing you also want to do is you want to ensure that you have a conditional check and render
+
+124
+00:09:15,860 --> 00:09:19,050
+ever content a or content.
+
+125
+00:09:19,290 --> 00:09:21,190
+And we can do that too with Pug.
+
+126
+00:09:21,290 --> 00:09:25,300
+We can add an if statement and check if product length.
+
+127
+00:09:25,310 --> 00:09:31,720
+So if this array of products is greater than zero if it is greater than zero then we'll output this.
+
+128
+00:09:31,730 --> 00:09:38,100
+So let's indent it all into the if statement because then we do have some pro-tax to output overwise.
+
+129
+00:09:38,140 --> 00:09:40,880
+I will go into the same level as read here.
+
+130
+00:09:41,110 --> 00:09:49,450
+Asti of statement and the else block because ABA wise I will output age 1 tag where I say no products
+
+131
+00:09:50,090 --> 00:09:54,510
+which does now have a restart the server to clear my product's array.
+
+132
+00:09:55,790 --> 00:09:58,310
+And then restart reload this page.
+
+133
+00:09:58,310 --> 00:10:02,260
+I actually get an error because of course it's froths here.
+
+134
+00:10:02,330 --> 00:10:08,970
+Remember we're passing Pre-OT's as I Keitt not products so froths is what I should check here now if
+
+135
+00:10:09,010 --> 00:10:09,840
+reload.
+
+136
+00:10:09,890 --> 00:10:15,590
+I see no products but if I add one first book like this.
+
+137
+00:10:15,590 --> 00:10:17,180
+Now we see that instead.
+
+138
+00:10:17,210 --> 00:10:23,780
+So now we got the free most important parts outputting simple text and so on outputting a list and outputting
+
+139
+00:10:23,830 --> 00:10:26,420
+additional content business.
+
+140
+00:10:26,630 --> 00:10:32,020
+In a nutshell this is how you use templating engines in Express's in general.
+
+141
+00:10:32,030 --> 00:10:37,850
+Now feel free as a practice to play around with that and also work on that ad product.
+
+142
+00:10:37,940 --> 00:10:45,350
+Tim Page and replace all these items are all the content here with Poch templates keep the HTL code
+
+143
+00:10:45,360 --> 00:10:45,760
+around.
+
+144
+00:10:45,770 --> 00:10:49,730
+Don't delete these files so that we can easily switch to Obert templating engines later.
+
+145
+00:10:49,970 --> 00:10:55,760
+But make sure you add pucked templates forty two pages and then you render them all in a few free to
+
+146
+00:10:55,760 --> 00:11:00,320
+inject some dynamic code like the page title in the next lecture will do that to Gebre.
+

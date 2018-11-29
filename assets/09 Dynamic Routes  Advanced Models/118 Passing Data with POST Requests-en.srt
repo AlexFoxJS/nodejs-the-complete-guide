@@ -1,0 +1,352 @@
+1
+00:00:02,260 --> 00:00:09,270
+You now learned how you can display product information by getting that information out of you or else.
+
+2
+00:00:09,580 --> 00:00:13,270
+Now we have a similar problem for adding a product to the cart.
+
+3
+00:00:13,300 --> 00:00:19,870
+We get that add to cart button but in the end when posting our data we also want to know which product
+
+4
+00:00:19,870 --> 00:00:21,790
+to add to the cart.
+
+5
+00:00:21,790 --> 00:00:25,500
+However here I will send a POST request right.
+
+6
+00:00:25,500 --> 00:00:30,920
+Andrew Card sends a POST request and this has one important implication.
+
+7
+00:00:31,210 --> 00:00:34,940
+We can pass data in the request body.
+
+8
+00:00:35,140 --> 00:00:41,530
+This was not possible for a Gach request but for a POST request you typically use the request body.
+
+9
+00:00:41,530 --> 00:00:45,900
+This is also what we use when adding a product for adding a product.
+
+10
+00:00:45,910 --> 00:00:51,790
+We have a forum and as I mentioned there when we added this the first time and of course this automatically
+
+11
+00:00:51,790 --> 00:00:57,610
+gives us a request which puts all the input data and so on into its body.
+
+12
+00:00:57,730 --> 00:01:00,010
+But this only works for posting data.
+
+13
+00:01:00,010 --> 00:01:05,620
+This is not available for getting data but for posting data we therefore don't need to add anything
+
+14
+00:01:05,620 --> 00:01:13,090
+to the U R L because we can put the information in the post body so damn for what we should do on product
+
+15
+00:01:13,090 --> 00:01:19,610
+detail in this forum as we should simply pass some important information as part of the post request.
+
+16
+00:01:19,870 --> 00:01:25,270
+So I will add input here and I will make it of type hidden so that it doesn't really get displayed on
+
+17
+00:01:25,270 --> 00:01:33,610
+the page but still is encoded in the request that is getting sent and I will give it as a name of product
+
+18
+00:01:33,640 --> 00:01:35,390
+ID the name is up to you though.
+
+19
+00:01:35,530 --> 00:01:40,810
+And now we all need to store a value here and that value will be the value that is added to the request
+
+20
+00:01:41,020 --> 00:01:42,560
+for that product ID.
+
+21
+00:01:43,330 --> 00:01:46,880
+And here I'll use it again to output product ID.
+
+22
+00:01:46,980 --> 00:01:55,050
+Because I still want to pass that ID to my back and so to say to my node express app but I don't want
+
+23
+00:01:55,050 --> 00:01:59,330
+to use u r l because I do use a post request so there's no need to use it.
+
+24
+00:01:59,340 --> 00:02:00,400
+You could do it though.
+
+25
+00:02:00,420 --> 00:02:04,290
+You can also add a dynamic segment for post requests.
+
+26
+00:02:04,380 --> 00:02:05,410
+That would work too.
+
+27
+00:02:05,490 --> 00:02:07,470
+But there is no need to do it here.
+
+28
+00:02:07,860 --> 00:02:16,810
+So let's pass that data with that hidden input and let's now work on the back end on our shop js file.
+
+29
+00:02:17,310 --> 00:02:23,280
+There we got get the cart but gift card is not the route we're working on right now.
+
+30
+00:02:23,280 --> 00:02:25,680
+We'll use that to display the card then.
+
+31
+00:02:25,770 --> 00:02:27,710
+But for now I need a post request.
+
+32
+00:02:27,840 --> 00:02:31,470
+So let's add a new route which accepts a post request.
+
+33
+00:02:31,470 --> 00:02:33,620
+Still to get it to slash card.
+
+34
+00:02:33,660 --> 00:02:40,080
+That doesn't change but now we need a new controller function and we'll add one here.
+
+35
+00:02:40,260 --> 00:02:43,540
+Maybe in your get card maybe in front of it or offer it.
+
+36
+00:02:43,560 --> 00:02:44,670
+That's up to you.
+
+37
+00:02:44,790 --> 00:02:48,400
+Exports post-cart.
+
+38
+00:02:48,590 --> 00:02:55,720
+And there I also will get my request response and next function as arguments and any here.
+
+39
+00:02:55,880 --> 00:03:02,540
+We will now have to retrieve the product ID from the incoming request and then also fetch that product
+
+40
+00:03:02,780 --> 00:03:04,210
+in our database.
+
+41
+00:03:04,250 --> 00:03:10,740
+So in our file and add it to our cart we got no card yet though.
+
+42
+00:03:10,850 --> 00:03:13,100
+So this is all something we'll have to work on.
+
+43
+00:03:13,340 --> 00:03:16,340
+For now let's simply extract the data as a first step.
+
+44
+00:03:17,370 --> 00:03:25,330
+The prod ID by accessing request and now it's part of the request body will access request body here
+
+45
+00:03:25,750 --> 00:03:31,640
+and then Product ID because product ID is the name I'm using.
+
+46
+00:03:31,690 --> 00:03:41,070
+In my view here on the hidden input therefore your I got does away label.
+
+47
+00:03:41,100 --> 00:03:44,770
+I can console Lochness for the moment
+
+48
+00:03:49,670 --> 00:03:53,220
+and thereafter I can simply redirect.
+
+49
+00:03:53,320 --> 00:04:03,380
+Maybe to just slash Cartier and does will then load to get route so it will render the card page so
+
+50
+00:04:03,380 --> 00:04:09,770
+with that let's go back to the route's file and let's connect to a newly created controller action with
+
+51
+00:04:09,770 --> 00:04:10,900
+the poster out there.
+
+52
+00:04:11,120 --> 00:04:13,570
+So post-cart should be connected here.
+
+53
+00:04:13,760 --> 00:04:18,680
+And now if you safe at and you go back to the details page.
+
+54
+00:04:18,820 --> 00:04:20,230
+And for now only there.
+
+55
+00:04:20,260 --> 00:04:21,390
+This button will work.
+
+56
+00:04:21,580 --> 00:04:27,820
+And you click Add to Cart I'm on the card page and then the console we see that random ID which was
+
+57
+00:04:27,820 --> 00:04:30,840
+generated that random number being locked.
+
+58
+00:04:30,850 --> 00:04:32,020
+So this is working.
+
+59
+00:04:32,140 --> 00:04:36,760
+Now obviously we're not storing that in a card right now.
+
+60
+00:04:37,030 --> 00:04:42,910
+And before we work on that let's actually go back to the product detail page and grab that entire form
+
+61
+00:04:42,960 --> 00:04:50,380
+here and make sure we also use that form in all the places where we also have added two cart buttons.
+
+62
+00:04:50,440 --> 00:04:53,600
+So let's add it on the product list each as file.
+
+63
+00:04:53,650 --> 00:04:54,730
+Now important.
+
+64
+00:04:54,920 --> 00:04:58,130
+There I also have product idea whaleboat.
+
+65
+00:04:58,210 --> 00:05:05,650
+So I Ole's X as a product feels that this is working here and it's added to index J.S. Aegeus and they're
+
+66
+00:05:05,820 --> 00:05:11,130
+all they have for product object available which is not important all the time of course because I'm
+
+67
+00:05:11,150 --> 00:05:20,600
+accessing product ID here and since this is exactly equal in all free use we can also add include add
+
+68
+00:05:20,690 --> 00:05:28,310
+to cart Aegeus and put dead entire code into that include here and then simply well include that include.
+
+69
+00:05:28,340 --> 00:05:38,580
+So instead of having that code here in each case we can use DHHS tagged with the minus to add include.
+
+70
+00:05:38,690 --> 00:05:45,500
+And then we go to well up one level and then NKU into includes and then add to cart and we use that
+
+71
+00:05:45,500 --> 00:05:54,790
+same code also in the product detail page you're And also in the product list page.
+
+72
+00:05:54,830 --> 00:05:59,460
+So dare I also want to replace this for him with my include.
+
+73
+00:05:59,460 --> 00:06:02,280
+Now let's see if that still works if and I'll go to products.
+
+74
+00:06:03,380 --> 00:06:09,140
+Now we get this error because if you have to include in a for loop or in a loop in general as we have
+
+75
+00:06:09,140 --> 00:06:14,540
+it here we're looping for all the products and then product is a local variable available in that loop
+
+76
+00:06:14,570 --> 00:06:17,680
+only then and include included in the loop.
+
+77
+00:06:17,690 --> 00:06:24,960
+Unfortunately it doesn't get that very well by default but you can pass it to that includes here and
+
+78
+00:06:24,980 --> 00:06:32,030
+you can do so by adding a second argument to the include function where you again pass an object and
+
+79
+00:06:32,030 --> 00:06:34,470
+simply add that variable again.
+
+80
+00:06:34,580 --> 00:06:40,190
+So here this product is what will be available in include and on the right side you include where you
+
+81
+00:06:40,190 --> 00:06:47,030
+add the value you have available in this fall product in the loop is now past two product in the include
+
+82
+00:06:47,930 --> 00:06:53,900
+does of course needs to be done for all our includes So also in the index each last fall and not 4 to
+
+83
+00:06:53,900 --> 00:06:57,240
+1 in the product detail though because there it's not inside a loop.
+
+84
+00:06:57,260 --> 00:06:59,990
+So it's a way to blic globally and therefore works.
+
+85
+00:06:59,990 --> 00:07:07,440
+And now the reload here does we're ex starting page works and the details page also still works and
+
+86
+00:07:07,430 --> 00:07:10,010
+we can go to the card on all these pages.
+
+87
+00:07:10,380 --> 00:07:11,430
+This is looking good.
+
+88
+00:07:11,760 --> 00:07:16,970
+Berle's output and yet this is working now as the next step will have to work on that cart.
+

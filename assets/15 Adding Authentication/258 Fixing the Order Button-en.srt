@@ -1,0 +1,80 @@
+1
+00:00:02,260 --> 00:00:04,530
+So now it seems our protection was added.
+
+2
+00:00:04,630 --> 00:00:11,770
+Let me quickly fix that error where I was not able to order an item and their pop user name is required
+
+3
+00:00:11,830 --> 00:00:13,500
+ISDE issue which is frozen.
+
+4
+00:00:13,510 --> 00:00:20,220
+Let's quickly check the shop controller and their post order and in there I indeed store the username
+
+5
+00:00:20,260 --> 00:00:23,080
+and I'm not storing to user name any more here.
+
+6
+00:00:23,320 --> 00:00:25,720
+When signing up users only have to email.
+
+7
+00:00:25,720 --> 00:00:34,150
+So here we could store the e-mail for our user with request user e-mail on the order like this.
+
+8
+00:00:34,150 --> 00:00:40,600
+So instead of the name I now store the e-mail of the user in here or you also Amadis isn't just a user
+
+9
+00:00:40,600 --> 00:00:42,420
+id whatever you want.
+
+10
+00:00:42,640 --> 00:00:49,960
+Now in our order model This means that here I also don't expect the name but the email which still is
+
+11
+00:00:49,960 --> 00:00:51,820
+a string and still is required.
+
+12
+00:00:52,120 --> 00:00:55,500
+So this is a tiny change that needs to be done to fix that issue.
+
+13
+00:00:55,530 --> 00:01:01,320
+And if I now go back to products and I add this to my card and I add it to my card.
+
+14
+00:01:01,360 --> 00:01:04,720
+Again let's say that I have to order this.
+
+15
+00:01:04,720 --> 00:01:06,000
+Now this works.
+
+16
+00:01:06,130 --> 00:01:07,390
+And the cart is empty.
+
+17
+00:01:07,390 --> 00:01:10,920
+So this was just a little note something that was required.
+
+18
+00:01:10,960 --> 00:01:11,770
+Let's log out.
+
+19
+00:01:11,770 --> 00:01:12,610
+This all works.
+
+20
+00:01:12,610 --> 00:01:14,080
+Does this does bug fixed.
+

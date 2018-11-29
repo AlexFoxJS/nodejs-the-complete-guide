@@ -1,0 +1,240 @@
+1
+00:00:02,320 --> 00:00:06,670
+In the last lecture we wrote our first little note chess server.
+
+2
+00:00:06,820 --> 00:00:09,510
+Now this server is not doing all it should do.
+
+3
+00:00:09,510 --> 00:00:16,330
+It's not returning a response for example but it's generally showing us how we do create server side
+
+4
+00:00:16,330 --> 00:00:20,280
+code with no chance and how we do create our own servers.
+
+5
+00:00:20,290 --> 00:00:22,240
+Now let's understand what happened there.
+
+6
+00:00:22,270 --> 00:00:24,600
+We executed that file with no aperture.
+
+7
+00:00:24,680 --> 00:00:31,840
+Yes because our file was named Jesus and this essentially started the script where no chase went through
+
+8
+00:00:31,840 --> 00:00:36,880
+the entire file parsed the code registered the variables and functions and so on.
+
+9
+00:00:36,880 --> 00:00:40,770
+So it basically read our entire code and started executing it.
+
+10
+00:00:41,080 --> 00:00:42,870
+But then something important happened.
+
+11
+00:00:43,000 --> 00:00:46,090
+We never left that program right.
+
+12
+00:00:46,090 --> 00:00:52,030
+The reason for it is is an important concept in no Cheops called the event loop does it's basically
+
+13
+00:00:52,090 --> 00:00:59,760
+a loop process which is managed by no choice which keeps on running as long as there is work to do.
+
+14
+00:00:59,760 --> 00:01:06,190
+You could say it keeps on running as long as there are event listeners registered and one event listener
+
+15
+00:01:06,190 --> 00:01:14,200
+we did register and we never unregistered is that incoming request Lisner we passed or we set up with
+
+16
+00:01:14,200 --> 00:01:15,680
+the help of create server.
+
+17
+00:01:15,820 --> 00:01:17,610
+We passed a function to create.
+
+18
+00:01:17,770 --> 00:01:20,410
+And that is basically an ongoing event.
+
+19
+00:01:20,420 --> 00:01:26,410
+Listener one we didn't unregister from and we shouldn't because our server should of course stay up
+
+20
+00:01:26,410 --> 00:01:27,180
+and running.
+
+21
+00:01:27,460 --> 00:01:35,020
+So our core node application basically is managed by this event loop all our code is managed by dis.
+
+22
+00:01:35,140 --> 00:01:41,710
+And as I mentioned no class uses such event driven approach for all kinds of stuff not just for managing
+
+23
+00:01:41,710 --> 00:01:44,620
+that server but that is of course a crucial part.
+
+24
+00:01:44,620 --> 00:01:46,800
+But you will see it a lot for this course.
+
+25
+00:01:46,840 --> 00:01:53,350
+For example when we later access a database you will see that there we also basically send that please
+
+26
+00:01:53,410 --> 00:01:58,220
+insert some data request and then we register some function that should be executed.
+
+27
+00:01:58,300 --> 00:02:07,000
+Once its done and no JSE does pattern because it actually executes single threaded javascript so the
+
+28
+00:02:07,000 --> 00:02:13,480
+entire node process basically uses one fret on our computer it's running on.
+
+29
+00:02:13,480 --> 00:02:20,260
+Now as you might guess if we create a server with no chips it should of course be able to handle multiple
+
+30
+00:02:20,320 --> 00:02:25,690
+thousands tens of thousands or hundreds of thousands of incoming requests.
+
+31
+00:02:25,690 --> 00:02:31,430
+And if it would always pause and then do something with that request this would not be that great.
+
+32
+00:02:31,450 --> 00:02:38,230
+Hence it uses this event loop concept where in the end it always keeps on running and just executes
+
+33
+00:02:38,230 --> 00:02:40,360
+code when a certain event occurs.
+
+34
+00:02:40,510 --> 00:02:47,200
+So that in general it's always a whaleboat and was this might still sound like ok but if I got two incoming
+
+35
+00:02:47,200 --> 00:02:50,370
+requests it needs to handle two events.
+
+36
+00:02:50,380 --> 00:02:57,730
+Well it is super fast in handling these requests and actually behind the scenes it does some multi-threading
+
+37
+00:02:57,820 --> 00:03:03,940
+by leveraging the operating system but does event loop is a core thing you have to keep in mind that
+
+38
+00:03:03,930 --> 00:03:10,210
+no test basically has an ongoing loop as long as there are listeners and create server creates a listener
+
+39
+00:03:10,210 --> 00:03:11,690
+which never stops.
+
+40
+00:03:12,190 --> 00:03:19,180
+But if you eventually were to unregister and you can do this with Prozess not exit it would end and
+
+41
+00:03:19,260 --> 00:03:20,500
+we can see that.
+
+42
+00:03:20,680 --> 00:03:29,610
+We go back to our code and offer this line we type Prozess start exit and execute this function and
+
+43
+00:03:29,630 --> 00:03:32,200
+we clear our console and we now repeat node.
+
+44
+00:03:32,200 --> 00:03:33,930
+Actually yes you see it.
+
+45
+00:03:33,970 --> 00:03:38,110
+It's now still running because this function never executed.
+
+46
+00:03:38,200 --> 00:03:47,450
+We had no incoming request yet but if we now reload this page localhost for 2000 you see we still locked
+
+47
+00:03:47,450 --> 00:03:54,430
+that request but then we're back in a new line in the terminal because now it did quit that process.
+
+48
+00:03:54,650 --> 00:03:56,700
+It didn't before but now it did.
+
+49
+00:03:56,840 --> 00:04:01,100
+It did quit that process with the help of Prozess accent.
+
+50
+00:04:01,140 --> 00:04:07,490
+Now typically you don't call that in your code because you don't want to quit your server if it quits.
+
+51
+00:04:07,490 --> 00:04:12,640
+People will not be able to reach your web page anymore but this is important for understanding how it
+
+52
+00:04:12,740 --> 00:04:13,540
+works.
+
+53
+00:04:13,550 --> 00:04:21,440
+Brosius exent basically hard exited our event loop and therefore the program shuts down because there
+
+54
+00:04:21,440 --> 00:04:22,960
+was no more work to do.
+
+55
+00:04:22,970 --> 00:04:25,640
+No chain saw that there is no more work to do.
+
+56
+00:04:25,700 --> 00:04:30,980
+And it basically closed the program and gave control back to our terminal here.
+
+57
+00:04:31,400 --> 00:04:38,510
+So this is how we execute such a node as file and how we generally create such a server and what Nocera
+
+58
+00:04:38,750 --> 00:04:40,520
+does behind the scenes.
+
+59
+00:04:41,380 --> 00:04:49,960
+Let's see how we can now also work with the request and with the response object we have in debt anonymous
+
+60
+00:04:49,960 --> 00:04:50,760
+function here.
+

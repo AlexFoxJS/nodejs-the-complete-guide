@@ -1,0 +1,196 @@
+1
+00:00:02,470 --> 00:00:09,460
+Here's our shop and I created free products behind the scenes so you can of course create any free products
+
+2
+00:00:09,550 --> 00:00:14,290
+on one or more user accounts does matter and you will have free products.
+
+3
+00:00:14,290 --> 00:00:18,580
+Now obviously we can absolutely displayed these free products like this.
+
+4
+00:00:18,580 --> 00:00:22,680
+Nothing wrong with that but let's say we have hundreds of products.
+
+5
+00:00:22,780 --> 00:00:25,900
+We would not want to display all these products on one page.
+
+6
+00:00:25,990 --> 00:00:32,440
+Instead we'd like to split them across multiple pages and then somewhere on the page off at the bottom
+
+7
+00:00:32,650 --> 00:00:38,390
+we'd have some controls to go to page one page to the next or the previous page.
+
+8
+00:00:38,390 --> 00:00:40,720
+And that is exactly what I want to implement here.
+
+9
+00:00:40,720 --> 00:00:41,870
+Page anation.
+
+10
+00:00:42,100 --> 00:00:46,180
+Now you can certainly find some third party packages that can help you with that.
+
+11
+00:00:46,270 --> 00:00:52,240
+And these would be fine to use but I will show you how to implement that from scratch on your own because
+
+12
+00:00:52,290 --> 00:00:55,060
+that is obviously how you learn the most.
+
+13
+00:00:55,070 --> 00:00:59,240
+So back in our project how can we implement page.
+
+14
+00:00:59,660 --> 00:01:01,660
+Well typically you handle this.
+
+15
+00:01:01,730 --> 00:01:06,440
+As I said by adding some controls which always leads to the same payoff.
+
+16
+00:01:06,520 --> 00:01:09,670
+So always slash products or slash.
+
+17
+00:01:09,670 --> 00:01:10,390
+Nothing.
+
+18
+00:01:10,580 --> 00:01:16,730
+But then you add a curry parameter remembered query Ravagers are these parameters you add after a questionmark
+
+19
+00:01:17,120 --> 00:01:23,480
+which allow you to specify optional data and you could specify something like page equals one to load
+
+20
+00:01:23,480 --> 00:01:29,570
+the first page or page equal to to load the second page and you would change these parameters with these
+
+21
+00:01:29,570 --> 00:01:30,830
+controls you add.
+
+22
+00:01:31,100 --> 00:01:32,570
+Let me show you what I mean.
+
+23
+00:01:32,780 --> 00:01:38,390
+I will go into my views folder and let's work on that slash so on that route route.
+
+24
+00:01:38,390 --> 00:01:45,130
+So that index each fall here and there at the bottom beneath my products.
+
+25
+00:01:45,140 --> 00:01:52,040
+But inside of that first if block so where I that I have some products in there I'll add a new section.
+
+26
+00:01:52,040 --> 00:01:57,230
+I'll give it a class of page nation because this will be the section where I managed page nation.
+
+27
+00:01:57,530 --> 00:02:02,780
+And my idea is to have a link here which says 1 for Page 1 and 2 for Page 2.
+
+28
+00:02:02,960 --> 00:02:08,850
+And here I would go to slash and have page equal to one let's say and here Page equal to two.
+
+29
+00:02:08,890 --> 00:02:14,200
+So here it would set a creeper amateur to value one or respectively to value two.
+
+30
+00:02:14,600 --> 00:02:20,610
+If I save it as and reload we can see that on the left here.
+
+31
+00:02:20,620 --> 00:02:23,480
+Now let's change the styling real quick.
+
+32
+00:02:23,490 --> 00:02:30,660
+So for that I'll go into my public folder SEUS S&amp;M to main Zia's as fall and I'll scroll all the way
+
+33
+00:02:30,660 --> 00:02:36,570
+to the bottom right before that at me Ikari I'll add page nation so that colossi I added to the section
+
+34
+00:02:36,990 --> 00:02:41,890
+and I'll set text align to center and I'll also Stollman links.
+
+35
+00:02:41,910 --> 00:02:47,910
+This is of course totally optional but I will Stolle my anchor text in there to have no text decoration.
+
+36
+00:02:47,940 --> 00:02:54,510
+So to not be underlined I'll give them a color of let's say my green which I'm using in this project
+
+37
+00:02:55,290 --> 00:03:03,810
+I will also add some padding of let's say 5 REM and give them a border of one pixel solid and that same
+
+38
+00:03:04,050 --> 00:03:10,360
+green color and all the same margin of one gram left and right.
+
+39
+00:03:10,530 --> 00:03:15,620
+Something like this if I knew I was safe that I have these buttons here.
+
+40
+00:03:15,680 --> 00:03:23,630
+Now one more thing on the whole page nations sectional at a march and top off to REM and I also want
+
+41
+00:03:23,630 --> 00:03:31,180
+to make sure my buttons have some hover style so page anation a habere and Page nation a.
+
+42
+00:03:31,370 --> 00:03:37,990
+Active sets dishtowels when I hover over them or when I click on them and there I will set a background
+
+43
+00:03:39,620 --> 00:03:44,090
+of this green color and change the text color to white.
+
+44
+00:03:44,090 --> 00:03:45,640
+Now does this all optional.
+
+45
+00:03:45,710 --> 00:03:48,860
+I just want to have some styling here for my buttons.
+
+46
+00:03:48,860 --> 00:03:52,940
+So now we have these buttons and if I click one of them you can see you are l changes.
+
+47
+00:03:53,000 --> 00:03:58,400
+It's the same path just slash nothing but I have an optional parameter in there.
+
+48
+00:03:58,520 --> 00:04:04,910
+Now with that set up here let's now see how we can work with that parameter on the back end to control
+
+49
+00:04:04,910 --> 00:04:06,290
+the data we are fetching.
+

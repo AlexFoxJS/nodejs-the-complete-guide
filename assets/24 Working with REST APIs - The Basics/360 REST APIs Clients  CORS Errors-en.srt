@@ -1,0 +1,492 @@
+1
+00:00:02,380 --> 00:00:06,480
+Know before we conclude this very basic starting March with rest.
+
+2
+00:00:06,590 --> 00:00:12,820
+Let me show you something important which you need to configure on any rest API or building which will
+
+3
+00:00:12,830 --> 00:00:20,750
+not only be used by tools like this one or by code that runs on the same server and it can demonstrate
+
+4
+00:00:20,780 --> 00:00:22,550
+what I mean by going to code.
+
+5
+00:00:22,570 --> 00:00:28,850
+Pen case you don't know code and it's basically a service which you can use for free to write simple
+
+6
+00:00:29,260 --> 00:00:36,620
+HTL javascript and CSSA snippets or projects can share them easily with other people and we can simulate
+
+7
+00:00:36,650 --> 00:00:39,460
+a very simple front end application here.
+
+8
+00:00:39,710 --> 00:00:41,830
+We can create a new pen for that.
+
+9
+00:00:42,110 --> 00:00:45,800
+And here you can write as you see H.M.S. is this and Javascript code.
+
+10
+00:00:45,800 --> 00:00:48,860
+Now I'll not need C S S because I want to keep it simple.
+
+11
+00:00:48,980 --> 00:00:55,700
+And this is a great playground here now because we can simulate a front end app here because a front
+
+12
+00:00:55,700 --> 00:01:01,880
+end app if it is a single page app will only use H female C S S and Javascript because we don't write
+
+13
+00:01:01,910 --> 00:01:04,080
+any suicide code in there right.
+
+14
+00:01:04,160 --> 00:01:12,920
+So in here we might have a normal button a button we use to send the request to the back and here we
+
+15
+00:01:12,920 --> 00:01:21,500
+could get our posts and I'll copy that but then also duplicated to create a post that is of course just
+
+16
+00:01:21,500 --> 00:01:22,670
+a very basic dummy code.
+
+17
+00:01:22,670 --> 00:01:25,360
+We'll build a different project for the rest of this course.
+
+18
+00:01:25,730 --> 00:01:31,760
+But now I have to but this year in my pen as you can see now let's add some javascript code to do something
+
+19
+00:01:31,760 --> 00:01:34,700
+with them and for that only to get access to the Spartans.
+
+20
+00:01:34,700 --> 00:01:42,840
+So I'll give the first one an idea of get a second one an idea of post just to keep this really simple.
+
+21
+00:01:42,980 --> 00:01:51,460
+So my get button can be accessed with Document get element by id and then it's get.
+
+22
+00:01:51,660 --> 00:01:58,450
+And the second button of course is the same with post-soul name it postpartum and I'm looking for the
+
+23
+00:01:58,450 --> 00:02:00,060
+element with the id post.
+
+24
+00:02:00,190 --> 00:02:03,850
+So I just want to get access to them so that I can register a listener.
+
+25
+00:02:03,850 --> 00:02:12,160
+So on the Get button I can add an event listener for the Click event that shouldn't be and make a request
+
+26
+00:02:12,250 --> 00:02:19,330
+to my back and all define an anonymous function here and in there I'll use the fetch API which is built
+
+27
+00:02:19,330 --> 00:02:26,020
+into modern browsers with the fetch keyword where I can define a u r l to which a one to send to HTP
+
+28
+00:02:26,020 --> 00:02:26,890
+request.
+
+29
+00:02:26,890 --> 00:02:33,890
+And in my case that is HTP localhost 1880 slash feet's slash posts.
+
+30
+00:02:34,000 --> 00:02:44,280
+Remember that is simply this route I find your so want to send a request to det route or to that and
+
+31
+00:02:44,280 --> 00:02:49,430
+point as you learned by default does is a get request when using the fetch method.
+
+32
+00:02:49,740 --> 00:02:58,930
+And then we might have ever a success case which we can handle and then block or we have an error if
+
+33
+00:02:58,930 --> 00:03:05,530
+we have an error I'll just log my error here in the then block we actually get back a response object
+
+34
+00:03:05,530 --> 00:03:10,070
+where we still need to wait for the body to complete because it will be streamed in.
+
+35
+00:03:10,300 --> 00:03:16,570
+So I've rest Jason we can wait for this and then automatically can we did to Jason content or to a javascript
+
+36
+00:03:16,600 --> 00:03:18,620
+object.
+
+37
+00:03:19,250 --> 00:03:23,780
+And then we change a number of then block where we will have that javascript object.
+
+38
+00:03:23,780 --> 00:03:29,660
+Because as I mentioned on the slides adjacent can be can word to really well-to javascript and the Jason
+
+39
+00:03:29,660 --> 00:03:31,930
+method does just that word.
+
+40
+00:03:32,120 --> 00:03:34,510
+And it waits for the body to be streamed in.
+
+41
+00:03:34,880 --> 00:03:38,280
+And then I can console log my response data here.
+
+42
+00:03:38,390 --> 00:03:40,590
+Now let's open up the developer tools.
+
+43
+00:03:40,710 --> 00:03:46,190
+Clear Cleary's existing arrows here which were only CRID was to was still typing and you don't need
+
+44
+00:03:46,190 --> 00:03:46,920
+to save anything.
+
+45
+00:03:46,940 --> 00:03:54,170
+It saves automatically and click get posts and you should get a no access control allow or rich in headers
+
+46
+00:03:54,170 --> 00:03:55,670
+present error.
+
+47
+00:03:55,800 --> 00:03:56,590
+This is an error.
+
+48
+00:03:56,600 --> 00:03:59,820
+You see a lot when building modern web applications.
+
+49
+00:03:59,930 --> 00:04:05,420
+Modern single page applications and it often leads to a lot of confusion.
+
+50
+00:04:05,450 --> 00:04:11,300
+This error is also called a coarse error and you see the word cord's down there.
+
+51
+00:04:11,330 --> 00:04:13,520
+Now what is coarsen what's causing it.
+
+52
+00:04:13,550 --> 00:04:16,480
+And most importantly how can we solve it.
+
+53
+00:04:16,670 --> 00:04:24,600
+Course stands for a cross or region resource sharing and by default this is not allowed by browsers.
+
+54
+00:04:24,650 --> 00:04:30,200
+So if we have a recline in the server and they run with the same domain and the domain could be localhost
+
+55
+00:04:30,380 --> 00:04:37,640
+3000 important to port as part of the domain if they run on the same server we can send requests and
+
+56
+00:04:37,640 --> 00:04:43,730
+responses as we want to without issues and that is why we had no issue before in the course we rendered
+
+57
+00:04:43,790 --> 00:04:50,430
+our e-mail files on the server and therefore they were served by the same server as you send your requests
+
+58
+00:04:50,430 --> 00:04:50,770
+to.
+
+59
+00:04:50,840 --> 00:04:52,740
+So we never had any issues.
+
+60
+00:04:52,880 --> 00:05:01,490
+So this works however if client server run on different domains like the client on localhost 4000 which
+
+61
+00:05:01,550 --> 00:05:05,560
+is a different domain and 3000 then we'll have issues.
+
+62
+00:05:05,560 --> 00:05:12,440
+And of course in production you would run on my app thought com and let's say my API dot com if you
+
+63
+00:05:12,440 --> 00:05:19,430
+send requests and responses here you get problems you get a chorus error because it's a security mechanism
+
+64
+00:05:19,430 --> 00:05:26,390
+provided by the browser that you can't share resources across domains across service across or regions
+
+65
+00:05:26,600 --> 00:05:28,680
+as it's called here.
+
+66
+00:05:28,760 --> 00:05:35,780
+However we can overwrite this because this mechanism makes sense for some applications for rest.
+
+67
+00:05:35,780 --> 00:05:38,020
+A eyes it typically does not.
+
+68
+00:05:38,090 --> 00:05:41,370
+We want to allow our server to share its data.
+
+69
+00:05:41,420 --> 00:05:49,730
+We want to offer data from our server to different clients and these clients will often not be served
+
+70
+00:05:49,730 --> 00:05:53,120
+by the same server as our API runs on.
+
+71
+00:05:53,180 --> 00:05:56,980
+Take Google Maps you're not running your app on Google's service.
+
+72
+00:05:57,020 --> 00:06:02,810
+Still you can access it and the same is true for your own API and even if you built both the front and
+
+73
+00:06:02,810 --> 00:06:09,230
+the back end you will often serve the two ends from different service because you can choose a server
+
+74
+00:06:09,230 --> 00:06:15,170
+for different and that's optimized for Front-End code that really serves that really well and you serve
+
+75
+00:06:15,170 --> 00:06:21,080
+your service code your note code from a different server so you will have different domains different
+
+76
+00:06:21,170 --> 00:06:22,990
+addresses there too.
+
+77
+00:06:23,420 --> 00:06:30,050
+And therefore we need to solve such a coarse error or we need to tell the browser here which runs on
+
+78
+00:06:30,050 --> 00:06:31,700
+codependent this case here.
+
+79
+00:06:32,090 --> 00:06:38,930
+We need to tell that browser that it may accept the response sent by our server and to tell the browser
+
+80
+00:06:39,170 --> 00:06:41,310
+we have to change something on the server.
+
+81
+00:06:41,390 --> 00:06:43,130
+And this is a common gotcha.
+
+82
+00:06:43,130 --> 00:06:48,940
+A lot of people see that error and want to solve it in their browser side javascript code.
+
+83
+00:06:48,980 --> 00:06:50,070
+You just can't.
+
+84
+00:06:50,150 --> 00:06:52,730
+You can only solve that on the server.
+
+85
+00:06:52,730 --> 00:06:58,440
+So if we go back to our service side code we just need to set some special headers.
+
+86
+00:06:58,610 --> 00:07:04,650
+We want to set these headers on any response that leaves our server.
+
+87
+00:07:04,850 --> 00:07:09,550
+So the app yes file and general middleware is a great place.
+
+88
+00:07:09,860 --> 00:07:16,970
+So here before I have forward requests to my routes where I will ultimately send the response I want
+
+89
+00:07:16,970 --> 00:07:24,170
+to add headers to any response so I'll set up a general middleware in AB G-S which gets my request response
+
+90
+00:07:24,200 --> 00:07:25,430
+next function.
+
+91
+00:07:25,790 --> 00:07:32,420
+And there we have set Hetter we can conveniently add a header to a response.
+
+92
+00:07:32,480 --> 00:07:34,300
+We don't sent the response yet.
+
+93
+00:07:34,310 --> 00:07:36,330
+Set header does not send it.
+
+94
+00:07:36,380 --> 00:07:44,310
+Jason does rendered it but set header does not set header will only modify it and add a new header.
+
+95
+00:07:44,450 --> 00:07:46,900
+And now there are a couple of headers we need to set.
+
+96
+00:07:47,180 --> 00:07:58,640
+The first one is the access control allow or Richen all separated with dashes so Access stash control
+
+97
+00:07:58,640 --> 00:08:06,500
+Dasch allow Dasch original data is the first header we need to set and we want to set it to all d u
+
+98
+00:08:06,530 --> 00:08:10,820
+or else all the domains that should be able to access our server.
+
+99
+00:08:11,060 --> 00:08:19,640
+So we could add code Penn Dot I O here but often you will just set to do start to a wildcard that allows
+
+100
+00:08:19,640 --> 00:08:21,470
+access to from any client.
+
+101
+00:08:21,470 --> 00:08:25,200
+You could lock it down to specific domains though if you wanted to.
+
+102
+00:08:25,220 --> 00:08:28,280
+If you have multiple domains you can separate them with commas.
+
+103
+00:08:28,340 --> 00:08:30,730
+But I will go with the wildcard.
+
+104
+00:08:30,770 --> 00:08:41,190
+I will also set another header and that ISDE access dash control Dasch allow Dasch methods header.
+
+105
+00:08:41,270 --> 00:08:47,610
+Here we allowed a specific origines to access our content our data.
+
+106
+00:08:48,080 --> 00:08:55,970
+Now we allow these origines to use specific HTP methods because by just unlocking your regions it would
+
+107
+00:08:55,970 --> 00:08:57,130
+still not work.
+
+108
+00:08:57,140 --> 00:09:02,590
+We also need to tell the clients their origins which methods are allowed.
+
+109
+00:09:02,930 --> 00:09:13,510
+And there you can allow Get post port patch delete you don't have to allow them all.
+
+110
+00:09:13,510 --> 00:09:19,780
+You can only allow what you want to be usable from outside.
+
+111
+00:09:19,780 --> 00:09:26,250
+Now there's one last header I want to set I should set and that is access stash control Dasch allow
+
+112
+00:09:26,260 --> 00:09:29,590
+dash and now I'm talking about the headers.
+
+113
+00:09:29,650 --> 00:09:33,610
+Our clients might set on their requests there.
+
+114
+00:09:33,640 --> 00:09:37,770
+You could also use a wildcard where you can specify a specific matters.
+
+115
+00:09:37,780 --> 00:09:43,720
+Now there are some default headers which are always allowed but you especially want to add the content
+
+116
+00:09:43,720 --> 00:09:54,160
+dash type header anti all Farai sation header so that your clients can send requests to hold extra authorization
+
+117
+00:09:54,160 --> 00:10:00,010
+data and a header which will need later and that all have to find a content type of the request and
+
+118
+00:10:00,010 --> 00:10:07,060
+that will become important soon to with that edit we need to do one last thing we need to call next
+
+119
+00:10:07,180 --> 00:10:11,080
+so that the request can now continue and can be handled by our routes.
+
+120
+00:10:11,080 --> 00:10:16,680
+But now every response that we send will have these headers and therefore if we save our server side
+
+121
+00:10:16,690 --> 00:10:23,140
+code and we restart the server and therefore we go back to code open for clear these errors and it click
+
+122
+00:10:23,140 --> 00:10:24,550
+get posts again.
+
+123
+00:10:24,550 --> 00:10:30,840
+Now it just works as you can see because now we set the appropriate course headers on the server.
+

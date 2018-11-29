@@ -1,0 +1,116 @@
+1
+00:00:02,200 --> 00:00:07,440
+So we added a very basic validation and we get back a message which you want your output.
+
+2
+00:00:07,510 --> 00:00:12,730
+So this already shows us how we can work with that validation model where we see had rendered that page
+
+3
+00:00:12,730 --> 00:00:16,620
+again and now we just need to make sure we don't output Object object here.
+
+4
+00:00:16,630 --> 00:00:22,050
+But a real error message we can do that in our sign up view of course.
+
+5
+00:00:22,240 --> 00:00:28,660
+Here we got our error message thing and the error message which I am outputting here is simply an object
+
+6
+00:00:28,870 --> 00:00:32,720
+because it's that array and not a single field in there.
+
+7
+00:00:32,740 --> 00:00:37,950
+Now we just need to adjust some figure and then the controller instead of returning an array.
+
+8
+00:00:37,950 --> 00:00:40,720
+Let's say we always want to return the first error message.
+
+9
+00:00:40,720 --> 00:00:43,500
+Obviously you could change just to change the overall logic.
+
+10
+00:00:43,540 --> 00:00:47,630
+And you need to change it in a control action step 2 to output all messages.
+
+11
+00:00:47,650 --> 00:00:52,330
+But for now let's say we simply take the first one which we are guaranteed to have because we'll have
+
+12
+00:00:52,330 --> 00:01:03,410
+at least one error and then there the message and now it is safe that and I do send just test again.
+
+13
+00:01:03,420 --> 00:01:05,070
+Now I get invalid values.
+
+14
+00:01:05,070 --> 00:01:07,950
+That is how we could output that message.
+
+15
+00:01:07,950 --> 00:01:09,900
+We cannot just output the message.
+
+16
+00:01:09,900 --> 00:01:12,450
+We can also customize it.
+
+17
+00:01:12,840 --> 00:01:15,480
+And we have to do that in the place where we added to our middleware.
+
+18
+00:01:15,510 --> 00:01:19,050
+So in the route's file off-Terra is e-mail.
+
+19
+00:01:19,200 --> 00:01:25,620
+You can add do you with message function and this will always refer to the validation logic that was
+
+20
+00:01:25,620 --> 00:01:29,870
+right before it because you could add multiple checks here.
+
+21
+00:01:29,970 --> 00:01:37,880
+You could also add is alphanumeric to check that only contains numbers and key characters number characters.
+
+22
+00:01:37,920 --> 00:01:43,770
+So you could add multiple ones but with message will always refer to the validation method right in
+
+23
+00:01:43,770 --> 00:01:44,610
+front of it.
+
+24
+00:01:44,700 --> 00:01:53,730
+And there you could add please enter a valid email something like debt and if you add this with message
+
+25
+00:01:53,730 --> 00:01:57,560
+here you will see that if I enter just some text here I get.
+
+26
+00:01:57,570 --> 00:01:59,400
+Please enter a valid email.
+
+27
+00:01:59,400 --> 00:02:04,030
+So this is a way of working with the messages and also customizing it.
+
+28
+00:02:04,030 --> 00:02:07,170
+And I also mentioned that you can add more validators.
+
+29
+00:02:07,200 --> 00:02:09,370
+So let's have a look at this in the next lecture.
+

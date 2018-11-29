@@ -1,0 +1,240 @@
+1
+00:00:02,480 --> 00:00:06,180
+So time to extract this idea from the you are an.
+
+2
+00:00:06,340 --> 00:00:12,750
+And for that let's go to the route's folder there in shop J.S. we want to handle a new route and I will
+
+3
+00:00:12,750 --> 00:00:16,110
+add it below my all products Routier.
+
+4
+00:00:16,360 --> 00:00:19,700
+It will be a good draw because we want to display a new page for now.
+
+5
+00:00:19,870 --> 00:00:23,140
+And part of tipoffs products but that's not everything.
+
+6
+00:00:23,140 --> 00:00:29,130
+We also have this dynamic segment the ID d express router supports us with this.
+
+7
+00:00:29,290 --> 00:00:37,150
+We can tell the Express router that there will be some variable segment by adding a colon and then any
+
+8
+00:00:37,360 --> 00:00:40,090
+name of our choice like Product ID.
+
+9
+00:00:40,360 --> 00:00:44,750
+Later we'll be able to extract that information by dead name here.
+
+10
+00:00:44,770 --> 00:00:46,220
+So remember it.
+
+11
+00:00:46,540 --> 00:00:52,510
+The important part is to Colan here though this signals to express that it should not look for a route
+
+12
+00:00:52,750 --> 00:01:03,300
+like products product ID but instead that this partir can be anything and it will simply route or load
+
+13
+00:01:03,310 --> 00:01:10,670
+this route for does off then and we will then be able to extract that information through that name.
+
+14
+00:01:10,700 --> 00:01:19,120
+Does has one important implication if you will also have another route like router get products to delete.
+
+15
+00:01:19,130 --> 00:01:19,870
+Let's say.
+
+16
+00:01:19,900 --> 00:01:21,300
+So that is a normal route.
+
+17
+00:01:21,300 --> 00:01:27,410
+Does this not a dynamic segment the order would matter if you order it like this.
+
+18
+00:01:27,500 --> 00:01:33,800
+And keep in mind that your code is parsed from top to bottom and the request goes frood at from top
+
+19
+00:01:33,800 --> 00:01:34,720
+to bottom.
+
+20
+00:01:34,940 --> 00:01:40,970
+If you order it like this you would never reach that route because if you had a route like product still
+
+21
+00:01:40,980 --> 00:01:47,390
+it expressed as would already fire at this route or would already handle it in this Routier because
+
+22
+00:01:47,420 --> 00:01:51,110
+delete would basically be treated as the dynamic segment.
+
+23
+00:01:51,110 --> 00:01:56,780
+So if you had at an emic segment and a specific route you would have to put the more specific route
+
+24
+00:01:56,810 --> 00:01:57,450
+first.
+
+25
+00:01:57,500 --> 00:02:01,570
+So for products delete does handle the request enter offer.
+
+26
+00:02:01,590 --> 00:02:05,030
+It'll not continue its journey because you don't fire next.
+
+27
+00:02:05,180 --> 00:02:10,250
+But if you don't have something else which does not match products delete then you would go into debt
+
+28
+00:02:10,250 --> 00:02:11,250
+dynamic route.
+
+29
+00:02:11,540 --> 00:02:14,450
+So this does matter here however we don't have that case.
+
+30
+00:02:14,450 --> 00:02:16,100
+I just want to mention it.
+
+31
+00:02:16,100 --> 00:02:21,950
+So for now let's simply connect a controller where we then can handle this incoming request and where
+
+32
+00:02:21,950 --> 00:02:26,340
+I then can show you how you can get this information out of the you or else.
+
+33
+00:02:26,660 --> 00:02:32,270
+And for this let's go to controllers shop genius and they're simply add a new controller.
+
+34
+00:02:32,330 --> 00:02:36,190
+I will edit been below get products the position doesn't matter.
+
+35
+00:02:36,200 --> 00:02:38,810
+But logically here we get all products.
+
+36
+00:02:38,900 --> 00:02:43,400
+So now I also want to add the function where we get one product.
+
+37
+00:02:43,760 --> 00:02:50,000
+So here we'll have get product BP's response next like this.
+
+38
+00:02:50,780 --> 00:02:51,740
+And in there.
+
+39
+00:02:52,010 --> 00:02:58,730
+Let's now extract that dynamic Pop segment or the value it holds to be precise.
+
+40
+00:02:58,730 --> 00:03:03,640
+So this will be our product ideal store it in a constant named proft ID.
+
+41
+00:03:03,740 --> 00:03:05,030
+That name is up to you.
+
+42
+00:03:05,420 --> 00:03:12,500
+And we can get access to it by accessing our request and then expressed as already gives us parents
+
+43
+00:03:12,920 --> 00:03:15,130
+object on our request.
+
+44
+00:03:15,260 --> 00:03:24,880
+And on that parents object we can access our product ID and we can access product ID here because we
+
+45
+00:03:24,880 --> 00:03:31,650
+use product ID in our rollock shop as file as a name after the colon.
+
+46
+00:03:31,750 --> 00:03:37,730
+So the name you use year after de colon is the name by which you can extract the data on this Perrin's
+
+47
+00:03:37,770 --> 00:03:38,730
+object.
+
+48
+00:03:39,060 --> 00:03:48,190
+And let me show you that this works by logging this Prod. ID and I will then for now simply redirect
+
+49
+00:03:48,460 --> 00:03:51,590
+to the starting page later will of course render a different view.
+
+50
+00:03:51,610 --> 00:03:53,110
+But for now it will do.
+
+51
+00:03:53,500 --> 00:03:59,830
+And with that I can now go to shop yes and use my controller here.
+
+52
+00:04:00,010 --> 00:04:04,570
+So connect the shop control or get product function here.
+
+53
+00:04:05,080 --> 00:04:10,630
+And with this connection setup if I now go back and please note I'm still on that route with the dynamic
+
+54
+00:04:10,630 --> 00:04:11,590
+segment.
+
+55
+00:04:11,590 --> 00:04:14,260
+If I now reload this I'm getting redirected.
+
+56
+00:04:14,260 --> 00:04:16,220
+Which means we handle this.
+
+57
+00:04:16,360 --> 00:04:19,110
+We don't get the 4 or 4 page anymore.
+
+58
+00:04:19,270 --> 00:04:27,660
+And in a console your eyes see my dynamic segment locked out from does line and that of course means
+
+59
+00:04:27,660 --> 00:04:28,950
+we can not just log it.
+
+60
+00:04:28,960 --> 00:04:29,940
+We can also use it.
+

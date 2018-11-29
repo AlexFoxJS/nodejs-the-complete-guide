@@ -1,0 +1,528 @@
+1
+00:00:02,180 --> 00:00:04,020
+So let's wrap this Monch.
+
+2
+00:00:04,040 --> 00:00:09,720
+And right before we finish Let's actually start wrapping it up by improving our code a little bit.
+
+3
+00:00:09,980 --> 00:00:16,220
+We've got all this code in this file and actually typically you write multiples or work with multiple
+
+4
+00:00:16,220 --> 00:00:17,010
+files.
+
+5
+00:00:17,450 --> 00:00:23,880
+And why don't we create a new file that actually contains our routing logic.
+
+6
+00:00:23,960 --> 00:00:27,590
+So the logic where we check the you r l and do different things.
+
+7
+00:00:27,890 --> 00:00:30,930
+So I'll trade and you follow your routes.
+
+8
+00:00:30,980 --> 00:00:35,670
+J.S. the name is up to you and I get this special I can buy my ID.
+
+9
+00:00:35,690 --> 00:00:37,340
+It is an all javascript file.
+
+10
+00:00:37,340 --> 00:00:38,710
+Don't be confused.
+
+11
+00:00:38,780 --> 00:00:45,830
+And in that file I basically want to have my IF statements here and my default response code.
+
+12
+00:00:46,070 --> 00:00:52,840
+So I'll cut all of that out of yours so that this is a pretty Leeton file and move it into route's chase.
+
+13
+00:00:52,850 --> 00:00:54,400
+Now this wouldn't work like that.
+
+14
+00:00:54,410 --> 00:00:56,290
+Let me say that we'll have to tweak that.
+
+15
+00:00:56,660 --> 00:00:59,300
+But this is now the code moved over.
+
+16
+00:00:59,600 --> 00:01:01,640
+I don't need the file system in.
+
+17
+00:01:01,650 --> 00:01:04,410
+Actually yes I mean we're so we can remove that import.
+
+18
+00:01:04,520 --> 00:01:10,130
+We do need HTP because we still use that there and we don't need to you are Ellen Methot Here's let's
+
+19
+00:01:10,130 --> 00:01:12,570
+remove that go over routes.
+
+20
+00:01:12,650 --> 00:01:16,500
+Yes add is important than to hop.
+
+21
+00:01:16,670 --> 00:01:18,860
+And now start working with that.
+
+22
+00:01:18,890 --> 00:01:21,710
+Now what do we need to do in this fall.
+
+23
+00:01:21,710 --> 00:01:25,800
+We somehow need to be able to connect access to routes.
+
+24
+00:01:25,820 --> 00:01:26,430
+CHACE right.
+
+25
+00:01:26,450 --> 00:01:31,430
+Because we need to be able to send our incoming request to that file.
+
+26
+00:01:31,460 --> 00:01:38,890
+So to say and for that let's create a new function I'll name it.
+
+27
+00:01:40,200 --> 00:01:45,360
+Request handler and we can either create a function like this.
+
+28
+00:01:45,360 --> 00:01:51,450
+It should receive request and response as arguments just as dysfunction does because we'll effectively
+
+29
+00:01:51,450 --> 00:01:56,340
+replace that function or we use the iOS 6 function.
+
+30
+00:01:56,340 --> 00:02:02,580
+Storing it in a constant request handler which looks like this bit of a strange syntax if you've never
+
+31
+00:02:02,580 --> 00:02:08,090
+seen it before but we're essentially creating an anonymous Erol function which we store in a constant.
+
+32
+00:02:08,160 --> 00:02:10,970
+And this therefore has to function name.
+
+33
+00:02:10,980 --> 00:02:18,360
+Now here we again receive request and response and in that function we now move all that code because
+
+34
+00:02:18,360 --> 00:02:21,320
+that code obviously uses the request and response object.
+
+35
+00:02:21,330 --> 00:02:27,690
+So we need to have them available as local variables and we do now because these arguments are now named
+
+36
+00:02:27,720 --> 00:02:28,920
+this way.
+
+37
+00:02:28,920 --> 00:02:31,180
+We also use u r l and Methot.
+
+38
+00:02:31,260 --> 00:02:39,510
+So we need to reach at these Constans by getting that data out from the request request your L and request
+
+39
+00:02:39,570 --> 00:02:47,440
+method and now we just need to export this handler we're importing with this requires syntax.
+
+40
+00:02:47,450 --> 00:02:50,750
+But how are we exporting and no chance.
+
+41
+00:02:50,880 --> 00:02:53,010
+There are two ways of exporting.
+
+42
+00:02:53,090 --> 00:02:58,350
+The first one is to go at the bottom and add module exports.
+
+43
+00:02:58,370 --> 00:03:06,500
+This is another key word or object which is X-posts globally to you by no Geass which has an exports
+
+44
+00:03:06,740 --> 00:03:07,680
+property.
+
+45
+00:03:08,000 --> 00:03:12,550
+And we can assign a value to this like our request handler.
+
+46
+00:03:12,560 --> 00:03:18,080
+So this constant which holds dysfunction it's now stored in module exports.
+
+47
+00:03:18,170 --> 00:03:23,740
+And since this is a global object exposed post by note no it is actually able to work with this.
+
+48
+00:03:23,900 --> 00:03:32,450
+And we can now import from that route's chase file by requiring it and node will look for module exports
+
+49
+00:03:32,450 --> 00:03:37,600
+and see if something was registered for this file here.
+
+50
+00:03:37,640 --> 00:03:43,180
+And we do register something in Marchal exports the request handler and you can register anything here.
+
+51
+00:03:43,280 --> 00:03:48,600
+You can add and new javascript object with multiple key value pairs whatever you need here.
+
+52
+00:03:48,620 --> 00:03:50,830
+I'll just register my function.
+
+53
+00:03:51,320 --> 00:03:58,250
+So now I can get go back to actually yes and import my routes the name of that constant is up to you
+
+54
+00:03:58,880 --> 00:04:00,720
+by requiring it.
+
+55
+00:04:00,740 --> 00:04:06,660
+And since this is now not a global module we don't just type routes.
+
+56
+00:04:06,860 --> 00:04:15,740
+Instead we want to add a local port to it with dot slash and you can omit dot J.S. because no trace
+
+57
+00:04:15,740 --> 00:04:17,920
+will automatically attached as at the end.
+
+58
+00:04:18,050 --> 00:04:19,240
+You can add it though.
+
+59
+00:04:19,370 --> 00:04:20,860
+But I'll just tell you it.
+
+60
+00:04:20,890 --> 00:04:26,900
+Tie up dot slash routes separated from the core modules to make it really clear that this is a custom
+
+61
+00:04:26,900 --> 00:04:27,730
+file.
+
+62
+00:04:27,890 --> 00:04:31,360
+And now Noad will go ahead and look for our routes.
+
+63
+00:04:31,410 --> 00:04:38,390
+Yes fall in the same folder as actually yes which it will find and in that file it will look for module
+
+64
+00:04:38,390 --> 00:04:41,460
+exports and see what's registered in there.
+
+65
+00:04:41,550 --> 00:04:46,250
+And now we export dead request handler method and now we can use that.
+
+66
+00:04:46,280 --> 00:04:51,890
+It will be stored in that routes because we assign whatever is exported from that file in that route's
+
+67
+00:04:51,890 --> 00:04:52,780
+constant.
+
+68
+00:04:53,000 --> 00:04:57,600
+So this route's constant will ultimately hold this function.
+
+69
+00:04:57,830 --> 00:05:01,250
+And now we can use that here as a handler.
+
+70
+00:05:01,380 --> 00:05:03,390
+Routes don't execute it.
+
+71
+00:05:03,410 --> 00:05:11,300
+So no parentheses just pass the name telling node hey please execute the function that's stored and
+
+72
+00:05:11,300 --> 00:05:13,560
+routes for incoming requests.
+
+73
+00:05:14,560 --> 00:05:21,670
+And now if we save that and we restart the server and we reload this page does this looking good.
+
+74
+00:05:22,800 --> 00:05:24,240
+And this is also looking good.
+
+75
+00:05:24,300 --> 00:05:28,320
+We should have tests stored in message a text and we do.
+
+76
+00:05:28,620 --> 00:05:35,310
+So now we simply split our code over two files having one file which is very lean that's just spins
+
+77
+00:05:35,310 --> 00:05:36,190
+up the server.
+
+78
+00:05:36,360 --> 00:05:38,040
+But and that's important.
+
+79
+00:05:38,100 --> 00:05:45,090
+That also creates a connection to another file through that import and through that export where we
+
+80
+00:05:45,090 --> 00:05:49,480
+export our request handler function here.
+
+81
+00:05:49,590 --> 00:05:51,570
+This is how that works.
+
+82
+00:05:51,570 --> 00:05:58,860
+Now one important note about notes modular system the file content here is actually cached by note and
+
+83
+00:05:58,860 --> 00:06:00,970
+we can't edit it externally.
+
+84
+00:06:01,050 --> 00:06:07,470
+So if we somehow define route's as an object and we tried to add a new property on the fly here this
+
+85
+00:06:07,470 --> 00:06:10,340
+would not manipulate the original file.
+
+86
+00:06:10,350 --> 00:06:14,140
+So this is basically locked not accessible from outside.
+
+87
+00:06:14,160 --> 00:06:18,820
+We can only export stuff that we can now read from outside though.
+
+88
+00:06:18,870 --> 00:06:24,120
+You could have functions which you export that start changing stuff inside of that file.
+
+89
+00:06:24,270 --> 00:06:26,540
+But let's not make that too complicated for now.
+
+90
+00:06:26,550 --> 00:06:31,520
+We'll see all of that for the course obviously for now we have that connection.
+
+91
+00:06:31,770 --> 00:06:36,650
+There's one Iverson's ex you could use instead of module exports.
+
+92
+00:06:36,720 --> 00:06:44,780
+Sometimes you export many things and you could do that by having an object which has like a handler
+
+93
+00:06:44,790 --> 00:06:47,930
+a key and that is my request handler function.
+
+94
+00:06:48,060 --> 00:06:55,930
+And then also it has some text key which is some hard code it's text.
+
+95
+00:06:55,930 --> 00:07:02,500
+In this case now we would export to things and that is how you can group that or separate these two
+
+96
+00:07:02,500 --> 00:07:06,990
+things and still have one export being managed here which is the most you can have.
+
+97
+00:07:07,390 --> 00:07:11,940
+And now an app japes route's would be that object and not that function.
+
+98
+00:07:11,950 --> 00:07:16,720
+So here we would have to access to a handler property.
+
+99
+00:07:16,720 --> 00:07:25,930
+So this property which holds the function referenced one of us and we could also simply output console
+
+100
+00:07:26,140 --> 00:07:28,840
+log routes some text here.
+
+101
+00:07:28,930 --> 00:07:32,590
+So this is how we can have multiple exports in one file.
+
+102
+00:07:32,590 --> 00:07:38,720
+Now you see some hard coded text here from this console lock and we still have the same functionality
+
+103
+00:07:38,720 --> 00:07:39,660
+as before.
+
+104
+00:07:40,760 --> 00:07:43,830
+Now there all is a different way of exporting multiple things.
+
+105
+00:07:44,030 --> 00:07:52,100
+Besides this code which you can of course use you can also have a module that exports Daut handler request
+
+106
+00:07:52,100 --> 00:08:02,230
+handler and then Oulds a module that exports dot some text some heart coded text.
+
+107
+00:08:02,230 --> 00:08:05,550
+Now it might look different but we still only have one export.
+
+108
+00:08:05,560 --> 00:08:12,490
+We still have module exports which bundles all the exports but we explicitly assigned different properties
+
+109
+00:08:12,490 --> 00:08:13,180
+like this.
+
+110
+00:08:13,180 --> 00:08:15,990
+So this is basically equivalent to this code.
+
+111
+00:08:16,270 --> 00:08:24,780
+If I now safeties and restart my server it's we see some hard coded text and if I submit this it all
+
+112
+00:08:24,870 --> 00:08:26,170
+still works.
+
+113
+00:08:26,170 --> 00:08:29,470
+And last but not least there is a shortcut for this syntax.
+
+114
+00:08:29,490 --> 00:08:32,820
+You can now emit module and just write exports.
+
+115
+00:08:32,850 --> 00:08:37,760
+This is simply a short cut supported by no J.S. not some general javascript magic.
+
+116
+00:08:37,760 --> 00:08:45,690
+It's just an explicit shortcut supported by no choice where now we all have multiple exports being merged
+
+117
+00:08:45,690 --> 00:08:47,790
+together into one export.
+
+118
+00:08:47,820 --> 00:08:49,880
+So therefore again who would execute this.
+
+119
+00:08:49,890 --> 00:09:01,020
+We see some hard coded text and some lost value being submitted here still works and still ends up in
+
+120
+00:09:01,020 --> 00:09:02,820
+message to text.
+
+121
+00:09:02,850 --> 00:09:10,150
+So this is how we can connect multiple files by exporting either one element one function as we had
+
+122
+00:09:10,160 --> 00:09:15,460
+it initially with modular on exports equals request handler.
+
+123
+00:09:15,720 --> 00:09:16,050
+Right.
+
+124
+00:09:16,050 --> 00:09:17,860
+This is what we had initially.
+
+125
+00:09:17,910 --> 00:09:25,530
+Let me comment this out with two slashes in front of it or module exports pointing at an object to combine
+
+126
+00:09:25,530 --> 00:09:37,050
+multiple things or using modules on exports dog handler he calls request handler and module Daut exports
+
+127
+00:09:37,050 --> 00:09:42,670
+start some text equal some text or Again
+
+128
+00:09:46,160 --> 00:09:51,740
+shortcut which is the same as it is just with this shortcut offered by no G-S.
+
+129
+00:09:51,780 --> 00:09:56,790
+So this is how imports and exports work how the module system works and we'll work with a lot of files
+
+130
+00:09:56,790 --> 00:09:57,480
+from the course.
+
+131
+00:09:57,470 --> 00:09:59,870
+So this is important to understand.
+
+132
+00:10:00,050 --> 00:10:03,720
+With that out of the way let's now finally wrap this Marchal up.
+

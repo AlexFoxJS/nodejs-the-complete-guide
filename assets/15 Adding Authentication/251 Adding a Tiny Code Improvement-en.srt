@@ -1,0 +1,68 @@
+1
+00:00:02,150 --> 00:00:07,340
+One quick word about my current set up here by the way since I return my redirect to Sign-Up year and
+
+2
+00:00:07,370 --> 00:00:12,110
+we do doesn't it then block this will actually redirect us is correct but it will still execute the
+
+3
+00:00:12,110 --> 00:00:14,680
+next to then block does how promise this work.
+
+4
+00:00:14,690 --> 00:00:20,330
+So this code execution and dysfunction does finish because I return but the overall code execution does
+
+5
+00:00:20,330 --> 00:00:24,560
+not and therefore we reached the next then block even if we redirect.
+
+6
+00:00:24,650 --> 00:00:32,690
+And that is why we get this password is required error when we use an existing email because we reached
+
+7
+00:00:32,690 --> 00:00:38,590
+this then block the function in there but hashed password will be undefined here because since we return
+
+8
+00:00:38,590 --> 00:00:41,890
+north of redirecting we never execute the hash function.
+
+9
+00:00:41,960 --> 00:00:44,660
+So we reach this function without the hashed password.
+
+10
+00:00:44,660 --> 00:00:48,520
+And this is why we get this error is under assault just the same.
+
+11
+00:00:48,560 --> 00:00:55,370
+But if you want to know what is what you can do is you can take that code and actually change it in
+
+12
+00:00:55,370 --> 00:00:56,200
+here.
+
+13
+00:00:57,260 --> 00:01:02,100
+So have a nest that promise instead of one promise chain with multiple then blocks.
+
+14
+00:01:02,190 --> 00:01:07,450
+We will and after this then block if we redirect there only is to catch block here for catching error
+
+15
+00:01:07,450 --> 00:01:09,010
+most of which we don't have one.
+
+16
+00:01:09,170 --> 00:01:15,010
+And then the server then blocks here are only executed if we make it into the hashing mode.
+
+17
+00:01:15,230 --> 00:01:19,330
+That is a tiny improvement that logically makes more sense here.
+

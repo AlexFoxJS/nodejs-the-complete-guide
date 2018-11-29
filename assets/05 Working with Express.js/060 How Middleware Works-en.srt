@@ -1,0 +1,156 @@
+1
+00:00:02,310 --> 00:00:07,950
+We added middle and I mentioned that this is a crucial concept of the Express framework and that we
+
+2
+00:00:07,950 --> 00:00:13,440
+should call next if we don't send a response because otherwise the request will just die and will not
+
+3
+00:00:13,440 --> 00:00:15,220
+continue to the next middleware.
+
+4
+00:00:15,540 --> 00:00:17,810
+Now in this model we're not calling next.
+
+5
+00:00:17,820 --> 00:00:21,740
+And there also wouldn't be a next middleware in line.
+
+6
+00:00:21,750 --> 00:00:23,330
+This is our entire script right.
+
+7
+00:00:23,330 --> 00:00:25,520
+There is nothing to come express.
+
+8
+00:00:25,560 --> 00:00:26,850
+Yes and that's important.
+
+9
+00:00:26,910 --> 00:00:30,070
+Doesn't send a default response or anything like that.
+
+10
+00:00:30,450 --> 00:00:36,900
+So instead we should send a response here so we can use the response object and now sending responses
+
+11
+00:00:36,930 --> 00:00:39,500
+actually gets easier thanks to express.
+
+12
+00:00:39,540 --> 00:00:40,230
+Yes.
+
+13
+00:00:40,470 --> 00:00:46,320
+Instead of setting a header which we still can do and writing which we all still can do so we can still
+
+14
+00:00:46,320 --> 00:00:48,200
+send responses as before.
+
+15
+00:00:48,390 --> 00:00:57,150
+But instead of doing this there is a new utility function we can use Send send allows us to send Well
+
+16
+00:00:57,270 --> 00:00:58,830
+a response.
+
+17
+00:00:58,830 --> 00:01:03,250
+And actually this allows us to attach a body which is of type any.
+
+18
+00:01:03,330 --> 00:01:05,160
+Now let me show you what this could be.
+
+19
+00:01:05,220 --> 00:01:08,440
+We could send good old age Tim Ellicot here.
+
+20
+00:01:08,460 --> 00:01:14,560
+Just one tech Hello from Express like this.
+
+21
+00:01:14,800 --> 00:01:20,620
+If we do that and we now reload this page here we see Hallo from Express.
+
+22
+00:01:20,860 --> 00:01:27,790
+By the way one thing you'll notice is that if you open your network tap here and you inspects dat request
+
+23
+00:01:27,790 --> 00:01:28,790
+you got.
+
+24
+00:01:28,840 --> 00:01:35,570
+You will see that under headers the content type is automatic He is set to text h him L here.
+
+25
+00:01:35,860 --> 00:01:37,230
+So does this stand for you.
+
+26
+00:01:37,240 --> 00:01:42,430
+This is another feature provided by express your descent method by default here.
+
+27
+00:01:42,490 --> 00:01:46,380
+So we send some text here simply sets and H team l Content-Type.
+
+28
+00:01:46,690 --> 00:01:52,260
+You can still set one manually with set header of course so you can always override this expressed Yes
+
+29
+00:01:52,270 --> 00:01:58,990
+default but you can also rely on the default where the default response header is text aged him out.
+
+30
+00:01:59,290 --> 00:02:04,240
+And now with that you see that we all get no dying request anymore because even though we're not calling
+
+31
+00:02:04,240 --> 00:02:10,100
+next year and we shouldn't we're doing the alternative we're sending a response with send.
+
+32
+00:02:10,240 --> 00:02:17,350
+And this is of course easier than using all these right chunks and it will be particularly easier once
+
+33
+00:02:17,350 --> 00:02:21,180
+we start sending back real files or the content of files.
+
+34
+00:02:21,250 --> 00:02:24,080
+Something we haven't done at all thus far.
+
+35
+00:02:24,080 --> 00:02:29,700
+Now this is something we'll also do in this module but for now make sure you understand this basic middleware
+
+36
+00:02:29,710 --> 00:02:37,060
+concept that you add functions that are hooked into Does funnel through which the request goes and you
+
+37
+00:02:37,060 --> 00:02:44,430
+either have next to reach the next middleware or you send the response to well not do anything else.
+
+38
+00:02:44,550 --> 00:02:50,820
+And of course if we would send a response here instead of calling Next we would never reach that middleware.
+
+39
+00:02:50,830 --> 00:02:56,320
+So you really just travel from middleware to middleware from top to bottom by calling next.
+

@@ -1,0 +1,144 @@
+1
+00:00:02,200 --> 00:00:08,850
+If you download the attached project snapshot which is my latest snapshot you will see some differences
+
+2
+00:00:08,850 --> 00:00:09,130
+there.
+
+3
+00:00:09,130 --> 00:00:10,780
+So you should download it.
+
+4
+00:00:10,840 --> 00:00:12,150
+And what did I change.
+
+5
+00:00:12,160 --> 00:00:16,600
+And of course you can also go ahead and just implement these changes in your project.
+
+6
+00:00:16,810 --> 00:00:26,350
+Well I commented out my links to the ad product and admin products pages in my navigation Ejaz file
+
+7
+00:00:26,590 --> 00:00:30,150
+and I added a new unordered list offered a first one.
+
+8
+00:00:30,250 --> 00:00:34,450
+And there I added a new list item which is named log in.
+
+9
+00:00:34,690 --> 00:00:36,900
+And then I also worked on the styles a bit.
+
+10
+00:00:37,030 --> 00:00:43,150
+And most importantly in the styles I had changed my main header naff to be of type display Flex had
+
+11
+00:00:43,150 --> 00:00:47,420
+the width of 100 percent and justify content space between.
+
+12
+00:00:47,440 --> 00:00:51,230
+But again you find these files attached to this video.
+
+13
+00:00:51,250 --> 00:00:57,670
+Now this leads to a set up were two navigation items are missing but the log in button was added and
+
+14
+00:00:57,670 --> 00:00:58,900
+it's on the right.
+
+15
+00:00:58,910 --> 00:01:01,340
+Here you two dead space between thing.
+
+16
+00:01:01,720 --> 00:01:02,720
+Now why do that.
+
+17
+00:01:02,740 --> 00:01:05,280
+Because I want to have some dummy log in page.
+
+18
+00:01:05,290 --> 00:01:11,820
+We'll have a complete module on authentication where we dive deeper into all that is related to authenticating.
+
+19
+00:01:11,920 --> 00:01:18,010
+But here authentication is a great example for data you would want to store for a specific user and
+
+20
+00:01:18,010 --> 00:01:21,790
+that is one of the typical use cases for using cookies have sessions.
+
+21
+00:01:21,790 --> 00:01:27,000
+Hence I want to use some dummy authentication in this module already.
+
+22
+00:01:27,070 --> 00:01:28,580
+So what can we do with that.
+
+23
+00:01:28,810 --> 00:01:35,490
+Well with that log button we navigate if we have a look at navigation each as we navigate to slash log
+
+24
+00:01:35,500 --> 00:01:36,130
+in.
+
+25
+00:01:36,150 --> 00:01:38,810
+And that is a route which does not exist yet.
+
+26
+00:01:39,010 --> 00:01:44,690
+We got no routes for logging in or signing up or anything like that.
+
+27
+00:01:44,740 --> 00:01:46,010
+So a want to add this.
+
+28
+00:01:46,140 --> 00:01:50,620
+And if you don't want to practice it again if that's not interesting to you you can simply skip the
+
+29
+00:01:50,620 --> 00:01:51,460
+next video.
+
+30
+00:01:51,460 --> 00:01:58,870
+You can skip it and download the finished adjustments to finish code after that next video so that you
+
+31
+00:01:58,870 --> 00:02:00,310
+can continue with that.
+
+32
+00:02:00,310 --> 00:02:03,120
+So in the next book you will implement that log in screen.
+
+33
+00:02:03,130 --> 00:02:04,530
+It's a great practice for you.
+
+34
+00:02:04,540 --> 00:02:09,760
+You can also try it on your own before diving into my lecture where we do it together.
+
+35
+00:02:09,850 --> 00:02:13,180
+And if you want to continue with cookies immediately you skip the next lecture.
+
+36
+00:02:13,210 --> 00:02:15,700
+You download the finished code and continue with that.
+

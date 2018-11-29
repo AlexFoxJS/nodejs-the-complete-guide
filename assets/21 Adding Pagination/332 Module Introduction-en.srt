@@ -1,0 +1,36 @@
+1
+00:00:02,140 --> 00:00:07,690
+I'm really happy with the shape our course application is taking and we're diving into many exciting
+
+2
+00:00:07,690 --> 00:00:08,230
+features.
+
+3
+00:00:08,230 --> 00:00:14,740
+We can belled with node and express as you see knouted we're able to work with files and even generate
+
+4
+00:00:14,740 --> 00:00:17,130
+them on the fly on the server.
+
+5
+00:00:17,290 --> 00:00:24,830
+Let's dive back into some work with our database where interactions with our database there right now.
+
+6
+00:00:24,850 --> 00:00:31,900
+We always fetch all products want to be displayed the product page in this module will dive into a technique
+
+7
+00:00:31,930 --> 00:00:38,590
+called pagination which allows us to split our data across multiple pages something you typically want
+
+8
+00:00:38,590 --> 00:00:41,370
+to do when you work with a lot of data.
+
+9
+00:00:41,380 --> 00:00:46,530
+So let me show you how this can be implemented with our application in this module.
+

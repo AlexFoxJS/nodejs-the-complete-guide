@@ -1,0 +1,424 @@
+1
+00:00:02,150 --> 00:00:08,660
+So now we had a look at POC and at handlebars to possible templating engines you can use and if you
+
+2
+00:00:08,660 --> 00:00:14,840
+plan on using them definitely dive deeper into their docs not want to show you my favorite templating
+
+3
+00:00:14,840 --> 00:00:19,090
+engine will use for the rest of this course and that is Ejay s.
+
+4
+00:00:19,280 --> 00:00:26,210
+Now each pass is a templating engine which is just like Pac supported out of the box so we don't need
+
+5
+00:00:26,210 --> 00:00:29,240
+to register the engine as we did it with handlebars.
+
+6
+00:00:29,240 --> 00:00:30,360
+We can remove dead.
+
+7
+00:00:30,500 --> 00:00:33,820
+We can also get rid of that handlebars import.
+
+8
+00:00:33,860 --> 00:00:37,660
+And here we just set the engine to Ejay SNL.
+
+9
+00:00:37,700 --> 00:00:44,870
+Now E.J. asks has a very nice syntax in my opinion and has a nice mixture of DX 10 that functionalities
+
+10
+00:00:44,990 --> 00:00:47,660
+of Poch so not regarding the team.
+
+11
+00:00:47,690 --> 00:00:53,380
+But regarding the javascript code you can use your templates that you can do things like that.
+
+12
+00:00:53,390 --> 00:01:01,280
+A simple comparison here and shop Plack file this comparison here with the if statement which we couldn't
+
+13
+00:01:01,280 --> 00:01:02,640
+do in handlebars.
+
+14
+00:01:02,690 --> 00:01:08,630
+That is again possible with Ejay ass and do this the nice thing I like about it and still it uses normal
+
+15
+00:01:08,900 --> 00:01:09,410
+time.
+
+16
+00:01:09,560 --> 00:01:12,700
+Just like handlebars which I personally always like.
+
+17
+00:01:12,710 --> 00:01:16,490
+But of course you can follow along in this course with any solution.
+
+18
+00:01:16,490 --> 00:01:22,510
+I will stick to EJA as though an old source code will therefore be provided with that templating engine.
+
+19
+00:01:22,610 --> 00:01:23,840
+So let's use it then.
+
+20
+00:01:23,930 --> 00:01:27,360
+And let's start with the good old for 0 4 page again.
+
+21
+00:01:27,620 --> 00:01:32,540
+I'll add my 4 0 4 dot EJA ass file and go in there.
+
+22
+00:01:32,540 --> 00:01:37,190
+Let's start with the HD mail code again and let's copy that into that file here.
+
+23
+00:01:37,190 --> 00:01:39,920
+So all d for 0 4 h t Moloko.
+
+24
+00:01:39,950 --> 00:01:41,610
+Let's move it in there.
+
+25
+00:01:41,730 --> 00:01:45,260
+Get rid of that act of class which still incorrectly stare.
+
+26
+00:01:45,500 --> 00:01:47,880
+And now we got this set up now.
+
+27
+00:01:48,020 --> 00:01:55,640
+E.J. S. does not support lay outs but we will find a solution to at least have some kind of reusability
+
+28
+00:01:55,640 --> 00:01:57,260
+of certain building blocks.
+
+29
+00:01:57,320 --> 00:02:01,150
+But for now let's just create the whole document in that file.
+
+30
+00:02:01,190 --> 00:02:06,680
+So this is now our page and let's start with the Thaila again and let's output that dynamically now
+
+31
+00:02:06,710 --> 00:02:14,660
+in handlebars we use double curly braces in Poch we used hash tag and then single curly braces in each
+
+32
+00:02:14,660 --> 00:02:19,160
+ear as we use a smaller than sign and then a percentage sign.
+
+33
+00:02:19,280 --> 00:02:25,670
+And then if we just want to output a value in the place we're placing this placeholder we add an equal
+
+34
+00:02:25,670 --> 00:02:31,940
+sign right after the percentage sign and then we close this with just a percentage sign and a greater
+
+35
+00:02:31,940 --> 00:02:32,780
+than sign.
+
+36
+00:02:32,810 --> 00:02:34,040
+So this is the syntax.
+
+37
+00:02:34,100 --> 00:02:41,390
+And now here we can output the data which our template receives and justice before the method of how
+
+38
+00:02:41,390 --> 00:02:42,060
+we receive.
+
+39
+00:02:42,070 --> 00:02:43,570
+That hasn't changed.
+
+40
+00:02:43,670 --> 00:02:48,430
+So we can still output page title here just as before.
+
+41
+00:02:48,440 --> 00:02:54,170
+So just to bring this back in memory in Abdoulaye as we're passing in that page title here and therefore
+
+42
+00:02:54,170 --> 00:02:57,420
+we can reference page title in our template.
+
+43
+00:02:57,770 --> 00:02:58,990
+So this will still work.
+
+44
+00:02:59,180 --> 00:03:01,230
+And with that we can already test this.
+
+45
+00:03:01,310 --> 00:03:07,280
+If I now save it as an I reload here I get an error for at product because I've got no Ejay as template
+
+46
+00:03:07,280 --> 00:03:08,340
+for data yet.
+
+47
+00:03:08,570 --> 00:03:10,940
+But if I enter anything else which is not found.
+
+48
+00:03:10,940 --> 00:03:15,100
+We do indeed see our not found page rendered frue.
+
+49
+00:03:15,140 --> 00:03:16,390
+E.J. S..
+
+50
+00:03:16,580 --> 00:03:17,780
+So this is now working.
+
+51
+00:03:17,900 --> 00:03:21,340
+And with that let's move on to add product.
+
+52
+00:03:21,470 --> 00:03:24,240
+Let's add the at Dasch product.
+
+53
+00:03:24,290 --> 00:03:27,190
+E.J. s file here and in this file.
+
+54
+00:03:27,200 --> 00:03:32,570
+Again I'll just copy in my ad product HVM l code here.
+
+55
+00:03:32,570 --> 00:03:35,380
+I also want to output the title dynamically though.
+
+56
+00:03:35,480 --> 00:03:39,740
+So again our syntax year which we used just a second ago.
+
+57
+00:03:39,830 --> 00:03:44,820
+Let's output the page title here and then the rest can stay as it is for now.
+
+58
+00:03:45,140 --> 00:03:51,400
+Now the more interesting part is the shop file because there we all need the if statement and the loop.
+
+59
+00:03:51,690 --> 00:03:57,960
+So let's add our shop thought E.J. as file and in that shop thought each case file here.
+
+60
+00:03:58,190 --> 00:04:06,700
+Let's copy in the HVM code we got here for the shop and let's make sure we all take that new image here.
+
+61
+00:04:06,800 --> 00:04:13,320
+Let's copy that from one of the other files then move over to shop SJS and replace that here.
+
+62
+00:04:13,850 --> 00:04:20,600
+And with that now let's remove these comments again so that desists part of our page let's remove that
+
+63
+00:04:20,750 --> 00:04:21,970
+part up there.
+
+64
+00:04:22,320 --> 00:04:31,810
+And now in this file we can of course again simply output our title equals page title as we did it before.
+
+65
+00:04:32,030 --> 00:04:37,250
+But the more interesting part are obviously the if statement and or loop.
+
+66
+00:04:37,250 --> 00:04:44,920
+So we want to output this grid here only if we do have some products now and if statement is placed
+
+67
+00:04:44,930 --> 00:04:51,140
+a bit differently then with handlebars we still use are smaller than percentage sign syntax but not
+
+68
+00:04:51,460 --> 00:04:56,900
+an equal sign because we don't directly output a value here in this place.
+
+69
+00:04:56,900 --> 00:04:58,540
+Instead you want to end close.
+
+70
+00:04:58,550 --> 00:05:07,400
+We want to wrap a certain block of code and we do this by adding our opening and closing Ejay as tax.
+
+71
+00:05:07,400 --> 00:05:09,390
+You could say like this.
+
+72
+00:05:09,410 --> 00:05:14,210
+And now in there and that's the cool thing you can write vanilla Javascript code.
+
+73
+00:05:14,210 --> 00:05:18,010
+Now we know that we will get in our shop here.
+
+74
+00:05:18,290 --> 00:05:25,700
+We will get a process key which holds our products array and this will be an array and therefore here
+
+75
+00:05:25,700 --> 00:05:30,920
+what we can do is we can write a normal javascript if statement so normal javascript code and that is
+
+76
+00:05:30,920 --> 00:05:31,840
+really important.
+
+77
+00:05:32,090 --> 00:05:36,670
+And simply say Pre-OT's length greater 0.
+
+78
+00:05:36,800 --> 00:05:43,880
+And if that is the case I want to render dis So there ofter after descript I also closed this important
+
+79
+00:05:44,060 --> 00:05:49,720
+you simply close the curly brace which you also have to open here at the beginning.
+
+80
+00:05:49,880 --> 00:05:56,380
+So in the end what you do is you write an IF statement as you would write it in a javascript file just
+
+81
+00:05:56,490 --> 00:06:04,310
+that the part inside of that statement is not javascript code but this HTL code and I find this to be
+
+82
+00:06:04,310 --> 00:06:07,300
+very straightforward and easy to understand.
+
+83
+00:06:07,430 --> 00:06:13,720
+So it is our statement here with the opening curly brace and once we're done we close that curly race.
+
+84
+00:06:13,880 --> 00:06:19,520
+Now we can of course then also combine this and add a ELSE block here just as we would do it in normal
+
+85
+00:06:19,520 --> 00:06:22,860
+javascript again and eventually once we're done.
+
+86
+00:06:22,880 --> 00:06:24,680
+Also close that.
+
+87
+00:06:24,950 --> 00:06:31,560
+And now here we can output our age one tag where we say no products found.
+
+88
+00:06:31,640 --> 00:06:32,690
+Now that is nice.
+
+89
+00:06:32,690 --> 00:06:40,080
+Let's see the action by saving and by now going to the shop page and indeed we get no products found.
+
+90
+00:06:40,130 --> 00:06:49,040
+If I now do add a product on add product to your first book we do see it here so the statement is working.
+
+91
+00:06:49,040 --> 00:06:54,110
+Now again of course we want to loop through all the products and output our data and vedette again.
+
+92
+00:06:54,110 --> 00:06:59,360
+We use the same logic as with the if statement we create simply the normal javascript code you would
+
+93
+00:06:59,360 --> 00:07:02,210
+use for looping and there are multiple ways of doing it.
+
+94
+00:07:02,210 --> 00:07:06,370
+We could use broths for each to use this for each function.
+
+95
+00:07:06,380 --> 00:07:09,780
+Vanilla javascript supports or we use an all for loop.
+
+96
+00:07:09,800 --> 00:07:20,970
+We could say for let product of froths and then we simply open a curly brace wrap all the content that
+
+97
+00:07:20,970 --> 00:07:27,480
+should be repeated and once we're done we add over HHS Tech where we close that trollied brace again
+
+98
+00:07:27,480 --> 00:07:33,660
+using normal javascript and then we have our product in there and now we can again output it as before
+
+99
+00:07:33,750 --> 00:07:42,000
+with this E.J. as equal syntax as I like to call it here basically does inline output syntax.
+
+100
+00:07:42,000 --> 00:07:47,150
+And now of that if I reload this page here with the object object that is my mistake.
+
+101
+00:07:47,160 --> 00:07:51,800
+Obviously we want to access product title because product indeed is an object.
+
+102
+00:07:52,260 --> 00:07:55,350
+So now we see the title does is Eja.
+
+103
+00:07:55,410 --> 00:08:01,620
+And I prefer disinfects because I like having that flexibility of being able to write some javascript
+
+104
+00:08:01,620 --> 00:08:07,500
+code in the template whilst having a clean syntax that nicely mixes with HCM.
+
+105
+00:08:07,530 --> 00:08:13,380
+Because I personally like using HDMI L instead of the minimal werfen pack offers us.
+
+106
+00:08:13,680 --> 00:08:16,840
+But as I mentioned you can go with any approach you like.
+

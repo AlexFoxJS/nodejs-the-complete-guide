@@ -1,0 +1,104 @@
+1
+00:00:02,080 --> 00:00:04,130
+So how can we at all for I say.
+
+2
+00:00:04,900 --> 00:00:10,720
+I sure that I can't delete or edit this book with or this product with the wrong account.
+
+3
+00:00:10,720 --> 00:00:13,380
+Now we do have important information stored on the product.
+
+4
+00:00:13,420 --> 00:00:15,990
+We know which user did create it.
+
+5
+00:00:16,120 --> 00:00:22,780
+So in the end we just want to check if it's currently locked and user is the user who created that before
+
+6
+00:00:22,840 --> 00:00:25,830
+allowing any edits to that item.
+
+7
+00:00:25,990 --> 00:00:33,550
+And that means that on the admin controller where we render our admin list here get products here.
+
+8
+00:00:33,760 --> 00:00:39,790
+I only want to render products that were created by the locked end user because there is no sense in
+
+9
+00:00:39,790 --> 00:00:46,520
+showing products on this page that were not created by the user because were in the admin section.
+
+10
+00:00:46,590 --> 00:00:49,720
+You are not able to do anything with it if you weren't a creator.
+
+11
+00:00:49,810 --> 00:00:56,080
+So authorisations simply means we restrict to permissions and we can do that by restricting the data
+
+12
+00:00:56,080 --> 00:00:57,590
+we return for example.
+
+13
+00:00:57,640 --> 00:01:05,770
+So here when I find products I dont find all but Ill add a filter and filter for products where the
+
+14
+00:01:05,770 --> 00:01:13,480
+user ID is equal to the user id of the currently locked in user so user ID is equal to request user
+
+15
+00:01:13,660 --> 00:01:15,720
+id ID.
+
+16
+00:01:16,090 --> 00:01:23,420
+And keep in mind request user exists because we do extract that user in actually yes in a separate middleware.
+
+17
+00:01:23,470 --> 00:01:25,030
+Here they are.
+
+18
+00:01:25,030 --> 00:01:27,130
+I do store the user request.
+
+19
+00:01:27,140 --> 00:01:38,070
+User so I know that only products which were created by that user should be retrieved with that change.
+
+20
+00:01:38,080 --> 00:01:47,760
+If I reload this page I find no products for test 2 but if I do log in with my other account with test
+
+21
+00:01:47,760 --> 00:01:51,960
+at tests dot com and I go to Aben products I do find that book.
+
+22
+00:01:52,090 --> 00:01:54,920
+So that is the first important step forwards.
+
+23
+00:01:55,000 --> 00:02:00,250
+The problem is I could theoretically still issue requests behind the scenes where I do try to delete
+
+24
+00:02:00,250 --> 00:02:02,070
+a product which was not created by me.
+
+25
+00:02:02,170 --> 00:02:04,200
+So more protection is needed.
+
+26
+00:02:04,210 --> 00:02:05,590
+Lets add that next.
+

@@ -1,0 +1,216 @@
+1
+00:00:02,110 --> 00:00:03,690
+So we added the session.
+
+2
+00:00:03,730 --> 00:00:07,270
+Let's now start our server again and let's use a session middleware.
+
+3
+00:00:07,360 --> 00:00:09,180
+And how do we use it.
+
+4
+00:00:09,670 --> 00:00:16,540
+Well we can use it in our off controller in log in instead of setting that cookie we can reach out to
+
+5
+00:00:16,540 --> 00:00:22,780
+request and then the session object does is added by the session middleware this session object.
+
+6
+00:00:22,810 --> 00:00:29,350
+And here we can add any key we want for example is locked in but you can names however you want and
+
+7
+00:00:29,350 --> 00:00:30,700
+set this to true.
+
+8
+00:00:31,150 --> 00:00:37,640
+Now if you saved at and you go back to your browser go to the log in page maybe reload and get rid of
+
+9
+00:00:37,640 --> 00:00:38,710
+that locked in cookie.
+
+10
+00:00:38,720 --> 00:00:40,800
+You can simply delete it here.
+
+11
+00:00:41,000 --> 00:00:42,970
+Now click log in.
+
+12
+00:00:43,250 --> 00:00:50,530
+And what you should see is that a new cookie was added to your does connect ID for a session id cookie
+
+13
+00:00:51,650 --> 00:00:54,370
+if you expand the value here.
+
+14
+00:00:55,500 --> 00:00:58,140
+You'll see some strange string and that is what I meant.
+
+15
+00:00:58,320 --> 00:01:03,320
+This does encrypt the values so to say and this is now the cookie by default.
+
+16
+00:01:03,330 --> 00:01:06,720
+It's a session cookie so it will expire when you close the browser.
+
+17
+00:01:06,810 --> 00:01:08,250
+It's a session cookie.
+
+18
+00:01:08,470 --> 00:01:16,290
+Dead will identify your user here you're running instance off this website you could say where you are
+
+19
+00:01:16,290 --> 00:01:20,810
+browsing around does it identify you to the server and to today's session.
+
+20
+00:01:20,980 --> 00:01:28,650
+And I can prove this to you if we now go to get log in page here and I console log requests session
+
+21
+00:01:28,650 --> 00:01:30,860
+here like Det.
+
+22
+00:01:30,930 --> 00:01:37,080
+Let me then go back and click on the logon page here again and go back to our server and there you see
+
+23
+00:01:37,080 --> 00:01:39,780
+the session object is locked.
+
+24
+00:01:39,780 --> 00:01:47,730
+Now let me all the output is locked in here by accessing that go back log in again.
+
+25
+00:01:48,110 --> 00:01:53,250
+It's undefined because I added that this code only after submitting this for the first time.
+
+26
+00:01:53,300 --> 00:01:55,910
+So let me save this again.
+
+27
+00:01:56,030 --> 00:01:58,890
+And now simply click click that log and button your again.
+
+28
+00:01:58,890 --> 00:02:05,330
+And now you will see if you go back to the log in page you see true here because now indeed in the session
+
+29
+00:02:05,510 --> 00:02:11,990
+is locked in a stored it we can go to a different page and come back to loggin and these are all individual
+
+30
+00:02:11,990 --> 00:02:17,780
+requests which technically are totally individual from each other totally separate and still we see
+
+31
+00:02:17,780 --> 00:02:24,290
+true here because we still store doesn't the session on the server side by default just in the memory
+
+32
+00:02:24,380 --> 00:02:31,430
+not in the database yet and the session is identified for days browser because we have that cookie and
+
+33
+00:02:31,430 --> 00:02:36,950
+I can prove that to you by starting another browser and this will technically be treated as a totally
+
+34
+00:02:36,950 --> 00:02:41,240
+different session and environment could be a totally different machine.
+
+35
+00:02:41,240 --> 00:02:43,320
+So I am a local host for thousands here.
+
+36
+00:02:43,460 --> 00:02:49,810
+And if I click on log in here you see on the find and that undefined is coming from the log in request
+
+37
+00:02:49,860 --> 00:02:55,770
+just sent because Despereaux Eleazer this user technically this is a totally different user even though
+
+38
+00:02:55,770 --> 00:03:02,040
+I'm the same but it's a different browser different user does user does not have this cookie set for
+
+39
+00:03:02,040 --> 00:03:05,940
+him does not have an active session on the server.
+
+40
+00:03:05,940 --> 00:03:09,680
+And this is how we can store data that persists across requests.
+
+41
+00:03:09,690 --> 00:03:16,710
+As you saw I clicked around and still that was sent to true value was sent to when I came back to log
+
+42
+00:03:16,710 --> 00:03:17,190
+in.
+
+43
+00:03:17,190 --> 00:03:22,620
+So this is saved across requests but not across users as you can see.
+
+44
+00:03:22,710 --> 00:03:23,950
+This is a different user.
+
+45
+00:03:24,000 --> 00:03:29,680
+I go to log in I have undefine down there and that is the power of using a session.
+
+46
+00:03:29,700 --> 00:03:36,060
+It still needs a cookie to identify the user but the sensitive information is stored on the server.
+
+47
+00:03:36,060 --> 00:03:37,410
+We can't modify it.
+
+48
+00:03:37,620 --> 00:03:40,680
+And that of course will be super important for all syndication.
+
+49
+00:03:40,770 --> 00:03:47,780
+And what we see here already is the core mechanism behind authenticating users in the web.
+
+50
+00:03:47,790 --> 00:03:49,340
+There are other techniques too.
+
+51
+00:03:49,350 --> 00:03:52,960
+For example when building arrest API something will come back later.
+
+52
+00:03:53,190 --> 00:04:00,420
+But this is a core thing on how syndication generally works especially when rendering views as we are
+
+53
+00:04:00,420 --> 00:04:06,270
+doing it with Ejay s and dessous what we will build up on in the authentication section where we then
+
+54
+00:04:06,270 --> 00:04:11,820
+also dive into things like validating credentials logging users out and fun stuff like debt.
+

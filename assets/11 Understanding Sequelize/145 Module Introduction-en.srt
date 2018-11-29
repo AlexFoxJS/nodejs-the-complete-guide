@@ -1,0 +1,64 @@
+1
+00:00:02,310 --> 00:00:06,800
+In the last module you learn how to use sequel in a no chess application.
+
+2
+00:00:06,800 --> 00:00:12,620
+And we did this at the example for my sequel database which we want to use to store data.
+
+3
+00:00:12,620 --> 00:00:21,050
+Now we didn't complete the project with that sequel approach simply because this module will now implement
+
+4
+00:00:21,320 --> 00:00:27,220
+features like for example working with the shopping cart with the help of sequela eyes.
+
+5
+00:00:27,260 --> 00:00:31,650
+This will still use the sequel database still used to same.
+
+6
+00:00:31,670 --> 00:00:38,240
+My sequel database actually behind the scenes or in the background as a database but the code we write
+
+7
+00:00:38,510 --> 00:00:40,200
+will be different.
+
+8
+00:00:40,490 --> 00:00:46,760
+Instead of sequel statements as we have them here and as we wrote them in the last module we'll use
+
+9
+00:00:46,900 --> 00:00:54,410
+a third party package that allows us to work with javascript objects and convenient methods to create
+
+10
+00:00:54,440 --> 00:01:01,720
+new elements in the database to edit them to delete them or to find them and also to connect them.
+
+11
+00:01:01,760 --> 00:01:06,570
+Because you remember a sequel database typically also works with relations.
+
+12
+00:01:06,650 --> 00:01:10,040
+And we got non-golf to use in our current project.
+
+13
+00:01:10,040 --> 00:01:12,410
+So this is what we'll dive into in this module.
+
+14
+00:01:12,410 --> 00:01:14,820
+You'll learn what exactly sequela eyes.
+
+15
+00:01:14,870 --> 00:01:21,170
+This third party package is and how you can use it and will then implement our products and our card
+
+16
+00:01:21,260 --> 00:01:24,530
+and so on in this module with equalize.
+

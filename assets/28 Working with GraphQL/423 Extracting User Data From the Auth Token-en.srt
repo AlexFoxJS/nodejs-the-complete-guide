@@ -1,0 +1,256 @@
+1
+00:00:02,360 --> 00:00:05,540
+The basic create post mutation is in place.
+
+2
+00:00:05,590 --> 00:00:12,580
+But now we need to be able to validate our token and extract the user from it and that is not too far
+
+3
+00:00:12,580 --> 00:00:16,070
+off on how we did it in our rest API.
+
+4
+00:00:16,870 --> 00:00:25,150
+First of all we need to ensure that we sent a token in a header off our incoming request and if we have
+
+5
+00:00:25,150 --> 00:00:31,030
+a look at our front end code and they're at feet J.S. which is where we do create new posts we do that
+
+6
+00:00:31,030 --> 00:00:34,360
+and finish at it hndler there.
+
+7
+00:00:34,360 --> 00:00:41,100
+We do indeed attach our token to the outgoing request.
+
+8
+00:00:41,160 --> 00:00:45,790
+And this is still the wrong you are here but this is how we will send the request in the end.
+
+9
+00:00:46,050 --> 00:00:47,780
+So we'll have that token.
+
+10
+00:00:47,790 --> 00:00:54,770
+Indeed you are l and previously and the rest API we use is all middleware to get our token from there
+
+11
+00:00:54,870 --> 00:01:01,380
+validated extract to user data and add the user data to user ID to the request object.
+
+12
+00:01:01,380 --> 00:01:03,320
+And that is pretty close to what I want to do.
+
+13
+00:01:03,320 --> 00:01:06,380
+Now I will just tweak it a little bit.
+
+14
+00:01:06,420 --> 00:01:10,320
+I'll name it off because it's not just there to validate authentication.
+
+15
+00:01:10,320 --> 00:01:16,640
+It will also give me the user data but that is something purely cosmetic in there.
+
+16
+00:01:16,640 --> 00:01:20,500
+I will still First of all get my off Hetter.
+
+17
+00:01:20,660 --> 00:01:27,480
+I'll check if it is set and if it is not set then I will do something different though I will not throw
+
+18
+00:01:27,480 --> 00:01:30,180
+an error instead on my request.
+
+19
+00:01:30,180 --> 00:01:35,840
+All set is off to false so that I can handle this inside of my resolvers.
+
+20
+00:01:36,120 --> 00:01:42,360
+And then I will return next to continue with the next malware and not execute the code here.
+
+21
+00:01:42,360 --> 00:01:44,890
+That is why all that the return statement.
+
+22
+00:01:45,090 --> 00:01:51,990
+If we do have the all pchter we continue we extract the token as before we try to decode it just as
+
+23
+00:01:51,990 --> 00:01:52,810
+before.
+
+24
+00:01:52,830 --> 00:01:59,170
+Make sure this key here match stickie you used in your resolver for signing the token byte away.
+
+25
+00:01:59,190 --> 00:02:03,450
+If these two don't match you have no chance of validating it or token.
+
+26
+00:02:03,590 --> 00:02:07,740
+We catch an error but if I get an error I again don't throw it.
+
+27
+00:02:07,740 --> 00:02:15,440
+Instead I said request is off to false and return next year to do not execute any error code.
+
+28
+00:02:15,780 --> 00:02:17,960
+If the decoded token is undefined.
+
+29
+00:02:18,030 --> 00:02:20,430
+I also Frot no error instead.
+
+30
+00:02:20,430 --> 00:02:31,340
+Here again I set is off to false and return next and if I make it past all these checks I will get my
+
+31
+00:02:31,340 --> 00:02:35,420
+user ID from the decoder token and it will set off to true.
+
+32
+00:02:35,420 --> 00:02:39,800
+So that is a new property at the request and I call next.
+
+33
+00:02:40,190 --> 00:02:43,680
+Now does tweak middleware is something I add an app.
+
+34
+00:02:43,710 --> 00:02:47,480
+Yes before my graft you l endpoint.
+
+35
+00:02:47,840 --> 00:02:57,670
+So here I will simply import that off by requiring it from malware off.
+
+36
+00:02:57,670 --> 00:03:07,780
+This is my middleware and I will add it here like dat dismally where will now run on every request that
+
+37
+00:03:07,780 --> 00:03:11,830
+reaches my graph CULE end point but it will not deny the request.
+
+38
+00:03:11,830 --> 00:03:17,950
+If there is no token the only thing it will do is it will set off to false and then I can decide in
+
+39
+00:03:17,950 --> 00:03:25,200
+my resolver whether I want to continue or not and this is the next step in my resolvers there.
+
+40
+00:03:25,420 --> 00:03:28,290
+I don't care about is often create user and so on.
+
+41
+00:03:28,330 --> 00:03:33,850
+So there I will just not do anything with that information in create post here.
+
+42
+00:03:34,120 --> 00:03:37,840
+I will first of all check if request is off.
+
+43
+00:03:37,870 --> 00:03:42,940
+If that is not true because then I know hey the user is not authenticated.
+
+44
+00:03:43,030 --> 00:03:50,440
+I certainly don't want to grant access to creating a post so if the user is not authenticated here then
+
+45
+00:03:50,440 --> 00:03:55,690
+I will create a new error not authenticated.
+
+46
+00:04:00,820 --> 00:04:07,750
+And I'll set a code of let's say 400 hundred one and that I'll throw my error and therefore the recode
+
+47
+00:04:07,780 --> 00:04:11,480
+in this resolver here will not execute.
+
+48
+00:04:11,870 --> 00:04:17,310
+If the user is authenticated we can continue then we validate the input and then before we create the
+
+49
+00:04:17,310 --> 00:04:24,510
+post we can now also get the user from the database because remember that we do store the user id in
+
+50
+00:04:24,510 --> 00:04:34,760
+our request as well so under a solver right before creating the post now I can get my user by a waiting
+
+51
+00:04:34,760 --> 00:04:38,980
+user find one or not find one.
+
+52
+00:04:38,980 --> 00:04:45,730
+I can actually use find by ideal of course and dare I pass and request user id so exactly the thing
+
+53
+00:04:45,910 --> 00:04:46,950
+I'm storing here.
+
+54
+00:04:49,190 --> 00:05:00,270
+I passed it in and now I get a user if I don't get a user here then something is wrong and I will throw
+
+55
+00:05:00,420 --> 00:05:01,440
+an error.
+
+56
+00:05:01,450 --> 00:05:09,200
+So here invalid user maybe set the code to 401 and Frode it.
+
+57
+00:05:09,250 --> 00:05:13,230
+But if we make it past that we have a user object with which we can work.
+
+58
+00:05:13,450 --> 00:05:19,410
+And now in the newly created post I can set the creator equal to my extracted user.
+
+59
+00:05:19,510 --> 00:05:21,640
+So to the user I got from the database
+
+60
+00:05:24,370 --> 00:05:32,260
+once I created the post I can now also use that user and x' the posts of that user to push the created
+
+61
+00:05:32,260 --> 00:05:34,990
+post onto that list of posts.
+
+62
+00:05:34,990 --> 00:05:38,880
+So to set up that connection that is now it.
+
+63
+00:05:38,960 --> 00:05:45,080
+And now we need to work on the front end to also send the request to design point so that we can see
+
+64
+00:05:45,110 --> 00:05:46,160
+those in-action.
+

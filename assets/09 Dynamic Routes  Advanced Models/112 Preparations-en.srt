@@ -1,0 +1,64 @@
+1
+00:00:02,420 --> 00:00:08,330
+Now before we dive into dynamic routes you need to adjust your project of it ever because you skipped
+
+2
+00:00:08,330 --> 00:00:14,120
+the last module altogether and therefore you should download the entire snapshot I attached to this
+
+3
+00:00:14,120 --> 00:00:16,620
+lecture which contains my latest state.
+
+4
+00:00:16,910 --> 00:00:24,050
+But you should also download that snapshot or the adjustments file which contains the files you will
+
+5
+00:00:24,050 --> 00:00:27,490
+need to add to your project in case you don't want to use my snapshot.
+
+6
+00:00:27,500 --> 00:00:33,260
+But if you skipped the last module always go of the snapshot now when you adjustments up file and you
+
+7
+00:00:33,260 --> 00:00:39,680
+can ignore that if you download the snapshot in the adjustment zip file you will find that javascript
+
+8
+00:00:39,680 --> 00:00:45,380
+followed the main js file which you should move into a J s folder in the public folder.
+
+9
+00:00:45,380 --> 00:00:51,620
+You will also find that main Zia's as file and the product Zia's as file in there and you should also
+
+10
+00:00:51,620 --> 00:00:58,030
+replace yours and this is as folder with the ones you find attached because I find you in some styles.
+
+11
+00:00:58,040 --> 00:01:05,630
+Additionally make sure that you also replace all the views you'll find in that attached zip file and
+
+12
+00:01:05,630 --> 00:01:11,720
+you simply replace your existing files or their content with the attached files or the content yet hatched
+
+13
+00:01:11,720 --> 00:01:12,600
+falls.
+
+14
+00:01:12,680 --> 00:01:13,700
+And with that added.
+
+15
+00:01:13,750 --> 00:01:18,390
+And in case you are facing any problems simply take the snapshot with all that added.
+
+16
+00:01:18,530 --> 00:01:21,500
+Let's now start writing our dynamic route code.
+

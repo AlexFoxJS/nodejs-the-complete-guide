@@ -1,0 +1,72 @@
+1
+00:00:02,220 --> 00:00:09,230
+Welcome to this optional that's important optional module where I want to introduce you to the javascript
+
+2
+00:00:09,230 --> 00:00:13,430
+basics and this module is really just a quick refresher.
+
+3
+00:00:13,430 --> 00:00:19,060
+I do expect you to have some basic knowledge about how javascript works what you use it for and it's
+
+4
+00:00:19,060 --> 00:00:20,390
+base syntax.
+
+5
+00:00:20,420 --> 00:00:23,000
+This module does not replace that.
+
+6
+00:00:23,000 --> 00:00:25,600
+You can't really use that module with Ciro.
+
+7
+00:00:25,610 --> 00:00:29,940
+Javascript knowledge or at least it will be very very challenging.
+
+8
+00:00:30,230 --> 00:00:36,290
+But if you only get some very basic knowledge or it's been quite some time since you worked with javascript
+
+9
+00:00:36,680 --> 00:00:40,250
+then this module will be a great refresher.
+
+10
+00:00:40,340 --> 00:00:47,300
+Please skip this module if you already know javascript though because then this module is not for you.
+
+11
+00:00:47,510 --> 00:00:52,940
+So you don't have to be an expert to skip this if you know javascript and you also know some of its
+
+12
+00:00:53,030 --> 00:00:59,450
+next gen features like the rest and spread operator or object destructuring.
+
+13
+00:00:59,650 --> 00:01:05,510
+So a bunch of nice things that we can do in javascript definitely skip this module and maybe come back
+
+14
+00:01:05,510 --> 00:01:11,050
+later if there is some feature you don't recognize or you're not sure what it's all about.
+
+15
+00:01:11,090 --> 00:01:17,300
+If you don't have that knowledge don't does modulus for you and also have a look at the next lecture
+
+16
+00:01:17,420 --> 00:01:23,840
+where I provide links to helpful resources in case you're brand new to javascript because there are
+
+17
+00:01:23,840 --> 00:01:30,040
+some free resources that allow you to get started with javascript after which you can come back to this
+
+18
+00:01:30,040 --> 00:01:34,190
+module and to the rest of the course where you will need that basic knowledge.
+

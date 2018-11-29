@@ -1,0 +1,556 @@
+1
+00:00:02,640 --> 00:00:08,750
+So I'm back in our project and there for example we got the first cases where we could add validation
+
+2
+00:00:09,070 --> 00:00:12,190
+to log in and to sign up pages there.
+
+3
+00:00:12,200 --> 00:00:17,990
+We want to validate for example on the sign up page the email address is a valid email address with
+
+4
+00:00:17,990 --> 00:00:20,500
+an at sign and domain ending.
+
+5
+00:00:20,840 --> 00:00:25,040
+That's the password for example is at least six characters long.
+
+6
+00:00:25,100 --> 00:00:30,160
+Whatever your requirement is and that the confirmed password matches the password.
+
+7
+00:00:30,170 --> 00:00:31,560
+That would be helpful too.
+
+8
+00:00:31,920 --> 00:00:37,790
+And later when we create a product where we for example enter a u r l we might want to validate that
+
+9
+00:00:37,790 --> 00:00:39,860
+this is a valid u r l.
+
+10
+00:00:39,920 --> 00:00:47,180
+So these are all things that we can add with the help of proper validation and that is exactly what
+
+11
+00:00:47,180 --> 00:00:48,420
+will dive into now.
+
+12
+00:00:48,500 --> 00:00:52,520
+Now to add validation will use a third party package.
+
+13
+00:00:52,520 --> 00:00:59,600
+The package will be using is called Express validator and the Google for Express validator to find these
+
+14
+00:00:59,600 --> 00:01:02,540
+official docs which are always worth checking out.
+
+15
+00:01:02,680 --> 00:01:09,020
+You find quick command on how to install it and then you find a link to the full official box which
+
+16
+00:01:09,020 --> 00:01:12,640
+is a separate web page where you learn all about using it.
+
+17
+00:01:12,680 --> 00:01:17,630
+And this is really a good idea to dive in because I will introduce you to this package if you want to
+
+18
+00:01:17,630 --> 00:01:20,230
+learn all the ins and outs about it.
+
+19
+00:01:20,270 --> 00:01:23,080
+Definitely check out this documentation.
+
+20
+00:01:23,330 --> 00:01:26,620
+So first of all install it with this command here.
+
+21
+00:01:26,630 --> 00:01:29,940
+So just using NPM as we did it for other packages too.
+
+22
+00:01:30,170 --> 00:01:36,770
+So back in our project code which is to code I've finished with in the last course module we can simply
+
+23
+00:01:37,340 --> 00:01:44,000
+entered this year to install express validator into this project and once it's done we are ready to
+
+24
+00:01:44,000 --> 00:01:44,650
+use it.
+
+25
+00:01:44,710 --> 00:01:50,870
+So let me restart my development server with and start and now let's find out how we can use Express
+
+26
+00:01:50,960 --> 00:01:52,230
+validator.
+
+27
+00:01:52,520 --> 00:01:56,110
+And let's start with our often dictation routes for that.
+
+28
+00:01:56,210 --> 00:02:03,680
+So here we obviously have our off controller with the different controller actions and we got our routes
+
+29
+00:02:03,710 --> 00:02:06,500
+folder with the off js file.
+
+30
+00:02:06,500 --> 00:02:12,170
+Now typically you want to validate on your post or your non get Rochlitz because you want to bellyache
+
+31
+00:02:12,200 --> 00:02:16,920
+whenever the user sends state and that is not the case for our get droughts for example.
+
+32
+00:02:17,060 --> 00:02:23,480
+But for posting the log in data or posting the sign up data I want to validate that data and it will
+
+33
+00:02:23,480 --> 00:02:27,190
+start with the sign up with post sign up with this route.
+
+34
+00:02:27,320 --> 00:02:33,620
+Let's say we want to add some validation to that route and we want to ensure that our e-mail here is
+
+35
+00:02:33,620 --> 00:02:39,800
+an email the password is at least let's say five characters long and that the confirmed password matches
+
+36
+00:02:39,800 --> 00:02:40,850
+our password.
+
+37
+00:02:40,850 --> 00:02:45,180
+These would be some nice checks which I want to add here.
+
+38
+00:02:45,370 --> 00:02:49,430
+Now you add that with that package installed in my office.
+
+39
+00:02:49,470 --> 00:02:55,100
+Fall in the rabbits folder I can import something from that package.
+
+40
+00:02:55,190 --> 00:03:03,890
+Let's name that expr validator or whoever you want to name it and require express validator here.
+
+41
+00:03:03,900 --> 00:03:06,060
+However the import looks a bit different.
+
+42
+00:03:06,060 --> 00:03:12,660
+We import a Suppe package because express validator is basically made up of a couple of Suppe packages
+
+43
+00:03:12,690 --> 00:03:18,460
+you could say that we need to check package which is the packet you use for.
+
+44
+00:03:18,810 --> 00:03:22,290
+Well all the validation logic you could want to add.
+
+45
+00:03:22,650 --> 00:03:30,000
+We can also use a next gen javascript syntax because X validator which we import will be a javascript
+
+46
+00:03:30,030 --> 00:03:35,100
+object and we can use a feature called destructuring where we use curly braces on the left side of the
+
+47
+00:03:35,100 --> 00:03:36,070
+equal sign.
+
+48
+00:03:36,330 --> 00:03:42,510
+And then you add some property names which you want to pull out of the object dead.
+
+49
+00:03:42,530 --> 00:03:49,290
+This would give you so here and you can find it in the official docs we'll get a check function actually.
+
+50
+00:03:49,290 --> 00:03:54,980
+So in the object which we import and which we would have stored in expr validate or otherwise there
+
+51
+00:03:54,990 --> 00:04:01,220
+will be a check property that holds a function and we can import validation result that we don't need
+
+52
+00:04:01,220 --> 00:04:02,610
+to here will need it later.
+
+53
+00:04:02,850 --> 00:04:04,920
+There are other functions you can import.
+
+54
+00:04:04,920 --> 00:04:08,520
+And again the official docs are a great way to dive in deeper.
+
+55
+00:04:08,520 --> 00:04:14,310
+What this does is in the end it just gives us a check function which we import from this package here
+
+56
+00:04:14,970 --> 00:04:18,800
+and now adding validation to a router is really simple for this post route.
+
+57
+00:04:18,810 --> 00:04:22,010
+If you want to add validation we add an extra middleware.
+
+58
+00:04:22,050 --> 00:04:28,140
+Remember you have that path and then you can add as many middleware request handlers as you want and
+
+59
+00:04:28,140 --> 00:04:33,330
+I'll add a new one here and I'll add a new one by adding my check function calling it here.
+
+60
+00:04:33,510 --> 00:04:42,610
+And check this function will in the end return a middleware So here ident just entered a field name
+
+61
+00:04:42,670 --> 00:04:45,880
+or an array of fields which I want to check.
+
+62
+00:04:45,880 --> 00:04:46,980
+Now how does this work.
+
+63
+00:04:46,990 --> 00:04:49,580
+Well I can simply add check.
+
+64
+00:04:49,900 --> 00:04:51,280
+And then the field name.
+
+65
+00:04:51,380 --> 00:04:56,130
+Now we can have a look at our Sign-Up view to find out that for example there will have an email field.
+
+66
+00:04:56,170 --> 00:04:57,840
+So it's does name I'm looking for.
+
+67
+00:04:58,000 --> 00:05:03,730
+We have an e-mail field in there so email will be the name of that field in the requests we're receiving.
+
+68
+00:05:04,000 --> 00:05:12,100
+So in our off route I can check email now does tell us middle middleware the Express validator does
+
+69
+00:05:12,130 --> 00:05:16,680
+I'm interested in confirming dead e-mail value or order.
+
+70
+00:05:16,700 --> 00:05:19,420
+I'm interested in validating that value.
+
+71
+00:05:19,450 --> 00:05:25,660
+We don't call a method and this will in the end then return a middleware that is understood by express
+
+72
+00:05:25,660 --> 00:05:26,260
+checks.
+
+73
+00:05:26,290 --> 00:05:32,050
+So we call a method on this object which is returned by the check function that now allows us to do
+
+74
+00:05:32,050 --> 00:05:33,490
+all kinds of checks.
+
+75
+00:05:33,610 --> 00:05:35,740
+For example is e-mail.
+
+76
+00:05:35,740 --> 00:05:40,640
+Now there are a bunch of built in methods and I will show you where to find him in a second.
+
+77
+00:05:40,720 --> 00:05:46,510
+What this will now do is it will use this package to check the email field on the incoming request and
+
+78
+00:05:46,510 --> 00:05:52,960
+it looks for that field in the body in the query parameters in the headers and then cookies and it finds
+
+79
+00:05:52,960 --> 00:05:56,830
+that field and then checks if that is a valid email address.
+
+80
+00:05:56,980 --> 00:05:59,620
+That is the first step.
+
+81
+00:05:59,650 --> 00:06:06,560
+Now with that we have this middleware in place now we can go to our controller here under control as
+
+82
+00:06:06,560 --> 00:06:10,720
+of course and implored and number part of that package.
+
+83
+00:06:10,930 --> 00:06:16,840
+So your I will also import with this destructuring syntax because this packet just exposes a bunch of
+
+84
+00:06:16,840 --> 00:06:24,760
+stuff and I only want to get some specific things and I import from Express validator check here as
+
+85
+00:06:24,850 --> 00:06:25,680
+well.
+
+86
+00:06:25,780 --> 00:06:34,030
+And there we now need to import the validation result validation result will be a function that allows
+
+87
+00:06:34,030 --> 00:06:37,070
+us to gather all the errors.
+
+88
+00:06:37,300 --> 00:06:43,950
+Prewire validation middleware like this one might have flown or might have stored.
+
+89
+00:06:43,960 --> 00:06:49,710
+So now we just have to go to the post Sign-Up route because that is where I did add my middleware in
+
+90
+00:06:49,750 --> 00:06:50,800
+here.
+
+91
+00:06:51,070 --> 00:06:57,850
+I can now simply extract my errors and stored them in a constant errors by calling validation result
+
+92
+00:06:57,910 --> 00:07:04,240
+on the request and indeed request does express validate or middleware which we added here will have
+
+93
+00:07:04,330 --> 00:07:11,590
+added error that can now be retrieved with this middleware and you off Jaspal the routes folder we are
+
+94
+00:07:11,590 --> 00:07:17,380
+collecting arrows so to say we're in dismissible or we'll store some aerostat found in an error object
+
+95
+00:07:17,380 --> 00:07:23,560
+so to say and this validation result function will go food it arus object managed by the middleware
+
+96
+00:07:23,620 --> 00:07:29,920
+on the request and will then collect them all in this Aeros constant and we can then use that constant
+
+97
+00:07:29,920 --> 00:07:31,870
+to check if we do have errors.
+
+98
+00:07:31,870 --> 00:07:32,740
+Now how does that work.
+
+99
+00:07:32,740 --> 00:07:36,380
+Well we can simply check if errors.
+
+100
+00:07:36,430 --> 00:07:45,250
+And then there is a method we can call their isde is empty method and is empty will return true or false
+
+101
+00:07:45,250 --> 00:07:47,540
+depending on whether we got errors or not.
+
+102
+00:07:47,710 --> 00:07:53,770
+And if this is not empty that's why I add an exclamation mark to check to even worse if it is not empty
+
+103
+00:07:53,950 --> 00:08:02,140
+then we could return a response where we set the status quo to 422 which is a common status code for
+
+104
+00:08:02,260 --> 00:08:04,120
+indicating that validation failed.
+
+105
+00:08:04,120 --> 00:08:06,160
+So it isn't error status code.
+
+106
+00:08:06,220 --> 00:08:12,250
+It will still send their response judge just to have this different status code and then we can call
+
+107
+00:08:12,310 --> 00:08:15,550
+render here and render the page again.
+
+108
+00:08:15,670 --> 00:08:19,610
+And I don't redirect here because I want to redirect upon success.
+
+109
+00:08:19,720 --> 00:08:22,300
+If we fail I will render the same page again.
+
+110
+00:08:22,300 --> 00:08:27,030
+So here I will render the same as I do in get sign up here.
+
+111
+00:08:27,040 --> 00:08:30,890
+We can copy that render message that render call here I should say.
+
+112
+00:08:31,420 --> 00:08:38,520
+We do that same rendering here without rest just render it rendered that same page or sign up.
+
+113
+00:08:38,520 --> 00:08:48,870
+And I can also add my my error Stehr the error message and not message like this but I can output errors.
+
+114
+00:08:48,990 --> 00:08:57,260
+And then there is an array function which I can call to return an array of arrows.
+
+115
+00:08:57,270 --> 00:09:03,130
+I'm active and we can all the output this year with conc a lock to get a feeling for what's in there.
+
+116
+00:09:03,330 --> 00:09:07,120
+Aeros array like this let's see what we got in there.
+
+117
+00:09:07,200 --> 00:09:12,170
+Now if we save all that with that place with Bittle where any error collection mechanism.
+
+118
+00:09:12,420 --> 00:09:13,850
+Let me address something here.
+
+119
+00:09:13,920 --> 00:09:17,760
+Test which is not a valid email and let me hit sign up.
+
+120
+00:09:17,760 --> 00:09:26,610
+Now I get a message here which is the default browser validation because I set this to type e-mail in
+
+121
+00:09:26,610 --> 00:09:26,940
+my
+
+122
+00:09:29,540 --> 00:09:31,210
+Sign-Up view here.
+
+123
+00:09:31,300 --> 00:09:36,380
+I have type e-mail and this adds this default browser validation.
+
+124
+00:09:36,380 --> 00:09:42,160
+Now one thing you can do is you can at no validate to the overall forum Velia date.
+
+125
+00:09:42,290 --> 00:09:43,820
+To disable this check.
+
+126
+00:09:43,860 --> 00:09:44,100
+Now.
+
+127
+00:09:44,170 --> 00:09:49,400
+If you want to add it because it is a nice client side validation that can improve the user experience.
+
+128
+00:09:49,460 --> 00:09:52,070
+But here to see how it works without that.
+
+129
+00:09:52,130 --> 00:09:57,830
+To allow me to make deliberate mistakes I will disable it for now with no validate added to the form
+
+130
+00:09:57,950 --> 00:10:00,290
+not the input but to the form.
+
+131
+00:10:00,290 --> 00:10:05,500
+And then if I reload that page and I do enter something in it again I can submit.
+
+132
+00:10:05,510 --> 00:10:08,350
+Now don't be confused by the error message.
+
+133
+00:10:08,420 --> 00:10:12,810
+This is to be expected because we don't get a message we get an error rate of errors.
+
+134
+00:10:13,100 --> 00:10:20,940
+But if we check our suicide console we see that Descanso log where I log an array of the Erstad was
+
+135
+00:10:20,960 --> 00:10:22,580
+like that gets me dead.
+
+136
+00:10:22,760 --> 00:10:26,360
+And we get the square brackets It's an array an array of objects.
+
+137
+00:10:26,480 --> 00:10:30,800
+And in that object we find out which parameter will last a problematic one.
+
+138
+00:10:30,810 --> 00:10:36,820
+What value was entered and which message was generated by the validation Millward.
+
+139
+00:10:37,040 --> 00:10:41,900
+And this is a message we can use to output an error message if we want to.
+

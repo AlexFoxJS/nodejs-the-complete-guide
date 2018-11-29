@@ -1,0 +1,340 @@
+1
+00:00:02,160 --> 00:00:07,650
+So we want to be able to enter the email address here and then receive an email with a link that allows
+
+2
+00:00:07,650 --> 00:00:09,440
+us to reset the password.
+
+3
+00:00:09,480 --> 00:00:18,270
+Now for that we need to first of all create a unique token that also has some expiry date which we will
+
+4
+00:00:18,270 --> 00:00:25,320
+store in our database so that the link which we didn't click includes that token and we can verify that
+
+5
+00:00:25,390 --> 00:00:32,550
+the user did get that link from us because if we just well let the user now change their password we
+
+6
+00:00:32,560 --> 00:00:38,910
+got no security mechanism in place so we need that token to put it into the email we're about to send
+
+7
+00:00:39,120 --> 00:00:44,180
+to only lead users change the password through the email that contains that token.
+
+8
+00:00:44,250 --> 00:00:46,650
+That's an additional security mechanism.
+
+9
+00:00:46,730 --> 00:00:50,100
+So let's work on that tokin creation date for that.
+
+10
+00:00:50,100 --> 00:00:58,960
+First of all I'll export a new action in my off controller that will be post reset so that will basically
+
+11
+00:00:58,960 --> 00:01:05,110
+the action that should get triggered once we clicked that reset password button of your and in there
+
+12
+00:01:05,200 --> 00:01:07,030
+I need to generate that token.
+
+13
+00:01:07,030 --> 00:01:11,730
+Now note J ass has a built in crypto library which I can use for debt.
+
+14
+00:01:11,950 --> 00:01:20,500
+So name that tripto and require crypto like debt does is a library that helps us with creating secure
+
+15
+00:01:20,560 --> 00:01:26,750
+unique random values and honorifics but we'll need dead unique secure random value here.
+
+16
+00:01:26,830 --> 00:01:31,900
+So here in post we settled and used that crypto library which I stored in a constant here.
+
+17
+00:01:32,170 --> 00:01:37,540
+And I will call random bytes to generate some random bytes I want.
+
+18
+00:01:37,540 --> 00:01:44,470
+32 random bytes and this will call a callback function years that is the second argument a function
+
+19
+00:01:44,470 --> 00:01:47,010
+will be called once it's done there.
+
+20
+00:01:47,020 --> 00:01:52,020
+Either get an error or a buffer a buffer of bytes.
+
+21
+00:01:52,090 --> 00:01:55,120
+Now I have an error here.
+
+22
+00:01:55,120 --> 00:02:01,330
+Then I want to return redirect back to let's say reset and we could flag the error message here if we
+
+23
+00:02:01,330 --> 00:02:06,040
+wanted to also lock the error so that we can debug it.
+
+24
+00:02:06,370 --> 00:02:10,880
+But if we make it past this check we do have a valid buffer.
+
+25
+00:02:11,020 --> 00:02:18,740
+And then we can generate a token from that buffer simply by using buffer to string and there we just
+
+26
+00:02:18,740 --> 00:02:22,400
+need to pass hecks because that buffer will store hexadecimal values.
+
+27
+00:02:22,490 --> 00:02:27,980
+And this is information to string needs to go to a word hexadecimal values to normal ASCII characters.
+
+28
+00:02:27,980 --> 00:02:29,410
+So then we'll have a token.
+
+29
+00:02:29,570 --> 00:02:35,060
+Now that token should get stored in the database and it should get stored on the user object because
+
+30
+00:02:35,060 --> 00:02:36,690
+it belongs to that user.
+
+31
+00:02:37,070 --> 00:02:43,110
+So let's first of all go to your user model and there I'll add two new fields.
+
+32
+00:02:43,400 --> 00:02:47,750
+I'll add a reset token and I'll just assign a type of string here.
+
+33
+00:02:47,780 --> 00:02:54,680
+Now important this is not required because not always this token will be there only if we requested
+
+34
+00:02:54,680 --> 00:03:01,100
+a reset and will have a reset token expiration or however you want to name it.
+
+35
+00:03:01,190 --> 00:03:03,130
+And that will be of time date.
+
+36
+00:03:03,560 --> 00:03:07,620
+And now I want to store Des's token on the user which we plan to reset.
+
+37
+00:03:07,670 --> 00:03:12,230
+So first of all I need to find that user in the database and I'll use the mongooses user model for that
+
+38
+00:03:12,920 --> 00:03:21,800
+to find one user where d e mail matches the email we're trying to reset and dead email which we're trying
+
+39
+00:03:21,800 --> 00:03:30,180
+to reset can be extracted from the request for the email field because on our reset the new heater we
+
+40
+00:03:30,180 --> 00:03:31,830
+do have that email field.
+
+41
+00:03:31,830 --> 00:03:38,510
+By the way important the action here should be slash reset to reach the right route but with that business
+
+42
+00:03:38,550 --> 00:03:49,710
+prepared and now in our controller I'm finding a user who has this email let's add them and catch handle
+
+43
+00:03:49,770 --> 00:03:53,150
+any potential error we might get by logging it for now.
+
+44
+00:03:54,280 --> 00:04:00,910
+And then then we should get a user or undefined if that user does not exist.
+
+45
+00:04:00,940 --> 00:04:05,730
+So any here I want to check if we don't have a user.
+
+46
+00:04:05,830 --> 00:04:12,100
+If we don't have a user then I will flash a message such as you learned in the authentication module
+
+47
+00:04:13,410 --> 00:04:22,520
+onto the error or key no account with that e-mail found or whatever message you want to show.
+
+48
+00:04:22,750 --> 00:04:27,580
+And then here all return a redirect to slash reset.
+
+49
+00:04:27,580 --> 00:04:33,460
+If we make it past this check then we are looking for a e-mail address that is stored in the database.
+
+50
+00:04:33,490 --> 00:04:39,730
+And now for that user who will which I retrieved for that e-mail address I want to set the reset token
+
+51
+00:04:39,730 --> 00:04:47,740
+equal to the token which I generated and I will set the reset token expiration equal to date now which
+
+52
+00:04:47,740 --> 00:04:51,130
+gives me the current date and time plus one hour.
+
+53
+00:04:51,160 --> 00:04:53,950
+And this now has to be expressed in milliseconds.
+
+54
+00:04:54,070 --> 00:04:58,050
+So you should use three million six 600 thou Malis seconds.
+
+55
+00:04:58,060 --> 00:05:04,400
+This will be one hour since I'm assigning these two fields and we can call user is safe to then update
+
+56
+00:05:04,430 --> 00:05:05,950
+our user in the database.
+
+57
+00:05:06,290 --> 00:05:11,290
+Let's return this so that we can now chain and number then call here number.
+
+58
+00:05:11,290 --> 00:05:16,130
+Then block which will execute this function when users save succeeds.
+
+59
+00:05:17,320 --> 00:05:22,690
+So at this point of time we know that the update user was stored in that database and now we want to
+
+60
+00:05:22,690 --> 00:05:26,020
+send that token reset email.
+
+61
+00:05:26,080 --> 00:05:30,730
+Now I showed you how to send e-mails in the last lecture and the last module I mean.
+
+62
+00:05:30,730 --> 00:05:36,000
+So make sure you go for that because I will now use that transporter again which I created there.
+
+63
+00:05:36,100 --> 00:05:39,560
+The node mailer transporter which we use for sending email.
+
+64
+00:05:39,820 --> 00:05:47,050
+And it will send an e-mail to the e-mail of the user which we found so to use her e-mail excuse me to
+
+65
+00:05:47,680 --> 00:05:55,630
+request bawdy e-mail we can say so to the e-mail we're requesting the reset for the subject could be
+
+66
+00:05:56,020 --> 00:06:01,810
+password reset and now any HDMI all the code.
+
+67
+00:06:02,060 --> 00:06:08,900
+I'll use a next gen feature back Tick's which allows me to write multiline strings which makes it easier
+
+68
+00:06:08,900 --> 00:06:09,800
+to read.
+
+69
+00:06:09,800 --> 00:06:17,360
+I'll add a paragraph where I say you requested a password reset so users should be worried if they get
+
+70
+00:06:17,360 --> 00:06:17,640
+that.
+
+71
+00:06:17,660 --> 00:06:28,730
+If they did not click this link to set a new password and you could include more information like the
+
+72
+00:06:28,730 --> 00:06:30,950
+fact that this is only valid for one hour.
+
+73
+00:06:31,040 --> 00:06:41,900
+Now this link here does will be anchored tech leading at some your el and that you are l will be in
+
+74
+00:06:41,900 --> 00:06:45,090
+our case your localhost 3000.
+
+75
+00:06:45,280 --> 00:06:52,510
+And then let's say reset and then the token which we have now since I'm using this back takes syntax
+
+76
+00:06:52,720 --> 00:06:56,000
+I can dynamically embed values with a special syntax.
+
+77
+00:06:56,030 --> 00:06:58,500
+Use dollar sign curly braces.
+
+78
+00:06:58,600 --> 00:07:05,050
+And now I can inject variables and their values into this string and the values of the variables will
+
+79
+00:07:05,050 --> 00:07:06,650
+be placed in that string.
+
+80
+00:07:06,850 --> 00:07:11,440
+So here I can now output that token which we generated here.
+
+81
+00:07:11,440 --> 00:07:18,400
+So now I am placing that in the U R L because that token then what will later look for in the database
+
+82
+00:07:18,760 --> 00:07:24,020
+to confirm that this link was sent by us because only we know the token.
+
+83
+00:07:24,310 --> 00:07:31,780
+So this will send an email and at the same time I will redirect back to the starting page let's say
+
+84
+00:07:32,320 --> 00:07:36,700
+because the next instructions are received in the email of course.
+
+85
+00:07:36,730 --> 00:07:38,900
+Now let's try this out in the next lecture.
+

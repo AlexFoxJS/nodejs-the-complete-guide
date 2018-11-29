@@ -1,0 +1,96 @@
+1
+00:00:02,180 --> 00:00:04,040
+So let's dive into No.
+
+2
+00:00:04,060 --> 00:00:12,320
+J.S. now and what better way to start with it then of course from scratch with its basics in this module.
+
+3
+00:00:12,320 --> 00:00:15,440
+You will learn how the web actually works.
+
+4
+00:00:15,440 --> 00:00:17,590
+This will only be a brief refresher.
+
+5
+00:00:17,660 --> 00:00:24,260
+But since we will of course use no chase in this course to build a server a web application and writes
+
+6
+00:00:24,260 --> 00:00:31,850
+to recite code we obviously have to make sure we all understand how the web works and which role no
+
+7
+00:00:31,860 --> 00:00:34,970
+Chase plays in that bigger picture.
+
+8
+00:00:34,970 --> 00:00:37,030
+Now this will only be a brief refresher.
+
+9
+00:00:37,040 --> 00:00:40,150
+Obviously we'll then dive into creating such a node.
+
+10
+00:00:40,180 --> 00:00:42,260
+J.S. server and running.
+
+11
+00:00:42,290 --> 00:00:42,780
+No.
+
+12
+00:00:42,880 --> 00:00:46,030
+Yes code when requests are reaching that server.
+
+13
+00:00:46,100 --> 00:00:48,850
+And of course we'll also send back responses.
+
+14
+00:00:49,190 --> 00:00:56,840
+For this we'll also use node core modules like a file system module you saw in the first course section
+
+15
+00:00:57,050 --> 00:01:03,350
+will use a number of very important core module in this section which is related to creating such a
+
+16
+00:01:03,350 --> 00:01:04,270
+web server.
+
+17
+00:01:04,460 --> 00:01:10,490
+Now as I already mentioned an important part of creating a web server is of course that we're able to
+
+18
+00:01:10,490 --> 00:01:16,790
+handle requests and responses so that you'll learn how you can use no Chiasson the many features that
+
+19
+00:01:16,790 --> 00:01:21,740
+offer us to accept incoming requests and do something with them.
+
+20
+00:01:21,740 --> 00:01:26,260
+For example parse them and how to send back responses.
+
+21
+00:01:26,270 --> 00:01:30,810
+These are crucial things you've got to know now related to all of that.
+
+22
+00:01:30,860 --> 00:01:39,290
+We'll learn how no Che's uses asynchronous code and a concept called the event loop to stay reactive
+
+23
+00:01:39,320 --> 00:01:45,550
+and ensure that our script never slows down and always works just fine.
+
+24
+00:01:45,830 --> 00:01:48,350
+So with that let's dive into no Geass.
+

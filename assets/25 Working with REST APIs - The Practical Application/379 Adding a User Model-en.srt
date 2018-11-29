@@ -1,0 +1,168 @@
+1
+00:00:02,560 --> 00:00:04,710
+Now we worked a lot on our posts.
+
+2
+00:00:04,750 --> 00:00:07,100
+I now want to work on my users.
+
+3
+00:00:07,390 --> 00:00:13,190
+And for that we first of all need to add a new model in our node project.
+
+4
+00:00:13,390 --> 00:00:21,590
+There are add a user js file where I define how a user should look like in my application.
+
+5
+00:00:21,820 --> 00:00:28,360
+So here all implored mongooses And of course feel free to do these steps on your own.
+
+6
+00:00:28,360 --> 00:00:29,970
+We did them a couple of times.
+
+7
+00:00:30,250 --> 00:00:39,990
+I will access my schema here and then I'll define my user schema with new schema here.
+
+8
+00:00:41,330 --> 00:00:50,570
+And we'll add some properties of course by the end our export mongoose model which I'll name user headstall
+
+9
+00:00:50,610 --> 00:00:55,440
+will get stored in a user's collection which uses this user a schema.
+
+10
+00:00:55,440 --> 00:00:57,670
+Now how should a user look like.
+
+11
+00:00:58,050 --> 00:01:04,110
+Obviously that is totally up to you to fit my front end a user should have an e-mail which will be of
+
+12
+00:01:04,110 --> 00:01:09,200
+type string and which is required a user.
+
+13
+00:01:09,200 --> 00:01:15,510
+All that will have a password which is of type string and which will be required.
+
+14
+00:01:19,350 --> 00:01:29,330
+A user also will have a name in my application type string and required you guessed it and a user here
+
+15
+00:01:29,350 --> 00:01:40,360
+all it will have a Status Status all of type string and required that is this thing which costs this
+
+16
+00:01:40,450 --> 00:01:44,290
+error in the front that all the time because he couldn't loaded.
+
+17
+00:01:44,420 --> 00:01:49,190
+Now a user will also have a couple of posts so I'll add my posts here.
+
+18
+00:01:49,220 --> 00:01:50,630
+This will be an array.
+
+19
+00:01:50,780 --> 00:01:59,150
+And now each object in that array will be of type schema types object ID because this will be a reference
+
+20
+00:01:59,150 --> 00:02:04,630
+to a post and airfreight at this ref key and at the post model.
+
+21
+00:02:04,720 --> 00:02:09,880
+So all store references to posts in my users are on my users.
+
+22
+00:02:09,980 --> 00:02:14,010
+This is how users should look like if you want you can also add the time stamps.
+
+23
+00:02:14,120 --> 00:02:15,220
+I don't need them here.
+
+24
+00:02:15,350 --> 00:02:24,930
+So now I got my model set up we can use that model to set up sign up and later also a log in route.
+
+25
+00:02:24,980 --> 00:02:32,300
+So let's create a new route and all name that user genius or maybe off Jay ass because it will be authentication
+
+26
+00:02:32,310 --> 00:02:40,980
+related in there just as before we import express by requiring Express
+
+27
+00:02:44,980 --> 00:02:52,270
+we then create that express router by calling express router as a function like this.
+
+28
+00:02:52,540 --> 00:02:56,800
+And we have Chloris export this router now in between.
+
+29
+00:02:56,800 --> 00:03:03,460
+We define our user or our authentication related routes and there for example I want to have a post
+
+30
+00:03:03,460 --> 00:03:07,400
+route and you could argue that was set up put route maybe.
+
+31
+00:03:07,420 --> 00:03:14,290
+Let's let's go for a put down because actually we create a user once so we could also say whether it's
+
+32
+00:03:14,290 --> 00:03:16,270
+new or we overwrite existing data.
+
+33
+00:03:16,290 --> 00:03:18,890
+We put the data but both would be fine.
+
+34
+00:03:19,880 --> 00:03:23,170
+Here we'll have Sign-Up as a route let's say.
+
+35
+00:03:23,360 --> 00:03:26,570
+And then I need some controller of course.
+
+36
+00:03:26,670 --> 00:03:34,340
+Now I'll also add validation and to actually reach these routes we have to go to the app js file and
+
+37
+00:03:34,340 --> 00:03:40,970
+there where I import my feed routes I'll duplicate this at all settable off routes constant where I
+
+38
+00:03:40,970 --> 00:03:48,970
+import routes all and then at the bottom of the file where I have my feed routes.
+
+39
+00:03:48,970 --> 00:03:53,980
+I'll also add slash off to forward requests that start with Slash.
+
+40
+00:03:54,000 --> 00:03:56,980
+Often the path to off routes.
+
+41
+00:03:57,100 --> 00:04:01,330
+Now we are able to reach these routes and now we need the controller.
+
+42
+00:04:01,540 --> 00:04:05,840
+So let's work on the controller and add validation in the next lecture.
+

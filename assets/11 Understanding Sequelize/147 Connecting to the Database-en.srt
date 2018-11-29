@@ -1,0 +1,192 @@
+1
+00:00:02,540 --> 00:00:09,170
+So back in the project we first of all have to install sequels and just as we installed all the other
+
+2
+00:00:09,170 --> 00:00:16,100
+packages we'll do that by running NPM install dash dash save because this also is a production dependency.
+
+3
+00:00:16,160 --> 00:00:22,060
+It's a court the pendency of our project and then the name is sequel's like dis.
+
+4
+00:00:22,280 --> 00:00:28,190
+Now important sequel's needs that my sequel to package which we already installed.
+
+5
+00:00:28,310 --> 00:00:32,850
+So this My sequel to package we installed the last module needs to be installed.
+
+6
+00:00:33,080 --> 00:00:36,080
+If you skipped the last Marchal or anything like that.
+
+7
+00:00:36,110 --> 00:00:44,910
+Make sure to and install my sequel to now with that we got sequel's installed and now we can do a couple
+
+8
+00:00:44,910 --> 00:00:53,370
+of cool things with it the first step always is that we create a model with sequels as well and also
+
+9
+00:00:53,430 --> 00:00:55,860
+that we connect to the database of course.
+
+10
+00:00:56,100 --> 00:01:02,640
+Now therefore the first step is that when I connect to my sequel database with the workbench which we
+
+11
+00:01:02,640 --> 00:01:09,840
+also used in the last module already and in there I will go into my node complete database and delete
+
+12
+00:01:09,930 --> 00:01:15,850
+the products table by right clicking on it drop table and then simply click drop.
+
+13
+00:01:15,860 --> 00:01:21,030
+Now I do this because I now want to use sequel eyes to managed by tables.
+
+14
+00:01:21,300 --> 00:01:25,230
+With that let's go back to our project and now let's go into the database.
+
+15
+00:01:25,240 --> 00:01:27,870
+Jay has fallen to utl folder there.
+
+16
+00:01:27,990 --> 00:01:32,540
+I now want to write some code to connect sequels to the database.
+
+17
+00:01:32,610 --> 00:01:36,320
+Now sequel's uses my sequel to behind the scenes.
+
+18
+00:01:36,420 --> 00:01:38,690
+Therefore sequel lies behind the scenes.
+
+19
+00:01:38,820 --> 00:01:42,590
+We'll do something like this but we won't write this.
+
+20
+00:01:42,690 --> 00:01:47,650
+Instead we will import sequel lies and I'll store it in a sequel like constant.
+
+21
+00:01:47,730 --> 00:01:53,520
+You can name this constant however you want but I'll name it with a capital S. Because I actually import
+
+22
+00:01:53,550 --> 00:01:59,870
+a constructor function or class here so I'll import sequels like this and then I'll treat.
+
+23
+00:01:59,880 --> 00:02:05,200
+And you see equalize instance by calling new sequel's like dis.
+
+24
+00:02:05,280 --> 00:02:06,760
+Now sequela is here.
+
+25
+00:02:06,780 --> 00:02:09,950
+The constructor function needs some options.
+
+26
+00:02:10,230 --> 00:02:17,650
+You can see we have to configure it with the database name with a user name to connect to it a password.
+
+27
+00:02:17,720 --> 00:02:21,140
+So here I will connect it to my database.
+
+28
+00:02:21,170 --> 00:02:22,680
+So to my schema name which is.
+
+29
+00:02:22,680 --> 00:02:24,070
+Note Dasch complete
+
+30
+00:02:27,020 --> 00:02:38,400
+node complete with my root user name which is root and with my password which is Noad complete in my
+
+31
+00:02:38,400 --> 00:02:38,730
+case.
+
+32
+00:02:38,730 --> 00:02:41,250
+Use the root password you assigned.
+
+33
+00:02:41,700 --> 00:02:48,710
+Now we can also pass a fourth argument and options object and then there you can see all on his menu
+
+34
+00:02:48,710 --> 00:02:51,260
+or get this menu with control space.
+
+35
+00:02:51,360 --> 00:02:56,580
+You can see we can set up a bunch of stuff for example the dialect we can set this to.
+
+36
+00:02:56,610 --> 00:03:03,540
+My sequel to make it clear that we connect to my sequel database because different sequel engines or
+
+37
+00:03:03,540 --> 00:03:11,460
+databases use slightly different sequel syntax and you can dive into the official sequel docs learn
+
+38
+00:03:11,550 --> 00:03:12,560
+all about it.
+
+39
+00:03:12,570 --> 00:03:15,510
+A link can be found in the last lecture of this module.
+
+40
+00:03:15,510 --> 00:03:18,440
+The one thing I want to set for now is the host.
+
+41
+00:03:18,540 --> 00:03:21,650
+By default it would use localhost so we don't need to set it.
+
+42
+00:03:21,780 --> 00:03:25,930
+But I will explicitly set this to localhost.
+
+43
+00:03:26,010 --> 00:03:31,310
+With that we're creating a new sequel as object and it will automatically connect to the database then.
+
+44
+00:03:31,590 --> 00:03:37,810
+Or to be precise it will set up a connection pool just as we did manually in the last course module
+
+45
+00:03:38,430 --> 00:03:46,410
+so I can now export my sequel as object here which is essentially that database connection pool however
+
+46
+00:03:46,410 --> 00:03:50,720
+managed by sequel eyes giving us a lot of useful features.
+
+47
+00:03:50,880 --> 00:03:53,010
+With that we got the connection set up.
+
+48
+00:03:53,010 --> 00:03:55,610
+Let's now focus on working on the models.
+

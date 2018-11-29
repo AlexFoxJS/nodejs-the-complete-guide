@@ -1,0 +1,144 @@
+1
+00:00:02,110 --> 00:00:07,560
+Now in the last lecture we did insert a product into our monkey database which is awesome.
+
+2
+00:00:07,570 --> 00:00:13,690
+Now I also want to see it and before we actually fetched it in our node application let me show you
+
+3
+00:00:13,690 --> 00:00:16,060
+another tool called Compaq's.
+
+4
+00:00:16,060 --> 00:00:18,990
+If you click on get long would you be on Mongo to be dot com.
+
+5
+00:00:19,000 --> 00:00:23,320
+You can choose that and you can download and install it for free as well.
+
+6
+00:00:23,320 --> 00:00:26,470
+It's a way for Windows Mac OS and Linux.
+
+7
+00:00:26,620 --> 00:00:32,800
+And once you get that installed you can start your Kompas application on your machine.
+
+8
+00:00:33,010 --> 00:00:38,260
+And this essentially is a tool that gives you a graphical user interface to connect to your database
+
+9
+00:00:38,260 --> 00:00:40,060
+and to interact with it.
+
+10
+00:00:40,060 --> 00:00:46,780
+So let's wait for it starting up here and once it did start up you can connect to it now to connect
+
+11
+00:00:46,780 --> 00:00:47,090
+to it.
+
+12
+00:00:47,110 --> 00:00:52,630
+Let's go back to our mulga to be cluster and click connect here and then click connect with mom would
+
+13
+00:00:52,630 --> 00:00:58,230
+it be Atlas choose your operating system and then copied that you are down there.
+
+14
+00:00:58,240 --> 00:01:08,200
+Now one cool thing is if you now quickly close campaigns again and you restarted offer you copied that
+
+15
+00:01:08,230 --> 00:01:09,280
+you are l.
+
+16
+00:01:09,550 --> 00:01:12,400
+It should tell you that it detected a connection string.
+
+17
+00:01:12,400 --> 00:01:17,100
+And if you click yes it will insert the most important pieces here for you.
+
+18
+00:01:17,170 --> 00:01:23,530
+Now you still need to choose how you want to connect to make sure your username is correct and also
+
+19
+00:01:23,530 --> 00:01:25,210
+entered the password for this user.
+
+20
+00:01:25,210 --> 00:01:31,210
+You need to do this manually all the defaults can be left as they are and you should be able to now
+
+21
+00:01:31,210 --> 00:01:33,840
+connect to your database.
+
+22
+00:01:33,940 --> 00:01:40,310
+And here is this interesting enough you are to be precise are now connected to the database server.
+
+23
+00:01:40,450 --> 00:01:45,010
+And here you see a couple of databases two default ones which you don't need to touch and which you
+
+24
+00:01:45,010 --> 00:01:45,700
+shouldn't touch.
+
+25
+00:01:45,820 --> 00:01:52,240
+But then also your own one shop and the shop database here actually has a product collection as you
+
+26
+00:01:52,240 --> 00:01:57,050
+can see if you look into that product's collection in there.
+
+27
+00:01:57,070 --> 00:01:59,480
+We can see the documents that are stored in there.
+
+28
+00:01:59,500 --> 00:02:01,930
+And here is one document we inserted.
+
+29
+00:02:01,960 --> 00:02:05,920
+So it is one product we added in the last lecture.
+
+30
+00:02:05,920 --> 00:02:12,900
+Now you can also insert documents and edit them inside of campus and check out the official comp docs
+
+31
+00:02:12,910 --> 00:02:15,850
+to learn all about the features you can use here.
+
+32
+00:02:15,880 --> 00:02:21,490
+I just want to use this as a nice visual support so that we can see our data before we fetch it in our
+
+33
+00:02:21,490 --> 00:02:22,380
+no doubt.
+
+34
+00:02:22,390 --> 00:02:26,600
+That being said obviously the data is not that useful to us here.
+
+35
+00:02:26,680 --> 00:02:33,270
+So let's go back to no chats and write some code so that we can use the product data on our shop pages
+
+36
+00:02:33,310 --> 00:02:35,800
+again which we commented out at the moment.
+

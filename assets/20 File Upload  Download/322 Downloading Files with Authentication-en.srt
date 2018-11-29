@@ -1,0 +1,384 @@
+1
+00:00:02,330 --> 00:00:09,870
+So serving images statically is fine but we don't want to serve only images or only public files.
+
+2
+00:00:09,900 --> 00:00:15,280
+I want to serve an invoice and that unwise should only be available to me.
+
+3
+00:00:16,440 --> 00:00:22,040
+Now for that let's start with a dummy in was and I'll create a new folder for that.
+
+4
+00:00:23,470 --> 00:00:25,840
+All Nemat invoices.
+
+5
+00:00:26,310 --> 00:00:32,520
+You could of course put all motors and invoices ends on into a parent folder like data to not have them
+
+6
+00:00:32,550 --> 00:00:35,400
+all as root level folders.
+
+7
+00:00:35,400 --> 00:00:39,960
+That might be something you want to do on move the invoices and their images is kind of like a special
+
+8
+00:00:39,960 --> 00:00:43,680
+case but my private data should be maybe somewhere else.
+
+9
+00:00:43,680 --> 00:00:46,970
+So I'll put it into the data folder which was redundant until now.
+
+10
+00:00:46,980 --> 00:00:48,140
+Now it's not anymore.
+
+11
+00:00:48,420 --> 00:00:52,090
+And I prepared a simple PTF which I'll move in there.
+
+12
+00:00:52,130 --> 00:00:53,780
+Now this is a really simple PDA.
+
+13
+00:00:54,150 --> 00:00:56,310
+You can write it on your own.
+
+14
+00:00:56,400 --> 00:01:00,540
+It's just holding some text looking like this.
+
+15
+00:01:00,540 --> 00:01:04,500
+So here is my NYS that has to be diethyl I'm serving now.
+
+16
+00:01:04,500 --> 00:01:06,870
+Later we'll also generate this dynamically.
+
+17
+00:01:06,870 --> 00:01:07,990
+Now we won't.
+
+18
+00:01:08,080 --> 00:01:10,060
+Now I just want to show you how to surf it.
+
+19
+00:01:10,120 --> 00:01:17,400
+Now obviously we could make our in folder here statically accessible but that's not what I want to do.
+
+20
+00:01:17,400 --> 00:01:22,440
+Now first of all let me work on the orders view to make sure we have a link to get that invoice.
+
+21
+00:01:23,700 --> 00:01:31,460
+So for each order this list item here which we have let's maybe add a dash and a list item and in there
+
+22
+00:01:31,460 --> 00:01:38,210
+let's add an anchor TAC which says invoice and then it should be pointing at the invoice.
+
+23
+00:01:38,210 --> 00:01:43,310
+So now if we reload this page we have in Y's here as a link.
+
+24
+00:01:43,310 --> 00:01:45,950
+Now I want to be able to click this and download the invoice.
+
+25
+00:01:45,980 --> 00:01:47,990
+How can we do that.
+
+26
+00:01:48,020 --> 00:01:55,190
+Well since I want to handle this privately I need to set up my own route for working within Wise's because
+
+27
+00:01:55,190 --> 00:02:00,480
+that will then allow me to check for things like user authenticated and so on.
+
+28
+00:02:00,500 --> 00:02:06,060
+So let me go to the route's folder and in there under.
+
+29
+00:02:06,060 --> 00:02:14,160
+Shop because it is a customer feature not admin related under shop here I'll add a new route.
+
+30
+00:02:15,740 --> 00:02:16,720
+Orders.
+
+31
+00:02:16,850 --> 00:02:25,150
+And then maybe NYS ID or order Id maybe because deep in ways that say we'll have a name of that order
+
+32
+00:02:25,150 --> 00:02:25,530
+idea.
+
+33
+00:02:25,550 --> 00:02:26,210
+Ultimately
+
+34
+00:02:28,850 --> 00:02:34,400
+we could name does fall differently we can name it invoice and then let me quickly up look up my order
+
+35
+00:02:34,400 --> 00:02:37,280
+ID to make this all work correctly.
+
+36
+00:02:38,130 --> 00:02:46,150
+Got a bunch of orders in there but this is my latest order order which I just placed the let's grab
+
+37
+00:02:46,150 --> 00:02:47,470
+that text idea here.
+
+38
+00:02:50,030 --> 00:02:54,350
+And and add that to the invoice name here.
+
+39
+00:02:54,440 --> 00:02:57,400
+Maybe after a dash we have the order I'd use something like this.
+
+40
+00:02:57,620 --> 00:03:04,880
+So this is my end was and I'm getting the order ID in this route I should be protected authenticated
+
+41
+00:03:04,880 --> 00:03:10,530
+to see that's all protect this route and then I'll use my shop controller and there I get in wise control
+
+42
+00:03:10,560 --> 00:03:12,800
+or action which I have yet to at.
+
+43
+00:03:12,950 --> 00:03:16,120
+So that's why I've crashed here because I don't have that action yet.
+
+44
+00:03:16,340 --> 00:03:24,620
+In the shop controller bought bottom maybe let's exports get in twice a year and that will be our default
+
+45
+00:03:24,650 --> 00:03:28,070
+middleware function with request response and next.
+
+46
+00:03:28,430 --> 00:03:32,330
+And in here I now want to return that file.
+
+47
+00:03:32,330 --> 00:03:41,950
+First of all I need the wise idea for that order ID excuse me Order ID will be a request and then it's
+
+48
+00:03:41,950 --> 00:03:49,780
+encoded in the u r n l so it's parents and then order ID that is what I specified here in my routes
+
+49
+00:03:49,930 --> 00:03:55,840
+file order ID that's the name and therefore I have to retrieve it by that name in my controller.
+
+50
+00:03:55,840 --> 00:03:57,840
+So Order ID here.
+
+51
+00:03:58,090 --> 00:04:07,690
+Now have an order Id file name or d d NYS name will be looking for will be in my stash and then my order
+
+52
+00:04:08,380 --> 00:04:11,630
+ID and then thought PTF right.
+
+53
+00:04:11,650 --> 00:04:15,560
+That is the format in which all our invoices are stored let's say.
+
+54
+00:04:15,610 --> 00:04:21,280
+So now we need to retrieve that file and we can retrieve falls within those file system.
+
+55
+00:04:21,280 --> 00:04:23,560
+We use that before in the course already.
+
+56
+00:04:23,590 --> 00:04:25,220
+So let's start using it again.
+
+57
+00:04:25,270 --> 00:04:32,920
+Let's import it fault system by requiring fault system this is a core not an old module if you remember
+
+58
+00:04:32,980 --> 00:04:38,590
+you don't need to install a package it's already included in node and the file system allows to do things
+
+59
+00:04:38,590 --> 00:04:43,630
+like read files which sounds like a thing that makes sense here.
+
+60
+00:04:43,750 --> 00:04:47,830
+So let's use the file system and read a file.
+
+61
+00:04:47,830 --> 00:04:50,570
+We know it will be found in the data folder.
+
+62
+00:04:50,580 --> 00:04:57,040
+Now the payoff your should be constructed with the Poth core module so that it works on all operating
+
+63
+00:04:57,040 --> 00:04:58,090
+systems.
+
+64
+00:04:58,120 --> 00:05:06,610
+So let's also import path by requiring lbf and number of core node module the module and let's construct
+
+65
+00:05:06,670 --> 00:05:16,620
+that path to the invoice so I'll have my anywise Poth and all treated with lbf join and I'll be looking
+
+66
+00:05:16,860 --> 00:05:18,940
+for the data folder that the.
+
+67
+00:05:18,990 --> 00:05:21,030
+That's the first element.
+
+68
+00:05:21,030 --> 00:05:26,730
+Then in Wise's folder and then the invoice name the file name.
+
+69
+00:05:26,750 --> 00:05:29,650
+So this is the POF which I want to read.
+
+70
+00:05:29,690 --> 00:05:35,980
+So I'll pass that invoice path to read file read file then gives me a callback.
+
+71
+00:05:36,050 --> 00:05:42,580
+So a function which it will execute once it's done reading that file.
+
+72
+00:05:42,580 --> 00:05:51,350
+So here I will even get an error or the data data will be in the form of a buffer.
+
+73
+00:05:51,360 --> 00:05:54,000
+Now of course we should check if we have an error.
+
+74
+00:05:54,030 --> 00:06:00,150
+And if that is the case well then we simply next to it so that the default error handling function can
+
+75
+00:06:00,150 --> 00:06:04,030
+take over Otherwise if we don't have an error.
+
+76
+00:06:05,290 --> 00:06:08,280
+Here old returned by the way so that the error code won't execute.
+
+77
+00:06:08,290 --> 00:06:13,110
+So if we don't have an error then data should be my my file right.
+
+78
+00:06:13,120 --> 00:06:16,130
+So then I can call wrests send.
+
+79
+00:06:16,300 --> 00:06:21,810
+Which is a function provided by the Express Middler my data.
+
+80
+00:06:21,820 --> 00:06:24,460
+Now theoretically that should be the file.
+
+81
+00:06:24,460 --> 00:06:25,760
+Now let's see if that works.
+
+82
+00:06:25,780 --> 00:06:31,950
+And to make it work we have to use this route in our anchor task.
+
+83
+00:06:32,290 --> 00:06:41,810
+So in orders each as and this anchor tag we'll be looking for Slash orders slash.
+
+84
+00:06:41,990 --> 00:06:46,640
+And now we need to output something dynamic with each base and that is the order ID because that's what
+
+85
+00:06:46,640 --> 00:06:48,860
+we're looking for in the route.
+
+86
+00:06:48,860 --> 00:06:55,430
+So the order ID is simply order underscore ID which we use up there already.
+
+87
+00:06:55,480 --> 00:06:57,300
+So lets output that here.
+
+88
+00:06:57,890 --> 00:07:03,100
+Let's say that and reload that page and now look.
+
+89
+00:07:03,110 --> 00:07:04,640
+That's lictors in wise here.
+
+90
+00:07:04,660 --> 00:07:11,880
+And I do get my download option here let me save that and try to open that file.
+
+91
+00:07:12,130 --> 00:07:18,100
+And indeed it should open as a PDA where you should be able to open it as a PTF But of course it was
+
+92
+00:07:18,100 --> 00:07:21,060
+not the most convenient way of downloading this.
+
+93
+00:07:21,100 --> 00:07:23,460
+We had a strange name right.
+
+94
+00:07:23,500 --> 00:07:27,610
+This strange cryptic name we don't have TPD ethics tension and all of that.
+
+95
+00:07:27,850 --> 00:07:29,740
+So we can certainly improve that.
+
+96
+00:07:29,740 --> 00:07:31,610
+Let's do that in the next lecture.
+

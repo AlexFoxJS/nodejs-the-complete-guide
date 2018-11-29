@@ -1,0 +1,76 @@
+1
+00:00:02,130 --> 00:00:08,790
+So in this module I showed you how to send mails with no Mailer and in this case send a third party
+
+2
+00:00:08,790 --> 00:00:09,760
+service.
+
+3
+00:00:09,780 --> 00:00:17,070
+Now one thing I also want to highlight is the way we send that e-mail here works for our app and it's
+
+4
+00:00:17,070 --> 00:00:23,160
+good that we don't block the redirect but then we redirect and sent the mail at the same time because
+
+5
+00:00:23,160 --> 00:00:28,770
+if you have application with a lot of requests and you would wait for the email to be sent before you
+
+6
+00:00:28,770 --> 00:00:29,430
+redirect.
+
+7
+00:00:29,430 --> 00:00:34,160
+You might slow down your application because you're sending a lot of e-mails.
+
+8
+00:00:34,350 --> 00:00:40,470
+Now depending on the size of your app and now we're talking about really huge apps you could also look
+
+9
+00:00:40,470 --> 00:00:42,410
+into totally different approaches.
+
+10
+00:00:42,440 --> 00:00:49,110
+Mary you have some server side scripts running every x hours or every X minutes that send e-mails to
+
+11
+00:00:49,110 --> 00:00:50,750
+newly signed up users.
+
+12
+00:00:50,760 --> 00:00:56,880
+Now this will only matter from a certain scale of app on and there you have different problems anyways.
+
+13
+00:00:56,970 --> 00:01:03,060
+But I just want to highlight that you should strongly consider not using this in a blocking way because
+
+14
+00:01:03,120 --> 00:01:09,720
+if you wait for it to be finished this can be slow and you have to evaluate if it's worth waiting for
+
+15
+00:01:09,720 --> 00:01:14,660
+days or if your user can continue even without that mail being delivered.
+
+16
+00:01:14,670 --> 00:01:16,780
+Now with that you learn how to send mails.
+
+17
+00:01:16,830 --> 00:01:18,920
+Not that difficult as you can tell.
+
+18
+00:01:18,930 --> 00:01:25,560
+Now let's use that knowledge in the next module and it haunts our often dictation process or our authentication
+
+19
+00:01:25,560 --> 00:01:26,640
+features we offer.
+

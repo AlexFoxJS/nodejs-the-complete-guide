@@ -1,0 +1,504 @@
+1
+00:00:02,260 --> 00:00:09,600
+Now I cleared the place as falling in because to conclude is a quick refresher module I'll dive into
+
+2
+00:00:09,670 --> 00:00:17,140
+Naracoorte concept and that is how to work with a synchronous code and for that we first of all have
+
+3
+00:00:17,140 --> 00:00:20,470
+to understand what a synchronous code is.
+
+4
+00:00:20,530 --> 00:00:25,170
+Let's say I set a timer with set timeout which is a function built into node.
+
+5
+00:00:25,260 --> 00:00:31,900
+Yes there we define a function that should execute after a certain time are expired.
+
+6
+00:00:31,900 --> 00:00:33,880
+Here I'll use an arrow function.
+
+7
+00:00:33,880 --> 00:00:37,000
+You could use a named function or whatever you like.
+
+8
+00:00:37,060 --> 00:00:39,970
+The second argument is the time or let's say two seconds.
+
+9
+00:00:40,090 --> 00:00:48,260
+You express it in milli seconds so two seconds are 2000 seconds in there I'll simply lock.
+
+10
+00:00:48,260 --> 00:00:52,540
+Timer is done.
+
+11
+00:00:52,670 --> 00:00:59,090
+If I now run this file for two seconds nothing happens and then we see timer is done.
+
+12
+00:00:59,360 --> 00:01:02,750
+Now this is a synchronous code because it doesn't finish immediately.
+
+13
+00:01:03,030 --> 00:01:06,790
+And it would even be a code if we had one millisecond there.
+
+14
+00:01:06,800 --> 00:01:11,010
+So if it's super fast it does not happen immediately.
+
+15
+00:01:11,300 --> 00:01:24,940
+In our code step it's like if we have a console log hello and console log high these two snippets are
+
+16
+00:01:24,940 --> 00:01:28,580
+synchronous code because they are executed right after each other.
+
+17
+00:01:28,660 --> 00:01:34,810
+And yet technically of course node will take some time to execute them but there is no delay Ivrit on
+
+18
+00:01:34,810 --> 00:01:35,820
+your hardware.
+
+19
+00:01:35,860 --> 00:01:43,390
+So to say and therefore does a synchronous code this is async code asynchronous because it does not
+
+20
+00:01:43,480 --> 00:01:45,230
+execute or finish immediately.
+
+21
+00:01:45,250 --> 00:01:49,000
+It takes a little time even if that super short.
+
+22
+00:01:49,000 --> 00:01:52,940
+And indeed if I execute this fall like this U.S. Hello.
+
+23
+00:01:52,960 --> 00:01:53,560
+Hi.
+
+24
+00:01:53,620 --> 00:02:01,570
+Before you see timer's done even though it's super fast because no J.S. and Javascript in general does
+
+25
+00:02:01,570 --> 00:02:10,900
+not block your code execution until that is done indeed here it will recognize this so-called callback
+
+26
+00:02:10,900 --> 00:02:11,860
+function.
+
+27
+00:02:11,980 --> 00:02:18,730
+So a function that should execute in the future it should call back later once it is done so once this
+
+28
+00:02:18,730 --> 00:02:25,270
+time it's expired here it will just recognize that and will then immediately move onto the next line
+
+29
+00:02:25,510 --> 00:02:32,320
+and it will execute all the synchronous code and then execute your async code once it is done.
+
+30
+00:02:32,350 --> 00:02:34,080
+Which is why we see how low and high.
+
+31
+00:02:34,080 --> 00:02:40,870
+First even though in our code timers is print at first and that is a crucial concept you have to understand
+
+32
+00:02:40,870 --> 00:02:46,360
+in javascript and especially Knode and now will come back to that throughout the course because it's
+
+33
+00:02:46,360 --> 00:02:54,280
+so important now when Rikan with debt and all increases to 2 seconds I get to make it even clearer.
+
+34
+00:02:54,280 --> 00:02:59,210
+Then you will see again our sync code runs and then after two seconds discard runs.
+
+35
+00:02:59,650 --> 00:03:06,310
+When working with async code we get multiple techniques of well handling it.
+
+36
+00:03:06,310 --> 00:03:08,250
+The callback function is one.
+
+37
+00:03:08,320 --> 00:03:12,630
+The oldest one and you'll see it quite a bit especially notorious.
+
+38
+00:03:12,690 --> 00:03:20,990
+There is nothing wrong with it but you'll face a problem if you have a couple of the pending async operations.
+
+39
+00:03:21,010 --> 00:03:27,280
+So here we set the timer and now let's say I create a number function
+
+40
+00:03:29,950 --> 00:03:32,700
+which I'll name fetch data.
+
+41
+00:03:34,380 --> 00:03:40,390
+And in there I will also just set a timer because I don't want to set up some data base or something
+
+42
+00:03:40,540 --> 00:03:44,140
+like that where we fetch data from will do all that for the course of course.
+
+43
+00:03:44,140 --> 00:03:44,910
+No worries.
+
+44
+00:03:45,250 --> 00:03:52,750
+So here again I have a number timer in there which takes like 1 and a half seconds.
+
+45
+00:03:52,960 --> 00:04:01,730
+And now here in fecche data I need some way of well doing something when this inner timer is done.
+
+46
+00:04:01,750 --> 00:04:07,270
+So here I will actually expect an argument which I'll name call back because this argument will be a
+
+47
+00:04:07,270 --> 00:04:13,990
+function I will eventually call in my inner function here once I'm done with the timer and there I can
+
+48
+00:04:13,990 --> 00:04:16,030
+pass done as a value.
+
+49
+00:04:16,140 --> 00:04:23,230
+Now in the place where a use fetch data let's say that's inside of this set time I'll call I call fetch
+
+50
+00:04:23,230 --> 00:04:24,370
+data like this.
+
+51
+00:04:24,370 --> 00:04:27,600
+There I now need to pass never call back.
+
+52
+00:04:27,940 --> 00:04:34,400
+And here I will get the text passed by a callback in my function when they execute it.
+
+53
+00:04:34,570 --> 00:04:39,970
+So we'll get some text you're an icon so lock data text.
+
+54
+00:04:39,970 --> 00:04:45,340
+Now this might look confusing in the end here I'm creating my own function which gets a callback so
+
+55
+00:04:45,340 --> 00:04:51,010
+that I can define a function which should execute once his inner timer is done from some other place.
+
+56
+00:04:51,010 --> 00:04:56,590
+So from this place here does the function which effectively is passed in as the callback and I'm executing
+
+57
+00:04:56,590 --> 00:04:57,910
+that function here.
+
+58
+00:04:58,330 --> 00:05:04,700
+Now if I save that and run that takes 2 seconds then it's time the timer is done.
+
+59
+00:05:04,730 --> 00:05:07,430
+And then after 1 1/2 seconds I see done.
+
+60
+00:05:07,460 --> 00:05:15,160
+Now if we have a couple of nested async calls as we have here we go deeper and deeper from a callback
+
+61
+00:05:15,170 --> 00:05:16,320
+perspective.
+
+62
+00:05:16,790 --> 00:05:24,680
+And that is what we all have a feature called Promises which we can use no Chia's now often we'll use
+
+63
+00:05:24,680 --> 00:05:28,400
+third party packages that already use promises for us.
+
+64
+00:05:28,400 --> 00:05:33,060
+So to Centex I'll show you now is one you really have to write on your own.
+
+65
+00:05:33,260 --> 00:05:36,350
+That will be done by the packages behind the scenes.
+
+66
+00:05:36,350 --> 00:05:45,380
+Still nice to know you create a promise inside of our fetch date a function your let's say by storing
+
+67
+00:05:45,380 --> 00:05:50,410
+it in a constant or variable and then by using the new keyword which you use in javascript to create
+
+68
+00:05:50,410 --> 00:05:52,920
+a new object based on a constructor.
+
+69
+00:05:53,090 --> 00:05:57,190
+If constructor functions are something that tells you nothing.
+
+70
+00:05:57,200 --> 00:06:04,010
+Check out some basic introduction resource to javascript because constructor functions are a core feature
+
+71
+00:06:04,160 --> 00:06:05,450
+in Javascript.
+
+72
+00:06:05,690 --> 00:06:13,080
+And here you use the promise constructor function which is built into javascript and no notorious and
+
+73
+00:06:13,080 --> 00:06:18,790
+does actually also takes a callback which gets two arguments Rosol than reject.
+
+74
+00:06:18,840 --> 00:06:24,450
+You could name them however you want but these are two functions and the first one completes the promise
+
+75
+00:06:24,450 --> 00:06:25,470
+successfully.
+
+76
+00:06:25,470 --> 00:06:27,620
+It resolves that successfully.
+
+77
+00:06:27,660 --> 00:06:32,120
+The second one rejects it which is like throwing an error.
+
+78
+00:06:32,130 --> 00:06:35,120
+You then take your async code and move it into there.
+
+79
+00:06:35,150 --> 00:06:38,090
+And again you really have to write this on your own.
+
+80
+00:06:38,100 --> 00:06:43,410
+Most packages already do that for you and give you the finished promise which does all the magic behind
+
+81
+00:06:43,410 --> 00:06:44,100
+the scenes.
+
+82
+00:06:44,100 --> 00:06:45,470
+Hidden away from you.
+
+83
+00:06:45,600 --> 00:06:47,190
+Here we do it manually.
+
+84
+00:06:47,220 --> 00:06:51,720
+So now in Dad's call we have our own function set.
+
+85
+00:06:51,720 --> 00:06:57,060
+Time out does not give us a promise API unfortunately so here we all have to use a callback.
+
+86
+00:06:57,450 --> 00:07:06,480
+But in their we now know no longer use any callback function we get I get no argument here and fetch
+
+87
+00:07:06,480 --> 00:07:07,540
+data anymore.
+
+88
+00:07:07,780 --> 00:07:11,520
+Instead here I resolve done let's say.
+
+89
+00:07:11,520 --> 00:07:15,300
+So I successfully return to resolve value.
+
+90
+00:07:15,540 --> 00:07:21,040
+Now in fecche data ofter defining the promise we just have to return it.
+
+91
+00:07:21,120 --> 00:07:24,070
+And please note this is synchronous code.
+
+92
+00:07:24,240 --> 00:07:29,940
+So actually this will be returned immediately after the promise gets created before the code and the
+
+93
+00:07:29,940 --> 00:07:36,660
+promise is run which will happen sometime later when we actually call that function and when this time
+
+94
+00:07:36,660 --> 00:07:38,240
+it completes.
+
+95
+00:07:38,280 --> 00:07:44,760
+So we now return that promise here and in the place where we call fetch data we now no longer pass a
+
+96
+00:07:44,760 --> 00:07:54,450
+call back but we can now use then which is callable on a promise and we return a promise and this simply
+
+97
+00:07:54,750 --> 00:08:00,980
+allows to now define the called function here which will execute once the promise is resolved.
+
+98
+00:08:04,080 --> 00:08:06,170
+Now what is the advantage of that.
+
+99
+00:08:06,420 --> 00:08:13,080
+If we had multiple such promises so let's say I called fecche data again in there.
+
+100
+00:08:13,390 --> 00:08:23,510
+Then I don't have to use that like dis and therefore I would end up with nested callbacks again.
+
+101
+00:08:24,280 --> 00:08:31,050
+But instead inside of a promise and then block is part of a promise.
+
+102
+00:08:31,180 --> 00:08:42,300
+I can just return a new promise and then add the next and then block ofter the previous one like this.
+
+103
+00:08:42,310 --> 00:08:43,710
+So now we have a chain.
+
+104
+00:08:43,780 --> 00:08:50,620
+Then blocks this one gets called on the first promise that ended then block and return another promise.
+
+105
+00:08:50,680 --> 00:08:56,920
+And even if that would not give us a promise instead of a then block returning it would convert it to
+
+106
+00:08:56,920 --> 00:09:00,610
+a promise that instantly rissoles and then we add a number.
+
+107
+00:09:00,610 --> 00:09:07,080
+Then block which is now referring to this promise year and this is more readable than having infinitely
+
+108
+00:09:07,090 --> 00:09:09,490
+nested callbacks.
+
+109
+00:09:09,490 --> 00:09:15,970
+So now if I run that and we see Hello high to time or is done we done and we sit down again because
+
+110
+00:09:15,970 --> 00:09:18,490
+I'm calling fetch data twice.
+
+111
+00:09:18,490 --> 00:09:22,640
+So this might be difficult to wrap your head around for the first time.
+
+112
+00:09:22,690 --> 00:09:26,460
+We will reuse it for this course and that it will become clearer.
+
+113
+00:09:26,550 --> 00:09:35,800
+Again this code is mostly not written by you but it is a crucial concept that makes our async code more
+
+114
+00:09:35,890 --> 00:09:37,420
+manageable.
+
+115
+00:09:37,420 --> 00:09:44,260
+There also is another way of managing this async await two special keywords you can use in modern javascript
+
+116
+00:09:44,680 --> 00:09:46,990
+and all have a separate section about this toolbar.
+
+117
+00:09:47,050 --> 00:09:53,100
+And of course I don't want to introduce it here because it can actually be more confusing than dissent
+
+118
+00:09:53,110 --> 00:09:58,540
+next year and I'll want to stick to this one to not introduce too many new features at the same time
+
+119
+00:09:58,540 --> 00:09:59,680
+here.
+
+120
+00:09:59,680 --> 00:10:02,400
+Async code is something you have to understand though.
+
+121
+00:10:02,520 --> 00:10:07,510
+And if it's not totally clear by now that is fine though you will see it for the course.
+
+122
+00:10:07,510 --> 00:10:08,250
+A bunch.
+
+123
+00:10:08,320 --> 00:10:14,870
+Because we have a lot of asynchronous events in notorious and it will explain this multiple times.
+
+124
+00:10:14,950 --> 00:10:17,370
+I'll also explain promises again.
+
+125
+00:10:17,380 --> 00:10:23,410
+I just want to ensure that you have seen this by now and that you don't have a chance of understanding
+
+126
+00:10:23,410 --> 00:10:26,260
+this how it works and how we deal with it.
+

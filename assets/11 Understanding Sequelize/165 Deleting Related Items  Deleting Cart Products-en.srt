@@ -1,0 +1,112 @@
+1
+00:00:02,320 --> 00:00:09,070
+Our program is taking shape we can't delete products from the cart yet though so we should definitely
+
+2
+00:00:09,070 --> 00:00:10,310
+all to do that.
+
+3
+00:00:10,690 --> 00:00:14,160
+To do that we still need product ID.
+
+4
+00:00:14,170 --> 00:00:15,540
+We want to delete.
+
+5
+00:00:15,670 --> 00:00:24,460
+But now again I will first of all get my card for a user by accessing a request user get carte and then
+
+6
+00:00:24,460 --> 00:00:29,370
+adding then and catch calls as we did at multiple times already.
+
+7
+00:00:30,560 --> 00:00:31,940
+And then block here.
+
+8
+00:00:32,120 --> 00:00:41,510
+I know that I've got access to my cart and in that cart I now want to find the products for this user
+
+9
+00:00:41,990 --> 00:00:44,030
+and to be precise the products.
+
+10
+00:00:44,030 --> 00:00:47,230
+Not all products but the product with that product ID.
+
+11
+00:00:47,480 --> 00:01:01,990
+So here I will return cart get products and then simply here where ID is equal to fraud ID in the next
+
+12
+00:01:02,260 --> 00:01:11,250
+block we at identify or have my products and I have to extract that exact product I'm looking for as
+
+13
+00:01:11,260 --> 00:01:13,650
+the first element in the product array.
+
+14
+00:01:14,080 --> 00:01:21,270
+And now I want to destroy that product but not in the products table of course but only in that in-between
+
+15
+00:01:21,340 --> 00:01:27,330
+cart item table that connects my cart with that product to do that.
+
+16
+00:01:27,360 --> 00:01:36,450
+I can simply call product card item using that magic field sequel I gives me to access the element in
+
+17
+00:01:36,450 --> 00:01:38,940
+the in between table and then destroy.
+
+18
+00:01:39,060 --> 00:01:41,650
+And that will remove it from that in-between table.
+
+19
+00:01:41,940 --> 00:01:48,690
+Nobbled return this so that I can add a number then block here with the result of the zipper operation
+
+20
+00:01:48,690 --> 00:01:49,840
+if I would care.
+
+21
+00:01:50,190 --> 00:01:58,260
+And then there I'll simply redirect back to the cart where I should then not see that product anymore.
+
+22
+00:01:58,260 --> 00:01:59,190
+Let's give it a try.
+
+23
+00:01:59,400 --> 00:02:03,670
+If we reload the cards and isolate that one with quantity free it's gone.
+
+24
+00:02:04,410 --> 00:02:05,950
+Got no arrows here.
+
+25
+00:02:06,050 --> 00:02:12,240
+And if we reload the card items we only have one element in there with quantity 2 and the other one
+
+26
+00:02:12,390 --> 00:02:14,210
+is gone indeed.
+
+27
+00:02:14,220 --> 00:02:20,160
+So this is how simple we can delete connected items in this in-between table.
+
+28
+00:02:20,160 --> 00:02:22,140
+Here at the example of the card.
+

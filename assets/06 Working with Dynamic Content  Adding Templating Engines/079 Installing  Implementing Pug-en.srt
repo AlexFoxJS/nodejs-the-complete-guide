@@ -1,0 +1,640 @@
+1
+00:00:02,130 --> 00:00:08,730
+So back at the project let me quit open server because now I need to install another package and I will
+
+2
+00:00:08,730 --> 00:00:13,070
+simply install these free templating engines so that we can work with them.
+
+3
+00:00:13,140 --> 00:00:20,640
+So let's install that with NPM install dash dash safe because all three engines are part of our node
+
+4
+00:00:20,670 --> 00:00:24,890
+code and ship with the code we deploy on some computer in the end.
+
+5
+00:00:25,260 --> 00:00:31,800
+So let's install them as production dependencies and there we need to install E.J. Estella's the package
+
+6
+00:00:31,800 --> 00:00:38,190
+name and links to the Web sites of these packages with more documentation can also be found in the last
+
+7
+00:00:38,700 --> 00:00:40,070
+lecture of this module.
+
+8
+00:00:40,320 --> 00:00:45,200
+So yes then we also got pike and handlebars.
+
+9
+00:00:45,210 --> 00:00:49,350
+There is a handlebars package but that's actually the wrong one we need.
+
+10
+00:00:49,350 --> 00:00:56,580
+Express Desch hellebores here because this has built in integration with Express each hasn't Poch already
+
+11
+00:00:56,580 --> 00:00:58,730
+have that built into the core package.
+
+12
+00:00:58,740 --> 00:00:59,730
+You would say.
+
+13
+00:00:59,940 --> 00:01:04,110
+So let's now enter in Audi's repackages will be downloaded.
+
+14
+00:01:04,110 --> 00:01:08,280
+Now what you can also us either by the way is that you can of course install multiple packages at once
+
+15
+00:01:08,280 --> 00:01:12,570
+by simply repeating or by adding all the names after NPM and stol.
+
+16
+00:01:12,690 --> 00:01:17,690
+Now the packages are installed and will not use them all at the same time but one after another so that
+
+17
+00:01:17,730 --> 00:01:25,590
+we can have a close look at how they work and let's start with the most exotic package pug to use that
+
+18
+00:01:25,950 --> 00:01:27,740
+we have to go to the app has failed.
+
+19
+00:01:27,780 --> 00:01:30,300
+And now we have to let express G-S know.
+
+20
+00:01:30,330 --> 00:01:36,270
+And that is a Express feature not note by the way and not strong reason why we want to use Express because
+
+21
+00:01:36,270 --> 00:01:39,780
+with node standalone node it will be harder.
+
+22
+00:01:39,780 --> 00:01:42,300
+You would have to do all that manually here.
+
+23
+00:01:42,390 --> 00:01:48,270
+We can't just tell express Hey we got a templating engine that is expressed conforming and that is the
+
+24
+00:01:48,270 --> 00:01:49,730
+case for all three we installed.
+
+25
+00:01:49,730 --> 00:01:52,850
+So please use it to render dynamic templates.
+
+26
+00:01:52,890 --> 00:01:54,700
+We do that by going into the app.
+
+27
+00:01:54,740 --> 00:02:02,550
+Yes and after we created our express app here and stored it in the app constant we can set a global
+
+28
+00:02:02,700 --> 00:02:04,740
+configuration value.
+
+29
+00:02:04,740 --> 00:02:12,000
+Now what does that app set allows us to set any values globally on our express application.
+
+30
+00:02:12,060 --> 00:02:16,340
+And this can actually also be keys or configuration items.
+
+31
+00:02:16,350 --> 00:02:17,960
+Express doesn't understand.
+
+32
+00:02:17,970 --> 00:02:19,520
+In that case it just ignores them.
+
+33
+00:02:19,590 --> 00:02:23,890
+But we could actually read them from the app object with apt get.
+
+34
+00:02:24,030 --> 00:02:29,310
+And this would be another way of sharing data across our application but not really something I'm interested
+
+35
+00:02:29,310 --> 00:02:30,230
+in here.
+
+36
+00:02:30,270 --> 00:02:35,210
+What we can do is we can use a couple of reserved key names here.
+
+37
+00:02:35,250 --> 00:02:40,780
+So configuration items we can set that dual lead to express Jasp behaving differently.
+
+38
+00:02:41,040 --> 00:02:43,970
+And you see a list of all these items here in this table.
+
+39
+00:02:44,010 --> 00:02:46,370
+Now most of them don't really matter for us here.
+
+40
+00:02:46,410 --> 00:02:53,670
+But feel free to browse through it as interesting for us is the view engine and the view is key.
+
+41
+00:02:53,670 --> 00:03:00,350
+View engine allows us to tell express hate for any dynamic templates we're trying to render and there
+
+42
+00:03:00,360 --> 00:03:02,810
+will be a special function for doing that.
+
+43
+00:03:02,820 --> 00:03:09,840
+Please use this engine we're registering here and viewas allows us to tell express where to find dynamic
+
+44
+00:03:09,880 --> 00:03:16,640
+views so what we can do here is we can app set and set the view here.
+
+45
+00:03:16,680 --> 00:03:22,230
+View engine to a string.
+
+46
+00:03:22,360 --> 00:03:24,410
+Now you can't enter any figure.
+
+47
+00:03:24,520 --> 00:03:31,390
+We use pack here because we installed IPAC templating engine and this engine actually ships with built
+
+48
+00:03:31,420 --> 00:03:35,690
+in express support and auto registers itself with Express.
+
+49
+00:03:35,710 --> 00:03:36,660
+So to say.
+
+50
+00:03:36,740 --> 00:03:38,220
+Dat is why this works.
+
+51
+00:03:38,320 --> 00:03:43,680
+It doesn't work for all engines but you'll find more in the links in the last lecture here.
+
+52
+00:03:43,690 --> 00:03:44,540
+It does work.
+
+53
+00:03:44,550 --> 00:03:49,250
+PAC is supported out of the box and with that we're already set to go.
+
+54
+00:03:49,450 --> 00:03:55,410
+We can set an additional configuration though we can let express know where to find our views.
+
+55
+00:03:55,420 --> 00:04:03,700
+However the default setting here last Culham the default setting for the was already is our Basically
+
+56
+00:04:03,700 --> 00:04:06,410
+our main directory and then the views folder.
+
+57
+00:04:06,670 --> 00:04:12,580
+Still I'll send that explicitly here to show you how this would work if you would store your youth in
+
+58
+00:04:12,580 --> 00:04:19,090
+a folder which is not called use but maybe templates or whatever it is that you have to set this configuration
+
+59
+00:04:19,120 --> 00:04:19,940
+item here.
+
+60
+00:04:19,990 --> 00:04:25,490
+This one here I will listen to even though it wouldn't be needed because of use is the default.
+
+61
+00:04:25,810 --> 00:04:32,080
+So now we're telling express that we want to compile dynamic templates with the POC engine and where
+
+62
+00:04:32,080 --> 00:04:33,950
+to find these templates.
+
+63
+00:04:34,000 --> 00:04:37,310
+The last step of course is that we add templates.
+
+64
+00:04:37,390 --> 00:04:43,200
+So let's go to your views and let's add a sharp dot Poch file here.
+
+65
+00:04:43,480 --> 00:04:49,920
+So we now have templating fall and now Poch actually works different to normal each time.
+
+66
+00:04:49,960 --> 00:04:54,190
+So I can't just copy over this whole H HTML code.
+
+67
+00:04:54,190 --> 00:05:00,670
+The good thing is however in my idea here if I type H female in the shop thought Poch file and then
+
+68
+00:05:00,670 --> 00:05:02,810
+I used this ational 5 template.
+
+69
+00:05:02,890 --> 00:05:05,300
+I get the pack structure of this.
+
+70
+00:05:05,320 --> 00:05:08,700
+And here we already see the minimal h Tomales syntax.
+
+71
+00:05:08,800 --> 00:05:10,800
+We get no normal HTML.
+
+72
+00:05:10,930 --> 00:05:16,250
+But keep in mind that the POC templating engine will compile error code to normal aged him out in the
+
+73
+00:05:16,250 --> 00:05:21,990
+end so this year is basically the equivalent to this part here.
+
+74
+00:05:22,000 --> 00:05:25,460
+You could say except for the stylesheet imports.
+
+75
+00:05:25,630 --> 00:05:28,260
+If you wanted to add these we can do that here too.
+
+76
+00:05:28,420 --> 00:05:30,420
+And thankfully the ID helps me.
+
+77
+00:05:30,460 --> 00:05:36,100
+If I type link and hit tab I get up Conn for conform implementation of this.
+
+78
+00:05:36,100 --> 00:05:39,100
+So here I now can also add my links.
+
+79
+00:05:39,100 --> 00:05:42,030
+The payoffs of course to see is as follows.
+
+80
+00:05:42,030 --> 00:05:44,300
+Ardis same as before.
+
+81
+00:05:44,530 --> 00:05:47,900
+So this is now how we installed POC and how we edited.
+
+82
+00:05:48,140 --> 00:05:54,610
+Now let's quickly finish this fall to look like this fall before we don't actually have a look at how
+
+83
+00:05:54,610 --> 00:05:56,530
+we can add dynamic content.
+
+84
+00:05:56,770 --> 00:06:04,520
+Let's replicate this link here and import up product see us as fall and now for the body.
+
+85
+00:06:04,850 --> 00:06:11,460
+Here I got a header and I got this main area so let's replicate Dizon pack quickly.
+
+86
+00:06:11,460 --> 00:06:15,460
+It is in the body indentation Matterson pack that's important.
+
+87
+00:06:15,550 --> 00:06:20,880
+You basically structure your nesting of h him l with indentation levels here.
+
+88
+00:06:21,030 --> 00:06:23,820
+So if head is nested in h him l then its.
+
+89
+00:06:23,820 --> 00:06:24,500
+And then do it.
+
+90
+00:06:24,610 --> 00:06:28,170
+And if Mehta is nested in head it's also indented.
+
+91
+00:06:28,330 --> 00:06:30,680
+If they're on the same level they are siblings.
+
+92
+00:06:30,700 --> 00:06:32,150
+So this is how it works.
+
+93
+00:06:32,200 --> 00:06:39,100
+So if you want to add something into body and not next to it we have to indent here and then I add my
+
+94
+00:06:39,100 --> 00:06:46,570
+header which has this main header class so if I type again the number useful feature of the ID of visuals
+
+95
+00:06:46,570 --> 00:06:47,340
+to do code.
+
+96
+00:06:47,380 --> 00:06:54,010
+If I type dot and then a name like this and I hit tab then does looks like it didn't do anything.
+
+97
+00:06:54,010 --> 00:06:58,350
+What actually does a representation of a div with this class.
+
+98
+00:06:58,370 --> 00:07:02,270
+No I want a header with this class so I just write header.
+
+99
+00:07:02,380 --> 00:07:06,300
+So this strange syntax will create a header element with.
+
+100
+00:07:06,300 --> 00:07:11,860
+This is as class and this is this something you have to get used to and very strongly recommend diving
+
+101
+00:07:11,860 --> 00:07:13,570
+into the official pocket docs.
+
+102
+00:07:13,570 --> 00:07:19,870
+If you want to stick to that here right away I'll replace the title with my shop.
+
+103
+00:07:20,310 --> 00:07:25,010
+So let's not just add the header but all the nav unordered list and so on.
+
+104
+00:07:26,010 --> 00:07:32,030
+This in the header I want to nest something so let's add the indentation level and then on over to list
+
+105
+00:07:32,090 --> 00:07:33,830
+dot and declasse.
+
+106
+00:07:33,830 --> 00:07:37,640
+And now the same website that was anathema on the list.
+
+107
+00:07:37,640 --> 00:07:39,920
+So that should be a Naveh item.
+
+108
+00:07:39,980 --> 00:07:41,620
+Now 40 on the list.
+
+109
+00:07:41,720 --> 00:07:43,240
+Let's take that class.
+
+110
+00:07:43,430 --> 00:07:44,390
+Let's go in there.
+
+111
+00:07:44,390 --> 00:07:45,760
+It should be nested in the neph.
+
+112
+00:07:45,800 --> 00:07:48,320
+So let's indent on over the last dot.
+
+113
+00:07:48,350 --> 00:07:49,290
+Class name.
+
+114
+00:07:49,400 --> 00:07:51,330
+And now we get the list items.
+
+115
+00:07:51,350 --> 00:07:54,920
+So here let's again pick D list item here.
+
+116
+00:07:55,790 --> 00:08:00,790
+Or declasse on it indent because it's nested in the list list item Daut.
+
+117
+00:08:00,830 --> 00:08:01,980
+And then the class.
+
+118
+00:08:02,180 --> 00:08:08,030
+And now last but not least I have to yanker tech which also has the act of Clauss but which then also
+
+119
+00:08:08,060 --> 00:08:10,310
+should have some text content in it.
+
+120
+00:08:10,400 --> 00:08:12,500
+And then also have a link.
+
+121
+00:08:12,740 --> 00:08:14,350
+So let's now go in there.
+
+122
+00:08:14,390 --> 00:08:21,950
+Nest this anchor tech and the class if you had to tap you automatically dismiss the attribute notation.
+
+123
+00:08:21,980 --> 00:08:30,400
+So in parentheses ofter the anchor tag or after any element but always without any whitespace in between.
+
+124
+00:08:30,500 --> 00:08:34,330
+Does allows you to add attributes onto the HTML element.
+
+125
+00:08:34,340 --> 00:08:38,420
+So where does should go to just slash and now forward a text content.
+
+126
+00:08:38,480 --> 00:08:40,290
+You could add this next to it.
+
+127
+00:08:40,340 --> 00:08:47,410
+So shop like this does will basically place this text between the opening and closing anchor tag.
+
+128
+00:08:47,410 --> 00:08:50,530
+Now this is the setup I want to have here.
+
+129
+00:08:50,620 --> 00:08:52,480
+Of course we have to list items.
+
+130
+00:08:52,490 --> 00:08:55,980
+We also got ad product which leads to this link.
+
+131
+00:08:56,200 --> 00:08:58,790
+So I have to replicate this.
+
+132
+00:08:58,920 --> 00:09:01,190
+So next to the first list item I add.
+
+133
+00:09:01,600 --> 00:09:06,100
+And number one main Hetter item and then I have my anchor tag.
+
+134
+00:09:06,160 --> 00:09:09,230
+This one without the act of class just with the link.
+
+135
+00:09:09,340 --> 00:09:19,010
+And there are say at product with this if I run NPM start we wouldn't see anything.
+
+136
+00:09:19,270 --> 00:09:25,270
+And I am aware of the fact that I didn't add the main content but let's ignore that for now with this.
+
+137
+00:09:25,280 --> 00:09:32,320
+However we wouldn't render this template because we're not telling Express to do so we're telling express
+
+138
+00:09:32,560 --> 00:09:36,680
+that it should justis templating engine whenever we try to render a template.
+
+139
+00:09:36,820 --> 00:09:38,900
+But we don't try to do that.
+
+140
+00:09:39,250 --> 00:09:40,580
+So in shop yes.
+
+141
+00:09:40,750 --> 00:09:46,010
+Well we do define what should be our response we have to change to respond to calls right now.
+
+142
+00:09:46,020 --> 00:09:48,090
+We're sending Gaige team out file.
+
+143
+00:09:48,430 --> 00:09:50,220
+Now we want to do something else.
+
+144
+00:09:50,470 --> 00:09:52,560
+We can use response.
+
+145
+00:09:52,720 --> 00:09:55,340
+And then there is a special render method.
+
+146
+00:09:55,520 --> 00:10:01,360
+This is provided by express choice and it will use the default templating engine which is why we had
+
+147
+00:10:01,360 --> 00:10:02,780
+to define it here.
+
+148
+00:10:02,800 --> 00:10:07,780
+It will use that default templating engine and then return that template.
+
+149
+00:10:07,930 --> 00:10:11,860
+And now we do find that all the views are in the views folder.
+
+150
+00:10:11,980 --> 00:10:15,440
+We also don't have to construct a payoff to that folder.
+
+151
+00:10:15,580 --> 00:10:17,830
+Instead we can just say shop.
+
+152
+00:10:17,890 --> 00:10:22,830
+We also don't need shop that plug because we defined as a default templating engine.
+
+153
+00:10:22,900 --> 00:10:31,300
+So it will look for Dot pag files with this if we save and we reload the shop page we see the header
+
+154
+00:10:31,360 --> 00:10:33,690
+we don't see the main content because we didn't add this.
+
+155
+00:10:33,880 --> 00:10:35,870
+But the rest is working just fine.
+
+156
+00:10:36,070 --> 00:10:41,590
+And if you inspect this or view the page source you'll see this is normal HTL code.
+
+157
+00:10:41,740 --> 00:10:47,940
+So it's not our minimal version which the browser wouldn't be able to read anyways but it is the HTL
+
+158
+00:10:47,950 --> 00:10:52,600
+code generate that for us based on that Minal version.
+
+159
+00:10:52,600 --> 00:10:56,740
+Now one thing we're not doing here is we're not outputting anything dynamic.
+
+160
+00:10:56,740 --> 00:11:02,050
+But since that is the reason why we add a templating engines Let's do that too in the next lecture.
+

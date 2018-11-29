@@ -1,0 +1,180 @@
+1
+00:00:02,110 --> 00:00:04,540
+We're restricting the amount of products we can see.
+
+2
+00:00:04,600 --> 00:00:07,270
+And that is one great step forward.
+
+3
+00:00:07,480 --> 00:00:14,200
+But it still doesn't mean we can't send requests somehow by by creating our own pages where we still
+
+4
+00:00:14,200 --> 00:00:16,490
+try to delete a number product.
+
+5
+00:00:16,690 --> 00:00:24,960
+So we should also add protections in our post actions like in post edit and post delete product there
+
+6
+00:00:24,970 --> 00:00:30,700
+we want to check that the product I try to delete is really created by the user who is currently locked
+
+7
+00:00:30,700 --> 00:00:31,220
+in.
+
+8
+00:00:31,450 --> 00:00:36,300
+So in post edit product there I might want to add a check.
+
+9
+00:00:36,310 --> 00:00:42,400
+Once I found the product it should be added that where I see if I'm allowed to edit that product.
+
+10
+00:00:42,400 --> 00:00:47,920
+So you're in the then block where I have that product fetched from the database there I will quickly
+
+11
+00:00:47,920 --> 00:00:59,050
+check if product user ID is not equal to request user ID because if it's not equal then this means the
+
+12
+00:00:59,050 --> 00:01:01,800
+wrong user is trying to edit this.
+
+13
+00:01:01,840 --> 00:01:10,030
+So here I don't want to return and simply redirect back to the starting page let's say because we try
+
+14
+00:01:10,030 --> 00:01:11,530
+to do something fishy here.
+
+15
+00:01:11,560 --> 00:01:12,830
+We don't want to continue.
+
+16
+00:01:12,850 --> 00:01:17,290
+So all the code will now not run.
+
+17
+00:01:17,520 --> 00:01:18,650
+We would still go into that.
+
+18
+00:01:18,660 --> 00:01:25,080
+Then block though as you learned because the next then block is still executed even if I do redirect
+
+19
+00:01:25,080 --> 00:01:26,120
+here.
+
+20
+00:01:26,340 --> 00:01:28,400
+So to circumvent this I'll add.
+
+21
+00:01:28,410 --> 00:01:30,360
+Then right after his savior.
+
+22
+00:01:30,360 --> 00:01:40,100
+So I nested then block so to say and now we have protection place that ensures that we can start editing
+
+23
+00:01:40,130 --> 00:01:47,570
+products that don't belong to us to quickly check this all temporarily remove my filters so that I can
+
+24
+00:01:47,570 --> 00:01:51,380
+see all the products again and I will log in with the wrong account.
+
+25
+00:01:51,830 --> 00:02:00,540
+So if test to and now what we should see is that when I edit this and add a couple of exclamation marks
+
+26
+00:02:00,540 --> 00:02:09,900
+and click Update I'm redirected to edit wasn't saved because I essentially ended up in my extra check
+
+27
+00:02:09,900 --> 00:02:18,350
+here and it was redirect that back but with out saving the changes because this code was never executed.
+
+28
+00:02:18,350 --> 00:02:24,970
+Now let's try the same for deleting before I reset my filter here for deleting.
+
+29
+00:02:24,980 --> 00:02:31,520
+I also want to check if I'm really allowed to delete that product and we can easily implement this by
+
+30
+00:02:31,520 --> 00:02:37,290
+changing our deletion method here and use delete one.
+
+31
+00:02:37,310 --> 00:02:44,990
+And there I wanted to lead the product where the ID is equal to the prod ID but also where the user
+
+32
+00:02:44,990 --> 00:02:47,090
+ID is equal to the request.
+
+33
+00:02:47,180 --> 00:02:49,500
+User ID.
+
+34
+00:02:49,760 --> 00:02:50,920
+So both has to be true.
+
+35
+00:02:50,930 --> 00:02:56,900
+Now the Product ID alone is not enough to user id also asked to match and therefore even if we have
+
+36
+00:02:56,900 --> 00:03:01,730
+a valid user id it will not delete this product if the user ID does not match.
+
+37
+00:03:01,730 --> 00:03:09,530
+So if I saved this and I go to Aben products with the wrong account still and they click delete.
+
+38
+00:03:09,530 --> 00:03:12,330
+You see the product doesn't go anywhere.
+
+39
+00:03:12,380 --> 00:03:14,550
+Still there.
+
+40
+00:03:14,770 --> 00:03:19,940
+Now let me add that filter and get products again so that we can't even see it.
+
+41
+00:03:20,140 --> 00:03:25,480
+And now we have the best possible set up because now we can really only see it in that account where
+
+42
+00:03:25,480 --> 00:03:27,420
+we are able to interact with it.
+
+43
+00:03:27,430 --> 00:03:34,420
+So if I do log in with that valid account there I do see it and there I now all this should be able
+
+44
+00:03:34,420 --> 00:03:38,680
+to edit it though if I try that it fails.
+
+45
+00:03:38,710 --> 00:03:41,290
+So let's explore what's wrong here in the next lecture.
+

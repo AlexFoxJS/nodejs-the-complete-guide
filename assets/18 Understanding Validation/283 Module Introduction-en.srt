@@ -1,0 +1,52 @@
+1
+00:00:02,140 --> 00:00:05,990
+Now what we've learned how to add users to our application.
+
+2
+00:00:06,070 --> 00:00:13,720
+Let's take a step backward and let's have a look at the important topic that is related to any visitor
+
+3
+00:00:13,780 --> 00:00:18,810
+no matter if he or she is of any kind or not interacting with your website.
+
+4
+00:00:18,880 --> 00:00:25,930
+I'm talking about handling user input and most importantly that will be the topic of this module validating
+
+5
+00:00:26,110 --> 00:00:28,000
+that user input.
+
+6
+00:00:28,000 --> 00:00:29,020
+They are offering us more.
+
+7
+00:00:29,020 --> 00:00:32,770
+It will have a look at why validation is important.
+
+8
+00:00:32,770 --> 00:00:38,180
+So what do I mean with validating user input and why would you want to do that.
+
+9
+00:00:38,200 --> 00:00:41,680
+And of course how can we validate user input.
+
+10
+00:00:41,680 --> 00:00:49,330
+These are the core things and I will show you how you can ensure that the data you work with is really
+
+11
+00:00:49,330 --> 00:00:53,560
+that data and in the format you expect to get it.
+
+12
+00:00:53,620 --> 00:00:55,900
+So this is what will dive into in this module.
+
+13
+00:00:55,930 --> 00:01:00,980
+So let's see what exactly validation is and why we would want to add it.
+

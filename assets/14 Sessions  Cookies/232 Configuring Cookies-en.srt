@@ -1,0 +1,304 @@
+1
+00:00:02,080 --> 00:00:03,560
+So he can manipulate cookies.
+
+2
+00:00:03,580 --> 00:00:09,340
+So storing sensitive data is not ideal but I mentioned that for example for tracking users.
+
+3
+00:00:09,460 --> 00:00:12,770
+It's a popular instrument and why is that.
+
+4
+00:00:12,820 --> 00:00:20,020
+Because as you can for example see with the cookies I have here the cookies don't only have to relate
+
+5
+00:00:20,260 --> 00:00:22,260
+to your page.
+
+6
+00:00:22,570 --> 00:00:29,770
+A cookie can also be sent to another page that is a common instrument in tracking where you have that
+
+7
+00:00:29,770 --> 00:00:35,310
+so-called tracking pixel on pages which is simply image you are ill with no real image.
+
+8
+00:00:35,620 --> 00:00:41,620
+But that image can be located on let's say Google's servers and you have a cookie on that page which
+
+9
+00:00:41,620 --> 00:00:43,390
+is also sent along with that.
+
+10
+00:00:43,570 --> 00:00:48,850
+And therefore Google can track on which page you are and how you are moving through the web even if
+
+11
+00:00:48,850 --> 00:00:54,790
+you're not on their Web sites because some data is stored in your client and obviously you could delete
+
+12
+00:00:54,790 --> 00:00:55,720
+it therefore.
+
+13
+00:00:55,720 --> 00:00:58,430
+Which is why you can block such mechanisms too.
+
+14
+00:00:58,570 --> 00:01:04,380
+But it is stored there and it is sent with every request to Google so they can track you without you
+
+15
+00:01:04,390 --> 00:01:05,680
+being on their servers.
+
+16
+00:01:05,770 --> 00:01:11,050
+So storing that information on their servers would not work but storing it on your computer will work
+
+17
+00:01:11,260 --> 00:01:14,630
+because obviously that can be sent on every page you visit.
+
+18
+00:01:14,890 --> 00:01:20,060
+So that is something where it is could be interesting if you want to track your users.
+
+19
+00:01:20,170 --> 00:01:22,520
+That is a very common thing to do.
+
+20
+00:01:22,870 --> 00:01:24,850
+And you can also configure cookies.
+
+21
+00:01:24,940 --> 00:01:30,010
+We set a value but actually you can set more things than just the value here.
+
+22
+00:01:30,060 --> 00:01:34,500
+I set my cookie by adding that key value pair.
+
+23
+00:01:34,510 --> 00:01:39,990
+Now obviously we could add multiple cookies mult multiple key value pairs.
+
+24
+00:01:40,000 --> 00:01:48,770
+We can also add a semi-colon after to the pair and for example set expires to some expiration date this
+
+25
+00:01:48,770 --> 00:01:54,160
+state would have to follow a certain format THAAD date format.
+
+26
+00:01:54,320 --> 00:01:57,830
+All linkit attached to it is video here.
+
+27
+00:01:57,830 --> 00:02:02,450
+So you could set a certain date when this cookie will expire because remember if you don't set this
+
+28
+00:02:02,450 --> 00:02:04,830
+it will expire once you close your browser.
+
+29
+00:02:05,210 --> 00:02:09,540
+Alternatively 2 x bars you can set max age written like this.
+
+30
+00:02:09,710 --> 00:02:13,590
+And this is a number in seconds how long that cookie should stay around.
+
+31
+00:02:13,610 --> 00:02:16,060
+So we could set this to 10 for example.
+
+32
+00:02:16,400 --> 00:02:21,410
+And now if I click that log in button here I got locked in.
+
+33
+00:02:21,620 --> 00:02:26,210
+And now you see the expiry date all have changed here the expiry date.
+
+34
+00:02:26,330 --> 00:02:34,040
+If I decreased debt the expiry date here basically is today and now it already is expired and if I reload
+
+35
+00:02:34,040 --> 00:02:36,630
+that page is locked and it's therefore gone.
+
+36
+00:02:36,800 --> 00:02:38,300
+So this is something we can do.
+
+37
+00:02:39,190 --> 00:02:45,130
+And this is of course interesting if you want to control for example how long you want to track a user
+
+38
+00:02:45,250 --> 00:02:49,250
+or we will actually use that together with authentication later.
+
+39
+00:02:49,300 --> 00:02:55,530
+You could use this to all control how long and authenticated sessions stays active for a user.
+
+40
+00:02:55,600 --> 00:03:01,690
+You might know that from your online bank where you time out after a certain duration you can all to
+
+41
+00:03:01,690 --> 00:03:04,060
+add a domain to which to cookies should be sent.
+
+42
+00:03:04,100 --> 00:03:08,350
+And here we again are on that tracking thing again.
+
+43
+00:03:08,660 --> 00:03:12,560
+You can add secure just like this without an equal sign just secure.
+
+44
+00:03:12,560 --> 00:03:15,950
+This means this cookie will only be set if the page is served y.
+
+45
+00:03:15,980 --> 00:03:17,240
+H t d p s.
+
+46
+00:03:17,240 --> 00:03:23,660
+Now I can demonstrate this here because our local development is not using HVAD b.s. but we will eventually
+
+47
+00:03:23,660 --> 00:03:27,230
+use HTB us later in the course where it will show you how to set this up.
+
+48
+00:03:27,290 --> 00:03:34,040
+So now you can already see how ever that I get an error if I try to reload log in because I try to extract
+
+49
+00:03:34,040 --> 00:03:36,110
+the value which is not there.
+
+50
+00:03:36,450 --> 00:03:42,710
+So for now let's simply comment this out and set this always to false so that I can just show you how
+
+51
+00:03:42,710 --> 00:03:44,140
+this cookie is now not set.
+
+52
+00:03:44,150 --> 00:03:49,880
+If I reloaded and click here you don't see the cookie here because I added secure and it would only
+
+53
+00:03:49,880 --> 00:03:52,370
+be set if we are serving each page.
+
+54
+00:03:52,370 --> 00:03:53,900
+Why are HTP.
+
+55
+00:03:54,200 --> 00:03:56,700
+And you can also set this to HTP only.
+
+56
+00:03:56,780 --> 00:04:01,280
+Now if I do that they go back to log in and I click here.
+
+57
+00:04:01,280 --> 00:04:05,540
+It is set but now it has this checkmark here in the HTP column.
+
+58
+00:04:05,540 --> 00:04:11,310
+And that means that now we can't access to cookie value through client side javascript.
+
+59
+00:04:11,330 --> 00:04:16,880
+So in the scripts running in the browser this can be an important security mechanism because it protects
+
+60
+00:04:16,880 --> 00:04:19,780
+us against cross-site scripting attacks now.
+
+61
+00:04:19,940 --> 00:04:25,760
+Because now your client side javascript where someone could have injected that malicious code can't
+
+62
+00:04:25,760 --> 00:04:31,610
+read your cookie values and that will be important later with authentication where a cookie will not
+
+63
+00:04:31,710 --> 00:04:38,820
+stored the sensitive information but an important part of authenticating the user.
+
+64
+00:04:38,840 --> 00:04:45,020
+So this can be an extra security layer because now the cookie will still be attached to every request
+
+65
+00:04:45,080 --> 00:04:46,470
+that is sent to the server.
+
+66
+00:04:46,610 --> 00:04:51,270
+But you can't read the cookie value from inside the browser Javascript code.
+
+67
+00:04:51,320 --> 00:04:56,100
+Obviously as you can tell as a user and developer tools you can still read it.
+
+68
+00:04:56,150 --> 00:05:01,730
+But then again it's your own cookie and you will not store information like hey I'm locked in there
+
+69
+00:05:01,790 --> 00:05:06,430
+because Dad would be easy to manipulate and you can't protect against that.
+
+70
+00:05:06,440 --> 00:05:09,310
+These are the key values you can set here.
+
+71
+00:05:09,470 --> 00:05:11,600
+And this gives you a lot of flexibility.
+
+72
+00:05:11,600 --> 00:05:18,620
+That being said often you will not directly set your cookies because you robery use some packages like
+
+73
+00:05:18,620 --> 00:05:26,390
+for example for authentication that will manage setting the cookie for you and that is something which
+
+74
+00:05:26,390 --> 00:05:33,560
+I'll dive into in the next lectures where we dive into sessions what sessions are how they can help
+
+75
+00:05:33,560 --> 00:05:40,880
+us with storing sensitive information across requests and how cookies still are important when using
+
+76
+00:05:40,880 --> 00:05:41,510
+sessions.
+

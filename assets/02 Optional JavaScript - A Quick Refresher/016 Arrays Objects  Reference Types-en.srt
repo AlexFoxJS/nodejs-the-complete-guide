@@ -1,0 +1,108 @@
+1
+00:00:02,240 --> 00:00:04,860
+Knouted we learn about objects and their race.
+
+2
+00:00:04,870 --> 00:00:10,540
+There's one common misconception I sometimes see in the Q and A section.
+
+3
+00:00:10,540 --> 00:00:16,540
+Please check out that video I linked earlier in this article where I talk about primitive and reference
+
+4
+00:00:16,540 --> 00:00:20,130
+types and Javascript because that is a crucial concept.
+
+5
+00:00:20,380 --> 00:00:26,680
+Objects and arrays are so-called reference types and you'll learn all about that and what that is in
+
+6
+00:00:26,680 --> 00:00:27,410
+the linked video.
+
+7
+00:00:27,440 --> 00:00:29,520
+So I'm not going to re-explain it here.
+
+8
+00:00:29,950 --> 00:00:38,530
+They are reference types and therefore when I store an array in a constant hobby's I can still edit
+
+9
+00:00:38,630 --> 00:00:46,070
+disarrayed without violating the restriction that constants must not change.
+
+10
+00:00:46,120 --> 00:00:49,820
+Let me prove that to you via comment.
+
+11
+00:00:49,830 --> 00:00:54,890
+They are out and they add a new line here and I use a number image method.
+
+12
+00:00:54,940 --> 00:00:58,860
+The push method which allows me to add a new element to the existing array.
+
+13
+00:00:59,100 --> 00:01:01,110
+So this will not return a new array.
+
+14
+00:01:01,110 --> 00:01:03,140
+It will add to the existing array.
+
+15
+00:01:03,300 --> 00:01:07,420
+And here I will add programming over.
+
+16
+00:01:07,490 --> 00:01:17,110
+Now console lock hobbies ofter pushing and a run node play Geass you'll see that Asti output and we
+
+17
+00:01:17,110 --> 00:01:20,860
+get no error or about editing this constant.
+
+18
+00:01:20,860 --> 00:01:30,220
+The reason for that is that reference types only store an address pointing at the place in memory where
+
+19
+00:01:30,220 --> 00:01:37,120
+that array is stored and that pointer does address has not changed by us adding a new element.
+
+20
+00:01:37,360 --> 00:01:44,290
+Sort of thing stored and as constant is just as pointer just does address and this has not changed.
+
+21
+00:01:44,350 --> 00:01:50,600
+Therefore our constant value has not changed the thing it's pointing at has changed.
+
+22
+00:01:50,680 --> 00:01:53,410
+But that totally does not matter here.
+
+23
+00:01:53,800 --> 00:01:58,470
+And this is something you have to understand so that you don't wonder what's going on.
+
+24
+00:01:58,600 --> 00:02:03,390
+When we do edit in quotation marks a constant value.
+
+25
+00:02:03,460 --> 00:02:06,610
+We're not really editing a thing that is stored in a constant.
+
+26
+00:02:06,730 --> 00:02:08,540
+We're only editing the thing.
+
+27
+00:02:08,680 --> 00:02:11,380
+That constant thing is pointing at.
+

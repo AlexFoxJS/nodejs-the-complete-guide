@@ -1,0 +1,172 @@
+1
+00:00:02,560 --> 00:00:04,660
+So we get a result and that's great.
+
+2
+00:00:04,660 --> 00:00:10,680
+Now first of all that salt had some cryptic body which was a readable Stream.
+
+3
+00:00:10,690 --> 00:00:16,030
+Now what we can do here in the then block is we can return a result Jason which is a function that will
+
+4
+00:00:16,030 --> 00:00:19,770
+throw a new promise or return on your promise so I can add a number.
+
+5
+00:00:19,770 --> 00:00:22,150
+Then block and here I will have the data.
+
+6
+00:00:22,170 --> 00:00:28,330
+So the response body I don't necessarily need that but I want to show you how you could get that data
+
+7
+00:00:28,360 --> 00:00:30,990
+that's getting returned by the server.
+
+8
+00:00:31,000 --> 00:00:35,340
+More importantly I know that either here or here doesn't matter.
+
+9
+00:00:35,380 --> 00:00:38,640
+I have a response so the item was deleted on the server.
+
+10
+00:00:38,770 --> 00:00:42,050
+And now I want to delete it here in the dorm as well.
+
+11
+00:00:42,050 --> 00:00:43,640
+Now how can we do that.
+
+12
+00:00:44,170 --> 00:00:50,510
+Well we got access to the button on which we clicked right and the button is in the end inside of the
+
+13
+00:00:50,520 --> 00:00:51,510
+whole Dom element.
+
+14
+00:00:51,510 --> 00:00:52,400
+You want to delete.
+
+15
+00:00:52,570 --> 00:00:55,600
+So it is this article which I want to delete.
+
+16
+00:00:55,660 --> 00:01:02,350
+So therefore what I have to do is I have to find this article based on this button and that's relatively
+
+17
+00:01:02,350 --> 00:01:03,630
+straightforward to do.
+
+18
+00:01:05,070 --> 00:01:10,990
+My product element and you can name this constant however you want is basically my button.
+
+19
+00:01:11,100 --> 00:01:17,340
+And then there is a closest method provided by javascript and you pass a selector to close just which
+
+20
+00:01:17,340 --> 00:01:23,160
+gives you the closest element with that selector and the closest ancestor element to be precise.
+
+21
+00:01:23,160 --> 00:01:29,220
+And there I will simply use article because I only have one article in my ancestor history year for
+
+22
+00:01:29,220 --> 00:01:30,280
+this button.
+
+23
+00:01:30,360 --> 00:01:36,380
+So if I select my closest article that should be the element I want to delete.
+
+24
+00:01:36,420 --> 00:01:37,700
+So inside here.
+
+25
+00:01:37,740 --> 00:01:45,030
+Let's say I can call product element remove that is a function that will not be supported in Internet
+
+26
+00:01:45,030 --> 00:01:45,830
+Explorer.
+
+27
+00:01:45,840 --> 00:01:52,620
+There you would have to access the parent node and then remove a child
+
+28
+00:01:55,680 --> 00:01:59,700
+and that child would be the product elements of that is code that works in every browser.
+
+29
+00:01:59,700 --> 00:02:02,490
+Remove would work in all modern browsers.
+
+30
+00:02:02,670 --> 00:02:04,200
+Now is that in place.
+
+31
+00:02:04,760 --> 00:02:07,150
+We can reload this page here and now.
+
+32
+00:02:07,150 --> 00:02:10,010
+Click on delete it will eventually be gone.
+
+33
+00:02:10,040 --> 00:02:12,880
+And here we see our success message.
+
+34
+00:02:12,900 --> 00:02:17,210
+Now just to validate that it really only deletes one element and not all elements.
+
+35
+00:02:17,210 --> 00:02:21,810
+Let me log in with my user who also has two products I candlelit.
+
+36
+00:02:22,160 --> 00:02:23,560
+These two products.
+
+37
+00:02:23,720 --> 00:02:32,200
+And now let's go to Aben product delete the boat let's say and now only the dock left.
+
+38
+00:02:32,220 --> 00:02:33,300
+So this is great.
+
+39
+00:02:33,480 --> 00:02:39,500
+And indeed if I go to products this data really has gone icon loaded here.
+
+40
+00:02:39,750 --> 00:02:42,650
+So this is how you can use asynchronous requests.
+
+41
+00:02:42,660 --> 00:02:48,480
+Now of course there is more you can do on the client side but this is not a client side javascript course.
+
+42
+00:02:48,510 --> 00:02:55,470
+The important thing here is that you can send data to your backend with the help with these asynchronous
+
+43
+00:02:55,470 --> 00:02:59,520
+requests and how you can include data and how you can handle that on the backend.
+

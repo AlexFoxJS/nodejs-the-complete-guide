@@ -1,0 +1,232 @@
+1
+00:00:02,650 --> 00:00:07,110
+So what is wrong with this right file sync line here.
+
+2
+00:00:07,630 --> 00:00:09,600
+Well it's to sync keyword.
+
+3
+00:00:09,700 --> 00:00:18,010
+I earlier mentioned that there also is a right file method but we use write false sync to sync here
+
+4
+00:00:18,070 --> 00:00:26,680
+stands for synchronous and this is a special method which will actually block code execution until this
+
+5
+00:00:26,680 --> 00:00:28,990
+file is created.
+
+6
+00:00:28,990 --> 00:00:33,130
+Now working with files is a way Lebel in two modes.
+
+7
+00:00:33,190 --> 00:00:40,450
+Here is the synchronous mode block execution of the next line of code until this file is done.
+
+8
+00:00:40,450 --> 00:00:46,140
+Now for this short of a text we enter does a super fast and we won't even notice it.
+
+9
+00:00:46,420 --> 00:00:53,770
+But think about a huge file a couple of hundreds of megabytes or even bigger if you do something with
+
+10
+00:00:53,770 --> 00:00:54,320
+that.
+
+11
+00:00:54,370 --> 00:00:59,800
+Read it copy it whatever it is and you block the code execution.
+
+12
+00:01:00,130 --> 00:01:06,570
+Then the next line and all the code will not continue to run until dat file operation is done.
+
+13
+00:01:06,880 --> 00:01:14,150
+And even new incoming requests of average users would not be handled until that final operation is done.
+
+14
+00:01:14,530 --> 00:01:19,500
+And you don't want that therefore you should not use that syntax here.
+
+15
+00:01:19,630 --> 00:01:26,140
+You can if you know you'll only have a very short fall operation but even then it's better to use disk
+
+16
+00:01:26,140 --> 00:01:34,310
+write file method here which actually does not just accept the POF and the data but also a Furt argument
+
+17
+00:01:34,720 --> 00:01:36,850
+and that is again such a callback.
+
+18
+00:01:36,880 --> 00:01:41,110
+So a function that should be executed when it's done.
+
+19
+00:01:41,140 --> 00:01:49,650
+So here again just as with create server no J.S. implicitly registers an event listener for us.
+
+20
+00:01:49,670 --> 00:01:59,270
+So here I-PASS another function and does call back here actually receives an error or object which will
+
+21
+00:01:59,270 --> 00:02:01,940
+be NULL if no error occurred.
+
+22
+00:02:01,940 --> 00:02:07,330
+But if some error occurred missing permissions or anything like that you would get it here and you could
+
+23
+00:02:07,330 --> 00:02:14,210
+then handle it gracefully by returning a different kind of response error response showing to the user
+
+24
+00:02:14,210 --> 00:02:15,420
+that an error occurred.
+
+25
+00:02:15,680 --> 00:02:18,800
+And why is return a normal response now here.
+
+26
+00:02:18,830 --> 00:02:22,950
+I won't do error handling and there is really nothing that could go wrong here.
+
+27
+00:02:22,970 --> 00:02:26,930
+We'll of course dive into error handling a bit more later in the course.
+
+28
+00:02:26,930 --> 00:02:34,040
+But I will move my normal response code in there because this response should only be sent if we're
+
+29
+00:02:34,040 --> 00:02:38,600
+done working with the file because that is all automated action.
+
+30
+00:02:38,630 --> 00:02:41,170
+We want to do up on our request right.
+
+31
+00:02:41,690 --> 00:02:48,440
+So now we actually have our event listener with some method or function that will be executed once we're
+
+32
+00:02:48,440 --> 00:02:50,300
+done parsing the request.
+
+33
+00:02:50,390 --> 00:02:53,850
+And in that function it will be executed sometime in the future.
+
+34
+00:02:53,960 --> 00:02:59,780
+We have yet another event listener this nested function year which will be executed once we're done
+
+35
+00:02:59,780 --> 00:03:04,130
+writing the file and does is actually pretty standard for No.
+
+36
+00:03:04,170 --> 00:03:12,490
+Yes you have this event driven architecture where you basically tell no Chase please do something and
+
+37
+00:03:12,500 --> 00:03:17,990
+it will then go ahead and offload that process to the operating system which does use multi-threading
+
+38
+00:03:17,990 --> 00:03:25,520
+and so on and will then continue its event loop to listen for an event callbacks and always just dispatch
+
+39
+00:03:25,850 --> 00:03:33,050
+tiny actions like debt to never block to code execution and then always just come back once an operation
+
+40
+00:03:33,050 --> 00:03:35,360
+is done by the operating system and so on.
+
+41
+00:03:35,540 --> 00:03:39,750
+So does this what no chase does here and why it is high performance.
+
+42
+00:03:39,830 --> 00:03:41,720
+Because it never blocks your code.
+
+43
+00:03:41,780 --> 00:03:43,550
+It never blocks the server.
+
+44
+00:03:43,670 --> 00:03:49,550
+It just goes ahead and tells the operating system do that do this and then eventually comes back and
+
+45
+00:03:49,550 --> 00:03:55,110
+does something in the call they like send the response which is not a blocking operation because it
+
+46
+00:03:55,110 --> 00:03:58,770
+is a super fast just a couple of headers and off you go.
+
+47
+00:03:59,210 --> 00:04:00,460
+So I hope this is clear.
+
+48
+00:04:00,500 --> 00:04:10,040
+And with that let's restart this by getting the server running node app and going back to just slash
+
+49
+00:04:10,460 --> 00:04:11,010
+nothing
+
+50
+00:04:14,930 --> 00:04:23,770
+Let's enter Hello again here and send and in message text we see that again concatenated with an extra
+
+51
+00:04:23,770 --> 00:04:26,970
+character not something we have to worry about right now.
+
+52
+00:04:27,100 --> 00:04:29,670
+So you see right file all of the works.
+
+53
+00:04:29,680 --> 00:04:36,220
+But does this the way you should use it due to the asynchronous nature of no chess which I hope now
+
+54
+00:04:36,220 --> 00:04:43,510
+became clear because it is a crucial concept of no chess and one you absolutely have to understand.
+
+55
+00:04:43,750 --> 00:04:50,590
+With that let's wrap this module up with these core basics and let's from now on to move to a more easier
+
+56
+00:04:50,590 --> 00:04:54,370
+route where we will make our life simpler and not right.
+
+57
+00:04:54,400 --> 00:04:57,520
+All this nitty gritty detail code on our own.
+
+58
+00:04:57,670 --> 00:05:01,980
+But it is super crucial that you understand what's going on here.
+

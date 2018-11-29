@@ -1,0 +1,128 @@
+1
+00:00:02,400 --> 00:00:07,880
+We learn about associations and that we get these cool magic methods you're about which you can learn
+
+2
+00:00:07,880 --> 00:00:09,480
+more in the official docs of course.
+
+3
+00:00:09,530 --> 00:00:14,860
+Now which implication status have for our Ivor Edmund Jr's actions.
+
+4
+00:00:14,930 --> 00:00:20,690
+Well get that product there's no implication we fetch a single product year and we can do this of before
+
+5
+00:00:20,930 --> 00:00:22,940
+we don't really care about the user here.
+
+6
+00:00:23,090 --> 00:00:29,240
+You could argue that you only want to find products for the currently locked and user though then what
+
+7
+00:00:29,240 --> 00:00:37,370
+you actually want to do is you want to use request user get products
+
+8
+00:00:40,500 --> 00:00:49,340
+and there to find where ID equals Pre-OT ID to also have that folder and then you can change your normal
+
+9
+00:00:49,340 --> 00:00:57,380
+then call and so on with that if you click on edit we see an empty form because it generally did work
+
+10
+00:00:57,410 --> 00:01:03,050
+and we see the sequel statement here where it simply looks for a product with the user id D1 and that
+
+11
+00:01:03,050 --> 00:01:07,700
+is not the condition we wrote were responsible for this part where it then also never stolen the product
+
+12
+00:01:07,700 --> 00:01:12,910
+ID but user ID 1 was added by sequel eyes because we used get products on the user.
+
+13
+00:01:13,250 --> 00:01:17,780
+But keep in mind here we get back in array even if it only holds one element.
+
+14
+00:01:17,780 --> 00:01:25,790
+So if we got products and therefore we know that one product the one we are interested in will always
+
+15
+00:01:25,790 --> 00:01:27,410
+be the first element.
+
+16
+00:01:27,770 --> 00:01:30,670
+So we have to store that separately in the new content.
+
+17
+00:01:30,860 --> 00:01:33,650
+And now if we reload this this works.
+
+18
+00:01:33,680 --> 00:01:40,580
+So this is a more elegant way though we could also still only use the ID if we want to use the old approach
+
+19
+00:01:41,750 --> 00:01:45,420
+if we move on for a post editing a product there.
+
+20
+00:01:45,450 --> 00:01:51,530
+I'm fine with finding a product like this because if we are at this point I assume we already have a
+
+21
+00:01:51,530 --> 00:01:53,130
+product for this user only.
+
+22
+00:01:53,300 --> 00:01:56,280
+So if I updated like this it's fine.
+
+23
+00:01:57,100 --> 00:02:02,680
+Now get product should change instead of finding all products I want to find price for this user.
+
+24
+00:02:02,860 --> 00:02:07,800
+So a call get products like dat which will give me all products for this user.
+
+25
+00:02:08,230 --> 00:02:10,220
+And then I can render them here.
+
+26
+00:02:10,540 --> 00:02:17,080
+So for now I'll go to admen products I see the products for days user here because this select statement
+
+27
+00:02:17,080 --> 00:02:24,200
+gets executed where we narrow down the user to the user with the ID 1 and post delete product.
+
+28
+00:02:24,250 --> 00:02:28,140
+Here again we could only find a product for it as user with this ID.
+
+29
+00:02:28,180 --> 00:02:30,170
+I'm fine with this setup though.
+
+30
+00:02:31,060 --> 00:02:34,450
+So some tiny changes showing you more of that power.
+
+31
+00:02:34,450 --> 00:02:38,970
+Sequel lives gives you four associated models.
+
+32
+00:02:38,970 --> 00:02:44,540
+Let's next have a look at how we can reintroduce the cart to our application.
+

@@ -1,0 +1,124 @@
+1
+00:00:02,140 --> 00:00:06,930
+Now that the core basics about no chase and express chairs are set.
+
+2
+00:00:06,940 --> 00:00:13,450
+It's time that we work more on what the user sees because ultimately we obviously want to build an application
+
+3
+00:00:13,750 --> 00:00:17,400
+which delivers some value to our users right now.
+
+4
+00:00:17,410 --> 00:00:25,000
+Thus far we're always returning static HVM pages and typically does is not what you do in real applications
+
+5
+00:00:25,030 --> 00:00:28,480
+because you don't just have static H.T. mail code.
+
+6
+00:00:28,480 --> 00:00:34,690
+Most of the time instead it is pretty common that you have some data managed on your server.
+
+7
+00:00:34,780 --> 00:00:40,480
+Later we will also do that in the database that you have some data on your server which you want to
+
+8
+00:00:40,480 --> 00:00:45,310
+dynamically output in the aged female code you sent back to your users.
+
+9
+00:00:45,310 --> 00:00:48,690
+An example would be a page with a list of products.
+
+10
+00:00:48,790 --> 00:00:52,190
+Where do these products of course are coming from your database.
+
+11
+00:00:52,270 --> 00:01:00,220
+So from your server or for example we already have a very simple form where people can submit a new
+
+12
+00:01:00,220 --> 00:01:01,520
+product title.
+
+13
+00:01:01,690 --> 00:01:05,920
+Well right now we're not really doing anything with that in a real application.
+
+14
+00:01:05,920 --> 00:01:11,380
+You would obviously want to store that and then kind of return it in some other page where you have
+
+15
+00:01:11,380 --> 00:01:13,990
+that list of products I already mentioned.
+
+16
+00:01:13,990 --> 00:01:22,030
+So as module we will have a first look at how we can start managing data on a node Express back end
+
+17
+00:01:22,390 --> 00:01:24,240
+for now without a database.
+
+18
+00:01:24,250 --> 00:01:30,850
+No worries there will be a very extensive module about that data basis in this course so you will learn
+
+19
+00:01:31,060 --> 00:01:32,780
+how to interact with the database too.
+
+20
+00:01:32,800 --> 00:01:40,060
+But for now let's just manage data like this and let's focus on something else here on rendering dynamic
+
+21
+00:01:40,270 --> 00:01:44,020
+for now dummy content in the U.S..
+
+22
+00:01:44,020 --> 00:01:50,980
+So these all pages which we're returning should now become more dynamic and actually contain some content
+
+23
+00:01:51,160 --> 00:01:57,280
+that is dynamically entered into them on the server so that if we had additional data on the server
+
+24
+00:01:57,460 --> 00:02:02,740
+we would send back a different HTL page with different content.
+
+25
+00:02:02,970 --> 00:02:10,180
+And this will use something called a templating engine and you will learn how such templating engines
+
+26
+00:02:10,270 --> 00:02:12,090
+there is more than one alternative.
+
+27
+00:02:12,100 --> 00:02:15,190
+And I will present some alternatives in this module.
+
+28
+00:02:15,190 --> 00:02:18,450
+You'll learn how they work and how you can use them.
+
+29
+00:02:18,460 --> 00:02:20,150
+So this is what's in this module.
+
+30
+00:02:20,200 --> 00:02:27,190
+And with that let's dive right into it and let's have a look at how we could manage that data before
+
+31
+00:02:27,190 --> 00:02:28,990
+we then have a look at how we could output it.
+

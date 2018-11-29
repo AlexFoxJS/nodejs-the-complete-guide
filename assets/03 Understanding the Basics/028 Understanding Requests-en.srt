@@ -1,0 +1,164 @@
+1
+00:00:02,130 --> 00:00:05,770
+So let's go back to the request object relocked here.
+
+2
+00:00:05,890 --> 00:00:08,100
+Now important just to keep that in mind.
+
+3
+00:00:08,220 --> 00:00:15,840
+This request object is the object no chaced generated for us with all the data off the incoming request.
+
+4
+00:00:15,840 --> 00:00:22,860
+When we visited localhost few thousand which we in turn can do because we listened to requests on that
+
+5
+00:00:23,040 --> 00:00:24,220
+port.
+
+6
+00:00:24,240 --> 00:00:27,830
+So this is the request object if we have a look at it.
+
+7
+00:00:27,840 --> 00:00:30,080
+We see it's a very complex optic.
+
+8
+00:00:30,090 --> 00:00:31,880
+There's lots of data in it.
+
+9
+00:00:31,960 --> 00:00:33,400
+It's not just data.
+
+10
+00:00:33,420 --> 00:00:36,930
+These are also partly functions we can call and so on.
+
+11
+00:00:37,080 --> 00:00:43,450
+So this is quite a complex object but we all see that for example we have some hetero's here headers
+
+12
+00:00:43,530 --> 00:00:51,490
+as I mentioned earlier our meta data meta information added to a request and also two responses by way.
+
+13
+00:00:51,510 --> 00:00:56,940
+And there we see for example the host this was sent to the request was sent to you.
+
+14
+00:00:57,030 --> 00:00:59,600
+We saw Zalm headers attached by the browser.
+
+15
+00:00:59,610 --> 00:01:05,850
+Like for example of how the response data should be cached and stuff like that which browser we used
+
+16
+00:01:05,850 --> 00:01:13,320
+for data request which kind of response we would accept that we accept some age Tim L A SML and so on
+
+17
+00:01:13,320 --> 00:01:19,770
+that we would accept and coded responses so where the response is actually many fights to well save
+
+18
+00:01:19,800 --> 00:01:21,780
+bandwidth and so on.
+
+19
+00:01:21,950 --> 00:01:23,450
+Gerald It was a cookie attached.
+
+20
+00:01:23,460 --> 00:01:26,520
+Even we have learned about cookies yet we will sell later.
+
+21
+00:01:26,610 --> 00:01:35,580
+But this was attached some Google Analytics cookie we saw which HTP question was you asked and so on.
+
+22
+00:01:35,580 --> 00:01:41,250
+So there's a lot we can gain from that request but a bit too much.
+
+23
+00:01:41,350 --> 00:01:46,010
+Now there are only a few important fields you typically need.
+
+24
+00:01:46,050 --> 00:01:51,300
+The first important or interesting field is you are.
+
+25
+00:01:51,840 --> 00:01:57,540
+Let's output debt and let's all the output you can output more than one value by separating them with
+
+26
+00:01:57,540 --> 00:02:03,430
+Comus request Methot and all the request headers here.
+
+27
+00:02:03,750 --> 00:02:04,590
+That's output.
+
+28
+00:02:04,770 --> 00:02:09,090
+Free values and restart the server with node actually.
+
+29
+00:02:09,150 --> 00:02:14,180
+So now it's again listening and let's reload that page on localhost three thousand.
+
+30
+00:02:14,490 --> 00:02:17,700
+We do so now we see the output has changed.
+
+31
+00:02:17,760 --> 00:02:23,730
+We still have all the headers stuff because we're outputting request headers but prior to that we output
+
+32
+00:02:23,760 --> 00:02:30,950
+the method which you see here it's get and two-CD you are ill and you are elist justice slash here because
+
+33
+00:02:31,040 --> 00:02:31,790
+you are l.
+
+34
+00:02:31,860 --> 00:02:37,500
+It's basically everything ofter our host and we just have localhost.
+
+35
+00:02:37,620 --> 00:02:39,080
+Well nothing.
+
+36
+00:02:39,080 --> 00:02:42,400
+And that basically translates to local host slash.
+
+37
+00:02:42,510 --> 00:02:51,900
+If I had slash test now we see a number output and there we see slash test being locked here and then
+
+38
+00:02:51,940 --> 00:02:54,900
+also get for the method and our headers.
+
+39
+00:02:54,900 --> 00:03:00,160
+So this is basically how we can access some information about our request.
+
+40
+00:03:00,240 --> 00:03:04,620
+Now one crucial thing that is missing here is the response.
+
+41
+00:03:04,620 --> 00:03:08,160
+So let's have a look at sending responses in the next lecture.
+

@@ -1,0 +1,236 @@
+1
+00:00:02,360 --> 00:00:09,710
+Let's make sure we can all get all posts in for that I'll start on the back and in my schema again getting
+
+2
+00:00:09,710 --> 00:00:11,790
+data of course is a normal Ikari.
+
+3
+00:00:12,040 --> 00:00:17,730
+So next to log in I'll add a query and I'll name it posts you can name it however you want.
+
+4
+00:00:17,870 --> 00:00:20,360
+I don't need any arguments here.
+
+5
+00:00:20,390 --> 00:00:27,160
+I instead can directly define my return type and that will actually not be an array of posts.
+
+6
+00:00:27,170 --> 00:00:29,080
+As you might have expected.
+
+7
+00:00:29,360 --> 00:00:35,870
+But actually I'll create a new type for debt because remember that in the rest API We also did not just
+
+8
+00:00:35,870 --> 00:00:42,860
+return an array of posts but for page anation also a number that specified our total amount of posts
+
+9
+00:00:43,070 --> 00:00:44,450
+in the database.
+
+10
+00:00:44,810 --> 00:00:47,540
+So I will try the new type and I'll name it.
+
+11
+00:00:47,540 --> 00:00:56,780
+POST data which now has a post's key and that will be my array of posts and I'll also have a total posts
+
+12
+00:00:56,780 --> 00:01:01,480
+field here which will be an integer now.
+
+13
+00:01:01,490 --> 00:01:07,420
+POST data is what my query here should return.
+
+14
+00:01:07,600 --> 00:01:11,180
+And now we need a resolver for that.
+
+15
+00:01:11,230 --> 00:01:15,770
+So let's head over to resolvers and there all add posts.
+
+16
+00:01:15,910 --> 00:01:16,690
+All right.
+
+17
+00:01:16,720 --> 00:01:25,000
+As a async function like this I will actually not care about the first argument for now.
+
+18
+00:01:25,000 --> 00:01:25,790
+My artics.
+
+19
+00:01:25,930 --> 00:01:31,360
+But I will need the request to find out whether the user is authenticated that is actually the first
+
+20
+00:01:31,360 --> 00:01:34,300
+thing I'll check and I'll copy the check from create.
+
+21
+00:01:34,300 --> 00:01:38,710
+Post this if statement here and I'll add it here.
+
+22
+00:01:40,490 --> 00:01:46,760
+Now if the request is not if indicated if the user is not the indicated of row an error Arbre Why is
+
+23
+00:01:46,880 --> 00:01:49,320
+a later add some pagination logic.
+
+24
+00:01:49,400 --> 00:01:57,260
+But for now I want to find the total number of posts and then all posts so total posts can be found
+
+25
+00:01:57,620 --> 00:01:58,740
+while waiting.
+
+26
+00:01:58,970 --> 00:02:10,800
+Post find this gives me all posts and then count documents the posts themselves can be found by using
+
+27
+00:02:10,800 --> 00:02:14,280
+a weight on post find like this and again later.
+
+28
+00:02:14,280 --> 00:02:22,270
+I will also add skip and limit for now only at sort and I will sort by created add in descending order.
+
+29
+00:02:22,290 --> 00:02:28,980
+I will also populate my creator to fetch the full user data with the name and so on because I'll need
+
+30
+00:02:29,040 --> 00:02:32,260
+all that on the front end.
+
+31
+00:02:32,340 --> 00:02:35,810
+So here I get my posts.
+
+32
+00:02:35,880 --> 00:02:38,850
+Now we can already return some data.
+
+33
+00:02:38,850 --> 00:02:42,210
+I'll return an object and that object has to look like.
+
+34
+00:02:42,220 --> 00:02:49,010
+I did find it in my schema so it has to be an object with a post key and a total posts key.
+
+35
+00:02:50,430 --> 00:02:57,960
+So in that object I'll add posts and that will be the posts I've fetched here and total posts which
+
+36
+00:02:57,960 --> 00:03:00,650
+will be total posts now.
+
+37
+00:03:00,710 --> 00:03:06,570
+Posts will not be returned like this because there would be fields like underscore ID or treated at
+
+38
+00:03:06,570 --> 00:03:11,130
+which hold data formats that are not understood by graph Q L.
+
+39
+00:03:11,130 --> 00:03:15,250
+So instead I will add map here and you'll learn about map.
+
+40
+00:03:15,270 --> 00:03:21,460
+For example in the javascript refresher which allows me to transform every element in that array.
+
+41
+00:03:21,870 --> 00:03:29,530
+So here I will return a new object for every post which will generally be the same so I will pull out
+
+42
+00:03:29,530 --> 00:03:33,130
+the existing elements on the post document.
+
+43
+00:03:33,340 --> 00:03:40,600
+But then I will override the ID with the underscore ID to string to return a string and for a created
+
+44
+00:03:40,600 --> 00:03:41,280
+at.
+
+45
+00:03:41,290 --> 00:03:50,370
+I will use p created at Q iso a string and the same for updated at where I will use be updated at 2
+
+46
+00:03:50,410 --> 00:03:51,370
+Isel string.
+
+47
+00:03:51,520 --> 00:03:57,580
+And this is now how I will transform my posts every single post in the post Saray and they are for the
+
+48
+00:03:57,580 --> 00:03:59,170
+overall array.
+
+49
+00:03:59,240 --> 00:04:04,660
+Does this back and desist schema and the resolver set up for getting posts.
+
+50
+00:04:04,660 --> 00:04:07,320
+Now let's test this on graphical.
+
+51
+00:04:07,520 --> 00:04:13,910
+Here let me reload that page and there I will run a new query.
+
+52
+00:04:14,770 --> 00:04:16,720
+Which will be called posts.
+
+53
+00:04:18,150 --> 00:04:23,280
+And let's say they are interested in both the posts and total posts.
+
+54
+00:04:24,300 --> 00:04:27,410
+Posts is an array of complex objects.
+
+55
+00:04:27,450 --> 00:04:30,610
+So there I also need to specify what I want to get out of there.
+
+56
+00:04:30,710 --> 00:04:35,800
+Let's say I'm interested in the Id the title and the content.
+
+57
+00:04:36,030 --> 00:04:41,640
+And now I had control enter and I get not authenticated which is correct because I am not sending a
+
+58
+00:04:41,640 --> 00:04:49,170
+token here so that is the next step will send requests from the front and add our token and then of
+
+59
+00:04:49,170 --> 00:04:51,150
+course also render our posts.
+

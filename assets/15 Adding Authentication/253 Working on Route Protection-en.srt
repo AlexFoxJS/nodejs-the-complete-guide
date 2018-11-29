@@ -1,0 +1,124 @@
+1
+00:00:02,130 --> 00:00:05,130
+Knouted we are able to sign up and sign in.
+
+2
+00:00:05,220 --> 00:00:07,370
+We have to work on route protection.
+
+3
+00:00:07,410 --> 00:00:12,740
+We already have a set up where we only show the menu options we should be able to interact with.
+
+4
+00:00:12,960 --> 00:00:22,020
+But even when I log out and they offer Mei's session is gone even when I do that I can still manually
+
+5
+00:00:22,020 --> 00:00:28,200
+enter admin at product and reach that page and I could even try to create a product here.
+
+6
+00:00:28,290 --> 00:00:33,900
+I would fail then because there would be no user object on the back and where I tried to get locked
+
+7
+00:00:33,900 --> 00:00:34,610
+in user.
+
+8
+00:00:34,710 --> 00:00:36,360
+But this is not user experience.
+
+9
+00:00:36,360 --> 00:00:37,280
+You want to offer.
+
+10
+00:00:37,320 --> 00:00:41,130
+We don't even want to be able to load this page if we're not locked in.
+
+11
+00:00:41,130 --> 00:00:44,480
+And for that we need to protect our routes.
+
+12
+00:00:44,490 --> 00:00:46,490
+Now how do we protect routes.
+
+13
+00:00:46,770 --> 00:00:52,990
+Well to protect routes we want to check where the user is authenticated before we render back.
+
+14
+00:00:53,010 --> 00:00:55,260
+Let's say at product page.
+
+15
+00:00:55,260 --> 00:01:02,790
+So an admin and the admin controller in get at product which loads that page before we rendered it.
+
+16
+00:01:02,790 --> 00:01:08,220
+Page I want to check if in the request session is locked in a set.
+
+17
+00:01:08,550 --> 00:01:15,450
+And to be precise I want to check if it's not set because if this is not true the user is not locked
+
+18
+00:01:15,450 --> 00:01:17,180
+in.
+
+19
+00:01:17,390 --> 00:01:21,490
+And if the user is not locked in then I want to redirect.
+
+20
+00:01:21,710 --> 00:01:24,470
+Let's say to the logon page like this.
+
+21
+00:01:24,470 --> 00:01:31,720
+So then since I return here this code will not execute and it won't load the added product page.
+
+22
+00:01:31,750 --> 00:01:33,930
+So now let me try to reload this page.
+
+23
+00:01:33,940 --> 00:01:38,690
+Keep in mind I'm not locked in and I'm on the logon page.
+
+24
+00:01:38,690 --> 00:01:39,370
+So this works.
+
+25
+00:01:39,410 --> 00:01:43,350
+I am redirected here because sessional locked in is not set.
+
+26
+00:01:43,700 --> 00:01:45,910
+On the other hand if I do a log in now.
+
+27
+00:01:46,040 --> 00:01:52,310
+So if I do enter my valid credentials you're try to access add product.
+
+28
+00:01:52,410 --> 00:01:56,570
+This does work because now I make it past it check.
+
+29
+00:01:56,750 --> 00:02:02,740
+Now this is a code we could add to every route which we want to protect but adding it like this is a
+
+30
+00:02:02,740 --> 00:02:04,420
+bit cumbersome.
+
+31
+00:02:04,450 --> 00:02:10,800
+So let me show you a better way of protecting our routes we're a more scalable way in the next lecture.
+

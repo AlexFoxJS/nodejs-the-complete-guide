@@ -1,0 +1,440 @@
+1
+00:00:02,070 --> 00:00:04,990
+That we had a very close look at the whole middleware thing.
+
+2
+00:00:05,000 --> 00:00:10,300
+Let's now understand how we can actually work with incoming requests and how we can extract data and
+
+3
+00:00:10,300 --> 00:00:10,740
+for it.
+
+4
+00:00:10,760 --> 00:00:13,870
+I again want to be able to handle a POST request.
+
+5
+00:00:14,030 --> 00:00:16,940
+So let's say on add product here.
+
+6
+00:00:17,390 --> 00:00:24,620
+I went to actually return a HTML page with a form for that I'll again return a form and just as a side
+
+7
+00:00:24,620 --> 00:00:28,700
+note does of course is a bit of a incomplete h tim document.
+
+8
+00:00:28,790 --> 00:00:30,480
+We should also wrap this in H.
+
+9
+00:00:30,480 --> 00:00:36,950
+Tim L and Baden's and so on tax I'm keeping the shorter here to make it easier to read but later we
+
+10
+00:00:36,950 --> 00:00:39,210
+will also write proper aged him code.
+
+11
+00:00:39,230 --> 00:00:40,490
+No worries.
+
+12
+00:00:40,490 --> 00:00:48,470
+So I have my form here and in there I'll have my input of type title of type text your with a name of
+
+13
+00:00:48,770 --> 00:00:54,400
+title let's say and I'll add a button again and dead button will be off.
+
+14
+00:00:54,400 --> 00:01:00,050
+Type submit because it should submit this form and send a post request therefore and I'll simply give
+
+15
+00:01:00,050 --> 00:01:02,890
+it a caption off at product.
+
+16
+00:01:02,940 --> 00:01:08,180
+So let's simulate that this is a form that allows us to add a product to our own online shop or something
+
+17
+00:01:08,180 --> 00:01:09,620
+like Det.
+
+18
+00:01:09,680 --> 00:01:13,520
+Now this is our four year and the four needs in action.
+
+19
+00:01:13,580 --> 00:01:21,830
+So the poverty you are l to which the requests should be sent and let's named is product and the method
+
+20
+00:01:22,220 --> 00:01:22,970
+should be Post.
+
+21
+00:01:22,970 --> 00:01:25,310
+Let's say can also be written like this.
+
+22
+00:01:26,340 --> 00:01:30,830
+So this will send ational code back which holds a form.
+
+23
+00:01:30,990 --> 00:01:32,670
+And now we need route.
+
+24
+00:01:32,730 --> 00:01:36,510
+We're a middleware that handles requests to product.
+
+25
+00:01:36,780 --> 00:01:40,760
+So we can at app use slash product.
+
+26
+00:01:40,870 --> 00:01:47,160
+Now the important parts here is we can place that prior or after dismay to where they won't clash because
+
+27
+00:01:47,160 --> 00:01:52,770
+they have nothing in common regarding the Poth they have product in common but slash and dash product
+
+28
+00:01:52,890 --> 00:01:54,800
+is different to a slash product.
+
+29
+00:01:54,840 --> 00:02:01,030
+It just has to come before this one because otherwise this would execute prior to that.
+
+30
+00:02:01,410 --> 00:02:06,780
+So this position here looks all right and then we again have our function which receives these free
+
+31
+00:02:06,780 --> 00:02:12,780
+arguments as a side note you can of course omit an argument you are not planning to use at least the
+
+32
+00:02:12,770 --> 00:02:17,790
+third one you can't commit to the first one if you want the response because the order does matter.
+
+33
+00:02:17,790 --> 00:02:20,420
+But if you never use deferred one you can't admit it.
+
+34
+00:02:20,640 --> 00:02:24,510
+But I always edit here to make it clear that it exists.
+
+35
+00:02:24,540 --> 00:02:28,750
+So now with that we have this function which will execute for product and then there.
+
+36
+00:02:28,800 --> 00:02:35,320
+I want to redirect and for now I want to lock to incoming data to the consul.
+
+37
+00:02:35,460 --> 00:02:39,040
+What we can do here is for redirecting.
+
+38
+00:02:39,180 --> 00:02:45,480
+I can use response redirect which certainly is easier than manually setting the status code and setting
+
+39
+00:02:45,480 --> 00:02:50,440
+the location header so redirect has a number of convenience function added by express.
+
+40
+00:02:50,520 --> 00:02:53,700
+And here I can redirect to let's say just slash.
+
+41
+00:02:53,820 --> 00:02:57,130
+So it will automatically redirect me to the slash route.
+
+42
+00:02:57,420 --> 00:03:03,970
+But of course this is not the only thing I'm also interested in getting the body of my incoming requests.
+
+43
+00:03:04,080 --> 00:03:11,430
+So extracting what the user has sent me and for does express say yes now has a convenience feature for
+
+44
+00:03:11,430 --> 00:03:20,610
+us if I console Lauck request bought here this is a new field added by express and let's see what's
+
+45
+00:03:20,700 --> 00:03:21,860
+in there.
+
+46
+00:03:22,050 --> 00:03:30,060
+So if I now save this we should be able to go back to slash add product and hopefully see the input
+
+47
+00:03:30,060 --> 00:03:34,230
+field and let's add a book here and hit add product.
+
+48
+00:03:34,230 --> 00:03:35,740
+We're redirected to slash.
+
+49
+00:03:35,760 --> 00:03:43,700
+Does this working and on the console we see on the find Let's get rid of the Afrikan so locks so that
+
+50
+00:03:43,710 --> 00:03:46,580
+this is less clouted with locks.
+
+51
+00:03:46,590 --> 00:03:49,120
+We can also remove that.
+
+52
+00:03:49,170 --> 00:03:50,730
+So we see undefined.
+
+53
+00:03:50,910 --> 00:03:52,840
+And the reason is that we're almost there.
+
+54
+00:03:52,860 --> 00:04:01,830
+Request gives us his body convenience property here but by default request doesn't try to parse the
+
+55
+00:04:01,830 --> 00:04:04,980
+incoming request body to do that.
+
+56
+00:04:04,980 --> 00:04:09,120
+We need to register a parser and we do that by adding a number of middleware.
+
+57
+00:04:09,240 --> 00:04:16,110
+And you typically do that before your route handling middleware because the parsing of the body should
+
+58
+00:04:16,110 --> 00:04:19,460
+be done no matter where your request ends up.
+
+59
+00:04:19,490 --> 00:04:26,550
+And there I want to parse the incoming requests body now for that we can install a third party package
+
+60
+00:04:27,020 --> 00:04:29,870
+and we do that by running NPM installed dash dash.
+
+61
+00:04:29,910 --> 00:04:35,220
+Safe because this will all be packaged it is used in our code here.
+
+62
+00:04:35,220 --> 00:04:37,430
+That doesn't matter for production.
+
+63
+00:04:37,650 --> 00:04:42,550
+So just safe not safe death and the famous bawdy parser.
+
+64
+00:04:42,600 --> 00:04:47,990
+Now this would actually be included and expressed by default because the community wanted that again.
+
+65
+00:04:48,030 --> 00:04:51,640
+It was in the past then it was removed then it was re-added.
+
+66
+00:04:51,660 --> 00:04:56,730
+I will use that third party package which is the recommended way of using it because if they ever decide
+
+67
+00:04:56,760 --> 00:05:01,970
+to pull it out of express again this code I'm teaching you will still work.
+
+68
+00:05:01,980 --> 00:05:07,260
+So now we installed a new package the body parser and we can import them here.
+
+69
+00:05:07,580 --> 00:05:12,960
+I'll store it in a body parts that are constant the name as always is up to you and the package is named
+
+70
+00:05:12,960 --> 00:05:14,670
+body dash parser.
+
+71
+00:05:15,030 --> 00:05:18,950
+And now we can use that to Europe by calling body parser.
+
+72
+00:05:19,020 --> 00:05:25,830
+So using that object and then Daut you are encoded.
+
+73
+00:05:25,970 --> 00:05:30,750
+This is a function you have to execute and you can pass options to configure it but you don't have to
+
+74
+00:05:30,750 --> 00:05:34,590
+here and now what this does is it registers a middleware.
+
+75
+00:05:34,770 --> 00:05:39,480
+So dysfunction DNA just yields us such a middleware function.
+
+76
+00:05:39,510 --> 00:05:44,640
+So this passes such a function here in the end even though we can see it and this package will in the
+
+77
+00:05:44,640 --> 00:05:50,280
+end in the middle or a function call next in the end so at the request all to reach is our middleware
+
+78
+00:05:50,670 --> 00:05:57,690
+but before it does that it will do that whole request body parsing we had to do manually in the previous
+
+79
+00:05:57,690 --> 00:05:59,290
+core sections.
+
+80
+00:05:59,280 --> 00:06:06,120
+Now this will not parse all kinds of possible bodies files Jason and so on but this will parse bodies
+
+81
+00:06:06,300 --> 00:06:12,330
+like the one we're getting here send through a form if we have our bodies like files and we'll do that
+
+82
+00:06:12,330 --> 00:06:13,330
+all in this course.
+
+83
+00:06:13,380 --> 00:06:18,880
+We'll use that front parser's and this makes express Che's so extensible if we need something we can
+
+84
+00:06:18,880 --> 00:06:19,850
+just block it in.
+
+85
+00:06:19,890 --> 00:06:21,010
+You'll see how easy that is.
+
+86
+00:06:21,060 --> 00:06:22,240
+It's one line of code.
+
+87
+00:06:22,340 --> 00:06:24,570
+Well two if you count the important.
+
+88
+00:06:24,990 --> 00:06:29,430
+Now with that we should actually get output for this console lock statement.
+
+89
+00:06:29,430 --> 00:06:31,180
+So now let's restart the server.
+
+90
+00:06:31,320 --> 00:06:34,530
+By the way if you install a new package you need to restart.
+
+91
+00:06:34,530 --> 00:06:37,550
+You can't rely on your auto restart from the old one.
+
+92
+00:06:37,800 --> 00:06:41,100
+And we should configure one thing as I'm getting warned here.
+
+93
+00:06:41,190 --> 00:06:44,570
+You should pass de-conflict options here and set.
+
+94
+00:06:44,580 --> 00:06:46,310
+Extend that to false.
+
+95
+00:06:46,320 --> 00:06:51,610
+This is if it should be able to parse non-default features you could say.
+
+96
+00:06:51,720 --> 00:06:56,040
+So let's add this to comply with what we should use here.
+
+97
+00:06:56,310 --> 00:06:59,710
+And with that we get the body parser enabled.
+
+98
+00:06:59,730 --> 00:07:07,810
+Now let's try this again and let's go back to add product and let's add our book again add product or
+
+99
+00:07:07,860 --> 00:07:08,840
+redirect redirected.
+
+100
+00:07:09,030 --> 00:07:16,470
+And now we see this is what we get a javascript object with a key value pair which also makes extracting
+
+101
+00:07:16,470 --> 00:07:17,660
+that value easier.
+
+102
+00:07:17,730 --> 00:07:22,970
+Then we had to do before with a split function where we manually had to create that array and so on.
+
+103
+00:07:22,980 --> 00:07:28,020
+Now we get an object where we simply get the key we find in our import here.
+
+104
+00:07:28,110 --> 00:07:34,110
+So does name and then the value to user entered and does this definitely simpler than our custom approach
+
+105
+00:07:34,110 --> 00:07:35,060
+we used before.
+
+106
+00:07:35,160 --> 00:07:40,920
+And now we can work with all the data our users told us stored them in the database something we'll
+
+107
+00:07:40,920 --> 00:07:45,030
+do later showed them and the response whatever we need to do.
+
+108
+00:07:45,080 --> 00:07:52,440
+Now one thing of course is missing this right now would also execute for incoming data request.
+
+109
+00:07:52,440 --> 00:07:55,190
+Well we only want to listen to a post request.
+
+110
+00:07:55,200 --> 00:07:57,660
+So what can we do regarding that.
+

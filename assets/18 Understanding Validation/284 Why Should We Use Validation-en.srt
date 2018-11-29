@@ -1,0 +1,108 @@
+1
+00:00:02,410 --> 00:00:09,430
+So why would we want to add some data or input validation to our application.
+
+2
+00:00:09,790 --> 00:00:16,090
+Well if we have a user interacting with our Web site then we typically have a lot of Foreigns on any
+
+3
+00:00:16,090 --> 00:00:22,510
+web application we build in our example project for example we have a forum for signing up.
+
+4
+00:00:22,510 --> 00:00:26,490
+We got one for signing in and we got one for adding products.
+
+5
+00:00:26,620 --> 00:00:31,990
+And the bigger your application is the more data you will need from your users at some point of time.
+
+6
+00:00:32,020 --> 00:00:37,840
+So we have that form with which our user our visitor off the Web site interacts with.
+
+7
+00:00:37,840 --> 00:00:43,780
+Now in the end when this form is submitted with a POST request as we controlled it in our forum then
+
+8
+00:00:43,780 --> 00:00:46,220
+that request is sent to our backend.
+
+9
+00:00:46,360 --> 00:00:49,430
+By the way you could also configure it to send a GET request.
+
+10
+00:00:49,510 --> 00:00:55,570
+But the key thing here is a request with the form data is sent and we're already doing this in this
+
+11
+00:00:55,570 --> 00:01:00,230
+course because this is a crucial task in any web application.
+
+12
+00:01:00,350 --> 00:01:08,500
+Now on our back and Soller node Jasc code we then typically interact with a database or maybe we write
+
+13
+00:01:08,560 --> 00:01:14,380
+that data into a normal file but in the end we take that data which we receive and we want to store
+
+14
+00:01:14,380 --> 00:01:15,530
+it.
+
+15
+00:01:15,550 --> 00:01:22,360
+Now this is exactly the part which can be dangerous or problematic though right now and yet we got no
+
+16
+00:01:22,360 --> 00:01:24,850
+kind of data validation.
+
+17
+00:01:24,880 --> 00:01:31,960
+So if a user in our current application would try to log in with something that is not a valid email
+
+18
+00:01:31,960 --> 00:01:33,960
+address we would allow that.
+
+19
+00:01:34,000 --> 00:01:38,650
+We're not preventing the user from entering something incorrect.
+
+20
+00:01:38,650 --> 00:01:44,380
+The same is true for adding a product we don't care about what the user enters and does us what I want
+
+21
+00:01:44,380 --> 00:01:51,990
+to change in this module will add some validation as an extra step right at the start of our node.
+
+22
+00:01:52,000 --> 00:01:59,350
+JS Cote's right at the start when we handled a request on the server definitely before we store it in
+
+23
+00:01:59,440 --> 00:02:06,040
+a database and this validation can then ever succeed and allowed data to be written to the database
+
+24
+00:02:06,040 --> 00:02:13,150
+or to a file or allow it to be handled by the rest of our node code or we reject the input and then
+
+25
+00:02:13,150 --> 00:02:19,030
+basically return some information to the user prompting the user to correct the error.
+
+26
+00:02:19,240 --> 00:02:24,670
+So this is what we will work on in this module and I will show you how to validate and how to provide
+
+27
+00:02:24,670 --> 00:02:26,240
+a good user experience.
+

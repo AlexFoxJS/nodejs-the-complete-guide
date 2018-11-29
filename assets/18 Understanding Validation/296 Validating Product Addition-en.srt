@@ -1,0 +1,552 @@
+1
+00:00:02,430 --> 00:00:05,240
+Now did we learn a lot about validation.
+
+2
+00:00:05,250 --> 00:00:06,700
+Sanitising input.
+
+3
+00:00:07,080 --> 00:00:13,650
+Let's practice this one less time for adding a product and for editing it as well and there feel free
+
+4
+00:00:13,650 --> 00:00:20,610
+to again possed a video and try out some things on your own add your own first validation steps offered
+
+5
+00:00:20,610 --> 00:00:25,620
+a pause do together of course and you're free to add any validation that you want to add that looks
+
+6
+00:00:25,620 --> 00:00:27,950
+good to you for the different fields we have here.
+
+7
+00:00:27,990 --> 00:00:31,830
+Your offer I'll show you my suggestion on how we could validate this.
+
+8
+00:00:31,860 --> 00:00:33,480
+So here's your chance to post a video
+
+9
+00:00:36,620 --> 00:00:37,390
+successful.
+
+10
+00:00:37,520 --> 00:00:39,330
+Well let's try it out.
+
+11
+00:00:39,560 --> 00:00:40,380
+We get for it.
+
+12
+00:00:40,400 --> 00:00:44,120
+What's your title image your price and description.
+
+13
+00:00:44,180 --> 00:00:46,710
+Now what would make sense to be validated here.
+
+14
+00:00:46,730 --> 00:00:49,410
+And again there is no single true solution here.
+
+15
+00:00:49,430 --> 00:00:53,780
+You can have different requirements for deep your building.
+
+16
+00:00:53,870 --> 00:01:00,770
+Now I want to have a title which should be alphanumeric so only normal alphabetic characters and numbers
+
+17
+00:01:01,670 --> 00:01:06,700
+should at least be let's say free characters long D-Mich. you or else should be valid.
+
+18
+00:01:06,740 --> 00:01:07,810
+You are l.
+
+19
+00:01:07,910 --> 00:01:15,530
+The prize should be a floating point number so a number with decimal places and the description your
+
+20
+00:01:15,740 --> 00:01:19,130
+should also be not alphanumeric.
+
+21
+00:01:19,130 --> 00:01:23,810
+There should be special characters like the exclamation mark should be allowed but it should be at least
+
+22
+00:01:23,810 --> 00:01:31,520
+let's say 5 characters long and with that information let's add validation to the Edmund J.S. fall which
+
+23
+00:01:31,520 --> 00:01:37,760
+is where we have eddys post routes for whip's for adding and for editing for them.
+
+24
+00:01:37,760 --> 00:01:44,400
+First of all let's import the body or to check function whichever you prefer.
+
+25
+00:01:46,560 --> 00:01:47,700
+By requiring
+
+26
+00:01:50,070 --> 00:01:52,550
+express validate or slash.
+
+27
+00:01:52,550 --> 00:01:58,250
+Check and then let's edit here to add product there.
+
+28
+00:01:58,250 --> 00:02:05,190
+I'll add an array to group all these mealworms together and then all validate my different inputs.
+
+29
+00:02:05,210 --> 00:02:06,520
+Step by step.
+
+30
+00:02:06,830 --> 00:02:14,810
+Let's first of all have a look at the views real fast so there at the added product view and there we
+
+31
+00:02:14,810 --> 00:02:21,700
+see we got a field named title one named image Eurail one named price and one named description.
+
+32
+00:02:21,830 --> 00:02:24,170
+So these are the four fields I want to validate.
+
+33
+00:02:24,170 --> 00:02:26,900
+Title image your price and description.
+
+34
+00:02:27,200 --> 00:02:32,560
+So back in the admin controller excuse me in the aplan route not the controller in the route.
+
+35
+00:02:32,600 --> 00:02:35,260
+I'll start with the title.
+
+36
+00:02:35,540 --> 00:02:38,150
+Now there you're free to add whatever you want.
+
+37
+00:02:38,390 --> 00:02:47,650
+I will add is alpha numeric as a validator and is length should have a minimum length of 3.
+
+38
+00:02:47,660 --> 00:02:54,890
+Let's say we can also add some sanitization and trim excess whitespace at the beginning or the end of
+
+39
+00:02:54,890 --> 00:02:55,910
+the title.
+
+40
+00:02:55,910 --> 00:02:59,000
+Now this is the title I want to validate.
+
+41
+00:02:59,000 --> 00:03:06,460
+Now copy this and continue with the image you are l.
+
+42
+00:03:06,530 --> 00:03:10,860
+However there I will check is u r l.
+
+43
+00:03:11,000 --> 00:03:12,710
+That is the only thing I want to validate there.
+
+44
+00:03:12,710 --> 00:03:13,630
+That this is valid.
+
+45
+00:03:13,640 --> 00:03:19,190
+You are L and that is a number built in validator that checks whether dis fulfills the characteristics
+
+46
+00:03:19,370 --> 00:03:22,000
+of a u r l.
+
+47
+00:03:22,120 --> 00:03:26,790
+Then I'll add my validator for the price here.
+
+48
+00:03:26,800 --> 00:03:36,200
+Now for a price I want to have I could check it is numeric to allow either integer values or floating
+
+49
+00:03:36,200 --> 00:03:37,040
+point numbers.
+
+50
+00:03:37,220 --> 00:03:43,520
+But there all this is float to ensure that this has to have some decimal places.
+
+51
+00:03:43,520 --> 00:03:51,140
+Now I'll add my last days here and that will be on the description and there I just want to trim that
+
+52
+00:03:51,200 --> 00:03:56,690
+and have a length of at least let's say 8 or 5 characters whatever you want.
+
+53
+00:03:56,690 --> 00:03:58,360
+You could also add a max of all you of course.
+
+54
+00:03:58,430 --> 00:04:05,820
+Let's say we have a max of 200 or 400 characters something like that.
+
+55
+00:04:05,830 --> 00:04:13,690
+No added validation to adding a product are already copy that and edit to edit product here to the post-road
+
+56
+00:04:13,720 --> 00:04:15,400
+edit product as well.
+
+57
+00:04:15,400 --> 00:04:20,790
+So dare I edit the exact same fields because we'll be editing the exact same fields there.
+
+58
+00:04:20,800 --> 00:04:23,870
+So I want to have the same validation emplace.
+
+59
+00:04:24,160 --> 00:04:30,340
+Now with that in place let's go to the Abin controller and make sure we collect these validation errors
+
+60
+00:04:30,370 --> 00:04:32,640
+and return them for that.
+
+61
+00:04:32,860 --> 00:04:40,990
+Well first of all import something from the Express validator by requiring express validators slash
+
+62
+00:04:41,120 --> 00:04:50,530
+check and there I want to import the validation result function and then post at product here before
+
+63
+00:04:50,530 --> 00:04:52,700
+we create new product.
+
+64
+00:04:52,720 --> 00:04:59,980
+I will actually collect all my errors by passing the request to validation result and will then check
+
+65
+00:05:00,010 --> 00:05:06,310
+if not errors is empty which means we do have errors and in that case if we make it into this if block
+
+66
+00:05:06,730 --> 00:05:10,540
+I will actually render my edit page.
+
+67
+00:05:10,540 --> 00:05:15,730
+So here on get edit page I will call this render function you're in the end.
+
+68
+00:05:16,000 --> 00:05:19,780
+But I'll do that in this if block I just edit.
+
+69
+00:05:19,780 --> 00:05:26,410
+I'll also set this status code of 422 which is a good practice for indicating to the browser that some
+
+70
+00:05:26,470 --> 00:05:28,680
+data that was passed was incorrect.
+
+71
+00:05:29,670 --> 00:05:31,860
+I'll have ADD product as a title
+
+72
+00:05:34,830 --> 00:05:42,550
+and now if we have a quick look here at added product we see that there we already set the value.
+
+73
+00:05:42,690 --> 00:05:48,370
+If editing is set to true and then we are put product final product image you are.
+
+74
+00:05:48,690 --> 00:05:52,690
+Now we can tweak it as a little bit.
+
+75
+00:05:52,850 --> 00:05:57,950
+I'll still set editing to faults because we still are not editing and I don't want to change anything
+
+76
+00:05:57,950 --> 00:06:07,310
+else on the page but what I will do is all set my product here equal to an object where I do set the
+
+77
+00:06:07,310 --> 00:06:17,080
+Thailand's on Tuesdays fields to these inputs which I did fetch so at the title the image your L and
+
+78
+00:06:17,110 --> 00:06:24,900
+also the price and the description Trudy's fetched inputs so that we can use that old data in the way
+
+79
+00:06:24,900 --> 00:06:26,560
+we are already using it.
+
+80
+00:06:26,610 --> 00:06:35,190
+But I'll now add a number field here has error or maybe and I'll set this to true here.
+
+81
+00:06:35,190 --> 00:06:41,090
+Now that simply means that I should ensure that has error is all set and other places where I render
+
+82
+00:06:41,120 --> 00:06:48,860
+it as page like here where I set it to false for get at product and for get edit product down there.
+
+83
+00:06:48,940 --> 00:06:51,070
+I will also set it to false.
+
+84
+00:06:51,090 --> 00:06:57,010
+So it's only true right now if I'm in the if block of my post at product road here.
+
+85
+00:06:57,690 --> 00:07:03,860
+Now in my view I can now take advantage of this new has Arrowfield and I can say I want to output the
+
+86
+00:07:03,870 --> 00:07:10,920
+existing product title if I'm editing or if his error is true.
+
+87
+00:07:11,040 --> 00:07:17,100
+So that is my alternative condition here to ensure that the old data in this case then is output like
+
+88
+00:07:17,100 --> 00:07:22,960
+this.
+
+89
+00:07:22,960 --> 00:07:28,470
+Now of course it would also be nice to display some error message so we can grab that from the logon
+
+90
+00:07:28,480 --> 00:07:34,600
+page and check for the existence of error message here above my form and output it.
+
+91
+00:07:34,600 --> 00:07:40,950
+If we have one this just means that again back to my routes and not to my routes to my controller and
+
+92
+00:07:40,950 --> 00:07:51,740
+the Edmond Chia's file we should have an error message which simply is null by default.
+
+93
+00:07:51,830 --> 00:08:01,110
+And here in my IF block where I do have validation errors I will set the error message to errors array
+
+94
+00:08:01,290 --> 00:08:03,850
+the first error which we are guaranteed to have.
+
+95
+00:08:03,930 --> 00:08:08,060
+And they're DMSO Schieber property property as we did before.
+
+96
+00:08:08,370 --> 00:08:15,610
+And of course all those that error message here when we get the added page there I set it to null and
+
+97
+00:08:15,610 --> 00:08:23,250
+now with that if I hit add product to your I get invalid value because I set no custom errors.
+
+98
+00:08:23,410 --> 00:08:30,760
+But it did to be rendered this never entered first book here then kept the I ad at product it still
+
+99
+00:08:30,760 --> 00:08:34,430
+gives me that old message of invalid value because I never set my own one.
+
+100
+00:08:34,450 --> 00:08:37,070
+You could of course do that with the techniques as showed.
+
+101
+00:08:37,090 --> 00:08:42,970
+We also have no red borders because we didn't at that logic yet but it is reloading the page it's not
+
+102
+00:08:42,970 --> 00:08:47,180
+submitting the request and it's keeping all the data which we did input.
+
+103
+00:08:47,200 --> 00:08:51,650
+Right so this is not thrown away and that is of course worth a lot.
+
+104
+00:08:51,940 --> 00:08:55,400
+We can of course also edit products and for this.
+
+105
+00:08:55,450 --> 00:08:57,860
+Let me quickly add a valid product.
+
+106
+00:08:57,880 --> 00:09:01,880
+This also allows us to test whether this works
+
+107
+00:09:04,980 --> 00:09:11,100
+and it looks like it failed but actually if we go back we see we get double headers sent error which
+
+108
+00:09:11,100 --> 00:09:17,790
+is stemming from my Edman controller I should return is otherwise after sending this error response
+
+109
+00:09:17,790 --> 00:09:22,750
+that we continue with the rest of our code which I don't want to.
+
+110
+00:09:22,860 --> 00:09:24,280
+If I had ADD product here.
+
+111
+00:09:25,210 --> 00:09:27,010
+This still fails though.
+
+112
+00:09:27,010 --> 00:09:32,740
+The interesting thing is if I go back to my product's collection first book was added before though
+
+113
+00:09:32,970 --> 00:09:38,120
+while that was added because I did not return in case of an error as I'm doing now.
+
+114
+00:09:38,230 --> 00:09:42,180
+So now the returning works but still I get this invalid value.
+
+115
+00:09:42,490 --> 00:09:48,790
+And if you want to find out for what I get it I can log errors array here so that we can have a look
+
+116
+00:09:48,790 --> 00:09:55,150
+into this Aeros object if I add this again no it fails of course we see it's the title the title failed
+
+117
+00:09:55,150 --> 00:10:03,060
+somehow the title somehow is valid in a way that tells us that it does not fulfill our criteria.
+
+118
+00:10:03,440 --> 00:10:10,630
+And the title for adding a product should be alphanumeric have to length and be trimmed.
+
+119
+00:10:10,630 --> 00:10:18,700
+Now the thing is my alphanumeric check the whitespace here is NEVER alphabetic character nor a number.
+
+120
+00:10:18,970 --> 00:10:26,230
+So maybe we should just check if it is a valid string because that will allow whitespace as well.
+
+121
+00:10:26,230 --> 00:10:34,470
+And now if I had ADD product now this succeeded and it did add it therefore And I've got two first books
+
+122
+00:10:34,470 --> 00:10:35,050
+here.
+
+123
+00:10:36,670 --> 00:10:38,620
+Let me delete this real quick.
+
+124
+00:10:38,620 --> 00:10:42,250
+Now if I try adding this again though maybe a second book
+
+125
+00:10:47,990 --> 00:10:49,170
+it does work.
+
+126
+00:10:49,460 --> 00:10:53,360
+And now it also shows that image correctly so seems to have been a bug.
+
+127
+00:10:53,480 --> 00:10:58,130
+So this is now working now we added validation for adding this.
+
+128
+00:10:58,130 --> 00:11:01,880
+And how is it for editing FedExed animation mark here.
+
+129
+00:11:02,210 --> 00:11:05,010
+This is except that we see the exclamation mark up there.
+
+130
+00:11:05,270 --> 00:11:12,750
+And if I now enter something incorrect like the price is missing Well then this seems to break it doesn't
+
+131
+00:11:12,750 --> 00:11:13,650
+continue.
+
+132
+00:11:14,730 --> 00:11:17,050
+And indeed I do have an error down there.
+
+133
+00:11:18,140 --> 00:11:21,190
+Which makes a lot of sense because what didn't we do yet.
+
+134
+00:11:21,560 --> 00:11:26,600
+Well we didn't at our error collecting an error returning to the editor's note.
+
+135
+00:11:26,630 --> 00:11:29,920
+We only worked on and thus far post ad product.
+
+136
+00:11:30,170 --> 00:11:35,780
+So the next video will take care that for editing a product we also get validation errors instead of
+
+137
+00:11:35,780 --> 00:11:36,680
+a broken app.
+
+138
+00:11:36,680 --> 00:11:38,600
+When we do submit invalid values.
+

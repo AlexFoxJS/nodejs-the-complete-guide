@@ -1,0 +1,248 @@
+1
+00:00:02,350 --> 00:00:06,800
+Knouted we're able to output our dynamic segment here.
+
+2
+00:00:06,910 --> 00:00:12,330
+We can of course used that information to instead load that product from our product file.
+
+3
+00:00:12,370 --> 00:00:18,550
+So for our product model which is responsible for interacting with the product and then we can return
+
+4
+00:00:18,550 --> 00:00:22,510
+a view which does actually show us these product details.
+
+5
+00:00:22,510 --> 00:00:27,360
+So for loading lets get into our product model now that we got to save them we get fetcher all.
+
+6
+00:00:27,400 --> 00:00:36,620
+Now I want to load a single product and Vardis I'll add a new static method and lame find by id the
+
+7
+00:00:36,630 --> 00:00:38,540
+name is totally up to you of course.
+
+8
+00:00:38,540 --> 00:00:41,610
+But there I expect to get an ID as an argument.
+
+9
+00:00:41,720 --> 00:00:49,790
+And then also a callback which will be executed once we're done finding the product here in this function
+
+10
+00:00:49,790 --> 00:00:50,280
+here.
+
+11
+00:00:50,640 --> 00:00:56,910
+I will get all my products because I basically need to read the entire file.
+
+12
+00:00:56,910 --> 00:01:01,520
+We got no database here where I could run a query for one product only.
+
+13
+00:01:01,560 --> 00:01:04,420
+We'll do that once we add a database of course.
+
+14
+00:01:04,440 --> 00:01:10,780
+So for now I get all my products just as in my fetch all function your.
+
+15
+00:01:11,280 --> 00:01:14,540
+But here I now have my products a way lable.
+
+16
+00:01:15,000 --> 00:01:21,470
+And before I returned them in the cold like I want to filter out that one product with my ID.
+
+17
+00:01:21,480 --> 00:01:27,690
+Now keep in mind products which are returning here is already a parsed array of products and our product
+
+18
+00:01:27,720 --> 00:01:29,160
+will have an ID right.
+
+19
+00:01:29,160 --> 00:01:31,730
+We assigned it id here and we stored it ID.
+
+20
+00:01:32,010 --> 00:01:38,040
+So we will have an array of objects where each object has an ID and therefore we can now use normal
+
+21
+00:01:38,040 --> 00:01:41,490
+javascript to filter out the product we interested in.
+
+22
+00:01:41,790 --> 00:01:47,020
+I can simply find my product and store it in this temporary variable there.
+
+23
+00:01:48,020 --> 00:01:49,150
+I can find it.
+
+24
+00:01:49,200 --> 00:01:54,250
+Why is searching products with the find method default javascript method.
+
+25
+00:01:54,530 --> 00:02:02,000
+This will execute a function we pass to find on every element in the array and will return the element
+
+26
+00:02:02,090 --> 00:02:05,200
+for which this function we pass returns true.
+
+27
+00:02:05,300 --> 00:02:07,690
+So this function we pass year will get.
+
+28
+00:02:07,790 --> 00:02:13,400
+The product is currently looking at because it executes it for all the products in the array.
+
+29
+00:02:13,400 --> 00:02:18,500
+It will pass us this product into the function and then I write an arrow function here and there is
+
+30
+00:02:18,500 --> 00:02:22,490
+a short arrow function syntax where you can omit the curly braces.
+
+31
+00:02:22,580 --> 00:02:28,460
+If you only got one line in there and you all returned a result of this one line so there is an implicit
+
+32
+00:02:28,460 --> 00:02:31,860
+return statement in front of that code and I'll now right.
+
+33
+00:02:32,300 --> 00:02:37,670
+So I will have one line of code here which is returned and there I will check if the idea of the product
+
+34
+00:02:37,670 --> 00:02:42,910
+I'm currently looking at is equal to the ID I receive as an argument here.
+
+35
+00:02:43,050 --> 00:02:48,430
+And if this is true then the product which I'm currently looking at will be returned and stored in this
+
+36
+00:02:48,440 --> 00:02:53,530
+constant here and therefore I can then execute a callback with that product.
+
+37
+00:02:53,540 --> 00:02:56,950
+This is a synchronous function doesn't execute any async code.
+
+38
+00:02:57,080 --> 00:03:02,000
+So simply having two lines after each other will do the trick here.
+
+39
+00:03:02,030 --> 00:03:05,060
+So now we have that fine by ID function in the model.
+
+40
+00:03:05,300 --> 00:03:08,460
+And now in a shop class controller we can use that.
+
+41
+00:03:08,510 --> 00:03:15,940
+So instead of logging the prod ID here we can log product referring to our model.
+
+42
+00:03:16,030 --> 00:03:22,270
+Remember we're importing the classier product find by a DB though we can't block this because that will
+
+43
+00:03:22,270 --> 00:03:23,650
+be an asynchronous function.
+
+44
+00:03:23,650 --> 00:03:25,490
+We have to pass in a callback.
+
+45
+00:03:25,690 --> 00:03:33,070
+So here instead I pass in my prod ID and then I will get the product eventually and in that function
+
+46
+00:03:33,070 --> 00:03:35,790
+here I will now simply locked it for the moment.
+
+47
+00:03:35,860 --> 00:03:39,430
+So did we see if that was retrieved correctly.
+
+48
+00:03:39,460 --> 00:03:41,850
+So back on the product's page.
+
+49
+00:03:42,010 --> 00:03:43,890
+Let's view the details again.
+
+50
+00:03:43,960 --> 00:03:44,940
+That works.
+
+51
+00:03:45,100 --> 00:03:50,000
+And in the console log on the server we indeed see the details for the product reloaded.
+
+52
+00:03:50,170 --> 00:03:51,660
+So this seems to work.
+
+53
+00:03:51,670 --> 00:03:57,390
+Now let's also verify that this still works if we add another product here.
+
+54
+00:04:09,210 --> 00:04:14,840
+I'll add this and indeed we see the product here so this is working and now have a click.
+
+55
+00:04:14,970 --> 00:04:19,960
+The details link here on the products page.
+
+56
+00:04:20,020 --> 00:04:24,850
+I also get the information for this product and the link of the image is so long here because it's not
+
+57
+00:04:24,880 --> 00:04:32,320
+a or L to an image stored on a server but actually the image encoded in base 64 which is like a text
+
+58
+00:04:32,320 --> 00:04:33,940
+encoding techniques you could say.
+
+59
+00:04:34,240 --> 00:04:38,640
+So this is the product and this is our fetch product function working.
+
+60
+00:04:38,640 --> 00:04:39,610
+So it is a next step.
+
+61
+00:04:39,610 --> 00:04:45,130
+Let's add a view that displays the details and obviously feel free to post a video or two.
+
+62
+00:04:45,160 --> 00:04:50,350
+Well this video ends here but to go ahead and do this on your own we'll do it together in the next lecture.
+

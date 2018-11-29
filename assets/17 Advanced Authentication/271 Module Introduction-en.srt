@@ -1,0 +1,32 @@
+1
+00:00:02,260 --> 00:00:06,110
+Now did you learn some new tricks regarding how we can send e-mails.
+
+2
+00:00:06,200 --> 00:00:13,550
+Let's use to add new knowledge to improve our authentication features and in general let's improve our
+
+3
+00:00:13,550 --> 00:00:21,710
+security or the authentication related things in our app for example as all the work on ensuring that
+
+4
+00:00:21,770 --> 00:00:24,770
+only users who created a post can edit it.
+
+5
+00:00:24,800 --> 00:00:28,180
+But let's start with resetting passwords to be precise.
+
+6
+00:00:28,180 --> 00:00:32,210
+In this module will start with resetting passwords but then we'll have a look at.
+
+7
+00:00:32,220 --> 00:00:33,240
+All right.
+
+8
+00:00:33,290 --> 00:00:39,620
+Well just that part I just talked about with ensuring that you can only edit and delete what you created.
+

@@ -1,0 +1,100 @@
+1
+00:00:02,280 --> 00:00:09,400
+To conclude this module I will now simply add one additional view here in the shop and that is the orders
+
+2
+00:00:09,760 --> 00:00:14,250
+Ejaz route which is responsible for displaying orders.
+
+3
+00:00:14,250 --> 00:00:15,230
+We don't have any yet.
+
+4
+00:00:15,240 --> 00:00:22,110
+So I will just take my card Ejaz content and put that in there so that we at least have the navigation.
+
+5
+00:00:22,110 --> 00:00:29,700
+And obviously we could then display something in between have some main element and say H-1 nothing
+
+6
+00:00:29,700 --> 00:00:31,860
+there but we'll work on that obviously.
+
+7
+00:00:32,120 --> 00:00:37,640
+And I want to add this in my navigation to there I already have the cart.
+
+8
+00:00:37,780 --> 00:00:45,810
+Now next to the cart I will add one additional navigation item where I say orders and I go to slash
+
+9
+00:00:45,810 --> 00:00:46,680
+orders.
+
+10
+00:00:46,950 --> 00:00:52,310
+And the payoff here which is check for the active see is S-Class is slash orders.
+
+11
+00:00:52,680 --> 00:01:00,930
+And now therefore in my Routier in shop Julius I want to add a new route which allows me to go to slash
+
+12
+00:01:01,320 --> 00:01:07,510
+orders and this means I need a new action in my shop G-S controller there.
+
+13
+00:01:07,560 --> 00:01:10,490
+I also want to be able to load that orders page.
+
+14
+00:01:10,590 --> 00:01:18,720
+So I will just duplicate the get card action your name does get orders like this and then simply return
+
+15
+00:01:18,720 --> 00:01:20,350
+shop orders.
+
+16
+00:01:20,350 --> 00:01:27,180
+This new viewer added and then PAF orders and then your Also your orders like this.
+
+17
+00:01:27,180 --> 00:01:34,040
+And now we can go back to shop Jack and the routes file and have get orders here with that.
+
+18
+00:01:34,170 --> 00:01:35,560
+This is looking good.
+
+19
+00:01:35,670 --> 00:01:38,010
+If I save everything and I reload.
+
+20
+00:01:38,220 --> 00:01:41,010
+I have this new menu item with nothing there yet.
+
+21
+00:01:41,100 --> 00:01:42,870
+But now we're well prepared.
+
+22
+00:01:42,870 --> 00:01:47,970
+I will make some styling changes and provide the finished code at the beginning of next module and then
+
+23
+00:01:47,970 --> 00:01:55,890
+we will learn how we can actually use the express router to work with dynamic data or in general data.
+
+24
+00:01:55,910 --> 00:02:03,390
+Indeed you are l and how we can use that to retrieve specific items or interact with specific items.
+
+25
+00:02:03,390 --> 00:02:06,520
+So for now let's finish this module and let's move on.
+

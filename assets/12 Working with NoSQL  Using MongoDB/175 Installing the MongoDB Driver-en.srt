@@ -1,0 +1,356 @@
+1
+00:00:02,070 --> 00:00:04,120
+So at the moment be server up and running.
+
+2
+00:00:04,140 --> 00:00:10,200
+Let's add the moment to be driver which simply is a package we can use to connect to long would be for
+
+3
+00:00:10,290 --> 00:00:17,430
+Sequel or MiSeq will we use my sequel to and also the sequel is now in my case here or with mom would
+
+4
+00:00:17,430 --> 00:00:23,670
+it be we'd run and install dash dash save and then it's just Mongo DB And this installs the official
+
+5
+00:00:23,710 --> 00:00:26,280
+Monody driver which we can use to connect to mom.
+
+6
+00:00:26,280 --> 00:00:28,830
+Would you be now with that installed.
+
+7
+00:00:28,830 --> 00:00:35,280
+We can start using it and we can start using it in the first file that gets executed when we bring up
+
+8
+00:00:35,340 --> 00:00:39,170
+our server which would be the app last fall of course.
+
+9
+00:00:39,360 --> 00:00:46,890
+There we basically already do some database set up with sequel eyes and we can get rid of all of that.
+
+10
+00:00:46,890 --> 00:00:50,540
+We did create a different user here but we did this in the mystical world.
+
+11
+00:00:50,550 --> 00:00:51,720
+So we'll start from scratch.
+
+12
+00:00:51,720 --> 00:00:55,830
+Basically we can't get rid of all the associations and so on we set up here.
+
+13
+00:00:55,830 --> 00:00:57,400
+So let's get rid of that.
+
+14
+00:00:57,690 --> 00:01:00,280
+Therefore we don't need these imports anymore.
+
+15
+00:01:00,480 --> 00:01:04,920
+Let's get rid of all of them including sequel lies from the utl database folder.
+
+16
+00:01:05,340 --> 00:01:06,530
+And with that all removed.
+
+17
+00:01:06,580 --> 00:01:13,040
+Also here where I've used my user model to find a user by ID I'll at least comment this out for now.
+
+18
+00:01:13,290 --> 00:01:16,080
+So did we really have a lean app just fall.
+
+19
+00:01:16,320 --> 00:01:22,500
+And now I'll go to my utl folder and their database folder and I still want to connect to a database
+
+20
+00:01:22,500 --> 00:01:25,920
+here but that will no longer be sequel lies of course.
+
+21
+00:01:25,920 --> 00:01:28,230
+So let me clear all of that here too.
+
+22
+00:01:28,260 --> 00:01:36,720
+And let's now set up some code that will connect us to Mongo D-B and I'll forget all first of all implored
+
+23
+00:01:36,730 --> 00:01:38,080
+Maunganui be here.
+
+24
+00:01:38,080 --> 00:01:45,400
+So all said Monga to be equal to requiring Mongo D-B does gives us access to the Maunganui package in
+
+25
+00:01:45,400 --> 00:01:51,430
+there we can extract Mongo client constructor by simply accessing long would you be.
+
+26
+00:01:51,430 --> 00:01:52,590
+The thing we're importing.
+
+27
+00:01:52,690 --> 00:01:55,400
+And then Mongo client with a capital M and C.
+
+28
+00:01:55,540 --> 00:01:58,420
+The constant here can be named whatever you want of course.
+
+29
+00:01:58,930 --> 00:02:03,340
+So now with that we can use of client to connect to our among the DBI database.
+
+30
+00:02:03,480 --> 00:02:08,900
+When we do connect by running long with the client Mongo client connect like this.
+
+31
+00:02:08,900 --> 00:02:13,390
+So does all we need to do to create a connection to mung would be.
+
+32
+00:02:13,420 --> 00:02:20,520
+Now connect here simply takes you are l to connect and that U R L is exactly dead.
+
+33
+00:02:20,530 --> 00:02:28,000
+You are alue having to connect motile here on the Mong would be Atlas closter page so you can copy that
+
+34
+00:02:28,420 --> 00:02:30,160
+and paste it into here.
+
+35
+00:02:30,160 --> 00:02:34,360
+Now one important thing you need to make sure you are using the right user and in my case that should
+
+36
+00:02:34,360 --> 00:02:40,990
+be Maximillian the user you created and your mom would be cluster under security users and the fitting
+
+37
+00:02:40,990 --> 00:02:47,340
+password for this user so I'll quickly insert my password here too.
+
+38
+00:02:47,880 --> 00:02:52,670
+With that we got all set up that we need to establish such a connection.
+
+39
+00:02:52,680 --> 00:03:00,930
+Now the connect method here actually returns a promise which ever Fail-Safe or frozen error if the connection
+
+40
+00:03:00,930 --> 00:03:01,860
+fails.
+
+41
+00:03:01,860 --> 00:03:10,230
+And in such a case here I of course wanted to output my error here so that we can diagnose it or we
+
+42
+00:03:10,230 --> 00:03:12,410
+have a successful connection.
+
+43
+00:03:12,570 --> 00:03:22,950
+So here I can say console log could that end with that file which when we executed would connect to
+
+44
+00:03:22,950 --> 00:03:24,240
+Mongo D-B.
+
+45
+00:03:24,240 --> 00:03:27,830
+Now of course you want to execute this together with app genius.
+
+46
+00:03:27,840 --> 00:03:30,050
+So here we are we bring up our server.
+
+47
+00:03:30,150 --> 00:03:34,460
+Or actually we're not doing this right now but where we will soon do this again here.
+
+48
+00:03:34,470 --> 00:03:39,220
+I also want to connect to my database so to do that.
+
+49
+00:03:39,360 --> 00:03:41,860
+How can we achieve this.
+
+50
+00:03:42,000 --> 00:03:51,370
+Well what we can do here is we can wrap our connection code here into a method and I'll simply create
+
+51
+00:03:51,400 --> 00:04:00,370
+a method by using cons your No-Name at Mongo connect this will be an arrow function and inside of that
+
+52
+00:04:00,400 --> 00:04:01,740
+Erol function here.
+
+53
+00:04:01,900 --> 00:04:06,400
+I will then execute my Mongul client connect code like this.
+
+54
+00:04:06,430 --> 00:04:17,870
+I also expect to get a callback here and I will call that call back and pass the salt into it here instead
+
+55
+00:04:17,870 --> 00:04:19,150
+of my then block.
+
+56
+00:04:19,190 --> 00:04:24,590
+Once we did connect to your customer Risaldar can already tell you this will be the client.
+
+57
+00:04:24,590 --> 00:04:31,610
+So basically a client object which gives us access to the database and then here all I need to do is
+
+58
+00:04:31,670 --> 00:04:36,440
+I need to export Mongo connect dysfunction here.
+
+59
+00:04:36,440 --> 00:04:40,920
+Now with that export it we can go back to Abdias and import that here.
+
+60
+00:04:40,940 --> 00:04:48,490
+So you're also name that Mongo connect but that name is totally up to you and all import from the uto
+
+61
+00:04:48,490 --> 00:04:51,270
+folder and their database file there.
+
+62
+00:04:51,280 --> 00:04:58,440
+I will import my Mangu connect concent which will be a function because I'm exporting a function here.
+
+63
+00:04:58,750 --> 00:05:00,830
+So an amp j is at the bottom.
+
+64
+00:05:01,000 --> 00:05:03,350
+I will execute Mongo connect.
+
+65
+00:05:03,550 --> 00:05:10,500
+And remember here we have to pass a callback so function that will get executed once we connect it.
+
+66
+00:05:10,540 --> 00:05:13,890
+And here I will get access to the client object.
+
+67
+00:05:13,990 --> 00:05:20,680
+So any here I will run app lists and bring up my notes server because I want to do that once I know
+
+68
+00:05:20,680 --> 00:05:25,150
+that I connected to the database and I will also console log.
+
+69
+00:05:25,150 --> 00:05:29,350
+My clients are sort of you can have a look into that with all of that.
+
+70
+00:05:29,440 --> 00:05:32,190
+Let's run them to start and bring up our server.
+
+71
+00:05:32,920 --> 00:05:35,560
+And the problem I now have is simply dead.
+
+72
+00:05:35,560 --> 00:05:44,770
+When I bring up my server we do actually register all our Routier and in the Rollin's files we dive
+
+73
+00:05:44,770 --> 00:05:51,790
+into our controllers and in our controllers we are using that sequel's object which simply does not
+
+74
+00:05:51,820 --> 00:05:59,630
+exist anymore because we're importing the models here and in our models we require a sequel eyes.
+
+75
+00:05:59,650 --> 00:06:04,170
+And well that simply does all not work as before anymore.
+
+76
+00:06:04,450 --> 00:06:12,900
+So in order to make this work for now to simply see how we connect I will comment out my routes here
+
+77
+00:06:13,360 --> 00:06:16,330
+and they are also coming out down there.
+
+78
+00:06:16,390 --> 00:06:22,390
+So now we got no working routes for the moment but this means that we can now at least connect and indeed
+
+79
+00:06:22,570 --> 00:06:24,110
+with the automatic restart.
+
+80
+00:06:24,130 --> 00:06:25,720
+This does not look like an error.
+
+81
+00:06:25,720 --> 00:06:31,510
+Instead we see connected here and then we see this Mongo client object which we got we have some details
+
+82
+00:06:31,510 --> 00:06:36,760
+about the connection and this isn't the end the object which we'll be able to interact with to work
+
+83
+00:06:36,760 --> 00:06:37,360
+with.
+
+84
+00:06:37,360 --> 00:06:41,420
+Q Well creates data in our database for example.
+
+85
+00:06:41,470 --> 00:06:47,590
+So now we are connected but of course our setup is broken now because it still relies on sequel sequels
+
+86
+00:06:47,650 --> 00:06:49,010
+which we're not using anymore.
+
+87
+00:06:49,030 --> 00:06:50,910
+We're not even using sequel anymore.
+
+88
+00:06:51,070 --> 00:06:54,780
+So let's now implement Hmong would be in our app step by step.
+
+89
+00:06:54,910 --> 00:06:59,320
+And once we do this you will learn how to insert data find data and so on.
+

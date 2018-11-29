@@ -1,0 +1,224 @@
+1
+00:00:02,120 --> 00:00:08,150
+Knouted we're able to fetch our posts through graph Cuil lets at page nation again.
+
+2
+00:00:08,150 --> 00:00:10,190
+How does that work with Graph Cuil.
+
+3
+00:00:10,580 --> 00:00:12,900
+Turns out not to difficult.
+
+4
+00:00:12,920 --> 00:00:18,700
+We start on our graphical schema again because there will need to change something on our posts query
+
+5
+00:00:18,920 --> 00:00:22,240
+because it is depost query where we want to add pagination right.
+
+6
+00:00:22,250 --> 00:00:25,500
+We want to be able to page in eight Freule the posts.
+
+7
+00:00:25,650 --> 00:00:32,120
+Therefore to posts Corey needs an argument it needs an argument that allows us to define the page we
+
+8
+00:00:32,120 --> 00:00:34,580
+are on and I'll name that page.
+
+9
+00:00:34,610 --> 00:00:38,270
+You can name it however you want and this will be of type int..
+
+10
+00:00:38,270 --> 00:00:46,830
+Now with that argument added in the schema in our resolver we can implement page anation there.
+
+11
+00:00:47,050 --> 00:00:55,300
+In my posts resolver my arguments now will have that page property so I can retrieve it with destructuring
+
+12
+00:00:55,990 --> 00:00:59,290
+and after checking whether I'm authenticated or not.
+
+13
+00:00:59,290 --> 00:01:05,750
+I now need to set up pagination or I need to find out which page I'm on and use that.
+
+14
+00:01:05,900 --> 00:01:14,890
+Now first of all a quick check if Page is not set because if it is not set so if it is undefined I'll
+
+15
+00:01:14,890 --> 00:01:15,960
+send it equal to 1.
+
+16
+00:01:16,040 --> 00:01:17,780
+So did it always start on page 1.
+
+17
+00:01:17,810 --> 00:01:26,360
+In case I don't specify any other page as a next step we can define the per page variable which is true
+
+18
+00:01:26,590 --> 00:01:28,850
+as it was an hour rest API scenario.
+
+19
+00:01:28,960 --> 00:01:33,370
+You could theoretically all fetch this as an argument all hardcoded here.
+
+20
+00:01:33,910 --> 00:01:38,920
+For simplicity reasons because this was primarily something we would have to manage and the front end
+
+21
+00:01:39,040 --> 00:01:43,060
+with a dropdown offering the user different page sizes and so on.
+
+22
+00:01:43,120 --> 00:01:46,150
+So all hard code is here and now we have per page.
+
+23
+00:01:46,150 --> 00:01:47,530
+We have the current page.
+
+24
+00:01:47,740 --> 00:01:53,530
+Now we can use the tear when we find the posts and you already learned that you can page neighed with
+
+25
+00:01:53,530 --> 00:02:01,170
+Skip and limit so skip and limit is what you can add here your and Inskip you want to skip your current
+
+26
+00:02:01,170 --> 00:02:04,980
+Piatt page minus one times per page.
+
+27
+00:02:04,980 --> 00:02:11,170
+So if you're on page two you have two minds one which is one obviously and you skip one times two.
+
+28
+00:02:11,190 --> 00:02:15,420
+So the first two items the two items that were on page 1.
+
+29
+00:02:15,500 --> 00:02:20,930
+You don't just want to skip though you also want to limit and you'll limit the result set to the amount
+
+30
+00:02:20,930 --> 00:02:24,040
+of pages of items you want to render per page.
+
+31
+00:02:24,170 --> 00:02:31,160
+By adding per page as an argument here and that as it does is page nation in place on the service side.
+
+32
+00:02:31,160 --> 00:02:41,540
+Now in the front end there we already have some logic for the page anation if we go to load posts there.
+
+33
+00:02:41,940 --> 00:02:46,060
+I do already get my page variable.
+
+34
+00:02:46,170 --> 00:02:53,820
+Now I just need to send that with my query and for data on the Post's query I can set page equal to.
+
+35
+00:02:54,210 --> 00:02:59,340
+Well the page I calculate up there since it is a number.
+
+36
+00:02:59,340 --> 00:03:03,420
+I also don't need to wrap that in double quotation marks.
+
+37
+00:03:03,420 --> 00:03:04,790
+Let me Safehold at.
+
+38
+00:03:04,790 --> 00:03:10,350
+Also make sure the back and code is saved and let's reload on from that application.
+
+39
+00:03:10,560 --> 00:03:12,210
+For that I should restart the server
+
+40
+00:03:17,240 --> 00:03:21,650
+and indeed here I got paged nation in place.
+
+41
+00:03:21,650 --> 00:03:27,070
+Now when I add a new post to make sure that it does not show up as a third element.
+
+42
+00:03:27,110 --> 00:03:33,920
+When you only want to have 2 I will go back to my re-act coat and there to the finish editor Candler
+
+43
+00:03:35,090 --> 00:03:38,830
+and here and set state where you find that unshipped statement.
+
+44
+00:03:39,080 --> 00:03:43,290
+Simply add up posts pop in front of that.
+
+45
+00:03:43,400 --> 00:03:44,130
+That is all.
+
+46
+00:03:44,150 --> 00:03:47,370
+This will remove one element and add a new one at the beginning.
+
+47
+00:03:47,660 --> 00:03:49,250
+And now let's give this a try.
+
+48
+00:03:49,370 --> 00:04:02,820
+Let's add another duck choose to duck match all is very lovely except this and here is the duck and
+
+49
+00:04:02,970 --> 00:04:03,900
+cup.
+
+50
+00:04:03,920 --> 00:04:04,700
+Here is the rest
+
+51
+00:04:08,640 --> 00:04:11,650
+and this is exactly the data we find in the database too.
+
+52
+00:04:11,660 --> 00:04:16,650
+We got two and numbered docs just in case you got confused.
+
+53
+00:04:16,650 --> 00:04:17,840
+So this is working.
+
+54
+00:04:17,880 --> 00:04:22,980
+Let's now work on the image upload because that obviously is something very interesting which we haven't
+
+55
+00:04:22,980 --> 00:04:24,240
+touched on thus far.
+
+56
+00:04:24,270 --> 00:04:25,920
+For our graphical API.
+

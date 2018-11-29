@@ -1,0 +1,192 @@
+1
+00:00:02,220 --> 00:00:05,430
+So knouted we're able to at faction's update products.
+
+2
+00:00:05,460 --> 00:00:10,200
+Let's work on the leading them now for deleting you could implement different approaches.
+
+3
+00:00:10,200 --> 00:00:17,370
+You could add a method to the product class so that you can create a new product object and call delete
+
+4
+00:00:17,430 --> 00:00:20,020
+on it just as you called Save on it.
+
+5
+00:00:20,070 --> 00:00:25,710
+But I will go with a static method and I'll add a static method which I'll name delete by id and where
+
+6
+00:00:25,710 --> 00:00:28,940
+I expect a product ID as an argument.
+
+7
+00:00:28,980 --> 00:00:33,200
+Now in here of course again we need access to the database.
+
+8
+00:00:33,240 --> 00:00:38,730
+So let's call get D-B to get access to that one central database connection theory and at the start
+
+9
+00:00:39,510 --> 00:00:46,020
+and then all the debris again it's time to reach out to the products collection and all that collection.
+
+10
+00:00:46,020 --> 00:00:48,990
+We want to delete an element.
+
+11
+00:00:49,070 --> 00:00:54,310
+Now as always you'll find more in the official docs and the crud operations.
+
+12
+00:00:54,480 --> 00:00:59,300
+If you click on the documents you see that just as we had injured one injured many and so on.
+
+13
+00:00:59,340 --> 00:01:02,750
+We all have to leave many and delete one now.
+
+14
+00:01:02,760 --> 00:01:09,510
+I don't want to delete many products but exactly one solid lead to one product here and you need to
+
+15
+00:01:09,570 --> 00:01:11,370
+specify a filter now.
+
+16
+00:01:11,370 --> 00:01:16,050
+So again pass an object where you describe how to find that product.
+
+17
+00:01:16,050 --> 00:01:21,030
+And again will be are boring IOD equal to check here.
+
+18
+00:01:21,210 --> 00:01:23,140
+Now here product ideas an argument.
+
+19
+00:01:23,250 --> 00:01:30,230
+So we need to convert it to an object id manually again by passing it to the optical constructor.
+
+20
+00:01:30,390 --> 00:01:33,860
+And now we will go ahead and delete the first element.
+
+21
+00:01:33,870 --> 00:01:37,690
+It finds that has this criteria fulfilled.
+
+22
+00:01:37,880 --> 00:01:39,430
+So I will return here.
+
+23
+00:01:39,660 --> 00:01:48,270
+And of course just as before we can add then and catch your if you want we can catch any error and console
+
+24
+00:01:48,360 --> 00:01:54,630
+larget and we can also work with the result of this operation.
+
+25
+00:01:54,780 --> 00:02:01,940
+We could cons a log at all just console log deleted and that will be it.
+
+26
+00:02:01,940 --> 00:02:04,370
+So now we have to delete by id Methot.
+
+27
+00:02:04,400 --> 00:02:05,720
+Now we just need to add it.
+
+28
+00:02:05,840 --> 00:02:06,440
+So the admin.
+
+29
+00:02:06,470 --> 00:02:11,920
+Yes control or file here to post delete product outlet's comment it back in.
+
+30
+00:02:11,960 --> 00:02:12,680
+Or not route.
+
+31
+00:02:12,710 --> 00:02:15,960
+The action I mean of course we extract the product.
+
+32
+00:02:16,340 --> 00:02:18,260
+And then here we had a different flow.
+
+33
+00:02:18,270 --> 00:02:20,610
+I first of all found two products here.
+
+34
+00:02:20,630 --> 00:02:22,520
+Now we don't do that anymore.
+
+35
+00:02:22,670 --> 00:02:30,020
+We just call product delete by ID instead we pass Toprol ID as a string and then we just have our then
+
+36
+00:02:30,020 --> 00:02:33,250
+block here which won't receive an argument.
+
+37
+00:02:33,500 --> 00:02:36,820
+And yet that is it we redirect thereafter.
+
+38
+00:02:36,860 --> 00:02:40,350
+So let's go back to our application.
+
+39
+00:02:40,520 --> 00:02:50,840
+Let's quickly add a new dummy product with totally invalid and uninteresting data and dat fails.
+
+40
+00:02:51,240 --> 00:02:53,020
+That's an interesting behavior.
+
+41
+00:02:53,040 --> 00:02:54,360
+Let's fix that in a second.
+
+42
+00:02:54,360 --> 00:03:02,620
+Let's first of all check if deleting were X I get redirected to a page that is not found yet makes sense
+
+43
+00:03:02,620 --> 00:03:05,290
+because obviously working in a controller is not enough.
+
+44
+00:03:05,290 --> 00:03:09,770
+I need to go to my admen routes and comment in that post delete product route.
+
+45
+00:03:10,000 --> 00:03:16,670
+So after changing dis Let's now click delete and now I get no products here.
+
+46
+00:03:16,930 --> 00:03:23,150
+Let's confirm in column pass by quickly refreshing that page and our product is gone.
+
+47
+00:03:23,200 --> 00:03:24,260
+So deleting works.
+
+48
+00:03:24,310 --> 00:03:28,010
+Let's now see what's going wrong when I tried to add that product.
+

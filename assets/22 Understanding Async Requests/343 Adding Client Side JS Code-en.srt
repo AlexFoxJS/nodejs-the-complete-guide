@@ -1,0 +1,396 @@
+1
+00:00:02,280 --> 00:00:09,230
+Our course project on the admin products page where we can delete products I want to implement this
+
+2
+00:00:09,260 --> 00:00:10,880
+delete function differently.
+
+3
+00:00:10,880 --> 00:00:16,580
+Right now when I would click delete I would simply well delete that send Dad requests to the server
+
+4
+00:00:16,880 --> 00:00:19,400
+and get back and you weren't off that page.
+
+5
+00:00:19,400 --> 00:00:22,540
+Essentially where does product stand missing.
+
+6
+00:00:22,620 --> 00:00:27,590
+And we can see that of course on our service side if we have a look at our admen controller and we have
+
+7
+00:00:27,590 --> 00:00:31,690
+a look at that post the lead product action this action here.
+
+8
+00:00:31,700 --> 00:00:37,760
+Then we see that we while we also extract some incoming data off course and then we work with that data
+
+9
+00:00:37,790 --> 00:00:42,210
+to delete the image belonging to that product and then the product itself.
+
+10
+00:00:42,320 --> 00:00:48,370
+And by the end we redirect back to admen products which is a route which will return to home page.
+
+11
+00:00:48,410 --> 00:00:53,930
+Now don't get me wrong there is nothing wrong with this set up and you can absolutely use it but maybe
+
+12
+00:00:53,930 --> 00:00:58,580
+it would be a great user experience if you would never have to leave that page if you wouldn't reload
+
+13
+00:00:58,580 --> 00:00:59,240
+that page.
+
+14
+00:00:59,240 --> 00:01:04,820
+But if we click delete We sent that information that we want to get rid of that item to the server behind
+
+15
+00:01:04,820 --> 00:01:10,940
+the scenes the server can then still do its thing and once we're done this terrible respond just with
+
+16
+00:01:10,940 --> 00:01:12,070
+some adjacent data.
+
+17
+00:01:12,080 --> 00:01:14,550
+So some success message or anything like that.
+
+18
+00:01:14,660 --> 00:01:22,940
+And once we get that message in our browser we can delete this Dom element so we can delete this article
+
+19
+00:01:22,940 --> 00:01:24,220
+here.
+
+20
+00:01:24,300 --> 00:01:27,070
+We could do all that with client side javascript.
+
+21
+00:01:27,090 --> 00:01:31,420
+So with javascript writing in the browser and some help by our service site.
+
+22
+00:01:31,620 --> 00:01:38,700
+And that is a so-called Asynchronous JavaScript request or this will use so-called Asynchronous JavaScript
+
+23
+00:01:38,700 --> 00:01:39,920
+requests.
+
+24
+00:01:39,930 --> 00:01:46,530
+Now the logic won't change too much but the way we expose our route changes a little bit and we'll have
+
+25
+00:01:46,530 --> 00:01:49,250
+to add some logic on our client side.
+
+26
+00:01:49,280 --> 00:01:51,600
+So let's do that now and forward at all.
+
+27
+00:01:51,600 --> 00:01:58,470
+First of all go to my public Jay s folder and I'll create a new folder the admen dodgiest file.
+
+28
+00:01:58,480 --> 00:02:00,200
+Then you can name it however you want.
+
+29
+00:02:00,200 --> 00:02:00,910
+Important.
+
+30
+00:02:00,960 --> 00:02:06,440
+Does this javascript code that will now not run on the server but that will run in the client.
+
+31
+00:02:06,440 --> 00:02:14,240
+So in the browser I will import this javascript file into my product's page here.
+
+32
+00:02:14,240 --> 00:02:22,780
+So there let's say below the bottom here below our footer I will import a script with script source
+
+33
+00:02:23,680 --> 00:02:25,900
+and you have to close the script tag like this.
+
+34
+00:02:26,020 --> 00:02:30,470
+And then I will import J.S. admen J.
+
+35
+00:02:30,520 --> 00:02:36,340
+So we'll import that java file from the ingenius folder which is in a public folder which is served
+
+36
+00:02:36,400 --> 00:02:38,030
+statically.
+
+37
+00:02:38,050 --> 00:02:44,590
+Now this script will execute on this products js file and if we loaded at the end of this fall we make
+
+38
+00:02:44,590 --> 00:02:50,530
+sure that we had hired Dom has been rendered and parsed by the time we execute our Javascript code.
+
+39
+00:02:50,620 --> 00:02:53,500
+So now we can go back to Edmund J S and add some logic in there.
+
+40
+00:02:53,650 --> 00:02:55,440
+Now which logic do I want to add.
+
+41
+00:02:55,750 --> 00:03:04,300
+Well I want to react to a click on this delete button here and therefore First of all this button should
+
+42
+00:03:04,300 --> 00:03:06,100
+not be of type submit anymore.
+
+43
+00:03:06,220 --> 00:03:08,350
+It should be of type button instead.
+
+44
+00:03:09,210 --> 00:03:16,110
+Actually I will remove this entire form because this form was required for sending a request from the
+
+45
+00:03:16,110 --> 00:03:21,900
+browser sending a request which does X W W W R L form a coded data.
+
+46
+00:03:22,140 --> 00:03:24,310
+Now I'll not do it like this anymore.
+
+47
+00:03:24,360 --> 00:03:26,200
+I will get rid of that instead.
+
+48
+00:03:28,010 --> 00:03:32,130
+And instead I will now Gaverick that data here manually.
+
+49
+00:03:32,220 --> 00:03:38,520
+So I will listen to a click that button and then I will Gabr to product ID and to see SRF token manually
+
+50
+00:03:38,600 --> 00:03:42,320
+foody help of my client side javascript.
+
+51
+00:03:42,350 --> 00:03:49,670
+Now with the former removed I'll go back to Admetus and here I now want to get access to all these delete
+
+52
+00:03:49,670 --> 00:03:50,390
+buttons.
+
+53
+00:03:50,550 --> 00:03:55,060
+Listen to a click on them and then do something when they get clicked.
+
+54
+00:03:55,070 --> 00:03:58,460
+Now for that all to find a function admen genius
+
+55
+00:04:01,340 --> 00:04:03,810
+delete product.
+
+56
+00:04:04,030 --> 00:04:07,360
+Here I'm using NexGen code but this is code it will run in the browser.
+
+57
+00:04:07,370 --> 00:04:13,010
+All modern browsers support the syntax but of course if browser side javascript is new for you you should
+
+58
+00:04:13,010 --> 00:04:18,640
+take a dedicated course that discourse will not focus on that but here will have a function where for
+
+59
+00:04:18,640 --> 00:04:22,050
+it I will simply execute collect.
+
+60
+00:04:22,190 --> 00:04:26,720
+Now this delete product function is a function I can use from inside my.
+
+61
+00:04:26,900 --> 00:04:30,230
+E.J. essentail for H.T. mail file on that button.
+
+62
+00:04:30,410 --> 00:04:40,220
+I can add on click and simply say delete product so dysfunction your delete product like this execute
+
+63
+00:04:40,220 --> 00:04:45,890
+that function when you click on that button if you're now saved it and we reload this page here and
+
+64
+00:04:45,890 --> 00:04:51,190
+I open the browser developer tools if I click on delete you should see click here.
+
+65
+00:04:51,230 --> 00:04:55,140
+Now it's not the leading to product anymore because we delete that form right.
+
+66
+00:04:55,190 --> 00:04:57,850
+So now I'm reacting to a click.
+
+67
+00:04:58,070 --> 00:05:05,310
+And now the next thing will be that we have to find out which ideas see SRF token we have for that back
+
+68
+00:05:05,310 --> 00:05:10,650
+in the Edmond's last fall when we click I want to get access to the field next to the button.
+
+69
+00:05:10,770 --> 00:05:16,050
+I want to get access to to see as our token and as I mentioned to the product ID.
+
+70
+00:05:16,290 --> 00:05:19,200
+Now how do I get access to the surrounding elements.
+
+71
+00:05:19,200 --> 00:05:23,300
+Well in products yes we can pass this to delete product.
+
+72
+00:05:23,310 --> 00:05:24,850
+This is a special keyword.
+
+73
+00:05:24,900 --> 00:05:28,320
+And in the context here it will refer to the element on which we clicked.
+
+74
+00:05:28,320 --> 00:05:35,310
+So the button doesn't say I get this in as many as I can access to the button since I now received this
+
+75
+00:05:35,310 --> 00:05:41,790
+as an argument and it can prove to you that this is the pattern by simply logging it.
+
+76
+00:05:41,900 --> 00:05:47,210
+If we reload the page and click Delete we see the button being locked here and here it would be that
+
+77
+00:05:47,210 --> 00:05:47,860
+button.
+
+78
+00:05:48,170 --> 00:05:49,670
+So now we have access to the button.
+
+79
+00:05:49,750 --> 00:05:53,090
+And with that we can easily get access to the running inputs.
+
+80
+00:05:53,090 --> 00:05:59,820
+I can simply access to a parent node of my button which will simply be wild element or around my bottom.
+
+81
+00:05:59,820 --> 00:06:07,130
+So in this case this defeater and I can find my inputs in there the input with the name product ID and
+
+82
+00:06:07,130 --> 00:06:14,760
+the input with the name see SRF underscore C S or I can do so by using the query selector on the parent
+
+83
+00:06:14,790 --> 00:06:23,500
+node and here all used the attribute selector to find name equal product ID.
+
+84
+00:06:23,500 --> 00:06:30,550
+Now let me lock this to the console to see if it works.
+
+85
+00:06:30,660 --> 00:06:33,580
+If I now reload my page and I go to the console log.
+
+86
+00:06:33,840 --> 00:06:37,080
+Now I get that input ID being locked that hidden input ID.
+
+87
+00:06:37,080 --> 00:06:43,680
+Now from that input I can't of course also extract the value which is then just the product ID itself
+
+88
+00:06:43,680 --> 00:06:45,330
+and not the entire Dom element.
+
+89
+00:06:45,330 --> 00:06:47,090
+So with data value added.
+
+90
+00:06:47,220 --> 00:06:51,040
+Now I just get the ID and for the product I get well.
+
+91
+00:06:51,060 --> 00:06:51,870
+Do you ever ID.
+
+92
+00:06:52,110 --> 00:06:53,960
+So now I have a way of getting that.
+
+93
+00:06:54,060 --> 00:06:56,620
+Let's start at fraud.
+
+94
+00:06:56,650 --> 00:07:03,170
+ID in a constant and then let me all the store to see SRF token.
+
+95
+00:07:03,270 --> 00:07:11,040
+And here I will simply repeat that code access the element with a name of underscores C S or F and extract
+
+96
+00:07:11,040 --> 00:07:11,990
+the value.
+
+97
+00:07:12,060 --> 00:07:17,790
+And now with these two pieces of information we can now send our asynchronous requests to the server
+
+98
+00:07:18,000 --> 00:07:20,710
+for data of course we need a fitting route and so on.
+
+99
+00:07:20,730 --> 00:07:21,870
+So let's work on that next.
+

@@ -1,0 +1,212 @@
+1
+00:00:02,350 --> 00:00:04,980
+We're almost done with the theory part.
+
+2
+00:00:04,990 --> 00:00:11,530
+Now there are some core principles that are indeed defined in theory and that are important for you
+
+3
+00:00:11,530 --> 00:00:14,620
+to keep in mind where at least there are two core principles.
+
+4
+00:00:14,650 --> 00:00:21,110
+I want you to keep in mind when building rest API is the first one has a uniform interface principle.
+
+5
+00:00:21,220 --> 00:00:28,780
+This simply defines that your API will have or should have clearly defined API endpoints you remember
+
+6
+00:00:28,990 --> 00:00:35,440
+endpoints were the combination of HTP methods and postes with clearly defined request and response data
+
+7
+00:00:35,440 --> 00:00:43,150
+structures put in other words your API should be predictable and if possible and if open to the public
+
+8
+00:00:43,240 --> 00:00:45,290
+it should all be well documented.
+
+9
+00:00:45,610 --> 00:00:53,020
+So people should know which data does your API expect which data does it give back which endpoints do
+
+10
+00:00:53,020 --> 00:00:53,790
+I have.
+
+11
+00:00:53,890 --> 00:00:59,920
+And the thing that happens when a request reaches to end point should of course not change over time.
+
+12
+00:00:59,930 --> 00:01:03,370
+It should be predictable it should be clearly defined.
+
+13
+00:01:03,430 --> 00:01:08,860
+The second important principle I want you to keep in mind is to state less interactions principle.
+
+14
+00:01:09,100 --> 00:01:15,490
+And this will be super important when we later talk about often dictation when building a rest API the
+
+15
+00:01:15,490 --> 00:01:21,100
+server and the client are totally separate that they don't share a common history.
+
+16
+00:01:21,340 --> 00:01:25,330
+So no connection history is stored and no sessions will be used.
+
+17
+00:01:25,390 --> 00:01:31,770
+Therefore because every incoming request is treated as if no prior requests were sent.
+
+18
+00:01:31,930 --> 00:01:36,390
+The server has a look at every request on its own.
+
+19
+00:01:36,490 --> 00:01:38,770
+It does not store as session for a client.
+
+20
+00:01:38,770 --> 00:01:41,180
+It does not care about the client at all.
+
+21
+00:01:41,180 --> 00:01:44,850
+Actually that is also a cool thing about resting your eyes.
+
+22
+00:01:45,220 --> 00:01:47,000
+You can build a rest API.
+
+23
+00:01:47,170 --> 00:01:53,050
+Open it up to the public like to Google Maps API is for example and you don't care about the individual
+
+24
+00:01:53,110 --> 00:01:53,880
+client.
+
+25
+00:01:53,980 --> 00:01:56,960
+You just say hey here are the endpoints I have.
+
+26
+00:01:56,980 --> 00:01:59,220
+Here's the data you get back for each and point.
+
+27
+00:01:59,280 --> 00:02:04,150
+Here's the data I expect from you for my endpoints and then I don't care about you.
+
+28
+00:02:04,330 --> 00:02:06,210
+I don't start a session with you.
+
+29
+00:02:06,490 --> 00:02:10,410
+We have a strong decoupling of the client and a server.
+
+30
+00:02:10,570 --> 00:02:16,720
+Even if they were to run on the same server because we're building our own API for our own Front-End
+
+31
+00:02:16,930 --> 00:02:23,590
+we still would decoupled both so that they work independently and just exchange data.
+
+32
+00:02:23,590 --> 00:02:30,460
+This means that every time we set up a new endpoint we have to make sure that works in the pendant from
+
+33
+00:02:30,460 --> 00:02:32,000
+prior requests.
+
+34
+00:02:32,140 --> 00:02:38,350
+And a typical problem here is authentication where once we locked in future requests should be treated
+
+35
+00:02:38,350 --> 00:02:39,460
+as locked in.
+
+36
+00:02:39,460 --> 00:02:43,510
+And I will show you how to solve this in this course too of course.
+
+37
+00:02:43,510 --> 00:02:50,860
+Now our principles which are less important which you dont need to learn by heart is to cashable principle
+
+38
+00:02:50,890 --> 00:02:56,960
+which means on your arrest API you could send back some headers that tell the client how long the response
+
+39
+00:02:56,960 --> 00:03:04,870
+is valid so that the client may cached a response client service separation is mentioned again here.
+
+40
+00:03:04,900 --> 00:03:11,620
+Its more thinking about the data storage client and server are decoupled as a set and decline should
+
+41
+00:03:11,620 --> 00:03:13,900
+not worry about persistent data storage.
+
+42
+00:03:13,900 --> 00:03:16,890
+Therefore the server will be responsible for this.
+
+43
+00:03:17,020 --> 00:03:23,500
+We may have a layered system which simply means as a client when we send the request to an API we can't
+
+44
+00:03:23,500 --> 00:03:24,840
+rely on that server.
+
+45
+00:03:24,850 --> 00:03:31,160
+We sent it to you immediately handling the request to server might instead forward the request or distribute
+
+46
+00:03:31,160 --> 00:03:33,100
+it to another server.
+
+47
+00:03:33,100 --> 00:03:38,440
+Ultimately we only care about the data we get back which should of course follow the structure that
+
+48
+00:03:38,440 --> 00:03:43,570
+was defined by the API code on the monitus alost optional principle.
+
+49
+00:03:43,660 --> 00:03:45,770
+And this basically just means the rest.
+
+50
+00:03:45,850 --> 00:03:51,240
+I could also for some endpoints transfer executable code to the client.
+
+51
+00:03:51,340 --> 00:03:57,880
+Now to be honest in reality you don't see that too often we're mostly talking about well normal data
+
+52
+00:03:57,880 --> 00:04:03,850
+we're using but still these are the best principles the top two ones are the important ones which will
+
+53
+00:04:03,850 --> 00:04:07,400
+have great implications especially on authentication.
+

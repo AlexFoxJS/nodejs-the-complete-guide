@@ -1,0 +1,248 @@
+1
+00:00:02,210 --> 00:00:09,160
+Now do we learned what the core idea is and how we transfer data and that data is king in arrest API.
+
+2
+00:00:09,550 --> 00:00:11,050
+Let's have a look at the routing.
+
+3
+00:00:11,080 --> 00:00:14,510
+So how do we communicate between client and server.
+
+4
+00:00:14,920 --> 00:00:20,020
+So we have client server and on the server we got our sort of logic we reach out to databases and so
+
+5
+00:00:20,020 --> 00:00:20,660
+on.
+
+6
+00:00:20,740 --> 00:00:25,440
+Now we send the request from the client to the server and how do we do that.
+
+7
+00:00:25,720 --> 00:00:29,350
+Well in a traditional web app as we built it thus far.
+
+8
+00:00:29,350 --> 00:00:36,310
+And of course we did it of course by simply adding a link on our age HTML page for example or we had
+
+9
+00:00:36,310 --> 00:00:41,240
+a form with a button and we defined the form action and the method.
+
+10
+00:00:41,710 --> 00:00:44,210
+Well it's not that far off for rest.
+
+11
+00:00:44,220 --> 00:00:46,620
+AP AIs we still send the request.
+
+12
+00:00:46,630 --> 00:00:54,170
+Q A combination of HTP method also called HTP word and a path onto a server.
+
+13
+00:00:54,340 --> 00:01:01,540
+So what we defined thus far still will be used kind of we still find such payoffs on the server on the
+
+14
+00:01:01,540 --> 00:01:07,930
+server side routing where we wait for incoming requests and we also define certain HGP methods we want
+
+15
+00:01:07,930 --> 00:01:12,930
+to handle forty's pause so that not all requests can reach all POS.
+
+16
+00:01:13,050 --> 00:01:20,080
+These requests would be sent from the client through when working in the browser through Asynchronous
+
+17
+00:01:20,080 --> 00:01:20,930
+JavaScript.
+
+18
+00:01:20,980 --> 00:01:28,840
+So with the fetch API for example or with Ajax and on mobile apps and so on we all get special clients.
+
+19
+00:01:28,840 --> 00:01:32,890
+The core thing here is we in the end still sent normal requests.
+
+20
+00:01:32,890 --> 00:01:38,980
+These are totally normal requests that just don't expect any HTL response and we send a combination
+
+21
+00:01:38,980 --> 00:01:44,080
+of HTP method and Poth and this is how we communicate with our server.
+
+22
+00:01:44,320 --> 00:01:51,670
+Now in the rest world or in the API world we like to call these things your API and points.
+
+23
+00:01:51,670 --> 00:01:58,780
+So when you hear me talk about an API endpoint I'm talking about the combination of a HTP method like
+
+24
+00:01:58,780 --> 00:02:06,800
+post and get and the respect of Poth these already and points we to find on our rest API.
+
+25
+00:02:07,000 --> 00:02:13,370
+And we defined a logic that should execute on a server when a request reaches such an point.
+
+26
+00:02:13,660 --> 00:02:20,500
+Now talking about HTP methods there are more methods than just get and post I did mention this before
+
+27
+00:02:20,650 --> 00:02:27,700
+in the course but when working with the browser only and not with javascript in the browser but just
+
+28
+00:02:27,700 --> 00:02:32,240
+with Fornes and links then we only have GET and POST available.
+
+29
+00:02:32,320 --> 00:02:37,950
+These are the two methods the browser natively knows or the browser H.T. mail elements no.
+
+30
+00:02:38,050 --> 00:02:44,800
+So to say when using asynchronous requests for javascript or when building mobile apps and so on and
+
+31
+00:02:44,800 --> 00:02:50,260
+using their respective HTP clients you have access to more HTP methods.
+
+32
+00:02:50,380 --> 00:02:57,190
+And we actually already saw that in the asynchronous requests module of course besides get which is
+
+33
+00:02:57,190 --> 00:03:03,010
+responsible for getting a resource from the server and post which is responsible for posting a resource
+
+34
+00:03:03,010 --> 00:03:09,870
+to the server which means create it on the server or append it to an existing let's say array of resources.
+
+35
+00:03:10,120 --> 00:03:16,540
+Besides these two methods which really use a lot for the course we have access to port which we would
+
+36
+00:03:16,540 --> 00:03:22,750
+use if we want to put a resource onto the server which means you want to created or overwrite an existing
+
+37
+00:03:22,750 --> 00:03:23,380
+resource.
+
+38
+00:03:23,420 --> 00:03:27,140
+Posts will never override or should never overwrite.
+
+39
+00:03:27,250 --> 00:03:32,980
+We also have access to patch which is used for updating parts of an existing resource so not override
+
+40
+00:03:32,980 --> 00:03:36,080
+it entirely necessarily but update parts of it.
+
+41
+00:03:36,310 --> 00:03:42,610
+We have access to delete which allows us to delete a resource on the server and also there is a special
+
+42
+00:03:42,700 --> 00:03:47,440
+options HTP method which we will use to in this module.
+
+43
+00:03:47,440 --> 00:03:52,830
+Indirectly though it is sent automatically by the browser and there will come back to it.
+
+44
+00:03:53,110 --> 00:03:59,620
+This basically is a request which the browser will send automatically to find out if the next request
+
+45
+00:03:59,650 --> 00:04:00,450
+tries to do.
+
+46
+00:04:00,460 --> 00:04:04,930
+For example delete something if that is actually allowed and it will come back to that.
+
+47
+00:04:04,930 --> 00:04:06,990
+So these are DHP methods.
+
+48
+00:04:07,000 --> 00:04:11,600
+We will work with the methods we typically work with when building a rest API.
+
+49
+00:04:11,680 --> 00:04:17,170
+Especially the first five ones the orange ones are important.
+
+50
+00:04:17,320 --> 00:04:24,760
+Now let me also highlight that in theory you can do whatever you want when a request with a certain
+
+51
+00:04:24,850 --> 00:04:27,530
+method reaches a certain path.
+
+52
+00:04:27,550 --> 00:04:34,900
+So for the rest world we should use a POST request to create or append a resource.
+
+53
+00:04:34,900 --> 00:04:42,430
+No one is stopping you from deleting something on a server because ultimately you only define a method
+
+54
+00:04:42,580 --> 00:04:47,040
+Poth pair on your Cirus site and then you run any code you want.
+
+55
+00:04:47,140 --> 00:04:53,070
+And what happens in that code is not restricted by the method that was used to execute that code.
+
+56
+00:04:53,110 --> 00:05:00,220
+You can restricted yourself and you want to implement the rest API that follows these ideas here but
+
+57
+00:05:00,220 --> 00:05:01,260
+you don't have to.
+
+58
+00:05:01,300 --> 00:05:03,330
+And that's just important to highlight.
+
+59
+00:05:03,460 --> 00:05:10,180
+It's common and it's a good practice it's a best practice to use these methods in this way because then
+
+60
+00:05:10,270 --> 00:05:16,770
+anyone who's using your API clearly knows what to expect to happen on the server for a given method.
+
+61
+00:05:16,900 --> 00:05:20,760
+But in theory no one is stopping you from doing something else.
+
+62
+00:05:21,310 --> 00:05:23,470
+So these are the HTP methods.
+

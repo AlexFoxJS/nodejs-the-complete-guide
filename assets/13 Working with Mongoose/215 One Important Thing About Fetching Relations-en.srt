@@ -1,0 +1,208 @@
+1
+00:00:02,290 --> 00:00:07,070
+I want to show you something which we don't need here but which is really neat and which you should
+
+2
+00:00:07,070 --> 00:00:08,170
+be aware of.
+
+3
+00:00:08,180 --> 00:00:11,880
+Keep in mind that in our product mall we're storing a user ID.
+
+4
+00:00:11,900 --> 00:00:17,330
+Now let's say when we fetch all products as we're doing it and the admin controller and get products
+
+5
+00:00:17,330 --> 00:00:23,660
+with find let's say we actually want to get all the user data for the related user and not just the
+
+6
+00:00:23,710 --> 00:00:31,270
+idea because right now if my console logged my products here in find and get products and the admin
+
+7
+00:00:31,280 --> 00:00:40,830
+controller and I reload my admin products page here we see in a console this is what gets locked an
+
+8
+00:00:40,920 --> 00:00:47,400
+array of products and that array of course only or do you object and there only have the user ID.
+
+9
+00:00:47,430 --> 00:00:51,360
+Now this is of course not what we need in all cases.
+
+10
+00:00:51,360 --> 00:00:54,640
+Sometimes we want to fetch a related user data too.
+
+11
+00:00:55,140 --> 00:01:00,690
+Now we could do that manually here inside the then where we got the products we could loop through to
+
+12
+00:01:00,690 --> 00:01:07,950
+products and then write queries where we get the users by with find by ID with the idea that we have
+
+13
+00:01:07,950 --> 00:01:08,870
+received.
+
+14
+00:01:09,030 --> 00:01:10,820
+But this is a bit cumbersome.
+
+15
+00:01:10,950 --> 00:01:15,190
+Mongoose has a useful utility method which we can add after find.
+
+16
+00:01:15,320 --> 00:01:22,170
+And that is populate populate allows you to Talmon goos to populate a certain field with all the detail
+
+17
+00:01:22,170 --> 00:01:24,610
+information and not just the ID.
+
+18
+00:01:24,900 --> 00:01:31,620
+So here I could add populate and then you first of all describe the payoff which you want to populate.
+
+19
+00:01:31,620 --> 00:01:37,360
+In my case thats just the user id field but you could also point at nested pauvres if you had these.
+
+20
+00:01:37,530 --> 00:01:39,210
+But here it's just user ID.
+
+21
+00:01:39,870 --> 00:01:50,730
+And then that is it for now if I now save this and I reload this page you'll see actually the user ID
+
+22
+00:01:50,730 --> 00:01:53,490
+is now not just the ID but the full user object.
+
+23
+00:01:53,530 --> 00:01:59,880
+And that can of course be really helpful for fetching data because this gives you all the data in one
+
+24
+00:01:59,880 --> 00:02:00,450
+step.
+
+25
+00:02:00,450 --> 00:02:03,220
+Instead of writing nested queries on your own.
+
+26
+00:02:03,600 --> 00:02:08,250
+By the way you can also select which kind of data should be received and you can not just do that and
+
+27
+00:02:08,250 --> 00:02:13,580
+populate but also and find after find you can call select.
+
+28
+00:02:13,740 --> 00:02:18,690
+And this allows you to define which fields you want to select or unselect So which fields should actually
+
+29
+00:02:18,690 --> 00:02:21,140
+be retrieved from the database.
+
+30
+00:02:21,190 --> 00:02:26,130
+There you have a string where you could say for a product maybe you want to get the title and the price
+
+31
+00:02:26,520 --> 00:02:30,010
+but you don't need description and everything else.
+
+32
+00:02:30,120 --> 00:02:36,720
+So you could then add title and price like this and you could even excellent something like that by
+
+33
+00:02:36,720 --> 00:02:38,620
+adding a minus in front of it.
+
+34
+00:02:39,360 --> 00:02:43,660
+At the same can be done on populate by passing a second argument.
+
+35
+00:02:43,680 --> 00:02:48,080
+This would be a string where you say OK I want to get the name and that's it.
+
+36
+00:02:49,170 --> 00:02:55,320
+The ID will by the way always be retrieved unless you explicitly exclude it if you do that and you now
+
+37
+00:02:55,320 --> 00:02:57,030
+reload this page.
+
+38
+00:02:57,030 --> 00:03:00,890
+You already see some data as missing here because we did not retrieve that.
+
+39
+00:03:01,110 --> 00:03:03,680
+And you see it in the data that gets locked here too.
+
+40
+00:03:03,930 --> 00:03:10,370
+We only reach Crieff to Thailand price we explicitly excluded the ID for the user.
+
+41
+00:03:10,530 --> 00:03:13,010
+We didn't explicitly exclude the idea.
+
+42
+00:03:13,050 --> 00:03:16,570
+So we got that and we got the name which we defined here.
+
+43
+00:03:16,800 --> 00:03:21,900
+So that's just a little side note about data fetching with mongooses and something I wanted to make
+
+44
+00:03:21,900 --> 00:03:22,760
+you aware of.
+
+45
+00:03:22,890 --> 00:03:24,150
+We don't need that here.
+
+46
+00:03:24,150 --> 00:03:28,690
+It actually breaks our application but it's still something that's nice to know.
+
+47
+00:03:28,860 --> 00:03:34,740
+So I will comment this out and I just want you to keep in mind that you can automatically populate related
+
+48
+00:03:34,740 --> 00:03:41,190
+fields and fetched the related data and that you can also control which fields are returned Beauford
+
+49
+00:03:41,330 --> 00:03:42,470
+the main document.
+
+50
+00:03:42,510 --> 00:03:45,620
+And all for populated documents with that.
+
+51
+00:03:45,660 --> 00:03:48,140
+Let's go back to the state in which we need to happen.
+
+52
+00:03:48,240 --> 00:03:51,330
+And that's Instead work on things like to cart and orders.
+

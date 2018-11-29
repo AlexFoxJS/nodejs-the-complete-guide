@@ -1,0 +1,292 @@
+1
+00:00:02,210 --> 00:00:04,370
+So we want to end up with optimized code.
+
+2
+00:00:04,400 --> 00:00:07,880
+And again this is most important for Front-End projects.
+
+3
+00:00:08,060 --> 00:00:14,270
+NPM is useful because we can install packages we can manage this project with our package touch base
+
+4
+00:00:14,270 --> 00:00:18,240
+and fall and we can of course install packages that run in the browser too.
+
+5
+00:00:18,620 --> 00:00:24,410
+It's our duty as a developer to ensure that we don't try to install express years into this project
+
+6
+00:00:24,620 --> 00:00:31,580
+because we couldn't use any functionality from Express Yes in the browser but we know as a fronted developer
+
+7
+00:00:31,760 --> 00:00:36,330
+which package we can use and we want to use we find that out with research and so on.
+
+8
+00:00:36,560 --> 00:00:41,600
+And then we can install these packages and we can import them and our files with a slightly different
+
+9
+00:00:41,600 --> 00:00:46,300
+syntax that just happens to be primarily used for undented development.
+
+10
+00:00:46,430 --> 00:00:47,990
+Import Export syntax.
+
+11
+00:00:47,990 --> 00:00:54,200
+With that as module style because dad is actually the style that is supported in modern browsers too.
+
+12
+00:00:54,470 --> 00:01:01,700
+And then this is done by NPM we install the packages and now we also want to start a script with NPM
+
+13
+00:01:02,180 --> 00:01:05,960
+now and PM's work is over and no chase takes over.
+
+14
+00:01:05,990 --> 00:01:07,500
+Do you react scripts.
+
+15
+00:01:07,520 --> 00:01:08,190
+Package here.
+
+16
+00:01:08,210 --> 00:01:09,330
+Let's look into that.
+
+17
+00:01:09,460 --> 00:01:14,990
+And for that we can look into our node modules folder and run NPM install in case you don't have that
+
+18
+00:01:15,050 --> 00:01:20,030
+because that will install all dependencies that are listed in your package don't chase and file and
+
+19
+00:01:20,030 --> 00:01:21,480
+now in modules.
+
+20
+00:01:21,650 --> 00:01:24,260
+Let's search for it at re-act scripts.
+
+21
+00:01:24,270 --> 00:01:31,230
+Package and you can see by the list that is very long that all package have a lot of dependencies which
+
+22
+00:01:31,230 --> 00:01:35,870
+in turn have dependencies which is why we end up with a lot of packages being installed here.
+
+23
+00:01:36,240 --> 00:01:42,910
+Now I'm in the re-act area though and there I find re-act scripts now there we all are packaged our
+
+24
+00:01:42,910 --> 00:01:48,600
+chase and fall because if you share a package you all to meet that you need to add some extra information
+
+25
+00:01:48,600 --> 00:01:49,350
+to the package.
+
+26
+00:01:49,370 --> 00:01:55,380
+Jason Folden and you can learn all about creating and sharing packages in the official NPM docs if you're
+
+27
+00:01:55,380 --> 00:01:56,340
+interested.
+
+28
+00:01:56,730 --> 00:02:01,930
+And there you will all find like the entry point that is executed which is in the bin folder re-act
+
+29
+00:02:01,970 --> 00:02:04,240
+scripts James co-teacher.
+
+30
+00:02:04,350 --> 00:02:06,230
+This is the end to code that will be executed.
+
+31
+00:02:06,230 --> 00:02:08,190
+And now here's something important.
+
+32
+00:02:08,250 --> 00:02:14,790
+This code well and can't be executed by Noj J.S. because the idea behind build workflows is of course
+
+33
+00:02:14,790 --> 00:02:19,150
+that it runs on your computer before you deploy your optimized code.
+
+34
+00:02:19,230 --> 00:02:25,380
+So before you upload your optimized code to some server so this code will not run in the browser or
+
+35
+00:02:25,380 --> 00:02:32,630
+anything like that this code will run on your local machine and therefore it will be executed by node.
+
+36
+00:02:32,700 --> 00:02:40,380
+J.S. This is also the case because in the end this code will kickstart scripts will kick start a recode
+
+37
+00:02:40,770 --> 00:02:44,570
+and will kickstarted code that will also work with your local file system.
+
+38
+00:02:44,640 --> 00:02:51,330
+For example in the scripts folder we find to built js file and there we will see what else it does.
+
+39
+00:02:51,330 --> 00:02:54,450
+And now this is actually a very complex build workflow.
+
+40
+00:02:54,510 --> 00:03:00,630
+LDN does use a tool called web Pech which is used heavily in front and development to orchestrate your
+
+41
+00:03:00,630 --> 00:03:06,690
+build workflow and to compile your different files and unlock next gen features and make sure that you
+
+42
+00:03:06,690 --> 00:03:13,020
+can handle the features correctly again by using all the some other tools like babble but that would
+
+43
+00:03:13,020 --> 00:03:14,490
+lead to far higher.
+
+44
+00:03:14,490 --> 00:03:20,580
+The idea is here we are using notes as we can all tell that we are but a fact that we now have a different
+
+45
+00:03:20,640 --> 00:03:24,750
+import export syntax and we are loading different packages here.
+
+46
+00:03:24,780 --> 00:03:30,020
+We're running them and some of these packages will in the end all pick up our files.
+
+47
+00:03:30,060 --> 00:03:33,720
+So our local source code we have written here in the source folder.
+
+48
+00:03:33,900 --> 00:03:38,040
+We'll parse them and we'll transform the content in their poll.
+
+49
+00:03:38,100 --> 00:03:43,860
+All of them together because we don't want to have multiple files in the end but only very few files
+
+50
+00:03:43,860 --> 00:03:45,440
+with one main file.
+
+51
+00:03:45,450 --> 00:03:52,150
+We'll pull all that code together and then also rewrite our code in a way that also runs in older browsers.
+
+52
+00:03:52,320 --> 00:03:57,570
+And this is all done by a couple of packages which are used behind the scenes here which are installed
+
+53
+00:03:57,570 --> 00:04:03,650
+by NPM and then the code in that packages is executed through node J.S..
+
+54
+00:04:03,870 --> 00:04:08,790
+And that was a lot of talking about that but I really want to get that into your heads because it's
+
+55
+00:04:08,790 --> 00:04:16,470
+so important that you understand that you can use not just to execute any javascript code which uses
+
+56
+00:04:16,510 --> 00:04:22,530
+notorious features of course on your machine and that it's there for all you used to run utility scripts
+
+57
+00:04:22,650 --> 00:04:28,590
+and you could also write your own utilities script that like calculates or Taxus But here the utility
+
+58
+00:04:28,590 --> 00:04:34,860
+scripts actually take our source code and then transform it as defined by the packages we use because
+
+59
+00:04:34,860 --> 00:04:38,900
+we don't want to write all that built tooling code on our own.
+
+60
+00:04:39,090 --> 00:04:45,490
+And that is another important area where you can use yes and if you want to dive into that area.
+
+61
+00:04:45,600 --> 00:04:50,520
+Actually a lot of the knowledge you learn in this course like for example when it comes to work with
+
+62
+00:04:50,520 --> 00:04:56,310
+files will be useful but you will also have to pick up new skills because you need to know all the ins
+
+63
+00:04:56,310 --> 00:05:02,470
+and outs about working with files managing large chunks of data efficiently and so on.
+
+64
+00:05:02,490 --> 00:05:05,200
+You don't need to create a web service or anything like that.
+
+65
+00:05:05,220 --> 00:05:10,400
+You don't need to validate user input and that of course was the main topic off this course.
+
+66
+00:05:10,410 --> 00:05:16,680
+But this is a different area of notorious that you can all dive into if you are interested and especially
+
+67
+00:05:16,830 --> 00:05:20,340
+NPM is something that is worth having a look at.
+
+68
+00:05:20,400 --> 00:05:26,370
+Having a look at the commands you got there so that you farly understand what you can use NPM for and
+
+69
+00:05:26,370 --> 00:05:32,370
+if you want to learn how to distribute your own packages for example the getting started guide there
+
+70
+00:05:32,550 --> 00:05:36,750
+also teaches you dad how to publish an update packages and so on.
+
+71
+00:05:36,750 --> 00:05:40,140
+So check these resources out if that's interesting to you.
+
+72
+00:05:40,140 --> 00:05:47,190
+I found it important to mention that this also exists and is important area where no chase and NPM are
+
+73
+00:05:47,190 --> 00:05:48,180
+being used.
+

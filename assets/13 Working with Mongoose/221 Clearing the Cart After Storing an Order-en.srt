@@ -1,0 +1,88 @@
+1
+00:00:02,220 --> 00:00:05,210
+So let's clear the card after storing an order.
+
+2
+00:00:05,550 --> 00:00:11,250
+And for that here once I'm done with saving the order I want to clear the card.
+
+3
+00:00:11,340 --> 00:00:16,310
+And one way to do that would be to go to the user model and add a new method there.
+
+4
+00:00:16,650 --> 00:00:23,450
+We can go to the user schema to the methods key and then add a clear cart method.
+
+5
+00:00:23,530 --> 00:00:26,770
+So simply a function of we can call to clear the entire cart.
+
+6
+00:00:26,970 --> 00:00:28,340
+And how would we do that.
+
+7
+00:00:28,560 --> 00:00:37,020
+Well we would simply set this cart equal to an object where we have an empty array of items and then
+
+8
+00:00:37,020 --> 00:00:45,390
+we just return this whoops return this safe and that should be it that updates to cards you have no
+
+9
+00:00:45,390 --> 00:00:51,000
+items in it anymore and we didn't save as and therefore we update this which is let's go back to the
+
+10
+00:00:51,000 --> 00:00:52,160
+shop controller.
+
+11
+00:00:52,290 --> 00:00:58,930
+And here once we know that the order was placed let's simply call request user clear card.
+
+12
+00:00:58,950 --> 00:01:08,400
+This method we just added and then I will return that and move my redirection into a new then block
+
+13
+00:01:08,850 --> 00:01:15,400
+after the previous one which will only execute once the card was cleared.
+
+14
+00:01:15,410 --> 00:01:22,300
+So now with that let's say that let's now also go to products and maybe add another product to our cart.
+
+15
+00:01:22,610 --> 00:01:23,750
+Let's order that card.
+
+16
+00:01:23,750 --> 00:01:28,400
+Now let's click on card again no products and cart does this looking great.
+
+17
+00:01:28,550 --> 00:01:34,670
+Let's quickly check our orders and compacts and this new order should now have two product set is looking
+
+18
+00:01:34,670 --> 00:01:35,160
+good.
+
+19
+00:01:35,300 --> 00:01:41,050
+One with quantity Q That walls are nice spoke and one with quantity one that was the second product.
+
+20
+00:01:41,270 --> 00:01:45,240
+And in the users the card is empty.
+
+21
+00:01:45,290 --> 00:01:50,960
+So now we got an elegant way of managing orders sent the cart through mongoose.
+
+22
+00:01:51,090 --> 00:01:57,030
+However of course also had the functionality to get the card in the next lecture.
+

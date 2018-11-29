@@ -1,0 +1,328 @@
+1
+00:00:02,120 --> 00:00:06,640
+Some now able to store some data in the cards at least in a very basic way.
+
+2
+00:00:06,830 --> 00:00:10,580
+But obviously we don't just want to overwrite the existing card all the time.
+
+3
+00:00:10,610 --> 00:00:16,220
+We want to be able to store multiple products in there and increase the quantity in case we already
+
+4
+00:00:16,220 --> 00:00:17,520
+do have a product in there.
+
+5
+00:00:17,540 --> 00:00:21,400
+So we need to find two in our code a little bit and we already started.
+
+6
+00:00:21,440 --> 00:00:26,870
+So I'll comment this back in where I do check whenever a certain item already does exist.
+
+7
+00:00:26,870 --> 00:00:31,010
+Now I just need to tweak Dakota a little bit here.
+
+8
+00:00:31,100 --> 00:00:39,600
+I need to look for Product ID because that is where I store my product IDs in the items in the cart.
+
+9
+00:00:39,760 --> 00:00:44,260
+So I'm looking for product that because I'm storing the ID and product id down there.
+
+10
+00:00:44,680 --> 00:00:50,410
+And now with if that is something else than minus one we know that this product already exists in the
+
+11
+00:00:50,410 --> 00:00:56,480
+cart so I can add a new quantity field again and set this to one by default.
+
+12
+00:00:56,770 --> 00:01:03,270
+But if cart product is greater than zero or greater equal than zero.
+
+13
+00:01:03,370 --> 00:01:08,920
+So if it's anything else but negative basically then this means this product already exists.
+
+14
+00:01:08,920 --> 00:01:19,240
+So then new quantity is cart product that is actually the index let's maybe name ID card product index.
+
+15
+00:01:19,240 --> 00:01:30,020
+So this is then actually equal to this card items for that given index we just identified and there
+
+16
+00:01:30,020 --> 00:01:32,630
+will have a quantity plus one.
+
+17
+00:01:32,630 --> 00:01:38,430
+So does the new quantity of that item already exists or if it already is part of our ecarte.
+
+18
+00:01:38,600 --> 00:01:45,920
+If not we'll go with the default of one and therefore here I will always update to new quantity.
+
+19
+00:01:45,940 --> 00:01:52,210
+However I also don't want to update but always overwriting items with a new array with exactly one object
+
+20
+00:01:52,600 --> 00:01:55,830
+instead of one to add a new object to did array.
+
+21
+00:01:56,020 --> 00:02:02,550
+If the product does not exist in there or if it does exist in there I want to update that one product
+
+22
+00:02:02,560 --> 00:02:03,710
+so how do we do that.
+
+23
+00:02:05,030 --> 00:02:11,380
+Well one of the simplest ways and you could use other approaches where you leverage some functions Mongolia's
+
+24
+00:02:12,350 --> 00:02:20,360
+but one of the clearest approaches you can use is that you get the updated card items that you create
+
+25
+00:02:20,360 --> 00:02:28,280
+such a constant and then you access your card items and you create a new array where you copy in all
+
+26
+00:02:28,280 --> 00:02:31,870
+the existing elements with the spread operator with the free dots.
+
+27
+00:02:32,120 --> 00:02:37,300
+So this gives me a new array with all the items that are in the cart and they are now stored here.
+
+28
+00:02:37,580 --> 00:02:43,460
+And they can now edit dicere without touching the old array due to the way javascript works with reference
+
+29
+00:02:43,460 --> 00:02:45,120
+and primitive types.
+
+30
+00:02:45,140 --> 00:02:53,950
+So now I can edit my card items and now I just need to differentiate do we already have that item in
+
+31
+00:02:53,950 --> 00:02:55,090
+the card or not.
+
+32
+00:02:55,090 --> 00:02:57,870
+So actually move it up here before my check.
+
+33
+00:02:58,090 --> 00:03:05,770
+And then here if I make it into this if statement I know that we have this product already in that case
+
+34
+00:03:05,890 --> 00:03:10,650
+I can access updated card items for the card product index I found.
+
+35
+00:03:10,650 --> 00:03:14,830
+So now I have access to dead item I'm interested in.
+
+36
+00:03:14,830 --> 00:03:24,000
+I know that it already existed so I can set its quantity equal to the new quantity like this now else
+
+37
+00:03:24,870 --> 00:03:27,930
+if the item did not exist before.
+
+38
+00:03:28,740 --> 00:03:33,070
+I'll take my updated card items and simply add a new one with push.
+
+39
+00:03:33,270 --> 00:03:39,300
+I'll add a new card item and I'll add a new card item which looks exactly as described down there so
+
+40
+00:03:39,300 --> 00:03:41,780
+I'll just wrap that code it added here.
+
+41
+00:03:42,090 --> 00:03:49,380
+So now ever update the quantity of an existing card item or I add a new one and then down there for
+
+42
+00:03:49,380 --> 00:03:55,560
+updated card I can always set my items equal to the update of the card items because that will always
+
+43
+00:03:55,560 --> 00:04:01,860
+be in a rate with all the old elements because I copy it first and then with the update edit.
+
+44
+00:04:01,890 --> 00:04:07,950
+So either with the quantity increased for the existing element or with a new element added to the card.
+
+45
+00:04:08,160 --> 00:04:15,450
+So then I can safely have my updated card down there and save that to the database with all the updated
+
+46
+00:04:15,510 --> 00:04:16,640
+items in there.
+
+47
+00:04:17,070 --> 00:04:25,830
+So if I save that now a first of all add a second product real quick so did we.
+
+48
+00:04:26,200 --> 00:04:30,000
+So that we have some alternatives here.
+
+49
+00:04:30,540 --> 00:04:37,880
+And then we'll go to products all at this first one with twelve dollars to the cart.
+
+50
+00:04:38,300 --> 00:04:42,160
+Now if we update this in campus we look into the cart there.
+
+51
+00:04:42,710 --> 00:04:46,370
+We see this was added again even though it already existed.
+
+52
+00:04:46,370 --> 00:04:52,280
+So our logic is not too convincing if I pressed this one more time.
+
+53
+00:04:52,370 --> 00:04:55,260
+We now see it in their free times I'd imagine.
+
+54
+00:04:55,640 --> 00:04:56,150
+Yeah.
+
+55
+00:04:56,510 --> 00:05:00,010
+Free times the same object so clearly our logic fails.
+
+56
+00:05:01,400 --> 00:05:04,680
+Let's see what's wrong and then found the issue.
+
+57
+00:05:04,710 --> 00:05:06,980
+It was this comparison up here.
+
+58
+00:05:07,050 --> 00:05:09,970
+The problem we have here is the product I'm getting here.
+
+59
+00:05:10,080 --> 00:05:10,400
+Right.
+
+60
+00:05:10,410 --> 00:05:15,550
+The product getting as an argument is a product I just retrieved from the database.
+
+61
+00:05:15,570 --> 00:05:23,130
+Now the underscore Id have in there actually is treated as a string in javascript but is not exactly
+
+62
+00:05:23,130 --> 00:05:24,350
+of type string.
+
+63
+00:05:24,480 --> 00:05:29,940
+Since I'm using free equal signs in my check here however I am telling javascript that this should only
+
+64
+00:05:29,940 --> 00:05:34,550
+return true if Deis to do not only match by value but also by type.
+
+65
+00:05:34,590 --> 00:05:36,210
+And technically this is no string.
+
+66
+00:05:36,210 --> 00:05:37,940
+Even though we can use it as such.
+
+67
+00:05:38,190 --> 00:05:45,360
+So one solution is to use two equal signs or to use two string on both.
+
+68
+00:05:45,570 --> 00:05:51,900
+So here and here to make sure we only work with strings here in both cases.
+
+69
+00:05:51,900 --> 00:06:00,470
+And with this adjustment made I can edit my objects here by double clicking into some field and then
+
+70
+00:06:00,980 --> 00:06:06,470
+we can mark the latter two objects you're in the array for deletion by clicking on the cross on the
+
+71
+00:06:06,470 --> 00:06:08,880
+left click Update thereafter.
+
+72
+00:06:09,020 --> 00:06:14,540
+Now this is updated we only have one item in there with quantity 1 but now they go back and I click
+
+73
+00:06:14,600 --> 00:06:18,570
+Add to Cart and I do update doesn't compress.
+
+74
+00:06:18,610 --> 00:06:26,370
+I should still only have one object but now not quantity 2 if I do add my Abra element here though by
+
+75
+00:06:26,370 --> 00:06:35,770
+clicking on acha Cartier and I do update now I should have two elements in the cart one with quanta
+
+76
+00:06:35,770 --> 00:06:39,510
+to one with quantity one click at two cards.
+
+77
+00:06:39,520 --> 00:06:43,860
+Again an app that does again should still be two objects.
+
+78
+00:06:43,870 --> 00:06:46,480
+Now both of quanta to and so on.
+
+79
+00:06:46,480 --> 00:06:47,710
+So now this is working.
+
+80
+00:06:47,710 --> 00:06:50,030
+Now I am updating the cart.
+
+81
+00:06:50,290 --> 00:06:55,570
+This is now add to card functionality a basic one implemented on our own.
+
+82
+00:06:55,570 --> 00:06:58,630
+Now of course we want to be able to also display the card items.
+

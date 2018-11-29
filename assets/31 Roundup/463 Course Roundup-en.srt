@@ -1,0 +1,140 @@
+1
+00:00:02,200 --> 00:00:08,470
+Amazing job you made it for the entire course and that means you learn a lot about node and the many
+
+2
+00:00:08,470 --> 00:00:14,290
+ways you can use it to build exciting web applications or any kind of application that needs to execute
+
+3
+00:00:14,290 --> 00:00:15,350
+some code really.
+
+4
+00:00:15,640 --> 00:00:20,700
+I hope you enjoyed the course and the obvious question is how should you now continue.
+
+5
+00:00:21,040 --> 00:00:27,020
+Well in general the most important thing I always recommend is that you keep on practicing.
+
+6
+00:00:27,070 --> 00:00:29,070
+Build example projects.
+
+7
+00:00:29,200 --> 00:00:33,940
+Clone popular apps build your own simplified Facebook clone.
+
+8
+00:00:33,940 --> 00:00:40,660
+Strip out some features you don't want to focus on and instead build some parts off that application
+
+9
+00:00:40,780 --> 00:00:41,590
+you picked.
+
+10
+00:00:41,600 --> 00:00:44,630
+Build the messaging part build the news feed part.
+
+11
+00:00:44,680 --> 00:00:46,160
+Anything like that.
+
+12
+00:00:46,300 --> 00:00:51,760
+Practicing is important and the most important thing there is that you will face issues.
+
+13
+00:00:51,760 --> 00:00:53,360
+You'll hit some problems.
+
+14
+00:00:53,440 --> 00:00:58,720
+There will be things what you want to build where you don't know how to continue where you don't know
+
+15
+00:00:58,750 --> 00:00:59,690
+how it works.
+
+16
+00:00:59,830 --> 00:01:06,190
+And then the part where you need to dig in where you need to research search on Stack Overflow find
+
+17
+00:01:06,190 --> 00:01:11,740
+block posts on Google that help you and dig through that problem on your own.
+
+18
+00:01:11,740 --> 00:01:18,040
+This will make you a better developer and it will help you learn how things work internally and how
+
+19
+00:01:18,040 --> 00:01:20,960
+you can approach certain problems and solve them.
+
+20
+00:01:21,010 --> 00:01:23,460
+This is the most important part really.
+
+21
+00:01:23,620 --> 00:01:31,160
+Now also dive into our concepts related to notorious dive into API eyes like rest API or graphics.
+
+22
+00:01:31,360 --> 00:01:39,760
+Learn more about these technologies build exampled project Stehr to dive into certain less technologies
+
+23
+00:01:39,760 --> 00:01:41,830
+and to serve less services.
+
+24
+00:01:41,830 --> 00:01:47,380
+I got a course on that but you can also just google for node J.S. serval S and you'll find some great
+
+25
+00:01:47,380 --> 00:01:53,380
+resource there because that is also a very promising interesting way of creating node applications as
+
+26
+00:01:53,380 --> 00:01:54,140
+you will learn.
+
+27
+00:01:54,160 --> 00:01:59,770
+You focus way more on your logic and way less on the overhead of spinning up a surveillance on.
+
+28
+00:01:59,810 --> 00:02:06,370
+So really interesting and maybe you to dive into Front-End development learn how to build a re-act up
+
+29
+00:02:06,490 --> 00:02:12,100
+like the one I gave you in this course from scratch that could be a great next step too because it will
+
+30
+00:02:12,100 --> 00:02:14,970
+make you a full stack developer who can do both.
+
+31
+00:02:15,070 --> 00:02:20,710
+Back in development and frontages development and these are just some of the possibilities you have
+
+32
+00:02:21,130 --> 00:02:26,860
+obviously as you practice you'll dive into more things that are interesting to you and to your exact
+
+33
+00:02:26,860 --> 00:02:30,470
+requirements and things that are interesting to you.
+
+34
+00:02:30,640 --> 00:02:36,310
+And I'm confident that this course gave you pretty solid fundamentals that allow you to build up on
+
+35
+00:02:36,400 --> 00:02:38,180
+and to dive way deeper.
+

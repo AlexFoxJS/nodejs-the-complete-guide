@@ -1,0 +1,564 @@
+1
+00:00:02,320 --> 00:00:09,230
+To see an action I'm back in our rest API project we created earlier where we previously added socket
+
+2
+00:00:09,230 --> 00:00:09,880
+IO.
+
+3
+00:00:10,010 --> 00:00:15,870
+And first of all I'll get rid of that socket IO part I'll remove it I'll remove the socket and just
+
+4
+00:00:15,880 --> 00:00:22,490
+fall in and actually yes I will also remove my routes because we will have no more routes will not set
+
+5
+00:00:22,490 --> 00:00:26,650
+up routes anymore will use graft you will endpoints instead.
+
+6
+00:00:26,650 --> 00:00:29,070
+I'll leave the rest as it is for now.
+
+7
+00:00:29,360 --> 00:00:31,830
+Remove that code where I use my routes.
+
+8
+00:00:32,000 --> 00:00:38,470
+And then here I will not store the server because I will not set up any socket connection.
+
+9
+00:00:38,720 --> 00:00:44,060
+And we can also now remove the routes folder because I will not use it anymore.
+
+10
+00:00:44,120 --> 00:00:49,940
+So now I cleaned it up a little bit and now I want to use graphed you out and for that all install to
+
+11
+00:00:49,970 --> 00:00:51,370
+new packages.
+
+12
+00:00:51,410 --> 00:00:54,040
+The first one is called just graft you l.
+
+13
+00:00:54,200 --> 00:00:58,100
+This will be required for defining the schema of our graph.
+
+14
+00:00:58,100 --> 00:00:59,150
+Q else service.
+
+15
+00:00:59,150 --> 00:01:03,250
+So basically the definition of the queries amputations and so on.
+
+16
+00:01:03,250 --> 00:01:04,570
+We want to allow.
+
+17
+00:01:04,880 --> 00:01:11,330
+And I will also add express craft well to install a simple server that will do the parsing of incoming
+
+18
+00:01:11,330 --> 00:01:13,420
+requests and so on.
+
+19
+00:01:13,430 --> 00:01:19,230
+Now if you want to learn more about graphics you'll check out graph Q l dot org.
+
+20
+00:01:19,490 --> 00:01:26,390
+It's a great resource with a lot of documentation on raft to L and it's core language which by the way
+
+21
+00:01:26,510 --> 00:01:27,720
+is clearly defined.
+
+22
+00:01:27,860 --> 00:01:36,080
+And we need strong rules sets to know how we write queries and there if you click on code you also find
+
+23
+00:01:36,230 --> 00:01:38,590
+libraries for all kinds of languages.
+
+24
+00:01:38,840 --> 00:01:43,940
+And if you choose javascript you'll find the graphs you all package we just installed which allows us
+
+25
+00:01:43,940 --> 00:01:46,140
+to define such a schema as I mentioned.
+
+26
+00:01:46,460 --> 00:01:51,770
+You'll find the expressed graphs you will and you also find other solutions for ABA frameworks Appollo
+
+27
+00:01:51,920 --> 00:01:56,340
+for example is super popular and works with any node framework.
+
+28
+00:01:56,420 --> 00:02:00,780
+It offers more than the Barebone set up expressed graph.
+
+29
+00:02:00,780 --> 00:02:07,220
+Google gives us though and I want to show you a very raw approach in this module so that you understand
+
+30
+00:02:07,280 --> 00:02:12,180
+all the behind the scenes things Apollo would hide some of these things.
+
+31
+00:02:12,230 --> 00:02:16,280
+So I will instead use Express graph Cuil.
+
+32
+00:02:16,460 --> 00:02:21,630
+Now with that out of the way we installed that we cleaned up our project.
+
+33
+00:02:21,640 --> 00:02:25,140
+Now lets add some graph to all logic.
+
+34
+00:02:25,160 --> 00:02:27,010
+And how do we do that.
+
+35
+00:02:27,050 --> 00:02:33,230
+First of all I'll create a new folder named graft L where I will put my graph to all related code and
+
+36
+00:02:33,230 --> 00:02:40,280
+there I'll add my schema dot js file where I find the queries mutations and types I work with in my
+
+37
+00:02:40,290 --> 00:02:47,750
+graph tool service I'll create and I'll add a resolver as JS file where I will define the logic that
+
+38
+00:02:47,750 --> 00:02:50,750
+is then executed for incoming queries.
+
+39
+00:02:51,320 --> 00:02:55,070
+Now in schema JSE Let's start with that there.
+
+40
+00:02:55,160 --> 00:03:03,740
+First of all imports something from that graphed you l package installed not from Express graph but
+
+41
+00:03:03,770 --> 00:03:05,080
+just graphical.
+
+42
+00:03:05,390 --> 00:03:11,240
+And that's something I import is to build schema function which allows me to build a schema which can
+
+43
+00:03:11,240 --> 00:03:20,350
+then be parsed by graph Kielland by express graph Q L I will export this schema so I'll use module exports.
+
+44
+00:03:20,600 --> 00:03:25,210
+And then I will call the build schema function and I will return that schema object.
+
+45
+00:03:25,220 --> 00:03:27,230
+This will generate for me.
+
+46
+00:03:27,230 --> 00:03:33,440
+And now here we pass a string where we describe our schema use doubleback ticks here.
+
+47
+00:03:33,440 --> 00:03:40,940
+So not single quotation marks but back ticks to create a string literal template literal because there
+
+48
+00:03:41,060 --> 00:03:44,080
+you can simply write multi-line strings.
+
+49
+00:03:44,210 --> 00:03:53,000
+And now to define a graphical schema in this string we type schema and add drolly bracers.
+
+50
+00:03:53,000 --> 00:04:02,340
+Please note that there is no colon after a schema and in that schema we now define a query field.
+
+51
+00:04:02,510 --> 00:04:08,600
+And this now will be an object with all the queries and queries are the parts where you get data.
+
+52
+00:04:08,900 --> 00:04:12,650
+So all the Corrie's you want to allow to make it easier to read.
+
+53
+00:04:12,690 --> 00:04:18,700
+I'll now add a separate type for that with the type keyword which I'll name Kuri you could name this
+
+54
+00:04:18,710 --> 00:04:28,240
+differently you named as root query however you want now in there you will have all the different queries
+
+55
+00:04:28,240 --> 00:04:29,760
+you can make in the end.
+
+56
+00:04:29,770 --> 00:04:32,560
+For example you can add one to this named Hello.
+
+57
+00:04:32,680 --> 00:04:42,470
+Simply a basic dummy query here hello which let's say returns a string.
+
+58
+00:04:42,540 --> 00:04:44,830
+This is how you define the return type for a query.
+
+59
+00:04:44,850 --> 00:04:52,080
+You add a colon after declaring name and then the type and graphed your nose a couple of type's strings
+
+60
+00:04:52,230 --> 00:04:58,710
+into tears floats booleans IDs and you can learn all about that in the official docs of course.
+
+61
+00:04:58,710 --> 00:05:04,260
+So now this is my rude Korean does the return type of my query here.
+
+62
+00:05:04,290 --> 00:05:10,130
+This is now a very basic schema where we can send a Hello Korea to get back some text.
+
+63
+00:05:10,500 --> 00:05:20,800
+Now that some text now is the find in the resolver the resolver is an export object where we now need
+
+64
+00:05:21,130 --> 00:05:22,260
+a helo function.
+
+65
+00:05:22,330 --> 00:05:23,550
+Hello Methot.
+
+66
+00:05:23,560 --> 00:05:26,930
+So you need a method for every query or mutation.
+
+67
+00:05:27,010 --> 00:05:30,300
+You define your schema and the name has to match of course.
+
+68
+00:05:30,460 --> 00:05:34,750
+I have a method named Hallo here because here I have a query named Hello.
+
+69
+00:05:34,990 --> 00:05:40,810
+You don't need to resolve this query because in your schema you basically set up your rude query which
+
+70
+00:05:40,810 --> 00:05:44,820
+has then made up of these sub queries which now need resolvers.
+
+71
+00:05:44,830 --> 00:05:50,620
+So now we have as solver for a Hello Dad Hello method and there we need to return a string.
+
+72
+00:05:50,650 --> 00:05:50,930
+Right.
+
+73
+00:05:50,950 --> 00:05:56,620
+We expect the string you can buy away to make this string required by adding exclamation mark.
+
+74
+00:05:56,670 --> 00:05:59,930
+Now if you don't return a string you'll get an error.
+
+75
+00:06:00,510 --> 00:06:12,030
+So here I could return hello world like this if I now save that I have a very simple graph cool service.
+
+76
+00:06:12,030 --> 00:06:16,500
+Now before we test it let's make it a little bit more complex in my schema.
+
+77
+00:06:16,500 --> 00:06:20,030
+I'll add a new type and I'll name that test data.
+
+78
+00:06:20,040 --> 00:06:27,360
+The name is up to you and there I'll have a text which has a string and I'll have the views property
+
+79
+00:06:27,600 --> 00:06:29,790
+which is like say integer.
+
+80
+00:06:29,790 --> 00:06:31,040
+Both are required.
+
+81
+00:06:31,050 --> 00:06:33,980
+Please note there is no comma authored these fields.
+
+82
+00:06:33,990 --> 00:06:35,810
+You simply use new lines.
+
+83
+00:06:35,880 --> 00:06:43,570
+And now let's say my Hello query should return that test data instead of a boring string Well then we
+
+84
+00:06:43,570 --> 00:06:45,220
+can go back to the resolver.
+
+85
+00:06:45,400 --> 00:06:49,810
+And now we need to return an object in there with a text field that should be a string.
+
+86
+00:06:50,020 --> 00:06:53,400
+Hello world.
+
+87
+00:06:53,600 --> 00:06:59,140
+And with a views field which should be an integer.
+
+88
+00:06:59,160 --> 00:07:00,780
+Now we have a valid resolver.
+
+89
+00:07:00,780 --> 00:07:02,220
+We have a valid schema.
+
+90
+00:07:02,220 --> 00:07:09,050
+Now we need to expose it to the public and that can be done with the express graphical package in actually
+
+91
+00:07:09,050 --> 00:07:11,330
+as we now import dead.
+
+92
+00:07:11,400 --> 00:07:17,640
+So here all implored Grath Hugh l age to be.
+
+93
+00:07:17,710 --> 00:07:24,950
+You can named it however you want from Express graph you el And let's now scroll down all the way to
+
+94
+00:07:24,950 --> 00:07:32,350
+the error handling the louer and there let's add another middleware so that all the words do apply here.
+
+95
+00:07:32,810 --> 00:07:37,490
+I will apply this to slash graph Cuil and you could change that.
+
+96
+00:07:37,490 --> 00:07:39,750
+But that is a common convention to use.
+
+97
+00:07:40,070 --> 00:07:45,390
+And I deliberately don't limit this to post requests here and I will show you why in a second.
+
+98
+00:07:45,440 --> 00:07:52,640
+So please make sure you use use here and then you use that graphical HTP method which is provided by
+
+99
+00:07:52,640 --> 00:08:01,520
+express ref Q L and you has a javascript object to it to configure it now this needs two items to work.
+
+100
+00:08:01,590 --> 00:08:03,540
+The first is the schema.
+
+101
+00:08:03,540 --> 00:08:09,090
+And for that we need to import the schema which we export into schema skate Jarius file.
+
+102
+00:08:09,090 --> 00:08:22,250
+So here I'll import raft you l schema by requiring it from graphical schema and I need to import my
+
+103
+00:08:22,250 --> 00:08:31,580
+graph 2L resolver by importing it from the resolver as Voll in the graph Cuil folder.
+
+104
+00:08:31,580 --> 00:08:37,160
+Now we can go down and use the graph gules scheme schema here as to schema.
+
+105
+00:08:37,340 --> 00:08:42,070
+And we also need to set the root value which now points that our resolver.
+
+106
+00:08:42,080 --> 00:08:44,770
+So this is now digraph QOL resolder.
+
+107
+00:08:45,200 --> 00:08:53,020
+With this setup we can start our node server here and now let's try this out.
+
+108
+00:08:53,180 --> 00:08:57,180
+You might remember that we have to send post requests right.
+
+109
+00:08:57,530 --> 00:09:01,850
+So let's use postman for testing there.
+
+110
+00:09:02,000 --> 00:09:09,780
+I'll send the request to localhost 88 slash graph Q L and that should be a post request.
+
+111
+00:09:10,660 --> 00:09:16,130
+Now in the body of that request we sends Jason data that describes our query.
+
+112
+00:09:16,180 --> 00:09:19,540
+So we set this to raw application Jason.
+
+113
+00:09:19,810 --> 00:09:22,740
+And here you send data like this.
+
+114
+00:09:22,740 --> 00:09:27,500
+You send a javascript object with a career wiki and this does not mean that we send a query and not
+
+115
+00:09:27,550 --> 00:09:28,380
+mutation.
+
+116
+00:09:28,540 --> 00:09:35,690
+It simply is something which the Express graphical package will look for inside of these curly braces.
+
+117
+00:09:35,710 --> 00:09:37,200
+You now write the real query.
+
+118
+00:09:37,210 --> 00:09:39,740
+But actually here this is a string.
+
+119
+00:09:40,030 --> 00:09:46,780
+And then the value here between double quotation marks is your graphical query expression.
+
+120
+00:09:47,110 --> 00:09:53,390
+And there you add curly braces and in between the name of the query you want to target.
+
+121
+00:09:53,650 --> 00:09:58,980
+And if we have a look at our schema we see that we have a hello query so we can target.
+
+122
+00:09:59,200 --> 00:10:02,710
+Hello here and hello.
+
+123
+00:10:03,170 --> 00:10:07,250
+Returns us test data which has text and views.
+
+124
+00:10:07,310 --> 00:10:13,070
+Now we need to find which data we want to get back for that query and therefore offered the name of
+
+125
+00:10:13,070 --> 00:10:13,590
+the query.
+
+126
+00:10:13,640 --> 00:10:19,970
+We add a number pair of curly braces and in between we list the properties the fields we want to get
+
+127
+00:10:19,970 --> 00:10:21,270
+back for that query.
+
+128
+00:10:21,410 --> 00:10:24,140
+We simply separate them with blanks.
+
+129
+00:10:24,140 --> 00:10:29,560
+So here I could get my text for example but not the views if and I would send.
+
+130
+00:10:29,810 --> 00:10:32,160
+Indeed you should get hello world here.
+
+131
+00:10:32,300 --> 00:10:36,420
+And if you add a whitespace and then views you will get the views too.
+
+132
+00:10:36,500 --> 00:10:38,870
+And this shows you the flexibility already.
+
+133
+00:10:38,870 --> 00:10:43,720
+It's one and the same endpoint but we find which data we want to get on the front end.
+
+134
+00:10:43,970 --> 00:10:49,310
+And it's important to understand that we don't filter the data on the front and it gets filtered on
+
+135
+00:10:49,310 --> 00:10:51,580
+the server by express graph.
+
+136
+00:10:51,600 --> 00:10:57,530
+Well in our case which does the heavy lifting here and we simply define our schema and the resolver
+
+137
+00:10:58,040 --> 00:10:59,130
+in the resolver.
+
+138
+00:10:59,180 --> 00:11:05,330
+We return all the data but then graphed you all on the server will filter out just the data that was
+
+139
+00:11:05,330 --> 00:11:07,250
+requested by declined.
+
+140
+00:11:07,270 --> 00:11:09,580
+This is how graphical works in a nutshell.
+
+141
+00:11:09,770 --> 00:11:12,680
+Let's now see how we can add a mutation.
+

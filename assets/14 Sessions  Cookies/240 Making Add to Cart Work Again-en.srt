@@ -1,0 +1,332 @@
+1
+00:00:00,150 --> 00:00:05,340
+So I clicked at cart in the last lecture and we're now failing to do this.
+
+2
+00:00:05,460 --> 00:00:11,540
+And if we go back we actually see an error or that request session user add to cart.
+
+3
+00:00:11,550 --> 00:00:13,240
+It's not a function.
+
+4
+00:00:13,410 --> 00:00:21,270
+So we Semino fail to execute our Add to Cart function So basically our functions that normally are a
+
+5
+00:00:21,270 --> 00:00:23,710
+way lable on the user object.
+
+6
+00:00:23,730 --> 00:00:34,170
+And why is that the reason for that is that trivia Cely in previous setups we always store the user
+
+7
+00:00:34,350 --> 00:00:41,640
+in the request and does was up her request action anyways and we fetched dead user for every request
+
+8
+00:00:41,940 --> 00:00:43,460
+in the middleware in app.
+
+9
+00:00:43,830 --> 00:00:44,210
+Right.
+
+10
+00:00:44,250 --> 00:00:51,570
+So we fetch the user from the database and mongooses automatically gave us a full user object not just
+
+11
+00:00:51,570 --> 00:00:56,790
+the data in the database but the full user model with all the methods and we stored dead user model
+
+12
+00:00:56,790 --> 00:00:59,020
+in the request of the session.
+
+13
+00:00:59,040 --> 00:01:01,960
+This works have been different with the session.
+
+14
+00:01:02,040 --> 00:01:05,520
+We are not fetching this for every request.
+
+15
+00:01:05,520 --> 00:01:10,940
+Instead we store a user in our session upon logging in here.
+
+16
+00:01:10,980 --> 00:01:12,640
+Now what happens to the user.
+
+17
+00:01:13,080 --> 00:01:15,820
+Well its gets stored to a database.
+
+18
+00:01:15,960 --> 00:01:19,450
+If we refresh there we can see here is our user object.
+
+19
+00:01:19,470 --> 00:01:22,040
+And this is now just the data.
+
+20
+00:01:22,320 --> 00:01:29,490
+Now for every new request the session middleware does not go ahead and fetch the user with the help
+
+21
+00:01:29,550 --> 00:01:32,670
+of mongooses it fetches the session data from long OTB.
+
+22
+00:01:32,670 --> 00:01:38,940
+That is correct but for it it uses them long would he be store and the mom would be store does not know
+
+23
+00:01:39,000 --> 00:01:41,010
+about our mongooses models.
+
+24
+00:01:41,220 --> 00:01:47,280
+So when it fetches the data from the session database when it fetches does data it only fetches the
+
+25
+00:01:47,280 --> 00:01:47,640
+data.
+
+26
+00:01:47,670 --> 00:01:53,030
+It does not fetch an object with all the methods provided by mongooses.
+
+27
+00:01:53,040 --> 00:01:56,780
+Now what can we do regarding that well.
+
+28
+00:01:56,790 --> 00:02:04,170
+One thing we can do of course and now were reporting back a bit we can reach at that middleware which
+
+29
+00:02:04,170 --> 00:02:13,900
+we had earlier here after we initialized our session.
+
+30
+00:02:13,950 --> 00:02:20,420
+So here I have my general middleware which we used before to store our user in the request and we can
+
+31
+00:02:20,420 --> 00:02:28,050
+take our logic from our post log in route where we fetch a user for a given ID move that back into that
+
+32
+00:02:28,080 --> 00:02:28,580
+middleware.
+
+33
+00:02:28,590 --> 00:02:30,720
+So exactly what we had before.
+
+34
+00:02:30,720 --> 00:02:35,950
+Instead of redirecting will call next so that the incoming requests can continue with the next middleware.
+
+35
+00:02:36,290 --> 00:02:40,920
+But in the here we dont want to store anything in the session because the session is already something
+
+36
+00:02:40,920 --> 00:02:45,870
+which will be managed for us automatically and 40 incoming requests we register the middle where the
+
+37
+00:02:45,870 --> 00:02:50,670
+middle where we'll then basically look for a session cookie if it finds one it will look for a fitting
+
+38
+00:02:50,670 --> 00:02:53,610
+session into a database and load data from there.
+
+39
+00:02:53,610 --> 00:02:58,530
+So by the time we reached his middleware we'll have our session data loaded.
+
+40
+00:02:58,740 --> 00:03:04,650
+Now this means that now we just want to use that session data to load our real user to create our mongooses
+
+41
+00:03:04,740 --> 00:03:07,380
+user model and how do we do that.
+
+42
+00:03:07,620 --> 00:03:10,360
+Well we don't need to reach out to the database again.
+
+43
+00:03:10,380 --> 00:03:15,300
+Instead we can again set the user Florida's request only.
+
+44
+00:03:15,300 --> 00:03:20,170
+And now here I want to create a user based on data stored in the session.
+
+45
+00:03:20,310 --> 00:03:26,370
+So data that persists across requests and I will create that user and store it in the request user which
+
+46
+00:03:26,370 --> 00:03:32,560
+will then only live for Dad request but it's fueled by data from the session and therefore it also survives
+
+47
+00:03:32,580 --> 00:03:33,540
+cross request.
+
+48
+00:03:33,540 --> 00:03:39,210
+You could say and I simply need to do that because I need a mongooses model to work with because the
+
+49
+00:03:39,210 --> 00:03:46,260
+data we store in the session storage in one load be there well we retrieve it as just plain data not
+
+50
+00:03:46,350 --> 00:03:51,250
+as a mongooses model with all the cool methods mongooses gives us and that is why we get this error
+
+51
+00:03:51,420 --> 00:03:55,430
+regarding add to card not being found and so on.
+
+52
+00:03:55,440 --> 00:04:02,970
+So here I will initialize request user and actually I don't want to find a user by id like this.
+
+53
+00:04:02,970 --> 00:04:10,990
+I will find the user by reaching out to request session user id it does make sense I guess because that
+
+54
+00:04:10,990 --> 00:04:16,510
+is the data the user is what is stored in my session and I want to get the idea and then find that user
+
+55
+00:04:16,510 --> 00:04:21,340
+in the database with the help of the user model which is provided by mongoose of course.
+
+56
+00:04:21,790 --> 00:04:28,570
+And then here I get back a mongooses model user which I store and request user and this is exactly what
+
+57
+00:04:28,570 --> 00:04:34,810
+I need now to make sure that I have a mongooses model to work with so that all these cool mongooses
+
+58
+00:04:34,990 --> 00:04:36,850
+methods work again.
+
+59
+00:04:37,090 --> 00:04:42,900
+And now we need to just admin JSM shopped as again and replace requests session user with request user
+
+60
+00:04:42,910 --> 00:04:45,810
+again because that is where I'm storing my mongooses model user.
+
+61
+00:04:45,940 --> 00:04:53,760
+So let's do that in shop genius and then all the files where I do use requests session user.
+
+62
+00:04:53,890 --> 00:05:00,880
+I want to mark these all with command or control D and revert back to request user because now we store
+
+63
+00:05:00,910 --> 00:05:07,630
+our mongoose model in that request only object again do the same and admin japes.
+
+64
+00:05:07,710 --> 00:05:13,350
+So in not for locked in because that's just true or false we don't need to turn this into anything but
+
+65
+00:05:13,350 --> 00:05:21,380
+for all the places where I do use my request session user here.
+
+66
+00:05:21,870 --> 00:05:25,490
+All these places which should only be one here is now request to use her again.
+
+67
+00:05:25,740 --> 00:05:29,670
+Again this will not mean that it's now only X for this request.
+
+68
+00:05:29,670 --> 00:05:35,640
+The mongooses model object is but it's fueled by data that's stored in the session and therefore data
+
+69
+00:05:35,700 --> 00:05:40,190
+that persists across requests and knouted we saved all of that.
+
+70
+00:05:40,560 --> 00:05:43,440
+Let's go back and let's try adding this whole card again.
+
+71
+00:05:43,470 --> 00:05:51,480
+And now this works ASP for as long as I'm locked in if I do log out we now get an error that error is
+
+72
+00:05:51,480 --> 00:05:56,610
+now stemming from my app use function which is triggered for every request and this will simply fail
+
+73
+00:05:56,610 --> 00:06:00,330
+after logging out because request session user ID is not set there.
+
+74
+00:06:00,540 --> 00:06:03,170
+Well we can fix this in this app use function.
+
+75
+00:06:03,170 --> 00:06:09,050
+Actually yes by checking for the existence of requests session user.
+
+76
+00:06:09,290 --> 00:06:10,760
+And if we don't have one.
+
+77
+00:06:10,940 --> 00:06:19,480
+So if I don't have a user stored at my session then I can just call next and I return next so that the
+
+78
+00:06:19,480 --> 00:06:22,220
+code there after this one will not be executed.
+
+79
+00:06:22,290 --> 00:06:25,000
+This will only run if we do have a session user.
+
+80
+00:06:25,000 --> 00:06:29,690
+So now with that we can safely reload the starting page this works.
+
+81
+00:06:29,850 --> 00:06:34,460
+I can log in again I can add this to the card.
+
+82
+00:06:34,590 --> 00:06:39,580
+I can also add this from the card from the details page.
+
+83
+00:06:39,710 --> 00:06:43,330
+I can delete this and I can log out additional work.
+

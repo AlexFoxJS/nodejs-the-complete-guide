@@ -1,0 +1,100 @@
+1
+00:00:02,120 --> 00:00:09,470
+Let's complete Kratt operations by ensuring that we cannot just find all products and add them and find
+
+2
+00:00:09,470 --> 00:00:14,400
+a single one but that we can also edit and delete our products.
+
+3
+00:00:14,630 --> 00:00:19,370
+And that is of course something which would happen in the admin area and therefore we need to work on
+
+4
+00:00:19,370 --> 00:00:21,590
+the Edmond's side again for that.
+
+5
+00:00:21,590 --> 00:00:27,800
+First of all make sure that our admin page here where we list all products works again feel free to
+
+6
+00:00:27,800 --> 00:00:35,770
+post a video here to try this on your own before we will implement it together where he was successful.
+
+7
+00:00:36,060 --> 00:00:37,480
+Well lets do it together.
+
+8
+00:00:37,500 --> 00:00:45,630
+First of all in the admin routes I want to comment in my Getaround here again so that we are again able
+
+9
+00:00:45,630 --> 00:00:49,390
+to get all products onto our Edmon overview page.
+
+10
+00:00:49,620 --> 00:00:55,110
+Now here we use Abin control a get products to fetch and render all products.
+
+11
+00:00:55,140 --> 00:01:03,540
+So if we go to the admin controller here I of course need to re add that get products function by simply
+
+12
+00:01:03,540 --> 00:01:10,930
+commenting it in again in there I use request user get products and this will not work anymore.
+
+13
+00:01:11,090 --> 00:01:20,720
+So instead let me here simply use my product model and then use fetch all and does all the returns a
+
+14
+00:01:20,720 --> 00:01:23,430
+promise so we can still use then on it.
+
+15
+00:01:23,480 --> 00:01:29,270
+And we should still get old products but now for our own modified model.
+
+16
+00:01:29,330 --> 00:01:33,970
+So if I now reload does admen products page here.
+
+17
+00:01:34,520 --> 00:01:38,690
+I see all the products and now we can try editing and deleting them.
+
+18
+00:01:38,960 --> 00:01:44,870
+Now for that first of all we need to go back to our views and adjust them to take account of the new
+
+19
+00:01:45,080 --> 00:01:46,290
+ID format.
+
+20
+00:01:46,520 --> 00:01:52,400
+So you're in products Ejaz in the admin folder in the views folder in there.
+
+21
+00:01:52,880 --> 00:01:59,720
+Whenever we reference the product ID like we do here its products that underscore ID the same here product
+
+22
+00:02:00,200 --> 00:02:04,190
+underscore ID that is really important.
+
+23
+00:02:04,190 --> 00:02:11,910
+Now with that in place if we reload that page are added in our delete button should work again and should
+
+24
+00:02:11,910 --> 00:02:15,660
+make sure that we edit or delete the right product.
+
+25
+00:02:15,660 --> 00:02:19,210
+So lets work on editing the product in the next lecture.
+

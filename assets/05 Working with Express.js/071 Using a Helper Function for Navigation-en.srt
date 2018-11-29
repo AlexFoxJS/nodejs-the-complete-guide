@@ -1,0 +1,188 @@
+1
+00:00:02,060 --> 00:00:09,250
+Before we work on the styling let me add one note on how we navigated to the root folder in shop G-S
+
+2
+00:00:09,290 --> 00:00:10,540
+and adventurous.
+
+3
+00:00:10,700 --> 00:00:17,200
+For one you could just use dot dot here instead of dot dot slash and this would be preferable.
+
+4
+00:00:17,210 --> 00:00:22,890
+Even though both should work on Windows and Mac because now we make no assumption about D separator
+
+5
+00:00:22,910 --> 00:00:25,180
+we're using when constructing a path.
+
+6
+00:00:25,190 --> 00:00:33,030
+So with this if I go back and I now go to just admen at product here it still works.
+
+7
+00:00:33,110 --> 00:00:35,340
+But now we get a cleaner way of doing this.
+
+8
+00:00:35,570 --> 00:00:38,950
+But there is even nicer way we could implement this.
+
+9
+00:00:38,990 --> 00:00:45,490
+We could also get the parent directory with the help of a little helper function.
+
+10
+00:00:45,740 --> 00:00:50,070
+For this I'll create a new folder here helper's or utile.
+
+11
+00:00:50,120 --> 00:00:52,410
+I'll go with you till you can name it however you want.
+
+12
+00:00:52,670 --> 00:00:56,920
+And there I'll add my Poth dot J.S. fall.
+
+13
+00:00:56,950 --> 00:01:01,770
+And it doesn't matter that this clashes with the global module because we'll import it differently.
+
+14
+00:01:01,790 --> 00:01:08,930
+Anyways now there I'll add an export with Module exports and I want to export a little function that
+
+15
+00:01:08,930 --> 00:01:15,960
+helps me construct a path to the parent directory or not a real function instead.
+
+16
+00:01:16,260 --> 00:01:24,530
+Variable I should say first of all here all import the POF with require lbf as we did it before and
+
+17
+00:01:24,530 --> 00:01:28,640
+then it will use a different function or not join.
+
+18
+00:01:28,760 --> 00:01:34,580
+But Durr name their name as you can see in their quick help on the right here returns the directory
+
+19
+00:01:34,580 --> 00:01:36,430
+name of a path.
+
+20
+00:01:36,440 --> 00:01:44,210
+So this sounds pretty useful if we use that we just have to find out which directory or which Folley
+
+21
+00:01:44,210 --> 00:01:45,870
+want to get the directory name.
+
+22
+00:01:46,250 --> 00:01:49,080
+Well there we can use the global process very well.
+
+23
+00:01:49,100 --> 00:01:52,490
+That is also a variable that is available in all files.
+
+24
+00:01:52,490 --> 00:01:53,700
+You don't need to import it.
+
+25
+00:01:54,020 --> 00:01:57,260
+And there you will have a main monohull property.
+
+26
+00:01:57,320 --> 00:02:02,510
+This will refer to the main well module that started your application.
+
+27
+00:02:02,510 --> 00:02:09,680
+So basically to the module we created here an app J.S. and now we can call file name to find out in
+
+28
+00:02:09,680 --> 00:02:12,460
+which file this module was spun up.
+
+29
+00:02:12,470 --> 00:02:19,190
+So put in other words this gives us the path to the file that is responsible for the fact that our application
+
+30
+00:02:19,190 --> 00:02:26,110
+is running and this file name is what we put into Der. name to get a payoff to that directory.
+
+31
+00:02:26,420 --> 00:02:30,000
+With this we can import from this file here.
+
+32
+00:02:30,020 --> 00:02:35,880
+I'll add my own import separated from the other ones simply to make it easier to identify and named
+
+33
+00:02:35,940 --> 00:02:37,200
+this route.
+
+34
+00:02:37,320 --> 00:02:37,910
+D'oh.
+
+35
+00:02:37,910 --> 00:02:44,990
+The name is totally up to you but it will require this from going up one level into utile and then Poth
+
+36
+00:02:45,590 --> 00:02:48,410
+and does root directory isn't the end.
+
+37
+00:02:48,410 --> 00:02:51,980
+What I want to inject here is a root directory is what I'll start with.
+
+38
+00:02:51,980 --> 00:02:53,970
+And when creating this path.
+
+39
+00:02:54,290 --> 00:03:00,680
+And now let's try reloading this page here and it still works and it should still work because now we're
+
+40
+00:03:00,680 --> 00:03:06,250
+in the end having a pretty neat way of constructing a path to our root directory.
+
+41
+00:03:06,260 --> 00:03:08,100
+I'll do the same and shop yes.
+
+42
+00:03:08,240 --> 00:03:16,480
+Import router from the uto folder at the path file in there and replace Durr name dot dot with router
+
+43
+00:03:17,170 --> 00:03:17,780
+again.
+
+44
+00:03:17,810 --> 00:03:23,600
+You could have totally sticked to the old approach but this one is a even cleaner one and one that should
+
+45
+00:03:23,600 --> 00:03:29,510
+be pretty straightforward to use and that should work on all operating systems and it always gives you
+
+46
+00:03:29,600 --> 00:03:33,080
+well the path to the root file.
+
+47
+00:03:33,080 --> 00:03:35,480
+With that let's move on to the styling.
+

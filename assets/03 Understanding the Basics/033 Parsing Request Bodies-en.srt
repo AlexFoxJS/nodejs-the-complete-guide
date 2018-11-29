@@ -1,0 +1,568 @@
+1
+00:00:02,260 --> 00:00:08,800
+So time to parse the incoming requests and get the data that is part of the request because that data
+
+2
+00:00:08,800 --> 00:00:11,220
+should be whatever we enter here.
+
+3
+00:00:11,620 --> 00:00:14,200
+Now how do we get access to that.
+
+4
+00:00:14,200 --> 00:00:17,240
+Well we get requests you are l and request method.
+
+5
+00:00:17,260 --> 00:00:22,410
+You might think there is something like request data but there isn't.
+
+6
+00:00:22,780 --> 00:00:30,670
+Instead the incoming data is basically sent as a stream of data and that is a special construct javascript
+
+7
+00:00:30,670 --> 00:00:31,600
+in general knows.
+
+8
+00:00:31,660 --> 00:00:34,270
+But no yes use this a lot.
+
+9
+00:00:34,270 --> 00:00:36,890
+Now what is such a stream of data though.
+
+10
+00:00:37,300 --> 00:00:41,240
+There is a connect that concept buffers and we'll have a look at both here.
+
+11
+00:00:41,260 --> 00:00:43,920
+So let's take our incoming request as an example.
+
+12
+00:00:44,020 --> 00:00:48,800
+There also are other streams like for example when working with files we can also work with streams.
+
+13
+00:00:48,880 --> 00:00:51,200
+But let's stick to requests here.
+
+14
+00:00:51,670 --> 00:00:55,270
+Our stream here is basically an ongoing process.
+
+15
+00:00:55,480 --> 00:00:59,830
+Their request is simply read by note in chunks.
+
+16
+00:00:59,830 --> 00:01:04,830
+You could say in multiple parts and then the end at some point of time it's done.
+
+17
+00:01:04,840 --> 00:01:11,230
+And this is done so that we theoretically can start working on this on the individual chunks without
+
+18
+00:01:11,230 --> 00:01:13,980
+having to wait for the full request being read.
+
+19
+00:01:14,200 --> 00:01:19,510
+Now for a simple request like the one we're working with does is not really required.
+
+20
+00:01:19,510 --> 00:01:21,940
+We only got one input field data.
+
+21
+00:01:21,940 --> 00:01:27,760
+It doesn't take so long to parse that but consider a file being uploaded.
+
+22
+00:01:27,760 --> 00:01:34,240
+This will take considerably longer and if we're streaming that data could make sense because it could
+
+23
+00:01:34,240 --> 00:01:37,610
+allow you to start writing this to your disk.
+
+24
+00:01:37,630 --> 00:01:43,480
+So to your hard drive where are your app runs your node app runs on your server.
+
+25
+00:01:43,480 --> 00:01:49,690
+Was the data is coming in so that you don't have to parse the entire file which is of course taking
+
+26
+00:01:49,690 --> 00:01:54,350
+some time and you have to wait for it being fully uploaded before you can do anything with it.
+
+27
+00:01:54,520 --> 00:02:01,300
+But this is how node handles all requests because it doesn't know in advance how complex and big they
+
+28
+00:02:01,300 --> 00:02:02,800
+are.
+
+29
+00:02:02,800 --> 00:02:04,920
+So you can start working on the data early.
+
+30
+00:02:04,930 --> 00:02:14,360
+The problem is with your code you can arbitrarily try to work with these chunks instead to organize
+
+31
+00:02:14,560 --> 00:02:15,730
+incoming chunks.
+
+32
+00:02:15,970 --> 00:02:18,350
+You use a so-called buffer.
+
+33
+00:02:18,350 --> 00:02:20,570
+A buffer is like a bus stop.
+
+34
+00:02:20,770 --> 00:02:24,000
+If you consider busses they're always driving.
+
+35
+00:02:24,220 --> 00:02:31,870
+But for users or customers being able to work with them to climb on the bus and leave the bus you need
+
+36
+00:02:31,870 --> 00:02:39,130
+bus stops where you well you can track the bus basically and that is what a buffer is a buffer is simply
+
+37
+00:02:39,130 --> 00:02:47,320
+a construct which allows you to hold multiple chunks and work with them before they are released.
+
+38
+00:02:47,320 --> 00:02:53,560
+Once you're done and you work with that buffer Now that's pretty abstract but it's pretty easy to work
+
+39
+00:02:53,560 --> 00:02:54,640
+with fortunately.
+
+40
+00:02:54,750 --> 00:03:01,280
+So let's see how it works in practice when receiving a posted message before sending the response.
+
+41
+00:03:01,390 --> 00:03:05,630
+And before writing to the file we want to get our request data right.
+
+42
+00:03:05,830 --> 00:03:12,730
+And we do this by going to a request and registering an event listener.
+
+43
+00:03:12,730 --> 00:03:18,560
+We haven't done that thus far but as I mentioned Noad uses DS heavily for create server.
+
+44
+00:03:18,640 --> 00:03:21,160
+It implicitly creates one for us.
+
+45
+00:03:21,190 --> 00:03:29,990
+Now we do this on our own by using the on method now on allows us to listen to certain events and event.
+
+46
+00:03:30,010 --> 00:03:32,850
+I want to listen to here is a data event.
+
+47
+00:03:32,920 --> 00:03:39,300
+You see my ID even gives me some help here and tells me which events I can listen to for a request.
+
+48
+00:03:39,400 --> 00:03:46,690
+So here I want to listen for the data event the data event will be fired whenever a new chunk is ready
+
+49
+00:03:46,690 --> 00:03:47,610
+to be read.
+
+50
+00:03:47,620 --> 00:03:53,050
+You remember that buffer thing it does this basically helping us with that.
+
+51
+00:03:53,250 --> 00:03:59,900
+Now here we have to add a second argument which is dead function that should be executed for every data
+
+52
+00:03:59,900 --> 00:04:02,140
+event you remember create server.
+
+53
+00:04:02,150 --> 00:04:07,880
+It had a similar concept there we defined a function that should be executed for every incoming request.
+
+54
+00:04:07,880 --> 00:04:12,760
+Now we're defining a function to be executed for every incoming data piece.
+
+55
+00:04:12,800 --> 00:04:16,420
+So you're all again using iOS 6 arrow function.
+
+56
+00:04:16,430 --> 00:04:20,330
+You could also use the function keyword without debt arrowed them.
+
+57
+00:04:20,630 --> 00:04:27,510
+And as you can also see on data this listener receives a chunk of data.
+
+58
+00:04:27,770 --> 00:04:35,000
+So here we receive a chunk and this chunk is something we can work with here and now we have to do something
+
+59
+00:04:35,000 --> 00:04:38,320
+with this chunk to be able to interact with it.
+
+60
+00:04:38,440 --> 00:04:47,020
+For this I will create a new constant here and I'll name a body because I'll try to read the request
+
+61
+00:04:47,030 --> 00:04:47,530
+body.
+
+62
+00:04:47,560 --> 00:04:50,440
+You can name it however you want but it is to request body.
+
+63
+00:04:50,440 --> 00:04:52,400
+We're working with now.
+
+64
+00:04:52,420 --> 00:04:55,590
+The body should be an empty array.
+
+65
+00:04:55,870 --> 00:05:03,760
+And now in that function here in the data event I'll take my body and push a new element onto it.
+
+66
+00:05:03,970 --> 00:05:10,900
+By the way if you're wondering how we can edit a constant value this only means that we can never really
+
+67
+00:05:10,900 --> 00:05:15,740
+assign a new value so we can never use body equals something again.
+
+68
+00:05:16,000 --> 00:05:24,450
+But with Porsche we're changing the object behind that body element that body object we're editing that
+
+69
+00:05:24,460 --> 00:05:29,260
+data in that object not de-value itself not the object itself.
+
+70
+00:05:29,260 --> 00:05:33,290
+It's a bit strange to wrap your head around but this isn't the end how it works.
+
+71
+00:05:33,370 --> 00:05:41,040
+So we can now push a new element into disarray to make it non empty and we push our chunkier now no
+
+72
+00:05:41,090 --> 00:05:46,400
+chase will execute this so often until it's done getting all the data out of our request.
+
+73
+00:05:46,480 --> 00:05:52,300
+That can be ones that can be multiple times and we can even log this to see how app Hoffman does this
+
+74
+00:05:52,450 --> 00:05:53,650
+and what's inside of this.
+
+75
+00:05:53,650 --> 00:06:01,950
+CHUNG Now we need to register in Navier event listener and that ISDE and listener this will be fired
+
+76
+00:06:01,950 --> 00:06:05,900
+once it's done parsing the incoming requests data or the incoming requests.
+
+77
+00:06:05,910 --> 00:06:13,350
+In general here it will again execute a function we define as a second argument and in dysfunction we
+
+78
+00:06:13,350 --> 00:06:19,260
+can now rely on all the chunks being read in and they're all stored in the body now.
+
+79
+00:06:20,500 --> 00:06:22,830
+Now to interact with this.
+
+80
+00:06:23,170 --> 00:06:29,430
+And don't forget to come after and to interact with that to work with all these chunks.
+
+81
+00:06:29,500 --> 00:06:32,010
+We now need to buffer them.
+
+82
+00:06:32,050 --> 00:06:34,100
+Remember that bus stop concept.
+
+83
+00:06:34,120 --> 00:06:39,580
+We get all these chunks we now need to do is something to be able to work with them to basically have
+
+84
+00:06:39,580 --> 00:06:44,400
+one place where the boss stops and we can interact with it.
+
+85
+00:06:44,410 --> 00:06:52,030
+So here I'll now create a new constant parsed body and there I will use the buffer object which is a
+
+86
+00:06:52,030 --> 00:06:55,760
+way globally made available by no chance.
+
+87
+00:06:56,080 --> 00:06:59,080
+And I can cast my body.
+
+88
+00:06:59,440 --> 00:07:04,860
+So this will in the end create a new buffer and add all the chunks from inside my body to it.
+
+89
+00:07:05,350 --> 00:07:13,070
+And then on this buffer which I got here parsed body is now a buffer there I can call to string to one
+
+90
+00:07:13,150 --> 00:07:14,350
+word to two a string.
+
+91
+00:07:14,350 --> 00:07:20,080
+So this is a utility method offered by no J.S. where we do something to our buffered chunks.
+
+92
+00:07:20,110 --> 00:07:26,980
+Remember the boss is now waiting in the bus stop so to say the buffer is our bus stop and now we do
+
+93
+00:07:26,980 --> 00:07:28,120
+something with it.
+
+94
+00:07:28,210 --> 00:07:33,940
+Here we converted to a string and this only works because I know that the incoming data will be text
+
+95
+00:07:34,150 --> 00:07:38,200
+because the body off that request will be text.
+
+96
+00:07:38,320 --> 00:07:41,050
+If it were a file we would have to do something different.
+
+97
+00:07:41,080 --> 00:07:44,930
+But it is no file and I know that it isn't because we're writing code.
+
+98
+00:07:45,010 --> 00:07:46,430
+We know what we will receive.
+
+99
+00:07:46,450 --> 00:07:47,410
+Right.
+
+100
+00:07:47,410 --> 00:07:49,090
+So this is the PA-RISC body.
+
+101
+00:07:49,210 --> 00:07:52,540
+And this is now finally where we can work with.
+
+102
+00:07:52,660 --> 00:07:56,540
+So let's also output the parsed body.
+
+103
+00:07:56,560 --> 00:08:03,040
+This was a lot of talking so let's simply have a look with the server of control and restart it and
+
+104
+00:08:03,040 --> 00:08:08,210
+then send a number request with some mesosphere.
+
+105
+00:08:08,460 --> 00:08:12,700
+And now if you have a look at what's being lost do you see two elements.
+
+106
+00:08:12,780 --> 00:08:15,000
+The first one is coming from this console lock.
+
+107
+00:08:15,120 --> 00:08:19,100
+And you see that is a chunk that is a chunk we can't work with.
+
+108
+00:08:19,320 --> 00:08:26,220
+But now the parse body receives or you'll see this line and that is something we can work with and it's
+
+109
+00:08:26,220 --> 00:08:32,320
+message equals something because we named our input here message.
+
+110
+00:08:32,340 --> 00:08:38,460
+And as I said that for him will automatically send the request where it takes all the input data and
+
+111
+00:08:38,460 --> 00:08:45,210
+puts it into her request body as key value pairs where the names assigned to the inputs are the keys
+
+112
+00:08:45,420 --> 00:08:49,290
+and the values are what the user entered and that is what we have here.
+
+113
+00:08:49,350 --> 00:08:54,900
+A key value pair separating the key from the value with an equal sign.
+
+114
+00:08:54,900 --> 00:09:03,840
+Now and with that we can now work with that and finally store the input in our file and we can do that
+
+115
+00:09:04,530 --> 00:09:07,230
+here and request on and request on.
+
+116
+00:09:07,230 --> 00:09:16,010
+And to be precise by creating a new constant message taking the parse body and splitting it on the equals
+
+117
+00:09:16,010 --> 00:09:22,140
+sign and then taking the element with the index one which is the second element in the resulting array
+
+118
+00:09:22,230 --> 00:09:24,830
+which is the element on the right of the equal sign.
+
+119
+00:09:25,110 --> 00:09:30,030
+And now we can move right fald sink into the end function.
+
+120
+00:09:30,030 --> 00:09:35,810
+We don't want to execute it here because this will actually run before this function is called.
+
+121
+00:09:35,940 --> 00:09:39,900
+Because here we just register a function to be called in the future.
+
+122
+00:09:39,900 --> 00:09:41,780
+It's not executed immediately.
+
+123
+00:09:41,830 --> 00:09:46,950
+Remember no it doesn't wait and pause it will not block descript execution.
+
+124
+00:09:46,950 --> 00:09:50,970
+It just registers this as a to be executed action.
+
+125
+00:09:51,030 --> 00:09:52,920
+And then right away continues.
+
+126
+00:09:52,920 --> 00:09:58,670
+So if we have something that depends on the incoming data we have to move it into the event listener
+
+127
+00:09:58,680 --> 00:10:02,630
+too so that it's all part of the to be executed code.
+
+128
+00:10:02,680 --> 00:10:05,980
+Sometimes in the future and doesn't run too early.
+
+129
+00:10:06,180 --> 00:10:11,660
+And now we can write message to the message to a text file.
+
+130
+00:10:11,890 --> 00:10:14,510
+Let's now restart this file one more time.
+
+131
+00:10:15,750 --> 00:10:16,500
+And enter
+
+132
+00:10:20,320 --> 00:10:22,690
+Hello here and hit send.
+
+133
+00:10:23,170 --> 00:10:28,890
+And now if you look into message text we celo you'll see the exclamation mark was encoded.
+
+134
+00:10:29,050 --> 00:10:31,250
+Now that is something we can worry about later.
+
+135
+00:10:31,330 --> 00:10:34,760
+But in general this worked just fine.
+
+136
+00:10:34,990 --> 00:10:42,640
+And if you're now totally frightened by how complex no chances does this the wrong logic will later
+
+137
+00:10:42,640 --> 00:10:46,270
+use expressed japes which heights all that raw logic.
+
+138
+00:10:46,270 --> 00:10:52,510
+But to understand why we use that you first of all need to understand what is happening and why using
+
+139
+00:10:52,510 --> 00:10:58,660
+tools like Express chess which will make all of this much easier are great.
+
+140
+00:10:58,720 --> 00:11:01,500
+So with that we've got our basic logic down.
+
+141
+00:11:01,630 --> 00:11:08,500
+Let's now dive again into that event listener and writing files thing because there is something really
+
+142
+00:11:08,500 --> 00:11:10,510
+important you have to understand.
+

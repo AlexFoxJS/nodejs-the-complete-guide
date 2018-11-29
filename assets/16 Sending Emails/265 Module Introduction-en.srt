@@ -1,0 +1,40 @@
+1
+00:00:02,080 --> 00:00:08,240
+In this module I now want to give you an introduction to how you can send e-mails from inside your node
+
+2
+00:00:08,300 --> 00:00:15,630
+application obviously sending emails is a crucial task in many web applications and on our Web sites.
+
+3
+00:00:15,800 --> 00:00:22,940
+We want to send an e-mail ofter a user signed up for example to confirm did you sign up something like
+
+4
+00:00:22,940 --> 00:00:23,870
+debt.
+
+5
+00:00:23,970 --> 00:00:24,240
+That.
+
+6
+00:00:24,260 --> 00:00:29,930
+I will show you how that works what sending e-mails in a note application actually means and which part
+
+7
+00:00:30,150 --> 00:00:36,170
+note J.S. and EXPRESS Has play in that big picture and will then implement that will then implement
+
+8
+00:00:36,170 --> 00:00:40,060
+a package that helps us sending e-mails and we'll send the e-mail.
+
+9
+00:00:40,070 --> 00:00:42,060
+Upon successful sign up.
+
+10
+00:00:42,060 --> 00:00:44,060
+So let's work on this in this module.
+

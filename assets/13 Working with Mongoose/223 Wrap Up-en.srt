@@ -1,0 +1,96 @@
+1
+00:00:02,160 --> 00:00:07,620
+So in this module you'll learn about mongoose and I can only encourage you to dive into the official
+
+2
+00:00:07,620 --> 00:00:12,350
+mongooses documentation to learn all about it and the many features it offers.
+
+3
+00:00:12,540 --> 00:00:15,300
+And I do really mean it as I said in the last lecture.
+
+4
+00:00:15,330 --> 00:00:17,240
+Play around with our application.
+
+5
+00:00:17,340 --> 00:00:20,950
+Try adding subgoals or total's to our orders here.
+
+6
+00:00:20,970 --> 00:00:25,410
+Play around feel free to experiment with the data and with our application.
+
+7
+00:00:25,410 --> 00:00:26,880
+This is what coding is all about.
+
+8
+00:00:26,880 --> 00:00:32,850
+In the end the official talks for more gurus and long would be or sequel Aizen sequel if you want to
+
+9
+00:00:32,850 --> 00:00:37,450
+stick to that should give you everything you need to dive deeper and play around.
+
+10
+00:00:37,530 --> 00:00:42,270
+At this point of course though you have a solid understanding of the different database solutions you
+
+11
+00:00:42,270 --> 00:00:44,360
+could use how you would use them.
+
+12
+00:00:44,400 --> 00:00:50,880
+Why using tools like sequel eyes or mongooses might make a lot of sense and how you can integrate them
+
+13
+00:00:50,880 --> 00:00:52,540
+into your application.
+
+14
+00:00:52,590 --> 00:00:54,500
+Now what exactly you use.
+
+15
+00:00:54,570 --> 00:01:00,510
+Which database and which features or which package always depends on your exact application.
+
+16
+00:01:00,510 --> 00:01:06,180
+I hope that disallowance modules gave you a great overview over the pool of options you could choose
+
+17
+00:01:06,180 --> 00:01:08,700
+from and what you can do with them.
+
+18
+00:01:08,700 --> 00:01:12,300
+We will continue with mongooses and longer DBI in this course.
+
+19
+00:01:12,300 --> 00:01:17,160
+However feel free to of course play around with sequel if you need that for your next project.
+
+20
+00:01:17,160 --> 00:01:18,630
+But we will continue with that.
+
+21
+00:01:18,660 --> 00:01:24,450
+We will therefore add some features from the cores do a bit more with the database when we are able
+
+22
+00:01:24,450 --> 00:01:25,110
+to do it.
+
+23
+00:01:25,170 --> 00:01:31,710
+Like for example invalidate input and build our application whilst at the same time learning way more
+
+24
+00:01:31,710 --> 00:01:35,530
+about node and express in general throughout the rest of this course.
+

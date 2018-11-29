@@ -1,0 +1,424 @@
+1
+00:00:02,380 --> 00:00:08,740
+In the last lectures I edit some styles and please just take these free html files which you find attached
+
+2
+00:00:08,740 --> 00:00:14,080
+to this lecture and replace your existing views with them because it don't just didn't just add some
+
+3
+00:00:14,080 --> 00:00:14,710
+styling.
+
+4
+00:00:14,800 --> 00:00:17,300
+I also added some see as classes.
+
+5
+00:00:17,350 --> 00:00:19,520
+Now the page will look something like this.
+
+6
+00:00:19,570 --> 00:00:26,330
+You can tweak the styles if this is not your style obviously discourse is about the logic the Nocera
+
+7
+00:00:26,440 --> 00:00:26,870
+logic.
+
+8
+00:00:26,890 --> 00:00:30,270
+And we will continue working on this project DHC.
+
+9
+00:00:30,330 --> 00:00:31,430
+And to Stahl.
+
+10
+00:00:31,960 --> 00:00:38,470
+One issue we have though is right now all the styles are defined in the html files and I went to use
+
+11
+00:00:38,560 --> 00:00:40,390
+external CMS as follows.
+
+12
+00:00:40,390 --> 00:00:43,660
+Now the problem is right now we can't easily import them.
+
+13
+00:00:43,900 --> 00:00:48,100
+But let's see how we at least theoretically would want to do that.
+
+14
+00:00:48,100 --> 00:00:53,090
+Now typically you would have some C S S falls somewhere and would point at them.
+
+15
+00:00:53,170 --> 00:00:59,230
+When your app gets served now you can create a new subfolder and you can name it whatever you want but
+
+16
+00:00:59,230 --> 00:01:05,410
+the convention is to call it public because you want to indicate that this is a folder that holds content
+
+17
+00:01:05,620 --> 00:01:10,950
+which are always exposed to the public crowd or which is always exposed to the public.
+
+18
+00:01:10,960 --> 00:01:15,090
+So where you don't need any permissions to access it and that's important.
+
+19
+00:01:15,130 --> 00:01:19,380
+All your files here are not accessible by your users.
+
+20
+00:01:19,630 --> 00:01:29,800
+If you ever tried to enter localhost and then something like views shop HVM and that will not work because
+
+21
+00:01:29,830 --> 00:01:35,970
+this is simply accepted by express and it tries to find a route that matches this.
+
+22
+00:01:36,070 --> 00:01:37,780
+It tries to find it here in Aperture.
+
+23
+00:01:37,780 --> 00:01:38,670
+Yes basically.
+
+24
+00:01:38,770 --> 00:01:44,440
+And also of course in shopper all it's is on it doesn't find that route and therefore it doesn't give
+
+25
+00:01:44,440 --> 00:01:47,640
+you access you can't access to files system here.
+
+26
+00:01:47,740 --> 00:01:50,030
+And that is of course good and what you want.
+
+27
+00:01:50,260 --> 00:01:52,790
+But now I actually want to make an exception.
+
+28
+00:01:52,960 --> 00:01:55,270
+I want to get some requests.
+
+29
+00:01:55,270 --> 00:02:01,300
+Can I just access to follow a system because ultimately let's say in shop h t m l I want to have something
+
+30
+00:02:01,300 --> 00:02:08,200
+like a link in here where I simply point at something like C-s as main dots CSSA anything like that.
+
+31
+00:02:08,470 --> 00:02:14,080
+And my imagination would be that in public I have a C S S folder with the main don't see us as file
+
+32
+00:02:14,080 --> 00:02:18,300
+in there and that is the file I want to serve with this link.
+
+33
+00:02:18,550 --> 00:02:20,350
+Now right now this wouldn't work.
+
+34
+00:02:20,410 --> 00:02:22,140
+But let's take that code already.
+
+35
+00:02:22,140 --> 00:02:28,300
+That's style code coded out of shop h tim L and move it in there because that pretty much is the main
+
+36
+00:02:28,300 --> 00:02:30,350
+stalling we use in all our pages.
+
+37
+00:02:30,430 --> 00:02:31,950
+The header and body.
+
+38
+00:02:32,650 --> 00:02:34,470
+Let's remove the style text here.
+
+39
+00:02:34,570 --> 00:02:41,740
+And obviously if I now save and reload my main page all the styling is gone now because it can find
+
+40
+00:02:41,750 --> 00:02:47,450
+remains as far as you can see here in the developer tools because we can't access the file system.
+
+41
+00:02:47,470 --> 00:02:49,630
+Now you could say yet Apapa is incorrect right.
+
+42
+00:02:49,660 --> 00:02:50,670
+It's public.
+
+43
+00:02:50,670 --> 00:02:59,320
+C S S but even if I change it to does POV you will see that if I reload this fall it will never work.
+
+44
+00:02:59,320 --> 00:03:03,700
+And now it does look in the public folder for this we need a feature.
+
+45
+00:03:03,710 --> 00:03:11,260
+Express chase offers us we need to be able to surf files statically and steadily simply means not handled
+
+46
+00:03:11,440 --> 00:03:19,690
+by the Express router or above middleware but instead directly forwarded to the file system.
+
+47
+00:03:19,690 --> 00:03:23,800
+And for this we were just for a new middleware with app use.
+
+48
+00:03:24,100 --> 00:03:26,500
+And this this one express class ships with.
+
+49
+00:03:26,680 --> 00:03:29,770
+Therefore we use the express object itself.
+
+50
+00:03:29,800 --> 00:03:36,280
+So does optical re-importing there and this does have a static method and this is a built in Middleware
+
+51
+00:03:36,280 --> 00:03:37,710
+as you can read on the right.
+
+52
+00:03:37,750 --> 00:03:42,380
+It serves static files so we can execute this function.
+
+53
+00:03:42,520 --> 00:03:48,470
+And now we just have to pass in a payoff to the folder which we want to serve statically.
+
+54
+00:03:48,550 --> 00:03:53,210
+So basically a folder what you want to grant read access to.
+
+55
+00:03:53,210 --> 00:03:57,510
+It's only read access but that's still more than what we normally have.
+
+56
+00:03:57,940 --> 00:04:03,560
+And here again we can construct this POV with lbf join and then simply our Durr name.
+
+57
+00:04:03,640 --> 00:04:11,530
+So our root folder and then public because I want to grant access to the public folder in our current
+
+58
+00:04:11,800 --> 00:04:12,340
+folder here.
+
+59
+00:04:12,340 --> 00:04:19,750
+So in the Durr name so in the root folder with this user should be able to access to public Poth And
+
+60
+00:04:19,750 --> 00:04:26,990
+now if I save this and a reload shop h l. still doesn't work.
+
+61
+00:04:27,000 --> 00:04:31,650
+The reason for that is that the payoff with public at the beginning here is wrong.
+
+62
+00:04:32,010 --> 00:04:38,580
+Instead here we should omit this and directly act as if we are in the public folder already.
+
+63
+00:04:38,850 --> 00:04:41,830
+Because this is basically what Express will do here.
+
+64
+00:04:42,090 --> 00:04:48,330
+It will take any request that tries to find some file and that's important.
+
+65
+00:04:48,330 --> 00:04:49,800
+It looks at the extension.
+
+66
+00:04:49,830 --> 00:04:57,030
+So anything that tries to find a dot CSX or dot javascript files if we have such a request it automatically
+
+67
+00:04:57,360 --> 00:05:04,560
+forwards it to the public folder and therefore then the remaining pop has to be everything but that
+
+68
+00:05:04,620 --> 00:05:05,180
+public.
+
+69
+00:05:05,250 --> 00:05:10,230
+So therefore we stripped the public out of this puff and just act as if we already are in the public
+
+70
+00:05:10,230 --> 00:05:15,520
+folder because this is where file requests will be forwarded to.
+
+71
+00:05:15,520 --> 00:05:16,910
+So now I have a reload here.
+
+72
+00:05:18,760 --> 00:05:19,620
+This looks much better.
+
+73
+00:05:19,620 --> 00:05:27,100
+Right now we find dead main CSSA file because now this pov can be resolved because we request a file
+
+74
+00:05:27,100 --> 00:05:31,180
+here and if I omitted CSSA it therefore will fail.
+
+75
+00:05:31,630 --> 00:05:36,730
+But if I add it again does this handled by the stedding middleware and forewards the request to the
+
+76
+00:05:36,730 --> 00:05:37,930
+public folder.
+
+77
+00:05:38,110 --> 00:05:43,300
+By the way you could register multiple static folders and it will funneled a request through all of
+
+78
+00:05:43,300 --> 00:05:46,090
+them until it has a first hit for The File.
+
+79
+00:05:46,120 --> 00:05:47,050
+It's looking for.
+
+80
+00:05:47,170 --> 00:05:49,960
+But here I'll just go with the public folder.
+
+81
+00:05:50,000 --> 00:05:58,670
+Now with that we can of course take that link and also added an ad product in our head section.
+
+82
+00:05:58,670 --> 00:06:04,940
+Now there we just have to watch out in the style text I got more than what I is set up in Maine s so
+
+83
+00:06:04,940 --> 00:06:12,770
+will also add product dossiers as fall and moved the extra styling code which begins here with product
+
+84
+00:06:12,770 --> 00:06:21,170
+form will move all that into product C as s and the other part in the style takes here can now simply
+
+85
+00:06:21,170 --> 00:06:30,700
+be removed and therefore I now also have to add import here to see us as product Dotsie as S..
+
+86
+00:06:31,010 --> 00:06:34,640
+And in the 4 or 4 page of course all that want to import.
+
+87
+00:06:34,700 --> 00:06:40,910
+My main see is as code and there I got no extra code so we can remove the stalled hex and simply import
+
+88
+00:06:41,060 --> 00:06:42,820
+the link here.
+
+89
+00:06:42,830 --> 00:06:47,660
+Now with that if we save that and we reload this page it works.
+
+90
+00:06:47,730 --> 00:06:49,310
+Add Productus looking good.
+
+91
+00:06:49,520 --> 00:06:50,590
+Let's add a book here.
+
+92
+00:06:50,630 --> 00:06:51,480
+Looking good.
+
+93
+00:06:51,710 --> 00:06:54,840
+And let's was it a route that does not exist.
+
+94
+00:06:54,990 --> 00:06:56,020
+All is looking good.
+
+95
+00:06:56,060 --> 00:07:00,940
+Regarding the styling at least so does this now how we can store thoughts statically.
+
+96
+00:07:01,070 --> 00:07:04,300
+And you're not just limited to C S S and javascript files.
+
+97
+00:07:04,340 --> 00:07:07,780
+You can also serve images and so on.
+
+98
+00:07:07,790 --> 00:07:10,780
+So this is the last important piece for now.
+
+99
+00:07:10,910 --> 00:07:18,260
+How you can serve content statically in the next modules will then dive deeper into actually doing something
+
+100
+00:07:18,470 --> 00:07:19,840
+with that user data.
+
+101
+00:07:19,850 --> 00:07:24,030
+We can submit there and we'll dive into and very interesting concept.
+
+102
+00:07:24,140 --> 00:07:29,770
+The concept of templates because Dad will allow us to turn our static HVM code.
+
+103
+00:07:29,810 --> 00:07:36,560
+So basically the code which is hard coded which doesn't have any dynamic element into more dynamic elements
+
+104
+00:07:36,800 --> 00:07:42,350
+where we can inject data we have in our javascript code in the HVM all templates.
+
+105
+00:07:42,350 --> 00:07:43,720
+We return to the user.
+
+106
+00:07:43,850 --> 00:07:47,450
+Pretty interesting we'll dive into all of that in the next modules.
+

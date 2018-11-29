@@ -1,0 +1,256 @@
+1
+00:00:02,160 --> 00:00:06,610
+Express yes is all about middleware and you see a diagram here.
+
+2
+00:00:06,730 --> 00:00:13,420
+Indian middleware means that incoming request is automatically funneled through a bunch of functions
+
+3
+00:00:13,480 --> 00:00:14,930
+by express chess.
+
+4
+00:00:14,950 --> 00:00:21,640
+So instead of just having one request handler you will actually have a possibility of hooking in multiple
+
+5
+00:00:21,640 --> 00:00:26,890
+functions which the request will go through until you send the response.
+
+6
+00:00:26,890 --> 00:00:32,680
+This allows you to split your code into multiple blocks or pieces instead of having one huge function
+
+7
+00:00:32,680 --> 00:00:34,030
+that does everything.
+
+8
+00:00:34,270 --> 00:00:40,870
+And there's a steep pluggable nature of express chase where you can easily add a third party packages
+
+9
+00:00:41,200 --> 00:00:47,080
+which simply happen to give you such middleware functions that you can plug into Express chase and add
+
+10
+00:00:47,080 --> 00:00:48,420
+certain functionalities.
+
+11
+00:00:48,490 --> 00:00:50,410
+But more on that later.
+
+12
+00:00:50,410 --> 00:00:53,150
+So this is the core concept of express choice.
+
+13
+00:00:53,290 --> 00:01:00,120
+The middleware and we can use that by going here ofter we created the app object.
+
+14
+00:01:00,180 --> 00:01:06,550
+But before we pass that to create server and then we can use the app and call a method which is defined
+
+15
+00:01:06,580 --> 00:01:08,180
+by the Express framework.
+
+16
+00:01:08,350 --> 00:01:16,390
+Use use allows us to add a new middleware function now to use method is pretty flexible.
+
+17
+00:01:16,390 --> 00:01:23,530
+It accepts an array of so-called request handlers here and it has some other use cases too.
+
+18
+00:01:23,560 --> 00:01:29,950
+Now one easy way of using it is that you simply pass a function to it and this function here this function
+
+19
+00:01:29,950 --> 00:01:39,760
+you pass to app use will be executed for every incoming request and dysfunction will receive free arguments
+
+20
+00:01:40,080 --> 00:01:42,280
+the request and the response object.
+
+21
+00:01:42,400 --> 00:01:49,270
+As you already know it basically with some extra tricks learned though and a third argument which is
+
+22
+00:01:49,270 --> 00:01:51,930
+the next argument.
+
+23
+00:01:51,940 --> 00:01:55,860
+Now you can rename any of these arguments but what do they do.
+
+24
+00:01:56,020 --> 00:02:01,420
+Request a response as just mentioned are basically what you know with some extra features.
+
+25
+00:02:01,450 --> 00:02:08,740
+Next is actually a function a function that will be passed to this function by express.
+
+26
+00:02:08,770 --> 00:02:15,430
+Yes and this can be confusing because you are passing a function as an argument to the use method and
+
+27
+00:02:15,430 --> 00:02:21,250
+does function you're passing is receiving yet another function here on the next argument.
+
+28
+00:02:21,580 --> 00:02:27,370
+And this next argument basically this function you're receiving here has to be executed to allow the
+
+29
+00:02:27,370 --> 00:02:31,480
+request to travel on to the next middleware.
+
+30
+00:02:31,480 --> 00:02:33,370
+Now let me show you what I mean.
+
+31
+00:02:33,370 --> 00:02:41,670
+We can simply console log in the middleware here like this.
+
+32
+00:02:41,720 --> 00:02:44,810
+Now since I have no Mondas automated restarts the server.
+
+33
+00:02:45,050 --> 00:02:50,140
+And let's now go to the browser and reload localhost free.
+
+34
+00:02:51,160 --> 00:02:54,030
+Now actually this will keep on spinning you see.
+
+35
+00:02:54,130 --> 00:02:59,200
+So we don't get a response which makes sense because we've got a logic where we would send one in the
+
+36
+00:02:59,200 --> 00:03:02,880
+consul here at the bottom you see in the middle where though.
+
+37
+00:03:03,130 --> 00:03:05,700
+So this did execute it this is what I meant.
+
+38
+00:03:05,710 --> 00:03:10,820
+This allows us to hook into this funnel through which the request is sent.
+
+39
+00:03:10,900 --> 00:03:20,220
+If I duplicate this and add a number you statement here in and number middleware and I saved this and
+
+40
+00:03:20,220 --> 00:03:28,520
+let it restart therefore and I now reload this page here on localhost 3000 then I see in the middle
+
+41
+00:03:28,550 --> 00:03:33,180
+where here again and I see it twice because I pressed reload twice in like last year.
+
+42
+00:03:33,340 --> 00:03:35,830
+But I don't see in a number of middleware.
+
+43
+00:03:35,930 --> 00:03:44,140
+Now the reason for that is that we have to call next year to allow the request to travel on to the next
+
+44
+00:03:44,140 --> 00:03:45,170
+middle we're in line.
+
+45
+00:03:45,220 --> 00:03:47,680
+So it basically goes from top to bottom.
+
+46
+00:03:47,710 --> 00:03:54,490
+Frood at file you could say through all the middleware functions but only if we call next we don't call
+
+47
+00:03:54,490 --> 00:03:56,010
+next to just dies.
+
+48
+00:03:56,020 --> 00:04:02,170
+So if we don't call next we should actually send back a response because otherwise the request can't
+
+49
+00:04:02,170 --> 00:04:03,480
+continue its journey.
+
+50
+00:04:03,550 --> 00:04:07,080
+So it will never reach a place where we might send the response.
+
+51
+00:04:07,270 --> 00:04:11,080
+But if we also don't send one here well then we never send one.
+
+52
+00:04:11,350 --> 00:04:17,110
+So now with this next call at it we actually make it into this middleware and we should receive this
+
+53
+00:04:17,110 --> 00:04:18,260
+console log.
+
+54
+00:04:18,520 --> 00:04:24,310
+And here we could then even send a response that will do this as a next step because sending responses
+
+55
+00:04:24,340 --> 00:04:25,850
+also changed a bit.
+
+56
+00:04:25,900 --> 00:04:34,070
+So restart at the server reload that page and now you see in the middle where and in and number middleware
+
+57
+00:04:34,430 --> 00:04:35,900
+thanks to next.
+
+58
+00:04:35,900 --> 00:04:46,830
+So this allows the request to continue to the next middleware in Middleware in line which is middleware.
+
+59
+00:04:46,850 --> 00:04:49,070
+Below this one.
+
+60
+00:04:49,130 --> 00:04:52,500
+So this is a crucial concept is this idea of middleware.
+
+61
+00:04:52,760 --> 00:05:00,140
+And you can use any function that has this format so that receives request response next.
+
+62
+00:05:00,230 --> 00:05:04,740
+And you should call next if you want to allow the request to go to the next function.
+
+63
+00:05:04,820 --> 00:05:10,820
+You should send the response if you got our plans so let's send the response in this middle where in
+
+64
+00:05:10,850 --> 00:05:11,540
+the next lecture.
+

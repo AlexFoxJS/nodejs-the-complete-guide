@@ -1,0 +1,236 @@
+1
+00:00:02,190 --> 00:00:07,750
+Ford it let's just play around with javascript and I'm in a brand new empty folder which I opened with
+
+2
+00:00:07,750 --> 00:00:16,030
+my ID do you code and in there altered a new file and I'll name it played out just the name is totally
+
+3
+00:00:16,030 --> 00:00:17,470
+up to you though.
+
+4
+00:00:17,530 --> 00:00:22,540
+Now let me start with some core language features variables and functions.
+
+5
+00:00:22,630 --> 00:00:29,470
+And again you should definitely dive into a core javascript resource like the ones I linked into second
+
+6
+00:00:29,470 --> 00:00:31,050
+lecture off this module.
+
+7
+00:00:31,060 --> 00:00:32,790
+If you are brand new to Javascript.
+
+8
+00:00:32,830 --> 00:00:41,320
+So by now do expect you to know what variables functions are also expected to be aware of what if statements
+
+9
+00:00:41,350 --> 00:00:42,750
+or loops are.
+
+10
+00:00:42,760 --> 00:00:49,390
+These are all core things you got to have set by now because you are crucial for javascript no matter
+
+11
+00:00:49,390 --> 00:00:52,880
+if you are using it in the browser or on the server.
+
+12
+00:00:52,900 --> 00:00:57,130
+So for variables you might know disinfects with the a keyword.
+
+13
+00:00:57,130 --> 00:01:00,780
+You can have a name in for example store Maxson there right.
+
+14
+00:01:00,810 --> 00:01:07,330
+This would be a variable and now you can use that for example to simply output it like this.
+
+15
+00:01:07,330 --> 00:01:13,510
+And if we now run this file with no chance by running node played out just as the command we have to
+
+16
+00:01:13,510 --> 00:01:20,740
+write in a terminal navigate it into dead project folders so into that folder where I'm having display
+
+17
+00:01:20,770 --> 00:01:24,850
+Chia's file then I see Macs down there right.
+
+18
+00:01:24,850 --> 00:01:27,700
+So that is some Javascript code.
+
+19
+00:01:27,790 --> 00:01:31,660
+We can also create a number verbal age which now would be a number.
+
+20
+00:01:31,660 --> 00:01:36,040
+It's not in close to quotation marks so this first one is a so-called string.
+
+21
+00:01:36,040 --> 00:01:37,190
+Does this number.
+
+22
+00:01:37,420 --> 00:01:44,060
+We can also add a third one has hobbies and that would now be a boolean.
+
+23
+00:01:44,060 --> 00:01:45,380
+These are some core types.
+
+24
+00:01:45,380 --> 00:01:46,580
+Javascript knows.
+
+25
+00:01:46,580 --> 00:01:50,350
+True false are booleans numbers are well numbers.
+
+26
+00:01:50,390 --> 00:01:52,340
+They can also have decimal places.
+
+27
+00:01:52,340 --> 00:01:53,680
+These are strings.
+
+28
+00:01:53,960 --> 00:02:00,540
+And now here I can also define a function with the function keyword summerize user.
+
+29
+00:02:00,740 --> 00:02:05,000
+Does this how you create a function javascript and there we could return something.
+
+30
+00:02:05,000 --> 00:02:08,800
+Functions can return values with the return statement.
+
+31
+00:02:08,870 --> 00:02:19,780
+They all can get input like user name user age and user has hobby you can name these arguments as these
+
+32
+00:02:19,780 --> 00:02:21,530
+things here are called.
+
+33
+00:02:21,880 --> 00:02:22,940
+However you want.
+
+34
+00:02:22,990 --> 00:02:28,510
+These are not local variables only available in instead of a function not outside of it.
+
+35
+00:02:28,660 --> 00:02:30,680
+And then you can return.
+
+36
+00:02:30,940 --> 00:02:42,870
+Name is Plus user name plus let's say some text with a comma a whitespace H is whitespace used are h
+
+37
+00:02:43,260 --> 00:02:50,870
+class and user has hobbies and then user has hobby something like debt.
+
+38
+00:02:50,940 --> 00:02:56,610
+Now here I am simply returning some text which I manually concatenating by a hardcoded strings and the
+
+39
+00:02:56,610 --> 00:02:59,610
+dynamic values I'm getting as an argument.
+
+40
+00:02:59,610 --> 00:03:06,810
+Now we can also cancel the result of summerize user we call a function by adding parentheses offered
+
+41
+00:03:06,810 --> 00:03:07,440
+a name.
+
+42
+00:03:07,530 --> 00:03:13,610
+And now we just have to pass in data we expect here as arguments so we need to pass and free arguments
+
+43
+00:03:13,610 --> 00:03:18,640
+your the name D.H. and has hobby's sort of free variables.
+
+44
+00:03:18,640 --> 00:03:22,980
+I'd have find up here we could have directly access them in the function too by the way.
+
+45
+00:03:23,010 --> 00:03:30,120
+We don't have to take the way of accepting arguments but this is a pure function which does not depend
+
+46
+00:03:30,120 --> 00:03:35,880
+on anything from outside the function but gets all the data it works with as part of the arguments which
+
+47
+00:03:35,880 --> 00:03:38,150
+is a nice way of writing functions.
+
+48
+00:03:38,430 --> 00:03:42,930
+And now if I execute this well then we get this output.
+
+49
+00:03:43,140 --> 00:03:46,070
+Now this is just a summary of the features you should be aware of.
+
+50
+00:03:46,080 --> 00:03:52,500
+As I mentioned I just want you to know or I just want to be sure that you know how we work with variables
+
+51
+00:03:52,680 --> 00:03:55,490
+how we would work with functions how we call functions.
+
+52
+00:03:55,560 --> 00:04:02,090
+And did you understand how parameters or arguments in the function are used in there and only in there.
+
+53
+00:04:02,130 --> 00:04:08,540
+We couldn't use user name outside of therapy because of something called scoping in javascript.
+
+54
+00:04:08,580 --> 00:04:11,920
+We can then call a function like this and pass in the data.
+
+55
+00:04:12,000 --> 00:04:19,110
+We could hard code the data here or refer to variables which have to be a way in the scope of this statement
+
+56
+00:04:19,380 --> 00:04:25,860
+which is the case for these variables since they are global variables and these are variables and functions
+
+57
+00:04:26,070 --> 00:04:27,050
+and how we interact.
+
+58
+00:04:27,120 --> 00:04:29,730
+And these are some core of features you have to be aware of.
+
+59
+00:04:29,910 --> 00:04:32,520
+Let's not dive into something more exciting in the next lecture.
+

@@ -1,0 +1,112 @@
+1
+00:00:02,070 --> 00:00:05,080
+So we worked a lot on resetting passwords.
+
+2
+00:00:05,250 --> 00:00:07,550
+Let's now work on offer I sation.
+
+3
+00:00:07,650 --> 00:00:14,210
+And with that I mean that not every authenticated user is allowed to do everything.
+
+4
+00:00:14,220 --> 00:00:16,490
+A good example would be this one.
+
+5
+00:00:16,500 --> 00:00:17,390
+I'm not locked in.
+
+6
+00:00:17,400 --> 00:00:26,260
+Now let me log in with this user here test a test that can here I might be able to add a product and
+
+7
+00:00:26,260 --> 00:00:32,800
+I can delete products but right now I can delete all products no matter if I created them or if someone
+
+8
+00:00:32,800 --> 00:00:33,890
+else created them.
+
+9
+00:00:33,910 --> 00:00:42,160
+And the same is true for editing them offer a sation means that I restrict permissions all a logged
+
+10
+00:00:42,160 --> 00:00:43,020
+in user.
+
+11
+00:00:43,270 --> 00:00:49,420
+So every user might be able to add anything to the card including products created by the user but you
+
+12
+00:00:49,420 --> 00:00:54,080
+might not be able to delete and edit products which were not created by you.
+
+13
+00:00:54,100 --> 00:00:56,540
+So for now I can do that.
+
+14
+00:00:56,680 --> 00:00:58,810
+But that's exactly what I want to work on next.
+
+15
+00:00:58,840 --> 00:01:00,760
+So that we can do this.
+
+16
+00:01:00,760 --> 00:01:02,970
+Now how can we implement that.
+
+17
+00:01:03,520 --> 00:01:07,420
+Well when I create a new product let me quickly do that.
+
+18
+00:01:07,450 --> 00:01:12,180
+Remember I'm locked in with test at test dot com.
+
+19
+00:01:12,270 --> 00:01:19,630
+This was created by test at test dot com when I created this product here.
+
+20
+00:01:19,860 --> 00:01:26,160
+We have it here and we can see it in the product collection obviously it's linked to the user with an
+
+21
+00:01:26,160 --> 00:01:28,180
+ID that ends with E 5.
+
+22
+00:01:28,290 --> 00:01:33,410
+And if we have a look at all our users let me delete this one here.
+
+23
+00:01:33,630 --> 00:01:35,310
+Then we see this is the one with E5.
+
+24
+00:01:35,310 --> 00:01:37,830
+It is to test to test that user.
+
+25
+00:01:37,830 --> 00:01:44,580
+Now if I log in with my test to account so test to hear
+
+26
+00:01:47,180 --> 00:01:52,090
+then if I go to Aben products I can also edit and delete that.
+
+27
+00:01:52,140 --> 00:01:54,210
+And that is exactly what I want to prevent.
+
+28
+00:01:54,330 --> 00:01:55,920
+Let's do that in the next lecture.
+

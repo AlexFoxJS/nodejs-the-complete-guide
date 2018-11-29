@@ -1,0 +1,468 @@
+1
+00:00:02,180 --> 00:00:05,880
+Know what is graphed you l to really explain it.
+
+2
+00:00:05,950 --> 00:00:10,360
+Let's compare it to arrest API which we already learn about arrest.
+
+3
+00:00:10,390 --> 00:00:15,060
+API is a state less co-aligned dependent API for exchanging data.
+
+4
+00:00:15,280 --> 00:00:21,250
+So it's a node express application or a node with any framework application of course that we build
+
+5
+00:00:21,430 --> 00:00:22,590
+to exchange data.
+
+6
+00:00:22,660 --> 00:00:27,270
+We don't render views we don't store sessions we don't care about the client.
+
+7
+00:00:27,400 --> 00:00:32,390
+We only get requests parse the data and return responses with data.
+
+8
+00:00:32,410 --> 00:00:38,110
+Typically Jason data a Graph API is generally not that different.
+
+9
+00:00:38,140 --> 00:00:42,410
+It's also a stateless client independent API for exchanging data.
+
+10
+00:00:42,490 --> 00:00:50,240
+But and that's the important part of course with higher Querrey flexibility and to understand that let's
+
+11
+00:00:50,440 --> 00:00:57,340
+look at some rest API limitations let's say in our rest API we have and pointed to it looks like yet
+
+12
+00:00:57,850 --> 00:01:00,760
+we can send a GET request to slash post.
+
+13
+00:01:00,760 --> 00:01:06,550
+And as you might imagine does what fecche as opposed to let's say from the database but could also be
+
+14
+00:01:06,550 --> 00:01:08,900
+from a file or anything like that of course.
+
+15
+00:01:09,100 --> 00:01:11,380
+And this is how a post might look like.
+
+16
+00:01:11,380 --> 00:01:14,440
+Now we returned Adjt. to decline that everyone is happy.
+
+17
+00:01:14,650 --> 00:01:19,310
+But what if we actually only need to title and ID on the client.
+
+18
+00:01:19,480 --> 00:01:26,440
+What if we don't need the content or we don't need to create or data we can of course have many scenarios
+
+19
+00:01:26,710 --> 00:01:30,550
+where we use one at the same and point in our front end application.
+
+20
+00:01:30,610 --> 00:01:38,410
+So in our single page application or our mobile application and in one place on one page we might need
+
+21
+00:01:38,500 --> 00:01:45,520
+Tideland content on the page we might need content and creator how can we solve that.
+
+22
+00:01:45,850 --> 00:01:51,950
+Well solution 1 is of course to simply create more endpoints dad returned to different types of data.
+
+23
+00:01:52,150 --> 00:01:59,200
+We can create a new rest API endpoint for example sending a GET request to post dash slim to only return
+
+24
+00:01:59,200 --> 00:02:00,530
+title and ID.
+
+25
+00:02:00,970 --> 00:02:06,640
+Now obviously by the way you could also of course use the same endpoint all the time and just pars or
+
+26
+00:02:06,730 --> 00:02:09,060
+filter out the data you need on the front end.
+
+27
+00:02:09,160 --> 00:02:14,860
+But then you sending a lot of unnecessary data over the wire which is an issue especially when working
+
+28
+00:02:14,860 --> 00:02:16,600
+with mobile devices.
+
+29
+00:02:16,630 --> 00:02:23,440
+So our solution could be to simply create more endpoints that simply return the data you need for each
+
+30
+00:02:23,440 --> 00:02:24,550
+of these endpoints.
+
+31
+00:02:25,400 --> 00:02:32,530
+The problem is you'll have a lot of endpoints and you'll have to update them continuously and you also
+
+32
+00:02:32,560 --> 00:02:40,280
+have a very unflexible solution here if you're front and engineers and in bigger projects you typically
+
+33
+00:02:40,280 --> 00:02:44,960
+work in different teams if they need more data on a new page.
+
+34
+00:02:44,990 --> 00:02:50,720
+They come to you as a back and developer and ask you to give him an endpoint that returns that data
+
+35
+00:02:51,200 --> 00:02:58,550
+and their stack in their frantic development until you added this so fast iteration on the front end
+
+36
+00:02:58,730 --> 00:02:59,960
+is made harder.
+
+37
+00:03:00,170 --> 00:03:06,020
+And on the other hand you want to back and continuously have to add new endpoints to cater for the needs
+
+38
+00:03:06,020 --> 00:03:08,020
+of your front and engineers.
+
+39
+00:03:08,030 --> 00:03:15,860
+So this is not the ideal solution to be to use Kuri parameters on your existing endpoints.
+
+40
+00:03:15,890 --> 00:03:19,690
+You could accept query parameters like data equals slim.
+
+41
+00:03:19,700 --> 00:03:26,930
+Now obviously that is an option but just as with the first solution you always have to add it so that
+
+42
+00:03:26,930 --> 00:03:32,460
+your front and engineers can continue and you have this dependency between front end and back end.
+
+43
+00:03:32,750 --> 00:03:38,720
+Additionally your API might become pretty hard to understand because it might not be clear which query
+
+44
+00:03:38,720 --> 00:03:42,950
+parameters can I set which values can I set on these query parameters.
+
+45
+00:03:42,950 --> 00:03:51,560
+So this is also not ideal ideal for apps where you often have different data requirements on different
+
+46
+00:03:51,560 --> 00:03:55,420
+pages is to use rafts you l there.
+
+47
+00:03:55,460 --> 00:04:01,370
+You don't have the problems I described before because there as you will learn you have a rich query
+
+48
+00:04:01,370 --> 00:04:08,440
+language that you use in your front end to send it to the backend which is then parsed on the back end
+
+49
+00:04:08,690 --> 00:04:11,630
+and dynamically retrieves just the data you need.
+
+50
+00:04:11,660 --> 00:04:17,810
+So it's almost like a database query language which you use on the back end like sequel or mom to be
+
+51
+00:04:18,050 --> 00:04:22,230
+query language almost like something like this for the front end.
+
+52
+00:04:22,310 --> 00:04:25,810
+So which you put into the request you send to the backend.
+
+53
+00:04:26,300 --> 00:04:30,600
+Now that is the idea but how does graph work then.
+
+54
+00:04:30,620 --> 00:04:36,200
+Well we get our client we got our server and on the server you generally have your logic for interacting
+
+55
+00:04:36,200 --> 00:04:38,360
+with the database with files.
+
+56
+00:04:38,360 --> 00:04:39,840
+Anything like that.
+
+57
+00:04:39,860 --> 00:04:44,920
+Now what do you send from client to server in that graph Q L world.
+
+58
+00:04:44,990 --> 00:04:51,450
+You only send one kind of request and that is a POST request to graph Q L slash graph Q L.
+
+59
+00:04:51,680 --> 00:04:59,660
+So you only have one single and point where you send your HTP requests to even for getting data.
+
+60
+00:04:59,660 --> 00:05:00,770
+And why is that.
+
+61
+00:05:01,040 --> 00:05:07,860
+Well for a POST request you can add a request body and that request body will contain that query expression.
+
+62
+00:05:08,000 --> 00:05:13,790
+Raf Curiel defines its own query language and I will show you where to learn more about this module
+
+63
+00:05:13,790 --> 00:05:20,720
+of course and you use that Korean language you put it into a request body and you just can't send request
+
+64
+00:05:20,720 --> 00:05:22,810
+bodies on get requests for example.
+
+65
+00:05:23,060 --> 00:05:29,630
+So you put your query language expression into that request body and data will be parsed on a server
+
+66
+00:05:29,810 --> 00:05:33,900
+to then do some magic on it and return you just the data you want.
+
+67
+00:05:33,940 --> 00:05:35,770
+That is the idea behind graft.
+
+68
+00:05:35,780 --> 00:05:40,870
+Well now such a gradual Kery would typically look something like this.
+
+69
+00:05:40,910 --> 00:05:48,170
+It's just an object like structure where you have an operation type query before getting data.
+
+70
+00:05:48,170 --> 00:05:55,070
+You also have other types like mutation for editing or deleting or inserting data or subscriptions for
+
+71
+00:05:55,070 --> 00:05:59,410
+setting up real time data subscriptions using web sockets.
+
+72
+00:05:59,450 --> 00:06:01,480
+You also have d d and points.
+
+73
+00:06:01,520 --> 00:06:06,680
+You could call them or the commands you can execute and you to find them as a developer on your back
+
+74
+00:06:06,680 --> 00:06:13,520
+and the away label endpoints and then the fields you want to extract and that is the flexible part because
+
+75
+00:06:13,730 --> 00:06:19,790
+you could in one place get the user with just a name and in another place you could get name age and
+
+76
+00:06:19,800 --> 00:06:20,440
+email.
+
+77
+00:06:20,480 --> 00:06:25,900
+So that is exactly what you put into your query which you send to your back and which is then parsed
+
+78
+00:06:25,910 --> 00:06:32,400
+there now regarding these free operation types as I mentioned we got a curry there.
+
+79
+00:06:32,430 --> 00:06:36,370
+We retrieved data and we use a POST request for that.
+
+80
+00:06:36,390 --> 00:06:42,540
+But if we want to compare it to the rest API world then this would be your equivalent to sending a GET
+
+81
+00:06:42,540 --> 00:06:44,690
+request to some path there.
+
+82
+00:06:45,090 --> 00:06:50,240
+We also got mutations which basically are used for everything that changes data.
+
+83
+00:06:50,250 --> 00:06:56,280
+So what you previously handled with post put patch and delete requests and subscriptions as I mentioned
+
+84
+00:06:56,280 --> 00:06:57,720
+set up real time connections.
+
+85
+00:06:57,780 --> 00:07:00,030
+Why a web sockets will not focus on that.
+
+86
+00:07:00,030 --> 00:07:05,680
+And this module because this is no graphical course and indeed you can create whole courses on graph
+
+87
+00:07:05,690 --> 00:07:06,870
+you all here.
+
+88
+00:07:06,930 --> 00:07:10,080
+I want to focus on the core features.
+
+89
+00:07:10,080 --> 00:07:17,220
+So to sum it up in a big picture we have our client we send a request to that single graph to Al and
+
+90
+00:07:17,220 --> 00:07:18,690
+point on our server.
+
+91
+00:07:18,930 --> 00:07:23,220
+And then there and this is the part you will do with me in this module.
+
+92
+00:07:23,310 --> 00:07:31,900
+There you set up your definitions for Curie's mutations and possibly also subscriptions indeed definitions
+
+93
+00:07:32,230 --> 00:07:38,950
+you use type definitions because graphed you use is a typed Clery language which means you define the
+
+94
+00:07:38,950 --> 00:07:44,210
+types of data you work with the types of data you return in a query and so on.
+
+95
+00:07:44,660 --> 00:07:47,710
+And DS and points you define here.
+
+96
+00:07:47,710 --> 00:07:53,540
+So these queries and mutations and subscriptions you define these are connected to so-called risk solvers
+
+97
+00:07:54,010 --> 00:08:00,360
+which are functions that contain your server side logic and if you compare that to arrest API the definitions
+
+98
+00:08:00,370 --> 00:08:06,190
+would be your routes and there is solver's would be your controllers and that is how you can look at
+
+99
+00:08:06,210 --> 00:08:08,910
+graphs well and this is how we will implement it.
+
+100
+00:08:08,920 --> 00:08:13,220
+So to sum it up its a normal node and possibly express server.
+
+101
+00:08:13,240 --> 00:08:18,400
+Of course you are also not limited to using Express J.S. you're also not limited to using note by the
+
+102
+00:08:18,400 --> 00:08:25,900
+way the graph Q L language or broach can be used with any programming language.
+
+103
+00:08:25,990 --> 00:08:29,310
+Just as rest API is good but this is a node course of course.
+
+104
+00:08:29,320 --> 00:08:31,100
+So we'll focus on that.
+
+105
+00:08:31,210 --> 00:08:32,620
+You have one single endpoint.
+
+106
+00:08:32,650 --> 00:08:36,340
+Typically slash graph to l though you could change this of course.
+
+107
+00:08:36,610 --> 00:08:43,720
+You only use post requests because you put that query expression into the request body and you have
+
+108
+00:08:43,720 --> 00:08:50,710
+resolvers on the server side that analyze that request body and then do something with your data based
+
+109
+00:08:50,710 --> 00:08:56,410
+on the query expression you had in that body and will use third party packages for that parsing and
+
+110
+00:08:56,410 --> 00:08:57,720
+so on.
+
+111
+00:08:57,730 --> 00:09:03,060
+So posting for getting data that is the most confusing thing you typically have when diving into graphs
+
+112
+00:09:03,070 --> 00:09:03,540
+you.
+
+113
+00:09:03,730 --> 00:09:05,500
+Yes this is what we do.
+
+114
+00:09:05,500 --> 00:09:06,940
+Does this what is ok here.
+
+115
+00:09:07,000 --> 00:09:12,460
+Because we describe that data we want to get in the request body.
+
+116
+00:09:12,490 --> 00:09:13,950
+Now that was a lot of theory.
+
+117
+00:09:14,050 --> 00:09:15,160
+Let's see it in action.
+

@@ -1,0 +1,44 @@
+1
+00:00:02,170 --> 00:00:09,760
+Before we move on to rest API features which is a whole new block or a whole new way of interacting
+
+2
+00:00:09,760 --> 00:00:15,980
+with the client and of which we got to taste with our Asynchronous JavaScript before we do that.
+
+3
+00:00:16,090 --> 00:00:21,550
+Let's finish our online shop by adding some payment functionality because what would be a shop without
+
+4
+00:00:21,550 --> 00:00:27,870
+being able to pay now for debt and this module will add a simple check page.
+
+5
+00:00:27,940 --> 00:00:29,830
+We'll collect some payment data.
+
+6
+00:00:29,830 --> 00:00:37,480
+So credit card data from our user and we'll finally do to Per chase charge that credit card or at least
+
+7
+00:00:37,480 --> 00:00:39,520
+simulate the charge in this module.
+
+8
+00:00:39,670 --> 00:00:43,900
+And well of course then still store the order as we did it before.
+
+9
+00:00:44,290 --> 00:00:51,280
+Now for that I'll use a third party provider stripe which is a great provider for integrating payment
+
+10
+00:00:51,340 --> 00:00:52,790
+into your application.
+
+11
+00:00:52,900 --> 00:00:56,130
+And I will show you how to integrate it step by step.
+

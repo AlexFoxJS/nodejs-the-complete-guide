@@ -1,0 +1,268 @@
+1
+00:00:02,240 --> 00:00:09,350
+So we are redirecting to the 500 page in this catch block and we can do this in any catch block where
+
+2
+00:00:09,350 --> 00:00:13,130
+we want to ensure that we do handle errors.
+
+3
+00:00:13,220 --> 00:00:18,500
+Now the problem is will quickly duplicate our code a lot because we've got a lot of catch blocks where
+
+4
+00:00:18,500 --> 00:00:24,680
+we interact with the database and then every catch block here we should redirect to the 500 page at
+
+5
+00:00:24,680 --> 00:00:24,980
+least.
+
+6
+00:00:24,980 --> 00:00:31,670
+And a lot of them we would want to do that probably because for all these database failures or permission
+
+7
+00:00:31,670 --> 00:00:34,070
+problems it seems to be a bigger problem.
+
+8
+00:00:34,070 --> 00:00:40,430
+So we're turning this page might be a good solution but replicating that code all over the place is
+
+9
+00:00:40,520 --> 00:00:42,510
+really what people want to do.
+
+10
+00:00:42,740 --> 00:00:50,330
+What we can do instead is instead of redirecting here we can throw an error this built in error object
+
+11
+00:00:50,420 --> 00:00:53,600
+with the built in fro function or keyword.
+
+12
+00:00:53,600 --> 00:00:55,180
+We do that instead of a catch block.
+
+13
+00:00:55,250 --> 00:01:00,260
+In this case Year of the post add product action.
+
+14
+00:01:00,260 --> 00:01:06,280
+So here it Frot an error and I can throw an error with a bit more details.
+
+15
+00:01:06,290 --> 00:01:16,660
+But first of all creating an error object with new error or I can pass my error message like creating
+
+16
+00:01:17,200 --> 00:01:20,940
+a product failed or something like that.
+
+17
+00:01:21,190 --> 00:01:28,540
+Or simply keep that error object which also has a message which you get returned by the catch block
+
+18
+00:01:28,540 --> 00:01:29,060
+here.
+
+19
+00:01:29,380 --> 00:01:35,600
+So I'm creating my own object which is built up on that now and then we can also add a new field your
+
+20
+00:01:35,750 --> 00:01:40,460
+age that if status code and set this to 500 for example.
+
+21
+00:01:40,600 --> 00:01:44,320
+And now here's something cool we can return next.
+
+22
+00:01:44,320 --> 00:01:47,660
+And pastie error as an argument to next.
+
+23
+00:01:47,680 --> 00:01:50,680
+We didn't do that before right before when we called.
+
+24
+00:01:50,680 --> 00:01:58,110
+Next like an app J.S. here we simply called without arguments to let the next word take over.
+
+25
+00:01:58,540 --> 00:02:07,000
+Well when we called next with an error or passed as an argument then we actually let express know that
+
+26
+00:02:07,000 --> 00:02:14,050
+an error occurred and it will skip all of the middle of weares and move right away to error handling
+
+27
+00:02:14,160 --> 00:02:16,840
+where and that's the middle we're all defined now.
+
+28
+00:02:16,990 --> 00:02:23,890
+So next error is trickier with an error object being passed instead of throwing it.
+
+29
+00:02:24,050 --> 00:02:30,030
+And now we can go to app chess and there at the bottom let's add a new middleware.
+
+30
+00:02:30,050 --> 00:02:36,210
+With app use and normally this could never be reached because we have a catch all middleware down there
+
+31
+00:02:36,830 --> 00:02:40,720
+but there's a special type of middleware which we haven't seen before.
+
+32
+00:02:40,790 --> 00:02:47,630
+All malwares we added thus far for example does get 404 action in the controller.
+
+33
+00:02:47,630 --> 00:02:55,100
+All these malwares use free arguments request response and next express also knows a middle where with
+
+34
+00:02:55,100 --> 00:03:01,640
+four arguments a so-called error handling middleware and their first argument will be the error and
+
+35
+00:03:01,640 --> 00:03:05,040
+then followed by the error free arguments.
+
+36
+00:03:05,040 --> 00:03:11,300
+Now Express's clever enough to detect that this is a special kind of Bulwer and it will move right away
+
+37
+00:03:11,450 --> 00:03:18,770
+to these error handling Billa whereas when you call next with an error passed to it so it will then
+
+38
+00:03:18,770 --> 00:03:21,130
+skip all the other middleware and move to that.
+
+39
+00:03:21,260 --> 00:03:33,440
+And therefore here I could now render my five hundred page or simply redirect to slash 500.
+
+40
+00:03:33,590 --> 00:03:39,680
+I could do that and now if I save that and I go back to my application and I try adding that product
+
+41
+00:03:39,950 --> 00:03:43,820
+which will still fail because I didn't fix that issue.
+
+42
+00:03:43,880 --> 00:03:52,390
+I load my error handling page but now with this central error handling Milward knouted we added Does
+
+43
+00:03:52,410 --> 00:03:53,510
+error handling code.
+
+44
+00:03:53,700 --> 00:03:58,430
+We can of course all repeat doesn't replace us and you could refactor it into one function of course
+
+45
+00:03:58,450 --> 00:04:03,690
+which you then just call in all these places for example to also send an error here where we fail to
+
+46
+00:04:03,960 --> 00:04:06,450
+edit or load the data for editing a product.
+
+47
+00:04:06,450 --> 00:04:11,300
+We can force this to fail by manually filling a new dummy error in here.
+
+48
+00:04:11,310 --> 00:04:16,200
+Again this is of course now kind of a set up scenario you would never write this but this allows you
+
+49
+00:04:16,200 --> 00:04:17,430
+forced this to fail.
+
+50
+00:04:17,430 --> 00:04:22,140
+It would be kind of hard to force the database to fail right now because most of the time thankfully
+
+51
+00:04:22,230 --> 00:04:22,950
+it works.
+
+52
+00:04:23,160 --> 00:04:30,910
+But now I have to say dummy error and hence if I now added a product I also see my 500 page because
+
+53
+00:04:30,910 --> 00:04:35,890
+I Frode a stymie error which I'll of course remove now because it does not make any sense to add this.
+
+54
+00:04:36,070 --> 00:04:42,310
+But then we made it to catch and there we created this error object and we called Next with it and data
+
+55
+00:04:42,310 --> 00:04:46,210
+again pulled and triggered a special error handling Millward.
+
+56
+00:04:46,210 --> 00:04:49,280
+Now in case you're wondering what the status code is doing here.
+
+57
+00:04:49,390 --> 00:04:54,730
+Well in this scenario I'm always redirecting to the 500 Routier But of course we could have a different
+
+58
+00:04:54,730 --> 00:04:58,930
+scenario where we don't redirect here but we want to render a page instead.
+
+59
+00:04:59,080 --> 00:05:04,150
+Or we want returns I'm Jason data something we'll do later in the course and then I would want to set
+
+60
+00:05:04,420 --> 00:05:09,910
+my error HBC status code code here as a response code.
+
+61
+00:05:10,120 --> 00:05:14,020
+So this is not the solution we're using here but this is what you could do.
+
+62
+00:05:14,020 --> 00:05:19,420
+And I just want to show that you can pass extra information with the object so that you can use it in
+
+63
+00:05:19,420 --> 00:05:22,410
+this central error handler here.
+
+64
+00:05:22,450 --> 00:05:29,160
+Now please note that this error handler will not execute for four or four arrows.
+
+65
+00:05:29,160 --> 00:05:35,520
+There we still handle this manually because technically the 404 error is simply just a valid you Arel
+
+66
+00:05:35,580 --> 00:05:41,100
+which we catch with our catch all handler there where we don't just happen to render the 404 page.
+
+67
+00:05:41,100 --> 00:05:44,990
+It's not a technically error object that gets created at any point here.
+

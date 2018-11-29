@@ -1,0 +1,720 @@
+1
+00:00:02,340 --> 00:00:08,690
+You can simply google for Strype and you should find their page and they have a really great documentation.
+
+2
+00:00:08,700 --> 00:00:13,380
+By the way in case you want to use it so definitely dive into developer documentation.
+
+3
+00:00:13,380 --> 00:00:18,420
+But we can simply click Create an account here and then create an account real quick.
+
+4
+00:00:18,450 --> 00:00:22,150
+Now once you got your account created you can already get started.
+
+5
+00:00:22,200 --> 00:00:27,630
+First of all you need to Velvet date your account so make sure you click on that very fine e-mail link
+
+6
+00:00:27,660 --> 00:00:33,590
+you get in an extra e-mail and once you did that you're ready to get started.
+
+7
+00:00:33,630 --> 00:00:42,540
+Now Portland and developers you'll find a bunch of API keys which you will need to add Strype and we
+
+8
+00:00:42,540 --> 00:00:48,910
+are seeing special testing data here which is fine for our development if you want to build a real application
+
+9
+00:00:48,940 --> 00:00:50,490
+we want to push it to production.
+
+10
+00:00:50,550 --> 00:00:55,560
+You would switch to your life data here for this you have to act with your account though will not do
+
+11
+00:00:55,560 --> 00:00:58,860
+that here will work with the test data to get started.
+
+12
+00:00:58,860 --> 00:01:06,000
+So now with all that we can actually click on home and click on Accept first payment here to dive into
+
+13
+00:01:06,000 --> 00:01:09,430
+the official box and learn how we can accept our payment.
+
+14
+00:01:09,450 --> 00:01:16,530
+And the cool thing is this data here is actually already populated with our data as with our publishable
+
+15
+00:01:16,530 --> 00:01:17,760
+key for example.
+
+16
+00:01:17,760 --> 00:01:24,000
+So that is that key you saw under developers API keys that are keys you need to send with your data
+
+17
+00:01:24,210 --> 00:01:27,130
+to let Strype know to which account this belongs.
+
+18
+00:01:27,360 --> 00:01:34,260
+So your business data set up at a code set that we can already use it we can add that to our check out
+
+19
+00:01:34,290 --> 00:01:35,300
+each last fall.
+
+20
+00:01:35,370 --> 00:01:36,920
+So there let's add a new.
+
+21
+00:01:37,170 --> 00:01:39,660
+Let's add this form here.
+
+22
+00:01:39,750 --> 00:01:43,100
+We now need to target a route on our server.
+
+23
+00:01:43,200 --> 00:01:48,060
+So maybe check out with a post request here or since we already have that
+
+24
+00:01:50,830 --> 00:01:56,560
+create order this post request so now I'll use this method.
+
+25
+00:01:58,280 --> 00:02:04,280
+And then there is only a script which will in the end create the input fields for the user and this
+
+26
+00:02:04,280 --> 00:02:09,260
+will use a script provided by the Strype company which makes using it very convenient.
+
+27
+00:02:09,260 --> 00:02:14,150
+Now of course we need to populate this with the amount that we can use each year to input our total
+
+28
+00:02:14,150 --> 00:02:15,310
+sum into the script.
+
+29
+00:02:15,380 --> 00:02:23,790
+Yes this works you can input data into a script with SJS you can enter a name here any name you want
+
+30
+00:02:24,240 --> 00:02:26,660
+all at your order
+
+31
+00:02:29,370 --> 00:02:33,300
+all the items you ordered.
+
+32
+00:02:33,330 --> 00:02:39,440
+You can set the currency to that to USD and you can leave the defaults for now.
+
+33
+00:02:39,450 --> 00:02:47,170
+Now with that if you now reload your checkout page you'll have to pay with card button there which was
+
+34
+00:02:47,170 --> 00:02:49,200
+created by that stripe script.
+
+35
+00:02:49,270 --> 00:02:55,210
+Now by the way also give this div a class of centered to centered at button.
+
+36
+00:02:55,340 --> 00:03:02,340
+Now with that added for reload the button this year if you click that it will open is modal here.
+
+37
+00:03:02,440 --> 00:03:09,760
+All controlled by stripe where you can now enter your payment data and how important is now that I see
+
+38
+00:03:09,760 --> 00:03:09,850
+it.
+
+39
+00:03:09,850 --> 00:03:11,810
+That's a common gotcha.
+
+40
+00:03:11,980 --> 00:03:14,600
+The amount you enter is entered in cents.
+
+41
+00:03:14,650 --> 00:03:19,300
+So total sum is now treated as cents.
+
+42
+00:03:19,300 --> 00:03:24,550
+We have to multiply that of course with 100 to get the right amount.
+
+43
+00:03:24,550 --> 00:03:28,930
+So if I now reload and I click pay by card.
+
+44
+00:03:28,940 --> 00:03:30,160
+Now I see the right amount here.
+
+45
+00:03:30,170 --> 00:03:31,060
+So that's important.
+
+46
+00:03:31,070 --> 00:03:33,130
+You entered the amount in.
+
+47
+00:03:33,200 --> 00:03:34,820
+So now we have that order field.
+
+48
+00:03:34,880 --> 00:03:40,380
+And how can we now continue Well if the user now enters his data.
+
+49
+00:03:42,240 --> 00:03:48,760
+And you can use this dummy card number 4 2 4 2 4 2 4 2 4 2 4 2 4 2.
+
+50
+00:03:48,900 --> 00:03:59,800
+So 4 times 4 2 4 2 any date in a future year and any code if you do this you can click pay.
+
+51
+00:04:00,140 --> 00:04:06,080
+And what this will do is will now generate data token Frue stripes Cirus an automatic is send a request
+
+52
+00:04:06,080 --> 00:04:09,870
+to your back and which now fails send the request to your back end.
+
+53
+00:04:10,010 --> 00:04:17,030
+And then there it will try to handle that as you see it sent the request to create order.
+
+54
+00:04:17,060 --> 00:04:18,510
+So we'll have to work on that.
+
+55
+00:04:18,590 --> 00:04:20,750
+But create order is the right route.
+
+56
+00:04:20,750 --> 00:04:24,650
+So now does what send the request to you to back into the create order route.
+
+57
+00:04:24,920 --> 00:04:30,730
+And now there we have to continue because now there we will receive some special data and how to continue
+
+58
+00:04:30,860 --> 00:04:36,590
+is also something Strype tells you if you scroll down on the QuickStart page you're two step two you
+
+59
+00:04:36,590 --> 00:04:42,110
+see a code snippet and you can switch to note here to see how to handle the data on the incoming request
+
+60
+00:04:42,350 --> 00:04:46,840
+and you'll see that the incoming request will have a stripe token in its body.
+
+61
+00:04:47,180 --> 00:04:49,610
+We can copy that code as well.
+
+62
+00:04:50,150 --> 00:04:56,940
+And then move to our controller and there to shop Geass of course.
+
+63
+00:04:56,940 --> 00:04:59,570
+And now we're interested in proposed order.
+
+64
+00:04:59,700 --> 00:05:10,510
+Now here in the end I now have my Strype object which requires a stripe package which I need to install.
+
+65
+00:05:10,510 --> 00:05:16,630
+We need to install that and which then uses disk token which is again the token from our API key section
+
+66
+00:05:16,630 --> 00:05:18,010
+in our dashboard.
+
+67
+00:05:18,010 --> 00:05:24,070
+Now let me quit my server and quickly install Strype with NPM installed dash dash save stripe.
+
+68
+00:05:24,160 --> 00:05:28,400
+We need to packet's year because we're importing it here and we're using something from that package
+
+69
+00:05:29,500 --> 00:05:34,700
+we can of course also move that up to the imports you're like dat.
+
+70
+00:05:34,930 --> 00:05:38,420
+Make sure to be executed as a function though and pass your key.
+
+71
+00:05:38,560 --> 00:05:42,440
+That is not your publishable keep your secret keep right away.
+
+72
+00:05:42,760 --> 00:05:46,450
+And by the time you are watching this I've already switched my keys so no need.
+
+73
+00:05:46,450 --> 00:05:48,030
+I'm trying mine.
+
+74
+00:05:48,310 --> 00:05:53,440
+Then we're extracting the token from the incoming request and then we're creating such a charge object
+
+75
+00:05:53,440 --> 00:05:54,210
+here.
+
+76
+00:05:54,220 --> 00:06:03,120
+Here again you need to enter your amount in cents though and this should now be done not with data center
+
+77
+00:06:03,120 --> 00:06:06,040
+of the request because that could be faked by a user.
+
+78
+00:06:06,160 --> 00:06:09,360
+But of course you should fetch that data from your server again.
+
+79
+00:06:09,400 --> 00:06:17,380
+So here where I'm fetching my user and I've deden getting all the info for my cart I am creating the
+
+80
+00:06:17,380 --> 00:06:20,530
+order and I'm saving my order in there.
+
+81
+00:06:20,920 --> 00:06:27,400
+I will also create my charge object with the stripe package and the amount is now something I can calculate
+
+82
+00:06:27,460 --> 00:06:32,680
+in there too because there I can have my total sum which is zero.
+
+83
+00:06:32,980 --> 00:06:41,990
+And then again I loop through all my user card items here with for each that will be my products and
+
+84
+00:06:42,050 --> 00:06:44,100
+I'll have the same logic as before.
+
+85
+00:06:44,300 --> 00:06:55,170
+Total sum will be the old total sum plus product quantity times product product ID price.
+
+86
+00:06:55,330 --> 00:07:02,400
+So I'll calculate the total sum like this and I'll then add my total sometimes 100 B costs and send
+
+87
+00:07:02,580 --> 00:07:12,220
+here and then here we could use something like time stamp description off the order username whatever
+
+88
+00:07:12,230 --> 00:07:13,040
+you want.
+
+89
+00:07:14,010 --> 00:07:14,880
+I'll just name it.
+
+90
+00:07:14,880 --> 00:07:21,210
+Demo order the sources to tokin which we extract up here so that token which includes the validated
+
+91
+00:07:21,270 --> 00:07:22,550
+credit card data.
+
+92
+00:07:23,010 --> 00:07:32,790
+And now with that this year we'll already send a request to the service and charge our payment method
+
+93
+00:07:32,810 --> 00:07:33,130
+there.
+
+94
+00:07:33,140 --> 00:07:35,280
+So make that charge.
+
+95
+00:07:35,400 --> 00:07:41,160
+You can also take that charge and do it here.
+
+96
+00:07:42,140 --> 00:07:48,890
+Once you have the result where you will know the ideal of your order because then you can actually add
+
+97
+00:07:49,370 --> 00:07:57,280
+some metadata here which is a javascript object where you can pass any arbitrary data you want to matches
+
+98
+00:07:57,310 --> 00:07:59,510
+order with the charge.
+
+99
+00:07:59,520 --> 00:08:02,110
+It will be stored in your Strype account.
+
+100
+00:08:02,110 --> 00:08:08,830
+So here we could have order ID and there I could have assault underscore ID that should be id ID of
+
+101
+00:08:08,830 --> 00:08:10,890
+the created order.
+
+102
+00:08:10,920 --> 00:08:13,180
+Now I'm making my charge down there.
+
+103
+00:08:13,180 --> 00:08:17,530
+Important to have the total sum available.
+
+104
+00:08:17,530 --> 00:08:21,750
+I need to create that variable outside of that then block function.
+
+105
+00:08:21,790 --> 00:08:26,410
+Otherwise it would only be available in there but I need it outside of there too because I knew that
+
+106
+00:08:26,410 --> 00:08:32,020
+in the next to then block and now I'm creating my charge off to restore my order.
+
+107
+00:08:32,030 --> 00:08:39,340
+Now with that in place let's go back to our application and pay with card
+
+108
+00:08:43,330 --> 00:08:49,690
+entered a dummy card data someday in the future and any CBC code you want.
+
+109
+00:08:49,840 --> 00:08:52,330
+Now we still get this error.
+
+110
+00:08:52,330 --> 00:08:59,040
+Now this error has a relatively simple explanation in shop James.
+
+111
+00:08:59,050 --> 00:09:02,250
+I'm trying to retrieve my Strype token from request body.
+
+112
+00:09:02,290 --> 00:09:06,000
+It should be rec body because I named his argument rec.
+
+113
+00:09:06,190 --> 00:09:09,930
+So that is something I did wrong by just copying this in.
+
+114
+00:09:10,120 --> 00:09:16,800
+And now if you go back and we try to sent this again I get another error but this time it is related
+
+115
+00:09:16,800 --> 00:09:22,510
+to Taurasi as a token and by the way a great way to see the original error message is to add a console
+
+116
+00:09:22,510 --> 00:09:28,870
+log and logging the error in the error handling function here because then you will see that I get an
+
+117
+00:09:28,870 --> 00:09:35,440
+invalid SRF token and that makes sense because for the requests sent by the Strype modal sobeit it modal
+
+118
+00:09:35,440 --> 00:09:41,260
+we entered our credit card data in this request does not include our C SRF token.
+
+119
+00:09:41,380 --> 00:09:44,040
+So just check out form does not include it.
+
+120
+00:09:44,050 --> 00:09:49,180
+Now you could include your hidden input field there but that wouldn't do anything because Strype creates
+
+121
+00:09:49,180 --> 00:09:54,880
+its own form and you end in an I-frame which had loads but that also means that Strype takes care about
+
+122
+00:09:54,880 --> 00:09:56,320
+securing that form.
+
+123
+00:09:56,440 --> 00:10:02,290
+So this is not this for which you are bad into your document there Strype renders and loads as it cures
+
+124
+00:10:02,290 --> 00:10:03,170
+its own form.
+
+125
+00:10:03,310 --> 00:10:06,370
+So you don't need to pass to see SRF token.
+
+126
+00:10:06,370 --> 00:10:11,750
+That just means we have to disable SRF token protection for this post.
+
+127
+00:10:11,770 --> 00:10:19,780
+Create order route and to do that all cut the route from my shop yes routes file and I'll move it directly
+
+128
+00:10:19,780 --> 00:10:20,720
+into app.
+
+129
+00:10:21,310 --> 00:10:21,970
+There.
+
+130
+00:10:21,980 --> 00:10:27,460
+I'll add the route above my Alber routes here and I'll replace router with app because we only have
+
+131
+00:10:27,460 --> 00:10:29,550
+the app available in this fall.
+
+132
+00:10:29,570 --> 00:10:34,800
+There we also have a post method to only trigger this middleware app on post requests.
+
+133
+00:10:34,900 --> 00:10:41,410
+I filter for a slash create order and still want to use is often the shop controller so I'll need to
+
+134
+00:10:41,410 --> 00:10:44,450
+import both in my app G-S file as well.
+
+135
+00:10:44,510 --> 00:10:48,280
+Let's go to the shop routes file copy these two imports.
+
+136
+00:10:48,280 --> 00:10:56,530
+Shop controller and is off go back to app Agis And then there at the top maybe below my Aero controller
+
+137
+00:10:56,650 --> 00:10:59,110
+I'll import these two files.
+
+138
+00:10:59,110 --> 00:11:03,260
+The import path needs to be adjusted because now I don't have to go up one level.
+
+139
+00:11:03,280 --> 00:11:08,470
+I already am in a folder I need to import this him or I'm in the parent folder off DS folders to be
+
+140
+00:11:08,470 --> 00:11:09,220
+precise.
+
+141
+00:11:10,530 --> 00:11:15,750
+And with that added If I go down now here I have this route.
+
+142
+00:11:15,850 --> 00:11:22,610
+Now Israel still has C or protection added to it though because I have my C as Earth middleware here.
+
+143
+00:11:22,690 --> 00:11:28,740
+The idea now is did I initialized as Mutlu were ofter this route which should not be checked so it only
+
+144
+00:11:28,740 --> 00:11:34,230
+to read it's ofter does will be affected because remember the requests treadles Fruita middleware from
+
+145
+00:11:34,230 --> 00:11:35,310
+top to bottom.
+
+146
+00:11:35,400 --> 00:11:39,740
+So SEUS are of protection only gets added ofter this route.
+
+147
+00:11:39,840 --> 00:11:43,170
+So if you have exceptions of which you typically don't have too many.
+
+148
+00:11:43,200 --> 00:11:47,660
+But if you have exceptions like this one place it before you enable this middleware.
+
+149
+00:11:47,670 --> 00:11:53,540
+Now one important thing I have another middleware where I set this see is our token here.
+
+150
+00:11:53,730 --> 00:12:00,360
+I need to copy that Middler remove as a token assignment up there and add Ed Miller off dry and able
+
+151
+00:12:00,360 --> 00:12:06,730
+to see as RF protection removed is locked in extraction here and then set C a sort of token here and
+
+152
+00:12:06,780 --> 00:12:07,420
+with debt.
+
+153
+00:12:07,440 --> 00:12:09,580
+This route should now be excluded.
+
+154
+00:12:09,840 --> 00:12:14,780
+And now finally if I go back and I pay with card
+
+155
+00:12:17,700 --> 00:12:19,640
+I can enter my card number here
+
+156
+00:12:24,950 --> 00:12:30,290
+and submit this request.
+
+157
+00:12:30,480 --> 00:12:32,300
+And now I do end up on orders.
+
+158
+00:12:32,310 --> 00:12:34,020
+I see my order here.
+
+159
+00:12:34,200 --> 00:12:42,820
+My card is empty and if I go to my stripe dashboard and they click on payments they're I don't see anything.
+
+160
+00:12:42,860 --> 00:12:50,100
+I go back to see an error here in my log for the note and there we see that object id basically was
+
+161
+00:12:50,120 --> 00:12:51,050
+the problem.
+
+162
+00:12:51,070 --> 00:12:59,530
+I tried to send some extra data in my shop controller to Strype here the result ID I should convert
+
+163
+00:12:59,710 --> 00:13:00,650
+to a string.
+
+164
+00:13:00,790 --> 00:13:04,420
+Otherwise this can't be added for my charge failed.
+
+165
+00:13:04,420 --> 00:13:05,230
+Now this is a.
+
+166
+00:13:05,230 --> 00:13:06,330
+We need to fix.
+
+167
+00:13:06,460 --> 00:13:10,560
+So after fixing this.
+
+168
+00:13:10,640 --> 00:13:16,600
+Let me go back to my application and create another order by adding this to a card ordering it now.
+
+169
+00:13:17,010 --> 00:13:17,850
+And now paying
+
+170
+00:13:22,310 --> 00:13:23,390
+now does looks better.
+
+171
+00:13:23,420 --> 00:13:33,310
+No I got no error here on Knode and now if I have a look at my payments dashboard reload this page I
+
+172
+00:13:33,310 --> 00:13:41,350
+see my payment for $22 with my demo or order and my extra meta data here.
+
+173
+00:13:41,400 --> 00:13:42,370
+You order ID.
+
+174
+00:13:42,510 --> 00:13:47,640
+So that's the idea of the order as it is stored in my database and this is how you can add payment.
+
+175
+00:13:47,640 --> 00:13:50,820
+Of course the Strype is very powerful can do a lot of things.
+
+176
+00:13:50,940 --> 00:13:56,520
+You can also improve this by catching errors that might be occur due to charging as we hit it before
+
+177
+00:13:56,580 --> 00:14:02,220
+though this bag is fixed and then you might want to roll back orders you placed in your database.
+
+178
+00:14:02,220 --> 00:14:03,710
+You can do way more with Strype.
+
+179
+00:14:03,750 --> 00:14:09,150
+Check out their official docs but they hope that this is helpful for showing you how you can integrate
+
+180
+00:14:09,330 --> 00:14:13,090
+payment with Strype easily into your application.
+

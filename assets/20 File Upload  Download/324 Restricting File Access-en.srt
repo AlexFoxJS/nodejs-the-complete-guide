@@ -1,0 +1,132 @@
+1
+00:00:02,260 --> 00:00:05,450
+Now how can we improve does serving of the data.
+
+2
+00:00:05,530 --> 00:00:13,030
+Well first of all read now this is only available to authenticated users because on my route here I
+
+3
+00:00:13,030 --> 00:00:16,700
+have to is all middleware but every user could view that.
+
+4
+00:00:16,810 --> 00:00:22,100
+I don't have to be the user who placed that order however forward in order.
+
+5
+00:00:22,120 --> 00:00:24,560
+I of course know which user belongs to it.
+
+6
+00:00:24,580 --> 00:00:31,810
+I have the user id here so we can add an extra check in our middleware in our controller action here
+
+7
+00:00:32,260 --> 00:00:38,090
+to see if Ford is order to use or is eligible of downloading it.
+
+8
+00:00:38,090 --> 00:00:46,520
+Now how do we do that while we use the order Mungo's model find that order by that ID in the database
+
+9
+00:00:46,910 --> 00:00:52,600
+and then check if the order user ID is equal to the ID of the currently locked in user.
+
+10
+00:00:52,940 --> 00:01:02,400
+So here I can check order and then find by ID and I pass in my order ID I have then and catch your.
+
+11
+00:01:02,440 --> 00:01:08,850
+Now as you know in here we can simply Next an error to use the default error handling function.
+
+12
+00:01:09,010 --> 00:01:15,640
+And here we'll have our order element though that could be undefined if no order for this ID is found.
+
+13
+00:01:15,640 --> 00:01:26,790
+So if no order is found then I will also return next with a new error or maybe no order found whatever
+
+14
+00:01:26,810 --> 00:01:28,600
+you want You can't handle this differently.
+
+15
+00:01:28,730 --> 00:01:34,070
+If we do have order however I want to check if the order is from that user who's locked in.
+
+16
+00:01:34,070 --> 00:01:43,420
+So then I can check if order user and then keep in mind in the User object we have user ID field so
+
+17
+00:01:43,420 --> 00:01:54,570
+if Dad user ID to string if that is equal to request user underscore ID solve the currently locked in
+
+18
+00:01:54,570 --> 00:02:00,470
+user 2 string if that is equal I am allowed to access this if its not.
+
+19
+00:02:00,510 --> 00:02:07,100
+So if I'm checking the opposite if it's not equal then I will return a new error.
+
+20
+00:02:08,230 --> 00:02:10,790
+On all for riced something like this.
+
+21
+00:02:13,700 --> 00:02:19,800
+And only if I make it past these two checks only in this case I want to read that file.
+
+22
+00:02:22,390 --> 00:02:23,070
+And output it
+
+23
+00:02:25,940 --> 00:02:28,860
+so if an hour saved is in existence.
+
+24
+00:02:29,090 --> 00:02:32,110
+It works if it changes for a year to it two.
+
+25
+00:02:32,410 --> 00:02:39,080
+I get my error because now it's an invalid your L and if I copy that original you are l which was correct
+
+26
+00:02:39,290 --> 00:02:44,120
+and I do log out and I tried to access this while some locked out.
+
+27
+00:02:44,120 --> 00:02:50,920
+I have to log in and if I log in with a different user or let me quickly create that user
+
+28
+00:02:57,080 --> 00:03:01,530
+and then log in and then tried to access this order.
+
+29
+00:03:01,580 --> 00:03:02,720
+I also get an error.
+
+30
+00:03:02,930 --> 00:03:04,570
+I have to be the correct user.
+
+31
+00:03:04,580 --> 00:03:08,920
+Now of course you could show a different error message but that is only something you can tweak.
+
+32
+00:03:08,930 --> 00:03:14,680
+I only want to show you how you can protect this and then you have this option of controlling that access.
+
+33
+00:03:14,720 --> 00:03:17,130
+So here this all works just fine.
+

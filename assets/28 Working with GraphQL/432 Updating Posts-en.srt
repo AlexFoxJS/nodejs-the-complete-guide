@@ -1,0 +1,424 @@
+1
+00:00:02,260 --> 00:00:04,230
+Not have we can load a single post.
+
+2
+00:00:04,240 --> 00:00:06,880
+Let's make sure we can also added a post.
+
+3
+00:00:06,940 --> 00:00:13,870
+And as always that journey starts on the back end there in the schema we want to add a new mutation
+
+4
+00:00:14,110 --> 00:00:17,000
+because obviously editing a post is a mutation.
+
+5
+00:00:17,740 --> 00:00:18,640
+I'll name it.
+
+6
+00:00:18,640 --> 00:00:23,710
+Update post and I expect to get the idea of the post.
+
+7
+00:00:23,710 --> 00:00:32,220
+I wanted to edit and then some post input which is my post input data so the exact same data I expected
+
+8
+00:00:32,230 --> 00:00:38,690
+to get for creating a new post as a result I will return the updated post.
+
+9
+00:00:38,890 --> 00:00:41,230
+So this is my schema.
+
+10
+00:00:41,260 --> 00:00:51,660
+Now onto the resolvers where I will add update post as async function again where I get my arguments.
+
+11
+00:00:51,660 --> 00:00:58,750
+I will have the ID and the post input and the request object.
+
+12
+00:00:58,960 --> 00:01:00,420
+So this is my update post.
+
+13
+00:01:00,460 --> 00:01:02,930
+Resolder in there.
+
+14
+00:01:02,960 --> 00:01:06,680
+I first of all want to check the authentication status and fro an error.
+
+15
+00:01:06,700 --> 00:01:08,330
+If the user has not indicated.
+
+16
+00:01:08,410 --> 00:01:14,230
+Hence we can copy the code from our umur resolder functions where we had a similar check and then all
+
+17
+00:01:14,260 --> 00:01:22,840
+first of all get my post by using a wait and post fine by id and using that ID extract as an argument.
+
+18
+00:01:22,840 --> 00:01:25,610
+I'll also populate that with the Creator.
+
+19
+00:01:25,620 --> 00:01:30,440
+So did we have the full user data when we returned the update post.
+
+20
+00:01:30,520 --> 00:01:38,970
+Then I'll check if we don't find a post and I can copy that check from up there to return an error.
+
+21
+00:01:39,050 --> 00:01:45,740
+In that case and if we do have the post I don't want to check if the user who tries to edit it is the
+
+22
+00:01:45,740 --> 00:01:48,850
+user who created it and for that I'll check.
+
+23
+00:01:48,860 --> 00:01:54,680
+If Post creator underscore ID to string.
+
+24
+00:01:54,680 --> 00:01:57,370
+If that is equal to request user ID
+
+25
+00:02:01,360 --> 00:02:04,260
+and that also convert to a string.
+
+26
+00:02:04,600 --> 00:02:07,620
+If these two matched then I know this user is the creator.
+
+27
+00:02:07,690 --> 00:02:08,860
+If they don't match.
+
+28
+00:02:08,860 --> 00:02:14,890
+So if I add exclamation mark here then know someone tries to edit the post who is not offered to do
+
+29
+00:02:14,890 --> 00:02:20,020
+so and it is Kasal again creates an error.
+
+30
+00:02:20,080 --> 00:02:24,330
+Not all fairest could be the error message fro.
+
+31
+00:02:24,400 --> 00:02:30,740
+I'll add a code of 403 and I'll throw that error and then we can continue.
+
+32
+00:02:31,240 --> 00:02:40,430
+If we are to write user however we can now edit the post and set the title equal to post input title.
+
+33
+00:02:40,570 --> 00:02:44,260
+We could now also add validation by the way and we should.
+
+34
+00:02:44,260 --> 00:02:50,820
+So I can scroll up to my Create post function and grab that validation logic.
+
+35
+00:02:51,040 --> 00:02:57,490
+All that logic beginning from the empty array being set up to the cross being checked and that is something
+
+36
+00:02:57,490 --> 00:03:00,430
+I also want to do before I start editing my posts.
+
+37
+00:03:00,440 --> 00:03:01,510
+Tidelands on.
+
+38
+00:03:01,750 --> 00:03:04,340
+But now here I know that the input is valid.
+
+39
+00:03:04,450 --> 00:03:07,810
+So now I will edit my title.
+
+40
+00:03:08,110 --> 00:03:16,250
+I will add it my content and I will now also added my image you are l.
+
+41
+00:03:16,250 --> 00:03:22,790
+If it changed and that is not guaranteed because the user did not select a new image the image will
+
+42
+00:03:22,790 --> 00:03:26,680
+not have changed so I'll check if Post image image.
+
+43
+00:03:26,720 --> 00:03:30,630
+Your L is unequal to undefined.
+
+44
+00:03:30,830 --> 00:03:35,150
+And now this has to be checked against a text because it will be converted to text.
+
+45
+00:03:35,150 --> 00:03:39,350
+By the way I'm sending it on the front end so if this is on the find.
+
+46
+00:03:39,380 --> 00:03:48,140
+Dana will continue but if it is not on the find then I'll also overwrite the image you are l with the
+
+47
+00:03:48,200 --> 00:03:50,360
+new image and you are l of course.
+
+48
+00:03:50,510 --> 00:03:59,110
+Otherwise I will not touch the image you are el and then I'll have my updated post by a waiting for
+
+49
+00:03:59,110 --> 00:04:05,590
+post safe and I will then return my updated post here or some data.
+
+50
+00:04:05,590 --> 00:04:17,620
+I will return my updated post doc data and again replace the IDE ID with updated post ID to string and
+
+51
+00:04:17,680 --> 00:04:26,370
+the same for the dates created at will be replaced with updated post created at 2 Isel string and updated
+
+52
+00:04:26,380 --> 00:04:33,990
+at will be replaced with updated post updated at 2 Isel string.
+
+53
+00:04:33,990 --> 00:04:39,790
+So this is the response I want to send back to my client here.
+
+54
+00:04:39,860 --> 00:04:43,780
+With that we get a resolver in place we hopefully get everything in place we need.
+
+55
+00:04:43,780 --> 00:04:52,800
+Let's now go on to our re-act application and there in Fida J.S. we need to find Finnish added hndler
+
+56
+00:04:54,110 --> 00:04:55,280
+so scroll down
+
+57
+00:04:58,900 --> 00:05:08,780
+in this function and the finish edits handler function we will always send our image to Dad and point
+
+58
+00:05:09,110 --> 00:05:15,030
+though of course it could be the case that there is no image to append if no new image was chosen.
+
+59
+00:05:15,170 --> 00:05:16,310
+But that will be fine.
+
+60
+00:05:16,310 --> 00:05:21,570
+We do handle that scenario in our end point right in post image.
+
+61
+00:05:21,590 --> 00:05:26,380
+We check for the existence of a file and we send the response if no file was provided.
+
+62
+00:05:26,840 --> 00:05:29,640
+So thereafter here we continue.
+
+63
+00:05:29,810 --> 00:05:36,350
+And we'll have a file path though that file path might very well be undefined and that is why in my
+
+64
+00:05:36,380 --> 00:05:39,700
+graph l API I check for it being undefined.
+
+65
+00:05:39,980 --> 00:05:47,090
+We could handle this in different ways of course we could alternatively simply keep the old file path
+
+66
+00:05:47,140 --> 00:05:49,160
+here then if this is on the find.
+
+67
+00:05:49,160 --> 00:05:53,320
+But I will go with this approach and then we sent the graph Q out query.
+
+68
+00:05:53,330 --> 00:06:00,500
+Now of course it will not always go to create post though it might also be that we added a post.
+
+69
+00:06:00,710 --> 00:06:08,390
+So I'll check if this state Adut post is true ish which means we are editing and they don't set RFQ
+
+70
+00:06:08,410 --> 00:06:10,550
+all query to a different query.
+
+71
+00:06:10,620 --> 00:06:21,200
+So to an object where my query it then looks differently I won't copy this query in generals or copy
+
+72
+00:06:21,200 --> 00:06:30,570
+all the code between my opening and closing back takes like this.
+
+73
+00:06:30,710 --> 00:06:38,920
+But of course I'm targeting update post here and not create post so I'm targeting this mutation here
+
+74
+00:06:39,920 --> 00:06:42,530
+and there I also need to pass in different data.
+
+75
+00:06:42,590 --> 00:06:44,610
+I need to pass in my ID
+
+76
+00:06:48,740 --> 00:06:55,280
+which I get from this state added post underscore ID.
+
+77
+00:06:55,580 --> 00:06:58,530
+I still pass in the post input as before.
+
+78
+00:06:58,550 --> 00:07:08,200
+That did not change and I still want to get the same base data back so that also does not change.
+
+79
+00:07:08,260 --> 00:07:13,750
+Then we send the data request and in the handler off the request.
+
+80
+00:07:13,900 --> 00:07:18,710
+I already have some logic that should handle this correctly if we are updating.
+
+81
+00:07:19,090 --> 00:07:22,150
+So let's save that all and let's give it a try.
+
+82
+00:07:22,270 --> 00:07:30,240
+Let's reload and let's edit another doc and add a couple of exclamation marks without adding a new image.
+
+83
+00:07:30,430 --> 00:07:33,640
+And I get it the error here.
+
+84
+00:07:33,860 --> 00:07:37,010
+In general though it looks like it worked.
+
+85
+00:07:37,010 --> 00:07:41,420
+I have my exclamation marks here and the image the old one is all still there.
+
+86
+00:07:41,420 --> 00:07:42,680
+I can also still use it.
+
+87
+00:07:42,710 --> 00:07:46,870
+And here I see the change to now regarding that error.
+
+88
+00:07:46,870 --> 00:07:52,230
+Well that is related to how we extract data from the response we Axxess create post.
+
+89
+00:07:52,330 --> 00:07:59,920
+But of course if we send an update post request then this field in which our response data is stored
+
+90
+00:08:00,070 --> 00:08:03,100
+will be named update post and not create post.
+
+91
+00:08:03,460 --> 00:08:05,290
+Therefore here and we can.
+
+92
+00:08:05,290 --> 00:08:06,650
+By the way validate us here.
+
+93
+00:08:06,670 --> 00:08:08,770
+It's stored in update post.
+
+94
+00:08:08,770 --> 00:08:16,270
+Therefore all we can do is we can add a new variable response data field or whatever you want to name
+
+95
+00:08:16,270 --> 00:08:16,630
+it.
+
+96
+00:08:16,840 --> 00:08:23,170
+And by default that should be create post because creating a post also is our default query up there.
+
+97
+00:08:24,400 --> 00:08:35,380
+But then I'll add a check and see if this state added post is true ish.
+
+98
+00:08:35,490 --> 00:08:41,750
+In which case the data field where I want to extract the data will be update post.
+
+99
+00:08:41,760 --> 00:08:47,880
+And now we just need to use that variable here to dynamically retrieve our data and we can do that by
+
+100
+00:08:47,880 --> 00:08:56,310
+selecting all these create post instances year with the first dot and replace them with square brackets
+
+101
+00:08:56,550 --> 00:09:03,420
+where we pass in rest state of field and this will now use the value inside of rest data field to access
+
+102
+00:09:03,660 --> 00:09:08,520
+Well property with the name of that value on our data object.
+
+103
+00:09:08,520 --> 00:09:16,380
+And now if we reload we should be able to remove the exclamation marks and try out choosing a cup as
+
+104
+00:09:16,380 --> 00:09:17,480
+an immature.
+
+105
+00:09:17,490 --> 00:09:22,750
+Except no error and we see the crap here too.
+
+106
+00:09:22,800 --> 00:09:29,900
+So this all seems to work the status and deleting of posts are the remaining things that don't work.
+

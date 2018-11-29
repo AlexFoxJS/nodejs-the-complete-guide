@@ -1,0 +1,188 @@
+1
+00:00:02,120 --> 00:00:05,060
+So it's time for a quick summary and clean up.
+
+2
+00:00:05,060 --> 00:00:08,470
+First of all let's clean up since we're using E.J. s now.
+
+3
+00:00:08,480 --> 00:00:12,710
+We don't need to layouts folder because we only use that for pack and handlebars.
+
+4
+00:00:12,710 --> 00:00:14,800
+So let's delete layouts here.
+
+5
+00:00:15,080 --> 00:00:21,410
+We also can delete all HP as HVM L and pack files here because we don't need either of those.
+
+6
+00:00:21,410 --> 00:00:23,030
+We just use T.J. as files.
+
+7
+00:00:23,030 --> 00:00:25,510
+Now let's delete all these faults.
+
+8
+00:00:25,550 --> 00:00:31,190
+Now does this much cleaner and not just one to make sure that you really understood the flow of how
+
+9
+00:00:31,190 --> 00:00:35,420
+data flows into the templates and what the templating engines do.
+
+10
+00:00:35,450 --> 00:00:43,100
+We do render a template with a special render method provided by express choice that render method will
+
+11
+00:00:43,130 --> 00:00:50,210
+always look for the register engine something we do here at the beginning in app yes we do register
+
+12
+00:00:50,570 --> 00:00:52,290
+our JSF view engineers.
+
+13
+00:00:52,370 --> 00:00:59,420
+In this case by setting this special duty engine configuration reserved configuration key which is understood
+
+14
+00:00:59,420 --> 00:01:00,870
+by express to us.
+
+15
+00:01:00,980 --> 00:01:06,800
+We also tell express chase where our views are to be found though dad actually would be the default
+
+16
+00:01:06,800 --> 00:01:07,900
+setting here by the way.
+
+17
+00:01:07,940 --> 00:01:13,890
+So you don't need to add this if you do use the views folder with that express.
+
+18
+00:01:13,900 --> 00:01:14,550
+Yes.
+
+19
+00:01:14,660 --> 00:01:21,710
+Will code render we'll take our templating engine which we still have to install separately as a NPM
+
+20
+00:01:21,710 --> 00:01:22,220
+package.
+
+21
+00:01:22,220 --> 00:01:23,160
+Keep that in mind.
+
+22
+00:01:23,180 --> 00:01:31,730
+We did install Aegeus as we did install pike and handlebars and then you always just refer to the name
+
+23
+00:01:31,730 --> 00:01:35,670
+of your view like we do here at product Aegis.
+
+24
+00:01:35,780 --> 00:01:41,790
+By the way if that were it in a subfolder like products it would simply refer to it like this.
+
+25
+00:01:41,980 --> 00:01:47,920
+But then you just referred to that view without adding the file extension and you can also define an
+
+26
+00:01:47,920 --> 00:01:55,240
+object which will hold the data that is passed as variables into that template.
+
+27
+00:01:55,240 --> 00:02:00,940
+So not the entire object is passed in there as you learned but instead you will have a page Thaila variable
+
+28
+00:02:00,990 --> 00:02:02,990
+a way label in the template.
+
+29
+00:02:03,040 --> 00:02:07,810
+You'll have a path variable away label in the template and so on.
+
+30
+00:02:07,960 --> 00:02:13,090
+And this is why we can use something like this year dessous now syntax.
+
+31
+00:02:13,120 --> 00:02:18,150
+Understood by the specific templating engine we're using Ejay s in this case.
+
+32
+00:02:18,160 --> 00:02:25,480
+It simply detects these tax year and then it simply looks for a variable named page title and tries
+
+33
+00:02:25,480 --> 00:02:29,060
+to output its value well and finds the page title.
+
+34
+00:02:29,110 --> 00:02:36,370
+Because we do set a page title property here and we got more features than just outputting values.
+
+35
+00:02:36,540 --> 00:02:42,480
+As you can see in the shop Ejaz file we can also use if statements or for loops and you'll learn the
+
+36
+00:02:42,600 --> 00:02:47,630
+different words of this for the different engines in this module.
+
+37
+00:02:47,640 --> 00:02:51,870
+So this is how to templating engines work what they do and why you use them.
+
+38
+00:02:52,020 --> 00:02:58,470
+And it's important to keep in mind that in the end if you inspect the source code you always just get
+
+39
+00:02:58,470 --> 00:02:59,550
+back inaudible.
+
+40
+00:02:59,590 --> 00:03:05,820
+Tim Allen code you don't find any Ejay as code in here or any javascript code.
+
+41
+00:03:06,000 --> 00:03:15,300
+Does this just HDMI all the code that is generated on the fly but also on the server does is not code
+
+42
+00:03:15,480 --> 00:03:17,680
+that would be generated in the browser.
+
+43
+00:03:17,790 --> 00:03:24,630
+It's generated on a server on the Mont. for a request forgetting and templating engines all to do some
+
+44
+00:03:24,630 --> 00:03:32,040
+advanced stuff like caching some built templates for you if the data input didn't change so that they
+
+45
+00:03:32,040 --> 00:03:38,340
+can return the template even faster and don't have to rebuild it for every request even if the data
+
+46
+00:03:38,370 --> 00:03:41,120
+didn't change but that some behind the scenes stuff.
+
+47
+00:03:41,220 --> 00:03:44,420
+For you it's important to understand the general flow.
+

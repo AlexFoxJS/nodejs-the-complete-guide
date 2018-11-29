@@ -1,0 +1,248 @@
+1
+00:00:02,250 --> 00:00:08,370
+We're now using sessions everywhere and we have our dummy authentication process in place it's missing
+
+2
+00:00:08,370 --> 00:00:13,510
+crucial features like log out and so on and that will all come and you'll find dictation module.
+
+3
+00:00:13,620 --> 00:00:17,160
+But we have something in place and you might have noticed that of course.
+
+4
+00:00:17,160 --> 00:00:21,090
+Regarding the log out I always just deleted the session cookie.
+
+5
+00:00:21,090 --> 00:00:25,770
+That is what I did and the assignment to I deleted the session cookie to demonstrate what happens if
+
+6
+00:00:25,770 --> 00:00:30,170
+we don't try to do something that is relying on data that is stored in the session.
+
+7
+00:00:30,330 --> 00:00:36,130
+It will fail because the session cookie which is required to identify the correct session is there.
+
+8
+00:00:36,330 --> 00:00:41,490
+Now deleting just a cookie is of course not ideal because right now for example if you have a look at
+
+9
+00:00:41,490 --> 00:00:47,990
+compress and a intercessions collection I have free sessions here because I always just delete the cookie.
+
+10
+00:00:48,030 --> 00:00:56,220
+Now there is a cleaner way of doing that and that cleaner way is to use method provided by the session
+
+11
+00:00:56,220 --> 00:00:57,030
+middleware.
+
+12
+00:00:57,030 --> 00:00:59,670
+Now let me show this to you and find out.
+
+13
+00:00:59,760 --> 00:01:07,890
+First of all go to my views and they're to the navigation and next to my log in button here.
+
+14
+00:01:07,890 --> 00:01:15,600
+I'll actually add a number field another list item into which I'll add a form which should lead to log
+
+15
+00:01:15,600 --> 00:01:18,050
+out and use POST method.
+
+16
+00:01:18,360 --> 00:01:28,320
+And in that form I'll have a button like this which is of type submit where I'll say log out.
+
+17
+00:01:28,430 --> 00:01:35,000
+Now if we save that and we reload our page wesay log out next to log in.
+
+18
+00:01:35,030 --> 00:01:41,150
+Now to make sure the styling is correct we need to add that list item class here which we also have
+
+19
+00:01:41,150 --> 00:01:42,920
+on the list item here.
+
+20
+00:01:42,920 --> 00:01:46,870
+And after adding this if we reload this looks better.
+
+21
+00:01:46,880 --> 00:01:52,560
+And I've got my log out but you know when it clicked as I want to clear any session I might have.
+
+22
+00:01:52,790 --> 00:01:55,670
+And for that I of course need to register a new route.
+
+23
+00:01:55,670 --> 00:02:02,240
+So let's head over to our off routes and let's add a new poster out here because we will send a post
+
+24
+00:02:02,240 --> 00:02:08,590
+request which goes to log out and there will trigger a post log out action in my controller.
+
+25
+00:02:08,600 --> 00:02:10,520
+Now it is action of course does not exist yet.
+
+26
+00:02:10,520 --> 00:02:17,060
+So let's head over to the off controller and maybe duplicate the post log in route to your name and
+
+27
+00:02:17,060 --> 00:02:20,800
+post log out and in there.
+
+28
+00:02:21,290 --> 00:02:24,440
+What I want to do is I want to clear my session.
+
+29
+00:02:24,680 --> 00:02:30,500
+We can do this by reaching out to our session object and then we can call destroy there.
+
+30
+00:02:30,530 --> 00:02:34,510
+This is a method provided by the session package we're using.
+
+31
+00:02:34,550 --> 00:02:40,790
+Now this also takes a function which we passed to it which will be called once it's done destroying
+
+32
+00:02:40,790 --> 00:02:46,580
+the session and in their request session will then not be available anymore because we got rid of that
+
+33
+00:02:46,580 --> 00:02:47,450
+session.
+
+34
+00:02:47,450 --> 00:02:49,500
+We can recreate it for the next request.
+
+35
+00:02:49,580 --> 00:02:52,520
+When we do does it again then it will be sent again.
+
+36
+00:02:52,520 --> 00:02:57,090
+But in here all the session data will be lost because the session was destroyed.
+
+37
+00:02:57,500 --> 00:03:04,520
+So here I will then actually redirect back to my starting page with rest's redirect slash.
+
+38
+00:03:04,520 --> 00:03:11,000
+We also get a potential error here which we can try to log to the con..
+
+39
+00:03:11,000 --> 00:03:14,030
+Now with that we have to post log out to registered.
+
+40
+00:03:14,030 --> 00:03:18,740
+Now let's head back to our application and first of all let's log in.
+
+41
+00:03:18,740 --> 00:03:20,600
+Now let me hope the developer tools again.
+
+42
+00:03:20,690 --> 00:03:22,360
+I've got no session cookie here.
+
+43
+00:03:22,400 --> 00:03:30,390
+I can click log in and redirect that session cookie is set and we can now use that session.
+
+44
+00:03:30,400 --> 00:03:36,310
+Now if we go to Kompas real quick and we refresh we see we have four objects now which makes sense.
+
+45
+00:03:36,310 --> 00:03:37,510
+We had three before.
+
+46
+00:03:37,540 --> 00:03:39,690
+Now we have four.
+
+47
+00:03:39,770 --> 00:03:41,620
+And now let me click log out.
+
+48
+00:03:41,660 --> 00:03:46,090
+We are redirected the session cookie here actually still exists.
+
+49
+00:03:47,150 --> 00:03:54,050
+But you see the session was deleted over there and the session cookie still exists but that is no problem
+
+50
+00:03:54,320 --> 00:03:56,570
+because no matching session will be found.
+
+51
+00:03:56,570 --> 00:03:59,920
+So that is fine it's basically not doing anything.
+
+52
+00:04:00,050 --> 00:04:02,490
+And it will be renewed once you log in again.
+
+53
+00:04:02,510 --> 00:04:04,070
+Then this will all be overwritten.
+
+54
+00:04:04,070 --> 00:04:09,040
+And when we close the browser it will also be deleted because it's not a permanent cookie.
+
+55
+00:04:09,110 --> 00:04:14,540
+It's a session cookie which means it's a cookie that does not have expiry date in the future.
+
+56
+00:04:14,540 --> 00:04:16,300
+It does not have a max age.
+
+57
+00:04:16,310 --> 00:04:21,380
+It will simply get deleted when you close the browser and it's worthless in this state here.
+
+58
+00:04:21,380 --> 00:04:26,780
+So now as you see if I click around I have a problem with my orders here.
+
+59
+00:04:26,780 --> 00:04:28,080
+I'll fix that in a second.
+
+60
+00:04:28,130 --> 00:04:30,140
+But you see the cookies stare.
+
+61
+00:04:30,170 --> 00:04:32,230
+Most importantly the session was cleaned up.
+
+62
+00:04:32,270 --> 00:04:32,990
+Back there though.
+

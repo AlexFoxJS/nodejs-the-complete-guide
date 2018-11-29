@@ -1,0 +1,224 @@
+1
+00:00:02,130 --> 00:00:04,530
+Now first of all let me show you the official docs.
+
+2
+00:00:04,530 --> 00:00:07,800
+You can always wizard mongooses jast dot com.
+
+3
+00:00:07,920 --> 00:00:13,680
+And there you can dive into the full docks to learn everything about mongoose all its details all its
+
+4
+00:00:13,680 --> 00:00:18,240
+advanced features which will not cover in this course because this is not a good course.
+
+5
+00:00:18,240 --> 00:00:24,460
+I just want to give you an introduction to Mangu is here so everything can be seen in great detail here.
+
+6
+00:00:24,570 --> 00:00:29,970
+But that being said I will walk you through all the core fundamentals in this course and in this module
+
+7
+00:00:29,970 --> 00:00:34,390
+of course and we'll also keep on using mongoose for the rest of this course.
+
+8
+00:00:34,500 --> 00:00:41,010
+So we'll gradually use more features as we add more features to our application like authentication
+
+9
+00:00:41,010 --> 00:00:41,970
+and so on.
+
+10
+00:00:41,970 --> 00:00:45,180
+So this is how you can learn more about mongoose.
+
+11
+00:00:45,210 --> 00:00:52,290
+Now to add to our project I quit my NPM start process and then I can simply run NPM install dash dash
+
+12
+00:00:52,290 --> 00:00:54,630
+save Mangu is like dead.
+
+13
+00:00:54,660 --> 00:00:56,450
+That is the name of the package.
+
+14
+00:00:56,550 --> 00:01:03,150
+Now this will download and added to our project and then we are already ready to start using it.
+
+15
+00:01:03,570 --> 00:01:09,040
+And the first thing we want to do when we started using it is that we want to connect to our database
+
+16
+00:01:09,660 --> 00:01:16,350
+and for that we could use our database utility file here but actually mongooses all of that utility
+
+17
+00:01:16,350 --> 00:01:22,650
+management and the management of that connection behind the scenes for us what we can do is we can get
+
+18
+00:01:22,650 --> 00:01:30,890
+rid of the database Cheras file and we can go to the objects file and in there simply import mongoose.
+
+19
+00:01:31,080 --> 00:01:36,140
+So here let's import mongooses by requiring mongooses.
+
+20
+00:01:36,250 --> 00:01:38,360
+Mongoose like this.
+
+21
+00:01:38,760 --> 00:01:45,210
+And with Mangu is imported we can set up a connection so down there where I used my own Mongo connect
+
+22
+00:01:45,510 --> 00:01:55,300
+I can use mongooses like this and then there there is a connect method we can use now that connect method
+
+23
+00:01:55,510 --> 00:02:00,880
+takes these same you are all we used for connecting before.
+
+24
+00:02:00,900 --> 00:02:06,850
+So make sure you grab that your Al from your back and again and entered at here.
+
+25
+00:02:06,850 --> 00:02:13,090
+Make sure you're using the right user which you set up for that and of course enter your password.
+
+26
+00:02:13,380 --> 00:02:16,240
+And this will now connect to mongooses.
+
+27
+00:02:16,590 --> 00:02:23,190
+Then you get a promise here or you can call then at least and there you'll get to the result of this
+
+28
+00:02:23,190 --> 00:02:27,490
+connection but most importantly you noted at this point of time you are connected.
+
+29
+00:02:27,600 --> 00:02:31,270
+So here I also want to bring up my notes server or to be precise.
+
+30
+00:02:31,320 --> 00:02:33,610
+Start listening for incoming requests.
+
+31
+00:02:33,630 --> 00:02:39,010
+I can also add a catch block here and log any potential error.
+
+32
+00:02:39,030 --> 00:02:41,610
+I might be getting when trying to get connected.
+
+33
+00:02:41,610 --> 00:02:49,000
+So with this we already have everything in place we need to connect and Mangu is as I mentioned we'll
+
+34
+00:02:49,000 --> 00:02:51,870
+managed to add one connection behind the scenes for us.
+
+35
+00:02:51,950 --> 00:02:57,050
+So that and other places where we start using mongoose from the Magoo's package we use that same connection
+
+36
+00:02:57,090 --> 00:03:03,210
+we set up here really convenient of course and that already leads us to the next thing we have to do.
+
+37
+00:03:03,450 --> 00:03:10,680
+We have to move our code over to mongooses now and not to use them on the DVD drive or directly as we
+
+38
+00:03:10,680 --> 00:03:11,900
+are currently doing it.
+
+39
+00:03:12,090 --> 00:03:17,790
+So will again have to rewrite all our models but I hope you still see the advantage of this.
+
+40
+00:03:17,790 --> 00:03:22,740
+You first of all learn how to use to Mangu the driver and you could of course stick to that and continue
+
+41
+00:03:22,740 --> 00:03:24,200
+using that if you wanted to.
+
+42
+00:03:24,360 --> 00:03:29,940
+But now I will show you how you can move that over to Mangu is to focus more on how your data should
+
+43
+00:03:29,940 --> 00:03:34,590
+look like and less on all the logic for it interacting with the database.
+
+44
+00:03:34,590 --> 00:03:41,550
+Now to move over again I do something I did before I will comment out my dear friend route's here in
+
+45
+00:03:41,550 --> 00:03:47,910
+the shop chastened and the admin shares fall so that we can gradually comment them back in as we make
+
+46
+00:03:47,910 --> 00:03:49,310
+them work again.
+
+47
+00:03:49,380 --> 00:03:57,470
+Now with all route's commented out if I run NPM start I get an error of course that you tell database
+
+48
+00:03:57,510 --> 00:03:59,280
+was not found in Aperture.
+
+49
+00:03:59,270 --> 00:04:05,640
+Yes I'd certainly have to get rid of that import here where I do import something from that database.
+
+50
+00:04:05,880 --> 00:04:11,370
+And the same is of course true for my models where I do also import something from the database.
+
+51
+00:04:11,370 --> 00:04:15,660
+Now the problem is if I comment that out nothing will work here anymore.
+
+52
+00:04:16,230 --> 00:04:21,430
+And therefore I will simply comment out everything in my models for the moment.
+
+53
+00:04:23,560 --> 00:04:27,340
+Now with that it looks like we are connected because we don't get any error here.
+
+54
+00:04:27,370 --> 00:04:33,420
+This warning can be ignored and therefore we now are connected to our same long would be server.
+
+55
+00:04:33,430 --> 00:04:40,900
+But now by using the mongoose package with that set up let's start working on all our models and all
+
+56
+00:04:40,900 --> 00:04:44,890
+our code to make it to work with mongooses in the next lecture.
+

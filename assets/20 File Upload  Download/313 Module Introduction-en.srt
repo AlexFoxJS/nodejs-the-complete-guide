@@ -1,0 +1,40 @@
+1
+00:00:02,350 --> 00:00:08,890
+Knouted we know how to work with our artists and now that we learned a lot about node express in general
+
+2
+00:00:09,160 --> 00:00:15,940
+let me dive into a little more advanced or specialized topic file uploads and downloads.
+
+3
+00:00:16,030 --> 00:00:22,360
+Now it's actually not something that rare you'll often have a feature like this on your web page and
+
+4
+00:00:22,360 --> 00:00:28,660
+therefore it is important to understand how you can allow your users to upload files and how you can
+
+5
+00:00:28,660 --> 00:00:36,040
+handle that on your service side and which different possibilities you have for returning files to your
+
+6
+00:00:36,040 --> 00:00:36,820
+users.
+
+7
+00:00:36,820 --> 00:00:42,880
+So this is essentially what we'll dive into in this module will have a look at how to upload files and
+
+8
+00:00:42,910 --> 00:00:46,010
+most importantly how to handle them on the server.
+
+9
+00:00:46,240 --> 00:00:50,930
+And of course we'll then have a look at the different options you have for returning false.
+
+10
+00:00:51,160 --> 00:00:52,060
+So let's see Ivan.
+

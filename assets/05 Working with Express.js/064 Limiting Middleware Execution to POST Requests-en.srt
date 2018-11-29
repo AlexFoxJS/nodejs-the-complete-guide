@@ -1,0 +1,88 @@
+1
+00:00:02,150 --> 00:00:07,800
+Were able to parse incoming request bodies with the help of the body parts or package which is pretty
+
+2
+00:00:07,800 --> 00:00:08,550
+neat.
+
+3
+00:00:08,550 --> 00:00:14,640
+But right now as I mentioned this middleware always executes not just for post requests but all to get
+
+4
+00:00:14,640 --> 00:00:17,210
+requests what can we do regarding that.
+
+5
+00:00:17,640 --> 00:00:25,440
+Well instead of the app use we can also use apt get dessous basically app use it has the same syntax
+
+6
+00:00:25,470 --> 00:00:26,480
+as app use.
+
+7
+00:00:26,490 --> 00:00:32,670
+We can use a POV or don't use a POV but it only will fire for incoming get requests.
+
+8
+00:00:32,670 --> 00:00:38,080
+So does this a novel form of filtering besides filtering for the Poth apt get allows us to filter or
+
+9
+00:00:38,080 --> 00:00:39,750
+forget requests.
+
+10
+00:00:39,750 --> 00:00:46,800
+And on the same page we all got app post to filter for incoming post requests and just by changing this
+
+11
+00:00:46,800 --> 00:00:53,660
+word does middleware will now only trigger for incoming post requests with this path and not forget
+
+12
+00:00:53,670 --> 00:00:54,650
+requests.
+
+13
+00:00:54,660 --> 00:01:03,500
+So if I save this and I go to slash product you see I get hello from Express.
+
+14
+00:01:03,640 --> 00:01:08,930
+So I don't end up here in the way I entered slash product but it was a get request.
+
+15
+00:01:09,460 --> 00:01:18,300
+But if I send a post request frood that form I have an app product if I do this year book to you'll
+
+16
+00:01:18,470 --> 00:01:20,320
+see we get this output.
+
+17
+00:01:20,340 --> 00:01:23,850
+So we clearly made it into this middleware due to our filtering.
+
+18
+00:01:23,850 --> 00:01:30,710
+So this is a novel way of using that middleware function instead of use which will work with all the
+
+19
+00:01:30,750 --> 00:01:31,410
+methods.
+
+20
+00:01:31,560 --> 00:01:34,870
+We can also use GET or POST to filter for these.
+
+21
+00:01:34,980 --> 00:01:41,790
+And additionally you all have to lead patch and put which are over HTP were apps which we'll use later
+
+22
+00:01:41,790 --> 00:01:46,350
+in the course because we can't really use them from a normal aged him document.
+

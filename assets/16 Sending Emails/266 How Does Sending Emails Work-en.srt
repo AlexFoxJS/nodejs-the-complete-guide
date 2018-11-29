@@ -1,0 +1,76 @@
+1
+00:00:02,120 --> 00:00:04,760
+So how does sending mails work.
+
+2
+00:00:05,030 --> 00:00:09,680
+Well you obviously get our notes server with our code and we get our user and we want to send the email
+
+3
+00:00:09,680 --> 00:00:11,010
+to the user.
+
+4
+00:00:11,030 --> 00:00:19,400
+Now it's super important to understand and a common misconception that note and express Yes these are
+
+5
+00:00:19,510 --> 00:00:26,210
+language languages or frameworks run times that we use for writing our server side logic but with no
+
+6
+00:00:26,420 --> 00:00:32,870
+yes you can't trivially create a mailing server handling mails.
+
+7
+00:00:32,870 --> 00:00:36,360
+It's totally different to handling incoming requests and responses.
+
+8
+00:00:36,380 --> 00:00:41,690
+It's a totally different technology something totally different happens behind the scenes.
+
+9
+00:00:41,690 --> 00:00:48,980
+Therefore in reality you will very likely never implement your own mail server because that is a very
+
+10
+00:00:48,980 --> 00:00:50,210
+complex task.
+
+11
+00:00:50,330 --> 00:00:56,840
+Creating a mail server that is capable of handling that dozens or a one hundred thousands of e-mails
+
+12
+00:00:56,840 --> 00:01:02,290
+at the same time sending them and so on security all that stuff is highly complex.
+
+13
+00:01:02,300 --> 00:01:08,180
+So in reality you typically use third party mail service for that and that is exactly what you will
+
+14
+00:01:08,180 --> 00:01:09,310
+do in this Marchal too.
+
+15
+00:01:09,350 --> 00:01:14,650
+But I will show you how to interact with such a service to send that e-mail frood at service.
+
+16
+00:01:14,780 --> 00:01:21,440
+And by the way all major web applications you might be interacting with including you to me don't have
+
+17
+00:01:21,440 --> 00:01:28,850
+their own mail servers they are using third party providers like A.W. as well whatever it is for sending
+
+18
+00:01:28,850 --> 00:01:29,420
+e-mails.
+
+19
+00:01:29,510 --> 00:01:31,790
+So that is exactly what we will do in this module to.
+

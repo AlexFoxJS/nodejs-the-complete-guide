@@ -1,0 +1,144 @@
+1
+00:00:02,220 --> 00:00:07,960
+Now one problem I just noticed when I clicked around and deleted some products here is of course that
+
+2
+00:00:07,960 --> 00:00:13,750
+when I delete a product that wasnt a card of a user as I have it here I added one product behind the
+
+3
+00:00:13,750 --> 00:00:16,380
+scenes to a user product with this ID.
+
+4
+00:00:16,630 --> 00:00:22,860
+And if we have a look at products and I don't want to update anything if we have to look at products
+
+5
+00:00:22,860 --> 00:00:27,040
+this product ID is not the product that you have in my cart here.
+
+6
+00:00:27,100 --> 00:00:32,560
+So I deleted a product which was part of the carts of different users.
+
+7
+00:00:32,620 --> 00:00:35,320
+Now what would you do about that.
+
+8
+00:00:35,410 --> 00:00:40,690
+For one is important to notice that our app works correctly because when we try to load the cart when
+
+9
+00:00:40,690 --> 00:00:47,230
+we don't find the product data for an item in that cart we just go ahead and well ignore it basically
+
+10
+00:00:47,230 --> 00:00:48,590
+which is what we want here.
+
+11
+00:00:48,760 --> 00:00:50,550
+But how would you solve this.
+
+12
+00:00:50,890 --> 00:00:57,670
+Well what you would do or what you could do one approach and what makes sense is that you add some kind
+
+13
+00:00:57,730 --> 00:01:03,970
+of worker process which is something a bit more advanced and not directly related to building web applications
+
+14
+00:01:03,970 --> 00:01:04,700
+with node.
+
+15
+00:01:04,960 --> 00:01:12,430
+Basically a script that runs on the server and checks for such cases in your database once every 24
+
+16
+00:01:12,430 --> 00:01:19,480
+hours or something like this where you basically scan your users your carts and look for products which
+
+17
+00:01:19,480 --> 00:01:21,610
+you don't find in a product collection anymore.
+
+18
+00:01:21,640 --> 00:01:26,770
+And then you clean up these carts that would be one thing you could do in an application to clean this
+
+19
+00:01:26,770 --> 00:01:32,320
+up depending on your requirements you could even have a cleanup script for the entire card which resets
+
+20
+00:01:32,320 --> 00:01:38,290
+the entire card every 24 hours or every seven days an alternative approach to you could of course look
+
+21
+00:01:38,290 --> 00:01:43,090
+into what be dead when you load the card page as we are doing it here.
+
+22
+00:01:43,090 --> 00:01:49,900
+So when you're calling get card on the user and you know that there are card items on the user object
+
+23
+00:01:50,230 --> 00:01:56,560
+and still the products you get back is empty then you know there's a mismatch between what you have
+
+24
+00:01:56,560 --> 00:01:59,320
+in your cart and what's in the database.
+
+25
+00:01:59,470 --> 00:02:04,100
+And in such a case you could then issue some behind the scenes request.
+
+26
+00:02:04,150 --> 00:02:11,320
+So basically with exactly the tools you learned about to update the card off the user to match the product
+
+27
+00:02:11,320 --> 00:02:13,020
+you got back from the database.
+
+28
+00:02:13,030 --> 00:02:17,690
+So if you got an empty product array and you have items in the card you want to reset your card.
+
+29
+00:02:17,770 --> 00:02:23,320
+If you've got less items in the day that back from the database then that's in your card you want to
+
+30
+00:02:23,320 --> 00:02:26,700
+find out what the differences and then update your card accordingly.
+
+31
+00:02:26,860 --> 00:02:32,490
+So this would be strategies you could employ here for now I will move on and not focus on that as it
+
+32
+00:02:32,500 --> 00:02:37,810
+is of course also depends highly on your application needs but especially the second strategy is certainly
+
+33
+00:02:37,810 --> 00:02:41,080
+something you can implement with the knowledge you learned in this module.
+
+34
+00:02:41,080 --> 00:02:47,020
+So this would be a great challenge you can take to add the functionality to clean up your cart on the
+
+35
+00:02:47,020 --> 00:02:53,620
+user collection whenever you find out that in get cart there is a mismatch between the products you
+
+36
+00:02:53,620 --> 00:02:56,290
+get back and the products you think you have in your cart.
+

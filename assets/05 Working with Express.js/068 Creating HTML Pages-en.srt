@@ -1,0 +1,264 @@
+1
+00:00:02,180 --> 00:00:07,790
+So knouted we had a very close look at the whole express middleware thing and how routeing works and
+
+2
+00:00:07,790 --> 00:00:12,900
+express and how we can use that to our advantage how we can filter routes and so on.
+
+3
+00:00:13,190 --> 00:00:16,930
+Let's actually start working on what we serve to the user.
+
+4
+00:00:16,970 --> 00:00:23,540
+Thus far it has always been some dummy HDMI content but you're probably not in the course to just learn
+
+5
+00:00:23,540 --> 00:00:26,430
+how to build dummy HVM mal content.
+
+6
+00:00:26,450 --> 00:00:32,690
+So let's return some real HVM files to the user that awls don't look like crap.
+
+7
+00:00:32,930 --> 00:00:37,380
+For this all create a new folder in my project and I'll name it views.
+
+8
+00:00:37,430 --> 00:00:38,920
+Now that name is up to you.
+
+9
+00:00:38,920 --> 00:00:46,160
+You can also name that folder whatever you want but in that course we will slowly go towards the MVC
+
+10
+00:00:46,580 --> 00:00:52,340
+model view controller structure and I will explain what this is a little bit later.
+
+11
+00:00:52,340 --> 00:00:56,180
+One part of it is that we manage our views.
+
+12
+00:00:56,210 --> 00:01:02,360
+So what we serve to the user in one place of our application in the views folder you now the view is
+
+13
+00:01:02,510 --> 00:01:05,750
+will just be a bunch of HVM files though.
+
+14
+00:01:05,960 --> 00:01:11,600
+So we'll create a new file and that will be my shop Daut aged HTML file.
+
+15
+00:01:11,720 --> 00:01:19,700
+It's file I want to serve for users visiting just slash and I also want to have my ad product fall here.
+
+16
+00:01:19,820 --> 00:01:27,680
+So at ad product or aged him all later by the way in case you already know the concept of templating
+
+17
+00:01:27,740 --> 00:01:34,620
+engines will use these two so that we can dynamically add content into th tim outfalls.
+
+18
+00:01:34,700 --> 00:01:37,780
+But for now let's just start with these files.
+
+19
+00:01:38,240 --> 00:01:43,420
+So let's start here and add product h tim L and now here's one important note.
+
+20
+00:01:43,520 --> 00:01:50,270
+If you're not interested in writing that HDMI code you can skip this lecture now and find the finished
+
+21
+00:01:50,310 --> 00:01:54,480
+HVM code attached to this and that the next lecture.
+
+22
+00:01:54,500 --> 00:01:55,980
+So if you want to skip.
+
+23
+00:01:56,030 --> 00:02:01,220
+You can do that and just follow along in the next lecture where I will provide that finished H.T. of
+
+24
+00:02:01,220 --> 00:02:01,920
+all the code.
+
+25
+00:02:01,920 --> 00:02:04,730
+Otherwise let's now create it together.
+
+26
+00:02:04,730 --> 00:02:07,060
+So in this ad product h HTML file.
+
+27
+00:02:07,130 --> 00:02:12,910
+I'll now create a new h tim L5 skeleton and visuals to do code helps you with that.
+
+28
+00:02:13,250 --> 00:02:20,660
+As you saw if you just type H Tim L It should open does pop up if it doesn't you can Forsett by typing
+
+29
+00:02:20,660 --> 00:02:27,200
+or by hitting control and space and then navigate to h tim L5 with the arrow keys and hit enter and
+
+30
+00:02:27,200 --> 00:02:33,610
+it gives you this nice skeleton which basically defines a basic Well HVM elth skeleton.
+
+31
+00:02:33,650 --> 00:02:38,460
+Now here all change the title to add product and then the body there.
+
+32
+00:02:38,480 --> 00:02:40,720
+I now want to have my forum.
+
+33
+00:02:40,970 --> 00:02:46,610
+I don't just want to have to form in there though I also want to have some navigation bar that allows
+
+34
+00:02:46,610 --> 00:02:49,280
+me to switch to my shop.
+
+35
+00:02:49,320 --> 00:02:53,570
+Tim Page today slash route and the other way around.
+
+36
+00:02:53,600 --> 00:02:54,740
+So here I will.
+
+37
+00:02:54,740 --> 00:03:02,010
+First of all add a header and in that header I'll add a math bar and then that nav bar I'll add on or
+
+38
+00:03:02,030 --> 00:03:06,640
+a list with list items which are links where I go to slash.
+
+39
+00:03:06,650 --> 00:03:08,690
+So this is just my shop.
+
+40
+00:03:08,930 --> 00:03:17,320
+And then another list item at product which will be slash at product.
+
+41
+00:03:17,420 --> 00:03:21,390
+This is the page we're on here but I always want to show both options.
+
+42
+00:03:21,440 --> 00:03:25,490
+Obviously you can write VHDL code that fits your needs.
+
+43
+00:03:25,490 --> 00:03:26,600
+So this is the header.
+
+44
+00:03:26,600 --> 00:03:28,540
+It will be pretty unstored for now.
+
+45
+00:03:28,550 --> 00:03:30,270
+We'll add styling too.
+
+46
+00:03:30,560 --> 00:03:32,650
+And now let's add a main section too.
+
+47
+00:03:32,720 --> 00:03:39,800
+So this is also a normal HVM element which holds or which should hold the content of our page here and
+
+48
+00:03:39,800 --> 00:03:40,070
+there.
+
+49
+00:03:40,070 --> 00:03:44,800
+I want to have my form with the action that is also adds product.
+
+50
+00:03:44,810 --> 00:03:56,060
+Remember here we're done targeting does post route and in there or there I will add my post method and
+
+51
+00:03:56,150 --> 00:04:07,120
+I will now also add my input here the input type text with a name of title and I will add my button
+
+52
+00:04:07,330 --> 00:04:15,190
+of type submit to your Which I'll label add product.
+
+53
+00:04:15,220 --> 00:04:20,940
+Now we will add more to this for and later because a product is obviously not just made up of a title
+
+54
+00:04:21,250 --> 00:04:22,950
+but for now this will do.
+
+55
+00:04:22,960 --> 00:04:24,400
+We got our form in here.
+
+56
+00:04:24,550 --> 00:04:28,720
+Let's now copy that entire HDMI Tim Allen code and paste it into the shop.
+
+57
+00:04:28,730 --> 00:04:30,080
+A team will fall.
+
+58
+00:04:30,250 --> 00:04:33,520
+And then of course in the main section I don't want to have a form.
+
+59
+00:04:33,550 --> 00:04:41,410
+Instead each one tech my products and below that later in the course we will render all the products.
+
+60
+00:04:41,440 --> 00:04:45,540
+So here we will have a list of all the products.
+
+61
+00:04:45,580 --> 00:04:48,020
+Right now we don't have that but we'll get there.
+
+62
+00:04:48,070 --> 00:04:52,060
+Once we learn how to manage data on the server and so on.
+
+63
+00:04:52,240 --> 00:04:56,940
+Now the rest of the page can stay the same for both pages.
+
+64
+00:04:57,100 --> 00:04:59,760
+And again as I mentioned styling is missing.
+
+65
+00:04:59,770 --> 00:05:05,470
+Let's now move onto the next lecture where the goal will be to serve as age HTML pages before we then
+
+66
+00:05:05,590 --> 00:05:06,640
+work on the styling.
+

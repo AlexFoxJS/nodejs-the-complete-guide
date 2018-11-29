@@ -1,0 +1,120 @@
+1
+00:00:02,280 --> 00:00:09,970
+So let's dive back into our project and make sure you are locked out and make sure you download detached
+
+2
+00:00:09,970 --> 00:00:16,410
+snapshot because there I did add a sign uplink to our navigation bar and click on that.
+
+3
+00:00:16,450 --> 00:00:21,610
+We also load a sign up page where we should edit the caption on the button by the way.
+
+4
+00:00:21,670 --> 00:00:27,020
+So if you download the hatch code what was added and you can also add this to your own project.
+
+5
+00:00:27,160 --> 00:00:33,730
+I did add the sign up each file where I also should change just to sign up so you can simply add deadfall
+
+6
+00:00:33,730 --> 00:00:35,700
+to your all folder.
+
+7
+00:00:35,800 --> 00:00:43,150
+I did manipulate or changed navigation each last fall there what I did add is I simply added the sign
+
+8
+00:00:43,150 --> 00:00:45,610
+up again in menu entry.
+
+9
+00:00:45,640 --> 00:00:51,130
+After log in both forward and normal menu and all that for the mobile menu down there.
+
+10
+00:00:51,130 --> 00:00:54,230
+So basically one list item was added to each menu.
+
+11
+00:00:54,640 --> 00:00:56,460
+Does this what I edit in this file.
+
+12
+00:00:56,740 --> 00:01:02,980
+And then I worked on my route STEHR I added two new routes posts sign up and get signed up where I use
+
+13
+00:01:02,980 --> 00:01:06,610
+my control or get sign up and post sign up actions.
+
+14
+00:01:06,790 --> 00:01:09,830
+And in that controller I worked on these actions.
+
+15
+00:01:09,880 --> 00:01:13,300
+I edit posts sign up which is an empty placeholder nothing in there.
+
+16
+00:01:13,510 --> 00:01:18,370
+So that is not that difficult get sign up all is is a pretty simple route there.
+
+17
+00:01:18,400 --> 00:01:20,010
+I simply render you off.
+
+18
+00:01:20,050 --> 00:01:26,170
+Sign up view so you can just add this to your existing project or use my attached snapshot and replace
+
+19
+00:01:26,170 --> 00:01:29,210
+my mom would be you are with yours.
+
+20
+00:01:29,230 --> 00:01:34,820
+And once you got all that you should be able to have a running application that looks like this with
+
+21
+00:01:34,820 --> 00:01:40,950
+a sign up page that looks like this because now we will use or we will need a way of signing up users.
+
+22
+00:01:41,000 --> 00:01:45,530
+So let's now start implementing the full authentication flow in this module.
+
+23
+00:01:45,550 --> 00:01:51,260
+And for that first of all make sure that we can create new users then that we can sign users in and
+
+24
+00:01:51,260 --> 00:01:57,190
+sign users out of course that we can then use the information wherever a user is signed.
+
+25
+00:01:57,200 --> 00:02:03,380
+It was signed out in all our viewers and that we can protect our routes on the service side too because
+
+26
+00:02:03,380 --> 00:02:09,650
+right now even if I'm not signed in what I can do is I can manually wizard admin add product and this
+
+27
+00:02:09,650 --> 00:02:10,310
+works.
+
+28
+00:02:10,460 --> 00:02:15,680
+So I can't get there by menu because he hides the menu options but manually visiting this works.
+
+29
+00:02:15,680 --> 00:02:18,660
+And there's also something we'll work on in this module.
+
+30
+00:02:18,740 --> 00:02:23,620
+So let's get there step by step and let's start by adding user sign up in the next lecture.
+

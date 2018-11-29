@@ -1,0 +1,140 @@
+1
+00:00:02,510 --> 00:00:06,080
+So what does NBC stand for or what is it.
+
+2
+00:00:06,080 --> 00:00:08,780
+It's all about a separation of concerns.
+
+3
+00:00:08,810 --> 00:00:16,010
+So making sure that different parts of your code do different things and you clearly know which part
+
+4
+00:00:16,070 --> 00:00:21,050
+is responsible for what NBC stands for a model view controller.
+
+5
+00:00:21,050 --> 00:00:23,780
+So we work with models views and controllers.
+
+6
+00:00:24,080 --> 00:00:29,930
+And actually for example of view is that is something you already know we already got the use in our
+
+7
+00:00:29,930 --> 00:00:31,090
+project right.
+
+8
+00:00:31,130 --> 00:00:39,860
+Models are basically objects or is a part of your code that is responsible for representing your data
+
+9
+00:00:39,860 --> 00:00:43,230
+and your code and allowing you to work with your data.
+
+10
+00:00:43,250 --> 00:00:51,830
+So things like saving data fetching data to or from a file or even if it's just a memory as we're currently
+
+11
+00:00:51,830 --> 00:00:52,730
+doing it.
+
+12
+00:00:52,730 --> 00:00:55,700
+This should be handled by models.
+
+13
+00:00:55,860 --> 00:01:00,440
+The views are responsible for what the user sees in the end.
+
+14
+00:01:00,440 --> 00:01:08,270
+They are responsible for rendering the right content in our HVM all documents and sending that back
+
+15
+00:01:08,270 --> 00:01:09,190
+to the user.
+
+16
+00:01:09,260 --> 00:01:15,830
+So they are decoupled from your application code and are just having some slight or minor integrations
+
+17
+00:01:16,070 --> 00:01:23,120
+regarding the data we inject into our templating engine to generate these views and the controllers
+
+18
+00:01:23,360 --> 00:01:27,270
+are now the connection point between the models and your views.
+
+19
+00:01:27,450 --> 00:01:33,140
+Because since the viewas shouldn't care about the application logic and the models do care about how
+
+20
+00:01:33,140 --> 00:01:40,130
+to save and fetch data ends on the controllers are the thing working with the models saving that data
+
+21
+00:01:40,130 --> 00:01:42,850
+or triggering that safe process ends on.
+
+22
+00:01:43,010 --> 00:01:49,860
+And also the part where they then pass that data that was fetched to your views for example.
+
+23
+00:01:49,880 --> 00:01:54,790
+So the controller is a middleman it contains the in between logic.
+
+24
+00:01:54,830 --> 00:01:58,540
+Now in case you're wondering how routes fit into this picture.
+
+25
+00:01:58,640 --> 00:02:06,290
+Well routes are basically the things which define upon which path for which HTP method which controller
+
+26
+00:02:06,320 --> 00:02:07,770
+code should execute.
+
+27
+00:02:07,850 --> 00:02:08,820
+And as I just said.
+
+28
+00:02:08,890 --> 00:02:15,800
+The controller is then the thing defining with which model to work and which view to render.
+
+29
+00:02:15,890 --> 00:02:17,320
+This is the pattern.
+
+30
+00:02:17,330 --> 00:02:24,950
+And in an app with Express or belled with Express as we are doing it which heavily relies on this middleware
+
+31
+00:02:24,950 --> 00:02:25,880
+concept.
+
+32
+00:02:25,990 --> 00:02:33,800
+The controllers are all kind of split up across middleware functions or some of the logic might be separated
+
+33
+00:02:33,800 --> 00:02:39,950
+and moved into and nobbler middleware function but we'll see all of that and we'll get there step by
+
+34
+00:02:39,950 --> 00:02:40,480
+step.
+
+35
+00:02:40,490 --> 00:02:46,360
+For now let's simply move back to our project and implement an NBC pattern there.
+

@@ -1,0 +1,68 @@
+1
+00:00:02,100 --> 00:00:07,020
+By the way if you're wondering why there is no name be displayed.
+
+2
+00:00:07,170 --> 00:00:16,490
+I have a bike on my back and code you're in get posts we should add populate creator to not just fetched
+
+3
+00:00:16,530 --> 00:00:21,130
+treat or ID but the full object for the creator and uncreate post.
+
+4
+00:00:21,160 --> 00:00:27,010
+Well there we have the issue that the post I am sending for a socket I O is just a post object where
+
+5
+00:00:27,070 --> 00:00:33,780
+I did at my creator ID but not all the creator data.
+
+6
+00:00:33,790 --> 00:00:37,950
+Now how can we fix that or how can we add more data.
+
+7
+00:00:38,170 --> 00:00:46,610
+Well we can send the entire post underscore doc data so all the data about the post but set to create
+
+8
+00:00:46,690 --> 00:00:52,970
+equal to an object where we do have the underscore ID that will be our request.
+
+9
+00:00:52,970 --> 00:00:53,780
+User ID
+
+10
+00:00:57,210 --> 00:01:04,860
+but where I also then add my name field which will be user name and user name can be used because of
+
+11
+00:01:04,860 --> 00:01:08,360
+fetching to use here and that will be an object which also has a name.
+
+12
+00:01:08,640 --> 00:01:16,040
+So that's just a little tweak We want to add to your to send all the data with a created post that we
+
+13
+00:01:16,040 --> 00:01:17,210
+need on the front end.
+
+14
+00:01:17,360 --> 00:01:23,050
+We now save that and we reload we get the data up because of that change and get posts and if I now
+
+15
+00:01:23,050 --> 00:01:33,480
+add a new post and number DAQ choose Adak as some content except we all see the name there.
+
+16
+00:01:33,510 --> 00:01:38,460
+Now both users are named Max but still keep in mind the left user are locked in with is a different
+
+17
+00:01:38,460 --> 00:01:42,510
+user than on the right and still we get the updates here due to socket IO.
+

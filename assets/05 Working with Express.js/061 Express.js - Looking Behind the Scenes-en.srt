@@ -1,0 +1,208 @@
+1
+00:00:02,150 --> 00:00:05,440
+So we now had some basic work with Express.
+
+2
+00:00:05,470 --> 00:00:06,310
+Yes.
+
+3
+00:00:06,320 --> 00:00:13,490
+Now let's also dig into the internals off expressed chess at least a little bit here SD express J.S.
+
+4
+00:00:13,940 --> 00:00:15,660
+code repository and get help.
+
+5
+00:00:15,680 --> 00:00:20,880
+It's open source so you can dive into the code and no worries will not do a deep dive analysis.
+
+6
+00:00:20,990 --> 00:00:23,930
+But it's interesting to see how some things work.
+
+7
+00:00:23,960 --> 00:00:31,040
+So in there you know on that get up click on lip and then you'll find a response J.S. file or click
+
+8
+00:00:31,040 --> 00:00:34,790
+on it in that fall you will find a lot of code.
+
+9
+00:00:34,790 --> 00:00:42,610
+Now let's simply search for send and then the opening bracket and you will see how to send a function.
+
+10
+00:00:42,620 --> 00:00:48,740
+So basically a function we are calling here how this is defined internally and this helps us understand
+
+11
+00:00:48,740 --> 00:00:48,930
+it.
+
+12
+00:00:49,010 --> 00:00:54,550
+And this by the way is always a great technique if you want to see what something does behind the scenes.
+
+13
+00:00:54,650 --> 00:01:00,350
+And if you need to do something yourself for example to set some header or if data is done for you and
+
+14
+00:01:00,350 --> 00:01:03,540
+we had dead default header of text each time.
+
+15
+00:01:03,540 --> 00:01:04,430
+All right.
+
+16
+00:01:04,430 --> 00:01:07,010
+So let's see what sense does internally.
+
+17
+00:01:07,040 --> 00:01:12,290
+But does a bunch of checks to see if we're using outdate that wears off that function which we didn't
+
+18
+00:01:12,290 --> 00:01:18,850
+and this course so let's ignore that and then down there it basically analyzes what kind of data you
+
+19
+00:01:18,860 --> 00:01:19,780
+are sending.
+
+20
+00:01:19,970 --> 00:01:26,750
+And you see that if it's a stringed data so some text as we are doing it here that in this case it sets
+
+21
+00:01:26,870 --> 00:01:27,980
+the content type to.
+
+22
+00:01:28,020 --> 00:01:31,000
+Tim L but only if we haven't said it yet.
+
+23
+00:01:31,130 --> 00:01:37,040
+So it checks if the Content-Type header is not present yet in which case it sets it otherwise it would
+
+24
+00:01:37,130 --> 00:01:42,190
+leave our default if we have a overvalues like a number of Boullion or Ozon.
+
+25
+00:01:42,320 --> 00:01:46,320
+It would actually set a two binary or Jason data.
+
+26
+00:01:46,580 --> 00:01:49,150
+So this is just some of the internal things it does.
+
+27
+00:01:49,370 --> 00:01:52,040
+And you don't need to go through the entire code here.
+
+28
+00:01:52,100 --> 00:01:57,260
+It's a bit much and you're using express so that you don't have to do everything on your own but diving
+
+29
+00:01:57,260 --> 00:01:59,690
+into this can help sometimes.
+
+30
+00:02:00,630 --> 00:02:07,170
+Now one other interesting thing to see is that we can actually also shorten disk code here where we
+
+31
+00:02:07,170 --> 00:02:08,330
+set up the server.
+
+32
+00:02:08,730 --> 00:02:12,620
+We can pass app qued it creates a real method.
+
+33
+00:02:12,900 --> 00:02:17,270
+But instead we can all just use app and call listen.
+
+34
+00:02:17,450 --> 00:02:22,640
+And this will do both these things for us something we can see in the official code.
+
+35
+00:02:22,740 --> 00:02:30,270
+If you go into the application genius file in there what we can see is that if we search for Alyson
+
+36
+00:02:32,420 --> 00:02:39,320
+here the listing function just does the two things we did before it called HTP create server and passus
+
+37
+00:02:39,380 --> 00:02:40,040
+itself.
+
+38
+00:02:40,040 --> 00:02:46,510
+So the app object which we previously all the past two that passes it to create server and then doesn't
+
+39
+00:02:46,500 --> 00:02:51,200
+the end just make sure that lists and gets called on that server object.
+
+40
+00:02:51,290 --> 00:02:53,140
+So it internally does the same.
+
+41
+00:02:53,180 --> 00:02:55,880
+Do here and does of course save some code.
+
+42
+00:02:56,000 --> 00:02:59,870
+And now we can also remove that HTB import up there.
+
+43
+00:02:59,990 --> 00:03:03,350
+So now our code looks like this and we'll still work fine.
+
+44
+00:03:03,440 --> 00:03:04,680
+It restarts here.
+
+45
+00:03:04,760 --> 00:03:07,950
+And if I reload this page does this looking good to me.
+
+46
+00:03:08,210 --> 00:03:13,850
+So now we're using Express J S and you hopefully get a basic understanding of what it's doing and why
+
+47
+00:03:13,850 --> 00:03:18,950
+does helps you write cleaner code because now you have a clearly fine structure.
+
+48
+00:03:19,030 --> 00:03:22,710
+Use this middleware funnel and is safe code.
+
+49
+00:03:22,760 --> 00:03:29,420
+The question of course is how can we now handle different routes as we previously did where we had slash
+
+50
+00:03:29,420 --> 00:03:32,130
+message and slash nothing and so on.
+
+51
+00:03:32,420 --> 00:03:37,030
+And of course it would be nice if we now could also read incoming requests in an easier way.
+
+52
+00:03:37,160 --> 00:03:40,040
+Well we'll do both and see both over the next lectures.
+

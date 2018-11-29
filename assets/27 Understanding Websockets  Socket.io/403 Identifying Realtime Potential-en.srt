@@ -1,0 +1,136 @@
+1
+00:00:02,470 --> 00:00:07,700
+If we have a look at our application you're What could we do in real time.
+
+2
+00:00:08,110 --> 00:00:13,420
+Well what would be interesting is that if we create a new post with user aid that we can instantly see
+
+3
+00:00:13,420 --> 00:00:20,140
+it with user be to and for that we need to add some code in our client.
+
+4
+00:00:20,140 --> 00:00:27,350
+And then also on our backend Now let's actually start with the client.
+
+5
+00:00:27,660 --> 00:00:36,510
+Let's say we want to react to a new post being created and we then want to render it in the client instantly.
+
+6
+00:00:36,550 --> 00:00:44,200
+For this in my re-act that offer this component that MT function before lotos let's say I'll add a new
+
+7
+00:00:44,200 --> 00:00:46,660
+function at post with this.
+
+8
+00:00:46,680 --> 00:00:50,680
+So next I expect to get the data about the post as an argument.
+
+9
+00:00:50,810 --> 00:00:52,820
+So I'm using a normal Erol function here.
+
+10
+00:00:53,110 --> 00:00:57,960
+And then here I want to render that post to the screen.
+
+11
+00:00:58,240 --> 00:01:03,400
+Now for that since this is not a re-act course I prepared some code which you find attached to this
+
+12
+00:01:03,400 --> 00:01:04,090
+video.
+
+13
+00:01:04,310 --> 00:01:11,260
+Just copy it here in this code snippet we're using some re-act functionality set state to basically
+
+14
+00:01:11,260 --> 00:01:18,860
+update our existing data we used in this re-act application with this new post received here.
+
+15
+00:01:18,910 --> 00:01:24,700
+And I will take care about page nation to insert this post in the right place.
+
+16
+00:01:24,730 --> 00:01:26,260
+That is the end what I'm doing here.
+
+17
+00:01:26,260 --> 00:01:28,060
+Important thing is dead.
+
+18
+00:01:28,150 --> 00:01:33,910
+I'm using some re-act functionality here so that we don't have to reload the browser page.
+
+19
+00:01:33,910 --> 00:01:36,250
+I simply changed the existing dorm.
+
+20
+00:01:36,250 --> 00:01:39,580
+This is what re-act will do for me with this code snippet.
+
+21
+00:01:39,580 --> 00:01:44,680
+And as mentioned before if you want to learn more about re-act dive into some dedicated re-act resources
+
+22
+00:01:44,680 --> 00:01:46,000
+of course.
+
+23
+00:01:46,000 --> 00:01:49,000
+Now we got ADD post but we're never calling it.
+
+24
+00:01:49,120 --> 00:01:57,310
+My idea is that I want to call it whenever we do create a new post on some other client.
+
+25
+00:01:57,310 --> 00:02:00,680
+Now how do we do that well.
+
+26
+00:02:00,700 --> 00:02:04,370
+For that let's go back to the node code.
+
+27
+00:02:04,550 --> 00:02:10,020
+We have to go to the place that's runs or to the code that runs when a new post is created.
+
+28
+00:02:10,130 --> 00:02:14,480
+And that would be in the feed controller to create post function of course.
+
+29
+00:02:15,010 --> 00:02:16,820
+There we want to use socket.
+
+30
+00:02:16,840 --> 00:02:24,300
+I owed the existing connection we have set up to basically inform all connected clients about the new
+
+31
+00:02:24,300 --> 00:02:26,170
+host that is the idea.
+
+32
+00:02:26,170 --> 00:02:31,570
+Now for that however we need to share that connection which we currently set up and actually yes.
+
+33
+00:02:31,600 --> 00:02:36,130
+How do we get that connection out of actually into feature.
+
+34
+00:02:36,190 --> 00:02:40,400
+Well let's do that and continue with the set up and next lectures.
+

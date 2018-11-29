@@ -1,0 +1,192 @@
+1
+00:00:02,450 --> 00:00:05,340
+Well speaking of that let's now use that model.
+
+2
+00:00:05,420 --> 00:00:06,850
+We're exporting it here.
+
+3
+00:00:06,950 --> 00:00:09,530
+Let's now use it in the feed controller.
+
+4
+00:00:09,530 --> 00:00:12,430
+There we first of all need to import it.
+
+5
+00:00:12,530 --> 00:00:20,060
+So you're all import posed by requiring it from my models folder from the post file.
+
+6
+00:00:20,430 --> 00:00:27,820
+And now we can use that post model in create post after we validate the input here.
+
+7
+00:00:28,580 --> 00:00:33,810
+There I will create a new post with my post more as a constructor.
+
+8
+00:00:33,870 --> 00:00:40,890
+We pass a javascript object and there we define basically what we do down there so we can cut that and
+
+9
+00:00:40,950 --> 00:00:42,210
+move it up here.
+
+10
+00:00:42,480 --> 00:00:46,730
+I don't need to set created at because mongooses will do that for me.
+
+11
+00:00:46,740 --> 00:00:49,960
+Thanks to that timestamps option we set here.
+
+12
+00:00:50,310 --> 00:00:55,440
+And of course I don't need to set underscore ID because mongooses will create that for me as well.
+
+13
+00:00:55,440 --> 00:00:59,750
+Thailand can't that should be passed and the creator as well for the moment.
+
+14
+00:00:59,790 --> 00:01:05,780
+So now you'll learn that we can't just call safe on the model to save it to the database.
+
+15
+00:01:05,910 --> 00:01:12,830
+And this will give us a promise or promise like object where we can catch any errors.
+
+16
+00:01:13,020 --> 00:01:15,840
+And here I will lock the arrow for now.
+
+17
+00:01:15,870 --> 00:01:24,910
+Will later add real error handling of course and I get a result which I also want to log here.
+
+18
+00:01:26,360 --> 00:01:35,820
+And I will also send my response whips in here and the then block I'll send the response to 101 is to
+
+19
+00:01:35,820 --> 00:01:37,070
+stay this code.
+
+20
+00:01:37,260 --> 00:01:41,440
+The post op check here however will be the result object.
+
+21
+00:01:41,610 --> 00:01:45,030
+I get back here because that should be my created post.
+
+22
+00:01:45,030 --> 00:01:51,120
+If we now save that server side code and we go back to our front application we should need to change
+
+23
+00:01:51,120 --> 00:01:52,740
+anything in our re-act code.
+
+24
+00:01:53,010 --> 00:01:55,720
+Instead we can't just try this.
+
+25
+00:01:56,040 --> 00:01:58,140
+Does does work.
+
+26
+00:01:58,470 --> 00:02:01,010
+Let's use an image upload.
+
+27
+00:02:01,200 --> 00:02:05,860
+Still does not work we'll do this later checking it.
+
+28
+00:02:06,010 --> 00:02:07,540
+And this seems to fail.
+
+29
+00:02:09,260 --> 00:02:13,860
+If we go back I see parve image Eurail is required.
+
+30
+00:02:13,900 --> 00:02:21,670
+Which makes sense because in my model I set image yourself as a required property.
+
+31
+00:02:21,760 --> 00:02:27,480
+So my field controller when I create a new post I should also add the image you are all here.
+
+32
+00:02:28,680 --> 00:02:34,040
+And for an hour that can point to images doc JPAC will later add file upload.
+
+33
+00:02:34,050 --> 00:02:39,690
+As I mentioned so my mistake we should add this on the server side make sure we store an image yourself
+
+34
+00:02:39,690 --> 00:02:42,490
+so that we meet the requirements of our model.
+
+35
+00:02:43,660 --> 00:02:46,280
+And now let's try this again.
+
+36
+00:02:46,750 --> 00:02:48,480
+Does that work.
+
+37
+00:02:50,860 --> 00:02:55,880
+Take the doc Andrews some conta except this looks good.
+
+38
+00:02:55,880 --> 00:02:57,610
+Post created successfully.
+
+39
+00:02:57,650 --> 00:02:59,270
+And there we see indeed.
+
+40
+00:02:59,390 --> 00:03:04,750
+This is the data or the post which was stored with the Creator the content does automatically generated
+
+41
+00:03:04,760 --> 00:03:11,590
+created at and updated at timestep thanks to the time stamps option ante automatically generated ID.
+
+42
+00:03:11,780 --> 00:03:12,770
+So that is working.
+
+43
+00:03:12,790 --> 00:03:15,120
+And on the server side also get no error.
+
+44
+00:03:15,140 --> 00:03:18,080
+I only see that created object being printed.
+
+45
+00:03:18,110 --> 00:03:19,880
+Thanks to Kohn's a look.
+
+46
+00:03:20,180 --> 00:03:21,720
+So that is working fine.
+
+47
+00:03:21,950 --> 00:03:28,790
+Now isn't next step we can work on serving that image and on except that image uploads and on handling
+
+48
+00:03:28,790 --> 00:03:29,700
+dead error.
+

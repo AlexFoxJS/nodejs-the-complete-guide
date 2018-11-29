@@ -1,0 +1,96 @@
+1
+00:00:02,150 --> 00:00:06,910
+So now we had a look at how we can use sessions and what the advantage of a sessions.
+
+2
+00:00:06,920 --> 00:00:12,110
+And we also of course learned about cookies what a cookie can be used for and how it plays together
+
+3
+00:00:12,110 --> 00:00:19,670
+nicely with a session to identify a user a client and then store the sensitive data on the server.
+
+4
+00:00:19,670 --> 00:00:26,810
+So in the session and that difference between sessions services and cookies client side is really important
+
+5
+00:00:26,900 --> 00:00:27,730
+to understand.
+
+6
+00:00:27,740 --> 00:00:31,280
+You also learned how to set a cookie and how to use a session.
+
+7
+00:00:31,430 --> 00:00:38,150
+By the way if you're wondering how that session cookie this cookie or how does a set all this is done
+
+8
+00:00:38,150 --> 00:00:40,100
+automatically by express session.
+
+9
+00:00:40,110 --> 00:00:42,040
+So by that middleware we're configuring.
+
+10
+00:00:42,150 --> 00:00:49,010
+That's also why you can add cookie related configurations here because this middleware automatically
+
+11
+00:00:49,160 --> 00:00:54,440
+sets a cookie for you and it automatically reads the cookie value for you too.
+
+12
+00:00:54,530 --> 00:01:01,580
+So does all the cookie parsing and setting for you now with that you actually really need to manage
+
+13
+00:01:01,580 --> 00:01:02,910
+cookies on your own.
+
+14
+00:01:02,930 --> 00:01:05,250
+Because dead session cookies.
+
+15
+00:01:05,270 --> 00:01:09,860
+And with that I don't mean a cookie which gets lost after you close the browser but that cookie that
+
+16
+00:01:09,890 --> 00:01:17,150
+identifies a server side session that is the most prominent The most common use case for cookies besides
+
+17
+00:01:17,240 --> 00:01:23,180
+advertisements tracking which you typically don't implement on your own but you use for party tools
+
+18
+00:01:23,290 --> 00:01:24,550
+like Google for that.
+
+19
+00:01:24,740 --> 00:01:30,080
+But that session took me so that session identifying cookie is an important thing.
+
+20
+00:01:30,080 --> 00:01:33,710
+And Sessions on the server are often used for all that occasion.
+
+21
+00:01:33,740 --> 00:01:37,580
+But as I mentioned you could use them for any kind of data you want to store.
+
+22
+00:01:37,580 --> 00:01:41,640
+We happen to store the information wherever the user is locked in.
+
+23
+00:01:41,720 --> 00:01:48,020
+But you could be storing the cards that the shopping cart user here or anything which belongs to a user
+
+24
+00:01:48,080 --> 00:01:51,140
+which should be shared across requests as I highlighted.
+

@@ -1,0 +1,292 @@
+1
+00:00:02,530 --> 00:00:08,440
+So validation and the database is missing now I'll start by adding validation here for debt.
+
+2
+00:00:08,460 --> 00:00:15,070
+I'll quit my suicide and start process because I need to install a new package and I'll use the same
+
+3
+00:00:15,070 --> 00:00:18,890
+package which I used in the valley in March of Loftus course they have.
+
+4
+00:00:18,910 --> 00:00:24,250
+You should definitely watch Dead module to learn how validation works because I'll not repeat everything
+
+5
+00:00:24,250 --> 00:00:24,690
+here.
+
+6
+00:00:24,700 --> 00:00:27,250
+We all read you learn it after all.
+
+7
+00:00:27,400 --> 00:00:32,350
+So you're all just installed at package which was express validator.
+
+8
+00:00:32,350 --> 00:00:38,340
+That is a package that helps us with implementing validation into our node express applications.
+
+9
+00:00:38,710 --> 00:00:44,550
+After that is installed you can restart NPM start and now do you remember how you add it.
+
+10
+00:00:44,560 --> 00:00:46,740
+Have a look at this Modula just mentioned.
+
+11
+00:00:46,750 --> 00:00:54,850
+If you don't you go to your routes and there you add some middleware which does that validation for
+
+12
+00:00:54,850 --> 00:00:55,130
+that.
+
+13
+00:00:55,150 --> 00:01:04,800
+First of all need to import something from the Express validator package and they are from the slash
+
+14
+00:01:04,890 --> 00:01:11,550
+check sub package and that something is Stever to check method or the body method to check the request
+
+15
+00:01:11,550 --> 00:01:13,670
+body or with the check method.
+
+16
+00:01:13,680 --> 00:01:16,620
+Also the headers to query parameters and so on.
+
+17
+00:01:16,950 --> 00:01:23,460
+I want to check the request body here now for a get out validation makes no sense because no data is
+
+18
+00:01:23,460 --> 00:01:24,130
+submitted.
+
+19
+00:01:24,180 --> 00:01:31,080
+But for the post route it makes sense and then I'll add an array of middleware that will be applied
+
+20
+00:01:31,170 --> 00:01:34,200
+which will be related to validation there.
+
+21
+00:01:34,230 --> 00:01:40,180
+For example I will use body to check the title field.
+
+22
+00:01:40,260 --> 00:01:44,070
+Now the title field can be validated in any way you want.
+
+23
+00:01:44,070 --> 00:01:52,990
+I can tell you that on the front end however I am validating that title field and you can see that the
+
+24
+00:01:52,990 --> 00:02:01,750
+components feed feed edit component that I am validating this to have a minimum length of five characters
+
+25
+00:02:01,840 --> 00:02:06,250
+and to be non empty which is of course the case if it is at least five characters long.
+
+26
+00:02:06,400 --> 00:02:09,060
+The content always has to be five characters long.
+
+27
+00:02:09,280 --> 00:02:13,450
+So that's just a little side note on what I'm doing on the front end and the back end should of course
+
+28
+00:02:13,480 --> 00:02:16,450
+meet that same pattern.
+
+29
+00:02:16,450 --> 00:02:24,190
+So my body title will first of all be trimmed to not have any whitespace in there and then I'll use
+
+30
+00:02:24,200 --> 00:02:30,980
+t is length validator with an object to set a minimum length of five.
+
+31
+00:02:31,000 --> 00:02:38,380
+Now this is the title now after a comma I'll add my next middleware where I will validate the content.
+
+32
+00:02:38,380 --> 00:02:42,030
+We can also trim that and basically set the same validator.
+
+33
+00:02:42,040 --> 00:02:49,060
+Obviously you can be more creative than that but I just want to re iterate how validation works and
+
+34
+00:02:49,060 --> 00:02:54,950
+really show you that it works in exactly the same way in rest your eyes because you build honorable
+
+35
+00:02:55,000 --> 00:02:57,170
+node and express application in the end.
+
+36
+00:02:57,340 --> 00:02:59,690
+That does not change here.
+
+37
+00:02:59,770 --> 00:03:07,600
+So with that we added these two validation steps for our incoming data for title into content and now
+
+38
+00:03:07,600 --> 00:03:14,740
+we can implement some logic to send an error if our server side validation logic is not met for this
+
+39
+00:03:15,490 --> 00:03:21,160
+we go to our controller to the features file and control us folder and there we also need to import
+
+40
+00:03:21,160 --> 00:03:23,940
+something from that express validator package.
+
+41
+00:03:24,220 --> 00:03:29,050
+So here I also require express validator slash check.
+
+42
+00:03:29,260 --> 00:03:36,120
+And thats something which I am importing here is the validation resoled function with that import it
+
+43
+00:03:36,190 --> 00:03:37,560
+in create post.
+
+44
+00:03:37,570 --> 00:03:45,130
+We can simply create a new error constant and use that validation result function on the request it
+
+45
+00:03:45,130 --> 00:03:49,190
+will then automatically extract any aerostat validation package.
+
+46
+00:03:49,210 --> 00:03:55,190
+Gabbert we can check if not Eris is empty which means we have errors.
+
+47
+00:03:55,210 --> 00:04:02,050
+If that is not empty we have errors and then it will return a response with a status code of 422 which
+
+48
+00:04:02,050 --> 00:04:08,330
+is of course our validation failed status code where I send some Jasen data.
+
+49
+00:04:08,530 --> 00:04:14,040
+And there you can have a message of validation failed.
+
+50
+00:04:14,130 --> 00:04:22,650
+Pelley de Shen failed entered data is incorrect or whatever you want it will be on your Front-End to
+
+51
+00:04:22,650 --> 00:04:29,060
+do something with that message or not and you could add the error osier by using that Aeros constant
+
+52
+00:04:29,340 --> 00:04:35,980
+and then using the array method to extract an array of errors and also add this to the adjacent object.
+
+53
+00:04:36,060 --> 00:04:39,640
+So with that we're returning this response of validation fails.
+
+54
+00:04:39,750 --> 00:04:46,440
+Now thanks to our clients side validation with the correct rules we could not reproduce that because
+
+55
+00:04:46,440 --> 00:04:50,520
+I'm already checking for a minimum length of 5 on the front end.
+
+56
+00:04:50,700 --> 00:04:56,410
+But if we increase the tidal minimum length to 7 for now on the server.
+
+57
+00:04:56,580 --> 00:05:02,760
+Now if they go back to the front end and I enter a title which is only 5 characters long and therefore
+
+58
+00:05:02,880 --> 00:05:07,980
+long enough for the client side validation but too short for the service side validation which is of
+
+59
+00:05:07,980 --> 00:05:08,880
+course a mismatch.
+
+60
+00:05:08,880 --> 00:05:11,770
+You don't want to have in a real app but it's great for testing.
+
+61
+00:05:11,940 --> 00:05:13,060
+If I do that.
+
+62
+00:05:13,200 --> 00:05:18,050
+Except here I actually get an error creating or editing a post failed.
+
+63
+00:05:18,090 --> 00:05:20,880
+That is an error message just showing on the front end.
+
+64
+00:05:21,150 --> 00:05:28,920
+But if you have a look at our console lock in the def tools we see a 422 error here and if you click
+
+65
+00:05:28,920 --> 00:05:36,030
+on that were taken to the network tab we see that Regt request and if we expect that we see our response
+
+66
+00:05:36,030 --> 00:05:41,550
+here and that indeed has that message we sent on the service site validation failed and so on and it
+
+67
+00:05:41,550 --> 00:05:45,870
+has this Aeros array where we see that the title failed.
+
+68
+00:05:45,900 --> 00:05:50,400
+So you see that the server side validation is working and that is all I wanted to show you here.
+
+69
+00:05:50,520 --> 00:05:56,190
+Of course I revert back to 5 characteris minimum length on the server now too so that the client side
+
+70
+00:05:56,190 --> 00:06:00,150
+validation logic and to server side logic are in line.
+
+71
+00:06:00,390 --> 00:06:05,730
+Otherwise we would have very bad user experiences because users get the feedback that their input is
+
+72
+00:06:05,730 --> 00:06:08,420
+correct and that the server would throw an error.
+
+73
+00:06:08,760 --> 00:06:17,280
+So with that we added validation for this post route and now we can move on to adding a database.
+

@@ -1,0 +1,64 @@
+1
+00:00:02,230 --> 00:00:09,160
+That's it for this module we added a bunch of validation logic for signing up logging in and creating
+
+2
+00:00:09,160 --> 00:00:15,790
+products and you learn that this is a two step process of adding validators to your routes with that
+
+3
+00:00:15,790 --> 00:00:22,120
+third party package we're using Express validator so that it's a two step process with adding DS validators
+
+4
+00:00:22,120 --> 00:00:23,950
+to drought's as middleware.
+
+5
+00:00:23,950 --> 00:00:30,790
+And then for just package we collect errors in our controllers and then we do something we do find errors
+
+6
+00:00:31,300 --> 00:00:37,850
+most commonly would render that forum page so that page which one that the user to input something and
+
+7
+00:00:37,900 --> 00:00:39,620
+to provide a good user experience.
+
+8
+00:00:39,670 --> 00:00:46,090
+You want to make sure that you keep the original input the user entered and that you show at least some
+
+9
+00:00:46,180 --> 00:00:52,390
+error message that gives the user an idea that nothing was wrong on your server but that something was
+
+10
+00:00:52,390 --> 00:00:54,580
+wrong with the user input instead.
+
+11
+00:00:54,790 --> 00:00:59,530
+These are the core takeaways and I've read them that I can only encourage you to play around with the
+
+12
+00:00:59,530 --> 00:01:02,730
+different built in validators build your own ones.
+
+13
+00:01:02,770 --> 00:01:10,260
+And of course they're all over solutions over express or node packages for validation out there as well.
+
+14
+00:01:10,270 --> 00:01:15,260
+This is a pretty popular package pretty easy to use and I can only recommend using it.
+
+15
+00:01:15,310 --> 00:01:20,680
+But as always it's most important that you play around with these things and that you practice using
+
+16
+00:01:20,680 --> 00:01:21,110
+it.
+

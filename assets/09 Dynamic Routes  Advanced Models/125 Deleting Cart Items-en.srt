@@ -1,0 +1,412 @@
+1
+00:00:02,470 --> 00:00:09,850
+Let's edit the cart model now we got the static ad product i 90 a new static method which is delete
+
+2
+00:00:09,970 --> 00:00:13,570
+product or I get an idea of the product I want to delete
+
+3
+00:00:17,480 --> 00:00:24,170
+and I also want to get the price of that product can also name this product price because I'll need
+
+4
+00:00:24,170 --> 00:00:27,270
+to update the total carte price of course.
+
+5
+00:00:27,400 --> 00:00:29,960
+So with that what do I need to do.
+
+6
+00:00:30,130 --> 00:00:37,990
+Well first of all I need to get my cart so I need to read my file here and copy that line.
+
+7
+00:00:38,050 --> 00:00:39,820
+And of course you could also refactored this.
+
+8
+00:00:39,820 --> 00:00:44,750
+For now I'll simply duplicate it to code here to make it a bit easier to understand.
+
+9
+00:00:44,770 --> 00:00:46,220
+So there I read my file.
+
+10
+00:00:46,240 --> 00:00:54,210
+I try to read in the card and if I got an error here I can already return because that simply means
+
+11
+00:00:54,360 --> 00:00:56,030
+somehow I didn't find a card.
+
+12
+00:00:56,040 --> 00:01:00,000
+So there certainly is nothing to delete right so I can't just ignore this.
+
+13
+00:01:00,810 --> 00:01:02,070
+Otherwise we will continue.
+
+14
+00:01:02,100 --> 00:01:04,210
+If you get no error we'll continue.
+
+15
+00:01:04,230 --> 00:01:12,500
+And now is the part where I want to update the cart protists all have my updated card here and take
+
+16
+00:01:12,560 --> 00:01:17,120
+all the properties of the old card and put them into a new object with that thread.
+
+17
+00:01:17,120 --> 00:01:23,330
+Operator I now want to update both the products and to total price the card.
+
+18
+00:01:23,330 --> 00:01:30,260
+Total price should be reduced by the product price how ever this would be incorrect because if we have
+
+19
+00:01:30,260 --> 00:01:35,920
+the product in the card free times it should be reduced by the product price times free.
+
+20
+00:01:36,170 --> 00:01:39,460
+So that's postponed us for later.
+
+21
+00:01:39,470 --> 00:01:46,760
+That's first of all find out how often we do have the product in the cart and Redus I'll have my product
+
+22
+00:01:46,850 --> 00:01:55,140
+in next and I'll find the product in the updated cart in the products array with the find index method.
+
+23
+00:01:55,520 --> 00:02:01,220
+And there this goes through all the products and I'll check for the product where the ID matches the
+
+24
+00:02:01,220 --> 00:02:02,170
+idea of the product.
+
+25
+00:02:02,180 --> 00:02:04,140
+I tried to remove from the cart.
+
+26
+00:02:04,200 --> 00:02:06,270
+This now my index of the product.
+
+27
+00:02:06,320 --> 00:02:09,880
+However a year I could even find the product right away.
+
+28
+00:02:11,120 --> 00:02:17,180
+Just a product like dis because I will remove it differently from our products.
+
+29
+00:02:17,210 --> 00:02:21,710
+For now I just need the product to find out what the quantity is because remember we're storing the
+
+30
+00:02:21,710 --> 00:02:23,820
+quantity in that cute field.
+
+31
+00:02:25,720 --> 00:02:32,530
+So Konst product huge y equals product Kuchi why you don't need to serve that in a separate constant
+
+32
+00:02:32,650 --> 00:02:33,930
+just a bit easier to read.
+
+33
+00:02:34,150 --> 00:02:42,250
+And now is that quantity I can use that here to have the card total price be my card total the price
+
+34
+00:02:42,250 --> 00:02:46,370
+minus the product price I'm getting as an argument.
+
+35
+00:02:46,420 --> 00:02:48,650
+Times product.
+
+36
+00:02:48,910 --> 00:02:51,350
+Product quantity.
+
+37
+00:02:51,520 --> 00:02:54,370
+Sinaloan reduce the total price by product price.
+
+38
+00:02:54,370 --> 00:02:57,620
+Times how many times I had to product in the cart.
+
+39
+00:02:58,060 --> 00:03:00,640
+So that is one piece of information.
+
+40
+00:03:00,640 --> 00:03:07,390
+And now I can also update my cart products here products and set it equal to
+
+41
+00:03:10,050 --> 00:03:12,650
+snotted cart by way of the updated cart down there.
+
+42
+00:03:12,650 --> 00:03:20,140
+So updated cart total price up that a car total price and updated cart products is now updated card
+
+43
+00:03:20,410 --> 00:03:28,390
+products which for now is the old products array but dial coal filter again just as it did in the product
+
+44
+00:03:28,390 --> 00:03:29,710
+model there.
+
+45
+00:03:29,820 --> 00:03:34,920
+Dysfunction runs over all elements in there and keeps only ones where I return true.
+
+46
+00:03:35,020 --> 00:03:39,100
+So I want to return true for all products except for the one I'm removing.
+
+47
+00:03:39,100 --> 00:03:44,860
+So here I will return true only if the product ID is not equal to the idea I'm looking for.
+
+48
+00:03:44,860 --> 00:03:47,000
+So all Obert products are kept.
+
+49
+00:03:47,200 --> 00:03:56,310
+With that I can write the card back into my file by copying this right file and store my updated cart
+
+50
+00:03:56,320 --> 00:03:56,750
+there.
+
+51
+00:03:57,760 --> 00:03:59,830
+So this should now in theory work.
+
+52
+00:03:59,830 --> 00:04:07,750
+I can also go to the product model and there I now need to import my cart model so Konst card equals
+
+53
+00:04:07,780 --> 00:04:12,150
+require cart like this.
+
+54
+00:04:12,300 --> 00:04:23,750
+And now with that imported any year I can simply call cart delete product and pass the ID and I also
+
+55
+00:04:23,750 --> 00:04:32,720
+need to price now to get this I will extract my product before removing it so I'll have my product here.
+
+56
+00:04:33,580 --> 00:04:39,850
+By searching my products with the find method for the product where the ID matches the idea I tried
+
+57
+00:04:39,850 --> 00:04:40,570
+to delete.
+
+58
+00:04:40,690 --> 00:04:46,960
+So I got that product information here which allows me to pass in the product price to my daily product
+
+59
+00:04:47,070 --> 00:04:50,020
+Methot.
+
+60
+00:04:50,060 --> 00:04:56,760
+So now we are able hopefully to delete a product by its ID and also to then delete it from the card.
+
+61
+00:04:56,780 --> 00:04:58,370
+If it was in there.
+
+62
+00:04:58,370 --> 00:05:05,150
+And right now for example if we have a look at our card we do have that ID the milk can.
+
+63
+00:05:05,150 --> 00:05:08,760
+We do have debt in there so this should be gone if we delete it.
+
+64
+00:05:08,810 --> 00:05:16,020
+So now in the admin controller in Postol the product we can use product and then delete by id and pass
+
+65
+00:05:16,020 --> 00:05:20,850
+passing our prod ID here like this.
+
+66
+00:05:21,100 --> 00:05:26,050
+And then we can also redirect to slash adman's slash products.
+
+67
+00:05:26,050 --> 00:05:31,660
+Now by the way a little side note it would be best if we have a call back into lead by ID so that we
+
+68
+00:05:31,660 --> 00:05:33,730
+only redirect once we're done.
+
+69
+00:05:33,910 --> 00:05:35,950
+And the same is also true for updating.
+
+70
+00:05:35,950 --> 00:05:42,920
+By the way there a call back and save would be best for redirecting for now I'll not do this later.
+
+71
+00:05:42,940 --> 00:05:49,250
+We will add this little functionality but let's now see if that works.
+
+72
+00:05:49,350 --> 00:05:56,640
+If I delete the most you can hear I get an error card is not defined in my card.
+
+73
+00:05:56,650 --> 00:06:00,020
+J.S. model deleting the product work.
+
+74
+00:06:00,060 --> 00:06:06,860
+So if you check products Jason you don't find that anymore in the district but in the cart model Yeah.
+
+75
+00:06:07,040 --> 00:06:12,920
+I'm trying to get all cart fields but of course I'm looking at the file contents so I should use this.
+
+76
+00:06:12,920 --> 00:06:17,150
+This is a bit annoying because now I did leave the product while it's still have it in the cart but
+
+77
+00:06:17,150 --> 00:06:18,200
+it's no problem.
+
+78
+00:06:18,200 --> 00:06:26,360
+I will simply recreate it and then hack the ID into the practice chase Jason fall.
+
+79
+00:06:26,450 --> 00:06:31,190
+Let's go to admen products and a new product real quick test.
+
+80
+00:06:31,190 --> 00:06:32,620
+Get that image again.
+
+81
+00:06:32,930 --> 00:06:34,020
+Set the same price.
+
+82
+00:06:34,040 --> 00:06:39,520
+So did I correctly update my my cart price year and remove the correct price
+
+83
+00:06:42,300 --> 00:06:44,130
+and then some description test.
+
+84
+00:06:44,130 --> 00:06:46,290
+So now does exists again.
+
+85
+00:06:46,440 --> 00:06:52,260
+Now let's just make sure they copy the ID we have in a cart and replace the one that was newly generated
+
+86
+00:06:52,270 --> 00:06:59,200
+and products Jason so did we really well lead to correct from from the card to save all of that.
+
+87
+00:06:59,640 --> 00:07:00,980
+And now let's give this a try.
+
+88
+00:07:00,990 --> 00:07:06,450
+If I click delete if a reload does first of all have to be loading the new ID or two with a click delete
+
+89
+00:07:08,580 --> 00:07:17,400
+cannery property you find of undefined is not a problem and a card model and that problem here is that
+
+90
+00:07:17,560 --> 00:07:19,740
+of course is still a string Jason format.
+
+91
+00:07:19,760 --> 00:07:23,940
+So I need to parse it before using my file content.
+
+92
+00:07:23,960 --> 00:07:26,710
+So let's save this same problem as before.
+
+93
+00:07:29,090 --> 00:07:33,800
+I will quickly Riette does add some type text as the image doesn't really matter.
+
+94
+00:07:33,800 --> 00:07:39,410
+Set the price some time in texture will not see the image here because it is not a real link but that
+
+95
+00:07:39,410 --> 00:07:40,470
+does not matter.
+
+96
+00:07:40,550 --> 00:07:47,150
+Now before doing anything let's go to product Jason and again place the newly created ID with the ID
+
+97
+00:07:47,180 --> 00:07:49,850
+in a cart like this.
+
+98
+00:07:49,850 --> 00:07:52,500
+Reload this admen products page and click delete.
+
+99
+00:07:52,700 --> 00:07:54,230
+And now does looks much better.
+
+100
+00:07:54,260 --> 00:08:00,400
+Now it seems to work and then that card indeed Productus empty and the total price was reduced to zero.
+
+101
+00:08:00,770 --> 00:08:02,280
+So this is working.
+
+102
+00:08:02,450 --> 00:08:08,790
+And now let's finish this module up by also making sure that we do display hard items on the cart view
+
+103
+00:08:08,810 --> 00:08:09,320
+here.
+

@@ -1,0 +1,116 @@
+1
+00:00:02,530 --> 00:00:10,120
+That's it for this module you learned about the important MVC pattern and dare to model serves the purpose
+
+2
+00:00:10,240 --> 00:00:17,320
+of representing our data and of managing our data saving it fetching it later also updating it ends
+
+3
+00:00:17,320 --> 00:00:22,200
+on it it doesn't matter if you manage your data and memory files or databases.
+
+4
+00:00:22,300 --> 00:00:25,490
+It is the model of which is responsible for your data.
+
+5
+00:00:25,540 --> 00:00:27,850
+It contains all the data related logic.
+
+6
+00:00:28,330 --> 00:00:33,940
+The view on the other hand is responsible for presenting it to the user is responsible for what the
+
+7
+00:00:33,940 --> 00:00:39,790
+user sees and it shouldn't contain too much logic which might remind you of the handlebars templating
+
+8
+00:00:39,790 --> 00:00:46,470
+engine which kind of forced you to not put too much logic into there with E.J. Esti templating engine.
+
+9
+00:00:46,480 --> 00:00:47,540
+I'm using your.
+
+10
+00:00:47,680 --> 00:00:54,370
+You can put more logic into the view and you should always will try to find your own personal balance.
+
+11
+00:00:54,370 --> 00:00:59,830
+Some people want to have a super pure approach for people like me are fine with a little bit of logic
+
+12
+00:00:59,890 --> 00:01:03,760
+in the templates but should definitely not put too much in there.
+
+13
+00:01:03,760 --> 00:01:10,900
+Your logic should be in the model or partly in the controller because the controller should do everything
+
+14
+00:01:10,960 --> 00:01:14,670
+that needs to be done to connect your model and the view.
+
+15
+00:01:14,740 --> 00:01:21,800
+So to get the data from A to B and that can involve both directions it can mean that Frue your view
+
+16
+00:01:21,820 --> 00:01:22,870
+from a forum.
+
+17
+00:01:22,900 --> 00:01:29,500
+Some data was sent to your note Xpress application and you need to send that to the Model-T save it
+
+18
+00:01:29,530 --> 00:01:30,070
+there.
+
+19
+00:01:30,280 --> 00:01:36,520
+Or it can of course mean that are fetching data from the model or via a model and sent that into a view
+
+20
+00:01:36,580 --> 00:01:38,940
+which is then returned to the user.
+
+21
+00:01:38,950 --> 00:01:45,310
+This is the MVC pattern and I will continue to work with that for the rest of this project or for the
+
+22
+00:01:45,310 --> 00:01:51,580
+next modules put in other words and speaking off that our module still can use some work right.
+
+23
+00:01:51,610 --> 00:01:56,160
+We're only working with a very limited set of features.
+
+24
+00:01:56,230 --> 00:02:00,980
+Even our product is just one field for now and we can certainly do better.
+
+25
+00:02:01,150 --> 00:02:07,450
+So the whole next module will be on working on our project and therefore practicing all the things we
+
+26
+00:02:07,460 --> 00:02:08,480
+learned thus far.
+
+27
+00:02:08,590 --> 00:02:09,760
+And of course no worries.
+
+28
+00:02:09,760 --> 00:02:12,070
+We'll then also add databases and so on.
+
+29
+00:02:12,070 --> 00:02:13,060
+That is all coming.
+

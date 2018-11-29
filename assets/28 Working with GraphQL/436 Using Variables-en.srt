@@ -1,0 +1,832 @@
+1
+00:00:02,220 --> 00:00:08,910
+Now finally before we leave that module there's one thing we can optimize now because there is one thing
+
+2
+00:00:08,910 --> 00:00:15,450
+which I did in a way that is ok to do that will work but that is not recommended doing and that we can
+
+3
+00:00:15,450 --> 00:00:16,550
+do better.
+
+4
+00:00:16,690 --> 00:00:24,270
+Whenever we pass a dynamic value to our graph all the queries as we are for example doing it here where
+
+5
+00:00:24,270 --> 00:00:32,910
+I do have a page we currently do use stee interpellation syntax here where I used to store curly brace
+
+6
+00:00:32,910 --> 00:00:38,340
+thing to inject or interpolant a value into my string literal.
+
+7
+00:00:38,340 --> 00:00:40,910
+Now this absolutely does work.
+
+8
+00:00:41,160 --> 00:00:46,770
+But this is indeed not the recommended way of adding variables into our graph kilocalories.
+
+9
+00:00:46,800 --> 00:00:48,570
+There is a better way.
+
+10
+00:00:48,720 --> 00:00:55,650
+Maybe you all to remember that for mutations we had to add mutation here but for queries we didn't have
+
+11
+00:00:55,650 --> 00:00:56,830
+to add query here.
+
+12
+00:00:56,850 --> 00:01:00,940
+And indeed if you would have added a query like this we would have got an error.
+
+13
+00:01:01,170 --> 00:01:05,050
+Well now I will add it because now I will also add something else.
+
+14
+00:01:05,160 --> 00:01:11,700
+I'll gift this query a name a name that does not really make a difference it does not make it behave
+
+15
+00:01:11,730 --> 00:01:16,110
+differently it will help in error messages for example.
+
+16
+00:01:16,230 --> 00:01:19,360
+But that name then also allows us to do something else.
+
+17
+00:01:19,650 --> 00:01:27,120
+So here we are of course getting all posts so here all named as fetch posts and you can give us any
+
+18
+00:01:27,120 --> 00:01:27,840
+name you want.
+
+19
+00:01:27,840 --> 00:01:30,250
+So this year is totally up to you.
+
+20
+00:01:30,420 --> 00:01:37,720
+Now with this name assigned I can add parentheses after this name to define which variables Discovery
+
+21
+00:01:37,740 --> 00:01:42,160
+will use and we create such a variable here with a dollar sign.
+
+22
+00:01:42,180 --> 00:01:44,410
+But then no curly braces.
+
+23
+00:01:44,550 --> 00:01:48,350
+And then the name of the variable you want to use and that name is again up to you.
+
+24
+00:01:48,360 --> 00:01:52,610
+I'll name it page but you could have named it current page whatever you want.
+
+25
+00:01:53,730 --> 00:01:56,010
+This will be of type integer.
+
+26
+00:01:56,190 --> 00:02:01,590
+So you assign a graphical type again here and this is really important to understand.
+
+27
+00:02:01,590 --> 00:02:03,480
+Does this graph you old syntax here.
+
+28
+00:02:03,480 --> 00:02:05,630
+This will be parsed on the server.
+
+29
+00:02:05,640 --> 00:02:09,120
+This is not javascript code that runs on a client.
+
+30
+00:02:09,120 --> 00:02:16,260
+This will only tell our graphical server that we have a query which will use an internal variable.
+
+31
+00:02:16,290 --> 00:02:21,720
+Now that I'm saying internal to a question of course is where do we use that Thaller same page.
+
+32
+00:02:21,720 --> 00:02:28,080
+Well we use it in the place where we do have dynamic variable value and that would be here where we
+
+33
+00:02:28,080 --> 00:02:30,120
+currently inject our value.
+
+34
+00:02:30,150 --> 00:02:36,440
+Now I use my dollar sign page here and this name here has to match his name and it has to start with
+
+35
+00:02:36,440 --> 00:02:37,520
+a dollar sign.
+
+36
+00:02:37,740 --> 00:02:39,630
+And now graft you Onos.
+
+37
+00:02:39,640 --> 00:02:42,350
+OK this part here is dynamic.
+
+38
+00:02:42,420 --> 00:02:47,050
+It might change and it will be an integer because we're defining this here.
+
+39
+00:02:47,310 --> 00:02:54,540
+So now the only question is how do we get our page variable here in javascript into our dollar sign
+
+40
+00:02:54,540 --> 00:02:54,870
+page.
+
+41
+00:02:54,860 --> 00:02:57,810
+The variable here in graph Q out and for.
+
+42
+00:02:57,840 --> 00:03:02,810
+We add a second property to that query object we're creating here.
+
+43
+00:03:02,850 --> 00:03:07,390
+Thus far I only have to query expression now after death.
+
+44
+00:03:07,400 --> 00:03:10,370
+I'll add a comma and I'll add a second property.
+
+45
+00:03:10,530 --> 00:03:17,290
+Which are my variables and this has to be named variables just as this year had to be named query.
+
+46
+00:03:17,400 --> 00:03:19,980
+This now is declared expression and variables.
+
+47
+00:03:19,980 --> 00:03:26,340
+Now is the object where we can assign values to the variables we pass into our query here.
+
+48
+00:03:26,340 --> 00:03:28,880
+So here I have Dala signed page here.
+
+49
+00:03:28,880 --> 00:03:31,820
+It then should be just page without the dollar sign.
+
+50
+00:03:31,980 --> 00:03:36,510
+And then my javascript variable or value so I could pass one.
+
+51
+00:03:36,540 --> 00:03:39,790
+To always use the first page or in my case.
+
+52
+00:03:39,810 --> 00:03:46,050
+I do have that page constant or variable here in javascript now so this is the value I want to sign
+
+53
+00:03:46,050 --> 00:03:46,550
+here.
+
+54
+00:03:46,560 --> 00:03:53,220
+Now I have page 2 times but the first page refers to the internal variable used in the graphical query
+
+55
+00:03:53,640 --> 00:03:59,330
+and the second page ofter to Colon refers to my javascript variable just to make this clear.
+
+56
+00:03:59,490 --> 00:04:05,070
+And now with that let's save this and let's reload our application or first of all let's quickly log
+
+57
+00:04:05,070 --> 00:04:07,710
+in there because I was locked out.
+
+58
+00:04:07,710 --> 00:04:10,000
+And now here you see I get my post.
+
+59
+00:04:10,020 --> 00:04:12,960
+Now if I add another deck here
+
+60
+00:04:21,160 --> 00:04:25,210
+and I then add one more item so that we do have page anation going on
+
+61
+00:04:32,760 --> 00:04:36,870
+then after reloading we can indeed see that this works.
+
+62
+00:04:36,900 --> 00:04:42,510
+Ask before I can switch between my two pages and I simply have two cups under.
+
+63
+00:04:42,600 --> 00:04:50,330
+By the way maybe you notice that we didn't get to that next and previous link after we created our item.
+
+64
+00:04:50,400 --> 00:04:56,630
+Our new item that is something we can fix too but for now let's focus on the variables and there in
+
+65
+00:04:56,640 --> 00:04:57,580
+our front end code.
+
+66
+00:04:57,580 --> 00:04:59,090
+Does is how we use variables.
+
+67
+00:04:59,170 --> 00:05:05,220
+And technically it works just as before but this is the more elegant the better way of using variables
+
+68
+00:05:05,310 --> 00:05:06,960
+in your graph kilocalories.
+
+69
+00:05:07,320 --> 00:05:09,710
+So now we can replace that in all our queries.
+
+70
+00:05:09,720 --> 00:05:15,390
+For example in this mutation there I also use string interpellation to get my value in there.
+
+71
+00:05:15,390 --> 00:05:17,860
+Better would be to give does a name.
+
+72
+00:05:18,000 --> 00:05:20,300
+Update user status or anything like that.
+
+73
+00:05:20,580 --> 00:05:22,580
+And then to find which variable we need in here.
+
+74
+00:05:22,620 --> 00:05:24,780
+That would be the let's say user status.
+
+75
+00:05:24,780 --> 00:05:26,330
+Again his name is up to you.
+
+76
+00:05:26,520 --> 00:05:29,770
+And then Rathcoole type of that which will be a string.
+
+77
+00:05:30,000 --> 00:05:34,270
+Then here without the double quotation marks because we define it to be a string.
+
+78
+00:05:34,440 --> 00:05:40,750
+You add user status like this and then again you add a second variable to that draftable query object.
+
+79
+00:05:40,860 --> 00:05:41,400
+Where you at.
+
+80
+00:05:41,400 --> 00:05:46,440
+That variable is key where you now assign a value to that variable you to find here.
+
+81
+00:05:46,560 --> 00:05:50,390
+Without the dollar sign and then the value you want is stored there.
+
+82
+00:05:50,400 --> 00:05:54,780
+And in this case this would be does state status just as before.
+
+83
+00:05:55,370 --> 00:06:04,880
+Now if I continue here in the next query where I do edit or create a post there I also give it as a
+
+84
+00:06:04,880 --> 00:06:05,330
+name.
+
+85
+00:06:05,330 --> 00:06:12,040
+Create new posts seems like a fitting name here and there will have a couple of variables which is no
+
+86
+00:06:12,040 --> 00:06:17,230
+problem we can of course have more than one will have the title which is a string will have the content
+
+87
+00:06:17,320 --> 00:06:21,770
+which is a string and will have the image you are l which is also a string.
+
+88
+00:06:21,970 --> 00:06:25,740
+And now just as before we use these values in here.
+
+89
+00:06:25,780 --> 00:06:26,610
+So title
+
+90
+00:06:29,720 --> 00:06:30,640
+content.
+
+91
+00:06:30,860 --> 00:06:34,830
+And of course also the image you are l.
+
+92
+00:06:35,050 --> 00:06:38,340
+And now we just need to add that second argument here.
+
+93
+00:06:38,350 --> 00:06:47,350
+The variables so that we can store our title and you might remember this was post data title then the
+
+94
+00:06:47,350 --> 00:06:48,250
+content was.
+
+95
+00:06:48,250 --> 00:06:51,340
+Post data content and the image you are l.
+
+96
+00:06:51,340 --> 00:06:57,480
+Well that is our image you are wearable in javascript or the constant which I am creating here.
+
+97
+00:06:58,620 --> 00:07:05,310
+Now when we edit a post update existing post could be a name we assign to that and there we all have
+
+98
+00:07:05,310 --> 00:07:12,920
+some variables and there we will need our posed idea let's say which is an idea.
+
+99
+00:07:13,240 --> 00:07:16,820
+We then also have our title which is a string.
+
+100
+00:07:16,990 --> 00:07:19,720
+We then have our content which is a string.
+
+101
+00:07:20,020 --> 00:07:26,650
+And now just as before I'll copy that value because I'll need it in a second but then I'll replace this
+
+102
+00:07:26,650 --> 00:07:29,910
+year with post ID.
+
+103
+00:07:30,060 --> 00:07:31,800
+I'll replace the rest in a second too.
+
+104
+00:07:31,830 --> 00:07:35,050
+Let me first of all add my variables below that.
+
+105
+00:07:35,050 --> 00:07:39,440
+And then here we have that post ID which is de-value I just cut out.
+
+106
+00:07:39,790 --> 00:07:43,750
+And then here we have to postdate a title in the post data content.
+
+107
+00:07:43,780 --> 00:07:46,640
+So here we use the title there.
+
+108
+00:07:46,660 --> 00:07:55,400
+We used the dollar sign content not wrapped in double quotation marks and we also have the image you
+
+109
+00:07:55,400 --> 00:07:57,310
+are up there which is all the string.
+
+110
+00:07:57,380 --> 00:08:03,750
+So we should also of course use the image Eurail here and now we need to assign values to these variables
+
+111
+00:08:03,780 --> 00:08:04,880
+down there too.
+
+112
+00:08:05,060 --> 00:08:08,560
+So we have the title which is posted data title.
+
+113
+00:08:08,750 --> 00:08:11,870
+We have the content which is post data content.
+
+114
+00:08:12,140 --> 00:08:16,180
+And we have the image you are l which is image u r l.
+
+115
+00:08:16,370 --> 00:08:23,240
+Always remember the first part here so the key name in our variables object refers to the variable to
+
+116
+00:08:23,240 --> 00:08:24,080
+be defined here.
+
+117
+00:08:24,110 --> 00:08:25,680
+Without a dollar sign.
+
+118
+00:08:25,820 --> 00:08:28,100
+The second part offered a colon.
+
+119
+00:08:28,100 --> 00:08:34,700
+So the value of our key value pairs here refers to the value we want to pass into that variable.
+
+120
+00:08:34,850 --> 00:08:38,560
+Time for a little safe to just check if that is all working.
+
+121
+00:08:38,780 --> 00:08:45,800
+So now if we create a new post and rubber duck because as you get to help laid out decks are lovely
+
+122
+00:08:46,640 --> 00:08:50,100
+animals it's still lovely.
+
+123
+00:08:50,540 --> 00:08:55,020
+Vi except that than we seem to have an issue here.
+
+124
+00:08:55,130 --> 00:08:57,080
+So that did not work.
+
+125
+00:08:57,350 --> 00:09:04,190
+And the problem we have here can be found when I inspect my raft 2L request which fails dare I get some
+
+126
+00:09:04,220 --> 00:09:04,820
+errors.
+
+127
+00:09:04,970 --> 00:09:11,300
+We see that all my variables are of type String expected of type string which is required and that of
+
+128
+00:09:11,300 --> 00:09:12,890
+course is my mistake here.
+
+129
+00:09:13,010 --> 00:09:18,710
+We should add exclamation mark here because if we have a look at our back and our schema here we have
+
+130
+00:09:18,710 --> 00:09:20,700
+a look at our mutations there.
+
+131
+00:09:20,900 --> 00:09:29,140
+Then we can see that create user has user input data and create Post has post input data and that is
+
+132
+00:09:29,140 --> 00:09:31,750
+what we working on and data input data.
+
+133
+00:09:31,780 --> 00:09:35,410
+The Post input data indeed does require all these strings.
+
+134
+00:09:35,410 --> 00:09:37,160
+The page previously was optional.
+
+135
+00:09:37,160 --> 00:09:41,640
+There we had no exclamation mark which is why I did get no such error before.
+
+136
+00:09:41,680 --> 00:09:47,950
+For the status by the way we would also get an error because as status as you can tell all has a required
+
+137
+00:09:47,950 --> 00:09:53,900
+string and that is really important and therefore a good debt does slip through the types you assign
+
+138
+00:09:53,900 --> 00:09:59,300
+and your Frontiere for your variables have to match the types in your back and schema.
+
+139
+00:09:59,320 --> 00:10:07,060
+So here for example in create new post all my strings here are required and for update existing post
+
+140
+00:10:07,340 --> 00:10:09,190
+while there for update post.
+
+141
+00:10:09,190 --> 00:10:15,580
+We also have the same type of data and the required ID so we should make sure that we add that exclamation
+
+142
+00:10:15,580 --> 00:10:20,470
+mark after all these values here because they are required in our schema.
+
+143
+00:10:20,470 --> 00:10:23,090
+They have to be required in our front end too.
+
+144
+00:10:23,320 --> 00:10:24,350
+So let's add this.
+
+145
+00:10:24,430 --> 00:10:27,040
+Also on update status.
+
+146
+00:10:27,040 --> 00:10:29,730
+So after this change let me go back.
+
+147
+00:10:29,800 --> 00:10:33,070
+Let's try this again with another doc
+
+148
+00:10:36,080 --> 00:10:39,500
+and doing some dummy value here and now this is looking better.
+
+149
+00:10:39,500 --> 00:10:42,550
+Now let me edit this by removing the exclamation mark
+
+150
+00:10:46,300 --> 00:10:52,570
+and dare I still get an error image your el was not provided.
+
+151
+00:10:52,670 --> 00:10:56,330
+Let me quickly have a look at what's wrong there.
+
+152
+00:10:56,330 --> 00:11:02,430
+If we go to our update existing post I do with my image.
+
+153
+00:11:02,430 --> 00:11:13,990
+You are all here it on the back end an update post I all do require their but indeed the problem I have
+
+154
+00:11:13,990 --> 00:11:21,430
+here is that D-Mich. your L is not always set when we don't choose and you tried and you might remember
+
+155
+00:11:21,640 --> 00:11:31,600
+that indeed on our back and we have a check in update post where we see if that is undefined as a text.
+
+156
+00:11:31,750 --> 00:11:36,680
+So we should at least pass that text an arm to go through that check.
+
+157
+00:11:36,790 --> 00:11:44,230
+So well do is if my image Eurail cannot be set here I'll set it to a string on the find which is not
+
+158
+00:11:44,230 --> 00:11:47,050
+the same as the default value of the type undefined.
+
+159
+00:11:47,260 --> 00:11:52,300
+And with that if we now reload and I tried it again.
+
+160
+00:11:52,410 --> 00:11:57,770
+Now that works because now we're setting this to a value we are checking for in the back end for the
+
+161
+00:11:57,770 --> 00:12:00,120
+use case that we don't have an image.
+
+162
+00:12:00,230 --> 00:12:01,960
+And then we'll keep the old image here.
+
+163
+00:12:03,270 --> 00:12:12,470
+With that back in the Front-End this is taking good shape the recoveries in feet J.S. are all right
+
+164
+00:12:12,890 --> 00:12:14,010
+in this single post.
+
+165
+00:12:14,030 --> 00:12:16,480
+J.S. fall there though here.
+
+166
+00:12:16,730 --> 00:12:24,020
+I also have a query where I can check the value when I get a single post so I'll give it as a name by
+
+167
+00:12:24,020 --> 00:12:27,150
+adding query and the name fecche single post.
+
+168
+00:12:27,330 --> 00:12:33,650
+And there I expect to have a post ID which will be of type ID and that is required because it is required
+
+169
+00:12:33,650 --> 00:12:46,820
+in our back and schema here in our host country we do require that ID and then here I can also assign
+
+170
+00:12:46,830 --> 00:12:47,630
+that here.
+
+171
+00:12:47,700 --> 00:12:55,170
+And as you learn add a second element to that graph you'll clearly object the variables property where
+
+172
+00:12:55,170 --> 00:13:04,410
+I then set post ID equal to host ID so to dispose ID which I'm extracting here and now that if I saved
+
+173
+00:13:04,410 --> 00:13:08,830
+this and I go back and click view this still works without issues.
+
+174
+00:13:09,870 --> 00:13:16,790
+Now with that let's all go to app J.S. in our front and code because there we do sign users up and in
+
+175
+00:13:16,950 --> 00:13:20,100
+and here we also inject values into our queries.
+
+176
+00:13:20,160 --> 00:13:24,540
+Now just as before we should name these queries and use that different approach.
+
+177
+00:13:24,540 --> 00:13:26,400
+So here all name that user log in.
+
+178
+00:13:26,670 --> 00:13:31,170
+And I do get an e-mail which is of type string and which is required.
+
+179
+00:13:31,320 --> 00:13:35,780
+And I do get my password which is of type string and required.
+
+180
+00:13:35,880 --> 00:13:41,720
+And then here where I have off data email off the password I can use e-mail.
+
+181
+00:13:41,730 --> 00:13:51,180
+So dollar sign e-mail and dollar sign password and we added new variables object to your as a property
+
+182
+00:13:51,180 --> 00:13:54,420
+to digraph cool query and that email will be off.
+
+183
+00:13:54,420 --> 00:13:58,410
+Data email and password will be off.
+
+184
+00:13:58,420 --> 00:14:00,060
+Data password.
+
+185
+00:14:00,060 --> 00:14:04,340
+Just as before but now with that more elegant syntax.
+
+186
+00:14:04,860 --> 00:14:10,730
+And last but not least when we sign up so when we create new users then I'll also give this nutation
+
+187
+00:14:10,730 --> 00:14:14,310
+a name create new user what ever you want.
+
+188
+00:14:15,180 --> 00:14:18,170
+And here again I expect a couple of values.
+
+189
+00:14:18,180 --> 00:14:24,000
+I expect the email which is a string and which is required I expect a name which is a string and which
+
+190
+00:14:24,000 --> 00:14:29,400
+is required and you can always check your back and schema to learn what is required and what is not.
+
+191
+00:14:29,430 --> 00:14:33,770
+And here are user input data is what we have to pass to the back end.
+
+192
+00:14:38,060 --> 00:14:39,470
+So last but not least your.
+
+193
+00:14:39,470 --> 00:14:47,090
+I also have my password which is a required string and then I'll just quickly copy that because now
+
+194
+00:14:47,090 --> 00:14:52,750
+I will replace these values with my graph killed variable equivalence.
+
+195
+00:14:52,790 --> 00:15:01,530
+So dollar sign email dollar sign name and of course your dollar sign password.
+
+196
+00:15:01,760 --> 00:15:07,460
+And then again add that variables object and pass email which is all data.
+
+197
+00:15:07,460 --> 00:15:11,900
+Sign up for email value past a name which has off data.
+
+198
+00:15:12,020 --> 00:15:17,950
+Sign up for him name value and pass the password which is off data.
+
+199
+00:15:17,960 --> 00:15:22,100
+Sign up for password value just as before.
+
+200
+00:15:22,340 --> 00:15:28,580
+And with that we should have replaced all injected values in our application with new values.
+
+201
+00:15:28,580 --> 00:15:35,520
+Now let me quickly sign up with a new user here.
+
+202
+00:15:35,570 --> 00:15:41,730
+Now let me all to quickly logon with that user and that also works.
+
+203
+00:15:41,750 --> 00:15:44,670
+And with that we got everything in place.
+
+204
+00:15:44,840 --> 00:15:47,900
+I can't delete that obviously because I'm not the user who created it.
+
+205
+00:15:47,970 --> 00:15:51,180
+I would have to log in with the correct user for that.
+
+206
+00:15:51,560 --> 00:15:54,770
+So with that everything is working the way it should.
+
+207
+00:15:54,770 --> 00:16:01,550
+And now we have a graphical API that uses that new variable syntax which is the recommended way of passing
+
+208
+00:16:01,550 --> 00:16:04,090
+dynamic values into your queries.
+

@@ -1,0 +1,48 @@
+1
+00:00:02,210 --> 00:00:05,590
+Welcome to this module the best things always come at the end.
+
+2
+00:00:05,660 --> 00:00:11,100
+In this module I want to dive into an exciting piece of technology whether you will dive into graph
+
+3
+00:00:11,150 --> 00:00:17,420
+Cuil and alternative to building a restful API that you would use in the same scenarios.
+
+4
+00:00:17,420 --> 00:00:25,010
+So when you have a de-coupled front and back end you will not render use with a graph to Al API to but
+
+5
+00:00:25,010 --> 00:00:28,350
+it provides some significant advantages over rest.
+
+6
+00:00:28,350 --> 00:00:31,510
+API eyes at least in certain scenarios.
+
+7
+00:00:31,550 --> 00:00:38,790
+So in this module we'll explore what graphical actually is and how it compares to rest API eyes and
+
+8
+00:00:38,790 --> 00:00:45,770
+you will learn how to use graphs you of course will actually take our existing project and turn it into
+
+9
+00:00:45,770 --> 00:00:49,830
+a graph l API or use a graphical API.
+
+10
+00:00:50,090 --> 00:00:51,640
+A very exciting technology.
+
+11
+00:00:51,710 --> 00:00:53,670
+I'm super excited to get started with it.
+
+12
+00:00:53,750 --> 00:00:54,680
+So let's dive in.
+

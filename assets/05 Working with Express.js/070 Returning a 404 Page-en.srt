@@ -1,0 +1,112 @@
+1
+00:00:02,170 --> 00:00:09,160
+Were successful let's add it together or add a new h to him l fall in the news and I'll name it for
+
+2
+00:00:09,330 --> 00:00:10,730
+Ford or h tim l.
+
+3
+00:00:10,750 --> 00:00:12,180
+But the name is totally up to you.
+
+4
+00:00:12,250 --> 00:00:18,190
+Well it has to be a html file of course and then create a new age HTML5 skeleton with the help of visuals
+
+5
+00:00:18,190 --> 00:00:22,210
+to you code here and then you're all named is.
+
+6
+00:00:22,210 --> 00:00:24,330
+Page Not Found.
+
+7
+00:00:24,340 --> 00:00:26,090
+That sounds like a fitting title.
+
+8
+00:00:26,260 --> 00:00:29,080
+And now you can get of course really creative your.
+
+9
+00:00:29,260 --> 00:00:33,480
+I will in the end just add H-1 tag where whereas say Page Not Found.
+
+10
+00:00:33,550 --> 00:00:37,450
+Obviously you can add more content here if you want.
+
+11
+00:00:37,450 --> 00:00:40,040
+Now I want to returned his h tim l file.
+
+12
+00:00:40,150 --> 00:00:46,560
+When ever we make it into dis middleware and therefore again I should send a file here.
+
+13
+00:00:46,780 --> 00:00:53,560
+But obviously I want to construct the path with the help of the POF module to make it work on all operating
+
+14
+00:00:53,560 --> 00:00:54,400
+systems.
+
+15
+00:00:54,550 --> 00:01:04,300
+So required a POF year and then go down there send and don't send but send a file and that file will
+
+16
+00:01:04,300 --> 00:01:08,450
+use a POV with which we construct here with their name.
+
+17
+00:01:08,470 --> 00:01:10,060
+And now here's a gotcha.
+
+18
+00:01:10,060 --> 00:01:14,760
+We already are in the project folder here because we're in actually yes.
+
+19
+00:01:14,830 --> 00:01:19,570
+So we don't need to go up a level here because we already are in the root folder.
+
+20
+00:01:19,630 --> 00:01:27,470
+Instead here we can go right away into the folder and then served four or four aged him file like this.
+
+21
+00:01:27,520 --> 00:01:33,680
+We also still want to set his status code because we still have a 4 0 for error.
+
+22
+00:01:34,030 --> 00:01:41,530
+If you now save this and you enter any random route that doesn't exist you should see that page not
+
+23
+00:01:41,530 --> 00:01:42,850
+found being served.
+
+24
+00:01:42,940 --> 00:01:46,230
+And you see that 404 error are being sent back to.
+
+25
+00:01:46,600 --> 00:01:48,580
+So does this now working to you.
+
+26
+00:01:48,670 --> 00:01:55,450
+And does this now a way better well way of serving the soul but styling would also be nice wouldn't
+
+27
+00:01:55,450 --> 00:01:55,850
+it.
+
+28
+00:01:55,990 --> 00:01:58,330
+So let's work on this over the next Electra's.
+

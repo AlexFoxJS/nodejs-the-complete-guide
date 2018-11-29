@@ -1,0 +1,40 @@
+1
+00:00:02,340 --> 00:00:09,750
+You'll learn about a brand new type of back in the application you can build with no as a restful API
+
+2
+00:00:10,200 --> 00:00:16,770
+and you'll learn that it's not that far off from the server side rendered no application we built before.
+
+3
+00:00:16,890 --> 00:00:20,600
+The only major difference is how you handle requests and response data.
+
+4
+00:00:20,760 --> 00:00:23,940
+You send Jason data now with that out of the way.
+
+5
+00:00:23,970 --> 00:00:30,870
+I want to dive into something totally different which is applicable to any node application not just
+
+6
+00:00:30,870 --> 00:00:32,390
+to restfully your eyes.
+
+7
+00:00:32,670 --> 00:00:39,960
+I want to dive into the async a wait keywords which is relatively new javascript language feature which
+
+8
+00:00:39,960 --> 00:00:43,240
+you can use again in any place in your node.
+
+9
+00:00:43,250 --> 00:00:50,700
+J.S. code this does not have to be used in a restful API you can or can not use it anywhere.
+
+10
+00:00:50,730 --> 00:00:56,140
+Now I will explain what's up with these two key words how you used them and why you would use them.
+

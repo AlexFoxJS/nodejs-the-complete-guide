@@ -1,0 +1,112 @@
+1
+00:00:02,270 --> 00:00:05,330
+So what are asynchronous requests.
+
+2
+00:00:05,660 --> 00:00:10,870
+Well we have our client and our server so the browser and our node application and that's the setup
+
+3
+00:00:10,910 --> 00:00:12,650
+we had for this entire course.
+
+4
+00:00:12,650 --> 00:00:18,200
+This is the set up you have with any web or even mobile project that you built these days.
+
+5
+00:00:18,200 --> 00:00:20,560
+You have your back and you have your Front-End.
+
+6
+00:00:20,630 --> 00:00:25,570
+Now typically you send the request from your client to the server and you get back a response.
+
+7
+00:00:25,580 --> 00:00:32,210
+And as I mentioned thus far in discourse the response always was Ha ha Tim L page or a redirect to a
+
+8
+00:00:32,370 --> 00:00:35,280
+route that then returned age Tamalpais.
+
+9
+00:00:35,620 --> 00:00:41,990
+Now there is nothing wrong with that but there are tasks where you don't want to reload the page just
+
+10
+00:00:41,990 --> 00:00:48,560
+to for example delete item and actually in modern web applications the portion that happens behind the
+
+11
+00:00:48,560 --> 00:00:49,920
+scenes grows.
+
+12
+00:00:49,940 --> 00:00:56,090
+Since we can do a lot with javascript in the browser where we never need to fetch a new age HTML page
+
+13
+00:00:56,230 --> 00:01:01,420
+but where we constantly change the existing page asked is is faster than loading a new one.
+
+14
+00:01:01,550 --> 00:01:06,020
+But that's something I'll cover in the rest for API modules.
+
+15
+00:01:06,140 --> 00:01:11,960
+Now the idea behind asynchronous requests is that you do send the request but dead request typically
+
+16
+00:01:11,960 --> 00:01:19,640
+contains just some data in a special format named Jason and dead data is sent to the server to a certain
+
+17
+00:01:19,790 --> 00:01:21,380
+you r l or a route.
+
+18
+00:01:21,410 --> 00:01:22,660
+Except that bited server.
+
+19
+00:01:22,700 --> 00:01:27,900
+So that logic doesn't change the circuit do whatever he wants to do with debt.
+
+20
+00:01:27,950 --> 00:01:31,700
+And then we return the response and that response is all returned.
+
+21
+00:01:31,730 --> 00:01:32,840
+Behind the scenes.
+
+22
+00:01:32,840 --> 00:01:35,830
+So it's not a New-Age html page that needs to be rendered.
+
+23
+00:01:35,970 --> 00:01:40,340
+It's instead Again just some data in that Jason format typically.
+
+24
+00:01:40,570 --> 00:01:44,360
+And that is how clients can communicate through Javascript.
+
+25
+00:01:44,360 --> 00:01:51,020
+So through client side javascript and a service side logic without reloading or rebuilding the page
+
+26
+00:01:51,200 --> 00:01:58,130
+without exchanging a new HTL page and that allows you to do some work behind the scenes without interrupting
+
+27
+00:01:58,190 --> 00:02:01,610
+the user flow without reloading the page.
+
+28
+00:02:01,610 --> 00:02:04,730
+Now let's have a look at how that would work in this Marchal.
+

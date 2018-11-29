@@ -1,0 +1,284 @@
+1
+00:00:02,350 --> 00:00:08,870
+So let's make sure we can also fetch a single post and for that I'll go to my schema again because on
+
+2
+00:00:08,900 --> 00:00:11,310
+the schema is where I will work.
+
+3
+00:00:11,380 --> 00:00:20,790
+And so here I will add a new query host which will get an input and Id off that single post I want to
+
+4
+00:00:20,790 --> 00:00:21,580
+fetch.
+
+5
+00:00:22,930 --> 00:00:24,880
+And will return a post in the end.
+
+6
+00:00:24,910 --> 00:00:28,750
+This is how my query should look like in the schema definition.
+
+7
+00:00:28,780 --> 00:00:33,590
+Now let's of course also add a resolver for this single post for Dad.
+
+8
+00:00:33,610 --> 00:00:35,910
+I'll go to my resolvers J.S. fall.
+
+9
+00:00:35,940 --> 00:00:37,330
+Add it down there.
+
+10
+00:00:37,330 --> 00:00:43,060
+Use the async function syntax like this.
+
+11
+00:00:44,630 --> 00:00:46,310
+And in that function here.
+
+12
+00:00:46,430 --> 00:00:52,990
+Just as in the function up there I'll get arguments and the request object with object destructuring.
+
+13
+00:00:53,270 --> 00:00:58,000
+I can get my post ID or whatever you chose as a name here.
+
+14
+00:00:58,010 --> 00:01:01,660
+So in my case just ID out of that request.
+
+15
+00:01:01,700 --> 00:01:09,230
+Arguments object I get the request object as well and first of all I can check whether a user is authenticated.
+
+16
+00:01:09,420 --> 00:01:17,750
+So I will copy this check and at this year and then as a next step I will add the logic to retrieve
+
+17
+00:01:17,750 --> 00:01:21,610
+a single post and vedette.
+
+18
+00:01:21,830 --> 00:01:29,990
+I'll get my post by awaiting post fine by ID for the ID I get as an argument.
+
+19
+00:01:30,140 --> 00:01:37,160
+Now I will also populate the creator here so that we have all the user data and not just the ID and
+
+20
+00:01:37,160 --> 00:01:47,200
+there after all check if we did not find a post in which case all create a new RR No post found and
+
+21
+00:01:47,300 --> 00:01:51,790
+also set a code of 404 and Frode error.
+
+22
+00:01:51,980 --> 00:01:59,390
+But if we make it after or past this check we know we have a post and then I'll return an object where
+
+23
+00:01:59,390 --> 00:02:07,290
+I get all the data from that post and then again I overwrite the ID because I can't return object IDs
+
+24
+00:02:07,680 --> 00:02:16,420
+so post underscore ID to string and the same for created ad because I can't return dates created at
+
+25
+00:02:16,630 --> 00:02:25,850
+two ISO's string and update it at will also be changed to Isel string.
+
+26
+00:02:25,900 --> 00:02:30,280
+With that in place I have everything I need to fetch a single post.
+
+27
+00:02:30,310 --> 00:02:35,600
+I'd say let's now go back to the front end and wired it up and there.
+
+28
+00:02:35,620 --> 00:02:37,500
+I'm interested in a single post in.
+
+29
+00:02:37,540 --> 00:02:42,490
+Well single post page here in there in component at Mt..
+
+30
+00:02:42,490 --> 00:02:45,640
+I'm sending my request and I'll again adjust.
+
+31
+00:02:45,640 --> 00:02:56,610
+You are l to go to local host ADHD slash graph Q L them Meffert here will be a post request for the
+
+32
+00:02:56,610 --> 00:02:57,320
+headers.
+
+33
+00:02:57,330 --> 00:03:08,340
+I add my content type application Jason header and I will need to prepare my graph you all query here
+
+34
+00:03:09,070 --> 00:03:17,530
+which is as before an object with a query key and then a query is surrounded by these tactics and in
+
+35
+00:03:17,530 --> 00:03:18,020
+there.
+
+36
+00:03:18,100 --> 00:03:21,130
+Well I want to reach out to my post query.
+
+37
+00:03:21,370 --> 00:03:29,850
+I will send my ID so my post ID I get up there should be surrounded with quotation marks.
+
+38
+00:03:31,240 --> 00:03:33,800
+And regarding the fields that I'm interested in.
+
+39
+00:03:33,880 --> 00:03:41,250
+Well they're after I use the creator name the title the image you are l the date the created at Date.
+
+40
+00:03:41,260 --> 00:03:43,240
+To be precise and the content.
+
+41
+00:03:43,630 --> 00:03:52,600
+So I want to fetch that one to fetch the title content image to your L creator and for the Creator only
+
+42
+00:03:52,600 --> 00:03:53,540
+the name.
+
+43
+00:03:53,710 --> 00:03:57,510
+And then also create to that that is what I'm interested in.
+
+44
+00:03:57,760 --> 00:04:01,570
+And this is now what I will append as a body to my request.
+
+45
+00:04:01,570 --> 00:04:10,740
+So Jason's string ify and at discraft Ul-Qadri here with that we are sending that request as you learn
+
+46
+00:04:10,740 --> 00:04:12,230
+before handling the error.
+
+47
+00:04:12,240 --> 00:04:14,110
+There will not really work.
+
+48
+00:04:14,160 --> 00:04:20,890
+We want to handle that error ofter we parsed the response data and then we can check for errors.
+
+49
+00:04:20,910 --> 00:04:24,930
+So I'll copy that logic from feet J.S. into a single post.
+
+50
+00:04:24,960 --> 00:04:30,900
+Genius here where I check if we have any EHRSSON that fro an error if we have no arrows.
+
+51
+00:04:30,930 --> 00:04:36,640
+We just need to drill into the response and for that you must not forget how your schema looks like
+
+52
+00:04:37,680 --> 00:04:44,490
+we'll have data then we have that name of the Kuri which is post and then we can access our different
+
+53
+00:04:44,490 --> 00:04:46,460
+post properties.
+
+54
+00:04:46,500 --> 00:04:54,760
+So here we access rest state DOT data and then indeed dot post dot Tidelands on.
+
+55
+00:04:54,820 --> 00:05:01,470
+So just dot data has to be added to all these places where I extract some data.
+
+56
+00:05:04,230 --> 00:05:09,990
+And with that I should be able to load a single post saved ad and make sure your back end is saved.
+
+57
+00:05:10,140 --> 00:05:13,590
+And click on View and looks like I have an error.
+
+58
+00:05:13,590 --> 00:05:14,170
+My you are.
+
+59
+00:05:14,280 --> 00:05:18,040
+Yes this colon needs to go.
+
+60
+00:05:18,050 --> 00:05:23,740
+Now let's click view I get user log in and failed.
+
+61
+00:05:23,840 --> 00:05:26,810
+That is the wrong error message I copied there.
+
+62
+00:05:27,170 --> 00:05:29,970
+Fetching post failed but somehow it failed.
+
+63
+00:05:29,990 --> 00:05:32,140
+Let's quickly check what's wrong.
+
+64
+00:05:32,720 --> 00:05:35,450
+Yes there is a syntax error in the query.
+
+65
+00:05:35,450 --> 00:05:44,580
+We need to have surrounding curly braces around the overall query so added your to have opening and
+
+66
+00:05:44,580 --> 00:05:49,010
+closing curly brace right at the start and end and there ofter.
+
+67
+00:05:49,350 --> 00:05:54,650
+If you click on a single post now you'll load the post data there.
+
+68
+00:05:54,880 --> 00:05:56,200
+So this is now working.
+
+69
+00:05:56,350 --> 00:06:00,150
+What's missing is a possibility to edit and delete posts.
+
+70
+00:06:00,250 --> 00:06:02,980
+And of course to work with the user status.
+
+71
+00:06:03,010 --> 00:06:04,730
+So let's work on that next.
+
