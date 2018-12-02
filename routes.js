@@ -1,13 +1,11 @@
-const fs = require('fs');
-
+const fs = require('fs')
 
 const requestHandle = (req, res) => {
-	const url = req.url;
-	const method = req.method;
+	const { url, method } = req
 
 	if (req.url === '/home') {
 		res.write(`
-			<html>
+			<html lang="en">
 				<header>
 					<title>NodeJS</title>
 				</header>
@@ -18,37 +16,35 @@ const requestHandle = (req, res) => {
 					</form>
 				</body>
 			</html>
-		`);
+		`)
 
-		return res.end();
+		return res.end()
 	}
 
 	if (url === '/message' && method === 'POST') {
-		const body = [];
+		const body = []
 
 		req.on('data', chunk => {
-			console.log('[NODE Server] chunk -', chunk);
-			body.push(chunk);
-		});
+			console.log('[NODE Server] chunk -', chunk)
+			body.push(chunk)
+		})
 
 		return req.on('end', () => {
-			const parsedBody = Buffer.concat(body).toString();
-			const message = parsedBody.split('=')[1];
+			const parsedBody = Buffer.concat(body).toString()
+			const message = parsedBody.split('=')[1]
 
 			fs.writeFile('message.txt', message, err => {
-				res.statusCode = 302;
-				res.setHeader('Location', '/');
+				res.statusCode = 302
+				res.setHeader('Location', '/')
 
-				return res.end();
-			});
-
-		});
-
+				return res.end()
+			})
+		})
 	}
 
-	res.setHeader('Content-Type', 'text/html');
+	res.setHeader('Content-Type', 'text/html')
 	res.write(`
-		<html>
+		<html lang="en">
 			<header>
 				<title>First NodeJS title</title>
 			</header>
@@ -56,10 +52,8 @@ const requestHandle = (req, res) => {
 				<h1>Hello Node.js Server!</h1>
 			</body>
 		</html>
-	`);
-	res.end();
+	`)
+	res.end()
+}
 
-};
-
-
-module.exports = requestHandle;
+module.exports = requestHandle
